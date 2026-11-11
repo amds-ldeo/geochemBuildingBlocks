@@ -10,10 +10,10 @@
   "@id": "ex:solutionMcicpmsTAPP-Tissot2020",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — Tissot2020",
   "schema:description": "Mo doping test: Offset δ94/90ZrNIST = −63.4 · x, x the Mo/Zr atomic ratio — used to show the residual Mo is negligible",
@@ -54,7 +54,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -67,7 +66,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -119,7 +117,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -170,16 +167,21 @@
           }
         ],
         "schema:description": "chemical abrasion (19 zircons for U-Pb, annealed at 900 °C for 60 h, then leached in 29 M HF in a Parr vessel at 215 °C for 12 h); U-Pb dissolution (dated crystals, 29 M HF in microcapsules in a Parr vessel, 215 °C, 48 h); Zr-only dissolution (crystals not dated, fluxed in 20% HNO3 at 60 °C for 2 h, then 29 M HF in microcapsules in a Parr vessel, 215 °C, 60 h); spike equilibration (with the ⁹¹Zr–⁹⁶Zr spike, fluxed at 140 °C overnight, dried down twice and redigested) — Materials and Methods",
-        "bios:reagent": [
+        "schema:instrument": [
           {
+            "ada:reagentRole": "reagent",
             "schema:name": "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N",
             "@type": [
               "schema:DefinedTerm"
+            ],
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
             ]
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -225,7 +227,7 @@
         "ICPMS",
         "Multi-collector sector-field ICP-MS",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -239,7 +241,7 @@
           "schema:additionalType": [
             "Sample Introduction System",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -266,7 +268,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -297,7 +299,7 @@
           "schema:additionalType": [
             "Collector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -312,7 +314,7 @@
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -326,7 +328,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -340,7 +342,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -372,6 +374,18 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:solutionMcicpmsTAPP-Tissot2020/instrument/ICPMS"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "schema:additionalProperty": [
@@ -649,12 +663,6 @@
     }
   ],
   "ada:samplingUnitType": "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\""
-    }
-  ],
   "ada:analyticalMode": [
     "Solution nebulisation (continuous)"
   ],

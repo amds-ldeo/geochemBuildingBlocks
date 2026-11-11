@@ -210,66 +210,64 @@
                     "items": {
                         "type": "object",
                         "properties": {
-                            "prov:used": {
+                            "schema:instrument": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "allOf": [
                                         {
                                             "if": {
+                                                "$ref": "../../tappDefinition/schema.yaml#/$defs/KindInstrument"
+                                            },
+                                            "then": {
+                                                "$ref": "../../instrument/instrumentSchema.json"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "$ref": "../../tappDefinition/schema.yaml#/$defs/KindSoftware"
+                                            },
+                                            "then": {
+                                                "$ref": "../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "$ref": "../../tappDefinition/schema.yaml#/$defs/KindReagent"
+                                            },
+                                            "then": {
+                                                "$ref": "../../geochemBaseProfile/schema.yaml#/$defs/UsedReagent"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "schema:additionalType": {
+                                                        "contains": {
+                                                            "const": "ICPMS"
+                                                        },
+                                                        "schema:inDefinedTermSet": "ada:vocab/instrumentType"
+                                                    }
+                                                },
                                                 "required": [
-                                                    "schema:instrument"
+                                                    "schema:additionalType"
                                                 ]
                                             },
                                             "then": {
                                                 "properties": {
-                                                    "schema:instrument": {
-                                                        "type": "array",
-                                                        "items": {
-                                                            "allOf": [
-                                                                {
-                                                                    "$ref": "../../instrument/instrumentSchema.json"
-                                                                },
-                                                                {
-                                                                    "type": "object",
-                                                                    "allOf": [
-                                                                        {
-                                                                            "if": {
-                                                                                "properties": {
-                                                                                    "schema:additionalType": {
-                                                                                        "contains": {
-                                                                                            "const": "ICPMS"
-                                                                                        },
-                                                                                        "schema:inDefinedTermSet": "ada:vocab/instrumentType"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "schema:additionalType"
-                                                                                ]
-                                                                            },
-                                                                            "then": {
-                                                                                "properties": {
-                                                                                    "schema:identifier": {
-                                                                                        "description": "Serial number or laboratory-internal identifier for the specific instrument unit.",
-                                                                                        "anyOf": [
-                                                                                            {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            {
-                                                                                                "type": "array",
-                                                                                                "items": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    ]
+                                                    "schema:identifier": {
+                                                        "description": "Serial number or laboratory-internal identifier for the specific instrument unit.",
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "string"
+                                                            },
+                                                            {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
                                                                 }
-                                                            ]
-                                                        }
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             }

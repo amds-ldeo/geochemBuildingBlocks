@@ -10,10 +10,10 @@
   "@id": "ex:labxctTAPP-Richard2019-4",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Richard2019-4",
   "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software; ada:segmentationMethodDefault = Manual grayscale threshold per phase.",
@@ -144,7 +144,7 @@
       "schema:additionalType": [
         "XCT",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "90–115 kV (varies by sample)",
@@ -169,6 +169,18 @@
       "schema:name": "no value available: schema:name",
       "ada:xRayPreFilterDefault": "no value available: ada:xRayPreFilterDefault",
       "@id": "ex:labxctTAPP-Richard2019-4/instrument/XCT"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Avizo 9.2.0",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:numberOfProjectionsDefault": "1200–2000 (varies by sample)",
@@ -221,12 +233,6 @@
     }
   ],
   "ada:samplingUnitType": "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Avizo 9.2.0"
-    }
-  ],
   "ada:analyticalMode": [
     "Single-volume"
   ],
@@ -236,7 +242,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -249,7 +254,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

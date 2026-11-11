@@ -3,8 +3,7 @@
   geochemProfiles/<dir>/schema.yaml =
     allOf:[ adaProduct,
             detail<SHORT> (the schema:Dataset analysis-instance overlay),
-            { prov:wasGeneratedBy.prov:used narrowed to the <tapp> definition,
-              schema:additionalType contains a technique product-type enum,
+            { schema:additionalType contains a technique product-type enum,
               schema:distribution.hasPart.items componentType enum (technique-specific),
               schema:subjectOf.dcterms:conformsTo contains the profile @id } ]
 
@@ -300,35 +299,20 @@ def _schema(tapp, cfg):
         "title": cfg["title"],
         "description": (f"Path-driven technique-specific profile for {cfg['title']}. Extends the base ADA "
                         f"product profile with the {cfg['short']} analysis-instance detail on the "
-                        f"schema:Dataset root, narrows prov:used to the {tapp} protocol, and constrains "
-                        f"valid component types on schema:distribution.hasPart."),
+                        f"schema:Dataset root, and pins the product type and the profile it declares "
+                        f"conformance to."),
         "allOf": [
             {"$ref": "../../../../BaseSchema/geochemProduct/schema.yaml"},
             {"$ref": "../detail/schema.yaml"},
+            # NO prov:wasGeneratedBy block here since 2026-11-11. It pinned two things on the
+            # role-keyed prov:used wrappers, and both moved: the instrument shape is pinned by
+            # geochemBaseProfile's schema:instrument kind pins, which every profile composes
+            # through geochemProduct, and the inline-TAPP branch (an embedded plan held to
+            # ../tapp/schema.yaml) has no successor, because the TAPP link is now a sealed
+            # reference -- schema:actionProcess {"@id"} -- and JSON Schema cannot follow an @id
+            # to check that it names THIS technique's TAPP. No stored record carried an inline
+            # TAPP when the link moved (ada2 and ada_subjects, measured 2026-11-11).
             {"type": "object", "properties": {
-                "prov:wasGeneratedBy": {
-                    "description": (f"Pin the {tapp} definition and the instrument where prov:used carries them. "
-                                    f"Constraint-only if/then, never a narrowed anyOf: prov:used items are "
-                                    f"role-keyed wrappers, and an anyOf here would allOf-merge with the base "
-                                    f"union and exclude item shapes the base allows."),
-                    "type": "array",
-                    "items": {"type": "object", "properties": {"prov:used": {"type": "array", "items": {"allOf": [
-                        {"if": {"type": "object", "required": ["schema:instrument"]},
-                         "then": {"properties": {"schema:instrument": {
-                             "type": "array", "minItems": 1,
-                             "items": {"$ref": "../../../../BaseSchema/instrument/schema.yaml"}}}}},
-                        # An EMBEDDED plan is held to the whole TAPP schema; a REFERENCE is not.
-                        # Keying only on @type made every TAPP-typed entry an embedded plan, so a
-                        # bare {@id, @type} reference failed with 15 errors and the only way to
-                        # name the procedure was to inline the entire definition into every
-                        # record. schema:name is the discriminator: a reference carries @id and
-                        # @type, an embedded plan carries a name. The base prov:used union already
-                        # anticipates @id-only entries; this stops the technique overlay
-                        # contradicting it.
-                        {"if": {"type": "object",
-                                "properties": {"@type": {"contains": {"const": "ada:TAPPDefinition"}}},
-                                "required": ["@type", "schema:name"]},
-                         "then": {"$ref": "../tapp/schema.yaml"}}]}}}}},
                 "schema:additionalType": {
                     "description": f"Must include a {cfg['short']} product type identifier.",
                     "contains": {"enum": cfg["addtype"]}},
@@ -371,36 +355,30 @@ def _name_procedure(ex, tapp):
     """Say which procedure the analysis followed, by reference.
 
     A record that does not name its procedure cannot be read back to the TAPP that fixes its
-    parameters, and the profile's own prov:used conditional -- the one that pins the TAPP's
-    constraints -- can never fire, because nothing it keys on is ever present. That is why a
-    mis-named workflow step went unconstrained and silently valid.
+    parameters. That is why a mis-named workflow step went unconstrained and silently valid.
 
     Emitted as a REFERENCE, not an inlined plan: the TAPP is a separate document with its own
     @id, and copying it whole into every record would duplicate it hundreds of times and leave
     nothing to navigate to.
 
-    ROLE-KEYED, under `ada:tappDefinition`, like the instrument / computationalTool / reagent
-    links beside it. The role is stated by the property NAME, so no @type is needed on the member
-    and none is emitted.
+    The CDIF plan link (2026-11-11): `schema:actionProcess {"@id": <tapp>}` when the activity
+    records no workflow of its own, and otherwise `schema:isBasedOn {"@id": <tapp>}` on the
+    activity's inline schema:HowTo -- schema:actionProcess holds one value, and the run's own
+    workflow is the procedure as performed. One path finds the TAPP either way:
+    prov:wasGeneratedBy/schema:actionProcess/schema:isBasedOn?.
 
-    This replaced an {@id, @type: [prov:Entity, prov:Plan, ada:TAPPDefinition]} member. That form
-    led with prov:Entity for a real reason -- base prov:used admitted a typed item only through
-    its "inline prov:Entity" branch, its bare-{@id} branch being additionalProperties:false and
-    rejecting @type outright -- so the @type was carrying two jobs at once: satisfying the base
-    union AND signalling the role. The base now admits a role-keyed wrapper generically
-    (metadataBuildingBlocks#52), which lets the key carry the role alone. Dropping prov:Entity
-    here is therefore not a loss of an assertion the schema needed; it is the removal of a
-    workaround that had become load-bearing by accident.
+    This replaced the role-keyed prov:used wrapper {"ada:tappDefinition": {"@id": ...}}, which
+    replaced an {@id, @type: [prov:Entity, prov:Plan, ada:TAPPDefinition]} member before it. Both
+    are closed off in geochemBaseProfile.
     """
+    ref = {"@id": f"ex:{tapp}-P0"}
     for act in ex.get("prov:wasGeneratedBy") or []:
-        used = act.setdefault("prov:used", [])
-        # Idempotent across both spellings: the wrapper this emits, and the @type form it
-        # replaced, which still sits in records written before the change.
-        if any(isinstance(u, dict)
-               and ("ada:tappDefinition" in u or "TAPPDefinition" in str(u.get("@type", "")))
-               for u in used):
-            continue
-        used.append({"ada:tappDefinition": {"@id": f"ex:{tapp}-P0"}})
+        ap = act.get("schema:actionProcess")
+        if isinstance(ap, dict) and ("schema:step" in ap or "@type" in ap):
+            ap.setdefault("schema:isBasedOn", dict(ref))      # the run's workflow names its TAPP
+        elif ap is None:
+            act["schema:actionProcess"] = dict(ref)
+        # an existing reference or string is left alone: idempotent, and an authored link wins
 
 
 def _example(tapp, cfg, component_types):
@@ -425,14 +403,15 @@ def _example(tapp, cfg, component_types):
         if isinstance(c, dict) and "schema:roleName" in c:
             c["schema:roleName"] = "analyst"
             break
-    # retarget the TAPP linkage (measurementTechnique + prov:used @id refs) to this TAPP
+    # retarget the TAPP linkage (measurementTechnique + the activity's plan link) to this TAPP
     _swap_tapp(ex.get("schema:measurementTechnique"), tapp)
     _swap_tapp(ex.get("prov:wasGeneratedBy"), tapp)
     ex["schema:name"] = f"{cfg['title'].replace(' Product Profile','')} Example Product"
     ex["schema:description"] = (f"Example path-driven {cfg['short']} product record: dataset-level analysis "
                                 f"detail plus technique component types on distribution.hasPart. Mock data.")
     ex["schema:additionalType"] = [cfg["addtype"][0], "ada:DataDeliveryPackage"]
-    # The scaffolding is the LA-ICPMS example, so its prov:used instrument is an ICPMS. Retarget it
+    # The scaffolding is the adaProduct example, so its instrument carries that example's own
+    # technique token. Retarget it
     # to whatever THIS technique's detail selects on, or every profile example claims an ICP-MS --
     # an EPMA record asserting it used a mass spectrometer. A laser-ablation technique legitimately
     # names two (Laser Ablation System + ICPMS); both go on the one instrument, which is what
@@ -475,10 +454,10 @@ def _example(tapp, cfg, component_types):
         so["dcterms:conformsTo"] = ct
     _add_required_variables(ex, tapp, cfg)
     _fill_required(ex, tapp)
-    # AFTER the fill, deliberately. A reference is complete by construction -- {@id, @type} and
-    # nothing else -- but the sentinel and typing passes cannot tell that from an object they are
-    # meant to finish. Run before them, the reference came back with schema:instrument "missing"
-    # and four {@id: nil:missing} members padded into its @type, which failed 58 of 97 examples.
+    # AFTER the fill, deliberately. A reference is complete by construction -- {@id} and nothing
+    # else -- but the sentinel and typing passes cannot tell that from an object they are meant to
+    # finish. Run before them, the reference came back with schema:instrument "missing" and four
+    # {@id: nil:missing} members padded into its @type, which failed 58 of 97 examples.
     _name_procedure(ex, tapp)
     return ex
 
@@ -707,7 +686,7 @@ def _bundled(node):
 
 
 def _instrument_tokens(tapp):
-    """The schema:additionalType tokens this technique's detail requires on a prov:used instrument.
+    """The schema:additionalType tokens this technique's detail requires on the activity's instrument.
 
     Read from the generated detail schema rather than a second hand-maintained table, so the example
     cannot drift from the constraint it has to satisfy."""
@@ -739,9 +718,13 @@ def _instrument_tokens(tapp):
 
 
 def _retarget_instrument(ex, tokens):
-    """Put `tokens` on every prov:used instrument, replacing the scaffolding's own technique token."""
+    """Put `tokens` on every instrument, replacing the scaffolding's own technique token.
+
+    Instruments only: schema:instrument also holds the activity's computational tools and
+    reagents (2026-11-11), and a technique token on a tool would assert it is an instrument."""
     if not tokens:
         return
+    import schema_path_example_emitter as spx
     keep_prefixes = ("nxs:",)
 
     def walk(x):
@@ -749,7 +732,7 @@ def _retarget_instrument(ex, tokens):
             for k, v in x.items():
                 if k == "schema:instrument":
                     for e in (v if isinstance(v, list) else [v]):
-                        if not isinstance(e, dict):
+                        if spx.resource_kind(e) != "instrument":
                             continue
                         at = e.get("schema:additionalType") or []
                         kept = [a for a in at if not isinstance(a, str) or a.startswith(keep_prefixes)]

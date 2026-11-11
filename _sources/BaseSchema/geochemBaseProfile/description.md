@@ -14,9 +14,12 @@ now be read and diffed without the four imported CDIF branches around it.
 
 - **Analysis events** (`prov:wasGeneratedBy`) — the instruments, computational tools and
   reagents actually used; the laboratory (`schema:location`); the samples analysed
-  (`schema:object`); the session identifier and timing. `prov:used` uses the CDIF
-  role-keyed wrapper model, with constraint-only `if`/`then` pins for `schema:instrument`,
-  `bios:computationalTool`, `bios:reagent` and an inline-or-`@id` `ada:tappDefinition`.
+  (`schema:object`); the session identifier and timing; and the TAPP followed. What was
+  used is `schema:instrument`: one array of instruments, computational tools and reagents,
+  told apart by the Wikidata kind term in `schema:additionalType`, with a constraint-only
+  `if`/`then` pin per kind. The TAPP link is `schema:actionProcess {"@id"}`, or
+  `schema:isBasedOn` on the activity's own inline workflow. The superseded `prov:used`
+  role-keyed wrappers are closed off by name.
 - **Variables measured** (`schema:variableMeasured`) — extends `cdifInstanceVariable` with
   description, alternate names, measurement technique, units and value bounds.
 - **Coverage** — `schema:spatialCoverage`, `schema:temporalCoverage`,

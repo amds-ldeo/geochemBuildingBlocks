@@ -10,10 +10,10 @@
   "@id": "ex:solutionMcicpmsTAPP-P1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P1",
   "schema:description": "Laser half: NewWave UP213 (213 nm), He carrier, 60 µm spot, 180 × 80 µm raster, 5 µm/s, 10 Hz, ~9–10 J/cm², ablated aerosol mixed with 2% HNO3 in the spray chamber — Table 1",
@@ -55,7 +55,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -82,7 +81,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -121,7 +119,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -172,16 +169,21 @@
           }
         ],
         "schema:description": "HNO3 attack (5 ml 50% HNO3, hot plate below 70 °C, to dryness); HNO3–HCl digestion (3 ml concentrated HNO3 + 2 ml 50% HCl, sealed PTFE vessel, 70 °C, to dryness); re-dissolution (4 ml 2% HNO3, AgCl from Ag2S removed by centrifugation) — §2.2",
-        "bios:reagent": [
+        "schema:instrument": [
           {
+            "ada:reagentRole": "reagent",
             "schema:name": "HNO3 attack: 50% HNO3; HNO3–HCl digestion: concentrated HNO3 + 50% HCl; re-dissolution: 2% HNO3 — §2.2",
             "@type": [
               "schema:DefinedTerm"
+            ],
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
             ]
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -227,7 +229,7 @@
         "ICPMS",
         "Multi-collector sector-field ICP-MS",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -241,7 +243,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -279,7 +281,7 @@
           "schema:additionalType": [
             "Sample Introduction System",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -341,7 +343,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -404,7 +406,7 @@
           "schema:additionalType": [
             "Collector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -436,7 +438,7 @@
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -450,7 +452,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",

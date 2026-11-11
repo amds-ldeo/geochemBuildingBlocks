@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -59,7 +58,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -69,7 +67,6 @@
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -155,17 +152,32 @@
         ],
         "schema:name": "Institute of Geochemistry and Petrology, ETH Zurich"
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "BHVO-2, Agua Zarcas — Agua Zarcas is a CM2 chondrite",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "BHVO-2, Agua Zarcas — Agua Zarcas is a CM2 chondrite",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
+        },
+        {
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "ICPMS",
+          "@id": "ex:solutionMcicpmsTAPP-detail-P13/instrument/ICPMS"
         }
       ],
       "schema:endTime": "no value available: schema:endTime",

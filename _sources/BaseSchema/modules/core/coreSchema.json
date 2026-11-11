@@ -137,7 +137,7 @@
                     "description": "The kind of physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed in Sampling Unit Name.",
                     "type": "string"
                 },
-                "bios:computationalTool": {
+                "schema:instrument": {
                     "type": "array",
                     "items": {
                         "type": "object",
@@ -207,10 +207,39 @@
                                         "schema:name"
                                     ]
                                 }
+                            },
+                            {
+                                "if": {
+                                    "type": "object",
+                                    "required": [
+                                        "schema:additionalType"
+                                    ],
+                                    "properties": {
+                                        "schema:additionalType": {
+                                            "type": "array",
+                                            "contains": {
+                                                "type": "object",
+                                                "required": [
+                                                    "@id"
+                                                ],
+                                                "properties": {
+                                                    "@id": {
+                                                        "enum": [
+                                                            "https://www.wikidata.org/entity/Q7397",
+                                                            "wd:Q7397"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "then": {
+                                    "required": [
+                                        "ada:toolRole"
+                                    ]
+                                }
                             }
-                        ],
-                        "required": [
-                            "ada:toolRole"
                         ]
                     }
                 },
@@ -412,98 +441,125 @@
                                     }
                                 ]
                             },
-                            "prov:used": {
+                            "schema:instrument": {
                                 "type": "array",
                                 "items": {
                                     "type": "object",
                                     "allOf": [
                                         {
                                             "if": {
+                                                "$ref": "../../tappDefinition/schema.yaml#/$defs/KindInstrument"
+                                            },
+                                            "then": {
+                                                "$ref": "../../instrument/instrumentSchema.json"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "$ref": "../../tappDefinition/schema.yaml#/$defs/KindSoftware"
+                                            },
+                                            "then": {
+                                                "$ref": "../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "$ref": "../../tappDefinition/schema.yaml#/$defs/KindReagent"
+                                            },
+                                            "then": {
+                                                "$ref": "../../geochemBaseProfile/schema.yaml#/$defs/UsedReagent"
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "ada:toolRole": {
+                                                        "const": "acquisition"
+                                                    }
+                                                },
                                                 "required": [
-                                                    "bios:computationalTool"
+                                                    "ada:toolRole"
                                                 ]
                                             },
                                             "then": {
                                                 "properties": {
-                                                    "bios:computationalTool": {
+                                                    "schema:name": {
+                                                        "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "string"
+                                                            },
+                                                            {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "properties": {
+                                                    "ada:toolRole": {
+                                                        "const": "dataReduction"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "ada:toolRole"
+                                                ]
+                                            },
+                                            "then": {
+                                                "properties": {
+                                                    "schema:name": {
+                                                        "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
+                                                        "anyOf": [
+                                                            {
+                                                                "type": "string"
+                                                            },
+                                                            {
+                                                                "type": "array",
+                                                                "items": {
+                                                                    "type": "string"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "if": {
+                                                "type": "object",
+                                                "required": [
+                                                    "schema:additionalType"
+                                                ],
+                                                "properties": {
+                                                    "schema:additionalType": {
                                                         "type": "array",
-                                                        "items": {
-                                                            "allOf": [
-                                                                {
-                                                                    "$ref": "../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool"
-                                                                },
-                                                                {
-                                                                    "type": "object",
-                                                                    "allOf": [
-                                                                        {
-                                                                            "if": {
-                                                                                "properties": {
-                                                                                    "ada:toolRole": {
-                                                                                        "const": "acquisition"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "ada:toolRole"
-                                                                                ]
-                                                                            },
-                                                                            "then": {
-                                                                                "properties": {
-                                                                                    "schema:name": {
-                                                                                        "description": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",
-                                                                                        "anyOf": [
-                                                                                            {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            {
-                                                                                                "type": "array",
-                                                                                                "items": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            "if": {
-                                                                                "properties": {
-                                                                                    "ada:toolRole": {
-                                                                                        "const": "dataReduction"
-                                                                                    }
-                                                                                },
-                                                                                "required": [
-                                                                                    "ada:toolRole"
-                                                                                ]
-                                                                            },
-                                                                            "then": {
-                                                                                "properties": {
-                                                                                    "schema:name": {
-                                                                                        "description": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.",
-                                                                                        "anyOf": [
-                                                                                            {
-                                                                                                "type": "string"
-                                                                                            },
-                                                                                            {
-                                                                                                "type": "array",
-                                                                                                "items": {
-                                                                                                    "type": "string"
-                                                                                                }
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    ],
-                                                                    "required": [
-                                                                        "ada:toolRole"
+                                                        "contains": {
+                                                            "type": "object",
+                                                            "required": [
+                                                                "@id"
+                                                            ],
+                                                            "properties": {
+                                                                "@id": {
+                                                                    "enum": [
+                                                                        "https://www.wikidata.org/entity/Q7397",
+                                                                        "wd:Q7397"
                                                                     ]
                                                                 }
-                                                            ]
+                                                            }
                                                         }
                                                     }
                                                 }
+                                            },
+                                            "then": {
+                                                "required": [
+                                                    "ada:toolRole"
+                                                ]
                                             }
                                         }
                                     ]

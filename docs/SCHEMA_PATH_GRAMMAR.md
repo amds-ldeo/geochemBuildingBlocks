@@ -1,7 +1,7 @@
 # TAPP schema-path canonical grammar (v2)
 
 The `schema path` in a TAPP workbook says **where a row's value belongs** in the JSON-LD instance
-of the TAPP definition (`$MethodDefinition`, a `schema:Action`/`cdi:Activity`) or the dataset that
+of the TAPP definition (`$MethodDefinition`, a `prov:Plan`/`schema:Action`/`schema:HowTo`) or the dataset that
 uses it (`$Dataset`). Human-authored paths use several inconsistent conventions; this is the single
 **canonical** grammar an interpreter can parse. `tools/normalize_schema_paths.py` rewrites workbook
 paths to this form (auto-fixing the mechanical cases, flagging the rest).
@@ -29,7 +29,8 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 - The **last** segment names the field the row's value sets (the *terminal*): typically
   `schema:value`, `schema:defaultValue`, `schema:description`, `schema:name`, `schema:url`,
   `schema:identifier`, `schema:termCode`. If a path ends at a selected array element with no terminal
-  field, the row's value *is* that element (e.g. a tool name → a new `computationalTool`).
+  field, the row's value *is* that element (e.g. a tool name → a new computational-tool item of
+  `schema:instrument`).
 - Arrays are marked `[]`; a following `[key='v']` selects/creates the element where `key == v`.
 - One row → one target. Rows that set multiple fields must be split into multiple rows (flagged, not
   auto-split).
@@ -38,11 +39,12 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 
 <!-- BEGIN generated: families -->
 
-*51 patterns across 49 families — two families are recognised by more than one shape. Generated from `tools/normalize_schema_paths.py` by `tools/gen_grammar_doc.py`; edit the recognizer, not this table.*
+*56 patterns across 54 families — two families are recognised by more than one shape. Generated from `tools/normalize_schema_paths.py` by `tools/gen_grammar_doc.py`; edit the recognizer, not this table.*
 
 | family | canonical shape |
 |---|---|
 | `direct-ada` | `$MethodDefinition.ada:<name>[]?` |
+| `method-target-material` | `$MethodDefinition.ada:targetMaterials[].schema:(name|description)` |
 | `dataset-scalar` | `$Dataset.ada:<name>[]?` |
 | `analyte-template` | `$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]` |
 | `analyte-identifier` | `$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]` |
@@ -50,17 +52,18 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `reported-property-identifier` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]` |
 | `channel-template` | `$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]` |
 | `channel-identifier` | `$MethodDefinition.ada:monitoredPropertyTemplate.ada:defaultMonitoredProperties[]` |
+| `target-material-template` | `$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]` |
+| `target-material-identifier` | `$MethodDefinition.ada:targetMaterialTemplate.ada:defaultTargetMaterials[]` |
 | `method-variable-measured` | `$MethodDefinition.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value|defaultValue))?` |
 | `dataset-variable-measured` | `$Dataset.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value))?` |
 | `protocol-description` | `$MethodDefinition.schema:description` |
 | `method-parameter` | `$MethodDefinition.schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
-| `computational-tool` | `$MethodDefinition.bios:computationalTool[(schema:name|ada:toolRole)='<value>'](.schema:(name|description))?` |
-| `computational-tool-list` | `$MethodDefinition.bios:computationalTool[]` |
+| `computational-tool` | `$MethodDefinition.schema:instrument[ada:toolRole='<value>'](.schema:(name|description))?` |
 | `related-link` | `$MethodDefinition.schema:relatedLink[schema:linkRelationship='<value>'].schema:target(.schema:(name|description|url))?` |
 | `workflow-step` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'](.schema:(name|description))?` |
 | `workflow-step-ada` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].ada:<name>[]?` |
 | `workflow-step-parameter` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
-| `workflow-step-reagent` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].bios:reagent[](.schema:(name|identifier))?` |
+| `workflow-step-reagent` | `$MethodDefinition.schema:actionProcess.schema:step[schema:(name|additionalType)='<value>'].schema:instrument[ada:reagentRole='<value>'](.schema:(name|identifier))?` |
 | `inherited-identity` | `$MethodDefinition.schema:(name|identifier|datePublished)` |
 | `protocol-derived-from` | `$MethodDefinition.prov:wasDerivedFrom` |
 | `protocol-sample-parameter` | `$MethodDefinition.schema:object[@type='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)[]?` |
@@ -72,7 +75,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `instrument-component-ada` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].ada:<name>[]?` |
 | `instrument-component-parameter` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
 | `inherited-identity` | `$MethodDefinition.schema:(creator|location|measurementTechnique|object|funding)\b.*` |
-| `dataset-contributor` | `$Dataset.schema:contributor[schema:roleName='<value>'](.schema:(name|identifier))?` |
+| `dataset-contributor` | `$Dataset.schema:contributor[schema:roleName='<value>'](.schema:contributor)?(.schema:(name|identifier))?` |
 | `dataset-measurement-technique` | `$Dataset.schema:measurementTechnique(.schema:DefinedTerm)?.schema:identifier` |
 | `dataset-provenance` | `$Dataset.prov:wasGeneratedBy.schema:(startTime|endTime|identifier)` |
 | `dataset-prov-parameter` | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<value>'].schema:value` |
@@ -82,17 +85,20 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `dataset-activity-ada` | `$Dataset.prov:wasGeneratedBy.ada:<name>[]?` |
 | `dataset-activity-description` | `$Dataset.prov:wasGeneratedBy.schema:description` |
 | `dataset-location` | `$Dataset.prov:wasGeneratedBy.schema:location.schema:Place[schema:additionalType='<value>'].schema:(name|identifier)` |
-| `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.prov:used.(?:schema:instrument|bios:computationalTool|bios:reagent)[(schema:additionalType|ada:<name>)='<value>'].schema:(name|identifier|description)` |
+| `dataset-used-identity` | `$Dataset.prov:wasGeneratedBy.schema:instrument[(schema:additionalType|ada:toolRole|ada:reagentRole)='<value>'].schema:(name|identifier|description)` |
 | `dataset-distribution` | `$Dataset.schema:distribution[].schema:encodingFormat[]` |
-| `dataset-instrument-ada` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].ada:<name>[]?` |
-| `dataset-instrument-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
-| `dataset-instrument-component-parameter` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
-| `dataset-instrument-component-ada` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].ada:<name>[]?` |
+| `dataset-instrument-ada` | `$Dataset.prov:wasGeneratedBy.schema:instrument[schema:additionalType='<value>'].ada:<name>[]?` |
+| `dataset-instrument-parameter` | `$Dataset.prov:wasGeneratedBy.schema:instrument[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-instrument-component-parameter` | `$Dataset.prov:wasGeneratedBy.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-instrument-component-ada` | `$Dataset.prov:wasGeneratedBy.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].ada:<name>[]?` |
 | `dataset-sample` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:(name|identifier|description)` |
 | `dataset-sample-parameter` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
-| `dataset-funding` | `$Dataset.schema:funding` |
+| `dataset-combined-result` | `$Dataset.prov:wasGeneratedBy.ada:combinedResults[](.schema:(name|description))?` |
+| `dataset-combined-result-parameter` | `$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-funding` | `$Dataset.schema:funding[]?(.schema:[A-Z][A-Za-z]*)?(.schema:(name|identifier))?` |
 | `dataset-related-link` | `$Dataset.schema:relatedLink[schema:linkRelationship='<value>'].schema:target(.schema:(name|url|description))?` |
 | `dataset-quality` | `$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='<value>'].dqv:value` |
+| `method-quality` | `$MethodDefinition.dqv:hasQualityMeasurement[dqv:isMeasurementOf='<value>'].dqv:value` |
 
 <!-- END generated: families -->
 
@@ -113,10 +119,13 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
    `relatedLink[schema:linkRelationship='X'].schema:target…`.
 5. Doubled separators collapsed: `$MethodDefinition..schema:actionProcess` → `…​.schema:actionProcess`
    (outside quoted literals, where `..` may be part of a name).
-6. `prov:used.<kind>[sel]` → `prov:used[sel]`, for `schema:instrument`, `bios:computationalTool` and
-   `bios:reagent`. `adaProduct` defines `prov:used` as an array whose items **are** the instrument,
-   tool or reagent, discriminated by their own selector key — there is no property to navigate into.
-   Authors write the kind because it mirrors the `$MethodDefinition` path and reads better.
+6. The superseded placements of what an activity, a plan or a step USED are migrated onto
+   `schema:instrument[sel]` (`normalize_schema_paths.preclean()`): `prov:used[sel]`,
+   `prov:used.<kind>[sel]` for `schema:instrument`, `bios:computationalTool`, `bios:reagent` and
+   `prov:reagent`, and the plan's and steps' direct `bios:computationalTool[ada:toolRole=…]` /
+   `bios:reagent[ada:reagentRole=…]`. Only a SELECTED tool or reagent is migrated — the selector key
+   is what says which kind the item is — so a bare `bios:computationalTool[]` or `bios:reagent[]`
+   is left unrecognised for a person to place.
 
 ## Distinctions the grammar enforces, and why
 
@@ -126,21 +135,32 @@ and emits **nothing**, while a looser recognizer happily calls it `direct-ada`. 
 therefore pass every check and contribute no schema at all. UpperCamel `ada:` segments are now
 rejected rather than silently dropped.
 
-**`schema:used` is always an error for `prov:used`.** schema.org has no `used` property, so the
-segment navigates to a key no base schema declares: the emitter writes it, nothing validates
-against it, and the field is placed nowhere. On the `$Dataset` side the provenance activity carries
-what it used as `prov:used`. Nothing normalises this — unlike the shorthand below, it is not a
-short spelling of anything — so the parser **rejects** it.
+**`schema:used` is always an error.** schema.org has no `used` property, so the segment navigates
+to a key no base schema declares: the emitter writes it, nothing validates against it, and the field
+is placed nowhere. The provenance activity carries what it used as `schema:instrument`
+(instruments, computational tools, reagents) and `schema:object` (samples). Nothing normalises
+this — unlike the superseded placements above, it is not a spelling of anything — so the parser
+**rejects** it.
 
-**`prov:used[selector]` is supported shorthand, not an error.** `prov:used` is a role-keyed
-wrapper, so the canonical form puts the selector on the entity inside it —
-`prov:used.schema:instrument[schema:additionalType='TEM']`. Authors may write either;
-`normalize_schema_paths.mechanical()` expands the short form by selector key
-(`schema:additionalType` → `schema:instrument`, `ada:toolRole` → `bios:computationalTool`,
-`ada:reagentRole` → `bios:reagent`), and `schemapath_io.load_spec()` applies that before the
-emitter parses. **Any tool that checks a raw sidecar cell must normalise first** — checking the
-raw value reports canonical-equivalent rows as broken, which is exactly what `intake_delivery`
-did until 2026-09-02.
+**What was used is ONE array, `schema:instrument`, on both roots (2026-11-11).** The CDIF
+activity-used-resources change moved instruments, computational tools and reagents out of the
+role-keyed `prov:used` wrappers (and, on the plan and its steps, out of the direct
+`bios:computationalTool` / `bios:reagent` properties) into `schema:instrument`, so a plan, a step
+and the analysis event say it key for key:
+
+    $MethodDefinition.schema:instrument[schema:additionalType='TEM']…     an instrument
+    $MethodDefinition.schema:instrument[ada:toolRole='acquisition']…       a computational tool
+    …schema:step[schema:name='Sample digestion'].schema:instrument[ada:reagentRole='reagent']…
+    $Dataset.prov:wasGeneratedBy.schema:instrument[schema:additionalType='TEM']…
+
+The selector key says which kind an item is; in the instance it is the Wikidata kind term in the
+item's `schema:additionalType` — `https://www.wikidata.org/entity/Q3099911` (instrument),
+`…/Q7397` (software), `…/Q2356542` (reagent) — which the example builders supply
+(`schema_path_example_emitter.normalize_instrument_tree`) and the base schemas key their shape pins
+on. The superseded spellings are still accepted as INPUT and migrated (rule 6), and
+`schemapath_io.load_spec()` applies that before the emitter parses. **Any tool that checks a raw
+sidecar cell must normalise first** — checking the raw value reports canonical-equivalent rows as
+broken, which is exactly what `intake_delivery` did until 2026-09-02.
 
 **A `schema:step` selector literal is sentence-case.** `'Data processing'`, `'Sample preparation'`,
 `'Data acquisition'`, `'Sample digestion'`, `'Ion milling'` — first word capitalised, the rest not.

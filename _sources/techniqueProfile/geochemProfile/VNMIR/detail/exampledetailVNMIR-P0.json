@@ -190,22 +190,28 @@
       "schema:identifier": "no value available: sessionIdentifier",
       "schema:startTime": "no value available: analysisStartDate",
       "schema:endTime": "no value available: analysisEndDate",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "no value available: acquisitionSoftware",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "no value available: acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
+              "@id": "https://www.wikidata.org/entity/Q7397"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "no value available: dataProcessingSoftware",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "no value available: dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -217,7 +223,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "As-received chip or fragment",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],

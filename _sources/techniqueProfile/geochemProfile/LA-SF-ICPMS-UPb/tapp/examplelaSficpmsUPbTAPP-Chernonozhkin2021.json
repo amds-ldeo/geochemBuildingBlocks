@@ -10,10 +10,10 @@
   "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Olivine 2D Mapping v1",
   "schema:description": "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 µm; P-rich veinlets masked before averaging (§2.2.2, §3.1)",
@@ -124,7 +124,7 @@
         "ICPMS",
         "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -138,7 +138,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -165,7 +165,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -232,7 +232,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -302,7 +302,7 @@
       "schema:additionalType": [
         "Laser Ablation System",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:additionalProperty": [
@@ -345,6 +345,18 @@
         "schema:Thing"
       ],
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "In-house MatLab script (Appendix C1)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 (cell) 0.200–0.260 l min⁻¹; MFC-2 (cup) 0.220–0.385 l min⁻¹",
@@ -498,7 +510,6 @@
         "schema:description": "Flat polished thick sections (§2.1)",
         "ada:chemicalAbrasionConditions": "N — the procedure reports no date",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -513,7 +524,6 @@
         "schema:name": "Data acquisition",
         "schema:description": "map — a single pass: 'The laser scanned a grid of parallel, adjacent lines' (§2.2.2)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -564,7 +574,6 @@
         ],
         "ada:detectionLimitMethod": "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 1 and Nb = 10 for a pixel (App. C5)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -622,12 +631,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain (individual olivine crystal) > Region of interest (2D map) — \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "In-house MatLab script (Appendix C1)"
-    }
-  ],
   "ada:ablationSamplingMode": [
     "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'"
   ],

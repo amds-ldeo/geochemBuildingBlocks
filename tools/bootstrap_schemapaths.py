@@ -119,16 +119,17 @@ def _dataset_counterpart(path, item):
     property, because the context is what says which instrument or which step the value belongs to:
 
       $MethodDefinition.schema:instrument[X].schema:additionalProperty[P].schema:defaultValue
-        -> $Dataset.prov:wasGeneratedBy.prov:used[X].schema:additionalProperty[P].schema:value
+        -> $Dataset.prov:wasGeneratedBy.schema:instrument[X].schema:additionalProperty[P].schema:value
 
       $MethodDefinition.schema:instrument[X].ada:acceleratingVoltageDefault
-        -> $Dataset.prov:wasGeneratedBy.prov:used[X].ada:acceleratingVoltage
+        -> $Dataset.prov:wasGeneratedBy.schema:instrument[X].ada:acceleratingVoltage
 
       $MethodDefinition.schema:actionProcess.schema:step[S]....schema:defaultValue
         -> $Dataset.prov:wasGeneratedBy.schema:actionProcess.schema:step[S]....schema:value
 
-    schema:instrument maps to prov:used because that is where adaProduct's provenance activity
-    carries the instrument. The Default marker is dropped on the dataset side — that value is the
+    schema:instrument keeps its name: the provenance activity carries what it used as
+    schema:instrument too (until 2026-11-11 it was prov:used, and this rewrote the head to it).
+    The Default marker is dropped on the dataset side — that value is the
     actual one, not a default. Un-nested defaults hang off prov:wasGeneratedBy too:
 
       $MethodDefinition.schema:additionalProperty[P].schema:defaultValue
@@ -144,8 +145,6 @@ def _dataset_counterpart(path, item):
             if not ada:
                 return None      # nested but not a default (identity / read-only) -> no partner
             tail = ada.group(1)
-        if head.startswith("schema:instrument["):
-            head = "prov:used[" + head[len("schema:instrument["):]
         return f"$Dataset.prov:wasGeneratedBy.{head}.{tail}"
     # Un-nested defaults land on the provenance ACTIVITY, not the dataset itself: the value records
     # what this analysis session used, which is what prov:wasGeneratedBy denotes. A bare
@@ -169,7 +168,7 @@ def _dualize(paths, row):
     Only paths that actually express a default are dualized — `…schema:defaultValue` or a direct
     `ada:{name}Default`. A nested path ending in `.schema:value`, `.schema:description` or
     `.schema:identifier` is the READ-ONLY shape or an identity field, so it is left alone rather
-    than guessed at; that also keeps identity rows (schema:location, bios:computationalTool,
+    than guessed at; that also keeps identity rows (schema:location, a computational tool's name,
     schema:relatedLink) single-homed, which is correct — they are not per-analysis parameters.
     """
     if (row["P"], row["A"]) not in DUAL_HOMED:

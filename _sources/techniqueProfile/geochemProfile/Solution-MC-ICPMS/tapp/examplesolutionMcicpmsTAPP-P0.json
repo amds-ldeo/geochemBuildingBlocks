@@ -10,10 +10,10 @@
   "@id": "ex:solutionMcicpmsTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P0",
   "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
@@ -54,7 +54,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -67,7 +66,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -119,7 +117,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -147,16 +144,21 @@
           }
         ],
         "schema:description": "HF–HNO3(–HClO4) attack (closed Savillex beakers on a hotplate); inverse aqua regia — §2",
-        "bios:reagent": [
+        "schema:instrument": [
           {
+            "ada:reagentRole": "reagent",
             "schema:name": "HF–HNO3(–HClO4) attack: HF + HNO3 (+ HClO4); inverse aqua regia: HNO3 + HCl — §2",
             "@type": [
               "schema:DefinedTerm"
+            ],
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
             ]
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -202,7 +204,7 @@
         "ICPMS",
         "Multi-collector sector-field ICP-MS",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -216,7 +218,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -254,7 +256,7 @@
           "schema:additionalType": [
             "Sample Introduction System",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -297,7 +299,7 @@
           "schema:additionalType": [
             "Collector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -312,7 +314,7 @@
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -326,7 +328,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -340,7 +342,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",

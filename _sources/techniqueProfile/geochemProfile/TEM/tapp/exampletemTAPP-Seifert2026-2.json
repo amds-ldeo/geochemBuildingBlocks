@@ -10,10 +10,10 @@
   "@id": "ex:temTAPP-Seifert2026-2",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "tem protocol — Seifert2026-2",
   "schema:description": "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1. Reported detail: ada:spectroscopicDetectorDefault = EDS (Oxford X-Max N 100 TLE, dual 100 mm² windowless SDDs); ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; TEM (BF-TEM); SAED; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color maps.",
@@ -52,7 +52,6 @@
         ],
         "schema:description": "FIB lift-out (Ga+)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -65,7 +64,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -111,7 +109,7 @@
       "schema:additionalType": [
         "TEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:manufacturer": {
@@ -131,7 +129,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Cold-FEG",
@@ -146,7 +144,7 @@
           "schema:additionalType": [
             "Aberration Corrector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Unknown",
@@ -161,7 +159,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Oxford Instruments X-Max N 100 TLE EDS system; dual 100 mm² windowless silicon-drift detectors",
@@ -176,7 +174,7 @@
           "schema:additionalType": [
             "Imaging Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "BF STEM detector; DF STEM detector; SE STEM detector; Gatan OneView 4k×4k pixel CMOS camera (TEM imaging and SAED)",
@@ -195,7 +193,7 @@
           "schema:additionalType": [
             "4D-STEM Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -209,7 +207,7 @@
           "schema:additionalType": [
             "EELS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -223,7 +221,7 @@
           "schema:additionalType": [
             "Monochromator",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -237,19 +235,33 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:temTAPP-Seifert2026-2/instrument/TEM"
-    }
-  ],
-  "ada:spectroscopicDetectorDefault": "N/A",
-  "bios:computationalTool": [
+    },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "SingleCrystal (CrystalMaker Software)"
+      "schema:name": "SingleCrystal (CrystalMaker Software)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)"
+      "schema:name": "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
+  "ada:spectroscopicDetectorDefault": "N/A",
   "ada:analyticalSubModeDefault": "BF-STEM",
   "ada:edsAcquisitionModeDefault": "Map",
   "ada:targetSpeciesTemplate": {

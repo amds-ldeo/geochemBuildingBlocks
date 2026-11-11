@@ -10,10 +10,10 @@
   "@id": "ex:laQicpmsUPbTAPP-Liu2024",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1",
   "schema:description": "laQicpmsUPbTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples (Li-borate flux glass) Spot analysis fs-LA-Q-ICP-MS Chinese Academy of Sciences (publication column of LA-Q-ICP-MS_UPb_TAPP_v98.csv).",
@@ -76,7 +76,6 @@
         "schema:description": "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)",
         "ada:chemicalAbrasionConditions": "N — the procedure reports no date",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -89,7 +88,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -131,7 +129,6 @@
         ],
         "ada:detectionLimitMethod": "all: Pettke (2012) — §3.2",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -214,7 +211,7 @@
         "ICPMS",
         "N — ICP-MS type not stated; Agilent 8900 model named but \"quadrupole\" or \"ICP-MS/MS\" not used in paper",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -263,7 +260,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -319,7 +316,7 @@
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -333,7 +330,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -347,7 +344,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -371,7 +368,7 @@
       "schema:additionalType": [
         "Laser Ablation System",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:additionalProperty": [
@@ -403,6 +400,18 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:laQicpmsUPbTAPP-Liu2024/instrument/Laser-Ablation-System"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Iolite 4 (Paton et al. 2011)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: chamber gas 0.7 L/min; cup gas 0.1 L/min — Table 1",
@@ -626,12 +635,6 @@
     }
   ],
   "ada:samplingUnitType": "Aliquot (fused Li-borate glass disc) > Spot — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), and compositions are reported as the mean of those spots, \"fs-LA-ICP-MS (n = 9 spots)\" (Table 2, p.8)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Iolite 4 (Paton et al. 2011)"
-    }
-  ],
   "ada:ablationSamplingMode": [
     "all: Single spot — Table 1 'Ablation mode'"
   ],

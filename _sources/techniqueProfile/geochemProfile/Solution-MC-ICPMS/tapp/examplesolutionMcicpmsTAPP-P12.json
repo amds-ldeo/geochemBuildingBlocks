@@ -10,10 +10,10 @@
   "@id": "ex:solutionMcicpmsTAPP-P12",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P12",
   "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
@@ -51,7 +51,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "One digest split two ways: about half at WUSTL for K, Cu and Zn, half to LLNL and on to ETH Zurich — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -66,7 +65,6 @@
         "schema:name": "Data acquisition",
         "schema:description": "K; Cu; Zn — K in dry plasma with high mass resolution, Cu and Zn in wet plasma with low resolution",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -105,7 +103,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -156,16 +153,21 @@
           }
         ],
         "schema:description": "HF–HNO3 attack (concentrated HF and HNO3 3:1, closed beaker, 170 °C, 48 h); HNO3–HCl flux (concentrated HNO3 and HCl, 1 ml H2O2 added slowly during the HNO3 flux to remove organics); final uptake (5 ml 0.5 M HNO3) — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
-        "bios:reagent": [
+        "schema:instrument": [
           {
+            "ada:reagentRole": "reagent",
             "schema:name": "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3",
             "@type": [
               "schema:DefinedTerm"
+            ],
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
             ]
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -211,7 +213,7 @@
         "ICPMS",
         "Multi-collector sector-field ICP-MS",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -238,7 +240,7 @@
           "schema:additionalType": [
             "Sample Introduction System",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -265,7 +267,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -296,7 +298,7 @@
           "schema:additionalType": [
             "Collector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -311,7 +313,7 @@
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -325,7 +327,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -339,7 +341,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",

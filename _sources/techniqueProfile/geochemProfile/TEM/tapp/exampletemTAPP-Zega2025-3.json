@@ -10,10 +10,10 @@
   "@id": "ex:temTAPP-Zega2025-3",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "tem protocol — Zega2025-3",
   "schema:description": "temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goethe Talos F200X) (publication column of TEM_TAPP_v68.csv). Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); BF-TEM (TEM Imaging); SAED (Electron Diffraction).",
@@ -56,7 +56,6 @@
         ],
         "schema:description": "Crushing / dispersion on grid",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -69,7 +68,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -115,7 +113,7 @@
       "schema:additionalType": [
         "TEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:manufacturer": {
@@ -135,7 +133,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Four windowless ThermoScientific EDS silicon drift detectors",
@@ -150,7 +148,7 @@
           "schema:additionalType": [
             "Imaging Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "ThermoScientific Ceta-S 4096×4096 16 M camera (TEM images and SAED patterns)",
@@ -169,7 +167,7 @@
           "schema:additionalType": [
             "4D-STEM Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -183,7 +181,7 @@
           "schema:additionalType": [
             "Aberration Corrector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -198,7 +196,7 @@
           "schema:additionalType": [
             "EELS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -212,7 +210,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -227,7 +225,7 @@
           "schema:additionalType": [
             "Monochromator",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -241,6 +239,30 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:temTAPP-Zega2025-3/instrument/TEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "ThermoScientific Velox",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "ThermoScientific Velox",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -327,16 +349,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain > Phase — this laboratory did not work on a section: \"TEM samples were prepared by crushing the grain, dropping ethanol onto the resulting powder and touching a TEM copper mesh grid ... to the suspension\" (p.10), and the reported data are the phases in that material (p.3)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "ThermoScientific Velox"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "ThermoScientific Velox"
-    }
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

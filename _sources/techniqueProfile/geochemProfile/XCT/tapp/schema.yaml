@@ -949,7 +949,7 @@ allOf:
       - type: string
       schema:inDefinedTermSet: ada:vocab/x-ray-detector-type
       readOnly: true
-    bios:computationalTool:
+    schema:instrument:
       type: array
       items:
         type: object
@@ -971,13 +971,6 @@ allOf:
                     type: string
             required:
             - schema:name
-        required:
-        - ada:toolRole
-    schema:instrument:
-      type: array
-      items:
-        type: object
-        allOf:
         - if:
             properties:
               schema:additionalType:
@@ -1047,6 +1040,25 @@ allOf:
             - ada:xRayPreFilterDefault
             - schema:manufacturer
             - schema:model
+        - if:
+            type: object
+            required:
+            - schema:additionalType
+            properties:
+              schema:additionalType:
+                type: array
+                contains:
+                  type: object
+                  required:
+                  - '@id'
+                  properties:
+                    '@id':
+                      enum:
+                      - https://www.wikidata.org/entity/Q7397
+                      - wd:Q7397
+          then:
+            required:
+            - ada:toolRole
       allOf:
       - contains:
           properties:

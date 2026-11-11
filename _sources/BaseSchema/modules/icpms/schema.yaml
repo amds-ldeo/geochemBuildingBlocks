@@ -168,41 +168,41 @@ $defs:
         items:
           type: object
           properties:
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: ../../instrument/schema.yaml
+                - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: ICPMS
+                        schema:inDefinedTermSet: ada:vocab/instrumentType
                     required:
-                    - schema:instrument
+                    - schema:additionalType
                   then:
                     properties:
-                      schema:instrument:
-                        type: array
-                        items:
-                          allOf:
-                          - $ref: ../../instrument/schema.yaml
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  schema:additionalType:
-                                    contains:
-                                      const: ICPMS
-                                    schema:inDefinedTermSet: ada:vocab/instrumentType
-                                required:
-                                - schema:additionalType
-                              then:
-                                properties:
-                                  schema:identifier:
-                                    description: Serial number or laboratory-internal identifier for the
-                                      specific instrument unit.
-                                    anyOf:
-                                    - &id004
-                                      type: string
-                                    - type: array
-                                      items: *id004
+                      schema:identifier:
+                        description: Serial number or laboratory-internal identifier for the specific
+                          instrument unit.
+                        anyOf:
+                        - &id004
+                          type: string
+                        - type: array
+                          items: *id004
       ada:sensitivityYield:
         description: Instrument sensitivity achieved in the session, with the isotope or monitored property
           it was measured on and the conditions it applies to. May be expressed either as detected signal

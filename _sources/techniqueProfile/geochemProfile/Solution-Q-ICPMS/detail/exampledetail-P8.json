@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -59,7 +58,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -69,7 +67,6 @@
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -113,17 +110,32 @@
         "schema:name": "Institute of Science Tokyo"
       },
       "schema:description": "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
+        },
+        {
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "ICPMS",
+          "@id": "ex:solutionQicpmsTAPP-detail-P8/instrument/ICPMS"
         }
       ],
       "schema:endTime": "no value available: schema:endTime",

@@ -95,7 +95,7 @@ All 61 techniques under `geochemProfile/` have a `tapp/` and a `detail/`. 34 of 
 
 - **`tapp/`** — the protocol definition. Extends `tappDefinition` via `allOf` with technique-specific top-level `ada:` properties, `schema:additionalProperty[]` entries, and `ada:targetSpeciesTemplate.ada:targetSpeciesColumns` constraints referencing the registry catalogs.
 - **`detail/`** — the per-dataset analysis instance. **Placement is not uniform, and does not track whether the technique is path-driven.** Seven overlay the `schema:Dataset` **root** (analyst contributor, session dates, sample, funding, per-analysis parameter values): Basemap, EPMA, Geochron, SEM, SEM-Composition, Solution-Q-ICPMS, Solution-SF-ICPMS. The other eighteen pin `ada:componentType` and overlay a `schema:distribution.hasPart` item: ARGT, DSC, EAIRMS, ICPOES, L2MS, LA-ICPMS, LAF, NanoIR, NanoSIMS, PSFD, QRIS, SEM-FIBSEM, SEM-Imaging, SLS, TEM, VNMIR, XCT, XRD. Consumers cannot assume one placement.
-- **`profile/`** — path-driven product profile: bases on the domain-neutral **`geochemProduct`** + the `detail` block + `prov:used` narrowed to that technique's TAPP + the technique's `ada:componentType` enum on `hasPart` (the profile layers the ADA componentType constraint on top of the ADA-agnostic base).
+- **`profile/`** — path-driven product profile: bases on the domain-neutral **`geochemProduct`** + the `detail` block + the technique's `ada:componentType` enum on `hasPart` (the profile layers the ADA componentType constraint on top of the ADA-agnostic base).
 - **`profile-ada/`** — the generic product profile: bases on **`adaProduct`** + `ada:componentType` constraints only, no TAPP linkage or detail block.
 
 > **Base-selection rule.** `geochemProfile/<TECH>/profile/` (generic, path-driven) → `geochemProduct`; `geochemProfile/<TECH>/profile-ada/` (the 4 ADA variants) and all `adaProfile/<TECH>/profile-ada/` → `adaProduct`. Principle: geochem→geochemProduct, ada→adaProduct.
@@ -238,7 +238,8 @@ at nothing.
 
 `tools/build_html_views.py` renders two page types into `build/htmlViews/`: a **dataset record**
 page for a product profile instance, and a **TAPP definition** page for the protocol it names. The
-dataset page follows the record's own `prov:used` TAPP reference through to that TAPP's page.
+dataset page follows the record's own TAPP link (`schema:actionProcess {"@id"}`, or
+`schema:isBasedOn` on its inline workflow) through to that TAPP's page.
 
 Keyed values render as a **grid**: one row per member of the keyset the `defines:` row declares
 (each target species, each monitored property), one column per property keyed to that set.
@@ -375,49 +376,39 @@ Detection-limit values keep their full text per element (e.g. `"SiO2: 0.02 wt%"`
 
 ## TAPP Definition Building Block
 
-The `tappDefinition` building block at `_sources/BaseSchema/tappDefinition/` defines a registry-backed Technique-Aligned Protocol Profile (TAPP) definition schema (v3). Was previously `methodDefinition`. A TAPP definition is modeled as a `prov:Plan` + `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol` — all five required in `@type`.
+The `tappDefinition` building block at `_sources/BaseSchema/tappDefinition/` defines a registry-backed Technique-Aligned Protocol Profile (TAPP) definition schema (v3). Was previously `methodDefinition`. A TAPP definition is modeled as a `prov:Plan` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol` + `schema:HowTo` — all five required in `@type` (`schema:HowTo` replaced `cdi:Activity` on 2026-11-11).
 
 ### The TAPP is a plan, not an occurrence (PROV alignment)
 
 A TAPP definition is a **plan** — a reusable procedure that *prescribes* an analysis — **not** the analysis event itself. This distinction resolves an apparent conflict with the CDIF provenance model and drives how instrument/tool/reagent fields are placed.
 
-- **Two PROV roles.** The analysis *occurrence* is a `prov:Activity` — it lives in `adaProduct.prov:wasGeneratedBy[]` (a `prov:Activity` + `schema:Action`, following `cdifDataType/cdifProvActivity`). That activity references the TAPP as one of its **`prov:used`** entities (`prov:wasGeneratedBy[].prov:used[] → tappDefinition`, alongside the actual instrument). The TAPP is therefore a **used entity**, and in PROV terms a plan used by an activity is a **`prov:Plan`** — hence `prov:Plan` in the TAPP `@type`.
-- **`cdi:Activity` vs `prov:Activity`.** `prov:Activity` (W3C PROV) is an *occurrence* — something that happened, that `prov:used`/`prov:generated` entities. `cdi:Activity` (DDI-CDI process model) is a *design-level description* of a process/method — reusable, plan-like. The TAPP uses `cdi:Activity` (which aligns with `prov:Plan`) because it describes a method; it is **not** typed `prov:Activity`. The TAPP's `schema:actionProcess` (a `schema:HowTo` of `cdi:Activity` steps) is likewise a plan.
-- **Why instrument/tool/reagent are direct properties (no `prov:used` on the TAPP).** In `cdifProvActivity`, an *activity's* instruments are `prov:used[].schema:instrument` entities — because an occurrence uses them. A *plan* does not "use" entities in the provenance sense; it *specifies* resources. So the TAPP carries `schema:instrument`, `bios:computationalTool`, `bios:reagent` as **direct properties** (the Bioschemas `LabProtocol` convention), and has **no `prov:used`**. The `prov:used` pattern operates one level up, on the `prov:Activity` in `adaProduct.prov:wasGeneratedBy`, which uses both the actual instrument and this plan.
-- **Division of labour.** The TAPP (plan) fixes the reproducible aspects of the method; the analysis instance leaves the rest to `adaProduct.prov:wasGeneratedBy` and the technique's `techniqueProfile/geochemProfile/<TECH>/detail/` block (per-dataset values). Instrument-type terms populate `schema:category` (a controlled-vocabulary `schema:DefinedTerm`); standalone-vs-`schema:hasPart` placement of sub-components is a per-field decision recorded in the schema-path sidecar.
+- **Two PROV roles.** The analysis *occurrence* is a `prov:Activity` — it lives in `prov:wasGeneratedBy[]` (a `prov:Activity` + `schema:Action`, following `cdifDataType/cdifProvActivity`). That activity names the TAPP it followed as its **plan**, with `schema:actionProcess {"@id": <tapp>}` — or, when it records its own workflow, with `schema:isBasedOn {"@id": <tapp>}` on that inline `schema:HowTo`. In PROV terms a plan an activity followed is a **`prov:Plan`** — hence `prov:Plan` in the TAPP `@type`; `schema:actionProcess` ranges over `schema:HowTo` — hence `schema:HowTo`.
+- **What was used: one array, on the plan and the run alike.** Since 2026-11-11 (the CDIF activity-used-resources change) the instruments, computational tools and reagents an activity used are all items of its `schema:instrument`, told apart by the Wikidata kind term in each item's `schema:additionalType` — `https://www.wikidata.org/entity/Q3099911` (instrument), `…/Q7397` (software), `…/Q2356542` (reagent). The TAPP and each of its steps carry the resources they prescribe the same way, so plan and run match key for key. The earlier forms — the activity's role-keyed `prov:used` wrappers, and the plan's direct `bios:computationalTool` / `bios:reagent` — are closed off.
+- **Division of labour.** The TAPP (plan) fixes the reproducible aspects of the method; the analysis instance leaves the rest to `prov:wasGeneratedBy` and the technique's `techniqueProfile/geochemProfile/<TECH>/detail/` block (per-dataset values). Instrument-type terms populate `schema:category` (a controlled-vocabulary `schema:DefinedTerm`); standalone-vs-`schema:hasPart` placement of sub-components is a per-field decision recorded in the schema-path sidecar.
 
 ### How a record names the TAPP it followed
 
-Every generated `profile/` example emits the link the section above describes, as a **reference**
-inside the analysis activity's `prov:used`:
+Every generated `profile/` example emits the link the section above describes, as a **reference**:
 
 ```json
-{ "@id": "ex:labxctTAPP-P0",
-  "@type": ["prov:Entity", "prov:Plan", "ada:TAPPDefinition"] }
+"schema:actionProcess": { "@id": "ex:labxctTAPP-P0" }
 ```
 
-Three things about that shape are load-bearing, and each was arrived at by a failure:
+or, when the activity carries its own workflow, on that workflow:
 
-- **It is a reference, not an inlined plan.** The TAPP is a separate document with its own `@id`;
-  copying it whole into every record would duplicate it hundreds of times and leave nothing to
-  navigate to.
-- **`prov:Entity` leads the `@type`.** Base `prov:used` admits a *typed* item only through its
-  "inline `prov:Entity`" `anyOf` branch, which keys on `@type` containing `prov:Entity`; the bare
-  `{@id}` branch is `additionalProperties: false` and rejects `@type` outright. PROV-O agrees —
-  `prov:Plan` is a subclass of `prov:Entity` — so this is the correct assertion, not a workaround.
-- **`geochemProduct`'s TAPP conditional is guarded by `schema:name`, not by `@type` alone.** It
-  pins an inline TAPP to the full `tappDefinition` schema. Keyed on `@type` alone it also fired on
-  every *reference* and failed it on the four properties a reference does not carry. `schema:name`
-  separates the two: the TAPP schema requires it, and a `{@id, @type}` reference never has it.
-  `build_profile._schema()` emits the same guard in each technique overlay, so the two layers agree.
+```json
+"schema:actionProcess": { "@type": ["schema:HowTo"], "schema:isBasedOn": { "@id": "ex:labxctTAPP-P0" },
+                          "schema:step": [ ... ] }
+```
 
-**Why it matters beyond navigation.** The profile's `prov:used` conditional — the one that pins
-that technique's TAPP constraints — keys on this entry. A record that never names its procedure
-leaves the conditional with nothing to fire on, so the constraints are silently absent and the
-record validates clean. That is the same class of silent failure as a mis-named workflow step.
+One path finds it either way: `prov:wasGeneratedBy/schema:actionProcess/schema:isBasedOn?`. Both
+references are sealed `{@id}` objects. It is a reference, not an inlined plan: the TAPP is a
+separate document with its own `@id`, and copying it whole into every record would duplicate it
+hundreds of times and leave nothing to navigate to. JSON Schema cannot follow the `@id`, so no
+schema checks that it names the right technique's TAPP.
 
 **Ordering, inside `build_profile`.** `_name_procedure()` runs **after** `_fill_required()`. A
-reference is complete by construction — `{@id, @type}` and nothing else — but the sentinel and
+reference is complete by construction — `{@id}` and nothing else — but the sentinel and
 typing passes cannot tell that from an object they are meant to finish. Run before them, the
 reference came back with `schema:instrument: "missing"` and four `{"@id": "nil:missing"}` members
 padded into its `@type`, failing 58 of 97 examples.
@@ -456,8 +447,8 @@ others are now ordinary `schema:additionalProperty` entries on the Collector.
 
 ### Structure
 
-- **TAPP identity** (top level) — `schema:name`, `schema:identifier` (DOI), `schema:version`, `schema:measurementTechnique` (an **array** of `schema:DefinedTerm`), `schema:object` (target materials), `schema:instrument` (one instrument or an **array** when the method uses several, e.g. LA-ICP-MS = ablation system + ICP-MS), `schema:location` (laboratory/facility — was `ada:laboratory`), `bios:computationalTool`, `bios:reagent`, `schema:creator` (was `schema:agent`), `schema:relatedLink`, `schema:funding`
-- **Standard workflow** (`schema:actionProcess`) — a `schema:HowTo` containing ordered `cdi:Activity` + `schema:Action` steps: sample preparation, calibration, data acquisition, data processing, quality control. Exactly one step must be named `Sample preparation` and carry `bios:LabProcess` in `schema:additionalType`.
+- **TAPP identity** (top level) — `schema:name`, `schema:identifier` (DOI), `schema:version`, `schema:measurementTechnique` (an **array** of `schema:DefinedTerm`), `schema:object` (target materials), `schema:instrument` (always an **array** of instruments, computational tools and reagents, told apart by Wikidata kind term — e.g. LA-ICP-MS = ablation system + ICP-MS + the reduction software), `schema:location` (laboratory/facility — was `ada:laboratory`), `schema:creator` (was `schema:agent`), `schema:relatedLink`, `schema:funding`
+- **Standard workflow** (`schema:actionProcess`) — a `schema:HowTo` containing ordered `schema:Action` + `schema:HowToStep` steps: sample preparation, calibration, data acquisition, data processing, quality control. Exactly one step must be named `Sample preparation` and carry `bios:LabProcess` in `schema:additionalType`.
 - **Parameters** (`schema:additionalProperty`, top level and per step — **replaces the retired `ada:methodParameters`**) — each entry is one of two shapes:
   - `MethodParameter`, a `schema:PropertyValueSpecification` for an **editable** parameter: `schema:defaultValue` plus `schema:valueRequired`, `schema:minValue`/`maxValue`, `schema:inDefinedTermSet`, and the required `ada:fieldScope` (method/session/element) and `ada:dataType` (string/number/integer/boolean/date/uri)
   - `MethodParameterValue`, a `schema:PropertyValue` for a **read-only** parameter, carrying the fixed protocol value in `schema:value`
@@ -477,9 +468,9 @@ Each technique's `tapp/`, `detail/`, and `profile/` directories carry their own 
 
 ### Vocabularies used
 
-- [W3C PROV-O](https://www.w3.org/TR/prov-o/) — `prov:Plan` (the TAPP is a plan; the analysis occurrence is a `prov:Activity` in `adaProduct.prov:wasGeneratedBy` that references the plan via `prov:used`)
-- [Bioschemas](https://bioschemas.org/) — `bios:LabProtocol`, `bios:LabProcess`, `bios:computationalTool`, `bios:reagent`
-- [DDI-CDI](https://ddialliance.org/Specification/DDI-CDI/1.0/) — `cdi:Activity` (design-level process description) for workflow steps
+- [W3C PROV-O](https://www.w3.org/TR/prov-o/) — `prov:Plan` (the TAPP is a plan; the analysis occurrence is a `prov:Activity` in `prov:wasGeneratedBy` that links the plan with `schema:actionProcess`)
+- [Bioschemas](https://bioschemas.org/) — `bios:LabProtocol`, `bios:LabProcess`
+- [DDI-CDI](https://ddialliance.org/Specification/DDI-CDI/1.0/) — no longer used for the TAPP or its steps (dropped 2026-11-11: no step carried a DDI-CDI process property)
 - [W3C DQV](https://www.w3.org/TR/vocab-dqv/) — `dqv:hasQualityMeasurement` for quality metrics
 - [schema.org](https://schema.org/) — `PropertyValueSpecification` for parameter definitions, `Action`/`HowTo`/`HowToStep` for workflow
 

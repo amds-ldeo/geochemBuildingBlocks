@@ -182,43 +182,60 @@ $defs:
         items:
           type: object
           properties:
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: ../../instrument/schema.yaml
+                - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      ada:reagentRole:
+                        const: referenceMaterial
                     required:
-                    - bios:reagent
+                    - ada:reagentRole
                   then:
                     properties:
-                      bios:reagent:
+                      schema:name:
+                        description: Quality-control reference material(s) measured as unknowns alongside
+                          samples to assess accuracy independently and to monitor drift. Give the material
+                          name, its source, and a citation for the accepted or reference values used for
+                          comparison.
+                        anyOf:
+                        - &id005
+                          type: string
+                        - type: array
+                          items: *id005
+                - if:
+                    type: object
+                    required:
+                    - schema:additionalType
+                    properties:
+                      schema:additionalType:
                         type: array
-                        items:
-                          allOf:
-                          - $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedReagent
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  ada:reagentRole:
-                                    const: referenceMaterial
-                                required:
-                                - ada:reagentRole
-                              then:
-                                properties:
-                                  schema:name:
-                                    description: Quality-control reference material(s) measured as unknowns
-                                      alongside samples to assess accuracy independently and to monitor
-                                      drift. Give the material name, its source, and a citation for the
-                                      accepted or reference values used for comparison.
-                                    anyOf:
-                                    - &id005
-                                      type: string
-                                    - type: array
-                                      items: *id005
-                            required:
-                            - ada:reagentRole
+                        contains:
+                          type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              enum:
+                              - https://www.wikidata.org/entity/Q2356542
+                              - wd:Q2356542
+                  then:
+                    required:
+                    - ada:reagentRole
   Param_Analysis_detectionLimit:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per target species, these

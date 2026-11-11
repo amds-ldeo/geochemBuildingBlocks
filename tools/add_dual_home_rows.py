@@ -14,7 +14,7 @@ The appended path mirrors any nesting on the TAPP side, via
 bootstrap_schemapaths._dataset_counterpart:
 
   $MethodDefinition.schema:instrument[X].schema:additionalProperty[P].schema:defaultValue
-    -> $Dataset.prov:wasGeneratedBy.prov:used[X].schema:additionalProperty[P].schema:value
+    -> $Dataset.prov:wasGeneratedBy.schema:instrument[X].schema:additionalProperty[P].schema:value
 
 An item is skipped when it already has a $Dataset row, and reported (not guessed at) when its
 TAPP path is not a recognised default — e.g. one ending .schema:name or .schema:identifier, which

@@ -24,7 +24,7 @@ and the MC items carry BOTH Procedure-Level and Analysis-Level tiers. That diffe
 entirely in what `tapp/` and `detail/` record, which is why three TAPPs exist. It never reaches
 the file, and `ada:componentType` classifies the FILE.
 
-So the discriminator for Mc/Q/Sf is the TAPP reference — `prov:used` → a TAPP definition naming
+So the discriminator for Mc/Q/Sf is the TAPP reference — `schema:actionProcess` (until 2026-11-11 `prov:used`) → a TAPP definition naming
 `laMcicpmsTAPP` — which is the axis the variant actually lives on.
 
 **The precondition this section used to declare unmet IS NOW MET, and that changes what is

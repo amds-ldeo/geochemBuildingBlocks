@@ -140,30 +140,35 @@ def first(o, key):
 
 
 def tapp_ref(doc):
-    """The procedure this record followed, in EITHER spelling of the prov:used link.
+    """The procedure this record followed, in any spelling of the link.
 
-    A REFERENCE is what we emit and what the page links to. An embedded TAPP is also legal, and
-    is shown inline instead -- there is nothing to navigate to.
+    A REFERENCE is what we emit and what the page links to. An embedded TAPP was also legal in
+    the superseded spellings, and is shown inline instead -- there is nothing to navigate to.
 
-    TWO SPELLINGS, and both are valid by design:
+    THE CURRENT SPELLING (2026-11-11, the CDIF plan link), checked first:
 
-        role-keyed   {"ada:tappDefinition": {"@id": ...}}    what gBB emits since #190, and the
-                                                             form ADA records are migrating to
-        superseded   {"@id": ..., "@type": [... "ada:TAPPDefinition"]}   what ~7,263 of 7,447
-                                                             records still carry
+        schema:actionProcess {"@id": ...}                  the activity records no workflow
+        schema:actionProcess {... "schema:isBasedOn": {"@id": ...}}
+                                                           the activity's own workflow names it
 
-    The role-keyed member deliberately carries NO @type -- the property NAME is the role, which
-    is the whole point of #190 -- so a reader matching on @type alone finds nothing in it. This
-    function matched @type only, which meant a migrated record returned None and its page got no
-    link to its TAPP. It would not have crashed: main() counts those as "name no procedure", so a
-    migrated corpus would have reported thousands of records naming no procedure, which reads as
-    a data problem and is a reader problem.
+    THE SUPERSEDED SPELLINGS, both in prov:used, still read here because this page is also built
+    from ADA records (--source ada2), and the stores are migrated after the schema is settled:
 
-    Checked the role key FIRST because it is the sanctioned form; the @type branch stays for as
-    long as any record uses it, and geochemProduct still accepts that form for the same reason.
-    Returns the inner node for the wrapper, so callers see {@id, ...} either way and need not
-    know which spelling they were given.
+        role-keyed   {"ada:tappDefinition": {"@id": ...}}    what gBB emitted from #190
+        typed        {"@id": ..., "@type": [... "ada:TAPPDefinition"]}   before that
+
+    The role-keyed member carries NO @type -- the property NAME was the role -- so a reader
+    matching on @type alone found nothing in it; that is why each spelling is matched on its own
+    terms. Returns the {@id, ...} node, so callers need not know which spelling they were given.
     """
+    for act in doc.get("prov:wasGeneratedBy") or []:
+        ap = act.get("schema:actionProcess")
+        if isinstance(ap, dict):
+            if is_ref(ap):
+                return ap
+            based = ap.get("schema:isBasedOn")
+            if isinstance(based, dict):
+                return based
     for act in doc.get("prov:wasGeneratedBy") or []:
         for u in act.get("prov:used") or []:
             if not isinstance(u, dict):
@@ -177,6 +182,27 @@ def tapp_ref(doc):
             if any("TAPPDefinition" in str(t) for t in ty):
                 return u
     return None
+
+
+def instruments_used(act):
+    """What the activity used, other than its samples: schema:instrument (instruments, tools and
+    reagents alike, 2026-11-11), else the superseded prov:used forms an unmigrated ADA record
+    still carries -- the role-keyed wrappers, or the instrument as a plain item."""
+    items = act.get("schema:instrument")
+    if items:
+        return items if isinstance(items, list) else [items]
+    out = []
+    for u in act.get("prov:used") or []:
+        if not isinstance(u, dict):
+            continue
+        wrapped = [v for k in ("schema:instrument", "bios:computationalTool", "bios:reagent")
+                   for v in (u.get(k) or [])]
+        if wrapped:
+            out += wrapped
+        elif "ada:tappDefinition" not in u and not any(
+                "TAPPDefinition" in str(t) for t in (u.get("@type") or [])):
+            out.append(u)
+    return out
 
 
 # Keys each tab claims. Anything left over lands in "Other", so no field is silently dropped.
@@ -231,9 +257,9 @@ def provenance_panel(doc, tapp_href):
         out.append('<div class="group">Procedure</div>'
                    '<p class="note">This record does not name the procedure it followed.</p>')
     for act in doc.get("prov:wasGeneratedBy") or []:
-        rest = {k: v for k, v in act.items() if k != "prov:used"}
+        rest = {k: v for k, v in act.items() if k not in ("prov:used", "schema:instrument")}
         out.append('<div class="group">Analysis event</div>%s' % render(rest))
-        insts = [i for u in (act.get("prov:used") or []) for i in (u.get("schema:instrument") or [])]
+        insts = instruments_used(act)
         if insts:
             out.append('<div class="group">Instrument</div>%s' % render(insts))
     return "".join(out)
@@ -677,9 +703,9 @@ def main():
         print("source=%s: wrote %d record page(s)%s to %s"
               % (a.source, n, (" and %d TAPP page(s)" % nt) if nt else "", a.outdir))
         if nolink:
-            print("  %d record(s) name no procedure -- prov:used carries neither an "
-                  "ada:tappDefinition wrapper nor an ada:TAPPDefinition @type reference, so "
-                  "those pages have no link to a TAPP." % nolink)
+            print("  %d record(s) name no procedure -- no schema:actionProcess reference or "
+                  "schema:isBasedOn, and no superseded prov:used TAPP link, so those pages "
+                  "have no link to a TAPP." % nolink)
     return 0
 
 

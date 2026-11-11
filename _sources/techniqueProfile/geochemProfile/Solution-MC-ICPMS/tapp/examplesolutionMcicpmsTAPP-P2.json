@@ -10,10 +10,10 @@
   "@id": "ex:solutionMcicpmsTAPP-P2",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P2",
   "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
@@ -53,7 +53,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -68,7 +67,6 @@
         "schema:name": "Data acquisition",
         "schema:description": "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -129,7 +127,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -180,16 +177,21 @@
           }
         ],
         "schema:description": "iron aqua regia (iron meteorites, ~50 mg pieces, 3:1 HCl–HNO3, hot plate); basalt HF–HNO3 (basalts, 2:1, hot plate); basalt aqua regia (several steps); chloride conversion (redissolved in 0.25 ml 10 M HCl) — §2.1",
-        "bios:reagent": [
+        "schema:instrument": [
           {
+            "ada:reagentRole": "reagent",
             "schema:name": "iron aqua regia: 3:1 HCl–HNO3; basalt HF–HNO3: 2:1 HF–HNO3; basalt aqua regia: aqua regia; chloride conversion: 10 M HCl — §2.1",
             "@type": [
               "schema:DefinedTerm"
+            ],
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
             ]
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -235,7 +237,7 @@
         "ICPMS",
         "Multi-collector sector-field ICP-MS",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -249,7 +251,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -287,7 +289,7 @@
           "schema:additionalType": [
             "Sample Introduction System",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -337,7 +339,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -364,7 +366,7 @@
           "schema:additionalType": [
             "Collector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -396,7 +398,7 @@
           "schema:additionalType": [
             "Collision Reaction Cell",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -410,7 +412,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",

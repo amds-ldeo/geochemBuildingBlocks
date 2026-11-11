@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -73,7 +72,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -83,7 +81,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -117,109 +114,106 @@
           "schema:description": "no value available: schema:description"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "Sample Introduction System",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "Sample Introduction System",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
-                        }
-                      ],
-                      "schema:name": "Sample Uptake Rate",
-                      "schema:value": 0.05,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "~0.05 mL/min"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Sample-Introduction-System"
-                },
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "ICP Source",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "\"Tuning was performed to minimize interferences of 40Ar2 16O+ and 40Ar2 14N+ on 96Zr+ and 94Zr+ and with it the on-peak background corrections\""
+                  "schema:name": "Sample Uptake Rate",
+                  "schema:value": 0.05,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "~0.05 mL/min"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS"
+              "schema:name": "missing",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Sample-Introduction-System"
+            },
+            {
+              "schema:additionalType": [
+                "ICP Source",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "ICP Source",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/ICP-Source"
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS/part/Collision-Reaction-Cell"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "\"Tuning was performed to minimize interferences of 40Ar2 16O+ and 40Ar2 14N+ on 96Zr+ and 94Zr+ and with it the on-peak background corrections\""
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }

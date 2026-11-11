@@ -45,18 +45,24 @@ def preclean(s):
     # OUTSIDE quoted selector values, where a literal `..` could be part of a name
     s = "'".join(re.sub(r"\.{2,}", ".", part) if i % 2 == 0 else part
                  for i, part in enumerate(s.split("'")))
-    # `prov:used[sel]` -> `prov:used.<kind>[sel]`. This rule used to run the other way: a prov:used
-    # item WAS the entity, so the kind was shorthand and got stripped. Since the 2026-08 CDIF
-    # wrapper model an item is a role-keyed envelope (schema:instrument / bios:computationalTool /
-    # bios:reagent) whose value is an array of entities, so the kind is a real navigation step and
-    # the selector key is what tells us which envelope. Authors may still write either form.
-    s = re.sub(r"(prov:used)\[(schema:additionalType)=", r"\1.schema:instrument[\2=", s)
-    s = re.sub(r"(prov:used)\[(ada:toolRole)=", r"\1.bios:computationalTool[\2=", s)
-    s = re.sub(r"(prov:used)\[(ada:reagentRole)=", r"\1.bios:reagent[\2=", s)
-    # the reagent envelope is bios:reagent on the dataset side too, matching the plan side
-    # (CDIF metadataBuildingBlocks#53 renamed it from prov:reagent; PROV-O has no reagent term).
-    # An author still writing the superseded prov:reagent is migrated OLD -> NEW here.
-    s = s.replace("prov:used.prov:reagent[", "prov:used.bios:reagent[")
+    # What an activity, a plan or a step USED is one array, `schema:instrument`, since 2026-11-11
+    # (the CDIF activity-used-resources change): instruments, computational tools and reagents are
+    # its items, told apart by the selector key -- schema:additionalType for an instrument,
+    # ada:toolRole for a tool, ada:reagentRole for a reagent -- and, in the instance, by a
+    # Wikidata kind term. Every superseded spelling is migrated OLD -> NEW here, so a path written
+    # against the earlier models still lands:
+    #   prov:used[sel]                                   (the shorthand of the wrapper model)
+    #   prov:used.<schema:instrument|bios:computationalTool|bios:reagent|prov:reagent>[sel]
+    #                                                    (the 2026-08 role-keyed wrapper model)
+    #   bios:computationalTool[ada:toolRole=...], bios:reagent[ada:reagentRole=...]
+    #                                                    (the plan's and steps' direct properties)
+    # Only a SELECTED tool or reagent is migrated: the selector key is what says which kind the
+    # item is. A bare `bios:computationalTool[]` / `bios:reagent[]` names no kind, so it is left
+    # alone and reported as unrecognised for a person to place.
+    s = re.sub(r"prov:used(?:\.(?:schema:instrument|bios:computationalTool|bios:reagent|prov:reagent))?"
+               r"\[(schema:additionalType|ada:toolRole|ada:reagentRole)=", r"schema:instrument[\1=", s)
+    s = re.sub(r"bios:computationalTool\[(ada:toolRole)=", r"schema:instrument[\1=", s)
+    s = re.sub(r"bios:reagent\[(ada:reagentRole)=", r"schema:instrument[\1=", s)
     for bad, good in NAME_TYPOS.items():
         s = re.sub(bad, good, s, flags=re.I)
     return s
@@ -166,11 +172,12 @@ def recognize(s):
         (r"^\$Dataset\.schema:variableMeasured\[(schema:name='[^']*')?\](\.schema:(name|description|unitText|propertyID|value))?$", "dataset-variable-measured"),
         (r"^\$MethodDefinition\.schema:description$", "protocol-description"),
         (r"^\$MethodDefinition\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "method-parameter"),
-        # selected either by name or by ada:toolRole ('acquisition' / 'dataReduction'); the role
-        # selector is what every sidecar actually uses, since the tool's NAME is the value being
-        # recorded and so cannot also be the selector.
-        (r"^\$MethodDefinition\.bios:computationalTool\[(schema:name|ada:toolRole)='[^']*'\](\.schema:(name|description))?$", "computational-tool"),
-        (r"^\$MethodDefinition\.bios:computationalTool\[\]$", "computational-tool-list"),
+        # a computational tool is a schema:instrument item of the software kind, selected by
+        # ada:toolRole ('acquisition' / 'dataReduction'): the tool's NAME is the value being
+        # recorded and so cannot also be the selector, and the role key is what says the item is
+        # software at all. (Until 2026-11-11 it was the direct property bios:computationalTool,
+        # selectable by name too, with a bare-[] list form; no sidecar used either.)
+        (r"^\$MethodDefinition\.schema:instrument\[ada:toolRole='[^']*'\](\.schema:(name|description))?$", "computational-tool"),
         (r"^\$MethodDefinition\.schema:relatedLink\[schema:linkRelationship='[^']*'\]\.schema:target(\.schema:(name|description|url))?$", "related-link"),
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\](\.schema:(name|description))?$", "workflow-step"),
         # A step parameter dual-homes exactly like an instrument parameter: `defaultValue` on the
@@ -182,8 +189,9 @@ def recognize(s):
         # lacked the family, so the path validated nowhere and was reported as unrecognised.
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(\[\])?$", "workflow-step-ada"),
         (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:(value|defaultValue)$", "workflow-step-parameter"),
-        # a step's reagent list (sample digestion acids); the reagent is named, not parameterised
-        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.bios:reagent\[\](\.schema:(name|identifier))?$", "workflow-step-reagent"),
+        # a step's reagents (sample digestion acids); the reagent is named, not parameterised. A
+        # schema:instrument item of the reagent kind, selected by ada:reagentRole.
+        (r"^\$MethodDefinition\.schema:actionProcess\.schema:step\[schema:(name|additionalType)='[^']*'\]\.schema:instrument\[ada:reagentRole='[^']*'\](\.schema:(name|identifier))?$", "workflow-step-reagent"),
         (r"^\$MethodDefinition\.schema:(name|identifier|datePublished)$", "inherited-identity"),
         # the procedure this one was derived from -> a prov:wasDerivedFrom string. A plan-identity
         # field, so it groups with schema:name / identifier / datePublished.
@@ -248,25 +256,26 @@ def recognize(s):
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:description$", "dataset-activity-description"),
         # where the analysis actually happened — partner of $MethodDefinition.schema:location.
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:location\.schema:Place\[schema:additionalType='[^']*'\]\.schema:(name|identifier)$", "dataset-location"),
-        # prov:used items are entities, selected by whichever key discriminates them:
-        # schema:additionalType for an instrument, ada:toolRole for a computational tool,
-        # ada:reagentRole for a reagent. Identity fields only; parameters have their own families.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.(?:schema:instrument|bios:computationalTool|bios:reagent)\[(schema:additionalType|ada:[a-z][A-Za-z0-9]*)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
+        # what the activity used is schema:instrument, its items selected by whichever key
+        # discriminates them: schema:additionalType for an instrument, ada:toolRole for a
+        # computational tool, ada:reagentRole for a reagent. Identity fields only; parameters have
+        # their own families.
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:instrument\[(schema:additionalType|ada:toolRole|ada:reagentRole)='[^']*'\]\.schema:(name|identifier|description)$", "dataset-used-identity"),
         # schema:distribution is an array of DataDownload objects and schema:encodingFormat is an
         # array of MIME-type strings on each (per the upstream CDIF dataDownload), so both segments
         # carry []: a scalar navigation here would emit a single distribution object and reject the
         # base's array shape.
         (r"^\$Dataset\.schema:distribution\[\]\.schema:encodingFormat\[\]$", "dataset-distribution"),
-        # dataset-side instrument mirrors. On the protocol the instrument is schema:instrument; on
-        # the dataset the provenance activity carries it as prov:used, so these are the analysis-tier
-        # partners of instrument-direct-ada / instrument-parameter / instrument-component-parameter.
+        # dataset-side instrument mirrors. The instrument is schema:instrument on the protocol and
+        # on the dataset's provenance activity alike, so these are the analysis-tier partners of
+        # instrument-direct-ada / instrument-parameter / instrument-component-parameter.
         # `value` only — the default lives on the TAPP side.
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-ada"),
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:instrument\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-parameter"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-instrument-component-parameter"),
         # analysis-tier partner of instrument-component-ada: a direct ada: property on a component of
         # the instrument the session used. `value`-scoped, never Default (the default lives on the plan).
-        (r"^\$Dataset\.prov:wasGeneratedBy\.prov:used\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-component-ada"),
+        (r"^\$Dataset\.prov:wasGeneratedBy\.schema:instrument\[schema:additionalType='[^']*'\]\.schema:hasPart\[schema:additionalType='[^']*'\]\.ada:[a-z][A-Za-z0-9]*(?<!Default)(\[\])?$", "dataset-instrument-component-ada"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:(name|identifier|description)$", "dataset-sample"),
         (r"^\$Dataset\.prov:wasGeneratedBy\.schema:object\[@type='[^']*'\]\.schema:additionalProperty\[schema:name='[^']*'\]\.schema:value$", "dataset-sample-parameter"),
         # No sampling-unit families. A particular unit is a COLUMN in a distribution, declared

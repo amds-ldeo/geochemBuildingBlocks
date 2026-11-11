@@ -10,10 +10,10 @@
   "@id": "ex:semCompositionTAPP-Zega2025",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "semComposition protocol — Zega2025",
   "schema:description": "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v86.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis).",
@@ -72,7 +72,7 @@
       "schema:additionalType": [
         "SEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:manufacturer": {
@@ -92,7 +92,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Field emission gun (FEG) — subtype not specified",
@@ -107,7 +107,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Oxford Instruments Ultim Max SDD, 170 mm²",
@@ -126,7 +126,7 @@
           "schema:additionalType": [
             "WDS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -147,6 +147,30 @@
       "ada:workingDistanceDefault": -9999,
       "schema:description": "missing",
       "@id": "ex:semCompositionTAPP-Zega2025/instrument/SEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford AZtec (Point & ID programme)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Oxford AZtec",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:edsAcquisitionMode": "Point",
@@ -191,16 +215,6 @@
     }
   ],
   "ada:samplingUnitType": "Region of interest > Analysis point — \"The Oxford AZtec 'Point & ID' programme was used for the acquisition of images and point spectra\" (p.9)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford AZtec (Point & ID programme)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Oxford AZtec"
-    }
-  ],
   "ada:analyticalMode": [
     "EDS Point Analysis"
   ],
@@ -210,7 +224,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -223,7 +236,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

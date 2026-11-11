@@ -10,10 +10,10 @@
   "@id": "ex:epmaTAPP-Zega2025",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "EPMA Major Element Silicates/Sulfides/Oxides/Phosphates/Carbonates, Bennu (K-ALFAA, Cameca SX-100 Ultra)",
   "schema:description": "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s on each background. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak and 10 s background. Carbonates: 15 kV, 4 nA, 2 µm defocused, 10 s peak and 5 s background. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses and X-ray maps ('BSE images, element maps and quantitative compositional analyses'); WDS or EDS is not stated, and the list has no value without one.",
@@ -22,7 +22,7 @@
       "schema:additionalType": [
         "EPMA",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "15 kV",
@@ -46,7 +46,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -60,7 +60,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -75,7 +75,7 @@
           "schema:additionalType": [
             "WDS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -91,7 +91,7 @@
       "schema:additionalType": [
         "SEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -106,6 +106,18 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:epmaTAPP-Zega2025/instrument/SEM"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "XMapTools (for phase maps)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:edsAcquisitionMode": "N/A",
@@ -300,12 +312,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain > Phase — sulfide compositions are reported per grain within named particles (\"Pyrrhotite compositions measured by EMPA\", p.2), and \"phase mapping via electron microprobe analysis (EMPA)\" gives modal abundances of carbonates, sulfides and magnetite per particle (p.2)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "XMapTools (for phase maps)"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -323,7 +329,6 @@
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -338,7 +343,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
