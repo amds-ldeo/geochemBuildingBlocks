@@ -36,7 +36,6 @@
             ],
             "schema:description": "FIB lift-out (Ga ion)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -86,7 +85,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -520,69 +518,71 @@
           "schema:value": "no value available: unnamed property"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "no value available: dataProcessingSoftware",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "no value available: dataProcessingSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "no value available: acquisitionSoftware",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "TEM",
             {
-              "schema:additionalType": [
-                "TEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property"
-                },
-                {
-                  "@id": "ada:parameter/temTAPP/temObjectiveAperture",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/temTAPP/temObjectiveAperture"
-                    }
-                  ],
-                  "schema:name": "TEM Objective Aperture",
-                  "schema:value": "no value available: unnamed property"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/temTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:detailTEM-P0/instrument/TEM"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/temTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property"
+            },
+            {
+              "@id": "ada:parameter/temTAPP/temObjectiveAperture",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/temTAPP/temObjectiveAperture"
+                }
+              ],
+              "schema:name": "TEM Objective Aperture",
+              "schema:value": "no value available: unnamed property"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:detailTEM-P0/instrument/TEM"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "no value available: acquisitionSoftware",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }

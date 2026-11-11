@@ -10,10 +10,10 @@
   "@id": "ex:labxctTAPP-Dias2019",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Dias2019",
   "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned; ada:segmentationMethodDefault = Adaptive (mean) thresholding.",
@@ -118,18 +118,24 @@
     }
   ],
   "ada:detectorType": "Flat panel detector (2240 × 2240 pixels)",
-  "bios:computationalTool": [
+  "schema:instrument": [
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)"
-    }
-  ],
-  "schema:instrument": [
+      "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
     {
       "schema:additionalType": [
         "XCT",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "50 kV",
@@ -213,7 +219,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -226,7 +231,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

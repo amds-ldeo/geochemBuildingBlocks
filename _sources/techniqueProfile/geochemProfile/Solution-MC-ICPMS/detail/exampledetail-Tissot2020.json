@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -73,7 +72,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -83,7 +81,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -117,48 +114,45 @@
           "schema:description": "no value available: schema:description"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
             {
-              "schema:additionalType": [
-                "ICPMS",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
-                    }
-                  ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "On-peak-zero acid blank before each sample \"to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\""
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "On-peak-zero acid blank before each sample \"to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\""
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }

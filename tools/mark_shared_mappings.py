@@ -205,13 +205,13 @@ DECISION_FIELDS = ["Metadata Item", "sidecar", "Protocol Tier", "Analysis Tier",
                    "Analyte-Specific", "current Schema Path", "proposed Schema Path", "note"]
 
 _CONFORMING = re.compile(r"(\.schema:defaultValue$)|(Default$)")
-_INSTRUMENT_SEL = re.compile(r"(schema:instrument|prov:used)\[schema:additionalType='([^']+)'\]")
+_INSTRUMENT_SEL = re.compile(r"(schema:instrument)\[schema:additionalType='([^']+)'\]")
 
 
 _STEP_SEL = re.compile(r"schema:actionProcess\.schema:step\[[^\]]*\]")
 
 # hasPart carries a per-technique token too (['EPMA'] vs ['SEM'] on the same component)
-_ANY_TYPE_SEL = re.compile(r"(schema:instrument|prov:used|schema:hasPart)\[schema:additionalType="
+_ANY_TYPE_SEL = re.compile(r"(schema:instrument|schema:hasPart)\[schema:additionalType="
                            r"'[^']+'\]")
 
 

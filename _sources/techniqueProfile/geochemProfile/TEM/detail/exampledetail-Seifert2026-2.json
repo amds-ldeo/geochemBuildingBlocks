@@ -35,7 +35,6 @@
             ],
             "schema:description": "FIB lift-out (Ga+)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -45,7 +44,6 @@
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -117,57 +115,59 @@
           "schema:value": "Spectrum imaging (EDS elemental maps); false-color maps"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "SingleCrystal (CrystalMaker Software)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "SingleCrystal (CrystalMaker Software)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "TEM",
             {
-              "schema:additionalType": [
-                "TEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/temTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/temTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 200,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "200 kV"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/temTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:temTAPP-detail-Seifert2026-2/instrument/TEM"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/temTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 200,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "200 kV"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:temTAPP-detail-Seifert2026-2/instrument/TEM"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }

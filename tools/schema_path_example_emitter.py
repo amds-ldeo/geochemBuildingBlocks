@@ -28,8 +28,10 @@ import _tapp_lib as _sent   # the one definition of the sentinel vocabulary
 
 ROOT = e.ROOT
 
-# a plausible instance @type / @context for the TAPP plan (mirrors the shipped examples)
-_TAPP_TYPE = ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"]
+# a plausible instance @type / @context for the TAPP plan (mirrors the shipped examples).
+# schema:HowTo since 2026-11-11, so a bare {@id} link to the TAPP from an analysis event's
+# schema:actionProcess is a link to a HowTo; cdi:Activity dropped at the same time.
+_TAPP_TYPE = ["prov:Plan", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol", "schema:HowTo"]
 # "ex" is declared because every example this emitter writes USES it -- the root @id is
 # f"ex:{tapp}-P0" and assign_instrument_ids mints ex:instrument/<Token> -- and an undeclared
 # prefix is not a CURIE: the JSON-LD uplift drops the term instead of expanding it, so the
@@ -103,7 +105,79 @@ def _module_param_def(item, root):
     return _MODPARAM_CACHE[key].get((mc.ms._norm(mc.ms.rename(item)), root))
 
 
-WIKIDATA_INSTRUMENT = "https://www.wikidata.org/wiki/Q3099911"
+# The Wikidata kind terms of a schema:instrument item (CDIF cdifProvActivity, 2026-11-11): what an
+# activity, a plan or a step used is one array, and the term in each item's schema:additionalType
+# says which kind the item is. Written as the ENTITY IRI, never the /wiki/ page URL -- the entity
+# names the concept, the page names a web page about it. The page URL was the instrument's term
+# until 2026-11-11, and is still recognised below so a node carrying it is migrated, not misread.
+WIKIDATA_ENTITY = "https://www.wikidata.org/entity/"
+WIKIDATA_INSTRUMENT = WIKIDATA_ENTITY + "Q3099911"
+WIKIDATA_SOFTWARE = WIKIDATA_ENTITY + "Q7397"
+WIKIDATA_REAGENT = WIKIDATA_ENTITY + "Q2356542"
+KIND_TERM = {"instrument": WIKIDATA_INSTRUMENT, "software": WIKIDATA_SOFTWARE,
+             "reagent": WIKIDATA_REAGENT}
+_KIND_BY_Q = {"Q3099911": "instrument", "Q7397": "software", "Q2356542": "reagent"}
+# @type each kind gets when the builder supplied none: the instrument building block's pair, the
+# Bioschemas ComputationalTool type, and -- for a reagent, whose @type says what the material IS
+# -- DefinedTerm, the registry-entry case and the one the type fill used to choose.
+KIND_DEFAULT_TYPE = {"instrument": ["schema:Product", "schema:Thing"],
+                     "software": ["schema:SoftwareApplication"],
+                     "reagent": ["schema:DefinedTerm"]}
+
+
+def _kind_q(ref):
+    """The Q-number of a Wikidata kind term in any spelling (entity IRI, /wiki/ URL, wd: CURIE)."""
+    if not isinstance(ref, str):
+        return None
+    for pre in (WIKIDATA_ENTITY, "https://www.wikidata.org/wiki/", "http://www.wikidata.org/entity/",
+                "wd:"):
+        if ref.startswith(pre) and ref[len(pre):] in _KIND_BY_Q:
+            return ref[len(pre):]
+    return None
+
+
+def resource_kind(item):
+    """'instrument' | 'software' | 'reagent' for one schema:instrument item; None for a bare {@id}.
+
+    The kind term in schema:additionalType decides when there is one. Otherwise the item is read
+    the way a sidecar path selects it: ada:toolRole makes it a tool, ada:reagentRole a reagent, and
+    anything else -- an item selected by its schema:additionalType token -- an instrument.
+    """
+    if not isinstance(item, dict) or set(item) <= {"@id"}:
+        return None
+    for x in item.get("schema:additionalType") or []:
+        q = _kind_q(x.get("@id") if isinstance(x, dict) else None)
+        if q:
+            return _KIND_BY_Q[q]
+    if "ada:toolRole" in item or "schema:SoftwareApplication" in (item.get("@type") or []):
+        return "software"
+    if "ada:reagentRole" in item:
+        return "reagent"
+    return "instrument"
+
+
+def set_kind_term(node, kind):
+    """Make `node`'s schema:additionalType carry exactly the entity-IRI kind term for `kind`.
+
+    Rewrites a kind term in another spelling in place (keeping its position) rather than
+    appending beside it, so a node is never left carrying two kinds -- CDIF requires exactly one.
+    """
+    at = node.get("schema:additionalType")
+    if not isinstance(at, list):
+        at = [] if at is None else [at]
+        node["schema:additionalType"] = at
+    want = KIND_TERM[kind]
+    hit = False
+    for i, x in enumerate(at):
+        if isinstance(x, dict) and _kind_q(x.get("@id")):
+            if not hit:
+                at[i] = {"@id": want}
+                hit = True
+            else:
+                at[i] = None
+    at[:] = [x for x in at if x is not None]
+    if not hit:
+        at.append({"@id": want})
 
 
 def _slug(v, fallback):
@@ -186,7 +260,10 @@ def assign_instrument_ids(doc):
             for k, v in node.items():
                 if k == "schema:instrument":
                     for i in (v if isinstance(v, list) else [v]):
-                        if not isinstance(i, dict):
+                        # Instruments only. schema:instrument also holds the computational tools
+                        # and reagents (2026-11-11), which are identified by name and role, not by
+                        # a minted instrument id -- and a bare {@id} reference already has one.
+                        if resource_kind(i) != "instrument":
                             continue
                         i["@id"] = unique(instrument_id(_type_token(i, "instrument"), scope))
                         n[0] += 1
@@ -216,9 +293,20 @@ def normalize_instrument_tree(inst):
     schema:Product too. Two copies of a rule is two chances to be half-right.
 
     The instrument building block requires, on each node:
-      * @type [schema:Product, schema:Thing] -- on the instrument AND every inline component
-      * on a component: the scientific-instrument Wikidata term, and a schema:name
+      * @type schema:Product -- on the instrument AND every inline component (schema:Thing is
+        emitted beside it; allowed, no longer required)
+      * the measuring-instrument Wikidata term, Q3099911 as the entity IRI -- on the instrument
+        AND every inline component; on the instrument it is also the CDIF KIND term
+      * on a component: a schema:name
       * @type on schema:model / schema:manufacturer
+
+    schema:instrument is not only instruments since 2026-11-11: it holds the computational tools
+    and reagents too, each told apart by its own kind term. So each item is classified first
+    (resource_kind) and given its kind term and default @type; only an instrument gets the
+    instrument treatment. A tool or reagent the builder made from an ada:toolRole /
+    ada:reagentRole selector carries neither, and nothing else could supply them: the base
+    schemas pin each kind's shape with an `if` keyed ON the kind term, so the validator-driven
+    fills never see a requirement to read the type off.
 
     @id is also required -- so a monitored species can name the device, or the PART, that reports
     it -- but it is NOT minted here: an identifier has to be scoped by the document, and this
@@ -233,11 +321,9 @@ def normalize_instrument_tree(inst):
     def walk(node, is_component):
         if not isinstance(node, dict):
             return
-        node.setdefault("@type", ["schema:Product", "schema:Thing"])
+        node.setdefault("@type", list(KIND_DEFAULT_TYPE["instrument"]))
+        set_kind_term(node, "instrument")
         if is_component:
-            at = node.setdefault("schema:additionalType", [])
-            if not any(isinstance(x, dict) and x.get("@id") == WIKIDATA_INSTRUMENT for x in at):
-                at.append({"@id": WIKIDATA_INSTRUMENT})
             node.setdefault("schema:name", "missing")
         m = node.get("schema:model")
         if isinstance(m, dict):
@@ -253,7 +339,12 @@ def normalize_instrument_tree(inst):
             for k, v in n.items():
                 if k == "schema:instrument":
                     for i in (v if isinstance(v, list) else [v]):
-                        walk(i, False)
+                        kind = resource_kind(i)
+                        if kind == "instrument":
+                            walk(i, False)
+                        elif kind:
+                            i.setdefault("@type", list(KIND_DEFAULT_TYPE[kind]))
+                            set_kind_term(i, kind)
                 find(v)
         elif isinstance(n, list):
             for v in n:
@@ -862,14 +953,13 @@ def build_example(tapp, values=None, emit_reported_property=False):
 
     roots = {"MethodDefinition": e.Obj(), "Dataset": e.Obj()}
     pt_seen, pv_seen = set(), set()
-    # base-owned rich-object properties (analyteTemplate, computationalTool, workflow steps, the
-    # instrument tree, the plan's target-material schema:object, relatedLink) need objects the
+    # base-owned rich-object properties (analyteTemplate, workflow steps, the instrument tree --
+    # instruments, computational tools and reagents alike -- the plan's target-material schema:object, relatedLink) need objects the
     # placeholder can't synthesise and are all OPTIONAL in tappDefinition — so omit them from the
     # minimal valid TAPP-side example (the schema still constrains them). Dataset-side (detail)
     # sample/relatedLink are kept: the detail is validated standalone, not against the strict base.
     SKIP_MD = ("ada:targetSpeciesTemplate", "ada:reportedPropertyTemplate", "ada:monitoredPropertyTemplate",
                "ada:targetMaterialTemplate", "ada:standardTemplate",
-               "bios:computationalTool",
                "schema:actionProcess", "schema:instrument", "schema:object", "schema:relatedLink")
     # Publication mode populates the rich objects from real cells. What still stays out are the
     # keyed-table COLUMN DEFINITIONS (analyteColumns/channelColumns/reportedPropertyColumns) — those
@@ -1236,8 +1326,7 @@ def fill_required_types(inst, resolved_schema, max_passes=6):
 
     A schema path names metadata fields, never @type — @type is structural. So any node whose base
     schema discriminates on it comes out incomplete: schema:creator emitted {schema:name} against a
-    CDIF person/organization anyOf that requires @type, and every prov:used entry has the same
-    shape. Rather than hard-code a table of node -> type, this is driven by the validator: each
+    CDIF person/organization anyOf that requires @type, and a workflow step has the same shape. Rather than hard-code a table of node -> type, this is driven by the validator: each
     "'@type' is a required property" error names both the offending node and the branch that wanted
     it, so the fix is read off the schema itself and keeps working as the base schemas change.
 
@@ -1289,7 +1378,7 @@ def _extendable_type(inst, err, rel):
     # Only an ARRAY ELEMENT is const-pinned this way: a registry-def instance sitting in a
     # channelColumns / additionalProperty / variableMeasured array. The document ROOT also carries an
     # @id, and its @type legitimately IS built up from several contains clauses (prov:Plan,
-    # cdi:Activity, ...) - guarding it stripped those and left the root typed by vocabulary terms
+    # schema:Action, ...) - guarding it stripped those and left the root typed by vocabulary terms
     # alone. So require the owner to be an array member before treating its @type as pinned.
     if len(path) < 2 or not isinstance(path[-2], int):
         return True
@@ -1372,20 +1461,22 @@ def fill_structural_gaps(inst, resolved_schema, max_passes=6):
                     if isinstance(at, str) and not any(
                             isinstance(x, dict) and at in (x.get("schema:additionalType") or []) for x in node):
                         stub = {"schema:additionalType": [at]}
-                        # borrow @type from a sibling component so the stub is a valid instrument part
-                        # in this same pass (fill_required_types may already have run).
-                        sib = next((x for x in node if isinstance(x, dict) and "@type" in x), None)
-                        if sib:
-                            stub["@type"] = list(sib["@type"]) if isinstance(sib["@type"], list) else sib["@type"]
-                        # …and the term reference its siblings carry. The instrument-component
-                        # branch requires additionalType to contain the Wikidata scientific-instrument
-                        # IRI; a stub with only its own token matched no branch, so the component the
-                        # sidecar asked for was added and then failed validation.
-                        ref = next((t for x in node if isinstance(x, dict)
-                                    for t in (x.get("schema:additionalType") or [])
-                                    if isinstance(t, dict) and t.get("@id")), None)
-                        if ref:
-                            stub["schema:additionalType"].append(dict(ref))
+                        # borrow @type from a sibling INSTRUMENT so the stub is a valid instrument
+                        # (or part) in this same pass (fill_required_types may already have run).
+                        # Instruments only: a stub selected by an additionalType token is an
+                        # instrument, and since 2026-11-11 its siblings in schema:instrument may be
+                        # tools and reagents, whose @type and kind term borrowed here made the
+                        # stub a "SoftwareApplication" named SEM.
+                        sib = next((x for x in node if isinstance(x, dict) and "@type" in x
+                                    and resource_kind(x) == "instrument"), None)
+                        stub["@type"] = (list(sib["@type"]) if sib and isinstance(sib["@type"], list)
+                                         else sib["@type"] if sib
+                                         else list(KIND_DEFAULT_TYPE["instrument"]))
+                        # …and the Wikidata measuring-instrument term. The instrument-component
+                        # branch requires additionalType to contain it, and on an instrument it is
+                        # also the CDIF kind term; a stub with only its own token matched no branch,
+                        # so the component the sidecar asked for was added and then failed.
+                        set_kind_term(stub, "instrument")
                         # the component branch requires schema:name; the comment above assumed a
                         # later pass would supply it, but nothing does for a nested hasPart. Name it
                         # after the token that made it necessary.

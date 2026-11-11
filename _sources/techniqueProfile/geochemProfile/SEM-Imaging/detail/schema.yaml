@@ -250,140 +250,140 @@ allOf:
                           $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: ../../../../BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: ../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: ../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: SEM
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: ../../../../BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: SEM
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - &id008
-                                      title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage in kilovolts.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - &id009
-                                      title: Working Distance
-                                      description: Distance between the objective lens pole piece and the specimen surface in millimetres.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/workingDistance
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/workingDistance
-                                        schema:name:
-                                          const: Working Distance
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - &id010
-                                      title: Mapping Beam Current
-                                      description: 'Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.'
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains: *id008
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id009
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id010
-                                    minContains: 0
-                                    maxContains: 1
-                      allOf:
-                      - contains:
+                        anyOf:
+                        - &id008
+                          title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts.
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: SEM
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - &id009
+                          title: Working Distance
+                          description: Distance between the objective lens pole piece and the specimen surface in millimetres.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/workingDistance
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/workingDistance
+                            schema:name:
+                              const: Working Distance
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - &id010
+                          title: Mapping Beam Current
+                          description: 'Electron beam probe current used while the beam scans an area: an X-ray or CL map, an EBSD map, or an SE or BSE image, including images taken during FIB-SEM work. For sub-nA values use decimal notation (e.g., 0.4 nA). Ion-beam currents used for milling belong in the milling condition fields.'
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                      allOf:
+                      - contains: *id008
+                        minContains: 0
+                        maxContains: 1
+                      - contains: *id009
+                        minContains: 0
+                        maxContains: 1
+                      - contains: *id010
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: SEM
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:actionProcess:
             type: object
             properties:

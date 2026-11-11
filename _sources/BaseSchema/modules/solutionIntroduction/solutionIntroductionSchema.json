@@ -32,18 +32,76 @@
                                         },
                                         "then": {
                                             "properties": {
-                                                "bios:reagent": {
+                                                "schema:instrument": {
                                                     "type": "array",
                                                     "items": {
                                                         "type": "object",
-                                                        "properties": {
-                                                            "schema:name": {
-                                                                "description": "Acid mixture used for sample dissolution. Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3 in Parr bombs is standard for silicate dissolution).",
-                                                                "type": "string"
+                                                        "allOf": [
+                                                            {
+                                                                "if": {
+                                                                    "properties": {
+                                                                        "ada:reagentRole": {
+                                                                            "const": "reagent"
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "ada:reagentRole"
+                                                                    ]
+                                                                },
+                                                                "then": {
+                                                                    "properties": {
+                                                                        "schema:name": {
+                                                                            "description": "Acid mixture used for sample dissolution. Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3 in Parr bombs is standard for silicate dissolution).",
+                                                                            "anyOf": [
+                                                                                {
+                                                                                    "type": "string"
+                                                                                },
+                                                                                {
+                                                                                    "type": "array",
+                                                                                    "items": {
+                                                                                        "type": "string"
+                                                                                    }
+                                                                                }
+                                                                            ]
+                                                                        }
+                                                                    },
+                                                                    "required": [
+                                                                        "schema:name"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "if": {
+                                                                    "type": "object",
+                                                                    "required": [
+                                                                        "schema:additionalType"
+                                                                    ],
+                                                                    "properties": {
+                                                                        "schema:additionalType": {
+                                                                            "type": "array",
+                                                                            "contains": {
+                                                                                "type": "object",
+                                                                                "required": [
+                                                                                    "@id"
+                                                                                ],
+                                                                                "properties": {
+                                                                                    "@id": {
+                                                                                        "enum": [
+                                                                                            "https://www.wikidata.org/entity/Q2356542",
+                                                                                            "wd:Q2356542"
+                                                                                        ]
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "then": {
+                                                                    "required": [
+                                                                        "ada:reagentRole"
+                                                                    ]
+                                                                }
                                                             }
-                                                        },
-                                                        "required": [
-                                                            "schema:name"
                                                         ]
                                                     }
                                                 }

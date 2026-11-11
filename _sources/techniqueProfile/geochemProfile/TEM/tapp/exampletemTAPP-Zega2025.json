@@ -10,10 +10,10 @@
   "@id": "ex:temTAPP-Zega2025",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "tem protocol — Zega2025",
   "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map).",
@@ -56,7 +56,6 @@
         ],
         "schema:description": "FIB lift-out (Ga ion)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -83,7 +82,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -128,7 +126,7 @@
       "schema:additionalType": [
         "TEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:manufacturer": {
@@ -148,7 +146,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Cold-FEG",
@@ -163,7 +161,7 @@
           "schema:additionalType": [
             "Aberration Corrector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Probe Cs-corrected (STEM)",
@@ -178,7 +176,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Oxford Instruments X-Max N100 TLE EDS; dual 100 mm² windowless SDDs; Ω = 2.0 sr",
@@ -193,7 +191,7 @@
           "schema:additionalType": [
             "EELS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Gatan Quantum EELS (post-column)",
@@ -208,7 +206,7 @@
           "schema:additionalType": [
             "Imaging Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "BF, DF, SE STEM detectors; Gatan OneView 4096×4096 CMOS camera",
@@ -227,7 +225,7 @@
           "schema:additionalType": [
             "4D-STEM Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -241,7 +239,7 @@
           "schema:additionalType": [
             "Monochromator",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -255,6 +253,18 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:temTAPP-Zega2025/instrument/TEM"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS and EELS",
@@ -358,12 +368,6 @@
     }
   ],
   "ada:samplingUnitType": "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "CRISP (SAED analysis); Adobe Photoshop (d-spacing measurement from calibrated camera constants)"
-    }
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

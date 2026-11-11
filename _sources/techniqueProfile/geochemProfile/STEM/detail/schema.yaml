@@ -198,104 +198,104 @@ allOf:
                           $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: ../../../../BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: ../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: ../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: STEM
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: ../../../../BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: STEM
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - &id006
-                                      title: Magnification
-                                      description: Nominal magnification.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/stemTAPP/magnification
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/stemTAPP/magnification
-                                        schema:name:
-                                          const: Magnification
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - &id007
-                                      title: Camera Length
-                                      description: Camera length.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/stemTAPP/cameraLength
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/stemTAPP/cameraLength
-                                        schema:name:
-                                          const: Camera Length
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains: *id006
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains: *id007
-                                    minContains: 0
-                                    maxContains: 1
-                      allOf:
-                      - contains:
+                        anyOf:
+                        - &id006
+                          title: Magnification
+                          description: Nominal magnification.
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: STEM
+                            '@id':
+                              const: ada:parameter/stemTAPP/magnification
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/stemTAPP/magnification
+                            schema:name:
+                              const: Magnification
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - &id007
+                          title: Camera Length
+                          description: Camera length.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/stemTAPP/cameraLength
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/stemTAPP/cameraLength
+                            schema:name:
+                              const: Camera Length
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                      allOf:
+                      - contains: *id006
+                        minContains: 0
+                        maxContains: 1
+                      - contains: *id007
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: STEM
+                required:
+                - schema:additionalType
       title: Analysis Events
     schema:distribution:
       type: object

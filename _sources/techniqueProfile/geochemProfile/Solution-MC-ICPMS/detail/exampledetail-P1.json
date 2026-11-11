@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -73,7 +72,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -83,7 +81,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -117,184 +114,181 @@
           "schema:description": "no value available: schema:description"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "Sample Introduction System",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "Sample Introduction System",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
-                        }
-                      ],
-                      "schema:name": "Sample Uptake Rate",
-                      "schema:value": 50,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "50 µL/min"
-                    },
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Nebulizer Gas Flow Rate",
-                      "schema:value": 0.8,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "~0.8–0.9 L/min Ar (sample gas)"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS/part/Sample-Introduction-System"
-                },
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1150,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "~1150 W"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "~15 L/min Ar"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.8,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "~0.8 L/min Ar"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "Wash-out 2 min for solution"
+                  "schema:name": "Sample Uptake Rate",
+                  "schema:value": 50,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "50 µL/min"
                 },
                 {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor",
+                  "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                     }
                   ],
-                  "schema:name": "Doubly-Charged Species Monitor",
-                  "schema:value": "N — ⁶⁴Zn²⁺, ⁶⁶Zn²⁺ and ⁶⁸Zn²⁺ are listed as interferences on the S masses, Table 2, p.4, and resolved by mass resolution, p.5; no M²⁺ tuning monitor or production ratio is stated"
+                  "schema:name": "Nebulizer Gas Flow Rate",
+                  "schema:value": 0.8,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "~0.8–0.9 L/min Ar (sample gas)"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS"
+              "schema:name": "missing",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS/part/Sample-Introduction-System"
+            },
+            {
+              "schema:additionalType": [
+                "ICP Source",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1150,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "~1150 W"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "~15 L/min Ar"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.8,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "~0.8 L/min Ar"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "missing",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS/part/ICP-Source"
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS/part/Collision-Reaction-Cell"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "Wash-out 2 min for solution"
+            },
+            {
+              "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                }
+              ],
+              "schema:name": "Doubly-Charged Species Monitor",
+              "schema:value": "N — ⁶⁴Zn²⁺, ⁶⁶Zn²⁺ and ⁶⁸Zn²⁺ are listed as interferences on the S masses, Table 2, p.4, and resolved by mass resolution, p.5; no M²⁺ tuning monitor or production ratio is stated"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }

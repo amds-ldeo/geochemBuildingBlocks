@@ -1754,7 +1754,7 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
     }
     parts["@id"] = epma_id
     parts["@type"] = [
-        "prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol",
+        "prov:Plan", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol", "schema:HowTo",
     ]
     parts["schema:name"] = ""
     parts["schema:description"] = CFG["example_description_template"].format(pub_label=pub_label)
@@ -1864,18 +1864,21 @@ def example_for_pub(pub_index: int, pub_label: str, rows: list[dict],
             continue
         if item == "Analytical Software":
             for tool in [t.strip() for t in str(val).split("|") if t.strip()]:
-                parts.setdefault("bios:computationalTool", []).append({
+                # a schema:instrument item of the software kind (2026-11-11)
+                parts.setdefault("schema:instrument", []).append({
                     "@type": ["schema:SoftwareApplication"],
+                    "schema:additionalType": [{"@id": "https://www.wikidata.org/entity/Q7397"}],
                     "schema:name": tool,
                     "ada:toolRole": "acquisition",
                 })
             continue
         if item == "Data Reduction Software":
             for tool in [t.strip() for t in str(val).split("|") if t.strip()]:
-                parts.setdefault("bios:computationalTool", []).append({
+                parts.setdefault("schema:instrument", []).append({
                     "@type": ["schema:SoftwareApplication"],
+                    "schema:additionalType": [{"@id": "https://www.wikidata.org/entity/Q7397"}],
                     "schema:name": tool,
-                    "ada:toolRole": "reduction",
+                    "ada:toolRole": "dataReduction",
                 })
             continue
 
@@ -2119,9 +2122,10 @@ def variable_measured_from_default_analytes(pub_label: str, default_analytes: li
 
 
 def _instrument_for_provused(tapp_instrument: dict | None) -> dict:
-    """Adapt a TAPP-level schema:instrument record into a prov:used entry. Adds
-    schema:Thing + schema:Product to @type and ensures the additionalType
-    contains the instrument-class markers expected by the profile schema."""
+    """Adapt a TAPP-level schema:instrument record into an activity schema:instrument item.
+    Adds schema:Thing + schema:Product to @type and ensures the additionalType
+    contains the instrument-class markers expected by the profile schema, including the
+    Wikidata kind term. (The name is historical: until 2026-11-11 the item went in prov:used.)"""
     # NOTE: this is only invoked from the epmaTAPP profile-example builder
     # (build_adaEPMA_example / emit_adaEPMA_examples), which is gated by
     # CFG["emit_profile_examples"] = True for epmaTAPP only. The literal
@@ -2130,6 +2134,7 @@ def _instrument_for_provused(tapp_instrument: dict | None) -> dict:
         ("@type", ["schema:Thing", "schema:Product"]),
         ("schema:additionalType", [
             {"@id": "nxs:base_classes/NXinstrument.html"}, "ada:EPMAInstrument",
+            {"@id": "https://www.wikidata.org/entity/Q3099911"},
         ]),
         ("schema:name", "EPMA Instrument"),
         ("schema:identifier", ["ex:instrument-epma-001"]),
@@ -2201,7 +2206,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
 
     Composes:
       - schema:variableMeasured: derived from tapp.ada:targetSpeciesTemplate.ada:defaultTargetSpecies
-      - prov:wasGeneratedBy[].prov:used: from tapp.schema:instrument
+      - prov:wasGeneratedBy[].schema:instrument: from tapp.schema:instrument
       - prov:wasGeneratedBy[].schema:location: from tapp.schema:location
       - prov:wasGeneratedBy[].schema:object: synthesized MaterialSample referencing tapp.schema:object
       - schema:distribution[].schema:hasPart[]: an EPMAQEATabular file carrying
@@ -2295,7 +2300,7 @@ def profile_example_for_pub(pub_label: str, pub_citation: str,
         ("@type", ["prov:Activity", "schema:Action"]),
         ("schema:identifier", f"session-epma-{pub_label.lower()}"),
         ("schema:startTime", "2026-04-29T09:00:00Z"),
-        ("prov:used", [_instrument_for_provused(tapp_ex.get("schema:instrument"))]),
+        ("schema:instrument", [_instrument_for_provused(tapp_ex.get("schema:instrument"))]),
         ("schema:location", _location_for_provused(tapp_ex.get("schema:location"))),
         ("schema:object", [_sample_for_provused(tapp_object_first, pub_label)]),
     ])]

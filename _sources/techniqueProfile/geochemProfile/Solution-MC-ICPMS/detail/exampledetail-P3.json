@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -59,7 +58,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -69,7 +67,6 @@
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -157,17 +154,32 @@
         ],
         "schema:name": "University of Chicago"
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "BCR-2 — 'processed with the CAIs'",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "BCR-2 — 'processed with the CAIs'",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
+        },
+        {
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "ICPMS",
+          "@id": "ex:solutionMcicpmsTAPP-detail-P3/instrument/ICPMS"
         }
       ],
       "schema:endTime": "no value available: schema:endTime",

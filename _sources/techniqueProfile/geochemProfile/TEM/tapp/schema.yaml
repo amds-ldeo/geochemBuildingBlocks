@@ -550,6 +550,40 @@ allOf:
             - ada:acceleratingVoltageDefault
             - schema:manufacturer
             - schema:model
+        - if:
+            properties:
+              ada:toolRole:
+                const: dataReduction
+            required:
+            - ada:toolRole
+          then:
+            properties:
+              schema:name:
+                description: Software used to simulate electron diffraction patterns for comparison with experimental SAED patterns during phase identification (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements the Acquisition Software field, which covers data collection; simulation software is used at the interpretation and data processing step.
+                anyOf:
+                - type: string
+                - type: array
+                  items:
+                    type: string
+        - if:
+            type: object
+            required:
+            - schema:additionalType
+            properties:
+              schema:additionalType:
+                type: array
+                contains:
+                  type: object
+                  required:
+                  - '@id'
+                  properties:
+                    '@id':
+                      enum:
+                      - https://www.wikidata.org/entity/Q7397
+                      - wd:Q7397
+          then:
+            required:
+            - ada:toolRole
       allOf:
       - contains:
           properties:
@@ -1519,28 +1553,6 @@ allOf:
       - N/A
       - missing
       schema:inDefinedTermSet: ada:vocab/spectroscopic-detector
-    bios:computationalTool:
-      type: array
-      items:
-        type: object
-        allOf:
-        - if:
-            properties:
-              ada:toolRole:
-                const: dataReduction
-            required:
-            - ada:toolRole
-          then:
-            properties:
-              schema:name:
-                description: Software used to simulate electron diffraction patterns for comparison with experimental SAED patterns during phase identification (e.g., SingleCrystal, CrystalMaker, JEMS, DIFPACK). Complements the Acquisition Software field, which covers data collection; simulation software is used at the interpretation and data processing step.
-                anyOf:
-                - type: string
-                - type: array
-                  items:
-                    type: string
-        required:
-        - ada:toolRole
     ada:analyticalSubModeDefault:
       description: Sub-mode(s) of imaging or diffraction performed under this procedure. Multiple values apply when the procedure covers more than one sub-mode within a given analytical mode.
       anyOf:

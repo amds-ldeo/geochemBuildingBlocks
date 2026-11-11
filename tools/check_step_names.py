@@ -10,7 +10,7 @@ silently. A profile attaches per-step constraints with
 so a step named anything else does not match the `if`, no `then` applies, and the step
 accepts arbitrary content. Where a profile ALSO requires the step by name via `contains`,
 that requirement can itself sit under an outer conditional the record never triggers -- one
-keyed on an ada:TAPPDefinition in prov:used, say -- so nothing fails at all.
+keyed on the TAPP the record links, say -- so nothing fails at all.
 
 Measured 2026-09-13: exampleadaSolutionMCICPMS-ETHZ-20240903.json named its acquisition step
 "Acquisition" rather than the pinned "Data acquisition" and validated with ZERO errors while

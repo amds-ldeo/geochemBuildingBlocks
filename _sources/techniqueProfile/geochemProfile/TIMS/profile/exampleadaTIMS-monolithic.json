@@ -167,37 +167,28 @@
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaTIMS-monolithic-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:timsTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaTIMS-monolithic-001/instrument/instrument"
         }
       ],
       "schema:location": {
@@ -227,7 +218,10 @@
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@id": "ex:timsTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -293,26 +287,6 @@
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ex:var/Calibration-Factor-and-Determination-Method",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [

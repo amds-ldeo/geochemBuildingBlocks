@@ -11,9 +11,10 @@ It composes the CDIF profiles and adds the generic geochem surface:
   applied only when a distribution is a `schema:Collection`), and `cdifProvenance`.
 - **Analysis events** (`prov:wasGeneratedBy`) — the instruments, computational tools,
   and reagents actually used; the laboratory (`schema:location`); the samples analysed
-  (`schema:object`); the session identifier and timing. `prov:used` uses the CDIF
-  role-keyed wrapper model (constraint-only `if/then` pins for `schema:instrument`,
-  `bios:computationalTool`, `bios:reagent`, and an inline/`@id` `tappDefinition`).
+  (`schema:object`); the session identifier and timing. What was used is
+  `schema:instrument`, one array told apart by Wikidata kind term (constraint-only
+  `if/then` pins per kind), and the TAPP followed is `schema:actionProcess {"@id"}`
+  (or `schema:isBasedOn` on the activity's own workflow).
 - **Variables measured** (`schema:variableMeasured`) — extends `cdifInstanceVariable`
   with description, alternate names, measurement technique, units, and value bounds.
 - **Coverage** — `schema:spatialCoverage`, `schema:temporalCoverage`,
@@ -29,6 +30,6 @@ a record self-declares the full profile chain.
 
 ## Shared `$defs`
 
-`UsedComputationalTool` and `UsedReagent` (the actual-tool / actual-reagent shapes used
-in `prov:used`) are defined here and re-exported by `adaProduct` for backward
+`UsedComputationalTool` and `UsedReagent` (the actual-tool / actual-reagent shapes of
+the software and reagent items of an activity's `schema:instrument`) are defined here and re-exported by `adaProduct` for backward
 compatibility with technique profiles that reference them.

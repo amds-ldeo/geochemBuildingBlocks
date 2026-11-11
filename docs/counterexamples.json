@@ -88,7 +88,7 @@
       "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic-tabular.json",
       "mutate": {
         "op": "remove",
-        "pointer": "/prov:wasGeneratedBy/0/prov:used/0/schema:instrument/0/@id"
+        "pointer": "/prov:wasGeneratedBy/0/schema:instrument/0/@id"
       },
       "expect": "@id",
       "why": "@id is REQUIRED on an instrument (and on an inline schema:hasPart component) because a monitored species has to be able to name the device that reports it. Generated ids are ex:instrument/<Token>, stable across regenerations. Without the requirement the reference target simply does not exist and nothing points anywhere."
@@ -163,12 +163,11 @@
         "op": "set",
         "pointer": "/schema:actionProcess/schema:step/1/@type",
         "value": [
-          "cdi:Activity",
           "schema:Action"
         ]
       },
       "expect": "@type",
-      "why": "A workflow step must carry all THREE @type members. cdi:Activity and schema:Action give the DDI-CDI and schema.org process semantics; schema:HowToStep is what schema.org expects of a schema:step value on a schema:HowTo, and the base cdifProvActivity requires it too. The two sides disagreed for a long time without anything failing -- 565 steps carried the first two and 15 carried HowToStep alone, depending on which emitter wrote them. This case fails the moment the third member stops being required."
+      "why": "A workflow step must carry BOTH @type members, schema:Action and schema:HowToStep. schema:Action gives the schema.org process semantics; schema:HowToStep is what schema.org expects of a schema:step value on a schema:HowTo, and the base cdifProvActivity requires it too. The two sides disagreed for a long time without anything failing -- 565 steps carried cdi:Activity + schema:Action and 15 carried HowToStep alone, depending on which emitter wrote them. This case fails the moment HowToStep stops being required. (cdi:Activity was a third required member until 2026-11-11, when it was dropped from TAPPs and steps.)"
     },
     {
       "id": "sample-prep-id-form-must-still-discriminate",
@@ -273,76 +272,204 @@
       "why": "Guards the NULL allowance from widening into a text allowance. minVal/maxVal are [number, 'null'] and displayInVizTool is [boolean, 'null'] because a null means \"not recorded\" in ADA's stored subjects (Stephen, 2026-10-21) -- but a STRING there is the HeaderRowCount class of defect, which this collection exists to describe rather than adopt. The allowance is exercised by exampleColumn-nullRange.json and by nothing else in the repo, so losing it would be invisible to every other check -- the same blind spot as the schema:name-to-schema:identifier substitute line (docs/SILENT_SUCCESS.md #8), where one static example is the only positive evidence a relaxation still exists. This case is the negative half: if it ever passes, the allowance has stopped being about absence."
     },
     {
-      "id": "tappdef-link-is-role-keyed-and-its-value-pinned",
-      "example": "_sources/techniqueProfile/geochemProfile/XRD/profile/exampleadaXRD.json",
-      "mutate": {
-        "op": "set",
-        "pointer": "/prov:wasGeneratedBy/0/prov:used/1/ada:tappDefinition",
-        "value": {
-          "@id": "ex:xrdTAPP-P0",
-          "ada:bogus": "x"
-        }
-      },
-      "expect": "ada:tappDefinition",
-      "why": "geochemProduct links an analysis to the protocol it followed through the ROLE-KEYED property ada:tappDefinition, and pins what may sit under that key: either a closed {@id} reference, or the TAPP plan inline. This mutation keeps the key and the @id and adds one extra property to the value, so it satisfies NEITHER branch -- the reference branch is additionalProperties:false, and the inline branch wants the whole TAPP schema. If this ever passes, the key has stopped constraining its value and `ada:tappDefinition` has become a label on an arbitrary object. That is not a hypothetical shape of failure: the branch this replaced keyed on @type containing ada:TAPPDefinition, and the base admits the new wrapper BY SHAPE (metadataBuildingBlocks#52 -- propertyNames over a CURIE pattern, deliberately permissive so a profile can define its own roles), so the only thing standing between this key and 'any object at all' is the profile branch this case tests. Note what it does NOT assert: the superseded {@id, @type: [... ada:TAPPDefinition]} spelling still validates, because rejecting it would invalidate the 7,263 of 7,447 ADA records that use it."
-    },
-    {
       "id": "tappdef-inline-old-spelling-is-closed-off",
       "example": "_sources/techniqueProfile/geochemProfile/XRD/profile/exampleadaXRD.json",
       "mutate": {
-        "op": "set",
-        "pointer": "/prov:wasGeneratedBy/0/prov:used/1",
-        "value": {
-          "@id": "ex:xrdTAPP-P0",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ],
-          "schema:name": "XRD analytical procedure"
-        }
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used",
+        "value": [
+          {
+            "@id": "ex:xrdTAPP-P0",
+            "@type": [
+              "prov:Entity",
+              "prov:Plan",
+              "ada:TAPPDefinition"
+            ],
+            "schema:name": "XRD analytical procedure"
+          }
+        ]
       },
-      "expect": "ada:tappDefinition",
-      "why": "The role-keyed ada:tappDefinition wrapper REPLACES the superseded spelling that carried the role in @type, and this asserts the replacement is enforced by the schema rather than merely observed in what the generator emits -- which it was, for one commit: the old form validated with zero errors. The mutation writes an INLINE plan in the old spelling (@type containing ada:TAPPDefinition, plus the schema:name that once distinguished a plan from a reference) and it must be rejected for want of the role key. NOTE WHAT CHANGED: when this case was written the guard was narrowed by schema:name so that a plain {@id, @type} REFERENCE stayed valid, because 7,263 of 7,447 ADA records used it. The migration completed 2026-10-24 -- zero in ada_subjects AND production ada2 -- so the guard was widened to catch both spellings and the reference form is now closed off too; see tappdef-old-reference-form-is-closed-off, which is the companion case. This one remains distinct because an inline plan fails for MORE reasons than a reference does, and a case that fails for many reasons can hide the loss of one."
+      "expect": "ada:TAPPDefinition",
+      "why": "The TAPP link is schema:actionProcess (or schema:isBasedOn on the event's workflow) since 2026-11-11, and a TAPP is not a prov:used entity. This writes an INLINE plan in the oldest spelling -- a prov:used item typed ada:TAPPDefinition, plus the schema:name that once told a plan from a reference -- and it must be rejected on that type. It carries an @id, so the CDIF core's prov:used shape (strings and @id references) accepts it: geochemBaseProfile's close-off is the only thing that can reject it. Kept distinct from tappdef-old-reference-form-is-closed-off because an inline plan fails for more reasons than a reference does, and a case that fails for many reasons can hide the loss of one. History: the role in @type was superseded by the ada:tappDefinition wrapper in #190 and closed off once both stores read zero (2026-10-24); the wrapper was then superseded by schema:actionProcess."
     },
     {
       "id": "tappdef-old-reference-form-is-closed-off",
       "example": "_sources/techniqueProfile/geochemProfile/EPMA/profile/exampleadaEPMA.json",
       "mutate": {
-        "op": "set",
-        "pointer": "/prov:wasGeneratedBy/0/prov:used/1",
-        "value": {
-          "@id": "https://lab.example/procedure/epma-1",
-          "@type": [
-            "prov:Entity",
-            "prov:Plan",
-            "ada:TAPPDefinition"
-          ]
-        }
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used",
+        "value": [
+          {
+            "@id": "https://lab.example/procedure/epma-1",
+            "@type": [
+              "prov:Entity",
+              "prov:Plan",
+              "ada:TAPPDefinition"
+            ]
+          }
+        ]
       },
-      "expect": "ada:tappDefinition",
-      "why": "The superseded {@id, @type} REFERENCE spelling of the TAPP link is closed off, completing what #192 began. It deliberately stayed VALID until 2026-10-24 because 7,263 of 7,447 ADA records used it, and a schema that rejects the corpus it describes is one nobody can deploy; the migration then took it to zero in ada_subjects AND production ada2, which is what retired that justification. The mutation writes a bare {@id, @type} reference -- no schema:name, so it is a reference and not an inline plan -- and it must be rejected for want of the role key. If this case ever passes, the supersession has come undone in the direction that matters most: the reference form is what every pre-migration record carried, so re-accepting it would silently re-admit a whole generation of records. It is also the tripwire for a store restored from a pre-migration backup, which is the one situation where nobody would otherwise be told."
+      "expect": "ada:TAPPDefinition",
+      "why": "The superseded {@id, @type} REFERENCE spelling of the TAPP link stays closed off. It is the one old form the CDIF core's prov:used shape ACCEPTS -- it carries an @id -- so geochemBaseProfile's close-off on an item typed ada:TAPPDefinition is all that stands between it and a silent pass. It was the form every pre-#190 record carried (7,263 of 7,447 in ada2), so re-accepting it would silently re-admit a whole generation of records; it is also the tripwire for a store restored from a pre-migration backup, the one situation where nobody would otherwise be told."
     },
     {
       "id": "reagent-old-prov-key-is-closed-off",
       "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
       "mutate": {
         "op": "add",
-        "pointer": "/prov:wasGeneratedBy/0/prov:used/-",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used",
+        "value": [
+          {
+            "prov:reagent": [
+              {
+                "@type": [
+                  "schema:DefinedTerm"
+                ],
+                "schema:name": "NIST SRM 610",
+                "ada:reagentRole": "secondaryStandard"
+              }
+            ]
+          }
+        ]
+      },
+      "expect": "prov:reagent",
+      "why": "prov:reagent was superseded by bios:reagent (metadataBuildingBlocks#53; PROV-O defines no reagent term), and the bios:reagent wrapper by a schema:instrument item of the reagent kind (2026-11-11). The mutation ADDS a prov:used holding a wrapper under the oldest key, so nothing else in the instance changes. The CDIF core rejects any wrapper (it has no @id) -- this case pins that geochemBaseProfile ALSO closes the key off by name, so the rejection says which key is superseded rather than only that an item lacks an @id."
+    },
+    {
+      "id": "tapp-link-reference-is-sealed",
+      "example": "_sources/techniqueProfile/geochemProfile/XRD/profile/exampleadaXRD.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/schema:actionProcess",
         "value": {
-          "prov:reagent": [
-            {
-              "@type": [
-                "schema:DefinedTerm"
-              ],
-              "schema:name": "NIST SRM 610",
-              "ada:reagentRole": "secondaryStandard"
-            }
-          ]
+          "@id": "ex:xrdTAPP-P0",
+          "ada:bogus": "x"
         }
       },
-      "expect": "bios:reagent",
-      "why": "The prov:used reagent role key is bios:reagent; the superseded prov:reagent is closed off in geochemProduct (PROV-O defines no reagent term, Bioschemas does, and the TAPP plan already used bios:reagent; upstream CDIF made the same rename in metadataBuildingBlocks#53). The mutation ADDS a reagent wrapper spelled with the old key rather than renaming an existing one, so nothing else in the instance changes and the close-off is the only thing that can reject it -- measured: the same item under bios:reagent validates with 0 errors, under prov:reagent it fails with exactly 1, naming bios:reagent. Without the close-off the old key would still validate, because CDIF admits any CURIE-named role wrapper generically, so losing it would silently re-admit the old spelling. Rejecting outright was safe because prov:reagent occurred 0 times in every JSON column of ada2, ada_subjects and method_registry before the change."
+      "expect": "schema:actionProcess",
+      "why": "An analysis event links the TAPP it followed with a SEALED reference: schema:actionProcess {\"@id\"} when it records no workflow, or schema:isBasedOn {\"@id\"} on its own inline HowTo (the CDIF plan link, 2026-11-11). This keeps the @id and adds one extra property, so the value is no longer a bare reference. If this ever passes, the link has stopped constraining its value and has become a label on an arbitrary object -- the same failure the predecessor case (tappdef-link-is-role-keyed-and-its-value-pinned) guarded on the ada:tappDefinition wrapper, whose sealed {@id} branch this replaces. geochemBaseProfile states the seal itself rather than relying on cdifProvActivity's own objectReference branch for schema:actionProcess, which the vendored copy of metadataBuildingBlocks#81 does not currently apply (a mis-indented anyOf swallows that property block)."
+    },
+    {
+      "id": "tapp-link-isBasedOn-is-sealed",
+      "example": "_sources/BaseSchema/geochemBaseProfile/examplegeochemBaseProfile.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/schema:actionProcess/schema:isBasedOn",
+        "value": {
+          "@id": "ex:solutionQicpmsTAPP-P0",
+          "schema:name": "inline"
+        }
+      },
+      "expect": "schema:isBasedOn",
+      "why": "The other half of the TAPP link: when the analysis event records its own workflow, schema:actionProcess is that inline HowTo and the HowTo names the TAPP with schema:isBasedOn (option (i), decided 2026-11-11). That reference is sealed like the bare one; a value carrying anything beside its @id must be rejected, or isBasedOn becomes a slot for an inline plan, which the stores have none of and the schema no longer admits anywhere. This is the only example exercising the form -- generated profile examples carry no inline workflow -- so the pin is invisible to every positive gate."
+    },
+    {
+      "id": "used-wrapper-tappDefinition-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/EPMA/profile/exampleadaEPMA.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used",
+        "value": [
+          {
+            "ada:tappDefinition": {
+              "@id": "ex:epmaTAPP-P0"
+            }
+          }
+        ]
+      },
+      "expect": "ada:tappDefinition",
+      "why": "The ada:tappDefinition role-keyed wrapper -- the TAPP link from #190 until 2026-11-11, and the form 7,363 of 7,447 ada2 records carry at that date -- is superseded by schema:actionProcess {\"@id\"}. It must be rejected, by name, until and after the stores are migrated: a regressed writer would otherwise pass on the CDIF core's rejection alone, which says only that an item lacks an @id."
+    },
+    {
+      "id": "used-wrapper-instrument-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used",
+        "value": [
+          {
+            "schema:instrument": [
+              {
+                "@id": "ex:instrument/elsewhere"
+              }
+            ]
+          }
+        ]
+      },
+      "expect": "schema:instrument",
+      "why": "An instrument is an item of the ACTIVITY's schema:instrument, not of a prov:used wrapper keyed schema:instrument (the 2026-08 role-keyed model, 260 such wrappers in the examples when it was retired on 2026-11-11). Wrapping a bare reference is the case that matters: everything inside the wrapper is valid, so only the close-off of the key can reject it."
+    },
+    {
+      "id": "used-wrapper-tool-is-closed-off",
+      "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/prov:wasGeneratedBy/0/prov:used",
+        "value": [
+          {
+            "bios:computationalTool": [
+              {
+                "@type": [
+                  "schema:SoftwareApplication"
+                ],
+                "schema:name": "Iolite",
+                "ada:toolRole": "dataReduction"
+              }
+            ]
+          }
+        ]
+      },
+      "expect": "bios:computationalTool",
+      "why": "A computational tool is a schema:instrument item of the software kind (Wikidata Q7397) since 2026-11-11, not a prov:used wrapper keyed bios:computationalTool. Closed off by name, so a regressed writer is told which key is superseded."
+    },
+    {
+      "id": "tappdef-direct-tool-is-closed-off",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/bios:computationalTool",
+        "value": [
+          {
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
+            "schema:name": "Probe for EPMA",
+            "ada:toolRole": "acquisition"
+          }
+        ]
+      },
+      "expect": "bios:computationalTool",
+      "why": "A plan's computational tools are schema:instrument items of the software kind since 2026-11-11; the direct Bioschemas property is closed off, so a plan written the old way fails by name instead of passing on an open object. 133 method_registry TAPPs carried it when it was superseded; they are migrated before publication."
+    },
+    {
+      "id": "workflow-step-prov-used-is-closed-off",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/schema:actionProcess/schema:step/1/prov:used",
+        "value": [
+          {
+            "@id": "ex:prepared-sample"
+          }
+        ]
+      },
+      "expect": "prov:used",
+      "why": "A workflow step's inputs are schema:object since 2026-11-11 (one value or an array of sealed references, the shape prov:used had); prov:used on a step is closed off. A step is not a cdifProvActivity, so nothing else would constrain the old key at all."
+    },
+    {
+      "id": "used-item-needs-a-kind-term",
+      "example": "_sources/techniqueProfile/geochemProfile/LA-MC-ICPMS/profile/exampleadaLAMCICPMS.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/schema:instrument/0/schema:additionalType",
+        "value": [
+          {
+            "@id": "nxs:base_classes/NXinstrument.html"
+          }
+        ]
+      },
+      "expect": "schema:additionalType",
+      "why": "Every schema:instrument item described in place must carry exactly one Wikidata kind term -- Q3099911, Q7397 or Q2356542, as the entity IRI -- because the kind is what pins its shape (CDIF cdifProvActivity, 2026-11-11). An instrument stripped of its term matches no kind, so neither CDIF's Instrument nor geochem's instrument block (with its required @id) would apply to it; it must be rejected rather than slip through every pin. The /wiki/ page URL that instruments carried before is rejected the same way."
     },
     {
       "id": "activity-startdate-is-closed-off",
@@ -379,7 +506,11 @@
     {
       "id": "laboratory-nxsource-is-closed-off",
       "example": "_sources/BaseSchema/adaProduct/exampleadaProduct-monolithic.json",
-      "mutate": { "op": "set", "pointer": "/prov:wasGeneratedBy/0/schema:location/schema:additionalType/0/@id", "value": "nxs:base_classes/NXsource.html" },
+      "mutate": {
+        "op": "set",
+        "pointer": "/prov:wasGeneratedBy/0/schema:location/schema:additionalType/0/@id",
+        "value": "nxs:base_classes/NXsource.html"
+      },
       "expect": "contains",
       "why": "The laboratory block classifies the place as Wikidata Q483242 (laboratory, a subclass of facility). It carried NeXus nxs:base_classes/NXsource.html until 2026-11-09, which was wrong: NXsource is the radiation or particle source that produces a beam, not the place it stands in. This case pins the retired value as REJECTED, for the same reason tappdef-old-reference-form-is-closed-off exists -- 186 example files carried the old spelling, so re-accepting it would silently re-admit a whole generation of them, and it is the only tripwire for an artifact restored from before the change. The loss would otherwise be invisible twice over: schema:additionalType is OPTIONAL, so no positive example can show the contains/const going missing, and constraint_census.json does not record const VALUES, so a swap to any other IRI would not move a single count."
     }

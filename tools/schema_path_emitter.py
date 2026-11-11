@@ -76,46 +76,65 @@ ARRAY_VALUED = {"schema:additionalType", "@type"}
 # are handled separately via branches.
 KNOWN_ARRAY = {"prov:wasGeneratedBy", "schema:measurementTechnique", "schema:funding"}
 
-# prov:used is an array of role-keyed WRAPPERS (CDIF 2026-08): each item carries exactly one of
-# these keys, and the value is an array of entities. The item is discriminated by which key is
-# PRESENT, not by a selector value, so these branches need their own marker -- `_WRAPPER` -- to
-# tell to_schema to emit `if required:[key] then properties:{key: …}` rather than the
-# `if key == value` form every other branch uses.
+# What an activity, a plan or a step used is ONE array, schema:instrument (CDIF 2026-11-11): its
+# items are instruments, computational tools and reagents, told apart in a sidecar path by the
+# selector key -- schema:additionalType for an instrument, ada:toolRole for a tool, ada:reagentRole
+# for a reagent -- and in the instance by the Wikidata kind term in schema:additionalType. An
+# ordinary selector array, so insert() needs no special case for it; the role-keyed prov:used
+# wrapper that did (`_WRAPPER`) is gone. The item SHAPE per kind is pinned by the base schemas
+# (geochemBaseProfile for the activity, tappDefinition's PlanResource for the plan and its
+# steps), keyed on the kind term, so a technique overlay adds no $ref per item: it could not, as
+# one array now holds three kinds.
 
-PROV_USED = "prov:used"
-WRAPPER_KEYS = {"schema:instrument", "bios:computationalTool", "bios:reagent"}
-_WRAPPER = "\0wrapper"
-
-# Roles that discriminate members of an OPTIONAL collection. bios:computationalTool and
-# bios:reagent are optional -- a TAPP need not own software or reference materials -- so a
-# required row selecting on one of these means "record the role of what you list", never "you
-# must possess one of these". The role itself is required on each member that IS listed.
+# Roles that discriminate members of an OPTIONAL collection. Tools and reagents are optional -- a
+# TAPP need not own software or reference materials -- so a required row selecting on one of these
+# means "record the role of what you list", never "you must possess one of these". The role itself
+# is required on each member OF THAT KIND that is listed.
 ROLE_KEYS = {"ada:toolRole", "ada:reagentRole"}
 
-# What each wrapper's entities ARE. Referencing the base rather than restating its shape keeps one
-# definition of an instrument / tool / reagent, and it is what makes the generated examples usable:
-# the example emitter supplies @type where a schema REQUIRES one, so without these refs a detail
-# block demands nothing and the entities come out untyped.
-WRAPPER_ITEM_REF = {
-    "schema:instrument": "../../../../BaseSchema/instrument/schema.yaml",
-    # Reference the tool/reagent shapes at their home in geochemBaseProfile, NOT through the
-    # adaProduct alias: the technique detail is a geochem artifact and must not depend on the
-    # ADA-specific product layer. (The adaProduct alias also mis-resolves as a cross-file
-    # $ref-of-a-$ref — it inlines the whole product schema, leaking @type [Dataset,Product] onto the
-    # tool/reagent — whereas the direct fragment resolves to the correct shape.)
-    #
-    # The home was geochemProduct until 2026-11-04, when the overlay and its $defs were factored
-    # into geochemBaseProfile and geochemProduct became the thin composition over the CDIF
-    # profiles. Pointing at geochemProduct#/$defs still RESOLVED afterwards, because resolution
-    # inlines the composition -- which is what makes this the dangerous kind of stale ref: it
-    # would have gone on working while naming a file that no longer defines the shape.
-    "bios:computationalTool": "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool",
-    "bios:reagent": "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent",
-}
+# The kind each role key selects, as the `if` that recognises an item of that kind. Mirrors
+# tappDefinition's $defs/KindSoftware / KindReagent; restated rather than $ref'd because a
+# generated overlay's conditional should not depend on a fragment of a sibling block resolving.
+WIKIDATA_ENTITY = "https://www.wikidata.org/entity/"
+KIND_TERM = {"ada:toolRole": "Q7397", "ada:reagentRole": "Q2356542"}
 
-# Array properties whose ITEMS are a rich object defined elsewhere, keyed by PROPERTY name
-# (WRAPPER_ITEM_REF above is keyed by a wrapper ROLE value instead, which is why steps need their
-# own hook). Same reasoning, and the same symptom it cures: a sidecar row places a parameter at
+
+# The Dataset-side shape of each kind, as the base pins it (geochemBaseProfile). A technique
+# DETAIL block is validated on its own, without the base product composed in, so it restates the
+# kind pins on the activity's schema:instrument -- the successor of the per-wrapper $ref the
+# prov:used model carried here (WRAPPER_ITEM_REF), and what lets the example fills read a required
+# schema:name or @type off the detail schema. The procedure side needs none: the tapp overlay is
+# composed over tappDefinition, whose PlanResource already pins the kinds.
+_KIND_PIN = [
+    ("KindInstrument", "../../../../BaseSchema/instrument/schema.yaml"),
+    ("KindSoftware", "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool"),
+    ("KindReagent", "../../../../BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent"),
+]
+
+
+def pin_used_kinds(dataset_overlay):
+    """Add the constraint-only kind pins to prov:wasGeneratedBy[].schema:instrument items (in place)."""
+    try:
+        arr = (dataset_overlay["properties"]["prov:wasGeneratedBy"]["items"]["properties"]
+               ["schema:instrument"])
+    except (KeyError, TypeError):
+        return dataset_overlay
+    items = arr.setdefault("items", {"type": "object"})
+    pins = [{"if": {"$ref": "../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/" + k},
+             "then": {"$ref": ref}} for k, ref in _KIND_PIN]
+    items["allOf"] = pins + list(items.get("allOf", []))
+    return dataset_overlay
+
+
+def kind_test(role_key):
+    q = KIND_TERM[role_key]
+    return {"type": "object", "required": ["schema:additionalType"],
+            "properties": {"schema:additionalType": {"type": "array", "contains": {
+                "type": "object", "required": ["@id"],
+                "properties": {"@id": {"enum": [WIKIDATA_ENTITY + q, "wd:" + q]}}}}}}
+
+
+# Array properties whose ITEMS are a rich object defined elsewhere, keyed by PROPERTY name. Same reasoning, and the same symptom it cures: a sidecar row places a parameter at
 # schema:step[schema:name='Data processing'], so the emitter builds the container from that selector
 # and emits a name-keyed if/then carrying no structural typing. Nothing then says a step IS a
 # WorkflowStep, so @type was neither required nor supplied -- 80 generated -P0 steps shipped with
@@ -127,7 +146,7 @@ ITEM_REF_BY_PROP = {
 }
 
 # base-owned array properties whose items are rich objects defined in tappDefinition
-# (ComputationalTool). A bare "[]" append leaves items as {type:object} so the base's object shape
+# (PlanResource: an instrument, computational tool or reagent). A bare "[]" append leaves items as {type:object} so the base's object shape
 # applies instead of a spurious string-item constraint from the path leaf.
 #
 # ada:targetSpeciesColumns used to be listed here too, which silently dropped every technique's analyte
@@ -140,7 +159,7 @@ ITEM_REF_BY_PROP = {
 # ending at its bare `[]` must not override that with its own scalar Data Type: three
 # Module_Aggregation rows do exactly that against the definer's
 # ada:combinedResults[].schema:name, which is one allOf asserting both object and string.
-BASE_OWNED_OBJECT_ARRAY = {"bios:computationalTool", "ada:combinedResults"}
+BASE_OWNED_OBJECT_ARRAY = {"schema:instrument", "ada:combinedResults"}
 
 # ada:defaultTargetSpecies and ada:defaultMonitoredProperties hold the template's DEFAULT ROWS: a
 # list of identifiers, each a bare string, a schema:DefinedTerm, OR a row object keyed by the
@@ -296,19 +315,6 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 node.types.append(seg.prop)
             continue
         curie = seg.prop
-        # prov:used -> one wrapper item per role key, so an instrument, a tool and a reagent are
-        # three separate items rather than three keys on one item.
-        if (curie == PROV_USED and not is_last
-                and segs[i + 1].prop in WRAPPER_KEYS and not segs[i + 1].is_type):
-            arr = node.props.get(curie)
-            if not isinstance(arr, Arr):
-                arr = Arr(); node.props[curie] = arr
-            wrapper_key = segs[i + 1].prop
-            branch = arr.branches.get((_WRAPPER, wrapper_key))
-            if not isinstance(branch, Obj):
-                branch = Obj(); arr.branches[(_WRAPPER, wrapper_key)] = branch
-            node = branch
-            continue
         if seg.is_array or seg.selector:      # array container (selected element or append)
             arr = node.props.get(curie)
             if not isinstance(arr, Arr):
@@ -316,10 +322,11 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
             if seg.selector:
                 key, val = seg.selector
                 # Branches are keyed by (selector key, value), not value alone: ONE array can hold
-                # elements discriminated by DIFFERENT keys. prov:used is the case that forced this —
-                # its items are instruments (schema:additionalType), computational tools
-                # (ada:toolRole) or reagents (ada:reagentRole). A single Arr.selkey made the last
-                # path win, so every branch was emitted against the wrong key.
+                # elements discriminated by DIFFERENT keys. schema:instrument is the case that
+                # forces this — its items are instruments (schema:additionalType), computational
+                # tools (ada:toolRole) or reagents (ada:reagentRole); prov:used was, before it. A
+                # single Arr.selkey made the last path win, so every branch was emitted against
+                # the wrong key.
                 arr.selkey = key                        # last key seen; kept for bare-append callers
                 if require and key not in ROLE_KEYS:
                     arr.required.add((key, val))
@@ -416,7 +423,7 @@ def insert(root: Obj, parsed: spp.ParsedPath, leaf_schema=None, require=False, e
                 # it became required on the activity of every record — and 725 ADA records that
                 # describe no procedure failed there. There are 24 such ancestor-only containers
                 # on the $Dataset side (prov:wasGeneratedBy, schema:additionalProperty,
-                # schema:object, prov:used, schema:instrument, schema:step, …).
+                # schema:object, schema:instrument, schema:step, …).
                 #
                 # Dropping the ancestor from `required` does NOT drop the constraint. The leaf
                 # requirement stays on the container's own schema, so JSON Schema applies it
@@ -679,17 +686,6 @@ def to_schema(node, scope=None):
                 for (skey, val), br in node.branches.items():
                     if not isinstance(br, Obj):
                         continue
-                    if skey == _WRAPPER:
-                        # a role-keyed wrapper: discriminate on the key being present
-                        inner = br.props.get(val)
-                        if inner is not None:
-                            sch = to_schema(inner)
-                            ref = WRAPPER_ITEM_REF.get(val)
-                            if ref and isinstance(sch.get("items"), dict):
-                                sch["items"] = {"allOf": [{"$ref": ref}, sch["items"]]}
-                            cond.append({"if": {"required": [val]},
-                                         "then": {"properties": {val: sch}}})
-                        continue
                     skey = skey or node.selkey
                     nested = {k: _jsonld_card(to_schema(v, scope=k)) for k, v in br.props.items() if k != skey}
                     if nested:
@@ -711,24 +707,25 @@ def to_schema(node, scope=None):
                                              nested, scope))
                         cond.append({"if": {"properties": {skey: sel}, "required": [skey]},
                                      "then": then})
+                # Tools and reagents are optional collections -- a TAPP need not own software or
+                # reference materials in every role the workbook enumerates. What is NOT optional
+                # is saying which role a member plays, so the role key is required on every member
+                # OF ITS KIND instead of each role being required to exist. (The role's value is
+                # held to the enum by tappDefinition / geochemBaseProfile.)
+                #
+                # Per kind, keyed on the Wikidata term, since 2026-11-11. Tools, reagents and
+                # instruments now share schema:instrument, so the earlier form -- `required` on
+                # every item, emitted when the array's only selector was a role key -- would have
+                # demanded ada:toolRole of an instrument the moment a block placed tools and no
+                # instrument in that array, as a module block does.
+                for rk in sorted({sk for sk, _ in node.branches if sk in ROLE_KEYS}):
+                    cond.append({"if": kind_test(rk), "then": {"required": [rk]}})
                 items = {"type": "object", "allOf": cond} if cond else {"type": "object"}
-                # bios:computationalTool and bios:reagent are optional collections -- a TAPP need
-                # not own software or reference materials in every role the workbook enumerates.
-                # What is NOT optional is saying which role a member plays, so the discriminator is
-                # required per item instead of each role being required to exist. (The role's value
-                # is held to the enum by tappDefinition / adaProduct.)
-                skeys = {sk for sk, _ in node.branches if sk != _WRAPPER}
-                if len(skeys) == 1 and next(iter(skeys)) in ROLE_KEYS:
-                    items["required"] = [next(iter(skeys))]
             out = {"type": "array", "items": items}
             # per-branch presence: a $ref branch is optional-and-at-most-one; a required object
             # branch must be CONTAINED (selector key = the token/name).
             allof = []
             for (skey, val), br in node.branches.items():
-                if skey == _WRAPPER:
-                    if (skey, val) in node.required:
-                        allof.append({"contains": {"required": [val]}})
-                    continue
                 skey = skey or node.selkey
                 if isinstance(br, Leaf):
                     allof.append({"contains": br.schema, "minContains": 0, "maxContains": 1})
@@ -1262,7 +1259,9 @@ def build(tapp):
             if read_only:
                 leaf = {**leaf, "readOnly": True}
             insert(roots[parsed.root], parsed, leaf, require=require, require_array=require_array)
-    return {r: to_schema(o) for r, o in roots.items()}, registries, required
+    out = {r: to_schema(o) for r, o in roots.items()}
+    pin_used_kinds(out["Dataset"])
+    return out, registries, required
 
 
 # base building block each overlay extends via allOf (relative to the artifact's own dir)

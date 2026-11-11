@@ -50,95 +50,92 @@
           "schema:name": "Sample B (synthetic quartz)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 9.2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 9.2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 46,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "46 µA (Ag target)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (conditions did not require filtering)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 7.7,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "7.7 µm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019-3/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 46,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "46 µA (Ag target)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (conditions did not require filtering)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 7.7,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "7.7 µm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019-3/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -264,7 +261,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -274,7 +270,6 @@
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]

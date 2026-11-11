@@ -415,7 +415,9 @@ one.
 
 **Anything checking a RAW sidecar cell must normalise first.** `schemapath_io.load_spec()` runs
 `norm.mechanical(norm.preclean(path))` before the emitter parses, and `mechanical()` expands
-supported author shorthand — `prov:used[sel]` → `prov:used.<kind>[sel]`, doubled dots, `Schema:`.
+supported author shorthand and migrates superseded placements — `prov:used[sel]`,
+`prov:used.<kind>[sel]` and a selected `bios:computationalTool[…]`/`bios:reagent[…]` →
+`schema:instrument[sel]`, doubled dots, `Schema:`.
 `intake_delivery`'s grammar check read the raw cell and reported 14 canonical-equivalent rows as
 broken. `schema:used` is the one that really is an error (schema.org has no `used` property);
 nothing normalises it and `schema_path_parser` now rejects it.
@@ -560,7 +562,7 @@ The measurements, the three dead anchors, and the `ada:analyticalMode` nil-token
 **One componentType per product kind — the instrument variant rides on the TAPP, not the type.**
 Mc/Q/Sf variants share one componentType (`ada:LAICPMSMap` is the map, whichever mass spectrometer
 produced it). Refuse a delivery proposing variant componentTypes; the variant lives on the TAPP
-reference (`prov:used`), which JSON Schema cannot dereference. A per-profile componentType list
+reference (`schema:actionProcess {"@id"}`), which JSON Schema cannot dereference. A per-profile componentType list
 comes from `build_tapp.TAPP_CONFIGS[<tapp>]["component_types"]`, never from a resolved schema
 (resolution inlines the universal enum). See `docs/COMPONENTTYPE_VARIANTS.md`.
 
@@ -583,27 +585,33 @@ only as a mis-profiled record in ADA. Key rules, detailed in `docs/CONFORMANCE_S
 
 `adaProduct` redefines `prov:wasGeneratedBy.items.properties` with ADA-specific keys; via `allOf` merge, the upstream `cdifProvActivity` constraints still apply. Recent renames/extensions:
 
-- `prov:used` relates the activity to what it used through ROLE-KEYED properties, one per role:
-  `schema:instrument`, `bios:computationalTool`, `bios:reagent`, and — since #190 —
-  **`ada:tappDefinition`**, whose value is either a closed `{@id}` reference or the plan inline
-  (`_sources/BaseSchema/tappDefinition/`; JSON-LD class `ada:TAPPDefinition`; previously named
-  methodDefinition, under geochemProperties/). The role is read off the property NAME, not off
-  `@type` — an inline `prov:Entity` carries `ada:TAPPDefinition` in its `@type` too, so `@type`
-  could never separate the role from the class. CDIF admits the role-wrapper SHAPE generically
-  (mbb#52: `propertyNames` over a CURIE pattern, deliberately permissive) and geochemProduct
-  CLOSES the set to the role it defines — base permissive, profile restrictive, which `allOf`
-  composes correctly because an intersection can only narrow.
-  **BOTH superseded spellings are now REJECTED — reference and inline alike (2026-10-24).** The
-  reference form `{@id, @type: [… ada:TAPPDefinition]}` stayed valid until then, deliberately,
-  because 7,263 of 7,447 ADA records linked their TAPP that way and a schema that rejects the
-  corpus it describes is one nobody can deploy. The migration retired that reason: the old form
-  reads **zero in ada_subjects AND in production ada2**, every reference now role-keyed. The
-  sequence is the lesson — **the corpus moved first, then the schema**. Pinned by two
-  counterexamples, `tappdef-old-reference-form-is-closed-off` and
-  `tappdef-inline-old-spelling-is-closed-off`; the first is the one that matters most, because the
-  reference form is what every pre-migration record carried, so re-accepting it would silently
-  re-admit a whole generation of records. It is also the tripwire for a store restored from a
-  pre-migration backup — the one situation where nobody would otherwise be told.
+- **What the activity used is `schema:instrument`, and the TAPP it followed is
+  `schema:actionProcess` (2026-11-11, the CDIF activity-used-resources change; design in
+  `CDIF/profile-provenance/docs/PROPOSAL_2026-11-11_activity_used_resources.md` §4 and §8).**
+  - `schema:instrument` is ONE array holding instruments, computational tools and reagents, told
+    apart by the Wikidata kind term in each item's `schema:additionalType` — the ENTITY IRI
+    `https://www.wikidata.org/entity/Q3099911` (instrument), `…/Q7397` (software), `…/Q2356542`
+    (reagent), never the `/wiki/` page URL. CDIF requires exactly one kind on an item described in
+    place, or a sealed `{@id}`; geochemBaseProfile pins each kind with a constraint-only `if`/`then`
+    (`../instrument`, `UsedComputationalTool`, `UsedReagent`), keyed on
+    `tappDefinition#/$defs/Kind*`. The plan and its steps carry their resources the same way
+    (`tappDefinition#/$defs/PlanResource`), so plan and run match key for key; `ada:toolRole` and
+    `ada:reagentRole` stay as geochem additions.
+  - The TAPP link is `schema:actionProcess {"@id": <tapp>}` when the activity records no workflow,
+    and otherwise `schema:isBasedOn {"@id": <tapp>}` on its inline `schema:HowTo` — one path finds
+    it either way, `prov:wasGeneratedBy/schema:actionProcess/schema:isBasedOn?`. Both references are
+    sealed. The TAPP is typed `schema:HowTo` for this (and no longer `cdi:Activity`; nor are steps).
+  - `prov:used` is not required, and what CDIF's core accepts there (strings and `@id` references)
+    is checked by nothing more. The superseded spellings are CLOSED OFF by name in geochemBaseProfile
+    — the `schema:instrument` / `bios:computationalTool` / `bios:reagent` / `prov:reagent` /
+    `ada:tappDefinition` wrappers, and an item typed `ada:TAPPDefinition` — as are the plan's and
+    steps' direct `bios:computationalTool` / `bios:reagent` and a step's `prov:used` (its inputs are
+    `schema:object`). Counterexamples pin each one.
+  - **The sequence is the lesson, again: the corpus moves first, then the schema.** The ADA stores
+    (ada2, ada_subjects, method_registry) still carry the earlier forms and are migrated by whoever
+    holds the credentials before this is published. The history before this change: the TAPP link
+    was the role-keyed `{"ada:tappDefinition": {...}}` from #190 (2026-10), which replaced an
+    `{@id, @type: [… ada:TAPPDefinition]}` member once that form read zero in both stores.
 - `schema:location` (was `ada:laboratory`) — laboratory $ref.
 - `schema:object` (was `schema:mainEntity`) — array of MaterialSample objects (samples analyzed). Required CDIF mbb to extend `cdifProvActivity.schema:object` to also accept arrays of `schema:Thing` per schema.org range; `schema:result` extended symmetrically. Both extensions landed via the propagate-schema run on 2026-04-26.
 
@@ -721,12 +729,13 @@ reviewer. 16 of the 18 BaseSchema block titles would read as type or spec names 
 property position — *Files Type*, *String Array Type*, and one carrying a VERSION.
 
 **A TITLE INSIDE AN `if`/`then` BELONGS TO THAT BRANCH, and a consumer that flattens
-then-branches will mis-attribute it to a sibling.** The plan-side labels reach a record
-through `build_profile`'s conditional on `prov:used`, so *Method Name* and the rest sit
-under a `then`. A reader that follows that branch WITHOUT evaluating its `if` labels the
+then-branches will mis-attribute it to a sibling.** The plan-side labels used to reach a record
+through `build_profile`'s conditional on `prov:used`, so *Method Name* and the rest sat
+under a `then`. A reader that followed that branch WITHOUT evaluating its `if` labelled the
 instrument "Method Name" — observed in the ADA metadata viewer 2026-10-25, which had
 added unconditional `then` descent in order to reach `ada:tappDefinition`, and fixed by
-testing each `if` against the actual value. Nothing is wrong with the schema; this is
+testing each `if` against the actual value. (That conditional went on 2026-11-11 with inline
+TAPPs; the kind pins on `schema:instrument` are the same shape and need the same care.) Nothing is wrong with the schema; this is
 what the shape costs a reader, and form generators are a named consumer of these labels.
 Evaluate the `if`, or do not descend the branch.
 
@@ -774,6 +783,7 @@ titled when ANY one of them is, and hides the split:
     /allOf/N  "Core on the analysis"                   core module's      not
     .../prov:used/.../then/... and
     .../ada:tappDefinition/anyOf/1/...                 tappDefinition's   not
+                                                       (until 2026-11-11)
 
 Both unlabelled classes are correct: the plan side keeps its own wording in tappDefinition,
 and a module `$def` composes into many nodes. A path-shape classifier CANNOT make this
@@ -840,8 +850,8 @@ These are real past incidents, not hypothetical. The CI-side counterparts — wh
   clean. Whenever you add an `if`, ask what it matches that you did not intend AND what it now fails
   to match.
 - **A generated node that is complete by construction must be emitted AFTER the fill passes.**
-  `build_profile._name_procedure()` writes the `prov:used` TAPP reference — `{@id, @type}` and
-  nothing else. Run before `_fill_required()`, the sentinel and typing passes could not tell it
+  `build_profile._name_procedure()` writes the TAPP reference — `{@id, @type}` and
+  nothing else, then (`schema:actionProcess {"@id"}` since 2026-11-11). Run before `_fill_required()`, the sentinel and typing passes could not tell it
   from an object they were meant to finish and padded `schema:instrument: "missing"` plus four
   `{"@id": "nil:missing"}` members into its `@type`, failing 58 of 97 examples.
 

@@ -10,10 +10,10 @@
   "@id": "ex:temTAPP-Singerling2025",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "tem protocol — Singerling2025",
   "schema:description": "Na,Ca carbonate grains extremely beam-sensitive: amorphized under electron beam; samples re-analyzed in 4 sessions (Dec 2023 – Dec 2024) to track terrestrial alteration; NO FIB used (authors note FIB may destroy beam-sensitive Na,Ca carbonates); underlying TEM data deposited at AstroMat (Table A4 supplementary); note: same Goethe lab and instrument (Talos F200X G2) as in Zega2025 Reported detail: ada:analyticalSubModeDefault = BF-TEM; HAADF-STEM; SAED (Electron Diffraction); STEM-EDS (point; map); ada:edsAcquisitionModeDefault = Spectrum image (map); point analysis; ada:edsQuantificationMethod = Cliff-Lorimer (k-factor) method; no absorption corrections.",
@@ -55,7 +55,6 @@
         ],
         "schema:description": "Crushing / dispersion on grid",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -68,7 +67,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -114,7 +112,7 @@
       "schema:additionalType": [
         "TEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:manufacturer": {
@@ -134,7 +132,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Super-X G2 EDS system: four windowless silicon drift detectors; collection solid angle up to 0.9 srad",
@@ -149,7 +147,7 @@
           "schema:additionalType": [
             "Imaging Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "TS Ceta-S 4k × 4k 16M camera (TEM images and SAED)",
@@ -168,7 +166,7 @@
           "schema:additionalType": [
             "4D-STEM Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -182,7 +180,7 @@
           "schema:additionalType": [
             "Aberration Corrector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -197,7 +195,7 @@
           "schema:additionalType": [
             "EELS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -211,7 +209,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -226,7 +224,7 @@
           "schema:additionalType": [
             "Monochromator",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -240,6 +238,30 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:temTAPP-Singerling2025/instrument/TEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "TS Velox",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "TS Velox",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:spectroscopicDetectorDefault": "EDS only",
@@ -344,16 +366,6 @@
     "schema:name": "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany"
   },
   "ada:samplingUnitType": "Grain > Phase — the particle was crushed onto a grid, and \"28 fine particles\" were investigated \"within which we identified four Na,Ca carbonates: grains 4, 11 ..., 22, and 27\" (p.2); compositions come \"from TEM EDS analyses\" per grain (Table 1, p.2)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "TS Velox"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "TS Velox"
-    }
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",

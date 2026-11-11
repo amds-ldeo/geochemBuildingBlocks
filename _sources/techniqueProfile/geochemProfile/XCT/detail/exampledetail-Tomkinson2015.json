@@ -52,67 +52,64 @@
           "schema:name": "NWA 5790"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo™",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo™",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 120,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 10.3,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "10.3 × 10.3 × 10.3 µm³"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Tomkinson2015/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 120,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 10.3,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "10.3 × 10.3 × 10.3 µm³"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Tomkinson2015/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -209,7 +206,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -219,7 +215,6 @@
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]

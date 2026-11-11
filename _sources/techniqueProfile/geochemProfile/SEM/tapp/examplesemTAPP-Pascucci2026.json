@@ -10,10 +10,10 @@
   "@id": "ex:semTAPP-Pascucci2026",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "sem protocol — Pascucci2026",
   "schema:description": "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery",
@@ -22,7 +22,7 @@
       "schema:additionalType": [
         "SEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
@@ -31,7 +31,7 @@
           "schema:additionalType": [
             "BSE Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "N/A",
@@ -45,7 +45,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Field emission gun (FEG) — subtype not specified",
@@ -64,7 +64,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -78,7 +78,7 @@
           "schema:additionalType": [
             "WDS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -110,6 +110,18 @@
       "ada:mappingBeamDiameterDefault": -9999,
       "ada:mappingBeamMode": "missing",
       "@id": "ex:semTAPP-Pascucci2026/instrument/SEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford INCA Energy",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "schema:additionalProperty": [
@@ -216,12 +228,6 @@
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished slab) > Phase — BSE images \"were used at high vacuum mode at 20.00 kV accelerating voltage\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford INCA Energy"
-    }
-  ],
   "ada:analyticalMode": [
     "BSE Imaging"
   ],
@@ -231,7 +237,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -248,7 +253,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -264,7 +268,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

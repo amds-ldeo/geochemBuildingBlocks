@@ -122,7 +122,7 @@ $defs:
           Where units nest (e.g. confined tracks within grains), state both levels. The units themselves
           are listed in Sampling Unit Name.
         type: string
-      bios:computationalTool:
+      schema:instrument:
         type: array
         items:
           type: object
@@ -165,8 +165,25 @@ $defs:
                     items: *id002
               required:
               - schema:name
-          required:
-          - ada:toolRole
+          - if:
+              type: object
+              required:
+              - schema:additionalType
+              properties:
+                schema:additionalType:
+                  type: array
+                  contains:
+                    type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        enum:
+                        - https://www.wikidata.org/entity/Q7397
+                        - wd:Q7397
+            then:
+              required:
+              - ada:toolRole
       ada:analyticalMode:
         type: array
         items:
@@ -302,61 +319,77 @@ $defs:
                         const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
                   - '@type'
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: ../../instrument/schema.yaml
+                - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: ../../tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      ada:toolRole:
+                        const: acquisition
                     required:
-                    - bios:computationalTool
+                    - ada:toolRole
                   then:
                     properties:
-                      bios:computationalTool:
+                      schema:name:
+                        description: Instrument control, automation and data acquisition software used
+                          to collect the raw data, including version number. Distinct from Data Processing
+                          Software(s), which covers everything applied to the data after acquisition.
+                        anyOf:
+                        - &id006
+                          type: string
+                        - type: array
+                          items: *id006
+                - if:
+                    properties:
+                      ada:toolRole:
+                        const: dataReduction
+                    required:
+                    - ada:toolRole
+                  then:
+                    properties:
+                      schema:name:
+                        description: All software applied to the data after acquisition in order to produce
+                          the reported quantities, including version numbers. List every package used.
+                          Distinct from Acquisition Software, which controls the instrument and collects
+                          the raw data.
+                        anyOf:
+                        - &id007
+                          type: string
+                        - type: array
+                          items: *id007
+                - if:
+                    type: object
+                    required:
+                    - schema:additionalType
+                    properties:
+                      schema:additionalType:
                         type: array
-                        items:
-                          allOf:
-                          - $ref: ../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  ada:toolRole:
-                                    const: acquisition
-                                required:
-                                - ada:toolRole
-                              then:
-                                properties:
-                                  schema:name:
-                                    description: Instrument control, automation and data acquisition software
-                                      used to collect the raw data, including version number. Distinct
-                                      from Data Processing Software(s), which covers everything applied
-                                      to the data after acquisition.
-                                    anyOf:
-                                    - &id006
-                                      type: string
-                                    - type: array
-                                      items: *id006
-                            - if:
-                                properties:
-                                  ada:toolRole:
-                                    const: dataReduction
-                                required:
-                                - ada:toolRole
-                              then:
-                                properties:
-                                  schema:name:
-                                    description: All software applied to the data after acquisition in
-                                      order to produce the reported quantities, including version numbers.
-                                      List every package used. Distinct from Acquisition Software, which
-                                      controls the instrument and collects the raw data.
-                                    anyOf:
-                                    - &id007
-                                      type: string
-                                    - type: array
-                                      items: *id007
-                            required:
-                            - ada:toolRole
+                        contains:
+                          type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              enum:
+                              - https://www.wikidata.org/entity/Q7397
+                              - wd:Q7397
+                  then:
+                    required:
+                    - ada:toolRole
             schema:description:
               description: 'Any procedure- or analysis-specific information not captured by a structured
                 field anywhere in this TAPP — including anomalies, deviations from the registered procedure,

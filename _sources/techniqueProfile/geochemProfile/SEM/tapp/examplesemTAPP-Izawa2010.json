@@ -10,10 +10,10 @@
   "@id": "ex:semTAPP-Izawa2010",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "sem protocol — Izawa2010",
   "schema:description": "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates",
@@ -22,7 +22,7 @@
       "schema:additionalType": [
         "SEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "15–20 kV",
@@ -46,7 +46,7 @@
           "schema:additionalType": [
             "Electron Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:description": "Tungsten (W)",
@@ -65,7 +65,7 @@
           "schema:additionalType": [
             "BSE Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -79,7 +79,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -93,7 +93,7 @@
           "schema:additionalType": [
             "WDS Spectrometer",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -125,6 +125,30 @@
       "ada:mappingBeamDiameterDefault": -9999,
       "ada:mappingBeamMode": "missing",
       "@id": "ex:semTAPP-Izawa2010/instrument/SEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "Gatan DigitalMicrograph",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "schema:additionalProperty": [
@@ -234,16 +258,6 @@
     }
   ],
   "ada:samplingUnitType": "Whole sample (polished thin section) > Region of interest — \"colour SEM-CL analysis of polished thin sections\" (p.1), reported as CL zoning within named textural components, \"relict CAI spinel, in chondrule and AOA forsterite, and in calcite nodules\" (p.1)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Gatan DigitalMicrograph (CL image assembly)"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "Gatan DigitalMicrograph"
-    }
-  ],
   "ada:analyticalMode": [
     "CL Mapping"
   ],
@@ -253,7 +267,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -270,7 +283,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -286,7 +298,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

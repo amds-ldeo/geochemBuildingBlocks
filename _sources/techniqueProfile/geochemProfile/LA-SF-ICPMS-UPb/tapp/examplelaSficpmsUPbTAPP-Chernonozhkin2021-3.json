@@ -10,10 +10,10 @@
   "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021-3",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Phosphate Spot v1",
   "schema:description": "No phosphate reference material exists, so glasses calibrate (App. C3); grains identified as stanfieldite or merrillite from a Ca/(Ca + Mg) plot (§3.4)",
@@ -125,7 +125,7 @@
         "ICPMS",
         "Double-focusing sector field ICP-MS (explicitly stated)",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -139,7 +139,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -166,7 +166,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -233,7 +233,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -292,7 +292,7 @@
       "schema:additionalType": [
         "Laser Ablation System",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:additionalProperty": [
@@ -324,6 +324,18 @@
         "schema:Thing"
       ],
       "@id": "ex:laSficpmsUPbTAPP-Chernonozhkin2021-3/instrument/Laser-Ablation-System"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "In-house MatLab script (Appendix C3)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
@@ -504,7 +516,6 @@
         "schema:description": "Flat polished thick sections (§2.1)",
         "ada:chemicalAbrasionConditions": "N — the procedure reports no date",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -519,7 +530,6 @@
         "schema:name": "Data acquisition",
         "schema:description": "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -558,7 +568,6 @@
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -617,12 +626,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain (phosphate crystal) > Spot — compositions are reported per named phosphate grain (\"Ph1\" … \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "In-house MatLab script (Appendix C3)"
-    }
-  ],
   "ada:ablationSamplingMode": [
     "all: single spot ablation — §2.2.4"
   ],

@@ -37,7 +37,11 @@ ADDL = "schema:additionalProperty"
 # Exempting them is what makes the remaining violations worth reading.
 FIRST_CLASS = (
     "schema:location", "schema:funding", "schema:relatedLink", "schema:creator", "schema:agent",
-    "bios:computationalTool", "bios:reagent", "schema:object", "schema:identifier",
+    # a computational tool or reagent is a schema:instrument item selected by its role (until
+    # 2026-11-11 the properties bios:computationalTool / bios:reagent); an instrument's own
+    # parameters are NOT exempt, so only the role-selected items are listed
+    "schema:instrument[ada:toolRole", "schema:instrument[ada:reagentRole",
+    "schema:object", "schema:identifier",
     "schema:hasPart", "schema:variableMeasured", "ada:targetSpeciesTemplate", "ada:reportedProperties",
     # keyed templates: the members carry the per-instance value, so there is no separate
     # $Dataset parameter to pair a default with

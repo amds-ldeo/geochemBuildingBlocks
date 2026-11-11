@@ -21,8 +21,9 @@ import build_tapp as bt  # noqa: E402
 import schemapath_io  # noqa: E402
 import schema_path_example_emitter as ex  # noqa: E402  (shared nested path interpreter)
 
-# schema.org-typed marker the instrument BB requires every instrument to carry
-WIKIDATA_INSTRUMENT = "https://www.wikidata.org/wiki/Q3099911"
+# schema.org-typed marker the instrument BB requires every instrument to carry -- the Wikidata
+# entity IRI, which is also the CDIF kind term. One definition, in the shared emitter.
+WIKIDATA_INSTRUMENT = ex.WIKIDATA_INSTRUMENT
 
 # "ex" belongs here because these examples USE it: the root @id is ex:<tapp>-<code> and the
 # instrument ids are ex:instrument/<Token>. An undeclared prefix is not a CURIE, so the JSON-LD
@@ -38,14 +39,15 @@ SUP = {"⁰": "0", "¹": "1", "²": "2", "³": "3", "⁴": "4", "⁵": "5",
        "⁶": "6", "⁷": "7", "⁸": "8", "⁹": "9"}
 
 
-# The three @type members $defs/WorkflowStep requires of every workflow step.
-# cdi:Activity and schema:Action carry the DDI-CDI / schema.org process semantics; schema:HowToStep
-# is what schema.org expects of a schema:step value on a schema:HowTo, and the base cdifProvActivity
-# requires it too. Emitting only the first two left these steps invalid against the plain
-# schema.org reading and against the base -- 565 examples carried two members and 15 carried
-# HowToStep alone, depending on which side emitted them. Named once because it was written out at
-# three separate sites, which is how they came to disagree.
-STEP_TYPE = ["cdi:Activity", "schema:Action", "schema:HowToStep"]
+# The two @type members $defs/WorkflowStep requires of every workflow step.
+# schema:Action carries the schema.org process semantics; schema:HowToStep is what schema.org
+# expects of a schema:step value on a schema:HowTo, and the base cdifProvActivity requires it too.
+# Emitting without it left these steps invalid against the plain schema.org reading and against
+# the base -- 565 examples carried cdi:Activity + schema:Action and 15 carried HowToStep alone,
+# depending on which side emitted them. cdi:Activity was the third member until 2026-11-11, when it
+# was dropped from TAPPs and steps alike (no step carries a DDI-CDI process property). Named once
+# because it was written out at three separate sites, which is how they came to disagree.
+STEP_TYPE = ["schema:Action", "schema:HowToStep"]
 
 def norm(v):
     return " ".join(str(v).split()) if v is not None else ""
@@ -162,11 +164,17 @@ def place_identity(inst, item, sp, v, allowed_techniques=()):
         for m in [t.strip() for t in v.split("|") if t.strip()]:
             inst.setdefault("schema:object", []).append(
                 {"@type": ["schema:DefinedTerm"], "schema:name": m})
-    elif "bios:computationalTool" in sp:
-        role = "reduction" if "reduction" in item.lower() else "acquisition"
+    elif re.search(r"schema:instrument\[\s*ada:toolRole", sp):
+        # a computational tool: a schema:instrument item of the software kind (until 2026-11-11 the
+        # direct property bios:computationalTool). Tested BEFORE the instrument branch, which would
+        # otherwise read it as an instrument with no type token.
+        m = re.search(r"ada:toolRole\s*=\s*'([^']+)'", sp)
+        role = m.group(1) if m else ("dataReduction" if "reduction" in item.lower() else "acquisition")
         for tool in [t.strip() for t in v.split("|") if t.strip()]:
-            inst.setdefault("bios:computationalTool", []).append(
-                {"@type": ["schema:SoftwareApplication"], "schema:name": tool, "ada:toolRole": role})
+            inst.setdefault("schema:instrument", []).append(
+                {"@type": ["schema:SoftwareApplication"],
+                 "schema:additionalType": [{"@id": ex.WIKIDATA_SOFTWARE}],
+                 "schema:name": tool, "ada:toolRole": role})
     elif "schema:instrument" in sp:
         # 0..* -> array (upstream cdifProvActivity is array-only for schema:instrument). The overlay
         # selects instruments BY schema:additionalType — an LA-ICP-MS declares a "Laser Ablation
@@ -197,14 +205,15 @@ def place_identity(inst, item, sp, v, allowed_techniques=()):
     # other inherited fields (sample prep, references already handled) are skipped
 
 
-# schema paths that bind a schema:description to a specific bios:computationalTool instance,
-# e.g. "$MethodDefinition.bios:computationalTool[].schema:name='3d image registration' schema:description".
+# schema paths that bind a schema:description to a specific computational tool instance, e.g.
+# "$MethodDefinition.schema:instrument[ada:toolRole='dataReduction'].schema:name='3d image
+# registration' schema:description" (before 2026-11-11, `bios:computationalTool[].schema:name=...`).
 # route() classifies these as role=description and skips them; here we honour the instance binding.
-_TOOL_DESC_RE = re.compile(r"bios:computationalTool\[\][.\s]*schema:name\s*=\s*'([^']*)'")
+_TOOL_DESC_RE = re.compile(r"schema:instrument\[\s*ada:toolRole[^\]]*\][.\s]*schema:name\s*=\s*'([^']*)'")
 
 
 def tool_desc_selector(sp):
-    """If sp binds a schema:description to a named bios:computationalTool, return that name; else None."""
+    """If sp binds a schema:description to a named computational tool, return that name; else None."""
     m = _TOOL_DESC_RE.search(sp)
     return m.group(1) if (m and "schema:description" in sp) else None
 
@@ -250,7 +259,7 @@ def place_parameter(inst, entry, sp):
         steps = proc.setdefault("schema:step", [])
         step = next((s for s in steps if s.get("schema:name") == m.group(1)), None)
         if step is None:
-            # $defs/WorkflowStep requires all three STEP_TYPE members and schema:position: a
+            # $defs/WorkflowStep requires both STEP_TYPE members and schema:position: a
             # step is an ordered activity AND a schema.org HowToStep, not one or the other.
             step = {"@type": list(STEP_TYPE), "schema:name": m.group(1),
                     "schema:additionalType": ["bios:LabProcess"],
@@ -649,17 +658,19 @@ def ensure_required_instruments(inst, sp_by_item):
 
 
 def place_tool_description(inst, item, selector, desc):
-    """Attach an instance-bound description to the named bios:computationalTool: set it on an
-    existing tool whose schema:name matches the selector (or the row label), else add a
-    processing-tool entry named for the row carrying the description."""
-    tools = inst.setdefault("bios:computationalTool", [])
+    """Attach an instance-bound description to the named computational tool -- a schema:instrument
+    item of the software kind: set it on an existing tool whose schema:name matches the selector
+    (or the row label), else add a data-reduction tool entry named for the row carrying it."""
+    arr = inst.setdefault("schema:instrument", [])
     keys = {selector.strip().lower(), item.strip().lower()}
-    for t in tools:
-        if str(t.get("schema:name", "")).strip().lower() in keys:
+    for t in arr:
+        if (ex.resource_kind(t) == "software"
+                and str(t.get("schema:name", "")).strip().lower() in keys):
             t["schema:description"] = desc
             return
-    tools.append({"@type": ["schema:SoftwareApplication"], "schema:name": item,
-                  "ada:toolRole": "reduction", "schema:description": desc})
+    arr.append({"@type": ["schema:SoftwareApplication"],
+                "schema:additionalType": [{"@id": ex.WIKIDATA_SOFTWARE}], "schema:name": item,
+                "ada:toolRole": "dataReduction", "schema:description": desc})
 
 
 _REQ_CACHE = {}
@@ -1851,7 +1862,7 @@ def main():
     inherited_items = {it for it, sp in sp_by_item.items()
                        if sp.startswith("$MethodDefinition") and ".ada:" not in sp
                        and "additionalProperty" not in sp and "schema:description" not in sp}
-    # instance-bound tool descriptions (role=description rows targeting a named computationalTool)
+    # instance-bound tool descriptions (role=description rows targeting a named computational tool)
     tool_desc_items = {it: sel for it, sp in sp_by_item.items()
                        if (sel := tool_desc_selector(sp)) is not None}
     acols = []
@@ -1918,7 +1929,7 @@ def main():
         md.pop("@type", None)                          # the envelope owns the TAPP @type
         name = md.pop("schema:name", "") or f"{short} protocol — {code}"
         inst = {"@context": CTX, "@id": f"ex:{tapp}-{code}",
-                "@type": ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
+                "@type": list(ex._TAPP_TYPE),
                 "schema:name": name,
                 "schema:description":
                     f"{tapp} instance derived from {hdr_txt} (publication column of {os.path.basename(bt.XLSX)}).",

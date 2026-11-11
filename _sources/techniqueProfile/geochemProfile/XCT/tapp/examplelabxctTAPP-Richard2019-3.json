@@ -10,10 +10,10 @@
   "@id": "ex:labxctTAPP-Richard2019-3",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Richard2019-3",
   "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold.",
@@ -157,18 +157,24 @@
     }
   ],
   "ada:detectorType": "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)",
-  "bios:computationalTool": [
+  "schema:instrument": [
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "Avizo 9.2.0"
-    }
-  ],
-  "schema:instrument": [
+      "schema:name": "Avizo 9.2.0",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
     {
       "schema:additionalType": [
         "XCT",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "160 kV",
@@ -243,7 +249,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -256,7 +261,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

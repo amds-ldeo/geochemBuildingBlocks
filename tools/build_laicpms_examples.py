@@ -106,7 +106,7 @@ def main():
         technique = cell("Technique", L) or "LA-ICP-MS"
         inst = {
             "@context": CTX, "@id": f"ex:laicpmsTAPP-{code}",
-            "@type": ["prov:Plan", "cdi:Activity", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol"],
+            "@type": ["prov:Plan", "schema:Action", "ada:TAPPDefinition", "bios:LabProtocol", "schema:HowTo"],
             "schema:name": name,
             "schema:description": f"laicpmsTAPP instance derived from {pub_hdr[L]} (column {L} of "
                                   f"LA-Q_SF-ICPMS_TAPP_v3.xlsx 'TAPP' worksheet).",
@@ -121,8 +121,10 @@ def main():
             inst["schema:object"] = [target]
         sw = cell("Data Reduction Software", L)
         if sw:
-            inst["bios:computationalTool"] = [{"@type": ["schema:SoftwareApplication"],
-                                               "schema:name": sw, "ada:toolRole": "reduction"}]
+            # a schema:instrument item of the software kind (2026-11-11)
+            inst.setdefault("schema:instrument", []).append(
+                {"@type": ["schema:SoftwareApplication"], "schema:additionalType": [{"@id": "https://www.wikidata.org/entity/Q7397"}],
+                 "schema:name": sw, "ada:toolRole": "dataReduction"})
         # Basic-protocol props: real value, else sentinel when required (some pubs report it),
         # else omit when optional (no publication reports it, cov == 0).
         for b in R["tapp_prop"]:

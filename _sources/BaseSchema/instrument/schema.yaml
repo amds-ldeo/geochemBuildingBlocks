@@ -3,7 +3,7 @@ title: ADA Analysis Instrument
 description: >-
   ADA analytical instrument building block. Extends the core CDIF instrument
   building block with NeXus NXinstrument classification via additionalType.
-  Instruments are typed as schema:Thing + schema:Product (from core) with
+  Instruments are typed schema:Product (from core; schema:Thing allowed) with
   domain-specific types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument)
   in additionalType.
 allOf:
@@ -31,7 +31,11 @@ allOf:
         type, which is invariant across techniques: the technique-specific entry
         says what KIND of instrument this is and varies by profile, while the
         Wikidata term says that it is an instrument at all, and gives a consumer
-        one term to select on without knowing the ADA vocabulary.
+        one term to select on without knowing the ADA vocabulary. Written as the Wikidata
+        ENTITY IRI (https://www.wikidata.org/entity/Q3099911), not the /wiki/ page URL: the
+        entity IRI names the concept, the page URL names a web page about it. It is also the
+        kind term CDIF's cdifProvActivity reads to tell an instrument from software and
+        reagents in an activity's schema:instrument.
       type: array
       items:
         $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
@@ -40,14 +44,14 @@ allOf:
         type: object
         properties:
           '@id':
-            const: https://www.wikidata.org/wiki/Q3099911
+            const: https://www.wikidata.org/entity/Q3099911
         required:
         - '@id'
     'schema:hasPart':
       description: >-
         Sub-components of this instrument system (a torch, an ICP source, a collision/reaction
-        cell, a spectrometer). A component IS an instrument -- same @type (schema:Product +
-        schema:Thing), same Wikidata term, and its own schema:additionalType token saying which
+        cell, a spectrometer). A component IS an instrument -- same @type (schema:Product;
+        schema:Thing allowed, no longer required, as on the instrument), same Wikidata term, and its own schema:additionalType token saying which
         kind of component it is. The shape is restated rather than written as `$ref: '#'`, because
         resolve_schema replaces a circular ref with an empty stub -- it would read as "a part is an
         instrument" and enforce nothing. Upstream
@@ -76,12 +80,9 @@ allOf:
               type: array
               items:
                 type: string
-              minItems: 2
-              allOf:
-              - contains:
-                  const: schema:Product
-              - contains:
-                  const: schema:Thing
+              minItems: 1
+              contains:
+                const: schema:Product
             'schema:name':
               type: string
             'schema:additionalType':
@@ -93,7 +94,7 @@ allOf:
                 - '@id'
                 properties:
                   '@id':
-                    const: https://www.wikidata.org/wiki/Q3099911
+                    const: https://www.wikidata.org/entity/Q3099911
             'ada:collectorConfiguration':
               description: >-
                 How masses are assigned to collector positions for this procedure, AS THE SOURCE

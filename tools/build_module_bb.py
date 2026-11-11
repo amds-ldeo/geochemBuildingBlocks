@@ -249,7 +249,10 @@ def build_schema(name, only=None):
             used.update(re.findall(r"\b([a-z]+):", path))
     out = {}
     for r, node in roots.items():
-        sch = _reref_module_depth(e.to_schema(node))
+        sch = e.to_schema(node)
+        if r == "Dataset":
+            e.pin_used_kinds(sch)
+        sch = _reref_module_depth(sch)
         if sch.get("properties"):
             if required[r]:
                 sch = {**sch, "required": sorted(required[r])}
@@ -577,6 +580,12 @@ def _sample(sch, base_dir=None, root=None, _seen=None, _depth=0):
                     ubykey.setdefault(k, []).append(v)
             out = []
             for c in conds:
+                # A conditional that only REQUIRES something of an item of a given kind -- the
+                # emitter's "a tool must say its role" rule on schema:instrument -- describes no
+                # member of its own, so it gets no sampled item (it used to be `required` on the
+                # items, which this loop never saw either).
+                if not ((c.get("then") or {}).get("properties")):
+                    continue
                 cond = {}
                 for src in ((c["if"].get("properties") or {}),
                             ((c.get("then") or {}).get("properties") or {})):
@@ -718,6 +727,11 @@ def write_examples(d, name, doc):
         if defname.startswith("Param_"):
             continue          # a published parameter branch, not an instance shape
         inst = _sample(sub, base_dir=d, root=sample_doc)
+        # schema:instrument items need their Wikidata kind term and the @type that goes with it,
+        # which no sampled branch carries: the base pins each kind's shape with an `if` keyed ON
+        # that term. The example builders get them from the same one normalizer.
+        import schema_path_example_emitter as _spx
+        _spx.normalize_instrument_tree(inst)
         # A module $def may $ref a sibling building block by relative path
         # (../../geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool). jsonschema cannot follow
         # a relative FILE ref - it falls back to urllib and raises Unresolvable - so the sample is
