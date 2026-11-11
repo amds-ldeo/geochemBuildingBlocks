@@ -15,10 +15,10 @@ ex:laQicpmsUPbTAPP-detail-Liu2025 a schema1:Dataset,
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -42,11 +42,11 @@ ex:laQicpmsUPbTAPP-detail-Liu2025 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ schema1:instrument <https://example.org/laQicpmsUPbTAPP-detail-Liu2025/instrument/ICPMS>,
+                        <https://example.org/laQicpmsUPbTAPP-detail-Liu2025/instrument/Laser-Ablation-System> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/laQicpmsUPbTAPP-detail-Liu2025/instrument/ICPMS>,
-                        <https://example.org/laQicpmsUPbTAPP-detail-Liu2025/instrument/Laser-Ablation-System> ] ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
             ada:rasterLineSpacing "N/A — spot mode" ] ;

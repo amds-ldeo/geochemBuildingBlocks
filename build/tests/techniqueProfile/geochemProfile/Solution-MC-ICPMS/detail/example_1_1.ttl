@@ -11,16 +11,16 @@ ex:solutionMcicpmsTAPP-detail-P0 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TIMS — Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "BHVO-2 [all: ±0.14 (ε97Mo) to ±0.39 (ε92Mo), 2 s.d., n = 24] — external reproducibility (§2, Table S2); Ba by TIMS ±0.13–0.31 (n = 14)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "BHVO-2 [all: εⁱMo indistinguishable from the Alfa Aesar standard] — §2" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "BHVO-2 [all: ±0.14 (ε97Mo) to ±0.39 (ε92Mo), 2 s.d., n = 24] — external reproducibility (§2, Table S2); Ba by TIMS ±0.13–0.31 (n = 14)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -50,10 +50,10 @@ ex:solutionMcicpmsTAPP-detail-P0 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Three matrix separates, six chondrule fractions (C2, C3, C4; C3m, C3i, C3n) and two bulk rock samples of Allende; BHVO-2" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P0/instrument/ICPMS> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "BHVO-2 — 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P0/instrument/ICPMS> ] ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deltaOrEpsilonValueReferenceStandard "Mo: Alfa Aesar Mo solution standard — mean of bracketing runs" ;
             ada:proceduralBlankLevel "Mo: 0.7–1.2 ng — 'negligible, given that several hundred ng of Mo were analyzed for each sample'" ] ;

@@ -444,15 +444,15 @@ ex:temTAPP-detail-Chaves2023 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
-                            schema1:description "FIB lift-out (Ga ion)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga ion)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -1098,24 +1098,24 @@ ex:temTAPP-detail-Zega2025 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (TS Helios G3, K-ALFAA) prepared TEM sections from SEM/EMPA-characterized particles; SEM/EMPA/XRD/CL provided mm–µm scale context before TEM; XANES at ALS beamline 5.3.2.2 acquired on FIB sections for Fe oxidation state" ;
-                    schema1:name "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)" ] ] ;
+                    schema1:name "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga ion)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
@@ -1769,16 +1769,16 @@ ex:temTAPP-detail-Zega2025-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga ion)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector>,
@@ -1793,10 +1793,10 @@ ex:temTAPP-detail-Zega2025-2 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-2/instrument/TEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Python (sequential map combination)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-2/instrument/TEM> ] ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
@@ -2399,15 +2399,15 @@ ex:temTAPP-detail-Zega2025-3 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
-                            schema1:description "Crushing / dispersion on grid" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "Crushing / dispersion on grid" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod>,
@@ -3113,13 +3113,13 @@ ex:temTAPP-detail-Zega2025-4 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Thermo System7 (EDS quantification)" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Thermo System7" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Thermo System7 (EDS quantification)" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
@@ -3509,15 +3509,15 @@ ex:temTAPP-detail-Matsumoto2021 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode> ;
             schema1:description "Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) applied as additional cleaning step after FIB thinning" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -3947,15 +3947,15 @@ ex:temTAPP-detail-Matsumoto2021-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard>,
@@ -5044,15 +5044,15 @@ ex:temTAPP-detail-KellerBerger2014 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "Ultramicrotomy" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
@@ -5690,11 +5690,11 @@ ex:temTAPP-detail-Zeng2024 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "National Key R&D Programme China (2022YFF0503100); B-type Strategic Priority Programme CAS (XDB41000000); NSFC (42103036; 41931077; 42241104; 42203047; 42241108); Science and Technology Development Fund of Macau (0014/2022/A1); Science and Technology Planning Project of Guangzhou (2024A04J9999; 202102021184)" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Unprocessed SEM and TEM data for Figs. 1–3 available at https://doi.org/10.6084/m9.figshare.25244650" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS, Guiyang): BSE and SE imaging at 5 kV/0.8 nA (7 mm WD); EDS mapping at 20 kV/1.6 nA; FIB foil preparation at 30 kV/0.4 nA; STEM imaging of FIB slice at 30 kV/0.4 nA using the same FIB/SEM instrument (all performed prior to TEM on Talos F200S)" ;
-                    schema1:name "FIB-SEM (FEI Scios dual-beam); SEM-BSE; SEM-EDS" ] ] ;
+                    schema1:name "FIB-SEM (FEI Scios dual-beam); SEM-BSE; SEM-EDS" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Unprocessed SEM and TEM data for Figs. 1–3 available at https://doi.org/10.6084/m9.figshare.25244650" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -6847,15 +6847,15 @@ ex:temTAPP-detail-Dobrica2022-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimit>,
@@ -8166,15 +8166,15 @@ ex:temTAPP-detail-Thompson2020 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
-                            schema1:description "FIB lift-out (Ga+)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga+)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
@@ -9033,15 +9033,15 @@ ex:temTAPP-detail-Seifert2026 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
-                            schema1:description "FIB lift-out (Ga+)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
+                            schema1:description "FIB lift-out (Ga+)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -9604,15 +9604,15 @@ ex:temTAPP-detail-Seifert2026-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -9628,11 +9628,11 @@ ex:temTAPP-detail-Seifert2026-2 a schema1:Dataset,
             schema1:startTime "no value available: schema:startTime" ;
             prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Seifert2026-2/instrument/TEM> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
-                            ada:toolRole "acquisition" ],
-                        [ a schema1:SoftwareApplication ;
                             schema1:name "SingleCrystal (CrystalMaker Software)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
+                            ada:toolRole "acquisition" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
@@ -10195,16 +10195,16 @@ ex:temTAPP-detail-Cymes2023 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
@@ -10217,10 +10217,10 @@ ex:temTAPP-detail-Cymes2023 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Cymes2023/instrument/TEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "SingleCrystal (CrystalMaker Software, Ltd., Oxford, UK)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/temTAPP-detail-Cymes2023/instrument/TEM> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
@@ -10957,11 +10957,11 @@ ex:temTAPP-detail-Cymes2023-2 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA Astromaterials Next Generation Sample Analysis (ANGSA) 80HQTR19T0057; NASA Solar System Exploration Research Virtual Institute (SSERVI) 80NSSC19M0215; NRC Research Associateship Program" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Zenodo repository: 10.5281/zenodo.7439174" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Fe oxidation state mapping and Fe³⁺/ΣFe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping" ;
-                    schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)" ] ] ;
+                    schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); BF/EFTEM/SAED/HRTEM (JEOL JEM-2200FS at NRL; coordinated with Nion UltraSTEM200-X)" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Zenodo repository: 10.5281/zenodo.7439174" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -14599,7 +14599,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

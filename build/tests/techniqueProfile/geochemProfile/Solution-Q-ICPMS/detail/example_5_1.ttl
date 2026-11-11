@@ -14,22 +14,15 @@ ex:solutionQicpmsTAPP-detail-Agilent7500-2 a schema1:Dataset,
                     schema1:name "SF-ICP-MS — Ti on a Finnigan ELEMENT at PML (§2.1.2)" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: RSD% — Tables 5 and 6; 'Averages of the reproducibility (RSD %)'" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
-                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
@@ -40,7 +33,14 @@ ex:solutionQicpmsTAPP-detail-Agilent7500-2 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
+                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -51,10 +51,10 @@ ex:solutionQicpmsTAPP-detail-Agilent7500-2 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1 (GSJ); BHVO-1, AGV-1, PCC-1, DTS-1 (USGS); Ivuna (CI1), Orgueil (CI1), Cold Bokkeveld (CM2), Allende (USNM 3529, Split 1, Pos. 23)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS> ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — §2.3; the chondrites are samples" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ schema1:instrument <https://example.org/solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS> ] ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "B: 13–185 pg (ultrasonic); Zr: 0.9–29, 55; Nb: 2–5, 3; Mo: 0.2–10, ~134; Sn: ~323, ~276; Sb: 0.7–9, ~60; Hf: <12, <8; Ta: 0.6–7, 0.6–2 — total procedural blank in pg, ultrasonic then bomb method (Table 4)" ] ;
     ada:analysisEndDate "missing" ;

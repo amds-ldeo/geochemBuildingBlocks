@@ -1199,12 +1199,12 @@ ex:adaSolutionSFICPMS-example-001 a schema1:Dataset,
         <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
@@ -1224,8 +1224,8 @@ ex:adaSolutionSFICPMS-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:solutionSficpmsTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaSolutionSFICPMS-example-001/instrument/ICPMS> ] ;
+            prov:used [ schema1:instrument <https://example.org/adaSolutionSFICPMS-example-001/instrument/ICPMS> ],
+                [ ada:tappDefinition ex:solutionSficpmsTAPP-P0 ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "Solution nebulisation (continuous)" ;
     ada:sensitivityYield 1e+00 ;
@@ -1430,7 +1430,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

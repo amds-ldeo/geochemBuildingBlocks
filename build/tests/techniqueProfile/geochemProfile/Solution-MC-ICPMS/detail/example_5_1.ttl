@@ -12,15 +12,15 @@ ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes" ;
                     schema1:name "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
@@ -54,10 +54,10 @@ ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "FC-1 zircon and baddeleyite crystals; ZrNIST reference solution" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS> ] ;
             ada:combinedResults [ ] ;
             ada:deltaOrEpsilonValueReferenceStandard "Zr: ZrNIST — a NIST gravimetric Zr solution being calibrated as an isotopic reference material" ;
             ada:proceduralBlankLevel "N — the blank comparison stated concerns non-radiogenic Pb in the U-Pb work" ] ;

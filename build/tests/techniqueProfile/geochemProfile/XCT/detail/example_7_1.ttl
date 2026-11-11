@@ -14,10 +14,10 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
                     schema1:name "SEM-BSE (qualitative comparison)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ],
-        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -44,10 +44,10 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
                         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
                     schema1:name "NWA 5790" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Avizo™" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ] ] ;
+                            ada:toolRole "dataReduction" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;

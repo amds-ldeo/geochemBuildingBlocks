@@ -12,15 +12,21 @@ ex:semTAPP-detail-Ma2017-2 a schema1:Dataset,
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ] ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabase> ;
@@ -31,13 +37,7 @@ ex:semTAPP-detail-Ma2017-2 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/ebsdPhaseList> ;
             schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
             schema1:endTime "no value available: schema:endTime" ;

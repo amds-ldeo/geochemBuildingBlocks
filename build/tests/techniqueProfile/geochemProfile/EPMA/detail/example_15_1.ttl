@@ -12,11 +12,11 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/mapDimensions> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA ANGSA program 80NSSC19K0958 — 'We thank NASA for support of the ANGSA program (Grant 80NSSC19K0958)'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Ogliore (2025) — 'The quantitative EPMA image data and coregistered image sets are available in Ogliore (2025)'" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases" ;
-                    schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ] ;
+                    schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Ogliore (2025) — 'The quantitative EPMA image data and coregistered image sets are available in Ogliore (2025)'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -41,11 +41,11 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
             schema1:startTime "no value available: schema:startTime" ;
             prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
                             schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;

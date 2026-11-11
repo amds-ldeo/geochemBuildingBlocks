@@ -24,15 +24,15 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
+                            schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/numberOfReplicates>,
@@ -49,11 +49,11 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024 a schema1:Dataset,
             prov:used [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
                             ada:reagentRole "referenceMaterial" ] ],
+                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS>,
+                        <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> ] ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:ablationSpotDuration "40 s — '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;

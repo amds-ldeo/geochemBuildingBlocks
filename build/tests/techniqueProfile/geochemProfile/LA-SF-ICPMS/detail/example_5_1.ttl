@@ -11,14 +11,14 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — no funding section in this appendix document; funding would be in the parent paper which was not assessed" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "N — within-session precision not formally assessed" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "N — within-session precision not formally assessed" ] ;
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -45,11 +45,11 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:name "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS>,
-                        <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS>,
+                        <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System> ] ;
             ada:ablationSpotDuration "N — parameters lost" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;

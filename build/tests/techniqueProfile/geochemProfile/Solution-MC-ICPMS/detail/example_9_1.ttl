@@ -9,29 +9,29 @@
 
 ex:solutionMcicpmsTAPP-detail-Moynier2017 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "SRM984 through chemistry [δ87Rb: 0.00 ± 0.03‰]; Allende [δ87Rb: duplicate splits 0.12 ± 0.02‰ and 0.14 ± 0.04‰] — §2.3" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "pure Rb ICP-MS solution [δ87Rb: ±0.01‰ (n = 40)] — run as an external standard each session" ] ;
+            dqv:value "pure Rb ICP-MS solution [δ87Rb: ±0.01‰ (n = 40)] — run as an external standard each session" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "SRM984 through chemistry [δ87Rb: 0.00 ± 0.03‰]; Allende [δ87Rb: duplicate splits 0.12 ± 0.02‰ and 0.14 ± 0.04‰] — §2.3" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
