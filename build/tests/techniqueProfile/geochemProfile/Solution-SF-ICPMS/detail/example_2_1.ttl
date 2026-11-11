@@ -13,13 +13,18 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
             dqv:value "FER-2 [all: RSD <5%] — three analyses, Table 3 (§3)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "FER-2 [all: most ratios to literature values within 0.9–1.1] — Fig. 7 (§3)" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ] ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
@@ -31,12 +36,7 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;

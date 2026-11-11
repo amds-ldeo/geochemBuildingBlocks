@@ -1381,18 +1381,18 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
         <https://example.org/var/Reported-Date-Type>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ] ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;
@@ -1667,7 +1667,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

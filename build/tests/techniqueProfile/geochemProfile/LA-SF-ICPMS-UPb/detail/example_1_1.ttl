@@ -14,14 +14,14 @@ ex:laSficpmsUPbTAPP-detail-Zhang2022 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)" ] ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -47,11 +47,11 @@ ex:laSficpmsUPbTAPP-detail-Zhang2022 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:name "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS>,
+                        <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> ] ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:ablationSpotDuration "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;

@@ -13,15 +13,15 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
@@ -35,14 +35,14 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024-2 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS>,
+            prov:used [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS>,
                         <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> ],
                 [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:ablationSpotDuration "N/A — mapping mode" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;

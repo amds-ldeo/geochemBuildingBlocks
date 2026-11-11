@@ -15,10 +15,10 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:name "NNSA Stewardship Science Academic Alliances, DOE Cooperative Agreements DE-NA0001982 and DESC0005278; NASA NNX12AJ01G — 'This work was supported in part by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N — Table 1 note c, same wording" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
@@ -43,16 +43,16 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
                     schema1:identifier "USNM 7619 — Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN" ;
                     schema1:name "Zagami USNM 7619" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-Ma2017/instrument/EPMA> ],
+            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Ma2017/instrument/EPMA> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
                             ada:toolRole "acquisition" ],
                         [ a schema1:SoftwareApplication ;
                             schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;

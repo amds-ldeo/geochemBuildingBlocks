@@ -1121,16 +1121,16 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
         <https://example.org/var/Calibration-Factor-and-Determination-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
-            dqv:value "no value available: signalToNoiseRatio" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "no value available: beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "no value available: crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
+        [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
+            dqv:value "no value available: signalToNoiseRatio" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1148,8 +1148,8 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:labxctTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaLabXCT-example-001/instrument/XCT> ] ] ;
+            prov:used [ schema1:instrument <https://example.org/adaLabXCT-example-001/instrument/XCT> ],
+                [ ada:tappDefinition ex:labxctTAPP-P0 ] ] ;
     ada:analyticalMode "Single-volume" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1328,7 +1328,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

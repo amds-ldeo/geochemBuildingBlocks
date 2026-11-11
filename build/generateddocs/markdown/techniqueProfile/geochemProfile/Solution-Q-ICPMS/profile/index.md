@@ -1203,12 +1203,12 @@ ex:adaSolutionQICPMS-example-001 a schema1:Dataset,
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ] ;
+            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;
@@ -1430,7 +1430,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

@@ -11,30 +11,30 @@ ex:laQicpmsUPbTAPP-detail-Liu2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategy Priority Research Program (Category B) of Chinese Academy of Sciences (XDB0710000); NSFC 42073022" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: relative standard deviation — 'relative standard deviations are reported as the precision measure'" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] — §3.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] — §3.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] — §3.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
                             schema1:description "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/numberOfReplicates>,

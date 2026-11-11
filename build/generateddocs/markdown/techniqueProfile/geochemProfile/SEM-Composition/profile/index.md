@@ -1189,10 +1189,10 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
         <https://example.org/var/Detection-Limit>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracy" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: analyticalPrecision" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
@@ -1210,8 +1210,8 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:semCompositionTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaSEMComposition-example-001/instrument/SEM> ] ;
+            prov:used [ schema1:instrument <https://example.org/adaSEMComposition-example-001/instrument/SEM> ],
+                [ ada:tappDefinition ex:semCompositionTAPP-P0 ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
@@ -1418,7 +1418,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

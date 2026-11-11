@@ -13,13 +13,13 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 1 standard deviation — Table 1: 'the uncertainty corresponds to 1 standard deviation'" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
@@ -50,11 +50,11 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "In-house MatLab script (Appendix C2)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS>,
+                        <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ] ;
             ada:ablationSpotDuration "50 s of sample ablation per 400 µm line, both runs — Table B1" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;

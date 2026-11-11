@@ -456,12 +456,12 @@ ex:epmaTAPP-detail-Ma2015 a schema1:Dataset,
             schema1:name "DOE Cooperative Agreement DE-NA0001982; NSF EAR 322082; NASA NNN13D465T; NASA Cosmochemistry NNX11AG58G and NNX12AH63G; NSF EAR 1344942 and 1440005 — acknowledged author by author for the study as a whole; none is attributed to the microprobe work" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -974,10 +974,10 @@ ex:epmaTAPP-detail-Hu2020 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "NWA 8657 shergottite" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Hu2020/instrument/EPMA> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-Hu2020/instrument/EPMA> ] ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -1512,12 +1512,12 @@ ex:epmaTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:name "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b: '1σ is 1 standard deviation of the average'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -2035,11 +2035,11 @@ ex:epmaTAPP-detail-Liu2016-2 a schema1:Dataset,
             schema1:name "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
@@ -2617,10 +2617,10 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:name "NNSA Stewardship Science Academic Alliances, DOE Cooperative Agreements DE-NA0001982 and DESC0005278; NASA NNX12AJ01G — 'This work was supported in part by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N — Table 1 note c, same wording" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
@@ -2645,16 +2645,16 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
                     schema1:identifier "USNM 7619 — Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN" ;
                     schema1:name "Zagami USNM 7619" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-Ma2017/instrument/EPMA> ],
+            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Ma2017/instrument/EPMA> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
                             ada:toolRole "acquisition" ],
                         [ a schema1:SoftwareApplication ;
                             schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -3084,10 +3084,10 @@ ex:epmaTAPP-detail-Frank2023 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Ivuna CI chondrite, section MZ2" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Frank2023/instrument/EPMA> ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ schema1:instrument <https://example.org/epmaTAPP-detail-Frank2023/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -3567,27 +3567,27 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA 80NSSC22K1689; NASA 80NSSC24K1284; McDonnell Center for the Space Sciences — 'Individual funding was provided by ...'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "N — 'The data that support the findings of this study are available from the corresponding author upon reasonable request'" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "N — 'The data that support the findings of this study are available from the corresponding author upon reasonable request'" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
+                            schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -3597,16 +3597,16 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Smithsonian Microbeam standards (specific materials and values N)" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-Broussard2026/instrument/EPMA> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Probe for EPMA microanalysis software" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/epmaTAPP-detail-Broussard2026/instrument/EPMA> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "Smithsonian Microbeam standards (specific materials and values N)" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -4096,21 +4096,21 @@ ex:epmaTAPP-detail-Seifert2026 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program); NASA Postdoctoral Program — acknowledgements" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "astromat.org, at the DOIs in Table S1 — 'Instrument data products that support the findings of this study will be available via astromat.org at the DOIs given in Table S1'" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Table S1 — 'Instrument data products that support the findings of this study will be available via astromat.org at the DOIs given in Table S1'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimization>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/halogenCorrectionOnOxygen> ;
             schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed." ;
@@ -4584,13 +4584,13 @@ ex:epmaTAPP-detail-Pang2016 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSFC 41373065; State Key Laboratory for Mineral Deposits Research ZZKT-201322; Fundamental Research Funds for the Central Universities — 'This study was supported by grants from ...'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Supplementary Information at www.nature.com/srep — 'Supplementary information accompanies this paper at http://www.nature.com/srep'; the EPMA data are in Supplementary Tables 1–4" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Supplementary Information at www.nature.com/srep — 'Supplementary information accompanies this paper at http://www.nature.com/srep'; the EPMA data are in Supplementary Tables 1–4" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+        [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "N — the averages are given as '±' values ('41 ± 8 mol%') without naming the statistic" ] ;
@@ -5068,14 +5068,14 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Magnetite and olivine analyses: 15 kV, 10 nA, 1 µm spot; their own standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use)." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -5513,21 +5513,21 @@ ex:epmaTAPP-detail-McCoy2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — as for the Smithsonian procedure" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — as for the Smithsonian procedure" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished section; 20 nm carbon coat" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -6001,10 +6001,10 @@ ex:epmaTAPP-detail-Zega2025 a schema1:Dataset,
                     schema1:identifier "OREX-5/8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-5/8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Zega2025/instrument/EPMA> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "XMapTools (for phase maps)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/epmaTAPP-detail-Zega2025/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -7576,11 +7576,11 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/mapDimensions> ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA ANGSA program 80NSSC19K0958 — 'We thank NASA for support of the ANGSA program (Grant 80NSSC19K0958)'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Ogliore (2025) — 'The quantitative EPMA image data and coregistered image sets are available in Ogliore (2025)'" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases" ;
-                    schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ] ;
+                    schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Ogliore (2025) — 'The quantitative EPMA image data and coregistered image sets are available in Ogliore (2025)'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -7605,11 +7605,11 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
             schema1:startTime "no value available: schema:startTime" ;
             prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
                             schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;
@@ -8702,7 +8702,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

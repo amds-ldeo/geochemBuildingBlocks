@@ -43,13 +43,13 @@ ex:temTAPP-detail-Zega2025-4 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Thermo System7 (EDS quantification)" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Thermo System7" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Thermo System7 (EDS quantification)" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;
