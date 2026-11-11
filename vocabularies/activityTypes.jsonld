@@ -1,0 +1,241 @@
+{
+  "@context": {
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geochemvoc": "https://w3id.org/geochem/vocabulary/",
+    "cdifact": "https://w3id.org/cdif/concepts/provenance/activity/"
+  },
+  "@graph": [
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/activityTypes",
+      "@type": "skos:ConceptScheme",
+      "skos:prefLabel": {
+        "@value": "Geochemistry laboratory activity types",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "Kinds of laboratory step used in ADA / geochemistry analytical procedures (TAPP workflow steps). Each concept is linked with skos:broadMatch to the CDIF provenance activity it specialises, https://w3id.org/cdif/concepts/provenance/activity/conceptScheme. These concepts moved here from the deprecated CDIF activity-type vocabulary (https://w3id.org/cdif/provenance/activityType), whose concepts point here with dcterms:isReplacedBy.",
+        "@language": "en"
+      },
+      "skos:hasTopConcept": [
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/samplePreparation"
+        },
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/instrumentTuning"
+        },
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/instrumentCalibration"
+        },
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/dataAcquisition"
+        },
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/dataProcessing"
+        },
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/qualityControl"
+        }
+      ]
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/samplePreparation",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Sample preparation",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An activity that changes the physical or chemical state of a sample to make it suitable for measurement, for example cutting, mounting, polishing, coating, crushing, sieving or dissolving it.",
+        "@language": "en"
+      },
+      "skos:notation": "samplePreparation",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:topConceptOf": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:narrower": [
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/sampleDigestion"
+        },
+        {
+          "@id": "https://w3id.org/geochem/vocabulary/ionMilling"
+        }
+      ],
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/samplePreparation"
+      }
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/sampleDigestion",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Sample digestion",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "Sample preparation that dissolves a solid sample, typically in acid, to produce a solution for analysis.",
+        "@language": "en"
+      },
+      "skos:notation": "sampleDigestion",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:broader": {
+        "@id": "https://w3id.org/geochem/vocabulary/samplePreparation"
+      },
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/sampleDigestion"
+      }
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/ionMilling",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Ion milling",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "Sample preparation that thins or shapes a sample by sputtering it with an ion beam, for example to make an electron-transparent section.",
+        "@language": "en"
+      },
+      "skos:notation": "ionMilling",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:broader": {
+        "@id": "https://w3id.org/geochem/vocabulary/samplePreparation"
+      },
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/ionMilling"
+      }
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/instrumentTuning",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Instrument tuning",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An activity that adjusts instrument settings to optimise performance for a measurement, judged by the instrument's response rather than against reference materials of known value.",
+        "@language": "en"
+      },
+      "skos:notation": "instrumentTuning",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:topConceptOf": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:broadMatch": {
+        "@id": "https://w3id.org/cdif/concepts/provenance/activity/Configuration"
+      },
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/instrumentTuning"
+      }
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/instrumentCalibration",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Instrument calibration",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An activity that measures reference materials or standards of known value to establish the relationship between the instrument's response and the quantity being measured.",
+        "@language": "en"
+      },
+      "skos:notation": "instrumentCalibration",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:topConceptOf": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:broadMatch": {
+        "@id": "https://w3id.org/cdif/concepts/provenance/activity/Calibration"
+      },
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/instrumentCalibration"
+      }
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/dataAcquisition",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Data acquisition",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An activity in which an instrument or observer measures or observes the object of study and records the result as data.",
+        "@language": "en"
+      },
+      "skos:notation": "dataAcquisition",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:topConceptOf": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:broadMatch": {
+        "@id": "https://w3id.org/cdif/concepts/provenance/activity/Measurement"
+      },
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/dataAcquisition"
+      }
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/dataProcessing",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Data processing",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An activity that transforms acquired data into reported results, for example background and blank correction, drift correction, matrix correction, applying a calibration, or converting units.",
+        "@language": "en"
+      },
+      "skos:notation": "dataProcessing",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:topConceptOf": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:broadMatch": {
+        "@id": "https://w3id.org/cdif/concepts/provenance/activity/DataTransformation"
+      },
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/dataProcessing"
+      }
+    },
+    {
+      "@id": "https://w3id.org/geochem/vocabulary/qualityControl",
+      "@type": "skos:Concept",
+      "skos:prefLabel": {
+        "@value": "Quality control",
+        "@language": "en"
+      },
+      "skos:definition": {
+        "@value": "An activity that assesses data or a process against defined criteria, for example measuring secondary standards, checking precision and accuracy, or flagging anomalous values.",
+        "@language": "en"
+      },
+      "skos:notation": "qualityControl",
+      "skos:inScheme": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:topConceptOf": {
+        "@id": "https://w3id.org/geochem/vocabulary/activityTypes"
+      },
+      "skos:broadMatch": {
+        "@id": "https://w3id.org/cdif/concepts/provenance/activity/QualityControl"
+      },
+      "dcterms:replaces": {
+        "@id": "https://w3id.org/cdif/provenance/activityType/qualityControl"
+      }
+    }
+  ]
+}
