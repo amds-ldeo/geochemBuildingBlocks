@@ -18,11 +18,19 @@ ex:semTAPP-detail-Zega2025-6 a schema1:Dataset,
             dqv:value -9999 ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value -9999 ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ] ;
+            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
@@ -32,15 +40,7 @@ ex:semTAPP-detail-Zega2025-6 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
-                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;

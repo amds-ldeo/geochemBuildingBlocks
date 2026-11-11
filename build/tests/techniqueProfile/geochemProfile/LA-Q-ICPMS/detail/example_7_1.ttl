@@ -11,14 +11,14 @@ ex:laQicpmsTAPP-detail-P6 a schema1:Dataset,
         schema1:Product ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: 1.5–8.1%]; Otter Lake, NW-1, MAP-3 [common-Hf-corrected single-spot age: 9.2–36.0%] — isochron age uncertainties of 3.5–10% for the garnet samples" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: generally better than 1.5%] — against ID-TIMS U–Pb ages of the same reference materials" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "Lu-Hf isochron age, Lu-Hf weighted-mean age: MSWD; other: N — e.g. MSWD = 2.3 (n = 236, XN02) and MSWD = 0.6 (n = 15, weighted-mean Lu-Hf age 489.8 ± 2.2 Ma)" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: generally better than 1.5%] — against ID-TIMS U–Pb ages of the same reference materials" ] ;
+            dqv:value "Lu-Hf isochron age, Lu-Hf weighted-mean age: MSWD; other: N — e.g. MSWD = 2.3 (n = 236, XN02) and MSWD = 0.6 (n = 15, weighted-mean Lu-Hf age 489.8 ± 2.2 Ma)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -36,14 +36,14 @@ ex:laQicpmsTAPP-detail-P6 a schema1:Dataset,
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Xenotime XN02, MG-1, BS-1, XENOA, M1567; apatite Otter Lake, NW-1, MAP-3; two metamorphic garnets; NIST SRM 610" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages" ;
+                            ada:toolRole "dataReduction" ] ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "ARM-1; MG-1, BS-1, XENOA, M1567; Otter Lake, NW-1, MAP-3 — ARM-1 'is used for the quality control' of Lu and Hf concentrations; the xenotime and apatite U–Pb reference materials test the Lu–Hf ages against their ID-TIMS U–Pb ages" ;
                             ada:reagentRole "referenceMaterial" ] ],
                 [ schema1:instrument <https://example.org/laQicpmsTAPP-detail-P6/instrument/ICPMS>,
-                        <https://example.org/laQicpmsTAPP-detail-P6/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                        <https://example.org/laQicpmsTAPP-detail-P6/instrument/Laser-Ablation-System> ] ;
             ada:ablationSpotDuration "25 s" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;

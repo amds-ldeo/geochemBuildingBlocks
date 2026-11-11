@@ -117,11 +117,11 @@ The procedure half of the Geochronology module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 
 [] schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
             schema1:name "Age Datum / Reference Epoch" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
             schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: unnamed property" ] ;
     ada:ageCalculationMethod "no value available: unnamed property" ;
@@ -595,7 +595,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.geochronology
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

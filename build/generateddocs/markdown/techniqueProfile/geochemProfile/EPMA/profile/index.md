@@ -1183,10 +1183,10 @@ ex:adaEPMA-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: analyticalAccuracy" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: analyticalPrecision" ] ;
+            dqv:value "no value available: analyticalPrecision" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracy" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:endTime "2026-01-10T12:45:00" ;
@@ -1408,7 +1408,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

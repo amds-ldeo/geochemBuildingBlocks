@@ -557,23 +557,17 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)" ;
                     schema1:name "Agilent 7700x Q-ICP-MS (used for Pb isotope comparison; stated section 2.4)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: % deviation from published Pb isotope values] — Table 1 and §3" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 2sd — '(2sd, n = 22)'; averages given with '±2sd%'" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: 2sd of repeat analyses] — Table 1; 'regular analyses of Tl-doped ~1 ppb solutions of several rock standards (unseparated)' (§2.4)" ] ;
+            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: 2sd of repeat analyses] — Table 1; 'regular analyses of Tl-doped ~1 ppb solutions of several rock standards (unseparated)' (§2.4)" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: % deviation from published Pb isotope values] — Table 1 and §3" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Sample digestion" ;
@@ -583,7 +577,13 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"A typical session comprised analyses of up to 50 unknowns and 15 standards\"; no session identifier stated" ;
@@ -593,10 +593,10 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Soil and rock samples from boreholes BH1, BH2 (Sunbury), BH3, BH4 (Kalkallo), BH5 (Greenvale), BH6, BH (Wallan), incl. BH3a; reference materials BCR-2, BR, AGV-2, JB-2, JB-3, NIST SRM981, and Broken Hill Main Lode galena" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS> ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS> ] ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "Pb: total procedural blank <100 pg — 'total procedural blanks (dissolution and/or leaching, including centrifuging) are estimated to be <100 pg'; sample/blank ratios ≥1500 (§2.3)" ] ;
     ada:analysisEndDate "missing" ;
@@ -1362,13 +1362,18 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
             dqv:value "FER-2 [all: RSD <5%] — three analyses, Table 3 (§3)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "FER-2 [all: most ratios to literature values within 0.9–1.1] — Fig. 7 (§3)" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ] ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
@@ -1380,12 +1385,7 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -2189,28 +2189,28 @@ ex:solutionSficpmsTAPP-detail-P2 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "The SF-ICP-MS measures Ti as the (47Ti + 49Ti)/93Nb ratio; the Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta on the same solutions and gives the Nb concentration used for Ti — abstract; §2.7" ;
                     schema1:name "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: consistent with previous studies] — abstract; Tables 5 and 6" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: RSD% — 'Averages of the reproducibility (RSD %)'" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "all [Ti: RSD 3.6% (2.3–5.4%)] — TTi/93Nb RSD% (Table 2b)" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: consistent with previous studies] — abstract; Tables 5 and 6" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
                             schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -2996,22 +2996,21 @@ detail instance derived from Milne+etal2010 | Thermo Finnigan Element I | FSU NH
 
 ex:solutionSficpmsTAPP-detail-P3 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: %RSD, with 1 S.D. for blanks — 'The precision is calculated as the percent relative standard deviation (% RSD)'; 'Mean blank ± 1S.D.'" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "NASS-5, SAFe S1, SAFe D2 [all: 95% confidence limit, n = 3] — Table 6" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "NASS-5, SAFe S1, SAFe D2 [all: agreement with the NASS-5 certified and SAFe consensus values] — Table 6" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: %RSD, with 1 S.D. for blanks — 'The precision is calculated as the percent relative standard deviation (% RSD)'; 'Mean blank ± 1S.D.'" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "NASS-5, SAFe S1, SAFe D2 [all: agreement with the NASS-5 certified and SAFe consensus values] — Table 6" ] ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
+                            schema1:name "Sample digestion" ;
+                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -3021,8 +3020,9 @@ ex:solutionSficpmsTAPP-detail-P3 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 3 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:description "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"Each analytical session would begin and end with the analysis of a series of Mo standards (1-100 nM)\"; \"an analysis sequence\"; \"1 day's analysis\"; \"three separate days of analyses\". No session or sequence identifier stated" ;
@@ -3033,10 +3033,10 @@ ex:solutionSficpmsTAPP-detail-P3 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Open-ocean seawater reference materials SAFe S1, SAFe D2 and NASS-5; GEOTRACES inter-calibration samples GS (surface) and GD (deep); depth-profile samples from the BATS station, 31 deg 45' N, 64 deg 05' W, 23 June 2008" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
+            prov:used [ schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P3/instrument/ICPMS> ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "NASS-5; SAFe S1; SAFe D2 — NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (§2.6)" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P3/instrument/ICPMS> ] ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "Mn: 0.433 ± 0.026; Fe: 2.791 ± 0.083; Co: 0.078 ± 0.006; Ni: 0.457 ± 0.104; Cu: 0.184 ± 0.027; Zn: 3.044 ± 0.018; Cd: 0.045 ± 0.003; Pb: 0.017 ± 0.001 — pmol, mean reagent blank ± 1 SD from one day's analysis, elution acid plus ammonium acetate buffer (Table 5)" ] ;
     ada:analysisEndDate "missing" ;
@@ -3729,14 +3729,14 @@ detail instance derived from Misra+etal2014 | Thermo Element XR | Univ Cambridge
 
 ex:solutionSficpmsTAPP-detail-P4 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [all: ±2σ of repeat analyses over 8 months] — Table 4; n = 180, 130, 100 and 150" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [B/Ca: across degrees of sample dilution] — Fig. 2" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "all [B/Ca: 4.0% (2σ), average within-run external precision] — abstract" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [all: ±2σ of repeat analyses over 8 months] — Table 4; n = 180, 130, 100 and 150" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -3746,14 +3746,14 @@ ex:solutionSficpmsTAPP-detail-P4 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
+                            schema1:name "Sample digestion" ;
+                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 3 ] ] ;
+                            schema1:description "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"a single instrument session\" referenced; no session identifier stated" ;
@@ -4569,17 +4569,23 @@ detail instance derived from Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz.
 
 ex:solutionSficpmsTAPP-detail-Willbold2005 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BHVO-1 [all: within 1–2% of published ID data and 2–3% of all published data]; AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 [all: most within 3–4% of published data] — abstract; Table 5" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "BHVO-1 [all: RSD of triplicate determinations on one digestion, generally better than 1%] — Table 4" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "BHVO-1 [all: RSD of five independent digestions over 4 months, 1–3%] — abstract and Table 4; the sixteen other RMs by RSD of three to four independent analyses (Table 5)" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: RSD — Tables 4 and 5" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BHVO-1 [all: within 1–2% of published ID data and 2–3% of all published data]; AGV-1, AGV-2, BCR-1, BCR-2, BCR-2G, BIR-1, BIR-1G, BHVO-2, BHVO-2G, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, OU-6, PCC-1 [all: most within 3–4% of published data] — abstract; Table 5" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
@@ -4592,13 +4598,7 @@ ex:solutionSficpmsTAPP-detail-Willbold2005 a schema1:Dataset,
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
                                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:description "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90%" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -5246,7 +5246,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

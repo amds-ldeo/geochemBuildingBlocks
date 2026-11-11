@@ -14,12 +14,6 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
                         [ a cdi:Activity,
@@ -27,7 +21,13 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/edsLiveTimePerPointOrPixel>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/stepSizePixelSize> ;
@@ -42,11 +42,11 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
             schema1:startTime "no value available: schema:startTime" ;
             prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Pascucci2026-3/instrument/SEM> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
                             schema1:name "Oxford INCA Energy" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;

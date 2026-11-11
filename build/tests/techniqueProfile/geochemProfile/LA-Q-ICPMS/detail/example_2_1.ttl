@@ -11,30 +11,30 @@ ex:laQicpmsTAPP-detail-Liu2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategy Priority Research Program (Category B) of Chinese Academy of Sciences (XDB0710000); NSFC 42073022" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: relative standard deviation — 'relative standard deviations are reported as the precision measure'" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] — §3.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] — §3.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1" ] ;
+            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] — §3.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] — §3.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
                             schema1:description "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/numberOfReplicates>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize>,
@@ -46,12 +46,12 @@ ex:laQicpmsTAPP-detail-Liu2024 a schema1:Dataset,
             schema1:startTime "no value available: schema:startTime" ;
             prov:used [ schema1:instrument <https://example.org/laQicpmsTAPP-detail-Liu2024/instrument/ICPMS>,
                         <https://example.org/laQicpmsTAPP-detail-Liu2024/instrument/Laser-Ablation-System> ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A — six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (§2.1); reference values from GeoReM (§3.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS" ;
-                            ada:reagentRole "referenceMaterial" ] ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Iolite 4 (Paton et al. 2011)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ bios:reagent [ a schema1:DefinedTerm ;
+                            schema1:name "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A — six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (§2.1); reference values from GeoReM (§3.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS" ;
+                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:ablationSpotDuration "45 s ablation (after 25 s gas blank; 25 s washout between analyses)" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;

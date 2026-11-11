@@ -11,14 +11,14 @@ ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -37,10 +37,10 @@ ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "SC; HBC" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Zhou2017/instrument/SEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/semTAPP-detail-Zhou2017/instrument/SEM> ] ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;

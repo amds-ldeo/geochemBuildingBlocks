@@ -10,7 +10,10 @@
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "ex": "https://example.org/",
-    "dcat": "http://www.w3.org/ns/dcat#"
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "bios": "https://bioschemas.org/",
+    "ada": "https://ada.astromat.org/metadata/",
+    "dqv": "http://www.w3.org/ns/dqv#"
   },
   "@id": "ex:geochemProduct-example-001",
   "@type": [
@@ -86,6 +89,246 @@
       ],
       "schema:identifier": "session-geochem-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
+      "schema:actionProcess": {
+        "@type": [
+          "schema:HowTo"
+        ],
+        "schema:name": "Synthetic solution ICP-MS trace-element workflow",
+        "schema:step": [
+          {
+            "@id": "ex:geochemProduct-example-001/step/digestion",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:name": "Sample digestion",
+            "schema:position": 1,
+            "schema:description": "Synthetic step. 100 mg of rock powder digested in HF-HNO3 on a hotplate, dried down and taken up in 2% HNO3.",
+            "schema:additionalType": [
+              {
+                "@id": "bios:LabProcess"
+              }
+            ],
+            "schema:agent": {
+              "@type": [
+                "schema:Person"
+              ],
+              "schema:name": "Example Analyst"
+            },
+            "schema:startTime": "2026-01-08T09:00:00",
+            "schema:endTime": "2026-01-09T16:00:00",
+            "schema:location": {
+              "@type": [
+                "schema:Place"
+              ],
+              "schema:name": "Clean laboratory, Analytical Sciences Laboratory"
+            },
+            "bios:reagent": [
+              {
+                "@type": [
+                  "schema:ChemicalSubstance"
+                ],
+                "schema:name": "Concentrated HF, trace-metal grade",
+                "ada:reagentRole": "reagent"
+              },
+              {
+                "@type": [
+                  "schema:ChemicalSubstance"
+                ],
+                "schema:name": "Concentrated HNO3, trace-metal grade",
+                "ada:reagentRole": "reagent"
+              }
+            ],
+            "schema:object": {
+              "@id": "ex:geochemProduct-example-001/sample/RP-123"
+            },
+            "schema:result": {
+              "@id": "ex:geochemProduct-example-001/digest/RP-123"
+            }
+          },
+          {
+            "@id": "ex:geochemProduct-example-001/step/tuning",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:name": "Instrument tuning",
+            "schema:position": 2,
+            "schema:description": "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation.",
+            "schema:instrument": {
+              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+            },
+            "schema:additionalProperty": [
+              {
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:name": "RF power",
+                "schema:value": 1550,
+                "schema:unitText": "W"
+              },
+              {
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:name": "Nebulizer gas flow",
+                "schema:value": 1.05,
+                "schema:unitText": "L/min"
+              }
+            ],
+            "bios:reagent": [
+              {
+                "@type": [
+                  "schema:ChemicalSubstance"
+                ],
+                "schema:name": "Multi-element tuning solution, 1 ug/L",
+                "ada:reagentRole": "referenceMaterial"
+              }
+            ],
+            "schema:actionStatus": "schema:CompletedActionStatus",
+            "dqv:hasQualityMeasurement": [
+              {
+                "@type": [
+                  "dqv:QualityMeasurement"
+                ],
+                "dqv:isMeasurementOf": "CeO+/Ce+ oxide ratio",
+                "dqv:value": "1.2%"
+              }
+            ]
+          },
+          {
+            "@id": "ex:geochemProduct-example-001/step/acquisition-1",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:name": "Data acquisition, first attempt",
+            "schema:position": 3,
+            "schema:description": "Synthetic step. First acquisition run, stopped when the drift monitor failed.",
+            "schema:instrument": {
+              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+            },
+            "schema:object": {
+              "@id": "ex:geochemProduct-example-001/digest/RP-123"
+            },
+            "schema:startTime": "2026-01-10T09:30:00",
+            "schema:endTime": "2026-01-10T10:05:00",
+            "schema:actionStatus": "schema:FailedActionStatus",
+            "schema:error": "Internal-standard (In) recovery fell below 80% after the third sample; run aborted and the cones cleaned."
+          },
+          {
+            "@id": "ex:geochemProduct-example-001/step/acquisition-2",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:name": "Data acquisition",
+            "schema:position": 4,
+            "schema:description": "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard.",
+            "schema:instrument": {
+              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+            },
+            "schema:participant": [
+              {
+                "@type": [
+                  "schema:Person"
+                ],
+                "schema:name": "Example Laboratory Technician"
+              }
+            ],
+            "bios:reagent": [
+              {
+                "@type": [
+                  "schema:DefinedTerm"
+                ],
+                "schema:name": "BHVO-2 basalt reference material",
+                "schema:termCode": "BHVO-2",
+                "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
+                "ada:reagentRole": "primaryStandard"
+              },
+              {
+                "@type": [
+                  "schema:DefinedTerm"
+                ],
+                "schema:name": "BCR-2 basalt reference material",
+                "schema:termCode": "BCR-2",
+                "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
+                "ada:reagentRole": "secondaryStandard"
+              },
+              {
+                "@type": [
+                  "schema:ChemicalSubstance"
+                ],
+                "schema:name": "2% HNO3 procedural blank",
+                "ada:reagentRole": "blankMaterial"
+              }
+            ],
+            "schema:object": {
+              "@id": "ex:geochemProduct-example-001/digest/RP-123"
+            },
+            "prov:used": [
+              {
+                "@id": "ex:geochemProduct-example-001/digest/RP-123"
+              }
+            ],
+            "schema:startTime": "2026-01-10T11:00:00",
+            "schema:endTime": "2026-01-10T14:30:00",
+            "schema:actionStatus": "schema:CompletedActionStatus",
+            "schema:result": {
+              "@id": "ex:geochemProduct-example-001/data/RP-123-counts"
+            }
+          },
+          {
+            "@id": "ex:geochemProduct-example-001/step/reduction",
+            "@type": [
+              "cdi:Activity",
+              "schema:Action",
+              "schema:HowToStep"
+            ],
+            "schema:name": "Data reduction",
+            "schema:position": 5,
+            "schema:description": "Synthetic step. Blank subtraction, internal-standard and drift correction, and calibration to concentrations.",
+            "bios:computationalTool": [
+              {
+                "@type": [
+                  "schema:SoftwareApplication"
+                ],
+                "schema:name": "Example ICP-MS reduction software",
+                "schema:version": "2.1",
+                "ada:toolRole": "dataReduction"
+              }
+            ],
+            "schema:additionalProperty": [
+              {
+                "@type": [
+                  "schema:PropertyValue"
+                ],
+                "schema:name": "Internal standard",
+                "schema:value": "115In"
+              }
+            ],
+            "schema:object": {
+              "@id": "ex:geochemProduct-example-001/data/RP-123-counts"
+            },
+            "schema:result": {
+              "@id": "ex:geochemProduct-example-001/data/RP-123-concentrations"
+            },
+            "dqv:hasQualityMeasurement": [
+              {
+                "@type": [
+                  "dqv:QualityMeasurement"
+                ],
+                "dqv:isMeasurementOf": "BCR-2 accuracy (mean deviation from certified values)",
+                "dqv:value": "within 5%"
+              }
+            ]
+          }
+        ]
+      },
       "prov:used": [
         {
           "schema:instrument": [
@@ -120,6 +363,7 @@
       },
       "schema:object": [
         {
+          "@id": "ex:geochemProduct-example-001/sample/RP-123",
           "@type": [
             "schema:Thing",
             "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"

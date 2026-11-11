@@ -9,19 +9,25 @@
 
 ex:solutionMcicpmsTAPP-detail-P6 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 2SD — Table 7a: 'All quoted errors are 2SD'" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "UMd [187Os/188Os: 0.113795 ± 25 (2SD, n = 94)]; DTM [187Os/188Os: 0.173923 ± 26 (2SD, n = 121)] — 9 sessions over 11 months (Table 7a)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "UMd, DTM [all: 2SD of the analyses in each session] — Table 7a" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "UMd, DTM [all: 2SD of the analyses in each session] — Table 7a" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "UMd [187Os/188Os: 0.113795 ± 25 (2SD, n = 94)]; DTM [187Os/188Os: 0.173923 ± 26 (2SD, n = 121)] — 9 sessions over 11 months (Table 7a)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "UMd [187Os/188Os: +26 ppm; 186Os/188Os: −125 ppm]; DTM [187Os/188Os: −12 ppm; 186Os/188Os: −108 ppm] — offset from Durham N-TIMS (Table 7a)" ] ;
+            dqv:value "UMd [187Os/188Os: +26 ppm; 186Os/188Os: −125 ppm]; DTM [187Os/188Os: −12 ppm; 186Os/188Os: −108 ppm] — offset from Durham N-TIMS (Table 7a)" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "N/A — reference material solutions, no solid preparation" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Sample digestion" ;
@@ -30,13 +36,7 @@ ex:solutionMcicpmsTAPP-detail-P6 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "N/A — reference material solutions, no solid preparation" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurement>,

@@ -1646,18 +1646,18 @@ ex:semImagingTAPP-Genge2025-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
@@ -2910,16 +2910,16 @@ ex:semImagingTAPP-Izawa2010 a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -2963,10 +2963,10 @@ ex:semImagingTAPP-Izawa2010 a cdi:Activity,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-            ada:toolRole "acquisition" ],
-        [ schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ] .
+    bios:computationalTool [ schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
+        [ schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+            ada:toolRole "acquisition" ] .
 
 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
@@ -4035,16 +4035,16 @@ ex:semImagingTAPP-Izawa2010-3 a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semImagingTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_Imaging_TAPP_v44.csv)." ;
     schema1:instrument <https://example.org/semImagingTAPP-Izawa2010-3/instrument/SEM> ;
@@ -5792,16 +5792,16 @@ ex:semImagingTAPP-Ma2017 a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument <https://example.org/semImagingTAPP-Ma2017/instrument/SEM> ;
@@ -6388,18 +6388,18 @@ ex:semImagingTAPP-Ma2017-2 a cdi:Activity,
             schema1:step [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a cdi:Activity,
+                        schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument <https://example.org/semImagingTAPP-Ma2017-2/instrument/SEM> ;
@@ -7562,16 +7562,16 @@ ex:semImagingTAPP-Pascucci2026-2 a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
     schema1:instrument <https://example.org/semImagingTAPP-Pascucci2026-2/instrument/SEM> ;
@@ -9249,16 +9249,16 @@ ex:semImagingTAPP-Zega2025-3 a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <https://example.org/semImagingTAPP-Zega2025-3/instrument/SEM> ;
@@ -9842,16 +9842,16 @@ ex:semImagingTAPP-Zega2025-4 a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a cdi:Activity,
                         schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <https://example.org/semImagingTAPP-Zega2025-4/instrument/SEM> ;
@@ -10928,7 +10928,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Imaging.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

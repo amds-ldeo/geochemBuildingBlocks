@@ -711,10 +711,10 @@ ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800099-0" ] ;
             schema1:startTime "2024-10-29" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Nikon CTPro3D v5.4" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> ] ] ;
+                            ada:toolRole "dataReduction" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-10-29" ;
     ada:analyst "Scott Eckley" ;
@@ -1579,14 +1579,14 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -1605,10 +1605,10 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "A0180 (A0180-A and A0180-B)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -2273,15 +2273,15 @@ ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
+                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
@@ -2875,24 +2875,24 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "Post-reconstruction ring corrections applied; severity not documented" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "Post-reconstruction ring corrections applied; severity not documented" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
+                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
@@ -3810,14 +3810,14 @@ ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -4506,10 +4506,10 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
                     schema1:name "SEM-BSE (qualitative comparison)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ],
-        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -4536,10 +4536,10 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
                         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
                     schema1:name "NWA 5790" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Avizo™" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ] ] ;
+                            ada:toolRole "dataReduction" ] ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -5369,14 +5369,14 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
+                            schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -6166,14 +6166,14 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSize>,
@@ -6188,10 +6188,10 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "NWA 8277; NWA 6963" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -6867,14 +6867,14 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -6890,10 +6890,10 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "Sample A (olivine)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "ImageJ; Avizo 9.2" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -7696,10 +7696,10 @@ ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Sample B (synthetic quartz)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019-2/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Avizo 9.2.0" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019-2/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -9350,10 +9350,10 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "CLSM performed on same inclusion for volumetric cross-validation" ;
                     schema1:name "Confocal laser scanning microscopy (Sample I)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "Software ring artifact correction applied; outcome not documented" ],
-        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "Software ring artifact correction applied; outcome not documented" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -10114,14 +10114,14 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
+                            schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
@@ -10136,10 +10136,10 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "Watson 012" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Tait2014/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/labxctTAPP-detail-Tait2014/instrument/XCT> ] ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -12626,7 +12626,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 

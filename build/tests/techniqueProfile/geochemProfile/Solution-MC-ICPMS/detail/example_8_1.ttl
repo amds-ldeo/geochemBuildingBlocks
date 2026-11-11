@@ -11,16 +11,16 @@ ex:solutionMcicpmsTAPP-detail-P7 a schema1:Dataset,
         schema1:Product ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "DTM [187Os/188Os: 0.173910 ± 21 (2SD, n = 9)] — session 23-05-06 (Table 7a)" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "DTM [187Os/188Os: compared with Durham N-TIMS 0.173927 ± 5] — Table 7a" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 2SD — 'Reported errors are 2SD unless otherwise stated'" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "DTM [187Os/188Os: compared with Durham N-TIMS 0.173927 ± 5] — Table 7a" ] ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "DTM [187Os/188Os: 0.173910 ± 21 (2SD, n = 9)] — session 23-05-06 (Table 7a)" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -29,14 +29,14 @@ ex:solutionMcicpmsTAPP-detail-P7 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "N/A — reference material solutions, no solid preparation" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Sample digestion" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "N/A — reference material solutions, no solid preparation" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurement>,
@@ -50,13 +50,13 @@ ex:solutionMcicpmsTAPP-detail-P7 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "DTM and LOsST Os isotope reference materials" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P7/instrument/ICPMS> ],
+            prov:used [ schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P7/instrument/ICPMS> ],
                 [ bios:reagent [ a schema1:DefinedTerm ;
                             schema1:name "DTM, LOsST" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
+                            ada:reagentRole "referenceMaterial" ] ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+                            schema1:name "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"" ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:deltaOrEpsilonValueReferenceStandard "no value available: ada:deltaOrEpsilonValueReferenceStandard" ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;

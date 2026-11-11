@@ -18,16 +18,16 @@ ex:temTAPP-detail-Cymes2023 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
@@ -40,10 +40,10 @@ ex:temTAPP-detail-Cymes2023 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/temTAPP-detail-Cymes2023/instrument/TEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "SingleCrystal (CrystalMaker Software, Ltd., Oxford, UK)" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ] ],
+                [ schema1:instrument <https://example.org/temTAPP-detail-Cymes2023/instrument/TEM> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ] ;
     ada:analysisEndDate "missing" ;

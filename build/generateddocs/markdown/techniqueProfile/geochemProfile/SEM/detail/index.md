@@ -439,6 +439,12 @@ ex:semTAPP-detail-Garvie2008 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
@@ -446,13 +452,7 @@ ex:semTAPP-detail-Garvie2008 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
             schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -922,23 +922,22 @@ ex:semTAPP-detail-Garvie2008-2 a schema1:Dataset,
             schema1:name "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value -9999 ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value -9999 ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions> ;
-                            schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -947,9 +946,10 @@ ex:semTAPP-detail-Garvie2008-2 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions> ;
+                            schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -2182,8 +2182,9 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabase> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -2193,9 +2194,8 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabase> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
             schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -3304,8 +3304,9 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -3315,9 +3316,8 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/clIntegrationTime>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
@@ -4771,6 +4771,12 @@ ex:semTAPP-detail-Liu2017 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
                             schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
                             schema1:name "Sample preparation" ;
@@ -4779,13 +4785,7 @@ ex:semTAPP-detail-Liu2017 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethod> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -5155,15 +5155,15 @@ ex:semTAPP-detail-Liu2017-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -5529,15 +5529,15 @@ ex:semTAPP-detail-Liu2017-3 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
             schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -5881,12 +5881,6 @@ ex:semTAPP-detail-Ma2017 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
                         [ a cdi:Activity,
@@ -5894,7 +5888,13 @@ ex:semTAPP-detail-Ma2017 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -6324,15 +6324,21 @@ ex:semTAPP-detail-Ma2017-2 a schema1:Dataset,
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ] ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabase> ;
@@ -6343,13 +6349,7 @@ ex:semTAPP-detail-Ma2017-2 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/ebsdPhaseList> ;
             schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -6836,6 +6836,12 @@ ex:semTAPP-detail-Pascucci2026 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
@@ -6843,13 +6849,7 @@ ex:semTAPP-detail-Pascucci2026 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
             schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -7428,6 +7428,11 @@ ex:semTAPP-detail-Pascucci2026-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -7436,12 +7441,7 @@ ex:semTAPP-detail-Pascucci2026-2 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/beamDamageMinimization>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/edsLiveTimePerPointOrPixel> ;
@@ -7454,13 +7454,13 @@ ex:semTAPP-detail-Pascucci2026-2 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "NWA 7317" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Pascucci2026-2/instrument/SEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
                             ada:toolRole "dataReduction" ],
                         [ a schema1:SoftwareApplication ;
                             schema1:name "Oxford INCA Energy" ;
-                            ada:toolRole "acquisition" ] ],
-                [ schema1:instrument <https://example.org/semTAPP-detail-Pascucci2026-2/instrument/SEM> ] ;
+                            ada:toolRole "acquisition" ] ] ;
             ada:combinedResults [ ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -8074,12 +8074,6 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
                         [ a cdi:Activity,
@@ -8087,7 +8081,13 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/edsLiveTimePerPointOrPixel>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/stepSizePixelSize> ;
@@ -8102,11 +8102,11 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
             schema1:startTime "no value available: schema:startTime" ;
             prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Pascucci2026-3/instrument/SEM> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
                             schema1:name "Oxford INCA Energy" ;
-                            ada:toolRole "acquisition" ] ] ;
+                            ada:toolRole "acquisition" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -8468,14 +8468,14 @@ ex:semTAPP-detail-Pascucci2026-4 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -8957,14 +8957,14 @@ ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -8983,10 +8983,10 @@ ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "SC; HBC" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Zhou2017/instrument/SEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/semTAPP-detail-Zhou2017/instrument/SEM> ] ;
+                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -9446,14 +9446,14 @@ ex:semTAPP-detail-Zega2025 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -9463,10 +9463,10 @@ ex:semTAPP-detail-Zega2025 a schema1:Dataset,
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
+            prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Zega2025/instrument/SEM> ],
+                [ bios:computationalTool [ a schema1:SoftwareApplication ;
                             schema1:name "Oxford AZtec (Point & ID programme)" ;
-                            ada:toolRole "acquisition" ] ],
-                [ schema1:instrument <https://example.org/semTAPP-detail-Zega2025/instrument/SEM> ] ;
+                            ada:toolRole "acquisition" ] ] ;
             ada:combinedResults [ ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -9949,12 +9949,6 @@ ex:semTAPP-detail-Zega2025-2 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
@@ -9962,7 +9956,13 @@ ex:semTAPP-detail-Zega2025-2 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/edsLiveTimePerPointOrPixel> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -9974,11 +9974,11 @@ ex:semTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:startTime "no value available: schema:startTime" ;
             prov:used [ schema1:instrument <https://example.org/semTAPP-detail-Zega2025-2/instrument/SEM> ],
                 [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Oxford AZtec (Point & ID programme)" ;
-                            ada:toolRole "acquisition" ],
-                        [ a schema1:SoftwareApplication ;
                             schema1:name "Oxford AZtec" ;
-                            ada:toolRole "dataReduction" ] ] ;
+                            ada:toolRole "dataReduction" ],
+                        [ a schema1:SoftwareApplication ;
+                            schema1:name "Oxford AZtec (Point & ID programme)" ;
+                            ada:toolRole "acquisition" ] ] ;
             ada:combinedResults [ ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -10325,6 +10325,12 @@ ex:semTAPP-detail-Zega2025-3 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -10332,13 +10338,7 @@ ex:semTAPP-detail-Zega2025-3 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -10673,11 +10673,6 @@ ex:semTAPP-detail-Zega2025-4 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
@@ -10686,7 +10681,12 @@ ex:semTAPP-detail-Zega2025-4 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -11062,11 +11062,6 @@ ex:semTAPP-detail-Zega2025-5 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -11075,7 +11070,12 @@ ex:semTAPP-detail-Zega2025-5 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -11594,11 +11594,19 @@ ex:semTAPP-detail-Zega2025-6 a schema1:Dataset,
             dqv:value -9999 ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value -9999 ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ] ;
+            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
@@ -11608,15 +11616,7 @@ ex:semTAPP-detail-Zega2025-6 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
-                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -12178,17 +12178,23 @@ ex:semTAPP-detail-Zega2025-7 a schema1:Dataset,
             schema1:name "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value -9999 ] ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
@@ -12200,13 +12206,7 @@ ex:semTAPP-detail-Zega2025-7 a schema1:Dataset,
                                 schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -12802,25 +12802,22 @@ ex:semTAPP-detail-Zega2025-8 a schema1:Dataset,
             schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value -9999 ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semTAPP/finePolishingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
-                            schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
@@ -12829,9 +12826,12 @@ ex:semTAPP-detail-Zega2025-8 a schema1:Dataset,
                         [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semTAPP/finePolishingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -13290,6 +13290,11 @@ ex:semTAPP-detail-Zega2025-9 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
                                 schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a cdi:Activity,
+                                schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -13298,12 +13303,7 @@ ex:semTAPP-detail-Zega2025-9 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -15611,7 +15611,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-09'
+  dateOfLastChange: '2026-11-11'
 
 ```
 
