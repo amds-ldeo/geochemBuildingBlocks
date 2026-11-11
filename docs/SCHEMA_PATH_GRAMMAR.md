@@ -38,11 +38,12 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 
 <!-- BEGIN generated: families -->
 
-*51 patterns across 49 families — two families are recognised by more than one shape. Generated from `tools/normalize_schema_paths.py` by `tools/gen_grammar_doc.py`; edit the recognizer, not this table.*
+*57 patterns across 55 families — two families are recognised by more than one shape. Generated from `tools/normalize_schema_paths.py` by `tools/gen_grammar_doc.py`; edit the recognizer, not this table.*
 
 | family | canonical shape |
 |---|---|
 | `direct-ada` | `$MethodDefinition.ada:<name>[]?` |
+| `method-target-material` | `$MethodDefinition.ada:targetMaterials[].schema:(name|description)` |
 | `dataset-scalar` | `$Dataset.ada:<name>[]?` |
 | `analyte-template` | `$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]` |
 | `analyte-identifier` | `$MethodDefinition.ada:targetSpeciesTemplate.ada:defaultTargetSpecies[]` |
@@ -50,6 +51,8 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `reported-property-identifier` | `$MethodDefinition.ada:reportedPropertyTemplate.ada:defaultReportedProperties[]` |
 | `channel-template` | `$MethodDefinition.ada:monitoredPropertyTemplate.ada:monitoredPropertyColumns[]` |
 | `channel-identifier` | `$MethodDefinition.ada:monitoredPropertyTemplate.ada:defaultMonitoredProperties[]` |
+| `target-material-template` | `$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]` |
+| `target-material-identifier` | `$MethodDefinition.ada:targetMaterialTemplate.ada:defaultTargetMaterials[]` |
 | `method-variable-measured` | `$MethodDefinition.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value|defaultValue))?` |
 | `dataset-variable-measured` | `$Dataset.schema:variableMeasured[(schema:name='<value>')?](.schema:(name|description|unitText|propertyID|value))?` |
 | `protocol-description` | `$MethodDefinition.schema:description` |
@@ -72,7 +75,7 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `instrument-component-ada` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].ada:<name>[]?` |
 | `instrument-component-parameter` | `$MethodDefinition.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].schema:additionalProperty[schema:name='<value>'].schema:(value|defaultValue)` |
 | `inherited-identity` | `$MethodDefinition.schema:(creator|location|measurementTechnique|object|funding)\b.*` |
-| `dataset-contributor` | `$Dataset.schema:contributor[schema:roleName='<value>'](.schema:(name|identifier))?` |
+| `dataset-contributor` | `$Dataset.schema:contributor[schema:roleName='<value>'](.schema:contributor)?(.schema:(name|identifier))?` |
 | `dataset-measurement-technique` | `$Dataset.schema:measurementTechnique(.schema:DefinedTerm)?.schema:identifier` |
 | `dataset-provenance` | `$Dataset.prov:wasGeneratedBy.schema:(startTime|endTime|identifier)` |
 | `dataset-prov-parameter` | `$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='<value>'].schema:value` |
@@ -90,9 +93,12 @@ Two canonical roots, distinguishing the reusable procedure from the analysis doc
 | `dataset-instrument-component-ada` | `$Dataset.prov:wasGeneratedBy.prov:used.schema:instrument[schema:additionalType='<value>'].schema:hasPart[schema:additionalType='<value>'].ada:<name>[]?` |
 | `dataset-sample` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:(name|identifier|description)` |
 | `dataset-sample-parameter` | `$Dataset.prov:wasGeneratedBy.schema:object[@type='<value>'].schema:additionalProperty[schema:name='<value>'].schema:value` |
-| `dataset-funding` | `$Dataset.schema:funding` |
+| `dataset-combined-result` | `$Dataset.prov:wasGeneratedBy.ada:combinedResults[](.schema:(name|description))?` |
+| `dataset-combined-result-parameter` | `$Dataset.prov:wasGeneratedBy.ada:combinedResults[].schema:additionalProperty[schema:name='<value>'].schema:value` |
+| `dataset-funding` | `$Dataset.schema:funding[]?(.schema:[A-Z][A-Za-z]*)?(.schema:(name|identifier))?` |
 | `dataset-related-link` | `$Dataset.schema:relatedLink[schema:linkRelationship='<value>'].schema:target(.schema:(name|url|description))?` |
 | `dataset-quality` | `$Dataset.dqv:hasQualityMeasurement[dqv:isMeasurementOf='<value>'].dqv:value` |
+| `method-quality` | `$MethodDefinition.dqv:hasQualityMeasurement[dqv:isMeasurementOf='<value>'].dqv:value` |
 
 <!-- END generated: families -->
 
