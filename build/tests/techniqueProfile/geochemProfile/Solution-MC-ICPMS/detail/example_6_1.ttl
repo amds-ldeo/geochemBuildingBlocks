@@ -10,9 +10,9 @@ ex:solutionMcicpmsTAPP-detail-Dauphas2019 a schema1:Dataset,
         schema1:Product ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984 [δ87Rb: zero within error]; BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, Allende [δ87Rb: reproducible, agree with published results] — A.4, Fig. 8" ],
@@ -25,15 +25,15 @@ ex:solutionMcicpmsTAPP-detail-Dauphas2019 a schema1:Dataset,
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurement>,

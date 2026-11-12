@@ -13,28 +13,28 @@ ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "N — not stated" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)" ] ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
                             schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/numberOfReplicates>,
@@ -47,14 +47,14 @@ ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
-                    schema1:name "N — not stated" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType wd:Q7397 ;
                     schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "N — not stated" ;
+                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS>,
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;

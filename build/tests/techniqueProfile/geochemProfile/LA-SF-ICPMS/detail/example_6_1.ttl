@@ -10,16 +10,16 @@ ex:laSficpmsTAPP-detail-Navarro2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts for Geoanalysis 2022 presentation; J.E.: CNPq grant 316191/2021-3" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;

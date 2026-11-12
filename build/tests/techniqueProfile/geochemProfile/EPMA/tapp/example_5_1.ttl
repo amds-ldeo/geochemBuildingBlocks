@@ -33,12 +33,12 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
             schema1:name "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065 — 'SEM, EBSD, EPMA, and Raman measurements were carried out at the Geological and Planetary Science Division Analytical Facility at Caltech, which is supported in part by NSF grants EAR-0318518, EAR-1322082, and DMR-0080065'" ] ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType wd:Q7397 ;
-            schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
             schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/epmaTAPP-Ma2017/instrument/EPMA>,
         <https://example.org/epmaTAPP-Ma2017/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -51,13 +51,13 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61; doi:10.1111/maps.13000 (file dated 2017)" ] ;
-            schema1:url "https://doi.org/10.1111/maps.13000" ] ;
+            schema1:url "https://doi.org/10.1111/maps.13000" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;

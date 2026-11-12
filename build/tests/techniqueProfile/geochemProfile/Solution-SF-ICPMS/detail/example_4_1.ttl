@@ -8,17 +8,22 @@
 
 ex:solutionSficpmsTAPP-detail-P3 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "NASS-5, SAFe S1, SAFe D2 [all: agreement with the NASS-5 certified and SAFe consensus values] — Table 6" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "NASS-5, SAFe S1, SAFe D2 [all: 95% confidence limit, n = 3] — Table 6" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: %RSD, with 1 S.D. for blanks — 'The precision is calculated as the percent relative standard deviation (% RSD)'; 'Mean blank ± 1S.D.'" ] ;
+            dqv:value "all: %RSD, with 1 S.D. for blanks — 'The precision is calculated as the percent relative standard deviation (% RSD)'; 'Mean blank ± 1S.D.'" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "NASS-5, SAFe S1, SAFe D2 [all: agreement with the NASS-5 certified and SAFe consensus values] — Table 6" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
                             schema1:name "Data processing" ;
@@ -26,12 +31,7 @@ ex:solutionSficpmsTAPP-detail-P3 a schema1:Dataset,
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:description "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"Each analytical session would begin and end with the analysis of a series of Mo standards (1-100 nM)\"; \"an analysis sequence\"; \"1 day's analysis\"; \"three separate days of analyses\". No session or sequence identifier stated" ;

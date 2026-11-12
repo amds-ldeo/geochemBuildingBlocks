@@ -189,9 +189,9 @@ The procedure half of the ICPMS module, with every property populated. Generated
                         "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Uncertainty Propagation Method" ],
+            schema1:name "Limit of Quantification (LOQ) Method" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ] ;
+            schema1:name "Uncertainty Propagation Method" ] ;
     ada:analysisSequenceDefault "no value available: unnamed property" ;
     ada:blankBackgroundCorrectionMethod "no value available: unnamed property" ;
     ada:calibrationMeasurementFrequency "no value available: unnamed property" ;
@@ -1775,7 +1775,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.icpms
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-11'
+  dateOfLastChange: '2026-11-12'
 
 ```
 

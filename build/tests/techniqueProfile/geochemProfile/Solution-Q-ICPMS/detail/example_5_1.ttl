@@ -11,16 +11,16 @@ ex:solutionQicpmsTAPP-detail-Agilent7500-2 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "The Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta, and its Nb (from Nb/Mo and Nb/Zr) is used for the SF-ICP-MS Ti calculation on the same solutions — §2.5, §2.8" ;
                     schema1:name "SF-ICP-MS — Ti on a Finnigan ELEMENT at PML (§2.1.2)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: RSD% — Tables 5 and 6; 'Averages of the reproducibility (RSD %)'" ] ;
+            dqv:value "all: RSD% — Tables 5 and 6; 'Averages of the reproducibility (RSD %)'" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
@@ -28,15 +28,15 @@ ex:solutionQicpmsTAPP-detail-Agilent7500-2 a schema1:Dataset,
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
                                 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ] ] ;
             schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;

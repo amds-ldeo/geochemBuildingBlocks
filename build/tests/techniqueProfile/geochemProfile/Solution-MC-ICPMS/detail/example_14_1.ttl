@@ -10,22 +10,17 @@ ex:solutionMcicpmsTAPP-detail-P13 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Coordinated dissolution shared with the WUSTL K/Cu/Zn procedure; SIMS oxygen isotopes" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "BHVO-2 [ε46Ti: ±0.17; ε48Ti: ±0.09; ε50Ti: ±0.16] — 2 s.d. of 9 analyses" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BHVO-2, Agua Zarcas [all: analysed alongside Bennu to verify accuracy and reproducibility]" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "BHVO-2 [ε46Ti: ±0.17; ε48Ti: ±0.09; ε50Ti: ±0.16] — 2 s.d. of 9 analyses" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BHVO-2, Agua Zarcas [all: analysed alongside Bennu to verify accuracy and reproducibility]" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ],
@@ -34,7 +29,12 @@ ex:solutionMcicpmsTAPP-detail-P13 a schema1:Dataset,
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
