@@ -1,0 +1,86 @@
+@prefix cdifact: <https://w3id.org/cdif/concepts/provenance/activity/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geochemvoc: <https://w3id.org/geochem/vocabulary/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+geochemvoc:dataAcquisition a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/dataAcquisition> ;
+    skos:broadMatch cdifact:Measurement ;
+    skos:definition "An activity in which an instrument or observer measures or observes the object of study and records the result as data."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:notation "dataAcquisition" ;
+    skos:prefLabel "Data acquisition"@en ;
+    skos:topConceptOf geochemvoc:activityTypes .
+
+geochemvoc:dataProcessing a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/dataProcessing> ;
+    skos:broadMatch cdifact:DataTransformation ;
+    skos:definition "An activity that transforms acquired data into reported results, for example background and blank correction, drift correction, matrix correction, applying a calibration, or converting units."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:notation "dataProcessing" ;
+    skos:prefLabel "Data processing"@en ;
+    skos:topConceptOf geochemvoc:activityTypes .
+
+geochemvoc:instrumentCalibration a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/instrumentCalibration> ;
+    skos:broadMatch cdifact:Calibration ;
+    skos:definition "An activity that measures reference materials or standards of known value to establish the relationship between the instrument's response and the quantity being measured."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:notation "instrumentCalibration" ;
+    skos:prefLabel "Instrument calibration"@en ;
+    skos:topConceptOf geochemvoc:activityTypes .
+
+geochemvoc:instrumentTuning a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/instrumentTuning> ;
+    skos:broadMatch cdifact:Configuration ;
+    skos:definition "An activity that adjusts instrument settings to optimise performance for a measurement, judged by the instrument's response rather than against reference materials of known value."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:notation "instrumentTuning" ;
+    skos:prefLabel "Instrument tuning"@en ;
+    skos:topConceptOf geochemvoc:activityTypes .
+
+geochemvoc:ionMilling a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/ionMilling> ;
+    skos:broader geochemvoc:samplePreparation ;
+    skos:definition "Sample preparation that thins or shapes a sample by sputtering it with an ion beam, for example to make an electron-transparent section."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:notation "ionMilling" ;
+    skos:prefLabel "Ion milling"@en .
+
+geochemvoc:qualityControl a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/qualityControl> ;
+    skos:broadMatch cdifact:QualityControl ;
+    skos:definition "An activity that assesses data or a process against defined criteria, for example measuring secondary standards, checking precision and accuracy, or flagging anomalous values."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:notation "qualityControl" ;
+    skos:prefLabel "Quality control"@en ;
+    skos:topConceptOf geochemvoc:activityTypes .
+
+geochemvoc:sampleDigestion a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/sampleDigestion> ;
+    skos:broader geochemvoc:samplePreparation ;
+    skos:definition "Sample preparation that dissolves a solid sample, typically in acid, to produce a solution for analysis."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:notation "sampleDigestion" ;
+    skos:prefLabel "Sample digestion"@en .
+
+geochemvoc:samplePreparation a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/samplePreparation> ;
+    skos:definition "An activity that changes the physical or chemical state of a sample to make it suitable for measurement, for example cutting, mounting, polishing, coating, crushing, sieving or dissolving it."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:narrower geochemvoc:ionMilling,
+        geochemvoc:sampleDigestion ;
+    skos:notation "samplePreparation" ;
+    skos:prefLabel "Sample preparation"@en ;
+    skos:topConceptOf geochemvoc:activityTypes .
+
+geochemvoc:activityTypes a skos:ConceptScheme ;
+    skos:definition "Kinds of laboratory step used in ADA / geochemistry analytical procedures (TAPP workflow steps). Each concept is linked with skos:broadMatch to the CDIF provenance activity it specialises, https://w3id.org/cdif/concepts/provenance/activity/conceptScheme. These concepts moved here from the deprecated CDIF activity-type vocabulary (https://w3id.org/cdif/provenance/activityType), whose concepts point here with dcterms:isReplacedBy."@en ;
+    skos:hasTopConcept geochemvoc:dataAcquisition,
+        geochemvoc:dataProcessing,
+        geochemvoc:instrumentCalibration,
+        geochemvoc:instrumentTuning,
+        geochemvoc:qualityControl,
+        geochemvoc:samplePreparation ;
+    skos:prefLabel "Geochemistry laboratory activity types"@en .
+

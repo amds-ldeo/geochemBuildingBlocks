@@ -1,0 +1,14 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix geochemvoc: <https://w3id.org/geochem/vocabulary/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+geochemvoc:samplePreparation a skos:Concept ;
+    dcterms:replaces <https://w3id.org/cdif/provenance/activityType/samplePreparation> ;
+    skos:definition "An activity that changes the physical or chemical state of a sample to make it suitable for measurement, for example cutting, mounting, polishing, coating, crushing, sieving or dissolving it."@en ;
+    skos:inScheme geochemvoc:activityTypes ;
+    skos:narrower geochemvoc:ionMilling,
+        geochemvoc:sampleDigestion ;
+    skos:notation "samplePreparation" ;
+    skos:prefLabel "Sample preparation"@en ;
+    skos:topConceptOf geochemvoc:activityTypes .
+
