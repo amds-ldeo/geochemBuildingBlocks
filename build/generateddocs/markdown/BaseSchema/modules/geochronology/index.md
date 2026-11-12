@@ -116,14 +116,14 @@ The procedure half of the Geochronology module, with every property populated. G
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:name "Age Calculation Method" ;
+[] schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: unnamed property" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Age Datum / Reference Epoch" ] ;
+            schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Age Datum / Reference Epoch" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Reported Date Type" ] ;
     ada:ageCalculationMethod "no value available: unnamed property" ;
     ada:inheritedOrInitialSignalCorrectionDefault "no value available: unnamed property" ;
     ada:reportedDateType "no value available: unnamed property" .
@@ -200,9 +200,9 @@ The analysis half of the Geochronology module, with every property populated. Ge
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:variableMeasured [ schema1:name "Reported Date Type" ;
+[] schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: unnamed property" ],
-        [ schema1:name "Age Calculation Method" ;
+        [ schema1:name "Reported Date Type" ;
             schema1:value "no value available: unnamed property" ],
         [ schema1:name "Age Datum / Reference Epoch" ;
             schema1:value "no value available: unnamed property" ],
@@ -595,7 +595,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.geochronology
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-11'
+  dateOfLastChange: '2026-11-12'
 
 ```
 

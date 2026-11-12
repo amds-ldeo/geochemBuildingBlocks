@@ -16,14 +16,14 @@ ex:temTAPP-detail-Zega2025-4 a schema1:Dataset,
             schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga ion)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
@@ -36,12 +36,12 @@ ex:temTAPP-detail-Zega2025-4 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType wd:Q7397 ;
-                    schema1:name "Thermo System7" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
                     schema1:name "Thermo System7 (EDS quantification)" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Thermo System7" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ARES Division, NASA Johnson Space Center" ] ;

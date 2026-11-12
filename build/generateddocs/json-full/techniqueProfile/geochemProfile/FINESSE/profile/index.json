@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-11-11",
+  "dateOfLastChange": "2026-11-12",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -221,7 +221,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA FINESSE Product Profile\ndescription: Path-driven technique-specific profile for ADA FINESSE Product Profile.\n  Extends the base ADA product profile with the FINESSE analysis-instance detail on\n  the schema:Dataset root, and pins the product type and the profile it declares conformance\n  to.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FINESSE/detail/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      description: Must include a FINESSE product type identifier.\n      contains:\n        enum:\n        - Stepped Heating Carbon and Nitrogen Isotopic Compositions\n        - Elemental Analyzer Stepped Heating C N Isotope (FINESSE)\n      title: Product Type\n    schema:subjectOf:\n      properties:\n        dcterms:conformsTo:\n          contains:\n            type: object\n            properties:\n              '@id':\n                const: https://w3id.org/geochem/metadata/profiles/adaFINESSE\n      title: About This Record\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.geochemProfile.FINESSE.profile\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-11-11'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA FINESSE Product Profile\ndescription: Path-driven technique-specific profile for ADA FINESSE Product Profile.\n  Extends the base ADA product profile with the FINESSE analysis-instance detail on\n  the schema:Dataset root, and pins the product type and the profile it declares conformance\n  to.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FINESSE/detail/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      description: Must include a FINESSE product type identifier.\n      contains:\n        enum:\n        - Stepped Heating Carbon and Nitrogen Isotopic Compositions\n        - Elemental Analyzer Stepped Heating C N Isotope (FINESSE)\n      title: Product Type\n    schema:subjectOf:\n      properties:\n        dcterms:conformsTo:\n          contains:\n            type: object\n            properties:\n              '@id':\n                const: https://w3id.org/geochem/metadata/profiles/adaFINESSE\n      title: About This Record\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.geochemProfile.FINESSE.profile\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-11-12'\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/techniqueProfile/geochemProfile/FINESSE/profile"
 }

@@ -427,19 +427,19 @@ ex:ebsdTAPP-P0 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ;
-                    ada:edsChannelsDefault "2024" ;
-                    ada:edsProcessTimeDefault "5" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:crystalStructureFileSourcesDefault "HKL; ICSD; American Mineralogist" ;
                     ada:houghResolutionDefault "60" ;
                     ada:maximumMeanAngularDeviation "1.2 deg" ;
                     ada:minimumBandsForIndexing "5" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ;
+                    ada:edsChannelsDefault "2024" ;
+                    ada:edsProcessTimeDefault "5" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -453,12 +453,12 @@ ex:ebsdTAPP-P0 a schema1:Action,
     schema1:description "ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University | Tescan MIRA3 (14 method-description documents) (publication column of EBSD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Tescan." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType wd:Q7397 ;
-            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
             schema1:name "AZtecCrystal" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/ebsdTAPP-P0/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02n415q13" ;
@@ -860,7 +860,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EBSD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-11'
+  dateOfLastChange: '2026-11-12'
 
 ```
 

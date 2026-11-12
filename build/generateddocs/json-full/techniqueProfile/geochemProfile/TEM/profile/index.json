@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "cdif-building-block-register",
   "version": "0.1",
-  "dateOfLastChange": "2026-11-11",
+  "dateOfLastChange": "2026-11-12",
   "link": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "maturity": "draft",
   "scope": "unstable",
@@ -224,7 +224,7 @@
       ]
     }
   ],
-  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA TEM Product Profile\ndescription: Path-driven technique-specific profile for ADA TEM Product Profile. Extends\n  the base ADA product profile with the TEM analysis-instance detail on the schema:Dataset\n  root, and pins the product type and the profile it declares conformance to.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      description: Must include a TEM product type identifier.\n      contains:\n        enum:\n        - Transmission Electron Microscopy\n        - Scanning Transmission Electron Microscopy (STEM) Image\n        - Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy\n          (STEMEDS) Tabular\n      title: Product Type\n    schema:subjectOf:\n      properties:\n        dcterms:conformsTo:\n          contains:\n            type: object\n            properties:\n              '@id':\n                const: https://w3id.org/geochem/metadata/profiles/adaTEM\n      title: About This Record\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.profile\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-11-11'\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ntitle: ADA TEM Product Profile\ndescription: Path-driven technique-specific profile for ADA TEM Product Profile. Extends\n  the base ADA product profile with the TEM analysis-instance detail on the schema:Dataset\n  root, and pins the product type and the profile it declares conformance to.\nallOf:\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml\n- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/TEM/detail/schema.yaml\n- type: object\n  properties:\n    schema:additionalType:\n      description: Must include a TEM product type identifier.\n      contains:\n        enum:\n        - Transmission Electron Microscopy\n        - Scanning Transmission Electron Microscopy (STEM) Image\n        - Scanning Transmission Electron Microscopy Energy Dispersive X-ray Spectroscopy\n          (STEMEDS) Tabular\n      title: Product Type\n    schema:subjectOf:\n      properties:\n        dcterms:conformsTo:\n          contains:\n            type: object\n            properties:\n              '@id':\n                const: https://w3id.org/geochem/metadata/profiles/adaTEM\n      title: About This Record\nx-bblocks-metadata:\n  itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.profile\n  register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json\n  version: '0.1'\n  dateOfLastChange: '2026-11-12'\n",
   "gitRepository": "https://github.com/amds-ldeo/geochemBuildingBlocks",
   "gitPath": "_sources/techniqueProfile/geochemProfile/TEM/profile"
 }
