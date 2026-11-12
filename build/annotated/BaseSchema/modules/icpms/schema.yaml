@@ -189,44 +189,43 @@ $defs:
         items:
           type: object
           properties:
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: ICPMS
+                        schema:inDefinedTermSet: ada:vocab/instrumentType
                     required:
-                    - schema:instrument
+                    - schema:additionalType
                   then:
                     properties:
-                      schema:instrument:
-                        type: array
-                        items:
-                          allOf:
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  schema:additionalType:
-                                    contains:
-                                      const: ICPMS
-                                    schema:inDefinedTermSet: ada:vocab/instrumentType
-                                required:
-                                - schema:additionalType
-                              then:
-                                properties:
-                                  schema:identifier:
-                                    description: Serial number or laboratory-internal
-                                      identifier for the specific instrument unit.
-                                    anyOf:
-                                    - type: string
-                                    - type: array
-                                      items:
-                                        type: string
-                                    x-jsonld-id: http://schema.org/identifier
-                        x-jsonld-id: http://schema.org/instrument
-              x-jsonld-id: http://www.w3.org/ns/prov#used
+                      schema:identifier:
+                        description: Serial number or laboratory-internal identifier
+                          for the specific instrument unit.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        x-jsonld-id: http://schema.org/identifier
+              x-jsonld-id: http://schema.org/instrument
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       ada:sensitivityYield:
         description: "Instrument sensitivity achieved in the session, with the isotope

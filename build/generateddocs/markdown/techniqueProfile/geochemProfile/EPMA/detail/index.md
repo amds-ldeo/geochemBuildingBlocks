@@ -29,71 +29,73 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Ma2015/instrument/EPMA"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+              "schema:unitText": "no value available: unnamed property"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Ma2015/instrument/EPMA"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Probe for EPMA (Probe Software, Inc.)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Probe for EPMA (Probe Software, Inc.)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -138,7 +140,6 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section; carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -149,7 +150,6 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -246,71 +246,73 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Ma2015/instrument/EPMA"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+              "schema:unitText": "no value available: unnamed property"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Ma2015/instrument/EPMA"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Probe for EPMA (Probe Software, Inc.)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Probe for EPMA (Probe Software, Inc.)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -355,7 +357,6 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section; carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -366,7 +367,6 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -440,12 +440,11 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Ma2015 a schema1:Dataset,
@@ -456,39 +455,39 @@ ex:epmaTAPP-detail-Ma2015 a schema1:Dataset,
             schema1:name "DOE Cooperative Agreement DE-NA0001982; NSF EAR 322082; NASA NNN13D465T; NASA Cosmochemistry NNX11AG58G and NNX12AH63G; NSF EAR 1344942 and 1440005 — acknowledged author by author for the study as a whole; none is attributed to the microprobe work" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section; carbon coating N" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
             schema1:description "Ma et al. 2015, Earth Planet. Sci. Lett. — tissintite discovery paper (Tissint Mars meteorite). Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix). WDS explicitly stated (\"WDS: 15 kV; 5 nA; beam in focused mode\"). Point analysis only; no X-ray mapping reported. Probe for EPMA stated; CITZAF correction procedure (Armstrong 1995). Full standard suite with X-ray lines given. Detection limits: K=0.02, Cr=0.05, Mn=0.06 wt% from Table 1 footnote. Caltech GPS Division Analytical Facility." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+                    ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/epmaTAPP-detail-Ma2015/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Caltech GPS Division Analytical Facility" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Tissint Mars meteorite" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Ma2015/instrument/EPMA> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-                            ada:toolRole "acquisition" ],
-                        [ a schema1:SoftwareApplication ;
-                            schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -512,7 +511,7 @@ ex:epmaTAPP-detail-Ma2015 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -558,65 +557,62 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "N — only 15 kV and 10 nA are given"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Hu2020/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "N — only 15 kV and 10 nA are given"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Hu2020/instrument/EPMA"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -661,7 +657,6 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
             "schema:name": "Sample preparation",
             "schema:description": "Polished thick section (NWA 8657); carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -672,7 +667,6 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -759,65 +753,62 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "N \u2014 only 15 kV and 10 nA are given"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Hu2020/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "N \u2014 only 15 kV and 10 nA are given"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Hu2020/instrument/EPMA"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N \u2014 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N \u2014 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -862,7 +853,6 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
             "schema:name": "Sample preparation",
             "schema:description": "Polished thick section (NWA 8657); carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -873,7 +863,6 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -937,11 +926,10 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Hu2020 a schema1:Dataset,
@@ -954,30 +942,29 @@ ex:epmaTAPP-detail-Hu2020 a schema1:Dataset,
             schema1:target "https://doi.org/10.1016/j.gca.2020.07.021 — 'Supplementary data to this article can be found online at ...'" ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/epmaTAPP-detail-Hu2020/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "NWA 8657 shergottite" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Hu2020/instrument/EPMA> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -1001,7 +988,7 @@ ex:epmaTAPP-detail-Hu2020 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -1048,71 +1035,67 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 nA (section maps: Ca, Al, Fe, Mg Kα); 200 nA (olivine megacryst maps) — p.3"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Liu2016/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 nA (section maps: Ca, Al, Fe, Mg Kα); 200 nA (olivine megacryst maps) — p.3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Liu2016/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -1185,7 +1168,6 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin sections (coating type N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1196,7 +1178,6 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1285,71 +1266,67 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 nA (section maps: Ca, Al, Fe, Mg K\u03b1); 200 nA (olivine megacryst maps) \u2014 p.3"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Liu2016/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 nA (section maps: Ca, Al, Fe, Mg K\u03b1); 200 nA (olivine megacryst maps) \u2014 p.3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Liu2016/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -1422,7 +1399,6 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin sections (coating type N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1433,7 +1409,6 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1499,11 +1474,11 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Liu2016 a schema1:Dataset,
@@ -1512,35 +1487,33 @@ ex:epmaTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:name "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b: '1σ is 1 standard deviation of the average'" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin sections (coating type N)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimization>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> ;
             schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/epmaTAPP-detail-Liu2016/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Department of Earth and Planetary Sciences, University of Tennessee, Knoxville" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Liu2016/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -1565,7 +1538,7 @@ ex:epmaTAPP-detail-Liu2016 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamCurrent> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -1631,56 +1604,52 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Liu2016-2/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Liu2016-2/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -1738,7 +1707,6 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin sections (coating type N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1749,7 +1717,6 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1838,56 +1805,52 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Liu2016-2/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "olivine, pyroxene, Fe-Ti-Cr oxides: 1\u20132 \u00b5m; maskelynite, phosphate, sulfide, glass: 5\u201310 \u00b5m \u2014 p.3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Liu2016-2/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -1945,7 +1908,6 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin sections (coating type N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1956,7 +1918,6 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2022,11 +1983,11 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Liu2016-2 a schema1:Dataset,
@@ -2035,20 +1996,18 @@ ex:epmaTAPP-detail-Liu2016-2 a schema1:Dataset,
             schema1:name "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+        [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin sections (coating type N)" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
@@ -2056,13 +2015,13 @@ ex:epmaTAPP-detail-Liu2016-2 a schema1:Dataset,
             schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/epmaTAPP-detail-Liu2016-2/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Division of Geological and Planetary Sciences, Caltech" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Liu2016-2/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -2086,7 +2045,7 @@ ex:epmaTAPP-detail-Liu2016-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -2138,82 +2097,85 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
                 }
               ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Ma2017/instrument/EPMA"
-            }
-          ]
-        },
-        {
-          "bios:reagent": [
-            {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
-            }
-          ]
-        },
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Probe for EPMA (Probe Software, Inc.)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
             },
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
               "@type": [
-                "schema:SoftwareApplication"
-              ]
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+              "schema:unitText": "no value available: unnamed property"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Ma2017/instrument/EPMA"
+        },
+        {
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q2356542"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Probe for EPMA (Probe Software, Inc.)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -2274,7 +2236,6 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section USNM 7619 (coating type N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2285,7 +2246,6 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2381,82 +2341,85 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
                 }
               ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Ma2017/instrument/EPMA"
-            }
-          ]
-        },
-        {
-          "bios:reagent": [
-            {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "feldspar standards \u2014 'based on analysis of feldspar standards as unknowns'; not named individually",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
-            }
-          ]
-        },
-        {
-          "bios:computationalTool": [
-            {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Probe for EPMA (Probe Software, Inc.)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
             },
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
               "@type": [
-                "schema:SoftwareApplication"
-              ]
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": "N \u2014 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+              "schema:unitText": "no value available: unnamed property"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Ma2017/instrument/EPMA"
+        },
+        {
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "feldspar standards \u2014 'based on analysis of feldspar standards as unknowns'; not named individually",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q2356542"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Probe for EPMA (Probe Software, Inc.)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N \u2014 the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -2517,7 +2480,6 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section USNM 7619 (coating type N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2528,7 +2490,6 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2601,12 +2562,11 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
@@ -2617,19 +2577,17 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:name "NNSA Stewardship Science Academic Alliances, DOE Cooperative Agreements DE-NA0001982 and DESC0005278; NASA NNX12AJ01G — 'This work was supported in part by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N — Table 1 note c, same wording" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+            dqv:value "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section USNM 7619 (coating type N)" ;
                             schema1:name "Sample preparation" ;
@@ -2638,6 +2596,19 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:description "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+                    ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+                    ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/epmaTAPP-detail-Ma2017/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Division of Geological and Planetary Sciences Analytical Facility, Caltech" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -2645,16 +2616,6 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
                     schema1:identifier "USNM 7619 — Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN" ;
                     schema1:name "Zagami USNM 7619" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Ma2017/instrument/EPMA> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-                            ada:toolRole "acquisition" ],
-                        [ a schema1:SoftwareApplication ;
-                            schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -2677,7 +2638,7 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -2728,65 +2689,62 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 1 µm — p.3"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Frank2023/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 1 µm — p.3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Frank2023/instrument/EPMA"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -2905,65 +2863,62 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 1 \u00b5m \u2014 p.3"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Frank2023/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 1 \u00b5m \u2014 p.3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Frank2023/instrument/EPMA"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "N \u2014 no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "N \u2014 no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -3059,10 +3014,10 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Frank2023 a schema1:Dataset,
@@ -3071,23 +3026,24 @@ ex:epmaTAPP-detail-Frank2023 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNX11AG78G, 13-COS13-0026, NNX14AI19G and 80NSSC18K0586; NASA Cosmochemistry and Emerging Worlds Programs — 'This work was supported by ...'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "same submission — 'All data are included within the manuscript'" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "same submission — 'All data are included within the manuscript'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM" ] ] ;
     prov:wasGeneratedBy [ schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. No EPMA secondary standard is named (San Carlos olivine standardised the SIMS work). Detection limits stated per element group." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/epmaTAPP-detail-Frank2023/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ARES, NASA Johnson Space Center" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Ivuna CI chondrite, section MZ2" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-Frank2023/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -3111,7 +3067,7 @@ ex:epmaTAPP-detail-Frank2023 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -3158,68 +3114,71 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Broussard2026/instrument/EPMA"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Broussard2026/instrument/EPMA"
+        },
+        {
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "Smithsonian Microbeam standards (specific materials and values N)",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         },
         {
-          "bios:reagent": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "Probe for EPMA microanalysis software",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "Smithsonian Microbeam standards (specific materials and values N)",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Probe for EPMA microanalysis software",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -3264,7 +3223,6 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
             "schema:name": "Sample preparation",
             "schema:description": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3275,7 +3233,6 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3368,68 +3325,71 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Broussard2026/instrument/EPMA"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Broussard2026/instrument/EPMA"
+        },
+        {
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "Smithsonian Microbeam standards (specific materials and values N)",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         },
         {
-          "bios:reagent": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "Probe for EPMA microanalysis software",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "Smithsonian Microbeam standards (specific materials and values N)",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Probe for EPMA microanalysis software",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -3474,7 +3434,6 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
             "schema:name": "Sample preparation",
             "schema:description": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3485,7 +3444,6 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3555,12 +3513,11 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
@@ -3571,42 +3528,43 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
             schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ],
         [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "N — 'The data that support the findings of this study are available from the corresponding author upon reasonable request'" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
             schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Probe for EPMA microanalysis software" ;
+                    ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
+                    ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "Smithsonian Microbeam standards (specific materials and values N)" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/epmaTAPP-detail-Broussard2026/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe for EPMA microanalysis software" ;
-                            ada:toolRole "acquisition" ],
-                        [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-Broussard2026/instrument/EPMA> ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "Smithsonian Microbeam standards (specific materials and values N)" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -3629,7 +3587,7 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
 <https://example.org/epmaTAPP-detail-Broussard2026/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -3669,56 +3627,52 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 2 µm — as above"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Seifert2026/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 2 µm — as above"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Seifert2026/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -3790,7 +3744,6 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
             "schema:name": "Sample preparation",
             "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3801,7 +3754,6 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3888,56 +3840,52 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 2 \u00b5m \u2014 as above"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Seifert2026/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 2 \u00b5m \u2014 as above"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Seifert2026/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -4009,7 +3957,6 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
             "schema:name": "Sample preparation",
             "schema:description": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4020,7 +3967,6 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4084,10 +4030,10 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Seifert2026 a schema1:Dataset,
@@ -4096,26 +4042,25 @@ ex:epmaTAPP-detail-Seifert2026 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program); NASA Postdoctoral Program — acknowledgements" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "astromat.org, at the DOIs in Table S1 — 'Instrument data products that support the findings of this study will be available via astromat.org at the DOIs given in Table S1'" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Table S1 — 'Instrument data products that support the findings of this study will be available via astromat.org at the DOIs given in Table S1'" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimization>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/halogenCorrectionOnOxygen> ;
             schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/epmaTAPP-detail-Seifert2026/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ARES, NASA Johnson Space Center" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -4123,7 +4068,6 @@ ex:epmaTAPP-detail-Seifert2026 a schema1:Dataset,
                     schema1:identifier "OREX-803079-0; OREX-803080-0 — NASA curation numbers of the mounts, not IGSN" ;
                     schema1:name "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Seifert2026/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -4147,7 +4091,7 @@ ex:epmaTAPP-detail-Seifert2026 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -4204,56 +4148,52 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "plagioclase and its polymorphs: 2–5 µm; other: N — 'a defocused beam (2–5 μm in diameter)'"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Pang2016/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "plagioclase and its polymorphs: 2–5 µm; other: N — 'a defocused beam (2–5 μm in diameter)'"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Pang2016/instrument/EPMA"
         }
       ],
       "schema:object": [
@@ -4296,7 +4236,6 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section; carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4307,7 +4246,6 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4400,56 +4338,52 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "plagioclase and its polymorphs: 2\u20135 \u00b5m; other: N \u2014 'a defocused beam (2\u20135 \u03bcm in diameter)'"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Pang2016/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "plagioclase and its polymorphs: 2\u20135 \u00b5m; other: N \u2014 'a defocused beam (2\u20135 \u03bcm in diameter)'"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Pang2016/instrument/EPMA"
         }
       ],
       "schema:object": [
@@ -4492,7 +4426,6 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section; carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4503,7 +4436,6 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4573,48 +4505,46 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Pang2016 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSFC 41373065; State Key Laboratory for Mineral Deposits Research ZZKT-201322; Fundamental Research Funds for the Central Universities — 'This study was supported by grants from ...'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Supplementary Information at www.nature.com/srep — 'Supplementary information accompanies this paper at http://www.nature.com/srep'; the EPMA data are in Supplementary Tables 1–4" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Supplementary Information at www.nature.com/srep — 'Supplementary information accompanies this paper at http://www.nature.com/srep'; the EPMA data are in Supplementary Tables 1–4" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — the averages are given as '±' values ('41 ± 8 mol%') without naming the statistic" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — the averages are given as '±' values ('41 ± 8 mol%') without naming the statistic" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+            dqv:value "no value available: dqv:value" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section; carbon coating N" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/epmaTAPP-detail-Pang2016/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "State Key Laboratory for Mineral Deposits Research, Nanjing University" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "NWA 8003 eucrite" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Pang2016/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -4638,7 +4568,7 @@ ex:epmaTAPP-detail-Pang2016 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -4685,65 +4615,62 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 5,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "carbonate: 5 µm; magnetite, olivine: 1 µm — 'with an analytical spot size of 5 µm' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1µm' (the magnetite and olivine sentence)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-McCoy2025/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 5,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "carbonate: 5 µm; magnetite, olivine: 1 µm — 'with an analytical spot size of 5 µm' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1µm' (the magnetite and olivine sentence)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-McCoy2025/instrument/EPMA"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -4789,7 +4716,6 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
             "schema:name": "Sample preparation",
             "schema:description": "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4800,7 +4726,6 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4879,65 +4804,62 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 5,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "carbonate: 5 \u00b5m; magnetite, olivine: 1 \u00b5m \u2014 'with an analytical spot size of 5 \u00b5m' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1\u00b5m' (the magnetite and olivine sentence)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-McCoy2025/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 5,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "carbonate: 5 \u00b5m; magnetite, olivine: 1 \u00b5m \u2014 'with an analytical spot size of 5 \u00b5m' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1\u00b5m' (the magnetite and olivine sentence)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-McCoy2025/instrument/EPMA"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine \u2014 carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine \u2014 carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -4983,7 +4905,6 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
             "schema:name": "Sample preparation",
             "schema:description": "Ir-coated specimens \u2014 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4994,7 +4915,6 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5050,11 +4970,10 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
@@ -5065,13 +4984,11 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ],
         [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — 'Instrument data supporting the experimental results from the samples analysed in this study will be available from Astromat (astromat.org) at the DOIs listed in Extended Data Table 3'" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
                             schema1:name "Sample preparation" ;
@@ -5079,6 +4996,11 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
             schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Magnetite and olivine analyses: 15 kV, 10 nA, 1 µm spot; their own standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use)." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/epmaTAPP-detail-McCoy2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Smithsonian Institution, National Museum of Natural History" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -5086,10 +5008,6 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
                     schema1:identifier "OREX-8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-McCoy2025/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -5113,7 +5031,7 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -5160,56 +5078,52 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "\"Mg,Na phosphate\": 1 µm; other: N — 'using a 1-µm beam size'"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-McCoy2025-2/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "\"Mg,Na phosphate\": 1 µm; other: N — 'using a 1-µm beam size'"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-McCoy2025-2/instrument/EPMA"
         }
       ],
       "schema:object": [
@@ -5253,7 +5167,6 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
             "schema:name": "Sample preparation",
             "schema:description": "Polished section; 20 nm carbon coat",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5264,7 +5177,6 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5343,56 +5255,52 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "\"Mg,Na phosphate\": 1 \u00b5m; other: N \u2014 'using a 1-\u00b5m beam size'"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-McCoy2025-2/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "\"Mg,Na phosphate\": 1 \u00b5m; other: N \u2014 'using a 1-\u00b5m beam size'"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-McCoy2025-2/instrument/EPMA"
         }
       ],
       "schema:object": [
@@ -5436,7 +5344,6 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
             "schema:name": "Sample preparation",
             "schema:description": "Polished section; 20 nm carbon coat",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5447,7 +5354,6 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5503,34 +5409,33 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-McCoy2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — as for the Smithsonian procedure" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — as for the Smithsonian procedure" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished section; 20 nm carbon coat" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:description "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/epmaTAPP-detail-McCoy2025-2/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -5538,7 +5443,6 @@ ex:epmaTAPP-detail-McCoy2025-2 a schema1:Dataset,
                     schema1:identifier "OREX-8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-McCoy2025-2/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -5562,7 +5466,7 @@ ex:epmaTAPP-detail-McCoy2025-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -5609,80 +5513,77 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "phosphates, carbonates: 2 µm; other: N — p.9"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 nA — 'X-ray maps and BSE images were run at 15kV and 20nA'"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Zega2025/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "phosphates, carbonates: 2 µm; other: N — p.9"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 nA — 'X-ray maps and BSE images were run at 15kV and 20nA'"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Zega2025/instrument/EPMA"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "XMapTools (for phase maps)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "XMapTools (for phase maps)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -5805,80 +5706,77 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "phosphates, carbonates: 2 \u00b5m; other: N \u2014 p.9"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 nA \u2014 'X-ray maps and BSE images were run at 15kV and 20nA'"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Zega2025/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "phosphates, carbonates: 2 \u00b5m; other: N \u2014 p.9"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 nA \u2014 'X-ray maps and BSE images were run at 15kV and 20nA'"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Zega2025/instrument/EPMA"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "XMapTools (for phase maps)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "XMapTools (for phase maps)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -5978,10 +5876,10 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Zega2025 a schema1:Dataset,
@@ -5994,6 +5892,11 @@ ex:epmaTAPP-detail-Zega2025 a schema1:Dataset,
             schema1:description "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s on each background. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak and 10 s background. Carbonates: 15 kV, 4 nA, 2 µm defocused, 10 s peak and 5 s background. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "XMapTools (for phase maps)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/epmaTAPP-detail-Zega2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -6001,10 +5904,6 @@ ex:epmaTAPP-detail-Zega2025 a schema1:Dataset,
                     schema1:identifier "OREX-5/8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-5/8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "XMapTools (for phase maps)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/epmaTAPP-detail-Zega2025/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -6029,7 +5928,7 @@ ex:epmaTAPP-detail-Zega2025 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamCurrent> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -6088,56 +5987,52 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 1 µm — as above"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Barnes2025/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 1 µm — as above"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Barnes2025/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -6198,7 +6093,6 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
             "schema:name": "Sample preparation",
             "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6209,7 +6103,6 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -6284,56 +6177,52 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 1 \u00b5m \u2014 as above"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Barnes2025/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 1 \u00b5m \u2014 as above"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Barnes2025/instrument/EPMA"
         }
       ],
       "schema:additionalProperty": [
@@ -6394,7 +6283,6 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
             "schema:name": "Sample preparation",
             "schema:description": "Aggregate particles (<1 mm) mounted in epoxy at Universit\u00e9 C\u00f4te d'Azur; polished; carbon coated (thickness N)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6405,7 +6293,6 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -6457,10 +6344,10 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Barnes2025 a schema1:Dataset,
@@ -6469,13 +6356,11 @@ ex:epmaTAPP-detail-Barnes2025 a schema1:Dataset,
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — acknowledged with the named authors; further grants are listed by person across many laboratories, and none is attributed to the microprobe work" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
                             schema1:name "Sample preparation" ;
@@ -6484,6 +6369,7 @@ ex:epmaTAPP-detail-Barnes2025 a schema1:Dataset,
             schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si). Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument)." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/epmaTAPP-detail-Barnes2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Centre de Recherches Pétrographiques et Géochimiques (CRPG), Nancy, France" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -6491,7 +6377,6 @@ ex:epmaTAPP-detail-Barnes2025 a schema1:Dataset,
                     schema1:identifier "OREX-800045-103; OREX-800045-107 (NASA curatorial IDs, not IGSN)" ;
                     schema1:name "OREX-800045-103 and OREX-800045-107" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Barnes2025/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -6515,7 +6400,7 @@ ex:epmaTAPP-detail-Barnes2025 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -6569,56 +6454,52 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 1 µm — as above"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Barnes2025-2/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 1 µm — as above"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Barnes2025-2/instrument/EPMA"
         }
       ],
       "schema:object": [
@@ -6662,7 +6543,6 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
             "schema:name": "Sample preparation",
             "schema:description": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6673,7 +6553,6 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -6748,56 +6627,52 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "all: 1 \u00b5m \u2014 as above"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Barnes2025-2/instrument/EPMA"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "all: 1 \u00b5m \u2014 as above"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Barnes2025-2/instrument/EPMA"
         }
       ],
       "schema:object": [
@@ -6841,7 +6716,6 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
             "schema:name": "Sample preparation",
             "schema:description": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6852,7 +6726,6 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -6904,10 +6777,10 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Barnes2025-2 a schema1:Dataset,
@@ -6916,13 +6789,11 @@ ex:epmaTAPP-detail-Barnes2025-2 a schema1:Dataset,
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — acknowledged with the named authors; further grants are listed by person across many laboratories, and none is attributed to the microprobe work" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)" ;
                             schema1:name "Sample preparation" ;
@@ -6930,6 +6801,7 @@ ex:epmaTAPP-detail-Barnes2025-2 a schema1:Dataset,
             schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not given. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/epmaTAPP-detail-Barnes2025-2/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Natural History Museum (NHM), London, UK" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -6937,7 +6809,6 @@ ex:epmaTAPP-detail-Barnes2025-2 a schema1:Dataset,
                     schema1:identifier "OREX-501054-0; OREX-501059-0 (NASA curatorial IDs, not IGSN)" ;
                     schema1:name "OREX-501054-0 and OREX-501059-0 (particles P1, P2)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Barnes2025-2/instrument/EPMA> ] ;
             ada:combinedResults [ ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "N/A — no chemical separation, so there is no procedural blank" ] ;
@@ -6961,7 +6832,7 @@ ex:epmaTAPP-detail-Barnes2025-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -7008,101 +6879,103 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV (stage maps and BSE mosaic)"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": "N/A — mapping-only procedure; map beam under Mapping Beam Diameter",
-                  "schema:unitText": "no value available: unnamed property"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 100,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "100 nA probe current (stage maps)"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Diameter",
-                  "schema:value": 10,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "10 µm (fixed)"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Neuman2025/instrument/EPMA"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV (stage maps and BSE mosaic)"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": "N/A — mapping-only procedure; map beam under Mapping Beam Diameter",
+              "schema:unitText": "no value available: unnamed property"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 100,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "100 nA probe current (stage maps)"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter"
+                }
+              ],
+              "schema:name": "Mapping Beam Diameter",
+              "schema:value": 10,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "10 µm (fixed)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Neuman2025/instrument/EPMA"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -7174,7 +7047,6 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
             "schema:name": "Sample preparation",
             "schema:description": "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -7185,7 +7057,6 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -7297,101 +7168,103 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "EPMA",
             {
-              "schema:additionalType": [
-                "EPMA",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV (stage maps and BSE mosaic)"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": "N/A \u2014 mapping-only procedure; map beam under Mapping Beam Diameter",
-                  "schema:unitText": "no value available: unnamed property"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 100,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "100 nA probe current (stage maps)"
-                },
-                {
-                  "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Diameter",
-                  "schema:value": 10,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "10 \u00b5m (fixed)"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/epmaTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:epmaTAPP-detail-Neuman2025/instrument/EPMA"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV (stage maps and BSE mosaic)"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": "N/A \u2014 mapping-only procedure; map beam under Mapping Beam Diameter",
+              "schema:unitText": "no value available: unnamed property"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 100,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "100 nA probe current (stage maps)"
+            },
+            {
+              "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/epmaTAPP/mappingBeamDiameter"
+                }
+              ],
+              "schema:name": "Mapping Beam Diameter",
+              "schema:value": 10,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "10 \u00b5m (fixed)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:epmaTAPP-detail-Neuman2025/instrument/EPMA"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -7463,7 +7336,6 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
             "schema:name": "Sample preparation",
             "schema:description": "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -7474,7 +7346,6 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -7563,11 +7434,10 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
@@ -7581,35 +7451,35 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
                     schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ],
         [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "Ogliore (2025) — 'The quantitative EPMA image data and coregistered image sets are available in Ogliore (2025)'" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensions>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> ;
             schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+                    ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+                    ada:toolRole "acquisition" ],
+                <https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "73001,6014-73001,6021" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-                            ada:toolRole "acquisition" ],
-                        [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:deadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;
@@ -7633,7 +7503,7 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDiameter>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamCurrent>,
         <https://ada.astromat.org/metadata/parameter/epmaTAPP/mappingBeamDiameter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EPMA" ;
     schema1:name "no value available: schema:name" .
 
@@ -7718,293 +7588,289 @@ allOf:
       items:
         type: object
         properties:
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: EPMA
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: EPMA
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts (kV). Justify any deviation from
-                                        the standard operating voltage.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometers. 0 indicates a fully focused beam.
-                                        Document defocused diameter when used to minimize
-                                        beam damage or improve spatial averaging for
-                                        beam-sensitive phases.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/beamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/beamDiameter
-                                        schema:name:
-                                          const: Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Mapping Beam Current
-                                      description: Probe current in nanoamperes (nA)
-                                        used during X-ray mapping.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Mapping Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometres during X-ray mapping. 0 indicates
-                                        a fully focused beam.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        schema:name:
-                                          const: Mapping Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains:
-                                      title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts (kV). Justify any deviation from
-                                        the standard operating voltage.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometers. 0 indicates a fully focused beam.
-                                        Document defocused diameter when used to minimize
-                                        beam damage or improve spatial averaging for
-                                        beam-sensitive phases.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/beamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/beamDiameter
-                                        schema:name:
-                                          const: Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Mapping Beam Current
-                                      description: Probe current in nanoamperes (nA)
-                                        used during X-ray mapping.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Mapping Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometres during X-ray mapping. 0 indicates
-                                        a fully focused beam.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        schema:name:
-                                          const: Mapping Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
+                        anyOf:
+                        - title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts
+                            (kV). Justify any deviation from the standard operating
+                            voltage.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Beam Diameter
+                          description: Diameter of the electron beam in micrometers.
+                            0 indicates a fully focused beam. Document defocused diameter
+                            when used to minimize beam damage or improve spatial averaging
+                            for beam-sensitive phases.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/beamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/beamDiameter
+                            schema:name:
+                              const: Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Mapping Beam Current
+                          description: Probe current in nanoamperes (nA) used during
+                            X-ray mapping.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Mapping Beam Diameter
+                          description: Diameter of the electron beam in micrometres
+                            during X-ray mapping. 0 indicates a fully focused beam.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
+                            schema:name:
+                              const: Mapping Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
                       allOf:
                       - contains:
+                          title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts
+                            (kV). Justify any deviation from the standard operating
+                            voltage.
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: EPMA
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                            '@id':
+                              const: ada:parameter/epmaTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Beam Diameter
+                          description: Diameter of the electron beam in micrometers.
+                            0 indicates a fully focused beam. Document defocused diameter
+                            when used to minimize beam damage or improve spatial averaging
+                            for beam-sensitive phases.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/beamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/beamDiameter
+                            schema:name:
+                              const: Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Mapping Beam Current
+                          description: Probe current in nanoamperes (nA) used during
+                            X-ray mapping.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Mapping Beam Diameter
+                          description: Diameter of the electron beam in micrometres
+                            during X-ray mapping. 0 indicates a fully focused beam.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
+                            schema:name:
+                              const: Mapping Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: EPMA
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:additionalProperty:
             type: array
             items:
@@ -8718,18 +8584,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

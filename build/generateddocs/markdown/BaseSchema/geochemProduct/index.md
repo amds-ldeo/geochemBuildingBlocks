@@ -22,9 +22,10 @@ It composes the CDIF profiles and adds the generic geochem surface:
   applied only when a distribution is a `schema:Collection`), and `cdifProvenance`.
 - **Analysis events** (`prov:wasGeneratedBy`) — the instruments, computational tools,
   and reagents actually used; the laboratory (`schema:location`); the samples analysed
-  (`schema:object`); the session identifier and timing. `prov:used` uses the CDIF
-  role-keyed wrapper model (constraint-only `if/then` pins for `schema:instrument`,
-  `bios:computationalTool`, `bios:reagent`, and an inline/`@id` `tappDefinition`).
+  (`schema:object`); the session identifier and timing. What was used is
+  `schema:instrument`, one array told apart by Wikidata kind term (constraint-only
+  `if/then` pins per kind), and the TAPP followed is `schema:actionProcess {"@id"}`
+  (or `schema:isBasedOn` on the activity's own workflow).
 - **Variables measured** (`schema:variableMeasured`) — extends `cdifInstanceVariable`
   with description, alternate names, measurement technique, units, and value bounds.
 - **Coverage** — `schema:spatialCoverage`, `schema:temporalCoverage`,
@@ -40,8 +41,8 @@ a record self-declares the full profile chain.
 
 ## Shared `$defs`
 
-`UsedComputationalTool` and `UsedReagent` (the actual-tool / actual-reagent shapes used
-in `prov:used`) are defined here and re-exported by `adaProduct` for backward
+`UsedComputationalTool` and `UsedReagent` (the actual-tool / actual-reagent shapes of
+the software and reagent items of an activity's `schema:instrument`) are defined here and re-exported by `adaProduct` for backward
 compatibility with technique profiles that reference them.
 
 ## Examples
@@ -141,29 +142,25 @@ their delivery-packaging vocabulary (see adaProduct).
       ],
       "schema:identifier": "session-geochem-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ICP-MS Instrument",
-              "schema:identifier": [
-                "ex:instrument-001"
-              ],
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example ICP-MS Instrument",
+          "schema:identifier": [
+            "ex:instrument-001"
+          ],
+          "@id": "ex:geochemProduct-example-001/instrument/instrument"
         }
       ],
       "schema:location": {
@@ -410,29 +407,25 @@ their delivery-packaging vocabulary (see adaProduct).
       ],
       "schema:identifier": "session-geochem-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ICP-MS Instrument",
-              "schema:identifier": [
-                "ex:instrument-001"
-              ],
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example ICP-MS Instrument",
+          "schema:identifier": [
+            "ex:instrument-001"
+          ],
+          "@id": "ex:geochemProduct-example-001/instrument/instrument"
         }
       ],
       "schema:location": {
@@ -589,6 +582,7 @@ their delivery-packaging vocabulary (see adaProduct).
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:geochemProduct-example-001 a schema1:Dataset,
@@ -636,6 +630,7 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:identifier "session-geochem-20260110-001" ;
+            schema1:instrument <https://example.org/geochemProduct-example-001/instrument/instrument> ;
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
@@ -645,13 +640,12 @@ ex:geochemProduct-example-001 a schema1:Dataset,
                     schema1:description "Homogenized rock powder aliquot analysed in this session" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "Example rock powder aliquot RP-123" ] ;
-            schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/geochemProduct-example-001/instrument/instrument> ] ] .
+            schema1:startTime "2026-01-10T09:30:00" ] .
 
 <https://example.org/geochemProduct-example-001/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:identifier "ex:instrument-001" ;
     schema1:name "Example ICP-MS Instrument" .
 

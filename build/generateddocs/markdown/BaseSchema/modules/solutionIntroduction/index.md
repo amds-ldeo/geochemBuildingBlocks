@@ -54,25 +54,14 @@ The procedure half of the SolutionIntroduction module, with every property popul
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
         "schema:position": 1,
         "schema:name": "Sample digestion",
-        "bios:reagent": [
+        "schema:instrument": [
           {
-            "@type": [
-              "schema:DefinedTerm"
-            ],
-            "@id": "no value available: unnamed property",
-            "schema:name": "no value available: unnamed property",
-            "schema:description": "no value available: unnamed property",
-            "schema:identifier": "no value available: unnamed property",
-            "schema:termCode": "no value available: unnamed property",
-            "schema:inDefinedTermSet": "no value available: unnamed property",
-            "ada:reagentRole": "primaryStandard",
-            "schema:citation": "no value available: unnamed property"
+            "@id": "no value available: unnamed property"
           }
         ]
       }
@@ -91,7 +80,6 @@ The procedure half of the SolutionIntroduction module, with every property popul
   "@context": [
     {
       "ada": "https://ada.astromat.org/metadata/",
-      "bios": "https://bioschemas.org/",
       "schema": "http://schema.org/"
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/context.jsonld"
@@ -100,25 +88,14 @@ The procedure half of the SolutionIntroduction module, with every property popul
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
         "schema:position": 1,
         "schema:name": "Sample digestion",
-        "bios:reagent": [
+        "schema:instrument": [
           {
-            "@type": [
-              "schema:DefinedTerm"
-            ],
-            "@id": "no value available: unnamed property",
-            "schema:name": "no value available: unnamed property",
-            "schema:description": "no value available: unnamed property",
-            "schema:identifier": "no value available: unnamed property",
-            "schema:termCode": "no value available: unnamed property",
-            "schema:inDefinedTermSet": "no value available: unnamed property",
-            "ada:reagentRole": "primaryStandard",
-            "schema:citation": "no value available: unnamed property"
+            "@id": "no value available: unnamed property"
           }
         ]
       }
@@ -137,8 +114,7 @@ The procedure half of the SolutionIntroduction module, with every property popul
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
-                        schema1:Action,
+[] schema1:actionProcess [ schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:name "Sample digestion" ;
                     schema1:position 1 ] ] ;
@@ -189,21 +165,52 @@ $defs:
                   - schema:name
                 then:
                   properties:
-                    bios:reagent:
+                    schema:instrument:
                       type: array
                       items:
                         type: object
-                        properties:
-                          schema:name:
-                            description: "Acid mixture used for sample dissolution.
-                              Record acid type(s) and concentration(s) where known
-                              (e.g., concentrated HF\u2013HNO3 in Parr bombs is standard
-                              for silicate dissolution)."
-                            type: string
-                            x-jsonld-id: http://schema.org/name
-                        required:
-                        - schema:name
-                      x-jsonld-id: https://bioschemas.org/reagent
+                        allOf:
+                        - if:
+                            properties:
+                              ada:reagentRole:
+                                const: reagent
+                            required:
+                            - ada:reagentRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: "Acid mixture used for sample dissolution.
+                                  Record acid type(s) and concentration(s) where known
+                                  (e.g., concentrated HF\u2013HNO3 in Parr bombs is
+                                  standard for silicate dissolution)."
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                                x-jsonld-id: http://schema.org/name
+                            required:
+                            - schema:name
+                        - if:
+                            type: object
+                            required:
+                            - schema:additionalType
+                            properties:
+                              schema:additionalType:
+                                type: array
+                                contains:
+                                  type: object
+                                  required:
+                                  - '@id'
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - https://www.wikidata.org/entity/Q2356542
+                                      - wd:Q2356542
+                          then:
+                            required:
+                            - ada:reagentRole
+                      x-jsonld-id: http://schema.org/instrument
             allOf:
             - contains:
                 properties:
@@ -823,7 +830,6 @@ $defs:
     - ada:fieldScope
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
-  bios: https://bioschemas.org/
   schema: http://schema.org/
 x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.solutionIntroduction
@@ -845,7 +851,6 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "schema": "http://schema.org/",
     "@version": 1.1
   }

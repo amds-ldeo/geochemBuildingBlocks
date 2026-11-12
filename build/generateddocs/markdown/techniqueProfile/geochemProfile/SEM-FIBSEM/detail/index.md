@@ -52,41 +52,37 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 5.4,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "5.4 mm (eucentric height for electron and ion columns)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Garvie2008/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 5.4,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "5.4 mm (eucentric height for electron and ion columns)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Garvie2008/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -110,7 +106,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             ],
             "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -121,7 +116,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:position": 2,
             "schema:description": "no value available: schema:description",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -130,7 +124,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -227,41 +220,37 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 5.4,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "5.4 mm (eucentric height for electron and ion columns)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Garvie2008/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 5.4,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "5.4 mm (eucentric height for electron and ion columns)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Garvie2008/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -285,7 +274,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             ],
             "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -296,7 +284,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:position": 2,
             "schema:description": "no value available: schema:description",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -305,7 +292,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -356,10 +342,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semFibsemTAPP-detail-Garvie2008 a schema1:Dataset,
@@ -368,33 +354,30 @@ ex:semFibsemTAPP-detail-Garvie2008 a schema1:Dataset,
             schema1:name "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> ;
                             schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ] ] ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semFibsemTAPP-detail-Garvie2008/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semFibsemTAPP-detail-Garvie2008/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -408,7 +391,7 @@ ex:semFibsemTAPP-detail-Garvie2008 a schema1:Dataset,
 <https://example.org/semFibsemTAPP-detail-Garvie2008/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/workingDistance> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -497,7 +480,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             ],
             "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -523,7 +505,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -535,7 +516,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:position": 3,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -563,17 +543,32 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
         ],
         "schema:name": "China University of Mining and Technology, Xuzhou, China"
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
+        },
+        {
+          "schema:additionalType": [
+            "SEM",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "SEM",
+          "@id": "ex:semFibsemTAPP-detail-Liu2017/instrument/SEM"
         }
       ],
       "schema:endTime": "no value available: schema:endTime",
@@ -673,7 +668,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             ],
             "schema:description": "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 \u00b5m oxide layer; no coating applied",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -699,7 +693,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -711,7 +704,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:position": 3,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -739,17 +731,32 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
         ],
         "schema:name": "China University of Mining and Technology, Xuzhou, China"
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
+        },
+        {
+          "schema:additionalType": [
+            "SEM",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "SEM",
+          "@id": "ex:semFibsemTAPP-detail-Liu2017/instrument/SEM"
         }
       ],
       "schema:endTime": "no value available: schema:endTime",
@@ -782,48 +789,46 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semFibsemTAPP-detail-Liu2017 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "X-ray CT (Xradia 520 Versa, Carl Zeiss)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
-                            schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThickness> ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethod> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/semFibsemTAPP-detail-Liu2017/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -833,6 +838,12 @@ ex:semFibsemTAPP-detail-Liu2017 a schema1:Dataset,
     ada:samplingUnitName "Labelled: coal samples \"#1\" (Bofang Mine) and \"#2\" (Yuwu Mine) (Table 1, p.2); the 3D pore-network model \"only focuses on the coal sample #1\" (p.8)" ;
     ada:sessionIdentifier "missing" ;
     ada:voxelSize "9.8 × 9.8 × 15 nm voxel size; 600 slices; 7.8 × 7.8 µm scanning area; 9.0 µm total thickness" .
+
+<https://example.org/semFibsemTAPP-detail-Liu2017/instrument/SEM> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType wd:Q3099911,
+        "SEM" ;
+    schema1:name "SEM" .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> a schema1:PropertyValue ;
     schema1:name "Pre-Analysis Imaging and Screening" ;
@@ -903,65 +914,62 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
           "schema:name": "SC; HBC"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "2 kV (SEM imaging)"
-                },
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 4,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "4 mm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zhou2017/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "2 kV (SEM imaging)"
+            },
+            {
+              "@id": "ada:parameter/semFibsemTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 4,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "4 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zhou2017/instrument/SEM"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -1007,7 +1015,6 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
             "schema:name": "Sample preparation",
             "schema:description": "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1018,7 +1025,6 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
             "schema:position": 2,
             "schema:description": "no value available: schema:description",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1027,7 +1033,6 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1102,65 +1107,62 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
           "schema:name": "SC; HBC"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 2,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "2 kV (SEM imaging)"
-                },
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 4,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "4 mm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zhou2017/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 2,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "2 kV (SEM imaging)"
+            },
+            {
+              "@id": "ada:parameter/semFibsemTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 4,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "4 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zhou2017/instrument/SEM"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -1206,7 +1208,6 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
             "schema:name": "Sample preparation",
             "schema:description": "Cuboidal samples (~0.5\u00d71\u00d71 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1217,7 +1218,6 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
             "schema:position": 2,
             "schema:description": "no value available: schema:description",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1226,7 +1226,6 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1255,47 +1254,44 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semFibsemTAPP-detail-Zhou2017 a schema1:Dataset,
         schema1:Product ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/imageRegistration3D>,
                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethod> ;
             schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/semFibsemTAPP-detail-Zhou2017/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "China University of Geosciences, Beijing, China" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "SC; HBC" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semFibsemTAPP-detail-Zhou2017/instrument/SEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1310,7 +1306,7 @@ ex:semFibsemTAPP-detail-Zhou2017 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/workingDistance> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -1390,41 +1386,37 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 30,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "30 keV (FIB milling and thinning)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zega2025/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 30,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "30 keV (FIB milling and thinning)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zega2025/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -1461,7 +1453,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             ],
             "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1472,7 +1463,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:position": 2,
             "schema:description": "no value available: schema:description",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1481,7 +1471,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1579,41 +1568,37 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 30,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "30 keV (FIB milling and thinning)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zega2025/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 30,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "30 keV (FIB milling and thinning)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zega2025/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -1650,7 +1635,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             ],
             "schema:description": "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1661,7 +1645,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:position": 2,
             "schema:description": "no value available: schema:description",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1670,7 +1653,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1722,10 +1704,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semFibsemTAPP-detail-Zega2025 a schema1:Dataset,
@@ -1734,35 +1716,32 @@ ex:semFibsemTAPP-detail-Zega2025 a schema1:Dataset,
             schema1:name "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
                                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
                             schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ] ] ;
             schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1776,7 +1755,7 @@ ex:semFibsemTAPP-detail-Zega2025 a schema1:Dataset,
 <https://example.org/semFibsemTAPP-detail-Zega2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/acceleratingVoltage> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -1849,41 +1828,37 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 16,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "16 to 30 keV (coarse milling); down to 1 keV (polishing)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zega2025-2/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 16,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "16 to 30 keV (coarse milling); down to 1 keV (polishing)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zega2025-2/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -1907,7 +1882,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             ],
             "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1946,7 +1920,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1958,7 +1931,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:position": 3,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2056,41 +2028,37 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 16,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "16 to 30 keV (coarse milling); down to 1 keV (polishing)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zega2025-2/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 16,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "16 to 30 keV (coarse milling); down to 1 keV (polishing)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zega2025-2/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -2114,7 +2082,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             ],
             "schema:description": "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2153,7 +2120,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2165,7 +2131,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:position": 3,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2217,10 +2182,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semFibsemTAPP-detail-Zega2025-2 a schema1:Dataset,
@@ -2229,36 +2194,33 @@ ex:semFibsemTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:name "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> ;
-                            schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
                                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> ;
+                            schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ] ] ;
             schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025-2/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025-2/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -2272,7 +2234,7 @@ ex:semFibsemTAPP-detail-Zega2025-2 a schema1:Dataset,
 <https://example.org/semFibsemTAPP-detail-Zega2025-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/acceleratingVoltage> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -2352,41 +2314,37 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 30,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zega2025-3/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 30,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zega2025-3/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -2423,7 +2381,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             ],
             "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2462,7 +2419,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2474,7 +2430,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:position": 3,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2572,41 +2527,37 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 30,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semFibsemTAPP-detail-Zega2025-3/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semFibsemTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 30,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "30 kV (initial milling); 16 kV (intermediate); 5 kV (final thinning)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semFibsemTAPP-detail-Zega2025-3/instrument/SEM"
         }
       ],
       "schema:actionProcess": {
@@ -2643,7 +2594,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             ],
             "schema:description": "Particles dispersed on conductive carbon dots on Al SEM pin mounts",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2682,7 +2632,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2694,7 +2643,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:position": 3,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2746,10 +2694,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semFibsemTAPP-detail-Zega2025-3 a schema1:Dataset,
@@ -2758,37 +2706,34 @@ ex:semFibsemTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
                                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
                             schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025-3/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025-3/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -2802,7 +2747,7 @@ ex:semFibsemTAPP-detail-Zega2025-3 a schema1:Dataset,
 <https://example.org/semFibsemTAPP-detail-Zega2025-3/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/acceleratingVoltage> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -3063,236 +3008,230 @@ allOf:
                           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: SEM
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: SEM
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Working Distance
-                                      description: Distance between the objective
-                                        lens pole piece and the specimen surface in
-                                        millimetres.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semFibsemTAPP/workingDistance
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semFibsemTAPP/workingDistance
-                                        schema:name:
-                                          const: Working Distance
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Mapping Beam Current
-                                      description: 'Electron beam probe current used
-                                        while the beam scans an area: an X-ray or
-                                        CL map, an EBSD map, or an SE or BSE image,
-                                        including images taken during FIB-SEM work.
-                                        For sub-nA values use decimal notation (e.g.,
-                                        0.4 nA). Ion-beam currents used for milling
-                                        belong in the milling condition fields.'
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semFibsemTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semFibsemTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains:
-                                      title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Working Distance
-                                      description: Distance between the objective
-                                        lens pole piece and the specimen surface in
-                                        millimetres.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semFibsemTAPP/workingDistance
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semFibsemTAPP/workingDistance
-                                        schema:name:
-                                          const: Working Distance
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Mapping Beam Current
-                                      description: 'Electron beam probe current used
-                                        while the beam scans an area: an X-ray or
-                                        CL map, an EBSD map, or an SE or BSE image,
-                                        including images taken during FIB-SEM work.
-                                        For sub-nA values use decimal notation (e.g.,
-                                        0.4 nA). Ion-beam currents used for milling
-                                        belong in the milling condition fields.'
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semFibsemTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semFibsemTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
+                        anyOf:
+                        - title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semFibsemTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Working Distance
+                          description: Distance between the objective lens pole piece
+                            and the specimen surface in millimetres.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semFibsemTAPP/workingDistance
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semFibsemTAPP/workingDistance
+                            schema:name:
+                              const: Working Distance
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Mapping Beam Current
+                          description: 'Electron beam probe current used while the
+                            beam scans an area: an X-ray or CL map, an EBSD map, or
+                            an SE or BSE image, including images taken during FIB-SEM
+                            work. For sub-nA values use decimal notation (e.g., 0.4
+                            nA). Ion-beam currents used for milling belong in the
+                            milling condition fields.'
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semFibsemTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semFibsemTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
                       allOf:
                       - contains:
+                          title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts.
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: SEM
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                            '@id':
+                              const: ada:parameter/semFibsemTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semFibsemTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Working Distance
+                          description: Distance between the objective lens pole piece
+                            and the specimen surface in millimetres.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semFibsemTAPP/workingDistance
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semFibsemTAPP/workingDistance
+                            schema:name:
+                              const: Working Distance
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Mapping Beam Current
+                          description: 'Electron beam probe current used while the
+                            beam scans an area: an X-ray or CL map, an EBSD map, or
+                            an SE or BSE image, including images taken during FIB-SEM
+                            work. For sub-nA values use decimal notation (e.g., 0.4
+                            nA). Ion-beam currents used for milling belong in the
+                            milling condition fields.'
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semFibsemTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semFibsemTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: SEM
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:actionProcess:
             type: object
             properties:
@@ -3683,18 +3622,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

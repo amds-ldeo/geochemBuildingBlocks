@@ -1,8 +1,15 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] prov:wasGeneratedBy [ prov:used [ ] ;
+[] prov:wasGeneratedBy [ schema1:instrument [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                        "no value available: unnamed property" ;
+                    ada:laserFluence 1 ;
+                    ada:laserRepetitionRate 1 ;
+                    ada:laserSpotGeometry "no value available: unnamed property" ] ;
             ada:ablationPitDepthRate "no value available: unnamed property" ;
             ada:ablationSpotDuration 1 ;
             ada:rasterLineSpacing "no value available: unnamed property" ] ;

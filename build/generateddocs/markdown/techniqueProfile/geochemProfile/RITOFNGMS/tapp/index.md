@@ -25,10 +25,10 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
   "@id": "ex:ritofngmsTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "ritofngms protocol — P0",
   "schema:description": "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = RELAX.",
@@ -86,7 +86,6 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -141,10 +140,10 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
   "@id": "ex:ritofngmsTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "ritofngms protocol \u2014 P0",
   "schema:description": "ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Manchester | RELAX (publication column of RITOFNGMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = RELAX.",
@@ -202,7 +201,6 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -235,21 +233,19 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:ritofngmsTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:ritofngmsTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Resonance ionization time of flight noble gas mass spectrome analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

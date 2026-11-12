@@ -2,7 +2,6 @@
   "@context": [
     {
       "ada": "https://ada.astromat.org/metadata/",
-      "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
@@ -24,19 +23,28 @@
           "schema:identifier": "no value available: unnamed property"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:SoftwareApplication"
-              ],
-              "@id": "no value available: unnamed property",
-              "schema:name": "no value available: unnamed property",
-              "schema:version": "no value available: unnamed property",
-              "schema:url": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "ada:toolRole": "acquisition"
+              "@id": "https://www.wikidata.org/entity/Q7397"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -46,7 +54,6 @@
         "schema:step": [
           {
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],

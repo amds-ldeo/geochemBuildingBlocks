@@ -2,8 +2,12 @@
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
-            schema1:model [ schema1:name "no value available: unnamed property" ] ;
+[] schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                "no value available: unnamed property" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "no value available: unnamed property" ] ;
             schema1:name "no value available: unnamed property" ;
             ada:laserFluenceDefault 1 ;
             ada:laserRepetitionRateDefault 1 ;

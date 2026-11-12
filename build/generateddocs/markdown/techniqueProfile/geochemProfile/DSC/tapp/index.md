@@ -25,10 +25,10 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
   "@id": "ex:dscTAPP-DSC8000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "dsc protocol — DSC8000",
   "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer.",
@@ -91,7 +91,6 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -146,10 +145,10 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
   "@id": "ex:dscTAPP-DSC8000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "dsc protocol \u2014 DSC8000",
   "schema:description": "dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | PerkinsElmer DSC 8000 (publication column of DSC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = PerkinsElmer.",
@@ -212,7 +211,6 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -245,21 +243,19 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:dscTAPP-DSC8000 a cdi:Activity,
-        schema1:Action,
+ex:dscTAPP-DSC8000 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Differential Scanning Calorimetry analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

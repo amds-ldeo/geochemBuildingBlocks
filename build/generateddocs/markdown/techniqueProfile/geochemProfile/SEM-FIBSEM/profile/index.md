@@ -183,38 +183,29 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "SEM",
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaSEMFIBSEM-example-001/instrument/SEM"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "SEM",
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:semFibsemTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaSEMFIBSEM-example-001/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -244,7 +235,10 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@id": "ex:semFibsemTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -656,38 +650,29 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "SEM",
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaSEMFIBSEM-example-001/instrument/SEM"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "SEM",
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:semFibsemTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaSEMFIBSEM-example-001/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -717,7 +702,10 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@id": "ex:semFibsemTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -959,6 +947,7 @@ and technique component types on the archive distribution. Mock data for validat
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaSEMFIBSEM-example-001 a schema1:Dataset,
@@ -1037,8 +1026,10 @@ ex:adaSEMFIBSEM-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:actionProcess ex:semFibsemTAPP-P0 ;
             schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
+            schema1:instrument <https://example.org/adaSEMFIBSEM-example-001/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
@@ -1049,9 +1040,7 @@ ex:adaSEMFIBSEM-example-001 a schema1:Dataset,
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
-            schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ ada:tappDefinition ex:semFibsemTAPP-P0 ],
-                [ schema1:instrument <https://example.org/adaSEMFIBSEM-example-001/instrument/SEM> ] ] ;
+            schema1:startTime "2026-01-10T09:30:00" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:submissionType "BundleDelivery" ;
     ada:voxelSize "no value available: voxelSizeAndImageStackDimensions" .
@@ -1131,7 +1120,7 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         schema1:Thing ;
     schema1:additionalType ada:ADAInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911>,
+        wd:Q3099911,
         "SEM" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
@@ -1157,49 +1146,13 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA FIB-SEM Product Profile
 description: Path-driven technique-specific profile for ADA FIB-SEM Product Profile.
   Extends the base ADA product profile with the SEMFIBSEM analysis-instance detail
-  on the schema:Dataset root, narrows prov:used to the semFibsemTAPP protocol, and
-  constrains valid component types on schema:distribution.hasPart.
+  on the schema:Dataset root, and pins the product type and the profile it declares
+  conformance to.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/detail/schema.yaml
 - type: object
   properties:
-    prov:wasGeneratedBy:
-      description: 'Pin the semFibsemTAPP definition and the instrument where prov:used
-        carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items
-        are role-keyed wrappers, and an anyOf here would allOf-merge with the base
-        union and exclude item shapes the base allows.'
-      type: array
-      items:
-        type: object
-        properties:
-          prov:used:
-            type: array
-            items:
-              allOf:
-              - if:
-                  type: object
-                  required:
-                  - schema:instrument
-                then:
-                  properties:
-                    schema:instrument:
-                      type: array
-                      minItems: 1
-                      items:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-              - if:
-                  type: object
-                  properties:
-                    '@type':
-                      contains:
-                        const: ada:TAPPDefinition
-                  required:
-                  - '@type'
-                  - schema:name
-                then:
-                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM-FIBSEM/tapp/schema.yaml
-      title: Analysis Events
     schema:additionalType:
       description: Must include a SEMFIBSEM product type identifier.
       contains:

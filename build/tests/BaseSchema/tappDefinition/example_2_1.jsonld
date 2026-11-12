@@ -16,10 +16,10 @@
   "@id": "https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "Spinel oxybarometry version 1",
   "schema:version": "1.0",
@@ -56,51 +56,65 @@
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "JEOL JXA-8900 Superprobe; JEOL JXA-8530F Hyperprobe",
-    "schema:manufacturer": {
+  "schema:instrument": [
+    {
       "@type": [
-        "schema:Organization"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:name": "JEOL"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
-      ],
-      "schema:name": "JXA-8900"
-    },
-    "schema:hasPart": [
-      {
+      "schema:name": "JEOL JXA-8900 Superprobe; JEOL JXA-8530F Hyperprobe",
+      "schema:manufacturer": {
         "@type": [
-          "schema:Product",
-          "schema:Thing"
+          "schema:Organization"
         ],
-        "schema:additionalType": [
-          "WDS Spectrometer",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "WDS Spectrometer Array",
-        "schema:description": "5 WDS spectrometers with TAPx2, LiFx2, PETJ, LiFH.",
-        "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
+        "schema:name": "JEOL"
       },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument"
-  },
+      "schema:model": {
+        "@type": [
+          "schema:ProductModel"
+        ],
+        "schema:name": "JXA-8900"
+      },
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "WDS Spectrometer Array",
+          "schema:description": "5 WDS spectrometers with TAPx2, LiFx2, PETJ, LiFH.",
+          "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
+        },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -113,15 +127,6 @@
     ],
     "schema:name": "Smithsonian Institution, Department of Mineral Sciences"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Probe for EPMA",
-      "ada:toolRole": "acquisition"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -186,7 +191,6 @@
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -204,7 +208,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -214,7 +217,7 @@
         "schema:object": {
           "@id": "#preparedMount"
         },
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:Product"
@@ -228,7 +231,12 @@
               "schema:value": "NMNH 111312/444"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -243,7 +251,12 @@
               "schema:value": "NMNH 117075"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -258,7 +271,12 @@
               "schema:value": "NMNH 143965"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -273,7 +291,12 @@
               "schema:value": "NMNH 136041"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -288,7 +311,12 @@
               "schema:value": "NMNH 114887"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -296,7 +324,12 @@
             ],
             "schema:name": "Wollastonite (synthetic, F.R. Boyd)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -305,13 +338,17 @@
             "schema:name": "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320",
             "schema:description": "Secondary spinel standards for Fe3+/\u00ce\u00a3Fe calibration",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)."
+            "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -403,7 +440,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -413,15 +449,6 @@
         "schema:object": {
           "@id": "#rawAnalyses"
         },
-        "bios:computationalTool": [
-          {
-            "@type": [
-              "schema:SoftwareApplication"
-            ],
-            "schema:name": "Probe for EPMA",
-            "ada:toolRole": "dataReduction"
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@type": [
@@ -448,11 +475,24 @@
         ],
         "schema:result": {
           "@id": "#quantifiedResults"
-        }
+        },
+        "schema:instrument": [
+          {
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
+            "schema:name": "Probe for EPMA",
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
+          }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

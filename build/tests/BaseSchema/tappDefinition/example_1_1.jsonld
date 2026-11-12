@@ -23,10 +23,10 @@
   "@id": "https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "CU routine tephra glass version 1.0 with 6nA",
   "schema:version": "1.0.6",
@@ -49,51 +49,66 @@
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ARL SEMQ",
-    "schema:additionalType": [
-      {
-        "@id": "ada:EPMAInstrument"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "schema:manufacturer": {
+  "schema:instrument": [
+    {
       "@type": [
-        "schema:Organization"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:name": "ARL"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
+      "schema:name": "ARL SEMQ",
+      "schema:additionalType": [
+        {
+          "@id": "ada:EPMAInstrument"
+        },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
       ],
-      "schema:name": "SEMQ"
-    },
-    "schema:hasPart": [
-      {
+      "schema:manufacturer": {
         "@type": [
-          "schema:Product",
-          "schema:Thing"
+          "schema:Organization"
         ],
-        "schema:additionalType": [
-          "WDS Spectrometer",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
+        "schema:name": "ARL"
+      },
+      "schema:model": {
+        "@type": [
+          "schema:ProductModel"
         ],
-        "schema:name": "WDS Spectrometer Array",
-        "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
-        "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer"
-      }
-    ],
-    "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument"
-  },
+        "schema:name": "SEMQ"
+      },
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "WDS Spectrometer Array",
+          "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
+          "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer"
+        }
+      ],
+      "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "schema:version": "9.6.4",
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -106,16 +121,6 @@
     ],
     "schema:name": "Concord University"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Probe for EPMA",
-      "schema:version": "9.6.4",
-      "ada:toolRole": "acquisition"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -140,7 +145,6 @@
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -152,22 +156,26 @@
           }
         ],
         "schema:description": "Tephra glass grains mounted, polished, and carbon coated for EPMA.",
-        "bios:reagent": [
+        "schema:result": {
+          "@id": "#preparedMount"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Carbon",
-            "ada:reagentRole": "coatingMaterial"
+            "ada:reagentRole": "coatingMaterial",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#preparedMount"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -177,47 +185,71 @@
         "schema:object": {
           "@id": "#preparedMount"
         },
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Albite",
-            "ada:reagentRole": "primaryStandard"
+            "ada:reagentRole": "primaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Kaersutite amphibole",
-            "ada:reagentRole": "primaryStandard"
+            "ada:reagentRole": "primaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "Lipari obsidian ID3506",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "USGS BHVO-2g",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "USGS NKT-1g",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -298,7 +330,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -308,16 +339,6 @@
         "schema:object": {
           "@id": "#rawAnalyses"
         },
-        "bios:computationalTool": [
-          {
-            "@type": [
-              "schema:SoftwareApplication"
-            ],
-            "schema:name": "Probe for EPMA",
-            "schema:version": "9.6.4",
-            "ada:toolRole": "dataReduction"
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@type": [
@@ -344,11 +365,25 @@
         ],
         "schema:result": {
           "@id": "#quantifiedResults"
-        }
+        },
+        "schema:instrument": [
+          {
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
+            "schema:name": "Probe for EPMA",
+            "schema:version": "9.6.4",
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
+          }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

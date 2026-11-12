@@ -467,294 +467,290 @@ allOf:
                 - schema:value
               minContains: 0
               maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: ICPMS
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:hasPart:
                       type: array
                       items:
+                        type: object
                         allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: ICPMS
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:hasPart:
-                                  type: array
-                                  items:
-                                    type: object
-                                    allOf:
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: Torch
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
-                                              minContains: 0
-                                              maxContains: 1
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: ICP Source
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              anyOf:
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
-                                              minContains: 0
-                                              maxContains: 1
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: Collision Reaction Cell
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              anyOf:
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                  allOf:
-                                  - contains:
-                                      properties:
-                                        schema:additionalType:
-                                          contains:
-                                            const: ICP Source
-                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                      required:
-                                      - schema:additionalType
-                                  - contains:
-                                      properties:
-                                        schema:additionalType:
-                                          contains:
-                                            const: Collision Reaction Cell
-                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                      required:
-                                      - schema:additionalType
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
-                                    - title: Doubly-Charged Species Monitor
-                                      description: "The mass ratio monitored to estimate
-                                        doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. The monitor species
-                                        and the mass positions monitored should be
-                                        stated explicitly. Analogous to Oxide Production
-                                        Method and Threshold for oxide monitoring."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        schema:name:
-                                          const: Doubly-Charged Species Monitor
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged
-                                        ion production for the monitored species at
-                                        the time of instrument tuning. The acceptable
-                                        threshold is typically <1% or <3%. Record
-                                        both the threshold and the measured value.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        schema:name:
-                                          const: Doubly-Charged Species Production
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
-                                  allOf:
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Doubly-Charged Species Monitor
-                                      description: "The mass ratio monitored to estimate
-                                        doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. The monitor species
-                                        and the mass positions monitored should be
-                                        stated explicitly. Analogous to Oxide Production
-                                        Method and Threshold for oxide monitoring."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        schema:name:
-                                          const: Doubly-Charged Species Monitor
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged
-                                        ion production for the monitored species at
-                                        the time of instrument tuning. The acceptable
-                                        threshold is typically <1% or <3%. Record
-                                        both the threshold and the measured value.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        schema:name:
-                                          const: Doubly-Charged Species Production
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
-                                    minContains: 0
-                                    maxContains: 1
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: Laser Ablation System
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
-                                  allOf:
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
-                                    minContains: 0
-                                    maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: Torch
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
+                                  minContains: 0
+                                  maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: ICP Source
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
+                                  minContains: 0
+                                  maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: Collision Reaction Cell
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
                       allOf:
                       - contains:
                           properties:
                             schema:additionalType:
                               contains:
-                                const: ICPMS
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                                const: ICP Source
+                              schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                           required:
                           - schema:additionalType
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: Collision Reaction Cell
+                              schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                          required:
+                          - schema:additionalType
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        anyOf:
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                        - title: Doubly-Charged Species Monitor
+                          description: "The mass ratio monitored to estimate doubly-charged
+                            ion (M\xB2\u207A) formation during instrument tuning.
+                            The monitor species and the mass positions monitored should
+                            be stated explicitly. Analogous to Oxide Production Method
+                            and Threshold for oxide monitoring."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            schema:name:
+                              const: Doubly-Charged Species Monitor
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - title: Doubly-Charged Species Production
+                          description: Measured percentage of doubly-charged ion production
+                            for the monitored species at the time of instrument tuning.
+                            The acceptable threshold is typically <1% or <3%. Record
+                            both the threshold and the measured value.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
+                            schema:name:
+                              const: Doubly-Charged Species Production
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                      allOf:
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Doubly-Charged Species Monitor
+                          description: "The mass ratio monitored to estimate doubly-charged
+                            ion (M\xB2\u207A) formation during instrument tuning.
+                            The monitor species and the mass positions monitored should
+                            be stated explicitly. Analogous to Oxide Production Method
+                            and Threshold for oxide monitoring."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            schema:name:
+                              const: Doubly-Charged Species Monitor
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Doubly-Charged Species Production
+                          description: Measured percentage of doubly-charged ion production
+                            for the monitored species at the time of instrument tuning.
+                            The acceptable threshold is typically <1% or <3%. Record
+                            both the threshold and the measured value.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsUPbTAPP/doublyChargedSpeciesProduction
+                            schema:name:
+                              const: Doubly-Charged Species Production
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                        minContains: 0
+                        maxContains: 1
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: Laser Ablation System
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
+                  required:
+                  - schema:additionalType
+                then:
+                  properties:
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
+                      allOf:
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: ICPMS
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:object:
             type: array
             items:
@@ -909,18 +905,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

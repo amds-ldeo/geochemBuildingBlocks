@@ -89,14 +89,30 @@ The procedure half of the Core module, with every property populated. Generated 
     }
   ],
   "ada:samplingUnitType": "no value available: unnamed property",
-  "bios:computationalTool": [
+  "schema:instrument": [
     {
       "ada:toolRole": "acquisition",
-      "schema:name": "no value available: unnamed property"
+      "schema:name": "no value available: unnamed property",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "no value available: unnamed property"
+      "schema:name": "no value available: unnamed property",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:analyticalMode": [
@@ -107,7 +123,6 @@ The procedure half of the Core module, with every property populated. Generated 
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -126,7 +141,6 @@ The procedure half of the Core module, with every property populated. Generated 
   "@context": [
     {
       "ada": "https://ada.astromat.org/metadata/",
-      "bios": "https://bioschemas.org/",
       "schema": "http://schema.org/"
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/context.jsonld"
@@ -166,14 +180,30 @@ The procedure half of the Core module, with every property populated. Generated 
     }
   ],
   "ada:samplingUnitType": "no value available: unnamed property",
-  "bios:computationalTool": [
+  "schema:instrument": [
     {
       "ada:toolRole": "acquisition",
-      "schema:name": "no value available: unnamed property"
+      "schema:name": "no value available: unnamed property",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "no value available: unnamed property"
+      "schema:name": "no value available: unnamed property",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:analyticalMode": [
@@ -184,7 +214,6 @@ The procedure half of the Core module, with every property populated. Generated 
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -200,12 +229,10 @@ The procedure half of the Core module, with every property populated. Generated 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
-                        schema1:Action,
+[] schema1:actionProcess [ schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:description "no value available: unnamed property" ;
                     schema1:name "Sample preparation" ;
@@ -214,6 +241,14 @@ The procedure half of the Core module, with every property populated. Generated 
     schema1:datePublished "no value available: unnamed property" ;
     schema1:description "no value available: unnamed property" ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "no value available: unnamed property" ;
+            ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "no value available: unnamed property" ;
+            ada:toolRole "dataReduction" ] ;
     schema1:location [ schema1:identifier "no value available: unnamed property" ;
             schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
@@ -224,11 +259,7 @@ The procedure half of the Core module, with every property populated. Generated 
             schema1:target [ schema1:description "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] ;
     ada:analyticalMode "no value available: unnamed property" ;
-    ada:samplingUnitType "no value available: unnamed property" ;
-    bios:computationalTool [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "no value available: unnamed property" ;
-            ada:toolRole "acquisition" ] .
+    ada:samplingUnitType "no value available: unnamed property" .
 
 
 ```
@@ -255,19 +286,28 @@ The analysis half of the Core module, with every property populated. Generated f
           "schema:identifier": "no value available: unnamed property"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:SoftwareApplication"
-              ],
-              "@id": "no value available: unnamed property",
-              "schema:name": "no value available: unnamed property",
-              "schema:version": "no value available: unnamed property",
-              "schema:url": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "ada:toolRole": "acquisition"
+              "@id": "https://www.wikidata.org/entity/Q7397"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -277,7 +317,6 @@ The analysis half of the Core module, with every property populated. Generated f
         "schema:step": [
           {
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -343,7 +382,6 @@ The analysis half of the Core module, with every property populated. Generated f
   "@context": [
     {
       "ada": "https://ada.astromat.org/metadata/",
-      "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
@@ -365,19 +403,28 @@ The analysis half of the Core module, with every property populated. Generated f
           "schema:identifier": "no value available: unnamed property"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:SoftwareApplication"
-              ],
-              "@id": "no value available: unnamed property",
-              "schema:name": "no value available: unnamed property",
-              "schema:version": "no value available: unnamed property",
-              "schema:url": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "ada:toolRole": "acquisition"
+              "@id": "https://www.wikidata.org/entity/Q7397"
+            }
+          ]
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -387,7 +434,6 @@ The analysis half of the Core module, with every property populated. Generated f
         "schema:step": [
           {
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -458,16 +504,15 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "no value available: unnamed property" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "no value available: unnamed property" ] ] ;
+            schema1:target [ schema1:url "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "no value available: unnamed property" ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: unnamed property" ;
                             schema1:name "Sample preparation" ;
@@ -475,12 +520,19 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:description "no value available: unnamed property" ;
             schema1:endTime "no value available: unnamed property" ;
             schema1:identifier "no value available: unnamed property" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "no value available: unnamed property" ;
+                    ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "no value available: unnamed property" ;
+                    ada:toolRole "acquisition" ] ;
             schema1:location [ schema1:identifier "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ;
             schema1:object [ schema1:identifier "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ;
-            schema1:startTime "no value available: unnamed property" ;
-            prov:used [ ] ] ;
+            schema1:startTime "no value available: unnamed property" ] ;
     ada:analyticalMode "no value available: unnamed property" .
 
 
@@ -632,7 +684,7 @@ $defs:
           are listed in Sampling Unit Name."
         type: string
         x-jsonld-id: https://ada.astromat.org/metadata/samplingUnitType
-      bios:computationalTool:
+      schema:instrument:
         type: array
         items:
           type: object
@@ -679,9 +731,26 @@ $defs:
                   x-jsonld-id: http://schema.org/name
               required:
               - schema:name
-          required:
-          - ada:toolRole
-        x-jsonld-id: https://bioschemas.org/computationalTool
+          - if:
+              type: object
+              required:
+              - schema:additionalType
+              properties:
+                schema:additionalType:
+                  type: array
+                  contains:
+                    type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        enum:
+                        - https://www.wikidata.org/entity/Q7397
+                        - wd:Q7397
+            then:
+              required:
+              - ada:toolRole
+        x-jsonld-id: http://schema.org/instrument
       ada:analyticalMode:
         type: array
         items:
@@ -838,68 +907,82 @@ $defs:
                   required:
                   - '@type'
               x-jsonld-id: http://schema.org/object
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      ada:toolRole:
+                        const: acquisition
                     required:
-                    - bios:computationalTool
+                    - ada:toolRole
                   then:
                     properties:
-                      bios:computationalTool:
+                      schema:name:
+                        description: Instrument control, automation and data acquisition
+                          software used to collect the raw data, including version
+                          number. Distinct from Data Processing Software(s), which
+                          covers everything applied to the data after acquisition.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        x-jsonld-id: http://schema.org/name
+                - if:
+                    properties:
+                      ada:toolRole:
+                        const: dataReduction
+                    required:
+                    - ada:toolRole
+                  then:
+                    properties:
+                      schema:name:
+                        description: All software applied to the data after acquisition
+                          in order to produce the reported quantities, including version
+                          numbers. List every package used. Distinct from Acquisition
+                          Software, which controls the instrument and collects the
+                          raw data.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        x-jsonld-id: http://schema.org/name
+                - if:
+                    type: object
+                    required:
+                    - schema:additionalType
+                    properties:
+                      schema:additionalType:
                         type: array
-                        items:
-                          allOf:
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  ada:toolRole:
-                                    const: acquisition
-                                required:
-                                - ada:toolRole
-                              then:
-                                properties:
-                                  schema:name:
-                                    description: Instrument control, automation and
-                                      data acquisition software used to collect the
-                                      raw data, including version number. Distinct
-                                      from Data Processing Software(s), which covers
-                                      everything applied to the data after acquisition.
-                                    anyOf:
-                                    - type: string
-                                    - type: array
-                                      items:
-                                        type: string
-                                    x-jsonld-id: http://schema.org/name
-                            - if:
-                                properties:
-                                  ada:toolRole:
-                                    const: dataReduction
-                                required:
-                                - ada:toolRole
-                              then:
-                                properties:
-                                  schema:name:
-                                    description: All software applied to the data
-                                      after acquisition in order to produce the reported
-                                      quantities, including version numbers. List
-                                      every package used. Distinct from Acquisition
-                                      Software, which controls the instrument and
-                                      collects the raw data.
-                                    anyOf:
-                                    - type: string
-                                    - type: array
-                                      items:
-                                        type: string
-                                    x-jsonld-id: http://schema.org/name
-                            required:
-                            - ada:toolRole
-                        x-jsonld-id: https://bioschemas.org/computationalTool
-              x-jsonld-id: http://www.w3.org/ns/prov#used
+                        contains:
+                          type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              enum:
+                              - https://www.wikidata.org/entity/Q7397
+                              - wd:Q7397
+                  then:
+                    required:
+                    - ada:toolRole
+              x-jsonld-id: http://schema.org/instrument
             schema:description:
               description: "Any procedure- or analysis-specific information not captured
                 by a structured field anywhere in this TAPP \u2014 including anomalies,
@@ -1191,7 +1274,6 @@ $defs:
     - ada:fieldScope
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
-  bios: https://bioschemas.org/
   prov: http://www.w3.org/ns/prov#
   schema: http://schema.org/
 x-bblocks-metadata:
@@ -1214,7 +1296,6 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
     "@version": 1.1

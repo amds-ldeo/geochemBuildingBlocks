@@ -1,10 +1,9 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
@@ -16,17 +15,15 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
                     schema1:name "Micro-XRF (same samples)" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "Micro-XRF structural observations consistent with meteorite classification" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSize>,
@@ -35,16 +32,17 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "NWA 8277; NWA 6963" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -60,7 +58,7 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 

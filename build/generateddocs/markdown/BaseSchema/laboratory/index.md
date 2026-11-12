@@ -92,8 +92,10 @@ allOf:
         reference ({"@id": ...}) so JSON-LD expands it to a real IRI; written as a
         bare string it stays a literal that looks like a URI and resolves to nothing.
         The IRI is spelled out in full rather than as a CURIE because no context in
-        this repo defines a Wikidata prefix -- the instrument block writes https://www.wikidata.org/wiki/Q3099911
-        the same way.
+        this repo defines a Wikidata prefix -- the instrument block writes its Wikidata
+        term in full the same way. (That one is the ENTITY IRI, https://www.wikidata.org/entity/Q3099911,
+        since 2026-11-11; this one is still the /wiki/ page URL the stored records
+        carry.)
 
         Wikidata Q483242 "laboratory" is a subclass of facility (Q13226383), which
         is what makes it right for a schema:Place. An Organization type would not

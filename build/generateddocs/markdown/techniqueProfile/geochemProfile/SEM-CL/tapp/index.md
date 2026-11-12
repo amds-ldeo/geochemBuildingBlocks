@@ -25,10 +25,10 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
   "@id": "ex:semClTAPP-JSM7000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "semCl protocol — JSM7000",
   "schema:description": "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL.",
@@ -57,7 +57,6 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -106,10 +105,10 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
   "@id": "ex:semClTAPP-JSM7000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "semCl protocol \u2014 JSM7000",
   "schema:description": "semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications | JEOL JSM7000F FEG-SEM (publication column of SEM-CL_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = JEOL.",
@@ -138,7 +137,6 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -165,21 +163,19 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:semClTAPP-JSM7000 a cdi:Activity,
-        schema1:Action,
+ex:semClTAPP-JSM7000 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "SEM Cathodoluminescence Spectroscopy analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

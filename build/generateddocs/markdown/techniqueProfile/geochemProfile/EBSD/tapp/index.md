@@ -25,10 +25,10 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
   "@id": "ex:ebsdTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "ebsd protocol — P0",
   "schema:description": "ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University | Tescan MIRA3 (14 method-description documents) (publication column of EBSD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Tescan.",
@@ -46,7 +46,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
       "schema:additionalType": [
         "SEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
@@ -56,7 +56,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
           "schema:additionalType": [
             "EBSD Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "ada:ebsdCameraSpeedSetting": "Speed 1",
@@ -73,7 +73,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:model": {
@@ -96,6 +96,30 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:ebsdTAPP-P0/instrument/SEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford Instruments AZtec v5.1 Symmetry",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AZtecCrystal",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:stageTilt": "70 deg",
@@ -105,7 +129,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "schema:name": "Sample preparation",
         "schema:description": "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -121,7 +144,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "ada:edsChannelsDefault": "2024",
         "ada:edsProcessTimeDefault": "5",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -139,7 +161,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "ada:maximumMeanAngularDeviation": "1.2 deg",
         "ada:crystalStructureFileSourcesDefault": "HKL; ICSD; American Mineralogist",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -172,16 +193,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
     "schema:identifier": "https://ror.org/02n415q13"
   },
   "schema:datePublished": "2023-11-16",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford Instruments AZtec v5.1 Symmetry"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AZtecCrystal"
-    }
-  ],
   "ada:analyticalMode": [
     "Simultaneous EBSD-EDS mapping"
   ],
@@ -218,10 +229,10 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
   "@id": "ex:ebsdTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "ebsd protocol \u2014 P0",
   "schema:description": "ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University | Tescan MIRA3 (14 method-description documents) (publication column of EBSD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Tescan.",
@@ -239,7 +250,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
       "schema:additionalType": [
         "SEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
@@ -249,7 +260,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
           "schema:additionalType": [
             "EBSD Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "ada:ebsdCameraSpeedSetting": "Speed 1",
@@ -266,7 +277,7 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:model": {
@@ -289,6 +300,30 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:ebsdTAPP-P0/instrument/SEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford Instruments AZtec v5.1 Symmetry",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AZtecCrystal",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:stageTilt": "70 deg",
@@ -298,7 +333,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "schema:name": "Sample preparation",
         "schema:description": "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -314,7 +348,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "ada:edsChannelsDefault": "2024",
         "ada:edsProcessTimeDefault": "5",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -332,7 +365,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
         "ada:maximumMeanAngularDeviation": "1.2 deg",
         "ada:crystalStructureFileSourcesDefault": "HKL; ICSD; American Mineralogist",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -365,16 +397,6 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
     "schema:identifier": "https://ror.org/02n415q13"
   },
   "schema:datePublished": "2023-11-16",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford Instruments AZtec v5.1 Symmetry"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AZtecCrystal"
-    }
-  ],
   "ada:analyticalMode": [
     "Simultaneous EBSD-EDS mapping"
   ],
@@ -389,36 +411,27 @@ ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:ebsdTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:ebsdTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Electron Backscatter Diffraction analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ;
                     ada:edsChannelsDefault "2024" ;
                     ada:edsProcessTimeDefault "5" ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -426,13 +439,27 @@ ex:ebsdTAPP-P0 a cdi:Activity,
                     ada:crystalStructureFileSourcesDefault "HKL; ICSD; American Mineralogist" ;
                     ada:houghResolutionDefault "60" ;
                     ada:maximumMeanAngularDeviation "1.2 deg" ;
-                    ada:minimumBandsForIndexing "5" ] ] ;
+                    ada:minimumBandsForIndexing "5" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:description "Draft generated by Claude (Anthropic) under human review, from analysis of ADA metadata records and the 14 Curtin University method-description documents attached to them. Parameter values and tier assignments are derived, not authored by the laboratory." ;
             schema1:name "Claude assisted" ] ;
     schema1:datePublished "2023-11-16" ;
     schema1:description "ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University | Tescan MIRA3 (14 method-description documents) (publication column of EBSD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Tescan." ;
-    schema1:instrument <https://example.org/ebsdTAPP-P0/instrument/SEM> ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+            ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "AZtecCrystal" ;
+            ada:toolRole "dataReduction" ],
+        <https://example.org/ebsdTAPP-P0/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:identifier "https://ror.org/02n415q13" ;
             schema1:name "Curtin University" ] ;
@@ -446,15 +473,11 @@ ex:ebsdTAPP-P0 a cdi:Activity,
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:stageTilt "70 deg" ;
-    ada:targetMaterial "missing" ;
-    bios:computationalTool [ schema1:name "AZtecCrystal" ;
-            ada:toolRole "dataReduction" ],
-        [ schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-            ada:toolRole "acquisition" ] .
+    ada:targetMaterial "missing" .
 
 <https://example.org/ebsdTAPP-P0/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:hasPart <https://example.org/ebsdTAPP-P0/instrument/SEM/part/EBSD-Detector>,
         <https://example.org/ebsdTAPP-P0/instrument/SEM/part/EDS-Detector> ;
@@ -464,7 +487,7 @@ ex:ebsdTAPP-P0 a cdi:Activity,
 
 <https://example.org/ebsdTAPP-P0/instrument/SEM/part/EBSD-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EBSD Detector" ;
     schema1:name "missing" ;
     ada:ebsdCameraGain "2" ;
@@ -473,7 +496,7 @@ ex:ebsdTAPP-P0 a cdi:Activity,
 
 <https://example.org/ebsdTAPP-P0/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EDS Detector" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "XMax 150 mm SDD" ] ;

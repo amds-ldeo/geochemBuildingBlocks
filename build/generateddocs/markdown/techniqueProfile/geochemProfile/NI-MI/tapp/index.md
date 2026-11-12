@@ -25,10 +25,10 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
   "@id": "ex:niMiTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "niMi protocol — P0",
   "schema:description": "niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State University | NI: Ultra Nanoindentation Tester (UNHT3) manufactured by Anton Paar (publication column of NI-MI_TAPP_draft_v2.csv).",
@@ -57,7 +57,6 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -106,10 +105,10 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
   "@id": "ex:niMiTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "niMi protocol \u2014 P0",
   "schema:description": "niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State University | NI: Ultra Nanoindentation Tester (UNHT3) manufactured by Anton Paar (publication column of NI-MI_TAPP_draft_v2.csv).",
@@ -138,7 +137,6 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -165,21 +163,19 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:niMiTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:niMiTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Nanoindentation and Microindentation analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

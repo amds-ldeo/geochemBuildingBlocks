@@ -14,293 +14,289 @@ allOf:
       items:
         type: object
         properties:
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: EPMA
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: EPMA
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts (kV). Justify any deviation from
-                                        the standard operating voltage.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometers. 0 indicates a fully focused beam.
-                                        Document defocused diameter when used to minimize
-                                        beam damage or improve spatial averaging for
-                                        beam-sensitive phases.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/beamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/beamDiameter
-                                        schema:name:
-                                          const: Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Mapping Beam Current
-                                      description: Probe current in nanoamperes (nA)
-                                        used during X-ray mapping.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Mapping Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometres during X-ray mapping. 0 indicates
-                                        a fully focused beam.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        schema:name:
-                                          const: Mapping Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains:
-                                      title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts (kV). Justify any deviation from
-                                        the standard operating voltage.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometers. 0 indicates a fully focused beam.
-                                        Document defocused diameter when used to minimize
-                                        beam damage or improve spatial averaging for
-                                        beam-sensitive phases.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/beamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/beamDiameter
-                                        schema:name:
-                                          const: Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Mapping Beam Current
-                                      description: Probe current in nanoamperes (nA)
-                                        used during X-ray mapping.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Mapping Beam Diameter
-                                      description: Diameter of the electron beam in
-                                        micrometres during X-ray mapping. 0 indicates
-                                        a fully focused beam.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
-                                        schema:name:
-                                          const: Mapping Beam Diameter
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
+                        anyOf:
+                        - title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts
+                            (kV). Justify any deviation from the standard operating
+                            voltage.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Beam Diameter
+                          description: Diameter of the electron beam in micrometers.
+                            0 indicates a fully focused beam. Document defocused diameter
+                            when used to minimize beam damage or improve spatial averaging
+                            for beam-sensitive phases.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/beamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/beamDiameter
+                            schema:name:
+                              const: Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Mapping Beam Current
+                          description: Probe current in nanoamperes (nA) used during
+                            X-ray mapping.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Mapping Beam Diameter
+                          description: Diameter of the electron beam in micrometres
+                            during X-ray mapping. 0 indicates a fully focused beam.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
+                            schema:name:
+                              const: Mapping Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
                       allOf:
                       - contains:
+                          title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts
+                            (kV). Justify any deviation from the standard operating
+                            voltage.
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: EPMA
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                            '@id':
+                              const: ada:parameter/epmaTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Beam Diameter
+                          description: Diameter of the electron beam in micrometers.
+                            0 indicates a fully focused beam. Document defocused diameter
+                            when used to minimize beam damage or improve spatial averaging
+                            for beam-sensitive phases.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/beamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/beamDiameter
+                            schema:name:
+                              const: Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Mapping Beam Current
+                          description: Probe current in nanoamperes (nA) used during
+                            X-ray mapping.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Mapping Beam Diameter
+                          description: Diameter of the electron beam in micrometres
+                            during X-ray mapping. 0 indicates a fully focused beam.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/epmaTAPP/mappingBeamDiameter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/epmaTAPP/mappingBeamDiameter
+                            schema:name:
+                              const: Mapping Beam Diameter
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: EPMA
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:additionalProperty:
             type: array
             items:

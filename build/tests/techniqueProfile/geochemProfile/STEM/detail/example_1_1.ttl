@@ -2,6 +2,7 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:stemTAPP-detail-HF5000 a schema1:Dataset,
@@ -21,11 +22,11 @@ ex:stemTAPP-detail-HF5000 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/stemTAPP-detail-HF5000/instrument/STEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/03m2x1q45" ;
                     schema1:name "University of Arizona" ] ;
-            schema1:startTime "2024-05-16" ;
-            prov:used [ schema1:instrument <https://example.org/stemTAPP-detail-HF5000/instrument/STEM> ] ] ;
+            schema1:startTime "2024-05-16" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-05-16" ;
     ada:analyst "Maizey; Beau" ;
@@ -40,7 +41,7 @@ ex:stemTAPP-detail-HF5000 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength>,
         <https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "STEM" ;
     schema1:name "no value available: schema:name" .
 

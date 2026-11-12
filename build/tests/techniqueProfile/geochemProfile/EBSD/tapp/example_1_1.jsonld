@@ -21,10 +21,10 @@
   "@id": "ex:ebsdTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "ebsd protocol \u2014 P0",
   "schema:description": "ebsdTAPP instance derived from ADA n=1354 | Nicholas E Timms | Curtin University | Tescan MIRA3 (14 method-description documents) (publication column of EBSD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Tescan.",
@@ -42,7 +42,7 @@
       "schema:additionalType": [
         "SEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "20 kV",
@@ -52,7 +52,7 @@
           "schema:additionalType": [
             "EBSD Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "ada:ebsdCameraSpeedSetting": "Speed 1",
@@ -69,7 +69,7 @@
           "schema:additionalType": [
             "EDS Detector",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:model": {
@@ -92,6 +92,30 @@
       ],
       "schema:name": "no value available: schema:name",
       "@id": "ex:ebsdTAPP-P0/instrument/SEM"
+    },
+    {
+      "ada:toolRole": "acquisition",
+      "schema:name": "Oxford Instruments AZtec v5.1 Symmetry",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "AZtecCrystal",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:stageTilt": "70 deg",
@@ -101,7 +125,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -117,7 +140,6 @@
         "ada:edsChannelsDefault": "2024",
         "ada:edsProcessTimeDefault": "5",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -135,7 +157,6 @@
         "ada:maximumMeanAngularDeviation": "1.2 deg",
         "ada:crystalStructureFileSourcesDefault": "HKL; ICSD; American Mineralogist",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -168,16 +189,6 @@
     "schema:identifier": "https://ror.org/02n415q13"
   },
   "schema:datePublished": "2023-11-16",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "acquisition",
-      "schema:name": "Oxford Instruments AZtec v5.1 Symmetry"
-    },
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "AZtecCrystal"
-    }
-  ],
   "ada:analyticalMode": [
     "Simultaneous EBSD-EDS mapping"
   ],

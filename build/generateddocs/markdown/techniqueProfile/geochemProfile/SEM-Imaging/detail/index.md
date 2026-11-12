@@ -52,71 +52,67 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 500,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "500 V; 1 kV; 5 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 0.5,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.5–5.4 mm"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 70,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Garvie2008/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 500,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "500 V; 1 kV; 5 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 0.5,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.5–5.4 mm"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 70,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Garvie2008/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -132,7 +128,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:name": "Sample preparation",
             "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -142,7 +137,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -236,71 +230,67 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 500,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "500 V; 1 kV; 5 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 0.5,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.5\u20135.4 mm"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 70,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Garvie2008/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 500,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "500 V; 1 kV; 5 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 0.5,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.5\u20135.4 mm"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 70,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "70 fA (500 V); 1.4 pA (1 kV); 98 pA (5 kV)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Garvie2008/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -316,7 +306,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:name": "Sample preparation",
             "schema:description": "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -326,7 +315,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -374,10 +362,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semImagingTAPP-detail-Garvie2008 a schema1:Dataset,
@@ -386,27 +374,25 @@ ex:semImagingTAPP-detail-Garvie2008 a schema1:Dataset,
             schema1:name "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB milling and TEM cross-section preparation (same instrument)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semImagingTAPP-detail-Garvie2008/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Garvie2008/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -425,7 +411,7 @@ ex:semImagingTAPP-detail-Garvie2008 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent>,
         <https://ada.astromat.org/metadata/parameter/semImagingTAPP/workingDistance> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -502,41 +488,37 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 10,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "10 kV"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Genge2025/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 10,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "10 kV"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Genge2025/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -624,41 +606,37 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 10,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "10 kV"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Genge2025/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 10,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "10 kV"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Genge2025/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -703,6 +681,7 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semImagingTAPP-detail-Genge2025 a schema1:Dataset,
@@ -711,13 +690,13 @@ ex:semImagingTAPP-detail-Genge2025 a schema1:Dataset,
             schema1:target [ schema1:name "EDS (same session, same instrument); EBSD (same instrument); EPMA (JEOL JXA-iHP200F, WDS, out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semImagingTAPP-detail-Genge2025/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Genge2025/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -734,7 +713,7 @@ ex:semImagingTAPP-detail-Genge2025 a schema1:Dataset,
 <https://example.org/semImagingTAPP-detail-Genge2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -797,56 +776,52 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 6,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "6 nA"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Genge2025-2/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 6,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "6 nA"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Genge2025-2/instrument/SEM"
         }
       ],
       "schema:additionalProperty": [
@@ -886,7 +861,6 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -980,56 +954,52 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 6,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "6 nA"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Genge2025-2/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 6,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "6 nA"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Genge2025-2/instrument/SEM"
         }
       ],
       "schema:additionalProperty": [
@@ -1069,7 +1039,6 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1117,18 +1086,17 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semImagingTAPP-detail-Genge2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
                             schema1:name "Data processing" ;
@@ -1137,13 +1105,13 @@ ex:semImagingTAPP-detail-Genge2025-2 a schema1:Dataset,
             schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semImagingTAPP-detail-Genge2025-2/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Genge2025-2/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1161,7 +1129,7 @@ ex:semImagingTAPP-detail-Genge2025-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -1438,72 +1406,74 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15–20 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 10,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "~10 mm"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Izawa2010/instrument/SEM"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15–20 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 10,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "~10 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Izawa2010/instrument/SEM"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Gatan DigitalMicrograph",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Gatan DigitalMicrograph",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -1552,7 +1522,6 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
             "schema:name": "Sample preparation",
             "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1562,7 +1531,6 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1648,72 +1616,74 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15\u201320 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 10,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "~10 mm"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Izawa2010/instrument/SEM"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15\u201320 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 10,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "~10 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Izawa2010/instrument/SEM"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Gatan DigitalMicrograph",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Gatan DigitalMicrograph",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -1762,7 +1732,6 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
             "schema:name": "Sample preparation",
             "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1772,7 +1741,6 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1812,46 +1780,45 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semImagingTAPP-detail-Izawa2010 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clIntegrationTime> ;
             schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Gatan DigitalMicrograph" ;
+                    ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+                    ada:toolRole "acquisition" ],
+                <https://example.org/semImagingTAPP-detail-Izawa2010/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Zircon and Accessory Phase Laboratory, University of Western Ontario" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Izawa2010/instrument/SEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Gatan DigitalMicrograph" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
-                            schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-                            ada:toolRole "acquisition" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1869,7 +1836,7 @@ ex:semImagingTAPP-detail-Izawa2010 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semImagingTAPP/workingDistance> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -2393,7 +2360,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2403,7 +2369,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2518,7 +2483,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2528,7 +2492,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2568,7 +2531,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
@@ -2578,13 +2540,11 @@ ex:semImagingTAPP-detail-Liu2017 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                             schema1:name "Sample preparation" ;
@@ -2699,7 +2659,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2709,7 +2668,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2824,7 +2782,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk coal polished to ~10 mm \u00d7 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2834,7 +2791,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -2874,7 +2830,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
@@ -2884,13 +2839,11 @@ ex:semImagingTAPP-detail-Liu2017-2 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                             schema1:name "Sample preparation" ;
@@ -2990,7 +2943,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3000,7 +2952,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3108,7 +3059,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3118,7 +3068,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3166,7 +3115,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
@@ -3178,14 +3126,12 @@ ex:semImagingTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
@@ -3300,7 +3246,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3310,7 +3255,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3457,7 +3401,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3467,7 +3410,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3532,7 +3474,6 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -3545,18 +3486,16 @@ ex:semImagingTAPP-detail-Ma2017-2 a schema1:Dataset,
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
                             schema1:name "Data processing" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
                             schema1:name "Sample preparation" ;
@@ -3646,65 +3585,62 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
           "schema:name": "NWA 7317"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 8,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "8 mm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Pascucci2026/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 8,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "8 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Pascucci2026/instrument/SEM"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "Oxford INCA Energy",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Oxford INCA Energy",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -3738,7 +3674,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
             "schema:name": "Sample preparation",
             "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3748,7 +3683,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3834,65 +3768,62 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
           "schema:name": "NWA 7317"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 8,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "8 mm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Pascucci2026/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 8,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "8 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Pascucci2026/instrument/SEM"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "Oxford INCA Energy",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Oxford INCA Energy",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -3926,7 +3857,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
             "schema:name": "Sample preparation",
             "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3936,7 +3866,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3976,42 +3905,40 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semImagingTAPP-detail-Pascucci2026 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure> ;
             schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Oxford INCA Energy" ;
+                    ada:toolRole "acquisition" ],
+                <https://example.org/semImagingTAPP-detail-Pascucci2026/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "NWA 7317" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Oxford INCA Energy" ;
-                            ada:toolRole "acquisition" ] ],
-                [ schema1:instrument <https://example.org/semImagingTAPP-detail-Pascucci2026/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -4029,7 +3956,7 @@ ex:semImagingTAPP-detail-Pascucci2026 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semImagingTAPP/workingDistance> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -4118,7 +4045,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
             "schema:name": "Sample preparation",
             "schema:description": "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4128,7 +4054,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4227,7 +4152,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
             "schema:name": "Sample preparation",
             "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4237,7 +4161,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4277,7 +4200,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
@@ -4287,13 +4209,11 @@ ex:semImagingTAPP-detail-Pascucci2026-2 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); EDS (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
@@ -4372,50 +4292,47 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Zega2025/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Zega2025/instrument/SEM"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "Oxford AZtec (Point & ID programme)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Oxford AZtec (Point & ID programme)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -4433,7 +4350,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4443,7 +4359,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4537,50 +4452,47 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15 kV"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Zega2025/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15 kV"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Zega2025/instrument/SEM"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "Oxford AZtec (Point & ID programme)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Oxford AZtec (Point & ID programme)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -4598,7 +4510,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4608,7 +4519,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4656,11 +4566,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semImagingTAPP-detail-Zega2025 a schema1:Dataset,
@@ -4669,30 +4578,29 @@ ex:semImagingTAPP-detail-Zega2025 a schema1:Dataset,
             schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
             schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Oxford AZtec (Point & ID programme)" ;
+                    ada:toolRole "acquisition" ],
+                <https://example.org/semImagingTAPP-detail-Zega2025/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Zega2025/instrument/SEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Oxford AZtec (Point & ID programme)" ;
-                            ada:toolRole "acquisition" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -4709,7 +4617,7 @@ ex:semImagingTAPP-detail-Zega2025 a schema1:Dataset,
 <https://example.org/semImagingTAPP-detail-Zega2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -4785,7 +4693,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4795,7 +4702,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4902,7 +4808,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4912,7 +4817,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4960,7 +4864,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
@@ -4972,17 +4875,15 @@ ex:semImagingTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:name "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -5070,7 +4971,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5080,7 +4980,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5187,7 +5086,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5197,7 +5095,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5245,7 +5142,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
@@ -5257,17 +5153,15 @@ ex:semImagingTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:name "NASA PSEF 80NSSC23K0327; NSF MRI 1531243 and 0619599" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -5342,56 +5236,52 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 5,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "5 keV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "1 to 4 nA"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Zega2025-4/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 5,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "5 keV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "1 to 4 nA"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Zega2025-4/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -5407,7 +5297,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5417,7 +5306,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5503,56 +5391,52 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 5,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "5 keV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
-                    }
-                  ],
-                  "schema:name": "Mapping Beam Current",
-                  "schema:value": 1,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "1 to 4 nA"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Zega2025-4/instrument/SEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 5,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "5 keV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/mappingBeamCurrent"
+                }
+              ],
+              "schema:name": "Mapping Beam Current",
+              "schema:value": 1,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "1 to 4 nA"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Zega2025-4/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -5568,7 +5452,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5578,7 +5461,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5618,37 +5500,35 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semImagingTAPP-detail-Zega2025-4 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
             schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/semImagingTAPP-detail-Zega2025-4/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "no value available: schema:name" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/semImagingTAPP-detail-Zega2025-4/instrument/SEM> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -5666,7 +5546,7 @@ ex:semImagingTAPP-detail-Zega2025-4 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semImagingTAPP/mappingBeamCurrent> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -6150,236 +6030,230 @@ allOf:
                           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: SEM
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: SEM
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Working Distance
-                                      description: Distance between the objective
-                                        lens pole piece and the specimen surface in
-                                        millimetres.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/workingDistance
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/workingDistance
-                                        schema:name:
-                                          const: Working Distance
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Mapping Beam Current
-                                      description: 'Electron beam probe current used
-                                        while the beam scans an area: an X-ray or
-                                        CL map, an EBSD map, or an SE or BSE image,
-                                        including images taken during FIB-SEM work.
-                                        For sub-nA values use decimal notation (e.g.,
-                                        0.4 nA). Ion-beam currents used for milling
-                                        belong in the milling condition fields.'
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains:
-                                      title: Accelerating Voltage
-                                      description: Electron beam accelerating voltage
-                                        in kilovolts.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Working Distance
-                                      description: Distance between the objective
-                                        lens pole piece and the specimen surface in
-                                        millimetres.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/workingDistance
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/workingDistance
-                                        schema:name:
-                                          const: Working Distance
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Mapping Beam Current
-                                      description: 'Electron beam probe current used
-                                        while the beam scans an area: an X-ray or
-                                        CL map, an EBSD map, or an SE or BSE image,
-                                        including images taken during FIB-SEM work.
-                                        For sub-nA values use decimal notation (e.g.,
-                                        0.4 nA). Ion-beam currents used for milling
-                                        belong in the milling condition fields.'
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/semImagingTAPP/mappingBeamCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/semImagingTAPP/mappingBeamCurrent
-                                        schema:name:
-                                          const: Mapping Beam Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
+                        anyOf:
+                        - title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Working Distance
+                          description: Distance between the objective lens pole piece
+                            and the specimen surface in millimetres.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/workingDistance
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/workingDistance
+                            schema:name:
+                              const: Working Distance
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Mapping Beam Current
+                          description: 'Electron beam probe current used while the
+                            beam scans an area: an X-ray or CL map, an EBSD map, or
+                            an SE or BSE image, including images taken during FIB-SEM
+                            work. For sub-nA values use decimal notation (e.g., 0.4
+                            nA). Ion-beam currents used for milling belong in the
+                            milling condition fields.'
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
                       allOf:
                       - contains:
+                          title: Accelerating Voltage
+                          description: Electron beam accelerating voltage in kilovolts.
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: SEM
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Working Distance
+                          description: Distance between the objective lens pole piece
+                            and the specimen surface in millimetres.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/workingDistance
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/workingDistance
+                            schema:name:
+                              const: Working Distance
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Mapping Beam Current
+                          description: 'Electron beam probe current used while the
+                            beam scans an area: an X-ray or CL map, an EBSD map, or
+                            an SE or BSE image, including images taken during FIB-SEM
+                            work. For sub-nA values use decimal notation (e.g., 0.4
+                            nA). Ion-beam currents used for milling belong in the
+                            milling condition fields.'
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/semImagingTAPP/mappingBeamCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/semImagingTAPP/mappingBeamCurrent
+                            schema:name:
+                              const: Mapping Beam Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: SEM
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:actionProcess:
             type: object
             properties:
@@ -6633,18 +6507,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

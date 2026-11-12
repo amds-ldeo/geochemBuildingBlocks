@@ -25,10 +25,10 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
   "@id": "ex:sthmAfmTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "sthmAfm protocol — P0",
   "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Park.",
@@ -57,7 +57,6 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -106,10 +105,10 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
   "@id": "ex:sthmAfmTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "sthmAfm protocol \u2014 P0",
   "schema:description": "sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University | Park Systems NX10 AFM (publication column of STHM-AFM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Park.",
@@ -138,7 +137,6 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -165,21 +163,19 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:sthmAfmTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:sthmAfmTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Scanning Thermal Microscopy with AFM analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

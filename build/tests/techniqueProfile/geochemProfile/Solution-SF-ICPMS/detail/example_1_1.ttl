@@ -1,10 +1,9 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
@@ -12,29 +11,26 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)" ;
                     schema1:name "Agilent 7700x Q-ICP-MS (used for Pb isotope comparison; stated section 2.4)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: 2sd of repeat analyses] — Table 1; 'regular analyses of Tl-doped ~1 ppb solutions of several rock standards (unseparated)' (§2.4)" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 2sd — '(2sd, n = 22)'; averages given with '±2sd%'" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: 2sd of repeat analyses] — Table 1; 'regular analyses of Tl-doped ~1 ppb solutions of several rock standards (unseparated)' (§2.4)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: % deviation from published Pb isotope values] — Table 1 and §3" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
                             schema1:name "Data processing" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
                             schema1:name "Sample preparation" ;
@@ -42,16 +38,17 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
             schema1:description "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"A typical session comprised analyses of up to 50 unknowns and 15 standards\"; no session identifier stated" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "University of Melbourne, Australia (affiliation)" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Soil and rock samples from boreholes BH1, BH2 (Sunbury), BH3, BH4 (Kalkallo), BH5 (Greenvale), BH6, BH (Wallan), incl. BH3a; reference materials BCR-2, BR, AGV-2, JB-2, JB-3, NIST SRM981, and Broken Hill Main Lode galena" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS> ] ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "Pb: total procedural blank <100 pg — 'total procedural blanks (dissolution and/or leaching, including centrifuging) are estimated to be <100 pg'; sample/blank ratios ≥1500 (§2.3)" ] ;
     ada:analysisEndDate "missing" ;
@@ -76,7 +73,7 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS/part/ICP-Source>,
         <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS/part/Sample-Introduction-System> ;
@@ -84,14 +81,14 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
 
 <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "ICP Source" .
 
 <https://example.org/solutionSficpmsTAPP-detail-P0/instrument/ICPMS/part/Sample-Introduction-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Sample Introduction System" ;
     schema1:name "missing" .
 

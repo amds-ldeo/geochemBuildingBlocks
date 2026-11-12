@@ -79,12 +79,30 @@ The procedure half of the ICPMS module, with every property populated. Generated
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "no value available: unnamed property",
+      "schema:additionalType": [
+        "no value available: unnamed property",
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
       "schema:hasPart": [
         {
-          "schema:additionalType": "no value available: unnamed property",
-          "schema:name": "no value available: unnamed property"
+          "schema:additionalType": [
+            "no value available: unnamed property",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ]
         }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
       ]
     }
   ],
@@ -120,12 +138,30 @@ The procedure half of the ICPMS module, with every property populated. Generated
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "no value available: unnamed property",
+      "schema:additionalType": [
+        "no value available: unnamed property",
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
       "schema:hasPart": [
         {
-          "schema:additionalType": "no value available: unnamed property",
-          "schema:name": "no value available: unnamed property"
+          "schema:additionalType": [
+            "no value available: unnamed property",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ]
         }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
       ]
     }
   ],
@@ -143,13 +179,19 @@ The procedure half of the ICPMS module, with every property populated. Generated
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
-            schema1:hasPart [ schema1:additionalType "no value available: unnamed property" ;
+[] schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                "no value available: unnamed property" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                        "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ],
+            schema1:name "Uncertainty Propagation Method" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Uncertainty Propagation Method" ] ;
+            schema1:name "Limit of Quantification (LOQ) Method" ] ;
     ada:analysisSequenceDefault "no value available: unnamed property" ;
     ada:blankBackgroundCorrectionMethod "no value available: unnamed property" ;
     ada:calibrationMeasurementFrequency "no value available: unnamed property" ;
@@ -169,185 +211,18 @@ The analysis half of the ICPMS module, with every property populated. Generated 
 {
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "no value available: unnamed property",
             {
-              "@context": {
-                "schema": "http://schema.org/",
-                "dcterms": "http://purl.org/dc/terms/"
-              },
-              "@id": "no value available: unnamed property",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "schema:alternateName": [
-                "no value available: unnamed property"
-              ],
-              "schema:identifier": [
-                "no value available: unnamed property"
-              ],
-              "schema:url": "no value available: unnamed property",
-              "schema:manufacturer": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:model": {
-                "@type": [
-                  "schema:ProductModel"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:identifier": "no value available: unnamed property"
-              },
-              "schema:category": [
-                {
-                  "@type": [
-                    "schema:DefinedTerm"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:identifier": "no value available: unnamed property",
-                  "schema:inDefinedTermSet": "no value available: unnamed property",
-                  "schema:termCode": "no value available: unnamed property"
-                }
-              ],
-              "schema:owner": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:contributor": [
-                {
-                  "@type": [
-                    "schema:Role"
-                  ],
-                  "schema:roleName": "no value available: unnamed property",
-                  "schema:contributor": {
-                    "@id": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    "no value available: unnamed property"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:unitCode": "no value available: unnamed property",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
-              "schema:validFrom": "no value available: unnamed property",
-              "schema:validThrough": "no value available: unnamed property",
-              "schema:hasPart": [
-                {
-                  "@id": "no value available: unnamed property",
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:additionalType": [
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "ada:collectorConfiguration": "no value available: unnamed property",
-                  "ada:collectors": [
-                    {
-                      "@type": [
-                        "ada:Collector"
-                      ],
-                      "schema:name": "no value available: unnamed property",
-                      "schema:description": "no value available: unnamed property",
-                      "schema:additionalProperty": [
-                        {
-                          "schema:name": "no value available: unnamed property",
-                          "schema:value": "no value available: unnamed property"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "schema:relatedLink": [
-                {
-                  "@type": [
-                    "schema:LinkRole"
-                  ],
-                  "schema:linkRelationship": "no value available: unnamed property",
-                  "schema:target": {
-                    "@type": [
-                      "schema:EntryPoint"
-                    ],
-                    "schema:name": "no value available: unnamed property",
-                    "schema:url": "no value available: unnamed property",
-                    "schema:encodingFormat": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:subjectOf": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "no value available: unnamed property"
-                ],
-                "schema:dateModified": "no value available: unnamed property",
-                "schema:about": {
-                  "@id": "no value available: unnamed property"
-                },
-                "dcterms:conformsTo": [
-                  "no value available: unnamed property"
-                ]
-              }
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
+          ],
+          "schema:identifier": "no value available: unnamed property",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
           ]
         }
       ]
@@ -387,185 +262,18 @@ The analysis half of the ICPMS module, with every property populated. Generated 
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "no value available: unnamed property",
             {
-              "@context": {
-                "schema": "http://schema.org/",
-                "dcterms": "http://purl.org/dc/terms/"
-              },
-              "@id": "no value available: unnamed property",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "schema:alternateName": [
-                "no value available: unnamed property"
-              ],
-              "schema:identifier": [
-                "no value available: unnamed property"
-              ],
-              "schema:url": "no value available: unnamed property",
-              "schema:manufacturer": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:model": {
-                "@type": [
-                  "schema:ProductModel"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:identifier": "no value available: unnamed property"
-              },
-              "schema:category": [
-                {
-                  "@type": [
-                    "schema:DefinedTerm"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:identifier": "no value available: unnamed property",
-                  "schema:inDefinedTermSet": "no value available: unnamed property",
-                  "schema:termCode": "no value available: unnamed property"
-                }
-              ],
-              "schema:owner": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:contributor": [
-                {
-                  "@type": [
-                    "schema:Role"
-                  ],
-                  "schema:roleName": "no value available: unnamed property",
-                  "schema:contributor": {
-                    "@id": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    "no value available: unnamed property"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:unitCode": "no value available: unnamed property",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
-              "schema:validFrom": "no value available: unnamed property",
-              "schema:validThrough": "no value available: unnamed property",
-              "schema:hasPart": [
-                {
-                  "@id": "no value available: unnamed property",
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:additionalType": [
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "ada:collectorConfiguration": "no value available: unnamed property",
-                  "ada:collectors": [
-                    {
-                      "@type": [
-                        "ada:Collector"
-                      ],
-                      "schema:name": "no value available: unnamed property",
-                      "schema:description": "no value available: unnamed property",
-                      "schema:additionalProperty": [
-                        {
-                          "schema:name": "no value available: unnamed property",
-                          "schema:value": "no value available: unnamed property"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "schema:relatedLink": [
-                {
-                  "@type": [
-                    "schema:LinkRole"
-                  ],
-                  "schema:linkRelationship": "no value available: unnamed property",
-                  "schema:target": {
-                    "@type": [
-                      "schema:EntryPoint"
-                    ],
-                    "schema:name": "no value available: unnamed property",
-                    "schema:url": "no value available: unnamed property",
-                    "schema:encodingFormat": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:subjectOf": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "no value available: unnamed property"
-                ],
-                "schema:dateModified": "no value available: unnamed property",
-                "schema:about": {
-                  "@id": "no value available: unnamed property"
-                },
-                "dcterms:conformsTo": [
-                  "no value available: unnamed property"
-                ]
-              }
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
+          ],
+          "schema:identifier": "no value available: unnamed property",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
           ]
         }
       ]
@@ -605,7 +313,11 @@ The analysis half of the ICPMS module, with every property populated. Generated 
             schema1:value "no value available: unnamed property" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: unnamed property" ] ;
-    prov:wasGeneratedBy [ prov:used [ ] ] ;
+    prov:wasGeneratedBy [ schema1:instrument [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                        "no value available: unnamed property" ;
+                    schema1:identifier "no value available: unnamed property" ] ] ;
     ada:sensitivityYield 1 .
 
 
@@ -805,44 +517,43 @@ $defs:
         items:
           type: object
           properties:
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: ICPMS
+                        schema:inDefinedTermSet: ada:vocab/instrumentType
                     required:
-                    - schema:instrument
+                    - schema:additionalType
                   then:
                     properties:
-                      schema:instrument:
-                        type: array
-                        items:
-                          allOf:
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  schema:additionalType:
-                                    contains:
-                                      const: ICPMS
-                                    schema:inDefinedTermSet: ada:vocab/instrumentType
-                                required:
-                                - schema:additionalType
-                              then:
-                                properties:
-                                  schema:identifier:
-                                    description: Serial number or laboratory-internal
-                                      identifier for the specific instrument unit.
-                                    anyOf:
-                                    - type: string
-                                    - type: array
-                                      items:
-                                        type: string
-                                    x-jsonld-id: http://schema.org/identifier
-                        x-jsonld-id: http://schema.org/instrument
-              x-jsonld-id: http://www.w3.org/ns/prov#used
+                      schema:identifier:
+                        description: Serial number or laboratory-internal identifier
+                          for the specific instrument unit.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        x-jsonld-id: http://schema.org/identifier
+              x-jsonld-id: http://schema.org/instrument
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       ada:sensitivityYield:
         description: "Instrument sensitivity achieved in the session, with the isotope

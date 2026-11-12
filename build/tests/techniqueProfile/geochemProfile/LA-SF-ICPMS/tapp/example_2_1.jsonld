@@ -21,10 +21,10 @@
   "@id": "ex:laSficpmsTAPP-Chernonozhkin2021",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "Chernonozhkin et al. (2021) Pallasite Olivine 2D Mapping v1",
   "schema:description": "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 \u00b5m; P-rich veinlets masked before averaging (\u00a72.2.2, \u00a73.1)",
@@ -113,7 +113,7 @@
         "ICPMS",
         "Double-focusing sector field ICP-MS (explicitly stated: \"Thermo Scientific Element XR double-focusing sector field ICP-MS unit\")",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:model": {
@@ -127,7 +127,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -154,7 +154,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -221,7 +221,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -291,7 +291,7 @@
       "schema:additionalType": [
         "Laser Ablation System",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:additionalProperty": [
@@ -334,6 +334,18 @@
         "schema:Thing"
       ],
       "@id": "ex:laSficpmsTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System"
+    },
+    {
+      "ada:toolRole": "dataReduction",
+      "schema:name": "In-house MatLab script (Appendix C1)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     }
   ],
   "ada:carrierGasFlowRateDefault": "He: MFC-1 (cell) 0.200\u20130.260 l min\u207b\u00b9; MFC-2 (cup) 0.220\u20130.385 l min\u207b\u00b9",
@@ -485,7 +497,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Flat polished thick sections (\u00a72.1)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -500,7 +511,6 @@
         "schema:name": "Data acquisition",
         "schema:description": "map \u2014 a single pass: 'The laser scanned a grid of parallel, adjacent lines' (\u00a72.2.2)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -540,7 +550,6 @@
         ],
         "ada:detectionLimitMethod": "all: Longerich et al. (1996), LOD = 3SD/S \u00d7 \u221a(1/Nb + 1/Na) \u2014 Na = 1 and Nb = 10 for a pixel (App. C5)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -598,12 +607,6 @@
     }
   ],
   "ada:samplingUnitType": "Grain (individual olivine crystal) > Region of interest (2D map) \u2014 \"2D trace element mapping of olivine crystals\" (p.1); the reported dataset is \"seven 2D element maps of PMG olivine crystals\", filtered and median-smoothed before analysis (p.6)",
-  "bios:computationalTool": [
-    {
-      "ada:toolRole": "dataReduction",
-      "schema:name": "In-house MatLab script (Appendix C1)"
-    }
-  ],
   "ada:ablationSamplingMode": [
     "all: grid of parallel, adjacent lines \u2014 \u00a72.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'"
   ],

@@ -66,7 +66,6 @@ The procedure half of the CompositionQC module, with every property populated. G
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -106,7 +105,6 @@ The procedure half of the CompositionQC module, with every property populated. G
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -128,8 +126,7 @@ The procedure half of the CompositionQC module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
-                        schema1:Action,
+[] schema1:actionProcess [ schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:name "Data processing" ;
                     schema1:position 1 ;
@@ -165,20 +162,16 @@ The analysis half of the CompositionQC module, with every property populated. Ge
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:DefinedTerm"
-              ],
-              "@id": "no value available: unnamed property",
-              "schema:name": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "schema:identifier": "no value available: unnamed property",
-              "schema:termCode": "no value available: unnamed property",
-              "schema:inDefinedTermSet": "no value available: unnamed property",
-              "ada:reagentRole": "primaryStandard"
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -194,7 +187,6 @@ The analysis half of the CompositionQC module, with every property populated. Ge
   "@context": [
     {
       "ada": "https://ada.astromat.org/metadata/",
-      "bios": "https://bioschemas.org/",
       "prov": "http://www.w3.org/ns/prov#",
       "schema": "http://schema.org/"
     },
@@ -216,20 +208,16 @@ The analysis half of the CompositionQC module, with every property populated. Ge
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:DefinedTerm"
-              ],
-              "@id": "no value available: unnamed property",
-              "schema:name": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "schema:identifier": "no value available: unnamed property",
-              "schema:termCode": "no value available: unnamed property",
-              "schema:inDefinedTermSet": "no value available: unnamed property",
-              "ada:reagentRole": "primaryStandard"
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -241,6 +229,7 @@ The analysis half of the CompositionQC module, with every property populated. Ge
 
 #### ttl
 ```ttl
+@prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -251,7 +240,10 @@ The analysis half of the CompositionQC module, with every property populated. Ge
             schema1:value "no value available: unnamed property" ],
         [ schema1:name "Detection Limit" ;
             schema1:value 1 ] ;
-    prov:wasGeneratedBy [ prov:used [ ] ] .
+    prov:wasGeneratedBy [ schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                    schema1:name "no value available: unnamed property" ;
+                    ada:reagentRole "referenceMaterial" ] ] .
 
 
 ```
@@ -459,48 +451,63 @@ $defs:
         items:
           type: object
           properties:
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      ada:reagentRole:
+                        const: referenceMaterial
                     required:
-                    - bios:reagent
+                    - ada:reagentRole
                   then:
                     properties:
-                      bios:reagent:
+                      schema:name:
+                        description: Quality-control reference material(s) measured
+                          as unknowns alongside samples to assess accuracy independently
+                          and to monitor drift. Give the material name, its source,
+                          and a citation for the accepted or reference values used
+                          for comparison.
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        x-jsonld-id: http://schema.org/name
+                - if:
+                    type: object
+                    required:
+                    - schema:additionalType
+                    properties:
+                      schema:additionalType:
                         type: array
-                        items:
-                          allOf:
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  ada:reagentRole:
-                                    const: referenceMaterial
-                                required:
-                                - ada:reagentRole
-                              then:
-                                properties:
-                                  schema:name:
-                                    description: Quality-control reference material(s)
-                                      measured as unknowns alongside samples to assess
-                                      accuracy independently and to monitor drift.
-                                      Give the material name, its source, and a citation
-                                      for the accepted or reference values used for
-                                      comparison.
-                                    anyOf:
-                                    - type: string
-                                    - type: array
-                                      items:
-                                        type: string
-                                    x-jsonld-id: http://schema.org/name
-                            required:
-                            - ada:reagentRole
-                        x-jsonld-id: https://bioschemas.org/reagent
-              x-jsonld-id: http://www.w3.org/ns/prov#used
+                        contains:
+                          type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              enum:
+                              - https://www.wikidata.org/entity/Q2356542
+                              - wd:Q2356542
+                  then:
+                    required:
+                    - ada:reagentRole
+              x-jsonld-id: http://schema.org/instrument
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
   Param_Analysis_detectionLimit:
     title: Detection Limit
@@ -659,7 +666,6 @@ $defs:
     - ada:fieldScope
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
-  bios: https://bioschemas.org/
   prov: http://www.w3.org/ns/prov#
   schema: http://schema.org/
 x-bblocks-metadata:
@@ -682,7 +688,6 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
     "@version": 1.1

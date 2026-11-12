@@ -25,10 +25,10 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
   "@id": "ex:xrdTAPP-King2024",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xrd protocol — King2024",
   "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
@@ -88,7 +88,6 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -148,10 +147,10 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
   "@id": "ex:xrdTAPP-King2024",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xrd protocol \u2014 King2024",
   "schema:description": "xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)Position Sensitive Detector X-ray Diffraction (publication column of XRD_TAPP_draft_v2.csv).",
@@ -211,7 +210,6 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -249,21 +247,19 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:xrdTAPP-King2024 a cdi:Activity,
-        schema1:Action,
+ex:xrdTAPP-King2024 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "XRD analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -324,10 +320,10 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
   "@id": "ex:xrdTAPP-King2024-2",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xrd protocol — King2024-2",
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv).",
@@ -387,7 +383,6 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -447,10 +442,10 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
   "@id": "ex:xrdTAPP-King2024-2",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xrd protocol \u2014 King2024-2",
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (JSC-ARES)Malvern PANalytical XPert Pro XRD (publication column of XRD_TAPP_draft_v2.csv).",
@@ -510,7 +505,6 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -548,21 +542,19 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:xrdTAPP-King2024-2 a cdi:Activity,
-        schema1:Action,
+ex:xrdTAPP-King2024-2 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "XRD analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -623,10 +615,10 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
   "@id": "ex:xrdTAPP-King2023",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xrd protocol — King2023",
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv).",
@@ -686,7 +678,6 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -746,10 +737,10 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
   "@id": "ex:xrdTAPP-King2023",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xrd protocol \u2014 King2023",
   "schema:description": "xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Rigaku Rapid 2 Micro-XRD (publication column of XRD_TAPP_draft_v2.csv).",
@@ -809,7 +800,6 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -847,21 +837,19 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:xrdTAPP-King2023 a cdi:Activity,
-        schema1:Action,
+ex:xrdTAPP-King2023 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "XRD analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

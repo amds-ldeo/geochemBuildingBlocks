@@ -25,10 +25,10 @@ lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Th
   "@id": "ex:lcmsTAPP-Ultimate3000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "lcms protocol — Ultimate3000",
   "schema:description": "lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Thermo Fischer Ultimate3000-QExactive (publication column of LCMS_TAPP_draft_v2.csv).",
@@ -70,7 +70,6 @@ lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Th
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -119,10 +118,10 @@ lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Th
   "@id": "ex:lcmsTAPP-Ultimate3000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "lcms protocol \u2014 Ultimate3000",
   "schema:description": "lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Thermo Fischer Ultimate3000-QExactive (publication column of LCMS_TAPP_draft_v2.csv).",
@@ -164,7 +163,6 @@ lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Th
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -191,21 +189,19 @@ lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Th
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:lcmsTAPP-Ultimate3000 a cdi:Activity,
-        schema1:Action,
+ex:lcmsTAPP-Ultimate3000 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Liquid Chromatography-Mass Spectrometry analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

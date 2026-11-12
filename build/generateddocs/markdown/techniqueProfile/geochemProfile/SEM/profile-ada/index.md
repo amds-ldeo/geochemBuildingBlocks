@@ -242,30 +242,26 @@ Mock data for validation and testing.
       ],
       "schema:identifier": "session-sem-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example SEM Instrument",
-              "schema:identifier": [
-                "ex:instrument-sem-001"
-              ],
-              "@id": "ex:adaSEMFull-example-001/instrument/SEM"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "SEM",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example SEM Instrument",
+          "schema:identifier": [
+            "ex:instrument-sem-001"
+          ],
+          "@id": "ex:adaSEMFull-example-001/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -679,30 +675,26 @@ Mock data for validation and testing.
       ],
       "schema:identifier": "session-sem-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example SEM Instrument",
-              "schema:identifier": [
-                "ex:instrument-sem-001"
-              ],
-              "@id": "ex:adaSEMFull-example-001/instrument/SEM"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "SEM",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example SEM Instrument",
+          "schema:identifier": [
+            "ex:instrument-sem-001"
+          ],
+          "@id": "ex:adaSEMFull-example-001/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -947,6 +939,7 @@ Mock data for validation and testing.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaSEMFull-example-001 a schema1:Dataset,
@@ -1024,6 +1017,7 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:identifier "session-sem-20260110-001" ;
+            schema1:instrument <https://example.org/adaSEMFull-example-001/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
@@ -1034,14 +1028,13 @@ ex:adaSEMFull-example-001 a schema1:Dataset,
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
-            schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/adaSEMFull-example-001/instrument/SEM> ] ] ;
+            schema1:startTime "2026-01-10T09:30:00" ] ;
     ada:submissionType "BundleDelivery" .
 
 <https://example.org/adaSEMFull-example-001/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911>,
+        wd:Q3099911,
         "SEM" ;
     schema1:identifier "ex:instrument-sem-001" ;
     schema1:name "Example SEM Instrument" .

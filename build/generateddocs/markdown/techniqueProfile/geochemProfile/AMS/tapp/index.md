@@ -25,10 +25,10 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
   "@id": "ex:amsTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "ams protocol — P0",
   "schema:description": "amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Purdue Rare Isotope Measurement (PRIME) Lab AMS facility (publication column of AMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Purdue.",
@@ -91,7 +91,6 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -146,10 +145,10 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
   "@id": "ex:amsTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "ams protocol \u2014 P0",
   "schema:description": "amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Purdue Rare Isotope Measurement (PRIME) Lab AMS facility (publication column of AMS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Purdue.",
@@ -212,7 +211,6 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -245,21 +243,19 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:amsTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:amsTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Accelerator Mass Spectrometry analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

@@ -281,75 +281,101 @@
           "items": {
             "type": "object",
             "properties": {
-              "prov:used": {
+              "schema:instrument": {
                 "type": "array",
                 "items": {
                   "type": "object",
                   "allOf": [
                     {
                       "if": {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/KindInstrument"
+                      },
+                      "then": {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.json"
+                      }
+                    },
+                    {
+                      "if": {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/KindSoftware"
+                      },
+                      "then": {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.json#/$defs/UsedComputationalTool"
+                      }
+                    },
+                    {
+                      "if": {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json#/$defs/KindReagent"
+                      },
+                      "then": {
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.json#/$defs/UsedReagent"
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "ada:reagentRole": {
+                            "const": "referenceMaterial"
+                          }
+                        },
                         "required": [
-                          "bios:reagent"
+                          "ada:reagentRole"
                         ]
                       },
                       "then": {
                         "properties": {
-                          "bios:reagent": {
-                            "type": "array",
-                            "items": {
-                              "allOf": [
-                                {
-                                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.json#/$defs/UsedReagent"
-                                },
-                                {
-                                  "type": "object",
-                                  "allOf": [
-                                    {
-                                      "if": {
-                                        "properties": {
-                                          "ada:reagentRole": {
-                                            "const": "referenceMaterial"
-                                          }
-                                        },
-                                        "required": [
-                                          "ada:reagentRole"
-                                        ]
-                                      },
-                                      "then": {
-                                        "properties": {
-                                          "schema:name": {
-                                            "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
-                                            "anyOf": [
-                                              {
-                                                "type": "string"
-                                              },
-                                              {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            ],
-                                            "x-jsonld-id": "http://schema.org/name"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  ],
-                                  "required": [
-                                    "ada:reagentRole"
-                                  ]
+                          "schema:name": {
+                            "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
                                 }
-                              ]
-                            },
-                            "x-jsonld-id": "https://bioschemas.org/reagent"
+                              }
+                            ],
+                            "x-jsonld-id": "http://schema.org/name"
                           }
                         }
+                      }
+                    },
+                    {
+                      "if": {
+                        "type": "object",
+                        "required": [
+                          "schema:additionalType"
+                        ],
+                        "properties": {
+                          "schema:additionalType": {
+                            "type": "array",
+                            "contains": {
+                              "type": "object",
+                              "required": [
+                                "@id"
+                              ],
+                              "properties": {
+                                "@id": {
+                                  "enum": [
+                                    "https://www.wikidata.org/entity/Q2356542",
+                                    "wd:Q2356542"
+                                  ]
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "ada:reagentRole"
+                        ]
                       }
                     }
                   ]
                 },
-                "x-jsonld-id": "http://www.w3.org/ns/prov#used"
+                "x-jsonld-id": "http://schema.org/instrument"
               }
             }
           },
@@ -561,7 +587,6 @@
   },
   "x-jsonld-prefixes": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/"
   },

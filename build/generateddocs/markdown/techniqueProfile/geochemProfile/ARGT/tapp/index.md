@@ -25,10 +25,10 @@ argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Th
   "@id": "ex:argtTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "argt protocol — P0",
   "schema:description": "argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Thermo Fisher ARGUS VI (publication column of ARGT_TAPP_draft_v2.csv).",
@@ -70,7 +70,6 @@ argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Th
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -119,10 +118,10 @@ argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Th
   "@id": "ex:argtTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "argt protocol \u2014 P0",
   "schema:description": "argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Thermo Fisher ARGUS VI (publication column of ARGT_TAPP_draft_v2.csv).",
@@ -164,7 +163,6 @@ argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Th
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -191,21 +189,19 @@ argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Th
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:argtTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:argtTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "40Ar/39Ar geochronology and thermochronology analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

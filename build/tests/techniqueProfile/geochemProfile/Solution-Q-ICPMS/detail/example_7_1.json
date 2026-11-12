@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -59,7 +58,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "SPM recovered by centrifugation, oven dried (70 \u00b0C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) \u2014 \u00a72.2, Table 1",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -69,7 +67,6 @@
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -109,17 +106,32 @@
         ],
         "schema:name": "N \u2014 instrument given as 'iCAP-TQ, Thermo' with no laboratory stated"
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "NIST 1643f, NCS 73307, NIST 1640a \u2014 freshwater, stream sediment and freshwater",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "NIST 1643f, NCS 73307, NIST 1640a \u2014 freshwater, stream sediment and freshwater",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
+        },
+        {
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "ICPMS",
+          "@id": "ex:solutionQicpmsTAPP-detail-P6/instrument/ICPMS"
         }
       ],
       "schema:endTime": "no value available: schema:endTime",

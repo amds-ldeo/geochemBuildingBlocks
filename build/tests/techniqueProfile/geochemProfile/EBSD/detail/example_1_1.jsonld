@@ -21,87 +21,89 @@
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/ebsdTAPP/beamCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/ebsdTAPP/beamCurrent"
-                    }
-                  ],
-                  "schema:name": "Beam Current",
-                  "schema:value": 1.5,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "~1.5 nA"
-                },
-                {
-                  "@id": "ada:parameter/ebsdTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/ebsdTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 17.8,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "17.8-18.3 mm"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:ebsdTAPP-detail-P0/instrument/SEM"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/ebsdTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/ebsdTAPP/beamCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/ebsdTAPP/beamCurrent"
+                }
+              ],
+              "schema:name": "Beam Current",
+              "schema:value": 1.5,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "~1.5 nA"
+            },
+            {
+              "@id": "ada:parameter/ebsdTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/ebsdTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 17.8,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "17.8-18.3 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:ebsdTAPP-detail-P0/instrument/SEM"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Oxford Instruments AZtec v5.1 Symmetry",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "AZtecCrystal",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Oxford Instruments AZtec v5.1 Symmetry",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "AZtecCrystal",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -219,7 +221,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],

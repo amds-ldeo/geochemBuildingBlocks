@@ -32,197 +32,195 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
       "ada:combinedResults": [
         {}
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.8,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Auxiliary: 0.80 l min⁻¹ Ar"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 16.0,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Cool gas: 16.0 l min⁻¹ Ar"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1250,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1250 W"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collector",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
-                        }
-                      ],
-                      "schema:name": "Integration Time per Cycle",
-                      "schema:value": 0.524,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "all: 0.524 s — one block of 120 cycles = 62.88 s total"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collector"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "NIST 610 used to optimize He/Ar gas flows, torch position, RF power, and source lens settings for max sensitivity and peak flatness; small N₂ added downstream"
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.8,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Auxiliary: 0.80 l min⁻¹ Ar"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/ΔM ≈ 400)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 16.0,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Cool gas: 16.0 l min⁻¹ Ar"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1250,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1250 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS"
+              "schema:name": "missing",
+              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/ICP-Source"
             },
             {
               "schema:additionalType": [
-                "Laser Ablation System",
+                "Collector",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
-              "ada:laserSpotGeometry": "all: 50–60 µm circular",
-              "ada:laserFluence": "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)",
-              "ada:laserRepetitionRate": "all: 10–30 Hz — varied based on Sr concentration in samples",
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                    }
+                  ],
+                  "schema:name": "Integration Time per Cycle",
+                  "schema:value": 0.524,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "all: 0.524 s — one block of 120 cycles = 62.88 s total"
+                }
+              ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
+              "schema:name": "missing",
+              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collector"
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "NIST 610 used to optimize He/Ar gas flows, torch position, RF power, and source lens settings for max sensitivity and peak flatness; small N₂ added downstream"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/ΔM ≈ 400)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 50–60 µm circular",
+          "ada:laserFluence": "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)",
+          "ada:laserRepetitionRate": "all: 10–30 Hz — varied based on Sr concentration in samples",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -361,7 +359,6 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -371,7 +368,6 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section (two-volume cell)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -479,197 +475,195 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
       "ada:combinedResults": [
         {}
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.8,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Auxiliary: 0.80 l min\u207b\u00b9 Ar"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 16.0,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Cool gas: 16.0 l min\u207b\u00b9 Ar"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1250,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1250 W"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collector",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
-                        }
-                      ],
-                      "schema:name": "Integration Time per Cycle",
-                      "schema:value": 0.524,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "all: 0.524 s \u2014 one block of 120 cycles = 62.88 s total"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collector"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "NIST 610 used to optimize He/Ar gas flows, torch position, RF power, and source lens settings for max sensitivity and peak flatness; small N\u2082 added downstream"
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.8,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Auxiliary: 0.80 l min\u207b\u00b9 Ar"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/\u0394M \u2248 400)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 16.0,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Cool gas: 16.0 l min\u207b\u00b9 Ar"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1250,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1250 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS"
+              "schema:name": "missing",
+              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/ICP-Source"
             },
             {
               "schema:additionalType": [
-                "Laser Ablation System",
+                "Collector",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
-              "ada:laserSpotGeometry": "all: 50\u201360 \u00b5m circular",
-              "ada:laserFluence": "~60% of maximum output (PHAROS system; exact J cm\u207b\u00b2 not converted)",
-              "ada:laserRepetitionRate": "all: 10\u201330 Hz \u2014 varied based on Sr concentration in samples",
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/MCICPMS/integrationTimePerCycle"
+                    }
+                  ],
+                  "schema:name": "Integration Time per Cycle",
+                  "schema:value": 0.524,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "all: 0.524 s \u2014 one block of 120 cycles = 62.88 s total"
+                }
+              ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
+              "schema:name": "missing",
+              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collector"
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "NIST 610 used to optimize He/Ar gas flows, torch position, RF power, and source lens settings for max sensitivity and peak flatness; small N\u2082 added downstream"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/\u0394M \u2248 400)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087\u20131096)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087\u20131096)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 50\u201360 \u00b5m circular",
+          "ada:laserFluence": "~60% of maximum output (PHAROS system; exact J cm\u207b\u00b2 not converted)",
+          "ada:laserRepetitionRate": "all: 10\u201330 Hz \u2014 varied based on Sr concentration in samples",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) \u2014 measured as unknowns for \u2078\u2077Sr/\u2078\u2076Sr data quality evaluation; reference values in Table 2",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) \u2014 measured as unknowns for \u2078\u2077Sr/\u2078\u2076Sr data quality evaluation; reference values in Table 2",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -808,7 +802,6 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -818,7 +811,6 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
             "schema:name": "Sample preparation",
             "schema:description": "Polished thin section (two-volume cell)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -900,39 +892,36 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laMcicpmsTAPP-detail-Zhang2022 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "CNSA pre-research project D020205; NSFC 41973013; Natural Science Foundation of Hubei Province 2020CFA045; GPMR State Key Laboratory special fund MSFGPMR04 and MSFGPMR08" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR; other: N — Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
                             schema1:name "Data processing" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section (two-volume cell)" ;
                             schema1:name "Sample preparation" ;
@@ -947,17 +936,19 @@ ex:laMcicpmsTAPP-detail-Zhang2022 a schema1:Dataset,
             schema1:description "LA-MC-ICP-MS transect mode with Rb-Sr isotope ratio measurement; SUIA (Smallest Unit Isochron Age) data reduction strategy developed for heterogeneous minerals; signal-smoothing device used to reduce short-term variability" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2" ;
+                    ada:reagentRole "referenceMaterial" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS>,
+                <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS>,
-                        <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analysisEndDate "missing" ;
@@ -984,7 +975,7 @@ ex:laMcicpmsTAPP-detail-Zhang2022 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collector>,
         <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell>,
@@ -994,13 +985,13 @@ ex:laMcicpmsTAPP-detail-Zhang2022 a schema1:Dataset,
 <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collector> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Collector" ;
     schema1:name "missing" .
 
 <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Collision Reaction Cell" ;
     schema1:name "Collision Reaction Cell" .
 
@@ -1009,13 +1000,13 @@ ex:laMcicpmsTAPP-detail-Zhang2022 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "~60% of maximum output (PHAROS system; exact J cm⁻² not converted)" ;
@@ -1360,393 +1351,385 @@ allOf:
                 - schema:value
               minContains: 0
               maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: ICPMS
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:hasPart:
                       type: array
                       items:
+                        type: object
                         allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: ICPMS
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:hasPart:
-                                  type: array
-                                  items:
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: ICP Source
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
+                                  minContains: 0
+                                  maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: Collision Reaction Cell
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: Collector
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
+                                  - title: Ion Counter Dead Time
+                                    description: Dead time of the ion-counting detector(s),
+                                      used in the dead-time correction applied to
+                                      high count rates. Distinct from pulse/analog
+                                      cross-calibration, which relates the two detector
+                                      modes rather than correcting counting losses
+                                      within the pulse-counting mode.
                                     type: object
-                                    allOf:
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: ICP Source
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              anyOf:
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
-                                              minContains: 0
-                                              maxContains: 1
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: Collision Reaction Cell
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              anyOf:
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_cellExitDiscriminationVoltage
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_gasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/collisionCell/schema.yaml#/$defs/Param_Analysis_reactionGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: Collector
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              anyOf:
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
-                                              - title: Ion Counter Dead Time
-                                                description: Dead time of the ion-counting
-                                                  detector(s), used in the dead-time
-                                                  correction applied to high count
-                                                  rates. Distinct from pulse/analog
-                                                  cross-calibration, which relates
-                                                  the two detector modes rather than
-                                                  correcting counting losses within
-                                                  the pulse-counting mode.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
-                                                  schema:name:
-                                                    const: Ion Counter Dead Time
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                title: Ion Counter Dead Time
-                                                description: Dead time of the ion-counting
-                                                  detector(s), used in the dead-time
-                                                  correction applied to high count
-                                                  rates. Distinct from pulse/analog
-                                                  cross-calibration, which relates
-                                                  the two detector modes rather than
-                                                  correcting counting losses within
-                                                  the pulse-counting mode.
-                                                type: object
-                                                properties:
-                                                  '@id':
-                                                    const: ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
-                                                  '@type':
-                                                    const:
-                                                    - schema:PropertyValue
-                                                  schema:propertyID:
-                                                    const:
-                                                    - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
-                                                  schema:name:
-                                                    const: Ion Counter Dead Time
-                                                  schema:value:
-                                                    anyOf:
-                                                    - type: number
-                                                    - type: string
-                                                  schema:unitText:
-                                                    type: string
-                                                required:
-                                                - '@id'
-                                                - '@type'
-                                                - schema:propertyID
-                                                - schema:name
-                                                - schema:value
-                                                - schema:unitText
-                                              minContains: 0
-                                              maxContains: 1
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: Torch
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
-                                              minContains: 0
-                                              maxContains: 1
-                                  allOf:
-                                  - contains:
-                                      properties:
-                                        schema:additionalType:
-                                          contains:
-                                            const: ICP Source
-                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                      required:
-                                      - schema:additionalType
-                                  - contains:
-                                      properties:
-                                        schema:additionalType:
-                                          contains:
-                                            const: Collision Reaction Cell
-                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                      required:
-                                      - schema:additionalType
-                                  - contains:
-                                      properties:
-                                        schema:additionalType:
-                                          contains:
-                                            const: Collector
-                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                      required:
-                                      - schema:additionalType
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - title: Doubly-Charged Species Monitor
-                                      description: "The mass ratio monitored to estimate
-                                        doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. The monitor species
-                                        and the mass positions monitored should be
-                                        stated explicitly. Analogous to Oxide Production
-                                        Method and Threshold for oxide monitoring."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
-                                        schema:name:
-                                          const: Doubly-Charged Species Monitor
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged
-                                        ion production for the monitored species at
-                                        the time of instrument tuning. The acceptable
-                                        threshold is typically <1% or <3%. Record
-                                        both the threshold and the measured value.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
-                                        schema:name:
-                                          const: Doubly-Charged Species Production
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
-                                  allOf:
-                                  - contains:
-                                      title: Doubly-Charged Species Monitor
-                                      description: "The mass ratio monitored to estimate
-                                        doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. The monitor species
-                                        and the mass positions monitored should be
-                                        stated explicitly. Analogous to Oxide Production
-                                        Method and Threshold for oxide monitoring."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
-                                        schema:name:
-                                          const: Doubly-Charged Species Monitor
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged
-                                        ion production for the monitored species at
-                                        the time of instrument tuning. The acceptable
-                                        threshold is typically <1% or <3%. Record
-                                        both the threshold and the measured value.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
-                                        schema:name:
-                                          const: Doubly-Charged Species Production
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
-                                    minContains: 0
-                                    maxContains: 1
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: Laser Ablation System
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
-                                  allOf:
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
-                                    minContains: 0
-                                    maxContains: 1
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
+                                      schema:name:
+                                        const: Ion Counter Dead Time
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/mcIcpms/schema.yaml#/$defs/Param_Analysis_integrationTimePerCycle
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    title: Ion Counter Dead Time
+                                    description: Dead time of the ion-counting detector(s),
+                                      used in the dead-time correction applied to
+                                      high count rates. Distinct from pulse/analog
+                                      cross-calibration, which relates the two detector
+                                      modes rather than correcting counting losses
+                                      within the pulse-counting mode.
+                                    type: object
+                                    properties:
+                                      '@id':
+                                        const: ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
+                                      '@type':
+                                        const:
+                                        - schema:PropertyValue
+                                      schema:propertyID:
+                                        const:
+                                        - '@id': ada:parameter/laMcicpmsTAPP/ionCounterDeadTime
+                                      schema:name:
+                                        const: Ion Counter Dead Time
+                                      schema:value:
+                                        anyOf:
+                                        - type: number
+                                        - type: string
+                                      schema:unitText:
+                                        type: string
+                                    required:
+                                    - '@id'
+                                    - '@type'
+                                    - schema:propertyID
+                                    - schema:name
+                                    - schema:value
+                                    - schema:unitText
+                                  minContains: 0
+                                  maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: Torch
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
+                                  minContains: 0
+                                  maxContains: 1
                       allOf:
                       - contains:
                           properties:
                             schema:additionalType:
                               contains:
-                                const: ICPMS
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                                const: ICP Source
+                              schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                           required:
                           - schema:additionalType
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: Collision Reaction Cell
+                              schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                          required:
+                          - schema:additionalType
+                      - contains:
+                          properties:
+                            schema:additionalType:
+                              contains:
+                                const: Collector
+                              schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                          required:
+                          - schema:additionalType
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        anyOf:
+                        - title: Doubly-Charged Species Monitor
+                          description: "The mass ratio monitored to estimate doubly-charged
+                            ion (M\xB2\u207A) formation during instrument tuning.
+                            The monitor species and the mass positions monitored should
+                            be stated explicitly. Analogous to Oxide Production Method
+                            and Threshold for oxide monitoring."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
+                            schema:name:
+                              const: Doubly-Charged Species Monitor
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - title: Doubly-Charged Species Production
+                          description: Measured percentage of doubly-charged ion production
+                            for the monitored species at the time of instrument tuning.
+                            The acceptable threshold is typically <1% or <3%. Record
+                            both the threshold and the measured value.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
+                            schema:name:
+                              const: Doubly-Charged Species Production
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                      allOf:
+                      - contains:
+                          title: Doubly-Charged Species Monitor
+                          description: "The mass ratio monitored to estimate doubly-charged
+                            ion (M\xB2\u207A) formation during instrument tuning.
+                            The monitor species and the mass positions monitored should
+                            be stated explicitly. Analogous to Oxide Production Method
+                            and Threshold for oxide monitoring."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesMonitor
+                            schema:name:
+                              const: Doubly-Charged Species Monitor
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Doubly-Charged Species Production
+                          description: Measured percentage of doubly-charged ion production
+                            for the monitored species at the time of instrument tuning.
+                            The acceptable threshold is typically <1% or <3%. Record
+                            both the threshold and the measured value.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laMcicpmsTAPP/doublyChargedSpeciesProduction
+                            schema:name:
+                              const: Doubly-Charged Species Production
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                        minContains: 0
+                        maxContains: 1
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: Laser Ablation System
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
+                  required:
+                  - schema:additionalType
+                then:
+                  properties:
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
+                      allOf:
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: ICPMS
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:actionProcess:
             type: object
             properties:
@@ -1925,18 +1908,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

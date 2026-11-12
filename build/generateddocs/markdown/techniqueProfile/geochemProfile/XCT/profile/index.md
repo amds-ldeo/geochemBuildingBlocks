@@ -183,38 +183,29 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "XCT",
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaLabXCT-example-001/instrument/XCT"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "XCT",
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:labxctTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaLabXCT-example-001/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -244,7 +235,10 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@id": "ex:labxctTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -310,26 +304,6 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ex:var/Calibration-Factor-and-Determination-Method",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -698,38 +672,29 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "XCT",
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaLabXCT-example-001/instrument/XCT"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "XCT",
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:labxctTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaLabXCT-example-001/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -759,7 +724,10 @@ and technique component types on the archive distribution. Mock data for validat
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@id": "ex:labxctTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -825,26 +793,6 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:role": "MeasureComponent",
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double"
-    },
-    {
-      "@id": "ex:var/Calibration-Factor-and-Determination-Method",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -1044,6 +992,7 @@ and technique component types on the archive distribution. Mock data for validat
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaLabXCT-example-001 a schema1:Dataset,
@@ -1118,25 +1067,26 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:url "https://astromat.org/products/adaproduct-example-001" ;
     schema1:variableMeasured ex:adaProduct-var-001,
         ex:adaProduct-var-002,
-        <https://example.org/var/Calibration-Factor-and-Determination-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "no value available: beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "no value available: crossValidationOutcome" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "no value available: crossValidationOutcome" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:actionProcess ex:labxctTAPP-P0 ;
             schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
+            schema1:instrument <https://example.org/adaLabXCT-example-001/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
@@ -1147,9 +1097,7 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
-            schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/adaLabXCT-example-001/instrument/XCT> ],
-                [ ada:tappDefinition ex:labxctTAPP-P0 ] ] ;
+            schema1:startTime "2026-01-10T09:30:00" ] ;
     ada:analyticalMode "Single-volume" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1157,7 +1105,7 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalType ada:ADAInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911>,
+        wd:Q3099911,
         "XCT" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
@@ -1232,18 +1180,6 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
     schema1:unitText "um" ;
     cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#float" .
 
-<https://example.org/var/Calibration-Factor-and-Determination-Method> a cdi:InstanceVariable,
-        schema1:PropertyValue ;
-    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
-    cdi:role "MeasureComponent" ;
-    cdi:simpleUnitOfMeasure "counts" ;
-    schema1:defaultValue "no value available: schema:defaultValue" ;
-    schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value." ;
-    schema1:name "Calibration Factor and Determination Method" ;
-    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
-    schema1:unitText "counts" ;
-    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
-
 <https://example.org/var/Sampling-Unit-Name> a cdi:InstanceVariable,
         schema1:PropertyValue ;
     cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
@@ -1265,49 +1201,13 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA Lab-XCT Product Profile
 description: Path-driven technique-specific profile for ADA Lab-XCT Product Profile.
   Extends the base ADA product profile with the LABXCT analysis-instance detail on
-  the schema:Dataset root, narrows prov:used to the labxctTAPP protocol, and constrains
-  valid component types on schema:distribution.hasPart.
+  the schema:Dataset root, and pins the product type and the profile it declares conformance
+  to.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/detail/schema.yaml
 - type: object
   properties:
-    prov:wasGeneratedBy:
-      description: 'Pin the labxctTAPP definition and the instrument where prov:used
-        carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items
-        are role-keyed wrappers, and an anyOf here would allOf-merge with the base
-        union and exclude item shapes the base allows.'
-      type: array
-      items:
-        type: object
-        properties:
-          prov:used:
-            type: array
-            items:
-              allOf:
-              - if:
-                  type: object
-                  required:
-                  - schema:instrument
-                then:
-                  properties:
-                    schema:instrument:
-                      type: array
-                      minItems: 1
-                      items:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-              - if:
-                  type: object
-                  properties:
-                    '@type':
-                      contains:
-                        const: ada:TAPPDefinition
-                  required:
-                  - '@type'
-                  - schema:name
-                then:
-                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/XCT/tapp/schema.yaml
-      title: Analysis Events
     schema:additionalType:
       description: Must include a LABXCT product type identifier.
       contains:

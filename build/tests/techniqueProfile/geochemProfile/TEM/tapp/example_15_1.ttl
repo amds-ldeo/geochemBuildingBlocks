@@ -4,24 +4,23 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:temTAPP-Xing2023 a cdi:Activity,
-        schema1:Action,
+ex:temTAPP-Xing2023 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "TEM analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -83,7 +82,7 @@ ex:temTAPP-Xing2023 a cdi:Activity,
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "TEM" ;
     schema1:hasPart <https://example.org/temTAPP-Xing2023/instrument/TEM/part/4D-STEM-Detector>,
         <https://example.org/temTAPP-Xing2023/instrument/TEM/part/Aberration-Corrector>,
@@ -101,46 +100,46 @@ ex:temTAPP-Xing2023 a cdi:Activity,
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM/part/4D-STEM-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "4D-STEM Detector" ;
     schema1:name "missing" .
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM/part/Aberration-Corrector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Aberration Corrector" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EDS Detector" ;
     schema1:description "no value available: schema:description" ;
     schema1:name "missing" .
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM/part/EELS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "EELS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM/part/Imaging-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Imaging Detector" ;
     schema1:name "missing" .
 
 <https://example.org/temTAPP-Xing2023/instrument/TEM/part/Monochromator> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Monochromator" ;
     schema1:name "missing" .
 

@@ -84,7 +84,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -94,7 +93,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (\u00a72.1)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -112,52 +110,49 @@
         "schema:name": "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology \u2014 LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (\u00a72.2.2)"
       },
       "schema:description": "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (\u00a72.2.2)",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 40 \u00b5m beam diameter \u2014 'a 40 \u03bcm beam diameter for glasses' (\u00a72.2.2)",
-              "ada:laserFluence": "~2.5 J cm\u207b\u00b2 (stated as \"energy of ~2.5 J/cm\u00b2\")",
-              "ada:laserRepetitionRate": "all: 7 Hz \u2014 'operated at 7 Hz ablation frequency' (\u00a72.2.2)",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laQicpmsTAPP-detail-Liu2025/instrument/Laser-Ablation-System"
-            },
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "ada:laserSpotGeometry": "all: 40 \u00b5m beam diameter \u2014 'a 40 \u03bcm beam diameter for glasses' (\u00a72.2.2)",
+          "ada:laserFluence": "~2.5 J cm\u207b\u00b2 (stated as \"energy of ~2.5 J/cm\u00b2\")",
+          "ada:laserRepetitionRate": "all: 7 Hz \u2014 'operated at 7 Hz ablation frequency' (\u00a72.2.2)",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laQicpmsTAPP-detail-Liu2025/instrument/Laser-Ablation-System"
+        },
+        {
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "NIST 612; BCR-2G \u2014 'NIST 612 and BCR-2G as monitoring standards' (\u00a72.2.2)",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "ICPMS",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "ICPMS",
-              "@id": "ex:laQicpmsTAPP-detail-Liu2025/instrument/ICPMS"
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         },
         {
-          "bios:reagent": [
+          "schema:additionalType": [
+            "ICPMS",
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "NIST 612; BCR-2G \u2014 'NIST 612 and BCR-2G as monitoring standards' (\u00a72.2.2)",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "ICPMS",
+          "@id": "ex:laQicpmsTAPP-detail-Liu2025/instrument/ICPMS"
         }
       ],
       "ada:rasterLineSpacing": "N/A \u2014 spot mode",

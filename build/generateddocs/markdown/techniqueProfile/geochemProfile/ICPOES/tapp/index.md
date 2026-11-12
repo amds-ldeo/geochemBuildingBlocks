@@ -25,10 +25,10 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
   "@id": "ex:icpoesTAPP-CAP6300",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "icpoes protocol — CAP6300",
   "schema:description": "icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of California, Berkeley | Thermo Fisher Scientific iCAP 6300 duo (publication column of ICPOES_TAPP_draft_v2.csv).",
@@ -91,7 +91,6 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -146,10 +145,10 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
   "@id": "ex:icpoesTAPP-CAP6300",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "icpoes protocol \u2014 CAP6300",
   "schema:description": "icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of California, Berkeley | Thermo Fisher Scientific iCAP 6300 duo (publication column of ICPOES_TAPP_draft_v2.csv).",
@@ -212,7 +211,6 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -245,21 +243,19 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:icpoesTAPP-CAP6300 a cdi:Activity,
-        schema1:Action,
+ex:icpoesTAPP-CAP6300 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Inductively coupled plasma - optical emission spectrometry analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

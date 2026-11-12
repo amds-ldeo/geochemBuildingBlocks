@@ -25,9 +25,12 @@ now be read and diffed without the four imported CDIF branches around it.
 
 - **Analysis events** (`prov:wasGeneratedBy`) — the instruments, computational tools and
   reagents actually used; the laboratory (`schema:location`); the samples analysed
-  (`schema:object`); the session identifier and timing. `prov:used` uses the CDIF
-  role-keyed wrapper model, with constraint-only `if`/`then` pins for `schema:instrument`,
-  `bios:computationalTool`, `bios:reagent` and an inline-or-`@id` `ada:tappDefinition`.
+  (`schema:object`); the session identifier and timing; and the TAPP followed. What was
+  used is `schema:instrument`: one array of instruments, computational tools and reagents,
+  told apart by the Wikidata kind term in `schema:additionalType`, with a constraint-only
+  `if`/`then` pin per kind. The TAPP link is `schema:actionProcess {"@id"}`, or
+  `schema:isBasedOn` on the activity's own inline workflow. The superseded `prov:used`
+  role-keyed wrappers are closed off by name.
 - **Variables measured** (`schema:variableMeasured`) — extends `cdifInstanceVariable` with
   description, alternate names, measurement technique, units and value bounds.
 - **Coverage** — `schema:spatialCoverage`, `schema:temporalCoverage`,
@@ -161,11 +164,13 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           "schema:HowTo"
         ],
         "schema:name": "Synthetic solution ICP-MS trace-element workflow",
+        "schema:isBasedOn": {
+          "@id": "ex:solutionQicpmsTAPP-P0"
+        },
         "schema:step": [
           {
             "@id": "ex:geochemProduct-example-001/step/digestion",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -191,42 +196,65 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
               ],
               "schema:name": "Clean laboratory, Analytical Sciences Laboratory"
             },
-            "bios:reagent": [
+            "schema:object": {
+              "@id": "ex:geochemProduct-example-001/sample/RP-123"
+            },
+            "schema:result": {
+              "@id": "ex:geochemProduct-example-001/digest/RP-123"
+            },
+            "schema:instrument": [
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "Concentrated HF, trace-metal grade",
-                "ada:reagentRole": "reagent"
+                "ada:reagentRole": "reagent",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "Concentrated HNO3, trace-metal grade",
-                "ada:reagentRole": "reagent"
+                "ada:reagentRole": "reagent",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               }
-            ],
-            "schema:object": {
-              "@id": "ex:geochemProduct-example-001/sample/RP-123"
-            },
-            "schema:result": {
-              "@id": "ex:geochemProduct-example-001/digest/RP-123"
-            }
+            ]
           },
           {
             "@id": "ex:geochemProduct-example-001/step/tuning",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Instrument tuning",
             "schema:position": 2,
             "schema:description": "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
+            "schema:instrument": [
+              {
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              },
+              {
+                "@type": [
+                  "schema:ChemicalSubstance"
+                ],
+                "schema:name": "Multi-element tuning solution, 1 ug/L",
+                "ada:reagentRole": "referenceMaterial",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
+              }
+            ],
             "schema:additionalProperty": [
               {
                 "@type": [
@@ -245,15 +273,6 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "schema:unitText": "L/min"
               }
             ],
-            "bios:reagent": [
-              {
-                "@type": [
-                  "schema:ChemicalSubstance"
-                ],
-                "schema:name": "Multi-element tuning solution, 1 ug/L",
-                "ada:reagentRole": "referenceMaterial"
-              }
-            ],
             "schema:actionStatus": "schema:CompletedActionStatus",
             "dqv:hasQualityMeasurement": [
               {
@@ -268,16 +287,17 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           {
             "@id": "ex:geochemProduct-example-001/step/acquisition-1",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data acquisition, first attempt",
             "schema:position": 3,
             "schema:description": "Synthetic step. First acquisition run, stopped when the drift monitor failed.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
+            "schema:instrument": [
+              {
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              }
+            ],
             "schema:object": {
               "@id": "ex:geochemProduct-example-001/digest/RP-123"
             },
@@ -289,25 +309,16 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           {
             "@id": "ex:geochemProduct-example-001/step/acquisition-2",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data acquisition",
             "schema:position": 4,
             "schema:description": "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
-            "schema:participant": [
+            "schema:instrument": [
               {
-                "@type": [
-                  "schema:Person"
-                ],
-                "schema:name": "Example Laboratory Technician"
-              }
-            ],
-            "bios:reagent": [
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              },
               {
                 "@type": [
                   "schema:DefinedTerm"
@@ -315,7 +326,12 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "schema:name": "BHVO-2 basalt reference material",
                 "schema:termCode": "BHVO-2",
                 "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
-                "ada:reagentRole": "primaryStandard"
+                "ada:reagentRole": "primaryStandard",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
@@ -324,24 +340,37 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "schema:name": "BCR-2 basalt reference material",
                 "schema:termCode": "BCR-2",
                 "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
-                "ada:reagentRole": "secondaryStandard"
+                "ada:reagentRole": "secondaryStandard",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "2% HNO3 procedural blank",
-                "ada:reagentRole": "blankMaterial"
+                "ada:reagentRole": "blankMaterial",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
+              }
+            ],
+            "schema:participant": [
+              {
+                "@type": [
+                  "schema:Person"
+                ],
+                "schema:name": "Example Laboratory Technician"
               }
             ],
             "schema:object": {
               "@id": "ex:geochemProduct-example-001/digest/RP-123"
             },
-            "prov:used": [
-              {
-                "@id": "ex:geochemProduct-example-001/digest/RP-123"
-              }
-            ],
             "schema:startTime": "2026-01-10T11:00:00",
             "schema:endTime": "2026-01-10T14:30:00",
             "schema:actionStatus": "schema:CompletedActionStatus",
@@ -352,23 +381,12 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           {
             "@id": "ex:geochemProduct-example-001/step/reduction",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data reduction",
             "schema:position": 5,
             "schema:description": "Synthetic step. Blank subtraction, internal-standard and drift correction, and calibration to concentrations.",
-            "bios:computationalTool": [
-              {
-                "@type": [
-                  "schema:SoftwareApplication"
-                ],
-                "schema:name": "Example ICP-MS reduction software",
-                "schema:version": "2.1",
-                "ada:toolRole": "dataReduction"
-              }
-            ],
             "schema:additionalProperty": [
               {
                 "@type": [
@@ -392,33 +410,44 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "dqv:isMeasurementOf": "BCR-2 accuracy (mean deviation from certified values)",
                 "dqv:value": "within 5%"
               }
+            ],
+            "schema:instrument": [
+              {
+                "@type": [
+                  "schema:SoftwareApplication"
+                ],
+                "schema:name": "Example ICP-MS reduction software",
+                "schema:version": "2.1",
+                "ada:toolRole": "dataReduction",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q7397"
+                  }
+                ]
+              }
             ]
           }
         ]
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ICP-MS Instrument",
-              "schema:identifier": [
-                "ex:instrument-001"
-              ],
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example ICP-MS Instrument",
+          "schema:identifier": [
+            "ex:instrument-001"
+          ],
+          "@id": "ex:geochemProduct-example-001/instrument/instrument"
         }
       ],
       "schema:location": {
@@ -674,11 +703,13 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           "schema:HowTo"
         ],
         "schema:name": "Synthetic solution ICP-MS trace-element workflow",
+        "schema:isBasedOn": {
+          "@id": "ex:solutionQicpmsTAPP-P0"
+        },
         "schema:step": [
           {
             "@id": "ex:geochemProduct-example-001/step/digestion",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -704,42 +735,65 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
               ],
               "schema:name": "Clean laboratory, Analytical Sciences Laboratory"
             },
-            "bios:reagent": [
+            "schema:object": {
+              "@id": "ex:geochemProduct-example-001/sample/RP-123"
+            },
+            "schema:result": {
+              "@id": "ex:geochemProduct-example-001/digest/RP-123"
+            },
+            "schema:instrument": [
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "Concentrated HF, trace-metal grade",
-                "ada:reagentRole": "reagent"
+                "ada:reagentRole": "reagent",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "Concentrated HNO3, trace-metal grade",
-                "ada:reagentRole": "reagent"
+                "ada:reagentRole": "reagent",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               }
-            ],
-            "schema:object": {
-              "@id": "ex:geochemProduct-example-001/sample/RP-123"
-            },
-            "schema:result": {
-              "@id": "ex:geochemProduct-example-001/digest/RP-123"
-            }
+            ]
           },
           {
             "@id": "ex:geochemProduct-example-001/step/tuning",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Instrument tuning",
             "schema:position": 2,
             "schema:description": "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
+            "schema:instrument": [
+              {
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              },
+              {
+                "@type": [
+                  "schema:ChemicalSubstance"
+                ],
+                "schema:name": "Multi-element tuning solution, 1 ug/L",
+                "ada:reagentRole": "referenceMaterial",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
+              }
+            ],
             "schema:additionalProperty": [
               {
                 "@type": [
@@ -758,15 +812,6 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "schema:unitText": "L/min"
               }
             ],
-            "bios:reagent": [
-              {
-                "@type": [
-                  "schema:ChemicalSubstance"
-                ],
-                "schema:name": "Multi-element tuning solution, 1 ug/L",
-                "ada:reagentRole": "referenceMaterial"
-              }
-            ],
             "schema:actionStatus": "schema:CompletedActionStatus",
             "dqv:hasQualityMeasurement": [
               {
@@ -781,16 +826,17 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           {
             "@id": "ex:geochemProduct-example-001/step/acquisition-1",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data acquisition, first attempt",
             "schema:position": 3,
             "schema:description": "Synthetic step. First acquisition run, stopped when the drift monitor failed.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
+            "schema:instrument": [
+              {
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              }
+            ],
             "schema:object": {
               "@id": "ex:geochemProduct-example-001/digest/RP-123"
             },
@@ -802,25 +848,16 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           {
             "@id": "ex:geochemProduct-example-001/step/acquisition-2",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data acquisition",
             "schema:position": 4,
             "schema:description": "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
-            "schema:participant": [
+            "schema:instrument": [
               {
-                "@type": [
-                  "schema:Person"
-                ],
-                "schema:name": "Example Laboratory Technician"
-              }
-            ],
-            "bios:reagent": [
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              },
               {
                 "@type": [
                   "schema:DefinedTerm"
@@ -828,7 +865,12 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "schema:name": "BHVO-2 basalt reference material",
                 "schema:termCode": "BHVO-2",
                 "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
-                "ada:reagentRole": "primaryStandard"
+                "ada:reagentRole": "primaryStandard",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
@@ -837,24 +879,37 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "schema:name": "BCR-2 basalt reference material",
                 "schema:termCode": "BCR-2",
                 "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
-                "ada:reagentRole": "secondaryStandard"
+                "ada:reagentRole": "secondaryStandard",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "2% HNO3 procedural blank",
-                "ada:reagentRole": "blankMaterial"
+                "ada:reagentRole": "blankMaterial",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
+              }
+            ],
+            "schema:participant": [
+              {
+                "@type": [
+                  "schema:Person"
+                ],
+                "schema:name": "Example Laboratory Technician"
               }
             ],
             "schema:object": {
               "@id": "ex:geochemProduct-example-001/digest/RP-123"
             },
-            "prov:used": [
-              {
-                "@id": "ex:geochemProduct-example-001/digest/RP-123"
-              }
-            ],
             "schema:startTime": "2026-01-10T11:00:00",
             "schema:endTime": "2026-01-10T14:30:00",
             "schema:actionStatus": "schema:CompletedActionStatus",
@@ -865,23 +920,12 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
           {
             "@id": "ex:geochemProduct-example-001/step/reduction",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data reduction",
             "schema:position": 5,
             "schema:description": "Synthetic step. Blank subtraction, internal-standard and drift correction, and calibration to concentrations.",
-            "bios:computationalTool": [
-              {
-                "@type": [
-                  "schema:SoftwareApplication"
-                ],
-                "schema:name": "Example ICP-MS reduction software",
-                "schema:version": "2.1",
-                "ada:toolRole": "dataReduction"
-              }
-            ],
             "schema:additionalProperty": [
               {
                 "@type": [
@@ -905,33 +949,44 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
                 "dqv:isMeasurementOf": "BCR-2 accuracy (mean deviation from certified values)",
                 "dqv:value": "within 5%"
               }
+            ],
+            "schema:instrument": [
+              {
+                "@type": [
+                  "schema:SoftwareApplication"
+                ],
+                "schema:name": "Example ICP-MS reduction software",
+                "schema:version": "2.1",
+                "ada:toolRole": "dataReduction",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q7397"
+                  }
+                ]
+              }
             ]
           }
         ]
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ICP-MS Instrument",
-              "schema:identifier": [
-                "ex:instrument-001"
-              ],
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example ICP-MS Instrument",
+          "schema:identifier": [
+            "ex:instrument-001"
+          ],
+          "@id": "ex:geochemProduct-example-001/instrument/instrument"
         }
       ],
       "schema:location": {
@@ -1092,6 +1147,7 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:geochemProduct-example-001 a schema1:Dataset,
@@ -1139,6 +1195,7 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess [ a schema1:HowTo ;
+                    schema1:isBasedOn ex:solutionQicpmsTAPP-P0 ;
                     schema1:name "Synthetic solution ICP-MS trace-element workflow" ;
                     schema1:step <https://example.org/geochemProduct-example-001/step/acquisition-1>,
                         <https://example.org/geochemProduct-example-001/step/acquisition-2>,
@@ -1146,15 +1203,14 @@ ex:geochemProduct-example-001 a schema1:Dataset,
                         <https://example.org/geochemProduct-example-001/step/reduction>,
                         <https://example.org/geochemProduct-example-001/step/tuning> ] ;
             schema1:identifier "session-geochem-20260110-001" ;
+            schema1:instrument <https://example.org/geochemProduct-example-001/instrument/instrument> ;
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
             schema1:object <https://example.org/geochemProduct-example-001/sample/RP-123> ;
-            schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/geochemProduct-example-001/instrument/instrument> ] ] .
+            schema1:startTime "2026-01-10T09:30:00" ] .
 
-<https://example.org/geochemProduct-example-001/step/acquisition-1> a cdi:Activity,
-        schema1:Action,
+<https://example.org/geochemProduct-example-001/step/acquisition-1> a schema1:Action,
         schema1:HowToStep ;
     schema1:actionStatus "schema:FailedActionStatus" ;
     schema1:description "Synthetic step. First acquisition run, stopped when the drift monitor failed." ;
@@ -1166,78 +1222,79 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:position 3 ;
     schema1:startTime "2026-01-10T09:30:00" .
 
-<https://example.org/geochemProduct-example-001/step/acquisition-2> a cdi:Activity,
-        schema1:Action,
+<https://example.org/geochemProduct-example-001/step/acquisition-2> a schema1:Action,
         schema1:HowToStep ;
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:description "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard." ;
     schema1:endTime "2026-01-10T14:30:00" ;
-    schema1:instrument <https://example.org/geochemProduct-example-001/instrument/instrument> ;
+    schema1:instrument [ a schema1:DefinedTerm ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
+            schema1:name "BHVO-2 basalt reference material" ;
+            schema1:termCode "BHVO-2" ;
+            ada:reagentRole "primaryStandard" ],
+        [ a schema1:DefinedTerm ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
+            schema1:name "BCR-2 basalt reference material" ;
+            schema1:termCode "BCR-2" ;
+            ada:reagentRole "secondaryStandard" ],
+        [ a schema1:ChemicalSubstance ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "2% HNO3 procedural blank" ;
+            ada:reagentRole "blankMaterial" ],
+        <https://example.org/geochemProduct-example-001/instrument/instrument> ;
     schema1:name "Data acquisition" ;
     schema1:object <https://example.org/geochemProduct-example-001/digest/RP-123> ;
     schema1:participant [ a schema1:Person ;
             schema1:name "Example Laboratory Technician" ] ;
     schema1:position 4 ;
     schema1:result <https://example.org/geochemProduct-example-001/data/RP-123-counts> ;
-    schema1:startTime "2026-01-10T11:00:00" ;
-    prov:used <https://example.org/geochemProduct-example-001/digest/RP-123> ;
-    bios:reagent [ a schema1:DefinedTerm ;
-            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
-            schema1:name "BCR-2 basalt reference material" ;
-            schema1:termCode "BCR-2" ;
-            ada:reagentRole "secondaryStandard" ],
-        [ a schema1:DefinedTerm ;
-            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
-            schema1:name "BHVO-2 basalt reference material" ;
-            schema1:termCode "BHVO-2" ;
-            ada:reagentRole "primaryStandard" ],
-        [ a schema1:ChemicalSubstance ;
-            schema1:name "2% HNO3 procedural blank" ;
-            ada:reagentRole "blankMaterial" ] .
+    schema1:startTime "2026-01-10T11:00:00" .
 
-<https://example.org/geochemProduct-example-001/step/digestion> a cdi:Activity,
-        schema1:Action,
+<https://example.org/geochemProduct-example-001/step/digestion> a schema1:Action,
         schema1:HowToStep ;
     schema1:additionalType bios:LabProcess ;
     schema1:agent [ a schema1:Person ;
             schema1:name "Example Analyst" ] ;
     schema1:description "Synthetic step. 100 mg of rock powder digested in HF-HNO3 on a hotplate, dried down and taken up in 2% HNO3." ;
     schema1:endTime "2026-01-09T16:00:00" ;
+    schema1:instrument [ a schema1:ChemicalSubstance ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "Concentrated HNO3, trace-metal grade" ;
+            ada:reagentRole "reagent" ],
+        [ a schema1:ChemicalSubstance ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "Concentrated HF, trace-metal grade" ;
+            ada:reagentRole "reagent" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Clean laboratory, Analytical Sciences Laboratory" ] ;
     schema1:name "Sample digestion" ;
     schema1:object <https://example.org/geochemProduct-example-001/sample/RP-123> ;
     schema1:position 1 ;
     schema1:result <https://example.org/geochemProduct-example-001/digest/RP-123> ;
-    schema1:startTime "2026-01-08T09:00:00" ;
-    bios:reagent [ a schema1:ChemicalSubstance ;
-            schema1:name "Concentrated HNO3, trace-metal grade" ;
-            ada:reagentRole "reagent" ],
-        [ a schema1:ChemicalSubstance ;
-            schema1:name "Concentrated HF, trace-metal grade" ;
-            ada:reagentRole "reagent" ] .
+    schema1:startTime "2026-01-08T09:00:00" .
 
-<https://example.org/geochemProduct-example-001/step/reduction> a cdi:Activity,
-        schema1:Action,
+<https://example.org/geochemProduct-example-001/step/reduction> a schema1:Action,
         schema1:HowToStep ;
     schema1:additionalProperty [ a schema1:PropertyValue ;
             schema1:name "Internal standard" ;
             schema1:value "115In" ] ;
     schema1:description "Synthetic step. Blank subtraction, internal-standard and drift correction, and calibration to concentrations." ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Example ICP-MS reduction software" ;
+            schema1:version "2.1" ;
+            ada:toolRole "dataReduction" ] ;
     schema1:name "Data reduction" ;
     schema1:object <https://example.org/geochemProduct-example-001/data/RP-123-counts> ;
     schema1:position 5 ;
     schema1:result <https://example.org/geochemProduct-example-001/data/RP-123-concentrations> ;
     dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
             dqv:isMeasurementOf "BCR-2 accuracy (mean deviation from certified values)" ;
-            dqv:value "within 5%" ] ;
-    bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "Example ICP-MS reduction software" ;
-            schema1:version "2.1" ;
-            ada:toolRole "dataReduction" ] .
+            dqv:value "within 5%" ] .
 
-<https://example.org/geochemProduct-example-001/step/tuning> a cdi:Activity,
-        schema1:Action,
+<https://example.org/geochemProduct-example-001/step/tuning> a schema1:Action,
         schema1:HowToStep ;
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:additionalProperty [ a schema1:PropertyValue ;
@@ -1249,15 +1306,16 @@ ex:geochemProduct-example-001 a schema1:Dataset,
             schema1:unitText "W" ;
             schema1:value 1550 ] ;
     schema1:description "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation." ;
-    schema1:instrument <https://example.org/geochemProduct-example-001/instrument/instrument> ;
+    schema1:instrument [ a schema1:ChemicalSubstance ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "Multi-element tuning solution, 1 ug/L" ;
+            ada:reagentRole "referenceMaterial" ],
+        <https://example.org/geochemProduct-example-001/instrument/instrument> ;
     schema1:name "Instrument tuning" ;
     schema1:position 2 ;
     dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
             dqv:isMeasurementOf "CeO+/Ce+ oxide ratio" ;
-            dqv:value "1.2%" ] ;
-    bios:reagent [ a schema1:ChemicalSubstance ;
-            schema1:name "Multi-element tuning solution, 1 ug/L" ;
-            ada:reagentRole "referenceMaterial" ] .
+            dqv:value "1.2%" ] .
 
 ex:geochemProduct-metadata-001 a schema1:Dataset ;
     dcterms:conformsTo <https://w3id.org/cdif/core/1.1>,
@@ -1302,7 +1360,7 @@ ex:geochemProduct-var-001 a cdi:InstanceVariable,
 <https://example.org/geochemProduct-example-001/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:identifier "ex:instrument-001" ;
     schema1:name "Example ICP-MS Instrument" .
 
@@ -1425,111 +1483,154 @@ properties:
     title: Analysis Events
     description: 'Analysis events. Extends cdifProvActivity (from cdifProvenance)
       with the generic geochem analysis-event surface: the instruments, computational
-      tools and reagents actually used; the laboratory; the samples analysed; and
-      the session identifier and timing.'
+      tools and reagents actually used (schema:instrument); the laboratory; the samples
+      analysed (schema:object); the TAPP the analysis followed (schema:actionProcess);
+      and the session identifier and timing.'
     type: array
     items:
       type: object
       properties:
         schema:actionProcess:
-          description: 'The workflow actually followed by this analysis event, as
-            a schema:HowTo whose schema:step entries are full workflow steps.
+          description: 'The TAPP this analysis event followed, or the workflow as
+            it was performed.
+
+            Two forms, after the CDIF plan link (cdifProvActivity; option A of the
+            2026-11-11 activity-used-resources proposal). A bare {"@id": ...} is the
+            link to the TAPP definition, which is typed schema:HowTo for exactly this
+            reason. An inline schema:HowTo is the workflow as performed; when the
+            event also followed a TAPP, that HowTo names it with schema:isBasedOn.
+            One path finds the TAPP either way: prov:wasGeneratedBy/schema:actionProcess/schema:isBasedOn?.
+            The TAPP link used to be the role-keyed prov:used wrapper {"ada:tappDefinition":
+            {...}}, which is closed off below. Inline TAPPs are not accepted here:
+            none existed in ada2 or ada_subjects when the link moved (measured 2026-11-11),
+            so the reference is the only form.
+
+            The reference is SEALED, as the ada:tappDefinition reference was, and
+            so is schema:isBasedOn: a TAPP link names the plan and says nothing else
+            about it.
 
             The base cdifProvActivity already supplies a schema:HowTo here, but its
             step shape carries only @type / name / description / position / url. A
             geochem analysis event needs the same step surface the TAPP plan uses
-            -- per-step instrument, computational tool, reagent, inputs, result, parameters
-            and sub-workflow -- so the step items are pinned to tappDefinition''s
-            WorkflowStep. Both apply: the base and this intersect under allOf, and
-            neither the base HowTo nor its step is a closed object, so the richer
-            shape adds to it rather than conflicting.
+            -- per-step instruments, computational tools and reagents (schema:instrument),
+            inputs (schema:object), result, parameters and sub-workflow -- so the
+            step items are pinned to tappDefinition''s WorkflowStep. Both apply: the
+            base and this intersect under allOf, and neither the base HowTo nor its
+            step is a closed object, so the richer shape adds to it rather than conflicting.
 
             WorkflowStep, NOT WorkflowHowTo, is deliberate. The requirement for exactly
             one "Sample preparation" step carrying bios:LabProcess lives on WorkflowHowTo,
             and it belongs to the TAPP plan -- a protocol must say how the sample
             was prepared. An analysis EVENT records what was done and may legitimately
             describe only part of a workflow, so referencing the step shape alone
-            brings the structure without that requirement.
-
-            Only the object form is constrained. schema:actionProcess may also be
-            a string or an @id reference in the base, and `properties` does not apply
-            to a non-object, so those branches stay reachable.'
+            brings the structure without that requirement.'
+          anyOf:
+          - type: string
+          - description: The link to the TAPP definition this analysis followed.
+            type: object
+            additionalProperties: false
+            required:
+            - '@id'
+            properties:
+              '@id':
+                type: string
+          - description: The workflow as performed, as a schema:HowTo.
+            type: object
+            required:
+            - '@type'
+            properties:
+              '@type':
+                type: array
+                contains:
+                  const: schema:HowTo
           properties:
+            schema:isBasedOn:
+              description: The TAPP definition this workflow was based on, by reference.
+              type: object
+              additionalProperties: false
+              required:
+              - '@id'
+              properties:
+                '@id':
+                  type: string
+              x-jsonld-id: http://schema.org/isBasedOn
             schema:step:
               type: array
               items:
                 $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/WorkflowStep
               x-jsonld-id: http://schema.org/step
           x-jsonld-id: http://schema.org/actionProcess
-        prov:used:
+        schema:instrument:
           title: Resources Used
           type: array
-          description: 'Resources used in the analysis. Each item is one of: an instrument
-            BB instance; a computational tool actually used (schema:SoftwareApplication);
-            a reagent / reference material actually used; a tappDefinition BB instance
-            (inlined); or an @id reference to a TAPP definition node defined elsewhere.
-            The TAPP plan (prov:Plan / bios:LabProtocol) prescribes the generic instrument
-            / computationalTool / reagent list; these prov:used entries record the
-            ACTUALS used in this specific run.'
+          description: 'What the analysis used, other than its samples: the instruments,
+            the computational tools actually used (acquisition, reduction, processing)
+            and the reagents and reference materials actually used. One array, the
+            kinds told apart by the Wikidata term each item carries in schema:additionalType
+            -- Q3099911 (measuring instrument), Q7397 (software), Q2356542 (chemical
+            reagent) -- which is the CDIF cdifProvActivity rule. Each item is one
+            of those, or a sealed {@id} reference (the CDIF base admits both, and
+            requires exactly one kind term on an item described in place). The TAPP
+            plan prescribes the generic instruments, tools and reagents; these record
+            the ACTUALS used in this specific run.'
           items:
             allOf:
             - if:
-                type: object
-                required:
-                - schema:instrument
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
               then:
-                properties:
-                  schema:instrument:
-                    type: array
-                    minItems: 1
-                    items:
-                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                    x-jsonld-id: http://schema.org/instrument
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
             - if:
-                type: object
-                required:
-                - bios:computationalTool
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
               then:
-                properties:
-                  bios:computationalTool:
-                    type: array
-                    minItems: 1
-                    items:
-                      $ref: '#/$defs/UsedComputationalTool'
-                    x-jsonld-id: https://bioschemas.org/computationalTool
+                $ref: '#/$defs/UsedComputationalTool'
             - if:
-                type: object
-                required:
-                - bios:reagent
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
               then:
-                properties:
-                  bios:reagent:
-                    type: array
-                    minItems: 1
-                    items:
-                      $ref: '#/$defs/UsedReagent'
-                    x-jsonld-id: https://bioschemas.org/reagent
-            - if:
-                type: object
-                required:
-                - ada:tappDefinition
-              then:
-                properties:
-                  ada:tappDefinition:
-                    title: TAPP Definition
-                    description: 'The TAPP definition this analysis followed: either
-                      a reference to a TAPP definition node defined elsewhere, or
-                      the plan inline.'
-                    anyOf:
-                    - type: object
-                      additionalProperties: false
-                      required:
-                      - '@id'
-                      properties:
-                        '@id':
-                          type: string
-                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
-                    x-jsonld-id: https://ada.astromat.org/metadata/tappDefinition
+                $ref: '#/$defs/UsedReagent'
+          x-jsonld-id: http://schema.org/instrument
+        prov:used:
+          description: 'Not where this profile records what an analysis used: instruments,
+            tools and reagents are schema:instrument, samples are schema:object, and
+            the TAPP link is schema:actionProcess. A prov:used that passes the CDIF
+            core shape (strings and @id references) is accepted and checked by nothing
+            more.
+
+            The superseded spellings are CLOSED OFF, so a writer that regressed to
+            one fails, naming the key, instead of passing silently. The role-keyed
+            wrappers carry no @id and the CDIF core rejects them already; these close
+            them off by name, and close off the one old form that does carry an @id
+            -- an item typed ada:TAPPDefinition. Same sequence as the earlier close-offs:
+            the records move first (the ADA stores are migrated before this is published),
+            then the schema.'
+          type: array
+          items:
+            properties:
+              schema:instrument:
+                description: 'Superseded wrapper: an instrument is an item of the
+                  activity''s own schema:instrument.'
+                not: {}
+                x-jsonld-id: http://schema.org/instrument
+              bios:computationalTool:
+                description: 'Superseded wrapper: a computational tool is a schema:instrument
+                  item of the software kind (Wikidata Q7397).'
+                not: {}
+                x-jsonld-id: https://bioschemas.org/computationalTool
+              bios:reagent:
+                description: 'Superseded wrapper: a reagent is a schema:instrument
+                  item of the reagent kind (Wikidata Q2356542).'
+                not: {}
+                x-jsonld-id: https://bioschemas.org/reagent
+              prov:reagent:
+                description: 'Superseded twice over (prov:reagent, then bios:reagent):
+                  a reagent is a schema:instrument item of the reagent kind.'
+                not: {}
+                x-jsonld-id: http://www.w3.org/ns/prov#reagent
+              ada:tappDefinition:
+                description: 'Superseded wrapper: the TAPP link is schema:actionProcess
+                  {"@id": ...}, or schema:isBasedOn on the event''s inline workflow.'
+                not: {}
+                x-jsonld-id: https://ada.astromat.org/metadata/tappDefinition
+            allOf:
             - if:
                 type: object
                 required:
@@ -1539,20 +1640,13 @@ properties:
                     contains:
                       const: ada:TAPPDefinition
               then:
-                description: A TAPP link belongs under the ada:tappDefinition role
-                  key, whether it is a reference or an inline plan. The bare @type
-                  form is superseded; see the branch above.
-                required:
-                - ada:tappDefinition
-            - if:
-                type: object
-                required:
-                - prov:reagent
-              then:
-                description: The reagent role is bios:reagent; prov:reagent is superseded
-                  (PROV-O defines no reagent term). Rename the key.
-                required:
-                - bios:reagent
+                description: 'A TAPP is not a prov:used entity: link it with schema:actionProcess
+                  {"@id": ...}, or with schema:isBasedOn on the event''s inline workflow.'
+                properties:
+                  '@type':
+                    not:
+                      contains:
+                        const: ada:TAPPDefinition
           x-jsonld-id: http://www.w3.org/ns/prov#used
         schema:location:
           title: Laboratory
@@ -1691,7 +1785,6 @@ properties:
                 x-jsonld-id: http://schema.org/name
           x-jsonld-id: https://ada.astromat.org/metadata/combinedResults
       required:
-      - prov:used
       - schema:location
     x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
   schema:variableMeasured:
@@ -1953,9 +2046,17 @@ $defs:
   UsedComputationalTool:
     type: object
     additionalProperties: false
-    description: Computational tool actually used (acquisition, data reduction, or
-      processing).
+    description: 'Computational tool actually used (acquisition, data reduction, or
+      processing): a schema:instrument item of the software kind.'
     properties:
+      schema:additionalType:
+        description: 'Carries the Wikidata kind term, https://www.wikidata.org/entity/Q7397
+          (software), as {"@id": ...}: what makes this a software item of the activity''s
+          schema:instrument.'
+        type: array
+        items:
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        x-jsonld-id: http://schema.org/additionalType
       '@type':
         type: array
         items:
@@ -1991,9 +2092,17 @@ $defs:
   UsedReagent:
     type: object
     additionalProperties: false
-    description: Reference material, calibration standard, or chemical reagent actually
-      used.
+    description: 'Reference material, calibration standard, or chemical reagent actually
+      used: a schema:instrument item of the reagent kind.'
     properties:
+      schema:additionalType:
+        description: 'Carries the Wikidata kind term, https://www.wikidata.org/entity/Q2356542
+          (chemical reagent), as {"@id": ...}: what makes this a reagent item of the
+          activity''s schema:instrument.'
+        type: array
+        items:
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        x-jsonld-id: http://schema.org/additionalType
       '@type':
         type: array
         items:

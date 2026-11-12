@@ -25,10 +25,10 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
   "@id": "ex:gpycTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "gpyc protocol — P0",
   "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator.",
@@ -91,7 +91,6 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -146,10 +145,10 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
   "@id": "ex:gpycTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "gpyc protocol \u2014 P0",
   "schema:description": "gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center | Densinator - Custom-built glove-box mounted pycnometer (publication column of GPYC_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Densinator.",
@@ -212,7 +211,6 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -245,21 +243,19 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:gpycTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:gpycTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Gas pycnometry analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

@@ -94,11 +94,13 @@
           "schema:HowTo"
         ],
         "schema:name": "Synthetic solution ICP-MS trace-element workflow",
+        "schema:isBasedOn": {
+          "@id": "ex:solutionQicpmsTAPP-P0"
+        },
         "schema:step": [
           {
             "@id": "ex:geochemProduct-example-001/step/digestion",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -124,42 +126,65 @@
               ],
               "schema:name": "Clean laboratory, Analytical Sciences Laboratory"
             },
-            "bios:reagent": [
+            "schema:object": {
+              "@id": "ex:geochemProduct-example-001/sample/RP-123"
+            },
+            "schema:result": {
+              "@id": "ex:geochemProduct-example-001/digest/RP-123"
+            },
+            "schema:instrument": [
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "Concentrated HF, trace-metal grade",
-                "ada:reagentRole": "reagent"
+                "ada:reagentRole": "reagent",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "Concentrated HNO3, trace-metal grade",
-                "ada:reagentRole": "reagent"
+                "ada:reagentRole": "reagent",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               }
-            ],
-            "schema:object": {
-              "@id": "ex:geochemProduct-example-001/sample/RP-123"
-            },
-            "schema:result": {
-              "@id": "ex:geochemProduct-example-001/digest/RP-123"
-            }
+            ]
           },
           {
             "@id": "ex:geochemProduct-example-001/step/tuning",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Instrument tuning",
             "schema:position": 2,
             "schema:description": "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
+            "schema:instrument": [
+              {
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              },
+              {
+                "@type": [
+                  "schema:ChemicalSubstance"
+                ],
+                "schema:name": "Multi-element tuning solution, 1 ug/L",
+                "ada:reagentRole": "referenceMaterial",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
+              }
+            ],
             "schema:additionalProperty": [
               {
                 "@type": [
@@ -178,15 +203,6 @@
                 "schema:unitText": "L/min"
               }
             ],
-            "bios:reagent": [
-              {
-                "@type": [
-                  "schema:ChemicalSubstance"
-                ],
-                "schema:name": "Multi-element tuning solution, 1 ug/L",
-                "ada:reagentRole": "referenceMaterial"
-              }
-            ],
             "schema:actionStatus": "schema:CompletedActionStatus",
             "dqv:hasQualityMeasurement": [
               {
@@ -201,16 +217,17 @@
           {
             "@id": "ex:geochemProduct-example-001/step/acquisition-1",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data acquisition, first attempt",
             "schema:position": 3,
             "schema:description": "Synthetic step. First acquisition run, stopped when the drift monitor failed.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
+            "schema:instrument": [
+              {
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              }
+            ],
             "schema:object": {
               "@id": "ex:geochemProduct-example-001/digest/RP-123"
             },
@@ -222,25 +239,16 @@
           {
             "@id": "ex:geochemProduct-example-001/step/acquisition-2",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data acquisition",
             "schema:position": 4,
             "schema:description": "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard.",
-            "schema:instrument": {
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
-            },
-            "schema:participant": [
+            "schema:instrument": [
               {
-                "@type": [
-                  "schema:Person"
-                ],
-                "schema:name": "Example Laboratory Technician"
-              }
-            ],
-            "bios:reagent": [
+                "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              },
               {
                 "@type": [
                   "schema:DefinedTerm"
@@ -248,7 +256,12 @@
                 "schema:name": "BHVO-2 basalt reference material",
                 "schema:termCode": "BHVO-2",
                 "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
-                "ada:reagentRole": "primaryStandard"
+                "ada:reagentRole": "primaryStandard",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
@@ -257,24 +270,37 @@
                 "schema:name": "BCR-2 basalt reference material",
                 "schema:termCode": "BCR-2",
                 "schema:inDefinedTermSet": "http://georem.mpch-mainz.gwdg.de/",
-                "ada:reagentRole": "secondaryStandard"
+                "ada:reagentRole": "secondaryStandard",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
               },
               {
                 "@type": [
                   "schema:ChemicalSubstance"
                 ],
                 "schema:name": "2% HNO3 procedural blank",
-                "ada:reagentRole": "blankMaterial"
+                "ada:reagentRole": "blankMaterial",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q2356542"
+                  }
+                ]
+              }
+            ],
+            "schema:participant": [
+              {
+                "@type": [
+                  "schema:Person"
+                ],
+                "schema:name": "Example Laboratory Technician"
               }
             ],
             "schema:object": {
               "@id": "ex:geochemProduct-example-001/digest/RP-123"
             },
-            "prov:used": [
-              {
-                "@id": "ex:geochemProduct-example-001/digest/RP-123"
-              }
-            ],
             "schema:startTime": "2026-01-10T11:00:00",
             "schema:endTime": "2026-01-10T14:30:00",
             "schema:actionStatus": "schema:CompletedActionStatus",
@@ -285,23 +311,12 @@
           {
             "@id": "ex:geochemProduct-example-001/step/reduction",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
             "schema:name": "Data reduction",
             "schema:position": 5,
             "schema:description": "Synthetic step. Blank subtraction, internal-standard and drift correction, and calibration to concentrations.",
-            "bios:computationalTool": [
-              {
-                "@type": [
-                  "schema:SoftwareApplication"
-                ],
-                "schema:name": "Example ICP-MS reduction software",
-                "schema:version": "2.1",
-                "ada:toolRole": "dataReduction"
-              }
-            ],
             "schema:additionalProperty": [
               {
                 "@type": [
@@ -325,33 +340,44 @@
                 "dqv:isMeasurementOf": "BCR-2 accuracy (mean deviation from certified values)",
                 "dqv:value": "within 5%"
               }
+            ],
+            "schema:instrument": [
+              {
+                "@type": [
+                  "schema:SoftwareApplication"
+                ],
+                "schema:name": "Example ICP-MS reduction software",
+                "schema:version": "2.1",
+                "ada:toolRole": "dataReduction",
+                "schema:additionalType": [
+                  {
+                    "@id": "https://www.wikidata.org/entity/Q7397"
+                  }
+                ]
+              }
             ]
           }
         ]
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ICP-MS Instrument",
-              "schema:identifier": [
-                "ex:instrument-001"
-              ],
-              "@id": "ex:geochemProduct-example-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example ICP-MS Instrument",
+          "schema:identifier": [
+            "ex:instrument-001"
+          ],
+          "@id": "ex:geochemProduct-example-001/instrument/instrument"
         }
       ],
       "schema:location": {

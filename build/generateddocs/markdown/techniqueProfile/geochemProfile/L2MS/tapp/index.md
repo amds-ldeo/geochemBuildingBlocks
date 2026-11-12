@@ -25,10 +25,10 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
   "@id": "ex:l2msTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "l2ms protocol — P0",
   "schema:description": "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = uL.",
@@ -70,7 +70,6 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -119,10 +118,10 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
   "@id": "ex:l2msTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "l2ms protocol \u2014 P0",
   "schema:description": "l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Center | uL2MS instrument (publication column of L2MS_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = uL.",
@@ -164,7 +163,6 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -191,21 +189,19 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:l2msTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:l2msTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Microprobe Two-Step Laser Mass Spectrometry analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
