@@ -1,10 +1,9 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
@@ -12,30 +11,27 @@ ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: pre-cut and post-cut fractions either side of the K collection were measured by Q-ICP-MS \"to monitor for K loss during column chemistry\". Sequence: Q-ICP-MS check before MC-ICP-MS measurement" ;
                     schema1:name "Laser-fluorination oxygen isotopes on a Thermo Finnigan MAT 253 Plus; K loss monitored by Thermo Fisher iCAP Q ICP-MS" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "BHVO-2 [δ41K: −0.448 ± 0.027‰, within error of reported values such as −0.46 ± 0.09‰ (Wang et al. 2021)]" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
                             schema1:name "Sample preparation" ;
@@ -44,6 +40,11 @@ ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "BHVO-2" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/solutionMcicpmsTAPP-detail-P11/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -51,9 +52,6 @@ ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Oued Chebeika 002; geostandard BHVO-2; NIST SRM 3141a" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "BHVO-2" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:deltaOrEpsilonValueReferenceStandard "K: NIST SRM 3141a" ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
@@ -74,6 +72,12 @@ ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+<https://example.org/solutionMcicpmsTAPP-detail-P11/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType wd:Q3099911,
+        "ICPMS" ;
+    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double Spike Mixing Ratio" ;

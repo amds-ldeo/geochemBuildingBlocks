@@ -49,7 +49,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -73,7 +72,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -83,7 +81,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -117,171 +114,168 @@
           "schema:description": "no value available: schema:description"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "Sample Introduction System",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "Sample Introduction System",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
-                        }
-                      ],
-                      "schema:name": "Sample Uptake Rate",
-                      "schema:value": 5,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Peristaltic pump at 5 rpm"
-                    },
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Nebulizer Gas Flow Rate",
-                      "schema:value": 1.03,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1.03 L/min (sample gas)"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS/part/Sample-Introduction-System"
-                },
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1200,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1200 W"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 16,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "16 L/min"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 1.01,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1.01 L/min"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor",
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                     }
                   ],
-                  "schema:name": "Doubly-Charged Species Monitor",
-                  "schema:value": "N \u2014 \"double-charged Er or Yb isotopes\" are named as interferences that the chemistry separates from Rb, p.2; no M\u00b2\u207a tuning monitor or production ratio is stated"
+                  "schema:name": "Sample Uptake Rate",
+                  "schema:value": 5,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Peristaltic pump at 5 rpm"
+                },
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Nebulizer Gas Flow Rate",
+                  "schema:value": 1.03,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1.03 L/min (sample gas)"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS"
+              "schema:name": "missing",
+              "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS/part/Sample-Introduction-System"
+            },
+            {
+              "schema:additionalType": [
+                "ICP Source",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1200 W"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 16,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "16 L/min"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 1.01,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1.01 L/min"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "missing",
+              "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS/part/ICP-Source"
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS/part/Collision-Reaction-Cell"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionMcicpmsTAPP/doublyChargedSpeciesMonitor"
+                }
+              ],
+              "schema:name": "Doubly-Charged Species Monitor",
+              "schema:value": "N \u2014 \"double-charged Er or Yb isotopes\" are named as interferences that the chemistry separates from Rb, p.2; no M\u00b2\u207a tuning monitor or production ratio is stated"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution \u2014 \u00a72.3",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution \u2014 \u00a72.3",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }

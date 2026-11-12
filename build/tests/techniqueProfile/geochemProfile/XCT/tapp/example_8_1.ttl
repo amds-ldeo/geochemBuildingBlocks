@@ -1,31 +1,29 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Glavin2023 a cdi:Activity,
-        schema1:Action,
+ex:labxctTAPP-Glavin2023 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Lab-XCT analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
@@ -35,7 +33,11 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 µm spot size); ada:detectorType = 2000 × 2000 pixel Perkin Elmer flat panel CCD; ada:rotationModeDefault = Continuous 360° rotation; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images)." ;
-    schema1:instrument <https://example.org/labxctTAPP-Glavin2023/instrument/XCT> ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
+            ada:toolRole "dataReduction" ],
+        <https://example.org/labxctTAPP-Glavin2023/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -74,9 +76,7 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
                     ada:dataType "string" ;
                     ada:tier "M" ] ;
             ada:targetMaterialDeclaration "CM2 carbonaceous chondrite (Murchison)" ] ;
-    ada:xRaySourceConfiguration "180 kV nano-focus tungsten transmission source (~1 µm spot size)" ;
-    bios:computationalTool [ schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
-            ada:toolRole "dataReduction" ] .
+    ada:xRaySourceConfiguration "180 kV nano-focus tungsten transmission source (~1 µm spot size)" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 8 ;
@@ -119,7 +119,7 @@ ex:labxctTAPP-Glavin2023 a cdi:Activity,
 
 <https://example.org/labxctTAPP-Glavin2023/instrument/XCT> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "Nikon" ] ;

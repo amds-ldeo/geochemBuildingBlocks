@@ -177,38 +177,29 @@
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "SEM",
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaSEMImaging-example-001/instrument/SEM"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "SEM",
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:semImagingTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaSEMImaging-example-001/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -238,7 +229,10 @@
           ],
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
-      ]
+      ],
+      "schema:actionProcess": {
+        "@id": "ex:semImagingTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [

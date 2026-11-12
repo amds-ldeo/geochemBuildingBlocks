@@ -29,95 +29,92 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Nikon CTPro3D v5.4",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Nikon CTPro3D v5.4",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 110,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "110 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 27,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "27 µA"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "0.25 mm aluminum"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 6.0,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "6.00 µm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Eckley2024/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 110,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "110 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 27,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "27 µA"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "0.25 mm aluminum"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 6.0,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "6.00 µm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Eckley2024/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -281,7 +278,6 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -364,95 +360,92 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Nikon CTPro3D v5.4",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Nikon CTPro3D v5.4",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 110,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "110 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 27,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "27 \u00b5A"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "0.25 mm aluminum"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 6.0,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "6.00 \u00b5m"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Eckley2024/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 110,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "110 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 27,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "27 \u00b5A"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "0.25 mm aluminum"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 6.0,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "6.00 \u00b5m"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Eckley2024/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -616,7 +609,6 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -676,11 +668,10 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
@@ -688,8 +679,7 @@ ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
     schema1:contributor [ schema1:contributor [ schema1:name "Scott Eckley" ] ;
             schema1:roleName "analyst" ] ;
     schema1:distribution [ schema1:encodingFormat "TIFF (16-bit, 928 slices)" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrection> ;
                             schema1:name "Data processing" ;
@@ -706,15 +696,16 @@ ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Nikon CTPro3D v5.4" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800099-0" ] ;
-            schema1:startTime "2024-10-29" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Nikon CTPro3D v5.4" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+            schema1:startTime "2024-10-29" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-10-29" ;
     ada:analyst "Scott Eckley" ;
@@ -732,7 +723,7 @@ ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -1009,95 +1000,92 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
           "schema:value": "SSOs ≥ 5.4 µm identified (implicit: features ≥ voxel size = 0.625 µm); sulphide rims ≥ 1 voxel required for detection"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 90,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "90 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 89,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "89 µA"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "Inbuilt LE4 filter (beam hardening reduction)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 0.625,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.625 µm (A0180-A); 0.672 µm (A0180-B)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Genge2025/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 90,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "90 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 89,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "89 µA"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "Inbuilt LE4 filter (beam hardening reduction)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 0.625,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.625 µm (A0180-A); 0.672 µm (A0180-B)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Genge2025/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -1112,7 +1100,6 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1122,7 +1109,6 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1375,95 +1361,92 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
           "schema:value": "SSOs \u2265 5.4 \u00b5m identified (implicit: features \u2265 voxel size = 0.625 \u00b5m); sulphide rims \u2265 1 voxel required for detection"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 90,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "90 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 89,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "89 \u00b5A"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "Inbuilt LE4 filter (beam hardening reduction)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 0.625,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.625 \u00b5m (A0180-A); 0.672 \u00b5m (A0180-B)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Genge2025/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 90,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "90 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 89,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "89 \u00b5A"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "Inbuilt LE4 filter (beam hardening reduction)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 0.625,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.625 \u00b5m (A0180-A); 0.672 \u00b5m (A0180-B)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Genge2025/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -1478,7 +1461,6 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment \u2014 \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1488,7 +1470,6 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -1559,12 +1540,11 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
@@ -1576,17 +1556,15 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
                     schema1:name "SEM (post-XCT polished sections)" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "61 SSOs by polished SEM sections vs. 108 by XCT; discrepancy attributed to disruption by polishing; XCT detects more SSOs" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -1598,17 +1576,18 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethod> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Not stated" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "A0180 (A0180-A and A0180-B)" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -1624,7 +1603,7 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -1811,69 +1790,65 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
           "schema:value": "Post-reconstruction ring corrections applied"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 180,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "180 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 0.18,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.18 mA (180 µA)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "0.72 mm Al"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Neuman2025/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 180,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "180 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 0.18,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.18 mA (180 µA)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "0.72 mm Al"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Neuman2025/instrument/XCT"
         }
       ],
       "schema:actionProcess": {
@@ -1896,7 +1871,6 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1906,7 +1880,6 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2077,69 +2050,65 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
           "schema:value": "Post-reconstruction ring corrections applied"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 180,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "180 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 0.18,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.18 mA (180 \u00b5A)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "0.72 mm Al"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Neuman2025/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 180,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "180 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 0.18,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.18 mA (180 \u00b5A)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "0.72 mm Al"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Neuman2025/instrument/XCT"
         }
       ],
       "schema:actionProcess": {
@@ -2162,7 +2131,6 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2172,7 +2140,6 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment \u2014 drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2256,11 +2223,11 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
@@ -2270,14 +2237,12 @@ ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "Post-reconstruction ring corrections applied; severity not documented" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
                             schema1:name "Data processing" ;
@@ -2287,13 +2252,13 @@ ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "UTCT Facility, U. Texas" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "Apollo 17 core 73002" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -2308,7 +2273,7 @@ ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -2461,54 +2426,50 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
           "schema:value": "Post-reconstruction ring corrections applied"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 190,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "190 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (steel sleeve acts as effective filter)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Neuman2025-2/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 190,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "190 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (steel sleeve acts as effective filter)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Neuman2025-2/instrument/XCT"
         }
       ],
       "schema:actionProcess": {
@@ -2531,7 +2492,6 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2541,7 +2501,6 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2706,54 +2665,50 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
           "schema:value": "Post-reconstruction ring corrections applied"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 190,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "190 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (steel sleeve acts as effective filter)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Neuman2025-2/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 190,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "190 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (steel sleeve acts as effective filter)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Neuman2025-2/instrument/XCT"
         }
       ],
       "schema:actionProcess": {
@@ -2776,7 +2731,6 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2786,7 +2740,6 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment \u2014 drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4\u20135)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2864,47 +2817,45 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
-            dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "Post-reconstruction ring corrections applied; severity not documented" ],
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+            dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025-2/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "UTCT Facility, U. Texas" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "Apollo 17 core 73001" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025-2/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -2918,7 +2869,7 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -3009,71 +2960,67 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
           "schema:value": "Sealed container (the unopened 73001 CSVC); stage holder N — \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 215,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "215 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 179,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "179 mA (possibly typo for µA per source)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 38.49,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "38.49 µm voxel edge"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Shearer2024/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 215,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "215 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 179,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "179 mA (possibly typo for µA per source)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 38.49,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "38.49 µm voxel edge"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Shearer2024/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -3096,7 +3043,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3106,7 +3052,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3189,71 +3134,67 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
           "schema:value": "Sealed container (the unopened 73001 CSVC); stage holder N \u2014 \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 215,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "215 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 179,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "179 mA (possibly typo for \u00b5A per source)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 38.49,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "38.49 \u00b5m voxel edge"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Shearer2024/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 215,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "215 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 179,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "179 mA (possibly typo for \u00b5A per source)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 38.49,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "38.49 \u00b5m voxel edge"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Shearer2024/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -3276,7 +3217,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment \u2014 core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3286,7 +3226,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3331,22 +3270,20 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
                             schema1:name "Sample preparation" ;
@@ -3354,12 +3291,12 @@ ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/labxctTAPP-detail-Shearer2024/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "73001 CSVC" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Shearer2024/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -3376,7 +3313,7 @@ ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -3465,69 +3402,65 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
           "schema:description": "3.0 W"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 90,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "90 kV (typical; optimized per sample)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "0.1–0.25 mm Al (Bennu PE protocol range stated)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 2.8,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "2.8–20.6 µm (optimized per sample)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Shearer2024-2/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 90,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "90 kV (typical; optimized per sample)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "0.1–0.25 mm Al (Bennu PE protocol range stated)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 2.8,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "2.8–20.6 µm (optimized per sample)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Shearer2024-2/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -3550,7 +3483,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3560,7 +3492,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3658,69 +3589,65 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
           "schema:description": "3.0 W"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 90,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "90 kV (typical; optimized per sample)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "0.1\u20130.25 mm Al (Bennu PE protocol range stated)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 2.8,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "2.8\u201320.6 \u00b5m (optimized per sample)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Shearer2024-2/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 90,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "90 kV (typical; optimized per sample)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "0.1\u20130.25 mm Al (Bennu PE protocol range stated)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 2.8,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "2.8\u201320.6 \u00b5m (optimized per sample)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Shearer2024-2/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -3743,7 +3670,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment (as received) \u2014 extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3753,7 +3679,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -3798,36 +3723,34 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/labxctTAPP-detail-Shearer2024-2/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Multiple particles from 73001 and 73002" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Shearer2024-2/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -3844,7 +3767,7 @@ ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -3946,67 +3869,64 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
           "schema:name": "NWA 5790"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo™",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo™",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 120,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 10.3,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "10.3 × 10.3 × 10.3 µm³"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Tomkinson2015/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 120,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 10.3,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "10.3 × 10.3 × 10.3 µm³"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Tomkinson2015/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -4103,7 +4023,6 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4113,7 +4032,6 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4249,67 +4167,64 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
           "schema:name": "NWA 5790"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo\u2122",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo\u2122",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 120,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 10.3,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "10.3 \u00d7 10.3 \u00d7 10.3 \u00b5m\u00b3"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Tomkinson2015/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 120,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "120 keV (reported in paper as 'accelerating voltage of 120 keV'; likely typo for 120 kV)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 10.3,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "10.3 \u00d7 10.3 \u00d7 10.3 \u00b5m\u00b3"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Tomkinson2015/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -4406,7 +4321,6 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment \u2014 \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4416,7 +4330,6 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -4491,12 +4404,11 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
@@ -4510,14 +4422,12 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
             dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
@@ -4529,17 +4439,18 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Avizo™" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
                     schema1:name "NWA 5790" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Avizo™" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -4553,7 +4464,7 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -4779,95 +4690,92 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
           "schema:value": "Continuous 360° rotation"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 38,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "38 µA"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (intentionally unfiltered; worst-case dose experiment)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 11.54,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "11.54 µm (cubic voxel edge)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Glavin2023/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 38,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "38 µA"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (intentionally unfiltered; worst-case dose experiment)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 11.54,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "11.54 µm (cubic voxel edge)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Glavin2023/instrument/XCT"
         }
       ],
       "schema:object": [
@@ -4907,7 +4815,6 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
             "schema:name": "Sample preparation",
             "schema:description": "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4917,7 +4824,6 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5142,95 +5048,92 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
           "schema:value": "Continuous 360\u00b0 rotation"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 38,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "38 \u00b5A"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (intentionally unfiltered; worst-case dose experiment)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 11.54,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "11.54 \u00b5m (cubic voxel edge)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Glavin2023/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 38,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "38 \u00b5A"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (intentionally unfiltered; worst-case dose experiment)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 11.54,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "11.54 \u00b5m (cubic voxel edge)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Glavin2023/instrument/XCT"
         }
       ],
       "schema:object": [
@@ -5270,7 +5173,6 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
             "schema:name": "Sample preparation",
             "schema:description": "Powder or crushed split \u2014 chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5280,7 +5182,6 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5352,11 +5253,10 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
@@ -5366,17 +5266,15 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
     schema1:contributor [ schema1:contributor [ schema1:name "Scott A. Eckley" ] ;
             schema1:roleName "analyst" ] ;
     schema1:distribution [ schema1:encodingFormat "TIFF (continuous series of 2D TIFF images)" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -5388,16 +5286,17 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Glavin2023/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
                     schema1:name "Murchison B (USNM 5453,1)" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Glavin2023/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "Scott A. Eckley" ;
@@ -5414,7 +5313,7 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -5648,95 +5547,92 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
           "schema:value": "Three density regions: high, medium, low density; porosity separate"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 50,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "50 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 µA"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "1.0 mm aluminum"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 5.34,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "5.34 µm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Dias2019/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 50,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "50 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 µA"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "1.0 mm aluminum"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 5.34,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "5.34 µm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Dias2019/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -5751,7 +5647,6 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5761,7 +5656,6 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -5962,95 +5856,92 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
           "schema:value": "Three density regions: high, medium, low density; porosity separate"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "DataViewer; CTVox; CTAn (Bruker proprietary suite)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 50,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "50 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 \u00b5A"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "1.0 mm aluminum"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 5.34,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "5.34 \u00b5m"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Dias2019/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 50,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "50 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 \u00b5A"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "1.0 mm aluminum"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 5.34,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "5.34 \u00b5m"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Dias2019/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -6065,7 +5956,6 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment \u2014 \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6075,7 +5965,6 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -6146,12 +6035,11 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
@@ -6163,17 +6051,15 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
                     schema1:name "Micro-XRF (same samples)" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "Micro-XRF structural observations consistent with meteorite classification" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSize>,
@@ -6182,16 +6068,17 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "NWA 8277; NWA 6963" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -6207,7 +6094,7 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -6333,67 +6220,64 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
           "schema:name": "Sample A (olivine)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "ImageJ; Avizo 9.2",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "ImageJ; Avizo 9.2",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 30,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "30 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 2.06,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "2.06 µm/px"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 30,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "30 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 2.06,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "2.06 µm/px"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -6504,7 +6388,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
             "schema:name": "Sample preparation",
             "schema:description": "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6514,7 +6397,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -6616,67 +6498,64 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
           "schema:name": "Sample A (olivine)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "ImageJ; Avizo 9.2",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "ImageJ; Avizo 9.2",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 30,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "30 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 2.06,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "2.06 \u00b5m/px"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 30,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "30 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 2.06,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "2.06 \u00b5m/px"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -6787,7 +6666,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
             "schema:name": "Sample preparation",
             "schema:description": "Separated grain or crystal \u2014 \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6797,7 +6675,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -6853,24 +6730,21 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
                             schema1:name "Sample preparation" ;
@@ -6884,16 +6758,17 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "ImageJ; Avizo 9.2" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "Sample A (olivine)" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "ImageJ; Avizo 9.2" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -6907,7 +6782,7 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -7038,95 +6913,92 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
           "schema:name": "Sample B (synthetic quartz)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 9.2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 9.2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 71,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "71 µA (Ag target)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (conditions did not require filtering)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 25,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "25 µm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019-2/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 71,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "71 µA (Ag target)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (conditions did not require filtering)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 25,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "25 µm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019-2/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -7252,7 +7124,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -7262,7 +7133,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -7377,95 +7247,92 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
           "schema:name": "Sample B (synthetic quartz)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 9.2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 9.2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 71,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "71 \u00b5A (Ag target)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (conditions did not require filtering)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 25,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "25 \u00b5m"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019-2/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 71,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "71 \u00b5A (Ag target)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (conditions did not require filtering)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 25,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "25 \u00b5m"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019-2/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -7591,7 +7458,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment (as received) \u2014 Sample B, a 3 \u00d7 5 \u00d7 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -7601,7 +7467,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -7657,28 +7522,25 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -7689,17 +7551,18 @@ ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Avizo 9.2.0" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Richard2019-2/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "U. Strathclyde, Glasgow, UK" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Sample B (synthetic quartz)" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Avizo 9.2.0" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019-2/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -7715,7 +7578,7 @@ ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -7870,95 +7733,92 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
           "schema:name": "Sample B (synthetic quartz)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 9.2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 9.2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 46,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "46 µA (Ag target)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (conditions did not require filtering)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 7.7,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "7.7 µm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019-3/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 46,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "46 µA (Ag target)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (conditions did not require filtering)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 7.7,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "7.7 µm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019-3/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -8084,7 +7944,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -8094,7 +7953,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -8209,95 +8067,92 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
           "schema:name": "Sample B (synthetic quartz)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 9.2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 9.2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 160,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "160 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 46,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "46 \u00b5A (Ag target)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "None (conditions did not require filtering)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 7.7,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "7.7 \u00b5m"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019-3/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 160,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "160 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 46,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "46 \u00b5A (Ag target)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "None (conditions did not require filtering)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 7.7,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "7.7 \u00b5m"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019-3/instrument/XCT"
         }
       ],
       "schema:additionalProperty": [
@@ -8423,7 +8278,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment (as received) \u2014 Sample B, a 3 \u00d7 5 \u00d7 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -8433,7 +8287,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -8489,28 +8342,25 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -8521,17 +8371,18 @@ ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Avizo 9.2.0" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Richard2019-3/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "U. Strathclyde, Glasgow, UK" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Sample B (synthetic quartz)" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019-3/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Avizo 9.2.0" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -8547,7 +8398,7 @@ ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -8702,80 +8553,77 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
           "schema:name": "Samples C–I (various)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 90,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "90–115 kV (varies by sample)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 65,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "65–115 µA (varies by sample)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 0.77,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.77–3.5 µm (varies by sample)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019-4/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 90,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "90–115 kV (varies by sample)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 65,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "65–115 µA (varies by sample)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 0.77,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.77–3.5 µm (varies by sample)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019-4/instrument/XCT"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 9.2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 9.2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -8904,7 +8752,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
             "schema:name": "Sample preparation",
             "schema:description": "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -8914,7 +8761,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -9048,80 +8894,77 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
           "schema:name": "Samples C\u2013I (various)"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 90,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "90\u2013115 kV (varies by sample)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 65,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "65\u2013115 \u00b5A (varies by sample)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 0.77,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.77\u20133.5 \u00b5m (varies by sample)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Richard2019-4/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 90,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "90\u2013115 kV (varies by sample)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 65,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "65\u2013115 \u00b5A (varies by sample)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 0.77,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.77\u20133.5 \u00b5m (varies by sample)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Richard2019-4/instrument/XCT"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Avizo 9.2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Avizo 9.2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -9250,7 +9093,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
             "schema:name": "Sample preparation",
             "schema:description": "Polished section or chip; Bulk specimen or fragment (as received) \u2014 varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3\u00d74\u00d70.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5\u00d75\u00d70.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3\u00d74\u00d70.15 mm) of a doubly polished thick section\" (p.7)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -9260,7 +9102,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -9335,12 +9176,11 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
@@ -9350,21 +9190,19 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "CLSM performed on same inclusion for volumetric cross-validation" ;
                     schema1:name "Confocal laser scanning microscopy (Sample I)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "Software ring artifact correction applied; outcome not documented" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "Software ring artifact correction applied; outcome not documented" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -9375,17 +9213,18 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistance> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Avizo 9.2.0" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Richard2019-4/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Université de Lorraine, France" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
                     schema1:name "Samples C–I (various)" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Richard2019-4/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Avizo 9.2.0" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -9400,7 +9239,7 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -9538,80 +9377,77 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
           "schema:name": "Watson 012"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 70,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "70 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 86,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "86 µA"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 1.923,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "1.923 µm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Tait2014/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 70,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "70 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 86,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "86 µA"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 1.923,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "1.923 µm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Tait2014/instrument/XCT"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -9712,7 +9548,6 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
             "schema:name": "Sample preparation",
             "schema:description": "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -9722,7 +9557,6 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -9839,80 +9673,77 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
           "schema:name": "Watson 012"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 70,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "70 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 86,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "86 \u00b5A"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 1.923,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "1.923 \u00b5m"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Tait2014/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 70,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "70 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 86,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "86 \u00b5A"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 1.923,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "1.923 \u00b5m"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Tait2014/instrument/XCT"
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "AvizoFire 8.0; Matlab; Drishti 2.0",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -10013,7 +9844,6 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
             "schema:name": "Sample preparation",
             "schema:description": "Core or trimmed billet \u2014 \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -10023,7 +9853,6 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -10094,12 +9923,11 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
@@ -10111,17 +9939,15 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
                     schema1:name "Optical microscopy; EBSD" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "XCT qualitatively compared with thin sections and EBSD; cm-scale plagioclase confirmed" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
@@ -10130,16 +9956,17 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Tait2014/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CSIRO, Kensington, Western Australia" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
                     schema1:name "Watson 012" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/labxctTAPP-detail-Tait2014/instrument/XCT> ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -10154,7 +9981,7 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -11733,352 +11560,344 @@ allOf:
                 - schema:value
               minContains: 0
               maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
-                  required:
-                  - bios:computationalTool
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
                 then:
-                  properties:
-                    bios:computationalTool:
-                      type: array
-                      items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                ada:toolRole:
-                                  const: dataReduction
-                              required:
-                              - ada:toolRole
-                            then:
-                              properties:
-                                schema:name:
-                                  description: Software used to reconstruct 2D projection
-                                    images into a 3D CT volume, including version
-                                    number.
-                                  anyOf:
-                                  - type: string
-                                  - type: array
-                                    items:
-                                      type: string
-                              required:
-                              - schema:name
-                          required:
-                          - ada:toolRole
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    ada:toolRole:
+                      const: dataReduction
                   required:
-                  - schema:instrument
+                  - ada:toolRole
                 then:
                   properties:
-                    schema:instrument:
+                    schema:name:
+                      description: Software used to reconstruct 2D projection images
+                        into a 3D CT volume, including version number.
+                      anyOf:
+                      - type: string
+                      - type: array
+                        items:
+                          type: string
+                  required:
+                  - schema:name
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: XCT
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
+                  required:
+                  - schema:additionalType
+                then:
+                  properties:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: XCT
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - title: Accelerating Voltage
-                                      description: "X-ray tube accelerating voltage
-                                        in kilovolts (kV). If the voltage was varied
-                                        across samples within the same procedure or
-                                        session, report the full range applied (e.g.,
-                                        90\u2013115 kV). Note: some sources report
-                                        this parameter as 'X keV' (maximum Bremsstrahlung
-                                        photon energy) rather than 'X kV' (tube voltage).
-                                        For polychromatic lab XCT, these are numerically
-                                        equivalent: E_max [keV] = V [kV]. Record the
-                                        value as originally reported, and add a parenthetical
-                                        note if the unit used is keV."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: Tube Current
-                                      description: "X-ray tube current in microamperes
-                                        (\xB5A). If the current was varied across
-                                        samples within the same procedure or session,
-                                        report the full range applied (e.g., 65\u2013115
-                                        \xB5A)."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/tubeCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/tubeCurrent
-                                        schema:name:
-                                          const: Tube Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    - title: X-ray Pre-filter
-                                      description: Material and thickness of the beam-hardening
-                                        filter placed between the X-ray source and
-                                        the sample. Both filter material and thickness
-                                        must be reported. Instrument-proprietary filter
-                                        codes should be decoded where possible.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/xRayPreFilter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/xRayPreFilter
-                                        schema:name:
-                                          const: X-ray Pre-filter
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - title: Voxel Size
-                                      description: "Isotropic voxel edge length of
-                                        the reconstructed 3D volume in micrometres.
-                                        The target voxel size is set based on the
-                                        smallest feature to be resolved (target voxel
-                                        size \u2264 ~1/3 of that feature size; see
-                                        the criterion recorded under Partial Volume
-                                        Effect Criteria). Record the achieved voxel
-                                        size as reported by the reconstruction software,
-                                        which may differ slightly from the target
-                                        due to final geometric calibration."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/voxelSize
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/voxelSize
-                                        schema:name:
-                                          const: Voxel Size
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains:
-                                      title: Accelerating Voltage
-                                      description: "X-ray tube accelerating voltage
-                                        in kilovolts (kV). If the voltage was varied
-                                        across samples within the same procedure or
-                                        session, report the full range applied (e.g.,
-                                        90\u2013115 kV). Note: some sources report
-                                        this parameter as 'X keV' (maximum Bremsstrahlung
-                                        photon energy) rather than 'X kV' (tube voltage).
-                                        For polychromatic lab XCT, these are numerically
-                                        equivalent: E_max [keV] = V [kV]. Record the
-                                        value as originally reported, and add a parenthetical
-                                        note if the unit used is keV."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/acceleratingVoltage
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/acceleratingVoltage
-                                        schema:name:
-                                          const: Accelerating Voltage
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Tube Current
-                                      description: "X-ray tube current in microamperes
-                                        (\xB5A). If the current was varied across
-                                        samples within the same procedure or session,
-                                        report the full range applied (e.g., 65\u2013115
-                                        \xB5A)."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/tubeCurrent
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/tubeCurrent
-                                        schema:name:
-                                          const: Tube Current
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: X-ray Pre-filter
-                                      description: Material and thickness of the beam-hardening
-                                        filter placed between the X-ray source and
-                                        the sample. Both filter material and thickness
-                                        must be reported. Instrument-proprietary filter
-                                        codes should be decoded where possible.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/xRayPreFilter
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/xRayPreFilter
-                                        schema:name:
-                                          const: X-ray Pre-filter
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Voxel Size
-                                      description: "Isotropic voxel edge length of
-                                        the reconstructed 3D volume in micrometres.
-                                        The target voxel size is set based on the
-                                        smallest feature to be resolved (target voxel
-                                        size \u2264 ~1/3 of that feature size; see
-                                        the criterion recorded under Partial Volume
-                                        Effect Criteria). Record the achieved voxel
-                                        size as reported by the reconstruction software,
-                                        which may differ slightly from the target
-                                        due to final geometric calibration."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/labxctTAPP/voxelSize
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/labxctTAPP/voxelSize
-                                        schema:name:
-                                          const: Voxel Size
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
+                        anyOf:
+                        - title: Accelerating Voltage
+                          description: "X-ray tube accelerating voltage in kilovolts
+                            (kV). If the voltage was varied across samples within
+                            the same procedure or session, report the full range applied
+                            (e.g., 90\u2013115 kV). Note: some sources report this
+                            parameter as 'X keV' (maximum Bremsstrahlung photon energy)
+                            rather than 'X kV' (tube voltage). For polychromatic lab
+                            XCT, these are numerically equivalent: E_max [keV] = V
+                            [kV]. Record the value as originally reported, and add
+                            a parenthetical note if the unit used is keV."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/labxctTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: Tube Current
+                          description: "X-ray tube current in microamperes (\xB5A).
+                            If the current was varied across samples within the same
+                            procedure or session, report the full range applied (e.g.,
+                            65\u2013115 \xB5A)."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/labxctTAPP/tubeCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/tubeCurrent
+                            schema:name:
+                              const: Tube Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        - title: X-ray Pre-filter
+                          description: Material and thickness of the beam-hardening
+                            filter placed between the X-ray source and the sample.
+                            Both filter material and thickness must be reported. Instrument-proprietary
+                            filter codes should be decoded where possible.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/labxctTAPP/xRayPreFilter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/xRayPreFilter
+                            schema:name:
+                              const: X-ray Pre-filter
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - title: Voxel Size
+                          description: "Isotropic voxel edge length of the reconstructed
+                            3D volume in micrometres. The target voxel size is set
+                            based on the smallest feature to be resolved (target voxel
+                            size \u2264 ~1/3 of that feature size; see the criterion
+                            recorded under Partial Volume Effect Criteria). Record
+                            the achieved voxel size as reported by the reconstruction
+                            software, which may differ slightly from the target due
+                            to final geometric calibration."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/labxctTAPP/voxelSize
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/voxelSize
+                            schema:name:
+                              const: Voxel Size
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
                       allOf:
                       - contains:
+                          title: Accelerating Voltage
+                          description: "X-ray tube accelerating voltage in kilovolts
+                            (kV). If the voltage was varied across samples within
+                            the same procedure or session, report the full range applied
+                            (e.g., 90\u2013115 kV). Note: some sources report this
+                            parameter as 'X keV' (maximum Bremsstrahlung photon energy)
+                            rather than 'X kV' (tube voltage). For polychromatic lab
+                            XCT, these are numerically equivalent: E_max [keV] = V
+                            [kV]. Record the value as originally reported, and add
+                            a parenthetical note if the unit used is keV."
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: XCT
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                            '@id':
+                              const: ada:parameter/labxctTAPP/acceleratingVoltage
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/acceleratingVoltage
+                            schema:name:
+                              const: Accelerating Voltage
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Tube Current
+                          description: "X-ray tube current in microamperes (\xB5A).
+                            If the current was varied across samples within the same
+                            procedure or session, report the full range applied (e.g.,
+                            65\u2013115 \xB5A)."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/labxctTAPP/tubeCurrent
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/tubeCurrent
+                            schema:name:
+                              const: Tube Current
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: X-ray Pre-filter
+                          description: Material and thickness of the beam-hardening
+                            filter placed between the X-ray source and the sample.
+                            Both filter material and thickness must be reported. Instrument-proprietary
+                            filter codes should be decoded where possible.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/labxctTAPP/xRayPreFilter
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/xRayPreFilter
+                            schema:name:
+                              const: X-ray Pre-filter
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Voxel Size
+                          description: "Isotropic voxel edge length of the reconstructed
+                            3D volume in micrometres. The target voxel size is set
+                            based on the smallest feature to be resolved (target voxel
+                            size \u2264 ~1/3 of that feature size; see the criterion
+                            recorded under Partial Volume Effect Criteria). Record
+                            the achieved voxel size as reported by the reconstruction
+                            software, which may differ slightly from the target due
+                            to final geometric calibration."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/labxctTAPP/voxelSize
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/labxctTAPP/voxelSize
+                            schema:name:
+                              const: Voxel Size
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+              - if:
+                  type: object
+                  required:
+                  - schema:additionalType
+                  properties:
+                    schema:additionalType:
+                      type: array
+                      contains:
+                        type: object
+                        required:
+                        - '@id'
+                        properties:
+                          '@id':
+                            enum:
+                            - https://www.wikidata.org/entity/Q7397
+                            - wd:Q7397
+                then:
+                  required:
+                  - ada:toolRole
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: XCT
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:actionProcess:
             type: object
             properties:
@@ -12642,18 +12461,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

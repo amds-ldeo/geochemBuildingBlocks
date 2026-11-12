@@ -1,42 +1,43 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:solutionQicpmsTAPP-detail-P6 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "NIST 1643f [Te: 95 ± 5% (KED), 89 ± 10% (O2), N = 5; Se: 95 ± 3%]; NCS 73307 [Te: 99 ± 14% (KED), 70 ± 19% (O2), N = 4]; NIST 1640a [Se: 85 ± 2%] — recoveries (§2.3, §2.4)" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
-                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ] ] ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "NIST 1643f, NCS 73307, NIST 1640a — freshwater, stream sediment and freshwater" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/solutionQicpmsTAPP-detail-P6/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "N — instrument given as 'iCAP-TQ, Thermo' with no laboratory stated" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -44,9 +45,6 @@ ex:solutionQicpmsTAPP-detail-P6 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Selective extraction fractions F1-F4 and F4N; CRM NCS 73307" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "NIST 1643f, NCS 73307, NIST 1640a — freshwater, stream sediment and freshwater" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:proceduralBlankLevel "Te: ~35 µg/L in the F3 extraction blanks; other: N — three blanks of each extraction; the F3 contamination is attributed to the H2O2 or ammonium acetate (§2.2)" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
@@ -64,6 +62,12 @@ ex:solutionQicpmsTAPP-detail-P6 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
+
+<https://example.org/solutionQicpmsTAPP-detail-P6/instrument/ICPMS> a schema1:Product,
+        schema1:Thing ;
+    schema1:additionalType wd:Q3099911,
+        "ICPMS" ;
+    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
     schema1:name "Digestion Duration" ;

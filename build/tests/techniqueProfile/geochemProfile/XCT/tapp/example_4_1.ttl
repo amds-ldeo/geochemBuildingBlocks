@@ -1,27 +1,25 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
-        schema1:Action,
+ex:labxctTAPP-Neuman2025-2 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Lab-XCT analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
                     schema1:additionalType bios:LabProcess ;
@@ -97,7 +95,7 @@ ex:labxctTAPP-Neuman2025-2 a cdi:Activity,
 
 <https://example.org/labxctTAPP-Neuman2025-2/instrument/XCT> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "North Star Imaging" ] ;

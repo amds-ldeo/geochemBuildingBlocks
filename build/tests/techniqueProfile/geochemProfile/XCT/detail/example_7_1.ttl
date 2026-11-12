@@ -1,10 +1,9 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
@@ -18,14 +17,12 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
             dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ] ] ;
@@ -37,17 +34,18 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteria> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Avizo™" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
                     schema1:name "NWA 5790" ] ;
-            schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Avizo™" ;
-                            ada:toolRole "dataReduction" ] ] ] ;
+            schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "missing" ;
     ada:analyst "missing" ;
@@ -61,7 +59,7 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 

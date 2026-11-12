@@ -25,10 +25,10 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
   "@id": "ex:ramanTAPP-Liss2024",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "raman protocol — Liss2024",
   "schema:description": "ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholtz Zentrum Munchen) | (HGMU) WITec alpha 300 R (publication column of RAMAN_TAPP_draft_v2.csv).",
@@ -89,7 +89,6 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -144,10 +143,10 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
   "@id": "ex:ramanTAPP-Liss2024",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "raman protocol \u2014 Liss2024",
   "schema:description": "ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmholtz Zentrum Munchen) | (HGMU) WITec alpha 300 R (publication column of RAMAN_TAPP_draft_v2.csv).",
@@ -208,7 +207,6 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -241,21 +239,19 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:ramanTAPP-Liss2024 a cdi:Activity,
-        schema1:Action,
+ex:ramanTAPP-Liss2024 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Raman analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

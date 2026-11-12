@@ -25,10 +25,10 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
   "@id": "ex:stemTAPP-HF5000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "stem protocol — HF5000",
   "schema:description": "stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona | Hitachi HF5000 (25 instrumentMetadata exports) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Hitachi.",
@@ -46,7 +46,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
       "schema:additionalType": [
         "STEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltage": "200 kV",
@@ -85,7 +85,6 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -133,10 +132,10 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
   "@id": "ex:stemTAPP-HF5000",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "stem protocol \u2014 HF5000",
   "schema:description": "stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona | Hitachi HF5000 (25 instrumentMetadata exports) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Hitachi.",
@@ -154,7 +153,7 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
       "schema:additionalType": [
         "STEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltage": "200 kV",
@@ -193,7 +192,6 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -219,21 +217,20 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:stemTAPP-HF5000 a cdi:Activity,
-        schema1:Action,
+ex:stemTAPP-HF5000 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Scanning Transmission Electron Microscopy analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -261,7 +258,7 @@ ex:stemTAPP-HF5000 a cdi:Activity,
 
 <https://example.org/stemTAPP-HF5000/instrument/STEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "STEM" ;
     schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltage "200 kV" .
@@ -286,10 +283,10 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
   "@id": "ex:stemTAPP-P1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "stem protocol — P1",
   "schema:description": "stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley National Laboratory | FEI TitanX TEM (78 instrumentMetadata exports, dimensions only) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FEI.",
@@ -329,7 +326,6 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -353,7 +349,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "schema:additionalType": [
         "STEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "missing",
@@ -394,10 +390,10 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
   "@id": "ex:stemTAPP-P1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "stem protocol \u2014 P1",
   "schema:description": "stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley National Laboratory | FEI TitanX TEM (78 instrumentMetadata exports, dimensions only) (publication column of STEM_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = FEI.",
@@ -437,7 +433,6 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -461,7 +456,7 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "schema:additionalType": [
         "STEM",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "missing",
@@ -480,21 +475,20 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:stemTAPP-P1 a cdi:Activity,
-        schema1:Action,
+ex:stemTAPP-P1 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Scanning Transmission Electron Microscopy analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -522,7 +516,7 @@ ex:stemTAPP-P1 a cdi:Activity,
 
 <https://example.org/stemTAPP-P1/instrument/STEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "STEM" ;
     schema1:name "missing" ;
     ada:acceleratingVoltage -9999 .

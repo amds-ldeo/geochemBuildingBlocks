@@ -183,38 +183,29 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "SEM",
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaSEM-example-001/instrument/SEM"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "SEM",
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:semTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaSEM-example-001/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -246,7 +237,10 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:edsDeadTime": -9999,
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
+      "schema:actionProcess": {
+        "@id": "ex:semTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -351,26 +345,6 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
       "schema:value": -9999
-    },
-    {
-      "@id": "ex:var/Calibration-Factor-and-Determination-Method",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -745,38 +719,29 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:identifier": "session-ada-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
       "schema:endTime": "2026-01-10T12:45:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                "SEM",
-                {
-                  "@id": "ada:ADAInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example ADA Instrument",
-              "schema:identifier": [
-                "ex:instrument-ada-001"
-              ],
-              "@id": "ex:adaSEM-example-001/instrument/SEM"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            "SEM",
+            {
+              "@id": "ada:ADAInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
-        },
-        {
-          "ada:tappDefinition": {
-            "@id": "ex:semTAPP-P0"
-          }
+          ],
+          "schema:name": "Example ADA Instrument",
+          "schema:identifier": [
+            "ex:instrument-ada-001"
+          ],
+          "@id": "ex:adaSEM-example-001/instrument/SEM"
         }
       ],
       "schema:location": {
@@ -808,7 +773,10 @@ and technique component types on the archive distribution. Mock data for validat
         }
       ],
       "ada:edsDeadTime": -9999,
-      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel"
+      "ada:proceduralBlankLevel": "no value available: ada:proceduralBlankLevel",
+      "schema:actionProcess": {
+        "@id": "ex:semTAPP-P0"
+      }
     }
   ],
   "schema:variableMeasured": [
@@ -913,26 +881,6 @@ and technique component types on the archive distribution. Mock data for validat
       "cdi:simpleUnitOfMeasure": "counts",
       "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
       "schema:value": -9999
-    },
-    {
-      "@id": "ex:var/Calibration-Factor-and-Determination-Method",
-      "@type": [
-        "schema:PropertyValue",
-        "cdi:InstanceVariable"
-      ],
-      "schema:name": "Calibration Factor and Determination Method",
-      "schema:description": "Calibration Factor and Determination Method reported for this dataset. Example value.",
-      "schema:propertyID": [
-        {
-          "@id": "https://ada.astromat.org/vocabulary/variables/ada_primary"
-        }
-      ],
-      "schema:unitText": "counts",
-      "cdi:intendedDataType": "https://www.w3.org/TR/xmlschema-2/#decimal",
-      "cdi:role": "MeasureComponent",
-      "cdi:simpleUnitOfMeasure": "counts",
-      "cdif:physicalDataType": "https://www.w3.org/TR/xmlschema-2/#double",
-      "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
   "schema:distribution": [
@@ -1138,6 +1086,7 @@ and technique component types on the archive distribution. Mock data for validat
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaSEM-example-001 a schema1:Dataset,
@@ -1213,26 +1162,27 @@ ex:adaSEM-example-001 a schema1:Dataset,
     schema1:variableMeasured <https://ada.astromat.org/metadata/parameter/semTAPP/targetMaterialOfSamplingUnit>,
         ex:adaProduct-var-001,
         ex:adaProduct-var-002,
-        <https://example.org/var/Calibration-Factor-and-Determination-Method>,
         <https://example.org/var/Detection-Limit>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: analyticalPrecision" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value 1e+00 ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracy" ],
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value 1e+00 ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: analyticalPrecision" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
+            schema1:actionProcess ex:semTAPP-P0 ;
             schema1:endTime "2026-01-10T12:45:00" ;
             schema1:identifier "session-ada-20260110-001" ;
+            schema1:instrument <https://example.org/adaSEM-example-001/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
@@ -1244,8 +1194,6 @@ ex:adaSEM-example-001 a schema1:Dataset,
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
             schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/adaSEM-example-001/instrument/SEM> ],
-                [ ada:tappDefinition ex:semTAPP-P0 ] ;
             ada:edsDeadTime -9999 ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
     ada:analyticalMode "SE Imaging" ;
@@ -1329,22 +1277,10 @@ ex:adaProduct-var-002 a cdi:InstanceVariable,
         schema1:Thing ;
     schema1:additionalType ada:ADAInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911>,
+        wd:Q3099911,
         "SEM" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .
-
-<https://example.org/var/Calibration-Factor-and-Determination-Method> a cdi:InstanceVariable,
-        schema1:PropertyValue ;
-    cdi:intendedDataType "https://www.w3.org/TR/xmlschema-2/#decimal" ;
-    cdi:role "MeasureComponent" ;
-    cdi:simpleUnitOfMeasure "counts" ;
-    schema1:defaultValue "no value available: schema:defaultValue" ;
-    schema1:description "Calibration Factor and Determination Method reported for this dataset. Example value." ;
-    schema1:name "Calibration Factor and Determination Method" ;
-    schema1:propertyID <https://ada.astromat.org/vocabulary/variables/ada_primary> ;
-    schema1:unitText "counts" ;
-    cdif:physicalDataType "https://www.w3.org/TR/xmlschema-2/#double" .
 
 <https://example.org/var/Detection-Limit> a cdi:InstanceVariable,
         schema1:PropertyValue ;
@@ -1390,49 +1326,13 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA SEM (superset) Product Profile
 description: Path-driven technique-specific profile for ADA SEM (superset) Product
   Profile. Extends the base ADA product profile with the SEM analysis-instance detail
-  on the schema:Dataset root, narrows prov:used to the semTAPP protocol, and constrains
-  valid component types on schema:distribution.hasPart.
+  on the schema:Dataset root, and pins the product type and the profile it declares
+  conformance to.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema.yaml
 - type: object
   properties:
-    prov:wasGeneratedBy:
-      description: 'Pin the semTAPP definition and the instrument where prov:used
-        carries them. Constraint-only if/then, never a narrowed anyOf: prov:used items
-        are role-keyed wrappers, and an anyOf here would allOf-merge with the base
-        union and exclude item shapes the base allows.'
-      type: array
-      items:
-        type: object
-        properties:
-          prov:used:
-            type: array
-            items:
-              allOf:
-              - if:
-                  type: object
-                  required:
-                  - schema:instrument
-                then:
-                  properties:
-                    schema:instrument:
-                      type: array
-                      minItems: 1
-                      items:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-              - if:
-                  type: object
-                  properties:
-                    '@type':
-                      contains:
-                        const: ada:TAPPDefinition
-                  required:
-                  - '@type'
-                  - schema:name
-                then:
-                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/tapp/schema.yaml
-      title: Analysis Events
     schema:additionalType:
       description: Must include a SEM product type identifier.
       contains:

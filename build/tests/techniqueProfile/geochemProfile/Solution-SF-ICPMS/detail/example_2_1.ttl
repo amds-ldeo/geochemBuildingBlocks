@@ -1,45 +1,46 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "FER-2 [all: RSD <5%] — three analyses, Table 3 (§3)" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "FER-2 [all: most ratios to literature values within 0.9–1.1] — Fig. 7 (§3)" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "FER-2 [all: most ratios to literature values within 0.9–1.1] — Fig. 7 (§3)" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "FER-2 [all: RSD <5%] — three analyses, Table 3 (§3)" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/solutionSficpmsTAPP-detail-P1/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing (affiliation)" ] ;
             schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
@@ -47,10 +48,6 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "mag_1, mag_3, mag_5, py_2, py_4; iron-formation reference material FER-2 (CCRMP, CANMET MMSL, Canada)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P1/instrument/ICPMS> ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)" ;
-                            ada:reagentRole "referenceMaterial" ] ] ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "Li: 0.026; Be: 0.008; Sc: 0.020; Cr: 0.068; Co: 0.007; Ni: 0.035; Cu: 0.089; Zn: 0.216; Ge: 0.020; Rb: 0.012; Sr: 0.010; Cs: 0.004; Ba: 0.029; other: N — ng/mL (Table 2); 'the highest blank level in Zn would contribute less than 0.01% of the amount of analyte'" ] ;
     ada:analysisEndDate "missing" ;
@@ -73,7 +70,7 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/solutionSficpmsTAPP-detail-P1/instrument/ICPMS/part/ICP-Source>,
         <https://example.org/solutionSficpmsTAPP-detail-P1/instrument/ICPMS/part/Sample-Introduction-System> ;
@@ -84,7 +81,7 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
@@ -92,7 +89,7 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/nebulizerGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleUptakeRate> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Sample Introduction System" ;
     schema1:name "missing" .
 

@@ -25,10 +25,10 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
   "@id": "ex:capdTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "capd protocol — P0",
   "schema:description": "capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of CAPD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
@@ -84,7 +84,6 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -139,10 +138,10 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
   "@id": "ex:capdTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "capd protocol \u2014 P0",
   "schema:description": "capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC)Quantum Design Physical Property Measurement System (QD-PPMS) (publication column of CAPD_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Quantum.",
@@ -198,7 +197,6 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -231,21 +229,19 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:capdTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:capdTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Capacitance Dilatometry analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;

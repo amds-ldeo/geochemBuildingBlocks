@@ -48,7 +48,6 @@
             ],
             "schema:description": "N \u2014 sections UT1 to UT3 (p.3); their preparation is not described",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -72,7 +71,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -202,166 +200,164 @@
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "Laser Ablation System",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/LaserAblation/laserEnergy",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/LaserAblation/laserEnergy"
+                }
+              ],
+              "schema:name": "Laser Energy",
+              "schema:value": 150,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "150 mJ output energy \u2014 Methods, p.4"
+            }
+          ],
+          "ada:laserSpotGeometry": "all: 24 and 32 \u00b5m diameter, and 90 \u00b5m for a few olivine analyses \u2014 '24 and 32 \u00b5m diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 \u00b5m beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)",
+          "ada:laserFluence": "7\u201310 J/m\u00b2 \u2014 as written: 'a fluence rate of 7\u201310 J/m2 on the sample' (Methods, p.4)",
+          "ada:laserRepetitionRate": "all: 5 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/Laser-Ablation-System"
+        },
+        {
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "Laser Ablation System",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/LaserAblation/laserEnergy",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/LaserAblation/laserEnergy"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Laser Energy",
-                  "schema:value": 150,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "150 mJ output energy \u2014 Methods, p.4"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": "N \u2014 not stated",
+                  "schema:unitText": "no value available: unnamed property"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": "N \u2014 not stated",
+                  "schema:unitText": "no value available: unnamed property"
                 }
               ],
-              "ada:laserSpotGeometry": "all: 24 and 32 \u00b5m diameter, and 90 \u00b5m for a few olivine analyses \u2014 '24 and 32 \u00b5m diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 \u00b5m beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)",
-              "ada:laserFluence": "7\u201310 J/m\u00b2 \u2014 as written: 'a fluence rate of 7\u201310 J/m2 on the sample' (Methods, p.4)",
-              "ada:laserRepetitionRate": "all: 5 Hz",
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/Laser-Ablation-System"
+              "schema:name": "missing",
+              "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS/part/ICP-Source"
             },
             {
               "schema:additionalType": [
-                "ICPMS",
+                "Collision Reaction Cell",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": "N \u2014 not stated",
-                      "schema:unitText": "no value available: unnamed property"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": "N \u2014 not stated",
-                      "schema:unitText": "no value available: unnamed property"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
-                    }
-                  ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "N \u2014 not stated"
-                },
-                {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
-                    }
-                  ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "N \u2014 not stated"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS"
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "N \u2014 not stated"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "N \u2014 not stated"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "N \u2014 not stated",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            }
-          ]
-        },
-        {
-          "bios:reagent": [
-            {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "N \u2014 not stated",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }

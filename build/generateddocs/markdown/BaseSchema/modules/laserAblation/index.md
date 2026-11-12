@@ -53,15 +53,27 @@ The procedure half of the LaserAblation module, with every property populated. G
 {
   "schema:instrument": [
     {
-      "schema:additionalType": "no value available: unnamed property",
+      "schema:additionalType": [
+        "no value available: unnamed property",
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
       "schema:model": {
-        "schema:name": "no value available: unnamed property"
+        "schema:name": "no value available: unnamed property",
+        "@type": [
+          "schema:ProductModel"
+        ]
       },
       "ada:laserType": "no value available: unnamed property",
       "schema:name": "no value available: unnamed property",
       "ada:laserSpotGeometryDefault": "no value available: unnamed property",
       "ada:laserFluenceDefault": 1,
-      "ada:laserRepetitionRateDefault": 1
+      "ada:laserRepetitionRateDefault": 1,
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ]
     }
   ],
   "ada:ablationSamplingMode": [
@@ -92,15 +104,27 @@ The procedure half of the LaserAblation module, with every property populated. G
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "no value available: unnamed property",
+      "schema:additionalType": [
+        "no value available: unnamed property",
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
       "schema:model": {
-        "schema:name": "no value available: unnamed property"
+        "schema:name": "no value available: unnamed property",
+        "@type": [
+          "schema:ProductModel"
+        ]
       },
       "ada:laserType": "no value available: unnamed property",
       "schema:name": "no value available: unnamed property",
       "ada:laserSpotGeometryDefault": "no value available: unnamed property",
       "ada:laserFluenceDefault": 1,
-      "ada:laserRepetitionRateDefault": 1
+      "ada:laserRepetitionRateDefault": 1,
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ]
     }
   ],
   "ada:ablationSamplingMode": [
@@ -125,8 +149,12 @@ The procedure half of the LaserAblation module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
-            schema1:model [ schema1:name "no value available: unnamed property" ] ;
+[] schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                "no value available: unnamed property" ;
+            schema1:model [ a schema1:ProductModel ;
+                    schema1:name "no value available: unnamed property" ] ;
             schema1:name "no value available: unnamed property" ;
             ada:laserFluenceDefault 1 ;
             ada:laserRepetitionRateDefault 1 ;
@@ -153,185 +181,20 @@ The analysis half of the LaserAblation module, with every property populated. Ge
 {
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "no value available: unnamed property",
             {
-              "@context": {
-                "schema": "http://schema.org/",
-                "dcterms": "http://purl.org/dc/terms/"
-              },
-              "@id": "no value available: unnamed property",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "schema:alternateName": [
-                "no value available: unnamed property"
-              ],
-              "schema:identifier": [
-                "no value available: unnamed property"
-              ],
-              "schema:url": "no value available: unnamed property",
-              "schema:manufacturer": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:model": {
-                "@type": [
-                  "schema:ProductModel"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:identifier": "no value available: unnamed property"
-              },
-              "schema:category": [
-                {
-                  "@type": [
-                    "schema:DefinedTerm"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:identifier": "no value available: unnamed property",
-                  "schema:inDefinedTermSet": "no value available: unnamed property",
-                  "schema:termCode": "no value available: unnamed property"
-                }
-              ],
-              "schema:owner": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:contributor": [
-                {
-                  "@type": [
-                    "schema:Role"
-                  ],
-                  "schema:roleName": "no value available: unnamed property",
-                  "schema:contributor": {
-                    "@id": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    "no value available: unnamed property"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:unitCode": "no value available: unnamed property",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
-              "schema:validFrom": "no value available: unnamed property",
-              "schema:validThrough": "no value available: unnamed property",
-              "schema:hasPart": [
-                {
-                  "@id": "no value available: unnamed property",
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:additionalType": [
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "ada:collectorConfiguration": "no value available: unnamed property",
-                  "ada:collectors": [
-                    {
-                      "@type": [
-                        "ada:Collector"
-                      ],
-                      "schema:name": "no value available: unnamed property",
-                      "schema:description": "no value available: unnamed property",
-                      "schema:additionalProperty": [
-                        {
-                          "schema:name": "no value available: unnamed property",
-                          "schema:value": "no value available: unnamed property"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "schema:relatedLink": [
-                {
-                  "@type": [
-                    "schema:LinkRole"
-                  ],
-                  "schema:linkRelationship": "no value available: unnamed property",
-                  "schema:target": {
-                    "@type": [
-                      "schema:EntryPoint"
-                    ],
-                    "schema:name": "no value available: unnamed property",
-                    "schema:url": "no value available: unnamed property",
-                    "schema:encodingFormat": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:subjectOf": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "no value available: unnamed property"
-                ],
-                "schema:dateModified": "no value available: unnamed property",
-                "schema:about": {
-                  "@id": "no value available: unnamed property"
-                },
-                "dcterms:conformsTo": [
-                  "no value available: unnamed property"
-                ]
-              }
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
+          ],
+          "ada:laserSpotGeometry": "no value available: unnamed property",
+          "ada:laserFluence": 1,
+          "ada:laserRepetitionRate": 1,
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
           ]
         }
       ],
@@ -357,185 +220,20 @@ The analysis half of the LaserAblation module, with every property populated. Ge
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "no value available: unnamed property",
             {
-              "@context": {
-                "schema": "http://schema.org/",
-                "dcterms": "http://purl.org/dc/terms/"
-              },
-              "@id": "no value available: unnamed property",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "no value available: unnamed property",
-              "schema:description": "no value available: unnamed property",
-              "schema:alternateName": [
-                "no value available: unnamed property"
-              ],
-              "schema:identifier": [
-                "no value available: unnamed property"
-              ],
-              "schema:url": "no value available: unnamed property",
-              "schema:manufacturer": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:model": {
-                "@type": [
-                  "schema:ProductModel"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:identifier": "no value available: unnamed property"
-              },
-              "schema:category": [
-                {
-                  "@type": [
-                    "schema:DefinedTerm"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:identifier": "no value available: unnamed property",
-                  "schema:inDefinedTermSet": "no value available: unnamed property",
-                  "schema:termCode": "no value available: unnamed property"
-                }
-              ],
-              "schema:owner": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "schema:Organization"
-                ],
-                "schema:additionalType": [
-                  "no value available: unnamed property"
-                ],
-                "schema:name": "no value available: unnamed property",
-                "schema:alternateName": "no value available: unnamed property",
-                "schema:description": "no value available: unnamed property",
-                "schema:identifier": {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:url": "no value available: unnamed property"
-                },
-                "schema:sameAs": [
-                  "no value available: unnamed property"
-                ]
-              },
-              "schema:contributor": [
-                {
-                  "@type": [
-                    "schema:Role"
-                  ],
-                  "schema:roleName": "no value available: unnamed property",
-                  "schema:contributor": {
-                    "@id": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    "no value available: unnamed property"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:value": "no value available: unnamed property",
-                  "schema:unitCode": "no value available: unnamed property",
-                  "schema:unitText": "no value available: unnamed property"
-                }
-              ],
-              "schema:validFrom": "no value available: unnamed property",
-              "schema:validThrough": "no value available: unnamed property",
-              "schema:hasPart": [
-                {
-                  "@id": "no value available: unnamed property",
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "no value available: unnamed property",
-                  "schema:additionalType": [
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "ada:collectorConfiguration": "no value available: unnamed property",
-                  "ada:collectors": [
-                    {
-                      "@type": [
-                        "ada:Collector"
-                      ],
-                      "schema:name": "no value available: unnamed property",
-                      "schema:description": "no value available: unnamed property",
-                      "schema:additionalProperty": [
-                        {
-                          "schema:name": "no value available: unnamed property",
-                          "schema:value": "no value available: unnamed property"
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ],
-              "schema:relatedLink": [
-                {
-                  "@type": [
-                    "schema:LinkRole"
-                  ],
-                  "schema:linkRelationship": "no value available: unnamed property",
-                  "schema:target": {
-                    "@type": [
-                      "schema:EntryPoint"
-                    ],
-                    "schema:name": "no value available: unnamed property",
-                    "schema:url": "no value available: unnamed property",
-                    "schema:encodingFormat": "no value available: unnamed property"
-                  }
-                }
-              ],
-              "schema:subjectOf": {
-                "@id": "no value available: unnamed property",
-                "@type": [
-                  "no value available: unnamed property"
-                ],
-                "schema:dateModified": "no value available: unnamed property",
-                "schema:about": {
-                  "@id": "no value available: unnamed property"
-                },
-                "dcterms:conformsTo": [
-                  "no value available: unnamed property"
-                ]
-              }
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
+          ],
+          "ada:laserSpotGeometry": "no value available: unnamed property",
+          "ada:laserFluence": 1,
+          "ada:laserRepetitionRate": 1,
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
           ]
         }
       ],
@@ -552,9 +250,16 @@ The analysis half of the LaserAblation module, with every property populated. Ge
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] prov:wasGeneratedBy [ prov:used [ ] ;
+[] prov:wasGeneratedBy [ schema1:instrument [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                        "no value available: unnamed property" ;
+                    ada:laserFluence 1 ;
+                    ada:laserRepetitionRate 1 ;
+                    ada:laserSpotGeometry "no value available: unnamed property" ] ;
             ada:ablationPitDepthRate "no value available: unnamed property" ;
             ada:ablationSpotDuration 1 ;
             ada:rasterLineSpacing "no value available: unnamed property" ] ;
@@ -759,64 +464,61 @@ $defs:
         items:
           type: object
           properties:
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: Laser Ablation System
+                        schema:inDefinedTermSet: ada:vocab/instrumentType
                     required:
-                    - schema:instrument
+                    - schema:additionalType
                   then:
                     properties:
-                      schema:instrument:
-                        type: array
-                        items:
-                          allOf:
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  schema:additionalType:
-                                    contains:
-                                      const: Laser Ablation System
-                                    schema:inDefinedTermSet: ada:vocab/instrumentType
-                                required:
-                                - schema:additionalType
-                              then:
-                                properties:
-                                  ada:laserSpotGeometry:
-                                    description: "Shape and dimensions of the laser
-                                      ablation spot in micrometres registered by the
-                                      procedure. For circular spots, report diameter;
-                                      for square or rectangular spots, report width
-                                      \xD7 length."
-                                    anyOf:
-                                    - type: string
-                                    - type: array
-                                      items:
-                                        type: string
-                                    x-jsonld-id: https://ada.astromat.org/metadata/laserSpotGeometry
-                                  ada:laserFluence:
-                                    description: "Laser pulse energy per unit area
-                                      at the sample surface in J cm\u207B\xB2, as
-                                      registered by the procedure. If the system reports
-                                      only as % of maximum output, include that value
-                                      and note the system maximum where known."
-                                    anyOf:
-                                    - type: number
-                                    - type: string
-                                    x-jsonld-id: https://ada.astromat.org/metadata/laserFluence
-                                  ada:laserRepetitionRate:
-                                    description: Laser pulse repetition rate in hertz
-                                      registered by the procedure.
-                                    anyOf:
-                                    - type: number
-                                    - type: string
-                                    x-jsonld-id: https://ada.astromat.org/metadata/laserRepetitionRate
-                        x-jsonld-id: http://schema.org/instrument
-              x-jsonld-id: http://www.w3.org/ns/prov#used
+                      ada:laserSpotGeometry:
+                        description: "Shape and dimensions of the laser ablation spot
+                          in micrometres registered by the procedure. For circular
+                          spots, report diameter; for square or rectangular spots,
+                          report width \xD7 length."
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        x-jsonld-id: https://ada.astromat.org/metadata/laserSpotGeometry
+                      ada:laserFluence:
+                        description: "Laser pulse energy per unit area at the sample
+                          surface in J cm\u207B\xB2, as registered by the procedure.
+                          If the system reports only as % of maximum output, include
+                          that value and note the system maximum where known."
+                        anyOf:
+                        - type: number
+                        - type: string
+                        x-jsonld-id: https://ada.astromat.org/metadata/laserFluence
+                      ada:laserRepetitionRate:
+                        description: Laser pulse repetition rate in hertz registered
+                          by the procedure.
+                        anyOf:
+                        - type: number
+                        - type: string
+                        x-jsonld-id: https://ada.astromat.org/metadata/laserRepetitionRate
+              x-jsonld-id: http://schema.org/instrument
             ada:ablationSpotDuration:
               description: Total on-sample ablation (signal acquisition) time per
                 individual spot in seconds, as set in the acquisition method. For

@@ -36,7 +36,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -73,7 +72,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -83,7 +81,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Powders weighed with the B, Zr\u2013Hf and Mo\u2013Sn\u2013Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted \u2014 \u00a72.5; GSJ samples and PCC-1 further pulverised (\u00a72.3)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -117,186 +114,183 @@
           "schema:description": "no value available: schema:description"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "Sample Introduction System",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "Sample Introduction System",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
-                        }
-                      ],
-                      "schema:name": "Sample Uptake Rate",
-                      "schema:value": 1,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "N \u2014 self-aspiration (Table 1a); pseudo-FI uses 0.013 ml per sample (\u00a72.6)"
-                    },
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Nebulizer Gas Flow Rate",
-                      "schema:value": 0.92,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "0.92 L/min (stated Table in section 2.1.1)"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
-                        }
-                      ],
-                      "schema:name": "Make-up Gas and Flow Rate",
-                      "schema:value": 0.25,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 0.25 l/min \u2014 Table 1a"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System"
-                },
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1.6,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1.6 kW (stated Table in section 2.1.1)"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "15 L/min (stated Table in section 2.1.1)"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.9,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "0.90 L/min (stated Table in section 2.1.1)"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "0.5 mol/l HF as carrier and wash, which washes out Zr, Nb, Hf and Ta; ~20 min of 0.5 mol/l HF after REE work in HNO3 \u2014 \u00a72.1.1"
+                  "schema:name": "Sample Uptake Rate",
+                  "schema:value": 1,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "N \u2014 self-aspiration (Table 1a); pseudo-FI uses 0.013 ml per sample (\u00a72.6)"
+                },
+                {
+                  "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Nebulizer Gas Flow Rate",
+                  "schema:value": 0.92,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.92 L/min (stated Table in section 2.1.1)"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/makeUpGasAndFlowRate"
+                    }
+                  ],
+                  "schema:name": "Make-up Gas and Flow Rate",
+                  "schema:value": 0.25,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 0.25 l/min \u2014 Table 1a"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS"
+              "schema:name": "missing",
+              "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS/part/Sample-Introduction-System"
+            },
+            {
+              "schema:additionalType": [
+                "ICP Source",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1.6,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1.6 kW (stated Table in section 2.1.1)"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "15 L/min (stated Table in section 2.1.1)"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.9,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.90 L/min (stated Table in section 2.1.1)"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "missing",
+              "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS/part/ICP-Source"
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS/part/Collision-Reaction-Cell"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "0.5 mol/l HF as carrier and wash, which washes out Zr, Nb, Hf and Ta; ~20 min of 0.5 mol/l HF after REE work in HNO3 \u2014 \u00a72.1.1"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 \u2014 \u00a72.3; the chondrites are samples",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 \u2014 \u00a72.3; the chondrites are samples",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }

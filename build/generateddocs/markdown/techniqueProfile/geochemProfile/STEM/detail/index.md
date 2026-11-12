@@ -29,54 +29,50 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "STEM",
             {
-              "schema:additionalType": [
-                "STEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/stemTAPP/magnification",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/stemTAPP/magnification"
-                    }
-                  ],
-                  "schema:name": "Magnification",
-                  "schema:value": 14000
-                },
-                {
-                  "@id": "ada:parameter/stemTAPP/cameraLength",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/stemTAPP/cameraLength"
-                    }
-                  ],
-                  "schema:name": "Camera Length",
-                  "schema:value": 37,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "37 mm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:stemTAPP-detail-HF5000/instrument/STEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/stemTAPP/magnification",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/stemTAPP/magnification"
+                }
+              ],
+              "schema:name": "Magnification",
+              "schema:value": 14000
+            },
+            {
+              "@id": "ada:parameter/stemTAPP/cameraLength",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/stemTAPP/cameraLength"
+                }
+              ],
+              "schema:name": "Camera Length",
+              "schema:value": 37,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "37 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:stemTAPP-detail-HF5000/instrument/STEM"
         }
       ],
       "schema:additionalProperty": [
@@ -230,54 +226,50 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
   ],
   "prov:wasGeneratedBy": [
     {
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "STEM",
             {
-              "schema:additionalType": [
-                "STEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/stemTAPP/magnification",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/stemTAPP/magnification"
-                    }
-                  ],
-                  "schema:name": "Magnification",
-                  "schema:value": 14000
-                },
-                {
-                  "@id": "ada:parameter/stemTAPP/cameraLength",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/stemTAPP/cameraLength"
-                    }
-                  ],
-                  "schema:name": "Camera Length",
-                  "schema:value": 37,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "37 mm"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:stemTAPP-detail-HF5000/instrument/STEM"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/stemTAPP/magnification",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/stemTAPP/magnification"
+                }
+              ],
+              "schema:name": "Magnification",
+              "schema:value": 14000
+            },
+            {
+              "@id": "ada:parameter/stemTAPP/cameraLength",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/stemTAPP/cameraLength"
+                }
+              ],
+              "schema:name": "Camera Length",
+              "schema:value": 37,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "37 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:stemTAPP-detail-HF5000/instrument/STEM"
         }
       ],
       "schema:additionalProperty": [
@@ -411,6 +403,7 @@ detail instance derived from ADA n=365 | Maizey, Beau | University of Arizona | 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:stemTAPP-detail-HF5000 a schema1:Dataset,
@@ -430,11 +423,11 @@ ex:stemTAPP-detail-HF5000 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/stemTAPP/stageYPosition> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument <https://example.org/stemTAPP-detail-HF5000/instrument/STEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/03m2x1q45" ;
                     schema1:name "University of Arizona" ] ;
-            schema1:startTime "2024-05-16" ;
-            prov:used [ schema1:instrument <https://example.org/stemTAPP-detail-HF5000/instrument/STEM> ] ] ;
+            schema1:startTime "2024-05-16" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-05-16" ;
     ada:analyst "Maizey; Beau" ;
@@ -449,7 +442,7 @@ ex:stemTAPP-detail-HF5000 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/stemTAPP/cameraLength>,
         <https://ada.astromat.org/metadata/parameter/stemTAPP/magnification> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "STEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -1019,153 +1012,153 @@ allOf:
                           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Analysis_preAnalysisImagingAndScreening
                         minContains: 0
                         maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: STEM
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:additionalProperty:
                       type: array
                       items:
-                        allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: STEM
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - title: Magnification
-                                      description: Nominal magnification.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/stemTAPP/magnification
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/stemTAPP/magnification
-                                        schema:name:
-                                          const: Magnification
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - title: Camera Length
-                                      description: Camera length.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/stemTAPP/cameraLength
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/stemTAPP/cameraLength
-                                        schema:name:
-                                          const: Camera Length
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                  allOf:
-                                  - contains:
-                                      title: Magnification
-                                      description: Nominal magnification.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/stemTAPP/magnification
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/stemTAPP/magnification
-                                        schema:name:
-                                          const: Magnification
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Camera Length
-                                      description: Camera length.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/stemTAPP/cameraLength
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/stemTAPP/cameraLength
-                                        schema:name:
-                                          const: Camera Length
-                                        schema:value:
-                                          anyOf:
-                                          - type: number
-                                          - type: string
-                                        schema:unitText:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                      - schema:unitText
-                                    minContains: 0
-                                    maxContains: 1
+                        anyOf:
+                        - title: Magnification
+                          description: Nominal magnification.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/stemTAPP/magnification
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/stemTAPP/magnification
+                            schema:name:
+                              const: Magnification
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - title: Camera Length
+                          description: Camera length.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/stemTAPP/cameraLength
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/stemTAPP/cameraLength
+                            schema:name:
+                              const: Camera Length
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
                       allOf:
                       - contains:
+                          title: Magnification
+                          description: Nominal magnification.
+                          type: object
                           properties:
-                            schema:additionalType:
-                              contains:
-                                const: STEM
+                            '@id':
+                              const: ada:parameter/stemTAPP/magnification
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/stemTAPP/magnification
+                            schema:name:
+                              const: Magnification
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
                           required:
-                          - schema:additionalType
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Camera Length
+                          description: Camera length.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/stemTAPP/cameraLength
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/stemTAPP/cameraLength
+                            schema:name:
+                              const: Camera Length
+                            schema:value:
+                              anyOf:
+                              - type: number
+                              - type: string
+                            schema:unitText:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                          - schema:unitText
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: STEM
+                required:
+                - schema:additionalType
       title: Analysis Events
     schema:distribution:
       type: object
@@ -1227,18 +1220,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

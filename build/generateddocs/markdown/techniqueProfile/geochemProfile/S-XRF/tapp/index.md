@@ -25,10 +25,10 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
   "@id": "ex:sXrfTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "sXrf protocol — P0",
   "schema:description": "sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering) (publication column of S-XRF_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Synchrotron.",
@@ -41,7 +41,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
           "@id": "nxs:base_classes/NXinstrument.html"
         },
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)",
@@ -75,7 +75,6 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -124,10 +123,10 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
   "@id": "ex:sXrfTAPP-P0",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "sXrf protocol \u2014 P0",
   "schema:description": "sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotron Radiation Facility | Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering) (publication column of S-XRF_TAPP_draft_v2.csv). Reported detail: ada:instrumentManufacturer = Synchrotron.",
@@ -140,7 +139,7 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
           "@id": "nxs:base_classes/NXinstrument.html"
         },
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)",
@@ -174,7 +173,6 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -201,21 +199,20 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:sXrfTAPP-P0 a cdi:Activity,
-        schema1:Action,
+ex:sXrfTAPP-P0 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "Synchrotron-based X-ray Fluorescence Spectroscopy analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -240,7 +237,7 @@ ex:sXrfTAPP-P0 a cdi:Activity,
 <https://example.org/sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:name "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)" .
 
 

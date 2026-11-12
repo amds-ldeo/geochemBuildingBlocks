@@ -191,64 +191,61 @@ $defs:
         items:
           type: object
           properties:
-            prov:used:
+            schema:instrument:
               type: array
               items:
                 type: object
                 allOf:
                 - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+                - if:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                  then:
+                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+                - if:
+                    properties:
+                      schema:additionalType:
+                        contains:
+                          const: Laser Ablation System
+                        schema:inDefinedTermSet: ada:vocab/instrumentType
                     required:
-                    - schema:instrument
+                    - schema:additionalType
                   then:
                     properties:
-                      schema:instrument:
-                        type: array
-                        items:
-                          allOf:
-                          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                          - type: object
-                            allOf:
-                            - if:
-                                properties:
-                                  schema:additionalType:
-                                    contains:
-                                      const: Laser Ablation System
-                                    schema:inDefinedTermSet: ada:vocab/instrumentType
-                                required:
-                                - schema:additionalType
-                              then:
-                                properties:
-                                  ada:laserSpotGeometry:
-                                    description: "Shape and dimensions of the laser
-                                      ablation spot in micrometres registered by the
-                                      procedure. For circular spots, report diameter;
-                                      for square or rectangular spots, report width
-                                      \xD7 length."
-                                    anyOf:
-                                    - type: string
-                                    - type: array
-                                      items:
-                                        type: string
-                                    x-jsonld-id: https://ada.astromat.org/metadata/laserSpotGeometry
-                                  ada:laserFluence:
-                                    description: "Laser pulse energy per unit area
-                                      at the sample surface in J cm\u207B\xB2, as
-                                      registered by the procedure. If the system reports
-                                      only as % of maximum output, include that value
-                                      and note the system maximum where known."
-                                    anyOf:
-                                    - type: number
-                                    - type: string
-                                    x-jsonld-id: https://ada.astromat.org/metadata/laserFluence
-                                  ada:laserRepetitionRate:
-                                    description: Laser pulse repetition rate in hertz
-                                      registered by the procedure.
-                                    anyOf:
-                                    - type: number
-                                    - type: string
-                                    x-jsonld-id: https://ada.astromat.org/metadata/laserRepetitionRate
-                        x-jsonld-id: http://schema.org/instrument
-              x-jsonld-id: http://www.w3.org/ns/prov#used
+                      ada:laserSpotGeometry:
+                        description: "Shape and dimensions of the laser ablation spot
+                          in micrometres registered by the procedure. For circular
+                          spots, report diameter; for square or rectangular spots,
+                          report width \xD7 length."
+                        anyOf:
+                        - type: string
+                        - type: array
+                          items:
+                            type: string
+                        x-jsonld-id: https://ada.astromat.org/metadata/laserSpotGeometry
+                      ada:laserFluence:
+                        description: "Laser pulse energy per unit area at the sample
+                          surface in J cm\u207B\xB2, as registered by the procedure.
+                          If the system reports only as % of maximum output, include
+                          that value and note the system maximum where known."
+                        anyOf:
+                        - type: number
+                        - type: string
+                        x-jsonld-id: https://ada.astromat.org/metadata/laserFluence
+                      ada:laserRepetitionRate:
+                        description: Laser pulse repetition rate in hertz registered
+                          by the procedure.
+                        anyOf:
+                        - type: number
+                        - type: string
+                        x-jsonld-id: https://ada.astromat.org/metadata/laserRepetitionRate
+              x-jsonld-id: http://schema.org/instrument
             ada:ablationSpotDuration:
               description: Total on-sample ablation (signal acquisition) time per
                 individual spot in seconds, as set in the acquisition method. For

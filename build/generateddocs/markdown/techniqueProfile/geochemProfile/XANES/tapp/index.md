@@ -25,10 +25,10 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
   "@id": "ex:xanesTAPP-Gainsforth2023",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xanes protocol — Gainsforth2023",
   "schema:description": "xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2 (publication column of XANES_TAPP_draft_v2.csv).",
@@ -41,7 +41,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
           "@id": "nxs:base_classes/NXinstrument.html"
         },
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "ALS STXM beamline 5.3.2.2",
@@ -89,7 +89,6 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -138,10 +137,10 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
   "@id": "ex:xanesTAPP-Gainsforth2023",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "xanes protocol \u2014 Gainsforth2023",
   "schema:description": "xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source at Lawrence Berkeley National Laboratory | ALS STXM beamline 5.3.2.2 (publication column of XANES_TAPP_draft_v2.csv).",
@@ -154,7 +153,7 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
           "@id": "nxs:base_classes/NXinstrument.html"
         },
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "ALS STXM beamline 5.3.2.2",
@@ -202,7 +201,6 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -229,21 +227,20 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ex:xanesTAPP-Gainsforth2023 a cdi:Activity,
-        schema1:Action,
+ex:xanesTAPP-Gainsforth2023 a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "XANES analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
@@ -272,7 +269,7 @@ ex:xanesTAPP-Gainsforth2023 a cdi:Activity,
 <https://example.org/xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:name "ALS STXM beamline 5.3.2.2" .
 
 

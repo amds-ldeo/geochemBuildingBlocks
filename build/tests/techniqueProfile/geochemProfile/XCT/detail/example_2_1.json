@@ -173,95 +173,92 @@
           "schema:value": "SSOs \u2265 5.4 \u00b5m identified (implicit: features \u2265 voxel size = 0.625 \u00b5m); sulphide rims \u2265 1 voxel required for detection"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "ImageJ + TANGO plugin (Ollion et al. 2013)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "XCT",
             {
-              "schema:additionalType": [
-                "XCT",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 90,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "90 kV"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/tubeCurrent",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/tubeCurrent"
-                    }
-                  ],
-                  "schema:name": "Tube Current",
-                  "schema:value": 89,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "89 \u00b5A"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
-                    }
-                  ],
-                  "schema:name": "X-ray Pre-filter",
-                  "schema:value": "Inbuilt LE4 filter (beam hardening reduction)"
-                },
-                {
-                  "@id": "ada:parameter/labxctTAPP/voxelSize",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/labxctTAPP/voxelSize"
-                    }
-                  ],
-                  "schema:name": "Voxel Size",
-                  "schema:value": 0.625,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "0.625 \u00b5m (A0180-A); 0.672 \u00b5m (A0180-B)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:labxctTAPP-detail-Genge2025/instrument/XCT"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/labxctTAPP/acceleratingVoltage",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 90,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "90 kV"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/tubeCurrent",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/tubeCurrent"
+                }
+              ],
+              "schema:name": "Tube Current",
+              "schema:value": 89,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "89 \u00b5A"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/xRayPreFilter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/xRayPreFilter"
+                }
+              ],
+              "schema:name": "X-ray Pre-filter",
+              "schema:value": "Inbuilt LE4 filter (beam hardening reduction)"
+            },
+            {
+              "@id": "ada:parameter/labxctTAPP/voxelSize",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/labxctTAPP/voxelSize"
+                }
+              ],
+              "schema:name": "Voxel Size",
+              "schema:value": 0.625,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "0.625 \u00b5m (A0180-A); 0.672 \u00b5m (A0180-B)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:labxctTAPP-detail-Genge2025/instrument/XCT"
         }
       ],
       "schema:location": {
@@ -276,7 +273,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Bulk specimen or fragment \u2014 \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -286,7 +282,6 @@
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]

@@ -1,17 +1,15 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:ebsdTAPP-detail-P0 a schema1:Dataset,
         schema1:Product ;
     schema1:contributor [ schema1:contributor [ schema1:name "Nicholas E Timms" ] ;
             schema1:roleName "analyst" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
                             schema1:name "Sample preparation" ;
@@ -25,17 +23,19 @@ ex:ebsdTAPP-detail-P0 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/ebsdTAPP/mapStepSize> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "AZtecCrystal" ;
+                    ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
+                    ada:toolRole "acquisition" ],
+                <https://example.org/ebsdTAPP-detail-P0/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/02n415q13" ;
                     schema1:name "Curtin University" ] ;
-            schema1:startTime "2023-11-16" ;
-            prov:used [ schema1:instrument <https://example.org/ebsdTAPP-detail-P0/instrument/SEM> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "AZtecCrystal" ;
-                            ada:toolRole "dataReduction" ],
-                        [ a schema1:SoftwareApplication ;
-                            schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
-                            ada:toolRole "acquisition" ] ] ] ;
+            schema1:startTime "2023-11-16" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-16" ;
     ada:analyst "Nicholas E Timms" ;
@@ -50,7 +50,7 @@ ex:ebsdTAPP-detail-P0 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/ebsdTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/ebsdTAPP/beamCurrent>,
         <https://ada.astromat.org/metadata/parameter/ebsdTAPP/workingDistance> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 

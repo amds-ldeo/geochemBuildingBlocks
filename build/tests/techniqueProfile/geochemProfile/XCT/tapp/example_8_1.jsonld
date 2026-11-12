@@ -21,10 +21,10 @@
   "@id": "ex:labxctTAPP-Glavin2023",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Glavin2023",
   "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size); ada:detectorType = 2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD; ada:rotationModeDefault = Continuous 360\u00b0 rotation; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images).",
@@ -133,18 +133,24 @@
   ],
   "ada:xRaySourceConfiguration": "180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size)",
   "ada:detectorType": "2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD",
-  "bios:computationalTool": [
+  "schema:instrument": [
     {
       "ada:toolRole": "dataReduction",
-      "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)"
-    }
-  ],
-  "schema:instrument": [
+      "schema:name": "Nikon CTAgentPro v5.4 (FBP algorithm)",
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
     {
       "schema:additionalType": [
         "XCT",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "ada:acceleratingVoltageDefault": "160 keV (paper reports as X-ray photon energy; equivalent to 160 kV tube voltage)",
@@ -218,7 +224,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Powder or crushed split \u2014 chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -231,7 +236,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

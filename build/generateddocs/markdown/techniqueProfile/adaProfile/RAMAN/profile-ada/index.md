@@ -215,32 +215,28 @@ Mock data for validation and testing.
       ],
       "schema:identifier": "session-raman-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "ada:RAMANInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example RAMAN Instrument",
-              "schema:identifier": [
-                "ex:instrument-raman-001"
-              ],
-              "@id": "ex:adaRAMAN-legacy-example-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "ada:RAMANInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example RAMAN Instrument",
+          "schema:identifier": [
+            "ex:instrument-raman-001"
+          ],
+          "@id": "ex:adaRAMAN-legacy-example-001/instrument/instrument"
         }
       ],
       "schema:location": {
@@ -661,32 +657,28 @@ Mock data for validation and testing.
       ],
       "schema:identifier": "session-raman-20260110-001",
       "schema:startTime": "2026-01-10T09:30:00",
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "@type": [
+            "schema:Thing",
+            "schema:Product"
+          ],
+          "schema:additionalType": [
             {
-              "@type": [
-                "schema:Thing",
-                "schema:Product"
-              ],
-              "schema:additionalType": [
-                {
-                  "@id": "nxs:base_classes/NXinstrument.html"
-                },
-                {
-                  "@id": "ada:RAMANInstrument"
-                },
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:name": "Example RAMAN Instrument",
-              "schema:identifier": [
-                "ex:instrument-raman-001"
-              ],
-              "@id": "ex:adaRAMAN-legacy-example-001/instrument/instrument"
+              "@id": "nxs:base_classes/NXinstrument.html"
+            },
+            {
+              "@id": "ada:RAMANInstrument"
+            },
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "schema:name": "Example RAMAN Instrument",
+          "schema:identifier": [
+            "ex:instrument-raman-001"
+          ],
+          "@id": "ex:adaRAMAN-legacy-example-001/instrument/instrument"
         }
       ],
       "schema:location": {
@@ -939,6 +931,7 @@ Mock data for validation and testing.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaRAMAN-file-001 a cdi:TabularTextDataSet,
@@ -1046,6 +1039,7 @@ ex:adaRAMAN-legacy-example-001 a schema1:Dataset,
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:identifier "session-raman-20260110-001" ;
+            schema1:instrument <https://example.org/adaRAMAN-legacy-example-001/instrument/instrument> ;
             schema1:location [ a schema1:Place ;
                     schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
@@ -1056,15 +1050,14 @@ ex:adaRAMAN-legacy-example-001 a schema1:Dataset,
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
-            schema1:startTime "2026-01-10T09:30:00" ;
-            prov:used [ schema1:instrument <https://example.org/adaRAMAN-legacy-example-001/instrument/instrument> ] ] ;
+            schema1:startTime "2026-01-10T09:30:00" ] ;
     ada:submissionType "BundleDelivery" .
 
 <https://example.org/adaRAMAN-legacy-example-001/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType ada:RAMANInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:identifier "ex:instrument-raman-001" ;
     schema1:name "Example RAMAN Instrument" .
 

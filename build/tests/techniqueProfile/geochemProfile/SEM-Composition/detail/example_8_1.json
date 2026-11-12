@@ -47,24 +47,44 @@
         ],
         "schema:name": "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona"
       },
-      "prov:used": [
+      "schema:instrument": [
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "acquisition",
+          "schema:name": "Oxford Instruments Aztec Live/x-stream",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Oxford Instruments Aztec Live/x-stream",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Oxford Instruments Aztec",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Oxford Instruments Aztec",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
+            }
+          ]
+        },
+        {
+          "schema:additionalType": [
+            "SEM",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "SEM",
+          "@id": "ex:semCompositionTAPP-detail-Zega2025-2/instrument/SEM"
         }
       ],
       "schema:description": "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS",
@@ -74,7 +94,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Polished sections; coated with 0.1 nm carbon for charge mitigation",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -85,7 +104,6 @@
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]

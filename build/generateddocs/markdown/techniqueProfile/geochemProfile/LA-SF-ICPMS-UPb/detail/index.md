@@ -125,66 +125,63 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
           "schema:value": "N — the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
             {
-              "schema:additionalType": [
-                "ICPMS",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
-                    }
-                  ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/ΔM ≈ 400)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS"
-            },
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
                 }
               ],
-              "ada:laserSpotGeometry": "raster: 50 µm beam spot; Ge spots: 150 µm — §2.2",
-              "ada:laserRepetitionRate": "raster: 50 Hz; Ge spots: 50 Hz — §2.2",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/ΔM ≈ 400)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "raster: 50 µm beam spot; Ge spots: 150 µm — §2.2",
+          "ada:laserRepetitionRate": "raster: 50 Hz; Ge spots: 50 Hz — §2.2",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
         }
       ],
       "schema:actionProcess": {
@@ -207,7 +204,6 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -217,7 +213,6 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
             "schema:name": "Sample preparation",
             "schema:description": "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -423,66 +418,63 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
             {
-              "schema:additionalType": [
-                "ICPMS",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
-                    }
-                  ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/\u0394M \u2248 400)"
-                }
-              ],
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS"
-            },
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
                 }
               ],
-              "ada:laserSpotGeometry": "raster: 50 \u00b5m beam spot; Ge spots: 150 \u00b5m \u2014 \u00a72.2",
-              "ada:laserRepetitionRate": "raster: 50 Hz; Ge spots: 50 Hz \u2014 \u00a72.2",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/\u0394M \u2248 400)"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "N \u2014 paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "N \u2014 paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "raster: 50 \u00b5m beam spot; Ge spots: 150 \u00b5m \u2014 \u00a72.2",
+          "ada:laserRepetitionRate": "raster: 50 Hz; Ge spots: 50 Hz \u2014 \u00a72.2",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
         }
       ],
       "schema:actionProcess": {
@@ -505,7 +497,6 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -515,7 +506,6 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
             "schema:name": "Sample preparation",
             "schema:description": "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (\u00a72.1); no acid treatment is described for the LA-ICP-MS specimens",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -602,12 +592,11 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsUPbTAPP-detail-Zhang2022 a schema1:Dataset,
@@ -625,14 +614,12 @@ ex:laSficpmsUPbTAPP-detail-Zhang2022 a schema1:Dataset,
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
                             schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens" ;
                             schema1:name "Sample preparation" ;
@@ -647,14 +634,15 @@ ex:laSficpmsUPbTAPP-detail-Zhang2022 a schema1:Dataset,
             schema1:description "The raster pass gives the 23-element dataset; a separate set of 150 µm spots on five irons gives more precise Ge, since the raster 'failed to yield useful Ge abundances for Klamath Falls' (§2.2)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS>,
+                <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:ablationSpotDuration "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
@@ -681,13 +669,13 @@ ex:laSficpmsUPbTAPP-detail-Zhang2022 a schema1:Dataset,
 <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:name "no value available: schema:name" .
 
 <https://example.org/laSficpmsUPbTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserRepetitionRate "raster: 50 Hz; Ge spots: 50 Hz — §2.2" ;
@@ -861,156 +849,153 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
           "schema:value": "N — the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low (M/ΔM = 300) — §2.2.2"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "N — oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "Washout typically less than 1 s — §2.2.2"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low (M/ΔM = 300) — §2.2.2"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 15 L/min — Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "N — oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described"
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.81,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 0.81 L/min — Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "Washout typically less than 1 s — §2.2.2"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 15 L/min — Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.81,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 0.81 L/min — Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 800,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "800 W — cool plasma (§2.2.2, Table B1)"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source"
+                  "schema:name": "RF Power",
+                  "schema:value": 800,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "800 W — cool plasma (§2.2.2, Table B1)"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "In-house MatLab script (Appendix C1)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 20 µm × 20 µm square-masked — §2.2.2",
-              "ada:laserFluence": "5–7 J cm⁻²",
-              "ada:laserRepetitionRate": "all: 20 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "In-house MatLab script (Appendix C1)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 20 µm × 20 µm square-masked — §2.2.2",
+          "ada:laserFluence": "5–7 J cm⁻²",
+          "ada:laserRepetitionRate": "all: 20 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System"
         }
       ],
       "schema:actionProcess": {
@@ -1046,7 +1031,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1056,7 +1040,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
             "schema:name": "Sample preparation",
             "schema:description": "Flat polished thick sections (§2.1)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1238,156 +1221,153 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low (M/\u0394M = 300) \u2014 \u00a72.2.2"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "N \u2014 oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "Washout typically less than 1 s \u2014 \u00a72.2.2"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low (M/\u0394M = 300) \u2014 \u00a72.2.2"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 15 L/min \u2014 Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "N \u2014 oxide-based interferences 'were further minimized during tuning' (App. C4); no tuning procedure is described"
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.81,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 0.81 L/min \u2014 Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "Washout typically less than 1 s \u2014 \u00a72.2.2"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 15 L/min \u2014 Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.81,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 0.81 L/min \u2014 Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 800,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "800 W \u2014 cool plasma (\u00a72.2.2, Table B1)"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source"
+                  "schema:name": "RF Power",
+                  "schema:value": 800,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "800 W \u2014 cool plasma (\u00a72.2.2, Table B1)"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "In-house MatLab script (Appendix C1)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 20 \u00b5m \u00d7 20 \u00b5m square-masked \u2014 \u00a72.2.2",
-              "ada:laserFluence": "5\u20137 J cm\u207b\u00b2",
-              "ada:laserRepetitionRate": "all: 20 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "In-house MatLab script (Appendix C1)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 20 \u00b5m \u00d7 20 \u00b5m square-masked \u2014 \u00a72.2.2",
+          "ada:laserFluence": "5\u20137 J cm\u207b\u00b2",
+          "ada:laserRepetitionRate": "all: 20 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System"
         }
       ],
       "schema:actionProcess": {
@@ -1423,7 +1403,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1433,7 +1412,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
             "schema:name": "Sample preparation",
             "schema:description": "Flat polished thick sections (\u00a72.1)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1496,25 +1474,22 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Flat polished thick sections (§2.1)" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
                                 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
@@ -1530,14 +1505,15 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
             schema1:description "Cool plasma (800 W) mapping with a lateral resolution of approximately 20 µm; P-rich veinlets masked before averaging (§2.2.2, §3.1)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "In-house MatLab script (Appendix C1)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS>,
+                <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "In-house MatLab script (Appendix C1)" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:ablationSpotDuration "N/A — mapping mode" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
@@ -1569,7 +1545,7 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -1579,13 +1555,13 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "5–7 J cm⁻²" ;
@@ -1721,7 +1697,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
             ],
             "schema:description": "Flat polished thick sections (§2.1)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1758,7 +1733,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -1892,143 +1866,140 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
           "schema:value": "N — the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "run 1: medium (M/ΔM = 4000); run 2: low (M/ΔM = 300) — §2.2.3"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "11 s of washout per run — Table B1"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "run 1: medium (M/ΔM = 4000); run 2: low (M/ΔM = 300) — §2.2.3"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 15 L/min — Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "11 s of washout per run — Table B1"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.9,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 0.90 L/min — Table B1"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 15 L/min — Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.9,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 0.90 L/min — Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1000,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1000 W (run 1 major elements + run 2 trace elements)"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1000,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1000 W (run 1 major elements + run 2 trace elements)"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "In-house MatLab script (Appendix C2)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "run 1: 30 µm diameter circular-masked; run 2: 130 µm diameter — §2.2.3",
-              "ada:laserFluence": "4.72 J/cm² (both runs) — §2.2.3",
-              "ada:laserRepetitionRate": "run 1: 20 Hz; run 2: 40 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "In-house MatLab script (Appendix C2)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "run 1: 30 µm diameter circular-masked; run 2: 130 µm diameter — §2.2.3",
+          "ada:laserFluence": "4.72 J/cm² (both runs) — §2.2.3",
+          "ada:laserRepetitionRate": "run 1: 20 Hz; run 2: 40 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System"
         }
       ],
       "ada:combinedResults": [
@@ -2150,7 +2121,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
             ],
             "schema:description": "Flat polished thick sections (\u00a72.1)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2187,7 +2157,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -2321,143 +2290,140 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "run 1: medium (M/\u0394M = 4000); run 2: low (M/\u0394M = 300) \u2014 \u00a72.2.3"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "11 s of washout per run \u2014 Table B1"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "run 1: medium (M/\u0394M = 4000); run 2: low (M/\u0394M = 300) \u2014 \u00a72.2.3"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 15 L/min \u2014 Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "11 s of washout per run \u2014 Table B1"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.9,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 0.90 L/min \u2014 Table B1"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 15 L/min \u2014 Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.9,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 0.90 L/min \u2014 Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1000,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1000 W (run 1 major elements + run 2 trace elements)"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1000,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1000 W (run 1 major elements + run 2 trace elements)"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "In-house MatLab script (Appendix C2)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "run 1: 30 \u00b5m diameter circular-masked; run 2: 130 \u00b5m diameter \u2014 \u00a72.2.3",
-              "ada:laserFluence": "4.72 J/cm\u00b2 (both runs) \u2014 \u00a72.2.3",
-              "ada:laserRepetitionRate": "run 1: 20 Hz; run 2: 40 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "In-house MatLab script (Appendix C2)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "run 1: 30 \u00b5m diameter circular-masked; run 2: 130 \u00b5m diameter \u2014 \u00a72.2.3",
+          "ada:laserFluence": "4.72 J/cm\u00b2 (both runs) \u2014 \u00a72.2.3",
+          "ada:laserRepetitionRate": "run 1: 20 Hz; run 2: 40 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System"
         }
       ],
       "ada:combinedResults": [
@@ -2535,12 +2501,11 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
@@ -2551,26 +2516,24 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
             dqv:value "all: 1 standard deviation — Table 1: 'the uncertainty corresponds to 1 standard deviation'" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
-                            schema1:description "Flat polished thick sections (§2.1)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
                                 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
+                            schema1:description "Flat polished thick sections (§2.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/numberOfReplicates>,
@@ -2583,14 +2546,15 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
             schema1:description "Two line-scan runs on the same line after pre-ablation: run 1 (30 µm, medium resolution) gives the major elements and Cr, which normalises run 2 (130 µm, low resolution) for the trace elements (§2.2.3, App. C2)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "In-house MatLab script (Appendix C2)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS>,
+                <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "In-house MatLab script (Appendix C2)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ] ;
             ada:ablationSpotDuration "50 s of sample ablation per 400 µm line, both runs — Table B1" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
@@ -2619,7 +2583,7 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -2629,13 +2593,13 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "4.72 J/cm² (both runs) — §2.2.3" ;
@@ -2862,143 +2826,140 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
           "schema:value": "N — the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/ΔM = 300)"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/ΔM = 300)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 15 L/min — Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.85,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 0.85 L/min — Table B1"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 15 L/min — Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.85,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 0.85 L/min — Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1000,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1000 W"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1000,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1000 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "In-house MatLab script (Appendix C3)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 110 µm diameter circular-masked — §2.2.4",
-              "ada:laserFluence": "3.5 J cm⁻²",
-              "ada:laserRepetitionRate": "all: 20 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "In-house MatLab script (Appendix C3)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 110 µm diameter circular-masked — §2.2.4",
+          "ada:laserFluence": "3.5 J cm⁻²",
+          "ada:laserRepetitionRate": "all: 20 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System"
         }
       ],
       "schema:actionProcess": {
@@ -3021,7 +2982,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3031,7 +2991,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
             "schema:name": "Sample preparation",
             "schema:description": "Flat polished thick sections (§2.1)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3215,143 +3174,140 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/\u0394M = 300)"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/\u0394M = 300)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 15,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 15 L/min \u2014 Table B1"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.85,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "Ar, 0.85 L/min \u2014 Table B1"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 15,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 15 L/min \u2014 Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.85,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "Ar, 0.85 L/min \u2014 Table B1"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1000,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1000 W"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1000,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1000 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "In-house MatLab script (Appendix C3)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 110 \u00b5m diameter circular-masked \u2014 \u00a72.2.4",
-              "ada:laserFluence": "3.5 J cm\u207b\u00b2",
-              "ada:laserRepetitionRate": "all: 20 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "In-house MatLab script (Appendix C3)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 110 \u00b5m diameter circular-masked \u2014 \u00a72.2.4",
+          "ada:laserFluence": "3.5 J cm\u207b\u00b2",
+          "ada:laserRepetitionRate": "all: 20 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System"
         }
       ],
       "schema:actionProcess": {
@@ -3374,7 +3330,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3384,7 +3339,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
             "schema:name": "Sample preparation",
             "schema:description": "Flat polished thick sections (\u00a72.1)",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3447,29 +3401,26 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Flat polished thick sections (§2.1)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/numberOfReplicates>,
@@ -3480,14 +3431,15 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
             schema1:description "No phosphate reference material exists, so glasses calibrate (App. C3); grains identified as stanfieldite or merrillite from a Ca/(Ca + Mg) plot (§3.4)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "In-house MatLab script (Appendix C3)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS>,
+                <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "In-house MatLab script (Appendix C3)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ] ;
             ada:ablationSpotDuration "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
@@ -3518,7 +3470,7 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -3528,13 +3480,13 @@ ex:laSficpmsUPbTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsUPbTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "3.5 J cm⁻²" ;
@@ -3662,7 +3614,6 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
             ],
             "schema:description": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3712,7 +3663,6 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -3815,125 +3765,122 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
           "schema:value": "N — the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Medium (m/Δm of 4000) — §3.3"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "N — parameters lost"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "N — parameters lost"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Medium (m/Δm of 4000) — §3.3"
-                },
-                {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
-                    }
-                  ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "N — parameters lost"
-                },
-                {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
-                    }
-                  ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "N — parameters lost"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": "N — parameters lost",
-                      "schema:unitText": "no value available: unnamed property"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source"
+                  "schema:name": "RF Power",
+                  "schema:value": "N — parameters lost",
+                  "schema:unitText": "no value available: unnamed property"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 75 µm spot size — §3.3",
-              "ada:laserFluence": "N — parameters lost",
-              "ada:laserRepetitionRate": "N — parameters lost",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 75 µm spot size — §3.3",
+          "ada:laserFluence": "N — parameters lost",
+          "ada:laserRepetitionRate": "N — parameters lost",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System"
         }
       ],
       "ada:combinedResults": [
@@ -4051,7 +3998,6 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
             ],
             "schema:description": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H\u2082O, hand-picked, polished grain mounts",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4101,7 +4047,6 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4204,125 +4149,122 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Medium (m/\u0394m of 4000) \u2014 \u00a73.3"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "N \u2014 parameters lost"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "N \u2014 parameters lost"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Medium (m/\u0394m of 4000) \u2014 \u00a73.3"
-                },
-                {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
-                    }
-                  ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "N \u2014 parameters lost"
-                },
-                {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
-                    }
-                  ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "N \u2014 parameters lost"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": "N \u2014 parameters lost",
-                      "schema:unitText": "no value available: unnamed property"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source"
+                  "schema:name": "RF Power",
+                  "schema:value": "N \u2014 parameters lost",
+                  "schema:unitText": "no value available: unnamed property"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 75 \u00b5m spot size \u2014 \u00a73.3",
-              "ada:laserFluence": "N \u2014 parameters lost",
-              "ada:laserRepetitionRate": "N \u2014 parameters lost",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 75 \u00b5m spot size \u2014 \u00a73.3",
+          "ada:laserFluence": "N \u2014 parameters lost",
+          "ada:laserRepetitionRate": "N \u2014 parameters lost",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System"
         }
       ],
       "ada:combinedResults": [
@@ -4396,41 +4338,38 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — no funding section in this appendix document; funding would be in the parent paper which was not assessed" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "N — within-session precision not formally assessed" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
+                            schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing>,
                                 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
-                            schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/numberOfReplicates>,
@@ -4441,14 +4380,15 @@ ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
             schema1:description "The files documenting the analysis parameters (gas flows, laser power, etc.) were lost during an extended shutdown of the JSC ICP-MS laboratory; the grains are the EMPA grain mounts, 'low in inclusions, [but] not devoid of them' (§3.3)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS>,
+                <https://example.org/laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System> ] ;
             ada:ablationSpotDuration "N — parameters lost" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
@@ -4478,7 +4418,7 @@ ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -4486,13 +4426,13 @@ ex:laSficpmsUPbTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
 <https://example.org/laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsUPbTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "N — parameters lost" ;
@@ -4699,152 +4639,150 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
           "schema:value": "N — the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/ΔM = 300)"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' — Experimental section"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/ΔM = 300)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 16,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "16 L/min — Table 2 'plasma gas flow rate'"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' — Experimental section"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.9,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.9 L/min — Table 2"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 16,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "16 L/min — Table 2 'plasma gas flow rate'"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.9,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "0.9 L/min — Table 2"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1200,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1200 W"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1200 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 150 µm — Table 2 'spot diameter'",
-              "ada:laserFluence": "7 J cm⁻²",
-              "ada:laserRepetitionRate": "all: 10 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 150 µm — Table 2 'spot diameter'",
+          "ada:laserFluence": "7 J cm⁻²",
+          "ada:laserRepetitionRate": "all: 10 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -4869,7 +4807,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -4879,7 +4816,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
             "schema:name": "Sample preparation",
             "schema:description": "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5082,152 +5018,150 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/\u0394M = 300)"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' \u2014 Experimental section"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/\u0394M = 300)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 16,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "16 L/min \u2014 Table 2 'plasma gas flow rate'"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' \u2014 Experimental section"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.9,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.9 L/min \u2014 Table 2"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 16,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "16 L/min \u2014 Table 2 'plasma gas flow rate'"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.9,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "0.9 L/min \u2014 Table 2"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1200,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1200 W"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1200 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 150 \u00b5m \u2014 Table 2 'spot diameter'",
-              "ada:laserFluence": "7 J cm\u207b\u00b2",
-              "ada:laserRepetitionRate": "all: 10 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 150 \u00b5m \u2014 Table 2 'spot diameter'",
+          "ada:laserFluence": "7 J cm\u207b\u00b2",
+          "ada:laserRepetitionRate": "all: 10 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -5252,7 +5186,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5262,7 +5195,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
             "schema:name": "Sample preparation",
             "schema:description": "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5344,12 +5276,11 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsUPbTAPP-detail-Navarro2024 a schema1:Dataset,
@@ -5358,22 +5289,20 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024 a schema1:Dataset,
             schema1:name "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts for Geoanalysis 2022 presentation; J.E.: CNPq grant 316191/2021-3" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
+            dqv:value "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'" ] ;
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 2 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
@@ -5388,17 +5317,19 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024 a schema1:Dataset,
             schema1:description "Two measurement standards complement each other: North Chile for matrix similarity and NIST SRM 612 for its well-known composition; Fe + Ni + Co = 100% normalisation removes the need for an internal standard" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
+                    ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
+                    ada:reagentRole "referenceMaterial" ],
+                <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS>,
+                <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:ablationSpotDuration "40 s — '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ;
@@ -5426,7 +5357,7 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -5436,13 +5367,13 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "7 J cm⁻²" ;
@@ -5645,152 +5576,150 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
           "schema:value": "N — the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/ΔM = 300)"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' — Experimental section"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/ΔM = 300)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 16,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "16 L/min — Table 2 'plasma gas flow rate'"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' — Experimental section"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.9,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.9 L/min — Table 2"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 16,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "16 L/min — Table 2 'plasma gas flow rate'"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.9,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "0.9 L/min — Table 2"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1200,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1200 W"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1200 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 150 µm² square spot — as written: 'targeting a 150 μm2 square spot'",
-              "ada:laserFluence": "7 J cm⁻²",
-              "ada:laserRepetitionRate": "all: 10 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 150 µm² square spot — as written: 'targeting a 150 μm2 square spot'",
+          "ada:laserFluence": "7 J cm⁻²",
+          "ada:laserRepetitionRate": "all: 10 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -5815,7 +5744,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -5825,7 +5753,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
             "schema:name": "Sample preparation",
             "schema:description": "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6006,152 +5933,150 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
           "schema:value": "N \u2014 the procedure reports no date"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                }
+              ],
+              "schema:name": "Mass Resolution Setting",
+              "schema:value": "Low resolution (M/\u0394M = 300)"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' \u2014 Experimental section"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "ICP Source",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/module/ICPMS/massResolutionSetting",
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/massResolutionSetting"
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
                     }
                   ],
-                  "schema:name": "Mass Resolution Setting",
-                  "schema:value": "Low resolution (M/\u0394M = 300)"
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 16,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "16 L/min \u2014 Table 2 'plasma gas flow rate'"
                 },
                 {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
                     }
                   ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' \u2014 Experimental section"
-                }
-              ],
-              "schema:hasPart": [
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 0.9,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.9 L/min \u2014 Table 2"
+                },
                 {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 16,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "16 L/min \u2014 Table 2 'plasma gas flow rate'"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 0.9,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "0.9 L/min \u2014 Table 2"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1200,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1200 W"
-                    }
-                  ],
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
                   "@type": [
-                    "schema:Product",
-                    "schema:Thing"
+                    "schema:PropertyValue"
                   ],
-                  "schema:name": "missing",
-                  "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source"
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1200,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1200 W"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS"
-            },
+              "schema:name": "missing",
+              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS"
+        },
+        {
+          "ada:toolRole": "dataReduction",
+          "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "schema:additionalType": [
-                "Laser Ablation System",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "ada:laserSpotGeometry": "all: 150 \u00b5m\u00b2 square spot \u2014 as written: 'targeting a 150 \u03bcm2 square spot'",
-              "ada:laserFluence": "7 J cm\u207b\u00b2",
-              "ada:laserRepetitionRate": "all: 10 Hz",
-              "@type": [
-                "schema:Product",
-                "schema:Thing"
-              ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System"
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "schema:additionalType": [
+            "Laser Ablation System",
             {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "iolite 4.5.7 with 3D Trace Elements DRS",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
-          ]
+          ],
+          "ada:laserSpotGeometry": "all: 150 \u00b5m\u00b2 square spot \u2014 as written: 'targeting a 150 \u03bcm2 square spot'",
+          "ada:laserFluence": "7 J cm\u207b\u00b2",
+          "ada:laserRepetitionRate": "all: 10 Hz",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -6176,7 +6101,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6186,7 +6110,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
             "schema:name": "Sample preparation",
             "schema:description": "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO\u2083 in ethanol) to reveal kamacite and plessite",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -6248,29 +6171,26 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
 #### ttl
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
-@prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsUPbTAPP-detail-Navarro2024-2 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts; J.E.: CNPq grant 316191/2021-3" ] ;
-    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a cdi:Activity,
-                                schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a cdi:Activity,
-                                schema1:Action,
+    prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
@@ -6281,17 +6201,19 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024-2 a schema1:Dataset,
             schema1:description "Mapping over regions with diverse phases of Augusto Pestana; Fe + Ni + Co = 100% normalisation 'is mandatory when acquiring elemental maps of multiphasic samples'" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
+            schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType wd:Q2356542 ;
+                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
+                    ada:reagentRole "referenceMaterial" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType wd:Q7397 ;
+                    schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
+                    ada:toolRole "dataReduction" ],
+                <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS>,
+                <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil" ] ;
             schema1:startTime "no value available: schema:startTime" ;
-            prov:used [ schema1:instrument <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS>,
-                        <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> ],
-                [ bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-                            ada:reagentRole "referenceMaterial" ] ],
-                [ bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
-                            ada:toolRole "dataReduction" ] ] ;
             ada:ablationSpotDuration "N/A — mapping mode" ;
             ada:combinedResults [ ] ;
             ada:proceduralBlankLevel "no value available: ada:proceduralBlankLevel" ] ;
@@ -6321,7 +6243,7 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -6331,13 +6253,13 @@ ex:laSficpmsUPbTAPP-detail-Navarro2024-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsUPbTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "7 J cm⁻²" ;
@@ -6877,256 +6799,252 @@ allOf:
                 - schema:unitText
               minContains: 0
               maxContains: 1
-          prov:used:
+          schema:instrument:
             type: array
             items:
               type: object
               allOf:
               - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindInstrument
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindSoftware
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedComputationalTool
+              - if:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/KindReagent
+                then:
+                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml#/$defs/UsedReagent
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: ICPMS
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
                   required:
-                  - schema:instrument
+                  - schema:additionalType
                 then:
                   properties:
-                    schema:instrument:
+                    schema:hasPart:
                       type: array
                       items:
+                        type: object
                         allOf:
-                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-                        - type: object
-                          allOf:
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: ICPMS
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:hasPart:
-                                  type: array
-                                  items:
-                                    type: object
-                                    allOf:
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: Torch
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
-                                              minContains: 0
-                                              maxContains: 1
-                                    - if:
-                                        properties:
-                                          schema:additionalType:
-                                            contains:
-                                              const: ICP Source
-                                            schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                        required:
-                                        - schema:additionalType
-                                      then:
-                                        properties:
-                                          schema:additionalProperty:
-                                            type: array
-                                            items:
-                                              anyOf:
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
-                                              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
-                                            allOf:
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
-                                              minContains: 0
-                                              maxContains: 1
-                                            - contains:
-                                                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
-                                              minContains: 0
-                                              maxContains: 1
-                                  allOf:
-                                  - contains:
-                                      properties:
-                                        schema:additionalType:
-                                          contains:
-                                            const: ICP Source
-                                          schema:inDefinedTermSet: ada:vocab/instrumentComponentType
-                                      required:
-                                      - schema:additionalType
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    anyOf:
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
-                                    - title: Doubly-Charged Species Monitor
-                                      description: "The mass ratio monitored to estimate
-                                        doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. The monitor species
-                                        and the mass positions monitored should be
-                                        stated explicitly. Analogous to Oxide Production
-                                        Method and Threshold for oxide monitoring."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        schema:name:
-                                          const: Doubly-Charged Species Monitor
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged
-                                        ion production for the monitored species at
-                                        the time of instrument tuning. The acceptable
-                                        threshold is typically <1% or <3%. Record
-                                        both the threshold and the measured value.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        schema:name:
-                                          const: Doubly-Charged Species Production
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
-                                  allOf:
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Doubly-Charged Species Monitor
-                                      description: "The mass ratio monitored to estimate
-                                        doubly-charged ion (M\xB2\u207A) formation
-                                        during instrument tuning. The monitor species
-                                        and the mass positions monitored should be
-                                        stated explicitly. Analogous to Oxide Production
-                                        Method and Threshold for oxide monitoring."
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
-                                        schema:name:
-                                          const: Doubly-Charged Species Monitor
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      title: Doubly-Charged Species Production
-                                      description: Measured percentage of doubly-charged
-                                        ion production for the monitored species at
-                                        the time of instrument tuning. The acceptable
-                                        threshold is typically <1% or <3%. Record
-                                        both the threshold and the measured value.
-                                      type: object
-                                      properties:
-                                        '@id':
-                                          const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        '@type':
-                                          const:
-                                          - schema:PropertyValue
-                                        schema:propertyID:
-                                          const:
-                                          - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
-                                        schema:name:
-                                          const: Doubly-Charged Species Production
-                                        schema:value:
-                                          type: string
-                                      required:
-                                      - '@id'
-                                      - '@type'
-                                      - schema:propertyID
-                                      - schema:name
-                                      - schema:value
-                                    minContains: 0
-                                    maxContains: 1
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
-                                    minContains: 0
-                                    maxContains: 1
-                          - if:
-                              properties:
-                                schema:additionalType:
-                                  contains:
-                                    const: Laser Ablation System
-                                  schema:inDefinedTermSet: ada:vocab/instrumentType
-                              required:
-                              - schema:additionalType
-                            then:
-                              properties:
-                                schema:additionalProperty:
-                                  type: array
-                                  items:
-                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
-                                  allOf:
-                                  - contains:
-                                      $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
-                                    minContains: 0
-                                    maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: Torch
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_torchDepth
+                                  minContains: 0
+                                  maxContains: 1
+                        - if:
+                            properties:
+                              schema:additionalType:
+                                contains:
+                                  const: ICP Source
+                                schema:inDefinedTermSet: ada:vocab/instrumentComponentType
+                            required:
+                            - schema:additionalType
+                          then:
+                            properties:
+                              schema:additionalProperty:
+                                type: array
+                                items:
+                                  anyOf:
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
+                                allOf:
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_coolantPlasmaGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_auxiliaryGasFlowRate
+                                  minContains: 0
+                                  maxContains: 1
+                                - contains:
+                                    $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_rfPower
+                                  minContains: 0
+                                  maxContains: 1
                       allOf:
                       - contains:
                           properties:
                             schema:additionalType:
                               contains:
-                                const: ICPMS
-                              schema:inDefinedTermSet: ada:vocab/instrumentType
+                                const: ICP Source
+                              schema:inDefinedTermSet: ada:vocab/instrumentComponentType
                           required:
                           - schema:additionalType
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        anyOf:
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                        - title: Doubly-Charged Species Monitor
+                          description: "The mass ratio monitored to estimate doubly-charged
+                            ion (M\xB2\u207A) formation during instrument tuning.
+                            The monitor species and the mass positions monitored should
+                            be stated explicitly. Analogous to Oxide Production Method
+                            and Threshold for oxide monitoring."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            schema:name:
+                              const: Doubly-Charged Species Monitor
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - title: Doubly-Charged Species Production
+                          description: Measured percentage of doubly-charged ion production
+                            for the monitored species at the time of instrument tuning.
+                            The acceptable threshold is typically <1% or <3%. Record
+                            both the threshold and the measured value.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
+                            schema:name:
+                              const: Doubly-Charged Species Production
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                      allOf:
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_massResolutionSetting
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_icpTuning
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Doubly-Charged Species Monitor
+                          description: "The mass ratio monitored to estimate doubly-charged
+                            ion (M\xB2\u207A) formation during instrument tuning.
+                            The monitor species and the mass positions monitored should
+                            be stated explicitly. Analogous to Oxide Production Method
+                            and Threshold for oxide monitoring."
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesMonitor
+                            schema:name:
+                              const: Doubly-Charged Species Monitor
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          title: Doubly-Charged Species Production
+                          description: Measured percentage of doubly-charged ion production
+                            for the monitored species at the time of instrument tuning.
+                            The acceptable threshold is typically <1% or <3%. Record
+                            both the threshold and the measured value.
+                          type: object
+                          properties:
+                            '@id':
+                              const: ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
+                            '@type':
+                              const:
+                              - schema:PropertyValue
+                            schema:propertyID:
+                              const:
+                              - '@id': ada:parameter/laSficpmsUPbTAPP/doublyChargedSpeciesProduction
+                            schema:name:
+                              const: Doubly-Charged Species Production
+                            schema:value:
+                              type: string
+                          required:
+                          - '@id'
+                          - '@type'
+                          - schema:propertyID
+                          - schema:name
+                          - schema:value
+                        minContains: 0
+                        maxContains: 1
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Analysis_memoryEffectMitigation
+                        minContains: 0
+                        maxContains: 1
+              - if:
+                  properties:
+                    schema:additionalType:
+                      contains:
+                        const: Laser Ablation System
+                      schema:inDefinedTermSet: ada:vocab/instrumentType
+                  required:
+                  - schema:additionalType
+                then:
+                  properties:
+                    schema:additionalProperty:
+                      type: array
+                      items:
+                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
+                      allOf:
+                      - contains:
+                          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Analysis_laserEnergy
+                        minContains: 0
+                        maxContains: 1
+            allOf:
+            - contains:
+                properties:
+                  schema:additionalType:
+                    contains:
+                      const: ICPMS
+                    schema:inDefinedTermSet: ada:vocab/instrumentType
+                required:
+                - schema:additionalType
           schema:object:
             type: array
             items:
@@ -7281,18 +7199,18 @@ Links to the schema:
 {
   "@context": {
     "ada": "https://ada.astromat.org/metadata/",
-    "bios": "https://bioschemas.org/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "wd": "https://www.wikidata.org/entity/",
+    "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }

@@ -1,3 +1,4 @@
+@prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -8,5 +9,8 @@
             schema1:value "no value available: unnamed property" ],
         [ schema1:name "Detection Limit" ;
             schema1:value 1 ] ;
-    prov:wasGeneratedBy [ prov:used [ ] ] .
+    prov:wasGeneratedBy [ schema1:instrument [ a schema1:DefinedTerm ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                    schema1:name "no value available: unnamed property" ;
+                    ada:reagentRole "referenceMaterial" ] ] .
 

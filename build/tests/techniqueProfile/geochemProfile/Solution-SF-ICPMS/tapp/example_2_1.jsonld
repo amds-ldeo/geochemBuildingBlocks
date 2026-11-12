@@ -21,10 +21,10 @@
   "@id": "ex:solutionSficpmsTAPP-P1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "solutionSficpms protocol \u2014 P1",
   "schema:description": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard \u2014 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL\u22121 in the sample, calibration, and blank solutions' (\u00a72.2).",
@@ -158,7 +158,7 @@
         "ICPMS",
         "Single-collector sector-field (SF-ICP-MS)",
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:hasPart": [
@@ -166,7 +166,7 @@
           "schema:additionalType": [
             "ICP Source",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -229,7 +229,7 @@
           "schema:additionalType": [
             "Interface Cone",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -267,7 +267,7 @@
           "schema:additionalType": [
             "Sample Introduction System",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:additionalProperty": [
@@ -311,7 +311,7 @@
           "schema:additionalType": [
             "Torch",
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "missing",
@@ -409,7 +409,6 @@
         "schema:name": "Sample preparation",
         "schema:description": "Mineral separates (~100 mg powder; stated section 2.3)",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -422,7 +421,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -453,7 +451,6 @@
         ],
         "ada:detectionLimitMethod": "all: 3 \u00d7 SD of six procedural blanks (MDL) \u2014 Table 2 note; the IDL is 3 \u00d7 SD of six replicate measurements of 2% HNO3",
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -503,16 +500,21 @@
           }
         ],
         "schema:description": "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 \u00b0C, 48 h); re-dissolution (evaporated at 130 \u00b0C close to dryness, then 1.5 ml 10 M HCl) \u2014 \u00a72.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 \u00b0C for at least 48 h, then 1.5 ml 10 M HCl for 24 h",
-        "bios:reagent": [
+        "schema:instrument": [
           {
+            "ada:reagentRole": "reagent",
             "schema:name": "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl \u2014 \u00a72.3.1",
             "@type": [
               "schema:DefinedTerm"
+            ],
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
             ]
           }
         ],
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

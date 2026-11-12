@@ -13,10 +13,10 @@
   "@id": "https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "UoC volcanic glass trace elements v.1",
   "schema:identifier": "http://doi.org/10.60520/IEDA/114187",
@@ -41,66 +41,82 @@
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
-    "schema:hasPart": [
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "Laser Ablation System",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "ESI imageGEO193",
-        "schema:description": "193 nm ArF excimer laser ablation system",
-        "schema:manufacturer": {
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
+      "schema:hasPart": [
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Elemental Scientific Lasers (ESI)"
+          "schema:additionalType": [
+            "Laser Ablation System",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "ESI imageGEO193",
+          "schema:description": "193 nm ArF excimer laser ablation system",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Elemental Scientific Lasers (ESI)"
+          },
+          "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System"
         },
-        "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System"
-      },
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "ICPMS",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "Thermo Fischer iCAP Q",
-        "schema:description": "Single-quadrupole ICP-MS",
-        "schema:manufacturer": {
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Thermo Fisher Scientific"
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "Thermo Fischer iCAP Q",
+          "schema:description": "Single-quadrupole ICP-MS",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Thermo Fisher Scientific"
+          },
+          "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
         },
-        "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument"
-  },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Iolite",
+      "schema:version": "4",
+      "schema:url": "https://iolite-software.com/",
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -113,17 +129,6 @@
     ],
     "schema:name": "University of Cologne, Institute of Geology and Mineralogy"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Iolite",
-      "schema:version": "4",
-      "schema:url": "https://iolite-software.com/",
-      "ada:toolRole": "dataReduction"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -212,7 +217,6 @@
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -230,7 +234,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -315,14 +318,13 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
         "schema:name": "Laser ablation calibration",
         "schema:position": 3,
         "schema:description": "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G.",
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:DefinedTerm"
@@ -330,7 +332,12 @@
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -339,7 +346,12 @@
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -348,7 +360,12 @@
             "schema:name": "ATHO-G",
             "schema:description": "MPI-DING Icelandic rhyolite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -357,13 +374,17 @@
             "schema:name": "StHs6/80-G",
             "schema:description": "MPI-DING St. Helens dacite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -472,7 +493,6 @@
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -482,23 +502,27 @@
         "schema:object": {
           "@id": "#rawSignals"
         },
-        "bios:computationalTool": [
+        "schema:result": {
+          "@id": "#quantifiedConcentrations"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:SoftwareApplication"
             ],
             "schema:name": "Iolite",
             "schema:version": "4",
-            "ada:toolRole": "dataReduction"
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#quantifiedConcentrations"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],

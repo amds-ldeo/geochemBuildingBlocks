@@ -44,72 +44,74 @@
           "schema:name": "NWA 7317"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 20,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "20 kV"
-                },
-                {
-                  "@id": "ada:parameter/semCompositionTAPP/beamDiameter",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semCompositionTAPP/beamDiameter"
-                    }
-                  ],
-                  "schema:name": "Beam Diameter",
-                  "schema:value": 30,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "N \u2014 a 30 \u03bcm aperture is stated (p.3), not a beam diameter"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semCompositionTAPP-detail-Pascucci2026/instrument/SEM"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 20,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "20 kV"
+            },
+            {
+              "@id": "ada:parameter/semCompositionTAPP/beamDiameter",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semCompositionTAPP/beamDiameter"
+                }
+              ],
+              "schema:name": "Beam Diameter",
+              "schema:value": 30,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "N \u2014 a 30 \u03bcm aperture is stated (p.3), not a beam diameter"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semCompositionTAPP-detail-Pascucci2026/instrument/SEM"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Oxford INCA Energy",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Oxford INCA Energy",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -175,7 +177,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Embedded in epoxy, polished to \u00bc \u00b5m level, sputtered with 30-nm-thick carbon film",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -186,7 +187,6 @@
             "schema:position": 2,
             "schema:additionalProperty": [],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]

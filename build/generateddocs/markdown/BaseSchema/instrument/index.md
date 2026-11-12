@@ -29,7 +29,7 @@ classifications in additionalType.
   "schema:name": "JEOL JXA-8530F Electron Microprobe",
   "schema:description": "Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers",
   "schema:identifier": ["https://www.wikidata.org/wiki/Q116917974"],
-  "schema:additionalType": [{"@id": "nxs:BaseClass/NXinstrument"}, {"@id": "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48"}, {"@id": "https://www.wikidata.org/wiki/Q3099911"}]
+  "schema:additionalType": [{"@id": "nxs:BaseClass/NXinstrument"}, {"@id": "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48"}, {"@id": "https://www.wikidata.org/entity/Q3099911"}]
 }
 
 ```
@@ -62,7 +62,7 @@ classifications in additionalType.
       "@id": "https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48"
     },
     {
-      "@id": "https://www.wikidata.org/wiki/Q3099911"
+      "@id": "https://www.wikidata.org/entity/Q3099911"
     }
   ]
 }
@@ -71,12 +71,13 @@ classifications in additionalType.
 #### ttl
 ```ttl
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48>,
         <https://manual.nexusformat.org/classes/BaseClass/NXinstrument>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:description "Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers" ;
     schema1:identifier "https://www.wikidata.org/wiki/Q116917974" ;
     schema1:name "JEOL JXA-8530F Electron Microprobe" .
@@ -91,8 +92,8 @@ $schema: https://json-schema.org/draft/2020-12/schema
 title: ADA Analysis Instrument
 description: ADA analytical instrument building block. Extends the core CDIF instrument
   building block with NeXus NXinstrument classification via additionalType. Instruments
-  are typed as schema:Thing + schema:Product (from core) with domain-specific types
-  (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.
+  are typed schema:Product (from core; schema:Thing allowed) with domain-specific
+  types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.
 allOf:
 - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml
 - type: object
@@ -115,7 +116,11 @@ allOf:
         instrument" type, which is invariant across techniques: the technique-specific
         entry says what KIND of instrument this is and varies by profile, while the
         Wikidata term says that it is an instrument at all, and gives a consumer one
-        term to select on without knowing the ADA vocabulary.'
+        term to select on without knowing the ADA vocabulary. Written as the Wikidata
+        ENTITY IRI (https://www.wikidata.org/entity/Q3099911), not the /wiki/ page
+        URL: the entity IRI names the concept, the page URL names a web page about
+        it. It is also the kind term CDIF''s cdifProvActivity reads to tell an instrument
+        from software and reagents in an activity''s schema:instrument.'
       type: array
       items:
         $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
@@ -124,19 +129,20 @@ allOf:
         type: object
         properties:
           '@id':
-            const: https://www.wikidata.org/wiki/Q3099911
+            const: https://www.wikidata.org/entity/Q3099911
         required:
         - '@id'
       x-jsonld-id: http://schema.org/additionalType
     schema:hasPart:
       description: 'Sub-components of this instrument system (a torch, an ICP source,
         a collision/reaction cell, a spectrometer). A component IS an instrument --
-        same @type (schema:Product + schema:Thing), same Wikidata term, and its own
-        schema:additionalType token saying which kind of component it is. The shape
-        is restated rather than written as `$ref: ''#''`, because resolve_schema replaces
-        a circular ref with an empty stub -- it would read as "a part is an instrument"
-        and enforce nothing. Upstream types a component more loosely (schema:Thing
-        alone, no Wikidata); this narrows it, and the two compose because allOf intersects.'
+        same @type (schema:Product; schema:Thing allowed, no longer required, as on
+        the instrument), same Wikidata term, and its own schema:additionalType token
+        saying which kind of component it is. The shape is restated rather than written
+        as `$ref: ''#''`, because resolve_schema replaces a circular ref with an empty
+        stub -- it would read as "a part is an instrument" and enforce nothing. Upstream
+        types a component more loosely (schema:Thing alone, no Wikidata); this narrows
+        it, and the two compose because allOf intersects.'
       type: array
       items:
         anyOf:
@@ -160,12 +166,9 @@ allOf:
               type: array
               items:
                 type: string
-              minItems: 2
-              allOf:
-              - contains:
-                  const: schema:Product
-              - contains:
-                  const: schema:Thing
+              minItems: 1
+              contains:
+                const: schema:Product
             schema:name:
               type: string
               x-jsonld-id: http://schema.org/name
@@ -178,7 +181,7 @@ allOf:
                 - '@id'
                 properties:
                   '@id':
-                    const: https://www.wikidata.org/wiki/Q3099911
+                    const: https://www.wikidata.org/entity/Q3099911
               x-jsonld-id: http://schema.org/additionalType
             ada:collectorConfiguration:
               description: 'How masses are assigned to collector positions for this

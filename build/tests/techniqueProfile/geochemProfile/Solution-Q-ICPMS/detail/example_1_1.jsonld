@@ -56,7 +56,6 @@
               }
             ],
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -66,7 +65,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard \u2014 clean-room conditions (\u00a73.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -76,7 +74,6 @@
             "schema:name": "Data processing",
             "schema:position": 3,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]
@@ -109,210 +106,207 @@
           "schema:description": "no value available: schema:description"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:hasPart": [
             {
               "schema:additionalType": [
-                "ICPMS",
+                "Sample Introduction System",
                 {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:hasPart": [
-                {
-                  "schema:additionalType": [
-                    "Sample Introduction System",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
-                        }
-                      ],
-                      "schema:name": "Sample Uptake Rate",
-                      "schema:value": 0.2,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "0.20 ml/min (stated section 3.1)"
-                    },
-                    {
-                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Nebulizer Gas Flow Rate",
-                      "schema:value": 3.1,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "N \u2014 'optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U' (\u00a73.1)"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/Sample-Introduction-System"
-                },
-                {
-                  "schema:additionalType": [
-                    "ICP Source",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "schema:additionalProperty": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/rfPower",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/rfPower"
-                        }
-                      ],
-                      "schema:name": "RF Power",
-                      "schema:value": 1350,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1350 W (stated section 3.1)"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Coolant Plasma Gas Flow Rate",
-                      "schema:value": 14,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "14 L/min (outer ICP gas; stated section 3.1)"
-                    },
-                    {
-                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
-                      "@type": [
-                        "schema:PropertyValue"
-                      ],
-                      "schema:propertyID": [
-                        {
-                          "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
-                        }
-                      ],
-                      "schema:name": "Auxiliary Gas Flow Rate",
-                      "schema:value": 1.2,
-                      "schema:unitText": "no value available: unnamed property",
-                      "schema:description": "1.2 L/min (intermediate gas; stated section 3.1)"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "missing",
-                  "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/ICP-Source"
-                },
-                {
-                  "schema:additionalType": [
-                    "Collision Reaction Cell",
-                    {
-                      "@id": "https://www.wikidata.org/wiki/Q3099911"
-                    }
-                  ],
-                  "@type": [
-                    "schema:Product",
-                    "schema:Thing"
-                  ],
-                  "schema:name": "Collision Reaction Cell",
-                  "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell"
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
                 }
               ],
               "schema:additionalProperty": [
                 {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor",
+                  "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
+                      "@id": "ada:parameter/module/SolutionIntroduction/sampleUptakeRate"
                     }
                   ],
-                  "schema:name": "Doubly-Charged Species Monitor",
-                  "schema:value": "Ce2+/Ce+ \u2014 \u00a73.1"
+                  "schema:name": "Sample Uptake Rate",
+                  "schema:value": 0.2,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "0.20 ml/min (stated section 3.1)"
                 },
                 {
-                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction",
+                  "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate",
                   "@type": [
                     "schema:PropertyValue"
                   ],
                   "schema:propertyID": [
                     {
-                      "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
+                      "@id": "ada:parameter/module/SolutionIntroduction/nebulizerGasFlowRate"
                     }
                   ],
-                  "schema:name": "Doubly-Charged Species Production",
-                  "schema:value": "Ce2+/Ce+ below 2.5% \u2014 \u00a73.1"
-                },
-                {
-                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
-                    }
-                  ],
-                  "schema:name": "Memory Effect Mitigation",
-                  "schema:value": "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)"
-                },
-                {
-                  "@id": "ada:parameter/module/ICPMS/icpTuning",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/module/ICPMS/icpTuning"
-                    }
-                  ],
-                  "schema:name": "ICP Tuning",
-                  "schema:value": "Autolens voltages \"set by optimizing a solution of 10 ng/ml Mg, Co, Rh, Ce, Pb and U\"; \"The nebulizer gas flow rate was optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U, while keeping the CeO+/Ce+ and Ce2+/Ce+ ratios below 2.5%\""
+                  "schema:name": "Nebulizer Gas Flow Rate",
+                  "schema:value": 3.1,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "N \u2014 'optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U' (\u00a73.1)"
                 }
               ],
               "@type": [
                 "schema:Product",
                 "schema:Thing"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS"
+              "schema:name": "missing",
+              "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/Sample-Introduction-System"
+            },
+            {
+              "schema:additionalType": [
+                "ICP Source",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "schema:additionalProperty": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/rfPower",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/rfPower"
+                    }
+                  ],
+                  "schema:name": "RF Power",
+                  "schema:value": 1350,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1350 W (stated section 3.1)"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/coolantPlasmaGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Coolant Plasma Gas Flow Rate",
+                  "schema:value": 14,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "14 L/min (outer ICP gas; stated section 3.1)"
+                },
+                {
+                  "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate",
+                  "@type": [
+                    "schema:PropertyValue"
+                  ],
+                  "schema:propertyID": [
+                    {
+                      "@id": "ada:parameter/module/ICPMS/auxiliaryGasFlowRate"
+                    }
+                  ],
+                  "schema:name": "Auxiliary Gas Flow Rate",
+                  "schema:value": 1.2,
+                  "schema:unitText": "no value available: unnamed property",
+                  "schema:description": "1.2 L/min (intermediate gas; stated section 3.1)"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "missing",
+              "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/ICP-Source"
+            },
+            {
+              "schema:additionalType": [
+                "Collision Reaction Cell",
+                {
+                  "@id": "https://www.wikidata.org/entity/Q3099911"
+                }
+              ],
+              "@type": [
+                "schema:Product",
+                "schema:Thing"
+              ],
+              "schema:name": "Collision Reaction Cell",
+              "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS/part/Collision-Reaction-Cell"
             }
-          ]
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesMonitor"
+                }
+              ],
+              "schema:name": "Doubly-Charged Species Monitor",
+              "schema:value": "Ce2+/Ce+ \u2014 \u00a73.1"
+            },
+            {
+              "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/solutionQicpmsTAPP/doublyChargedSpeciesProduction"
+                }
+              ],
+              "schema:name": "Doubly-Charged Species Production",
+              "schema:value": "Ce2+/Ce+ below 2.5% \u2014 \u00a73.1"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/memoryEffectMitigation"
+                }
+              ],
+              "schema:name": "Memory Effect Mitigation",
+              "schema:value": "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)"
+            },
+            {
+              "@id": "ada:parameter/module/ICPMS/icpTuning",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/module/ICPMS/icpTuning"
+                }
+              ],
+              "schema:name": "ICP Tuning",
+              "schema:value": "Autolens voltages \"set by optimizing a solution of 10 ng/ml Mg, Co, Rh, Ce, Pb and U\"; \"The nebulizer gas flow rate was optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U, while keeping the CeO+/Ce+ and Ce2+/Ce+ ratios below 2.5%\""
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS"
         },
         {
-          "bios:reagent": [
+          "ada:reagentRole": "referenceMaterial",
+          "schema:name": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 \u2014 five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (\u00a73.4)",
+          "@type": [
+            "schema:DefinedTerm"
+          ],
+          "schema:additionalType": [
             {
-              "ada:reagentRole": "referenceMaterial",
-              "schema:name": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 \u2014 five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (\u00a73.4)",
-              "@type": [
-                "schema:DefinedTerm"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }

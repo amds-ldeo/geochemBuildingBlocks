@@ -34,21 +34,52 @@ $defs:
                   - schema:name
                 then:
                   properties:
-                    bios:reagent:
+                    schema:instrument:
                       type: array
                       items:
                         type: object
-                        properties:
-                          schema:name:
-                            description: "Acid mixture used for sample dissolution.
-                              Record acid type(s) and concentration(s) where known
-                              (e.g., concentrated HF\u2013HNO3 in Parr bombs is standard
-                              for silicate dissolution)."
-                            type: string
-                            x-jsonld-id: http://schema.org/name
-                        required:
-                        - schema:name
-                      x-jsonld-id: https://bioschemas.org/reagent
+                        allOf:
+                        - if:
+                            properties:
+                              ada:reagentRole:
+                                const: reagent
+                            required:
+                            - ada:reagentRole
+                          then:
+                            properties:
+                              schema:name:
+                                description: "Acid mixture used for sample dissolution.
+                                  Record acid type(s) and concentration(s) where known
+                                  (e.g., concentrated HF\u2013HNO3 in Parr bombs is
+                                  standard for silicate dissolution)."
+                                anyOf:
+                                - type: string
+                                - type: array
+                                  items:
+                                    type: string
+                                x-jsonld-id: http://schema.org/name
+                            required:
+                            - schema:name
+                        - if:
+                            type: object
+                            required:
+                            - schema:additionalType
+                            properties:
+                              schema:additionalType:
+                                type: array
+                                contains:
+                                  type: object
+                                  required:
+                                  - '@id'
+                                  properties:
+                                    '@id':
+                                      enum:
+                                      - https://www.wikidata.org/entity/Q2356542
+                                      - wd:Q2356542
+                          then:
+                            required:
+                            - ada:reagentRole
+                      x-jsonld-id: http://schema.org/instrument
             allOf:
             - contains:
                 properties:
@@ -668,7 +699,6 @@ $defs:
     - ada:fieldScope
 x-jsonld-prefixes:
   ada: https://ada.astromat.org/metadata/
-  bios: https://bioschemas.org/
   schema: http://schema.org/
 x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.solutionIntroduction

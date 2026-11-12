@@ -1,13 +1,19 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
-            schema1:hasPart [ schema1:additionalType "no value available: unnamed property" ;
+[] schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                "no value available: unnamed property" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                        "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Limit of Quantification (LOQ) Method" ],
+            schema1:name "Uncertainty Propagation Method" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Uncertainty Propagation Method" ] ;
+            schema1:name "Limit of Quantification (LOQ) Method" ] ;
     ada:analysisSequenceDefault "no value available: unnamed property" ;
     ada:blankBackgroundCorrectionMethod "no value available: unnamed property" ;
     ada:calibrationMeasurementFrequency "no value available: unnamed property" ;

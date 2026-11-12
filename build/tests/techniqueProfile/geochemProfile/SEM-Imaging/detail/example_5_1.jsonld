@@ -44,72 +44,74 @@
           "schema:name": "no value available: schema:name"
         }
       ],
-      "prov:used": [
+      "schema:instrument": [
         {
-          "schema:instrument": [
+          "schema:additionalType": [
+            "SEM",
             {
-              "schema:additionalType": [
-                "SEM",
-                {
-                  "@id": "https://www.wikidata.org/wiki/Q3099911"
-                }
-              ],
-              "schema:additionalProperty": [
-                {
-                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
-                    }
-                  ],
-                  "schema:name": "Accelerating Voltage",
-                  "schema:value": 15,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "15\u201320 kV"
-                },
-                {
-                  "@id": "ada:parameter/semImagingTAPP/workingDistance",
-                  "@type": [
-                    "schema:PropertyValue"
-                  ],
-                  "schema:propertyID": [
-                    {
-                      "@id": "ada:parameter/semImagingTAPP/workingDistance"
-                    }
-                  ],
-                  "schema:name": "Working Distance",
-                  "schema:value": 10,
-                  "schema:unitText": "no value available: unnamed property",
-                  "schema:description": "~10 mm"
-                }
-              ],
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:additionalProperty": [
+            {
+              "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage",
               "@type": [
-                "schema:Product",
-                "schema:Thing"
+                "schema:PropertyValue"
               ],
-              "schema:name": "no value available: schema:name",
-              "@id": "ex:semImagingTAPP-detail-Izawa2010/instrument/SEM"
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/acceleratingVoltage"
+                }
+              ],
+              "schema:name": "Accelerating Voltage",
+              "schema:value": 15,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "15\u201320 kV"
+            },
+            {
+              "@id": "ada:parameter/semImagingTAPP/workingDistance",
+              "@type": [
+                "schema:PropertyValue"
+              ],
+              "schema:propertyID": [
+                {
+                  "@id": "ada:parameter/semImagingTAPP/workingDistance"
+                }
+              ],
+              "schema:name": "Working Distance",
+              "schema:value": 10,
+              "schema:unitText": "no value available: unnamed property",
+              "schema:description": "~10 mm"
+            }
+          ],
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:name": "no value available: schema:name",
+          "@id": "ex:semImagingTAPP-detail-Izawa2010/instrument/SEM"
+        },
+        {
+          "ada:toolRole": "acquisition",
+          "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
+            {
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         },
         {
-          "bios:computationalTool": [
+          "ada:toolRole": "dataReduction",
+          "schema:name": "Gatan DigitalMicrograph",
+          "@type": [
+            "schema:SoftwareApplication"
+          ],
+          "schema:additionalType": [
             {
-              "ada:toolRole": "acquisition",
-              "schema:name": "Gatan DigitalMicrograph (CL image assembly)",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
-            },
-            {
-              "ada:toolRole": "dataReduction",
-              "schema:name": "Gatan DigitalMicrograph",
-              "@type": [
-                "schema:SoftwareApplication"
-              ]
+              "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
         }
@@ -158,7 +160,6 @@
             "schema:name": "Sample preparation",
             "schema:description": "Carbon-coated polished thin sections; high vacuum analysis",
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ],
@@ -168,7 +169,6 @@
             "schema:name": "Data processing",
             "schema:position": 2,
             "@type": [
-              "cdi:Activity",
               "schema:Action",
               "schema:HowToStep"
             ]

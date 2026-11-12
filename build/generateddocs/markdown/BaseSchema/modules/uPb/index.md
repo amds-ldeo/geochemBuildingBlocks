@@ -48,7 +48,6 @@ The procedure half of the UPb module, with every property populated. Generated f
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -75,7 +74,6 @@ The procedure half of the UPb module, with every property populated. Generated f
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -94,8 +92,7 @@ The procedure half of the UPb module, with every property populated. Generated f
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] schema1:actionProcess [ schema1:step [ a <cdi:Activity>,
-                        schema1:Action,
+[] schema1:actionProcess [ schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;

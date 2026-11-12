@@ -56,12 +56,30 @@ The procedure half of the CollisionCell module, with every property populated. G
 {
   "schema:instrument": [
     {
-      "schema:additionalType": "no value available: unnamed property",
+      "schema:additionalType": [
+        "no value available: unnamed property",
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
       "schema:hasPart": [
         {
-          "schema:additionalType": "no value available: unnamed property",
-          "schema:name": "no value available: unnamed property"
+          "schema:additionalType": [
+            "no value available: unnamed property",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ]
         }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
       ]
     }
   ]
@@ -79,12 +97,30 @@ The procedure half of the CollisionCell module, with every property populated. G
   ],
   "schema:instrument": [
     {
-      "schema:additionalType": "no value available: unnamed property",
+      "schema:additionalType": [
+        "no value available: unnamed property",
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
       "schema:hasPart": [
         {
-          "schema:additionalType": "no value available: unnamed property",
-          "schema:name": "no value available: unnamed property"
+          "schema:additionalType": [
+            "no value available: unnamed property",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "no value available: unnamed property",
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ]
         }
+      ],
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
       ]
     }
   ]
@@ -95,8 +131,14 @@ The procedure half of the CollisionCell module, with every property populated. G
 ```ttl
 @prefix schema1: <http://schema.org/> .
 
-[] schema1:instrument [ schema1:additionalType "no value available: unnamed property" ;
-            schema1:hasPart [ schema1:additionalType "no value available: unnamed property" ;
+[] schema1:instrument [ a schema1:Product,
+                schema1:Thing ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                "no value available: unnamed property" ;
+            schema1:hasPart [ a schema1:Product,
+                        schema1:Thing ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
+                        "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ] .
 
 

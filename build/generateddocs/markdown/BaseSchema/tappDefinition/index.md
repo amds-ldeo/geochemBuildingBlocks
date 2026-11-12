@@ -11,15 +11,21 @@ A registered Technique-Aligned Protocol Profile (TAPP) definition modeled as cdi
 
 # Technique-Aligned Protocol Profile (TAPP) Definition v3
 
-A registered TAPP definition modeled as a `cdi:Activity` + `schema:Action`. The TAPP itself is the activity; its standard workflow is encoded in `schema:actionProcess`.
+A registered TAPP definition modeled as a plan: `prov:Plan` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol` + `schema:HowTo`. Its standard workflow is encoded in `schema:actionProcess`. An analysis event links the TAPP it followed with `schema:actionProcess {"@id": <tapp>}`, or with `schema:isBasedOn` on its own inline workflow; `schema:HowTo` is what makes the TAPP a valid value there.
+
+## Changes 2026-11-11 (the CDIF activity-used-resources change)
+
+- **Root type**: `schema:HowTo` added, `cdi:Activity` dropped (no TAPP carries a DDI-CDI process property, and in DDI-CDI the class names a run, not a plan).
+- **Resources**: the instruments, computational tools and reagents a plan prescribes are all items of `schema:instrument` — always an array — told apart by the Wikidata kind term in `schema:additionalType` (`https://www.wikidata.org/entity/Q3099911` instrument, `…/Q7397` software, `…/Q2356542` reagent), which selects the shape (`$defs/PlanResource`). The direct `bios:computationalTool` / `bios:reagent` properties are closed off.
+- **Steps**: typed `schema:Action` + `schema:HowToStep`; their tools and reagents are `schema:instrument` items too, and their inputs are `schema:object` (was `prov:used`).
 
 ## Changes from v2 (formerly "methodDefinition")
 
 - **Renamed**: was "methodDefinition" (`ada:MethodDefinition`); now "tappDefinition" (`ada:TAPPDefinition`). Lives under `_sources/techniqueProtocols/`.
-- **Root type**: `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol` (replaces `schema:HowTo` at root)
+- **Root type**: `cdi:Activity` + `schema:Action` + `ada:TAPPDefinition` + `bios:LabProtocol` (replaced `schema:HowTo` at root; `schema:HowTo` came back, and `cdi:Activity` went, on 2026-11-11)
 - **Target material**: `schema:object` carries the material(s) the TAPP analyses (e.g. silicate glass, olivine)
 - **TAPP author**: `schema:agent` replaces `schema:creator`
-- **Workflow**: `schema:actionProcess` holds a `schema:HowTo` with ordered `cdi:Activity` + `schema:Action` steps
+- **Workflow**: `schema:actionProcess` holds a `schema:HowTo` with ordered steps
 - **Sample preparation**: now a workflow step, not a separate property
 - **Parameters distributed**: step-specific parameters live on their workflow steps; only TAPP-wide parameters remain at top level
 
@@ -29,14 +35,12 @@ A registered TAPP definition modeled as a `cdi:Activity` + `schema:Action`. The 
 - `schema:name`, `schema:identifier`, `schema:version`, `schema:datePublished`
 - `schema:measurementTechnique` — DefinedTerm from controlled vocabulary
 - `schema:object` — target material(s) as DefinedTerm or text
-- `schema:instrument` — primary instrument with manufacturer, model, sub-components
-- `bios:computationalTool` — software tools (TAPP-wide)
-- `bios:reagent` — reference materials used across multiple steps
+- `schema:instrument` — the instruments (with manufacturer, model, sub-components), the software tools and the reference materials used across the TAPP, one array told apart by kind
 - `schema:location` — laboratory/facility
 - `schema:agent` — TAPP author (person or organisation)
 
 ### Standard workflow (`schema:actionProcess`)
-A `schema:HowTo` containing `schema:step` — an ordered array of `cdi:Activity` + `schema:Action` items. Typical steps:
+A `schema:HowTo` containing `schema:step` — an ordered array of `schema:Action` + `schema:HowToStep` items. Typical steps:
 
 1. **Sample preparation** (`bios:LabProcess`) — mounting, polishing, coating
 2. **Instrument calibration** — primary/secondary standards, spectrometer setup
@@ -46,10 +50,8 @@ A `schema:HowTo` containing `schema:step` — an ordered array of `cdi:Activity`
 
 Each workflow step can carry:
 - `schema:additionalProperty` — typed step parameters (MethodParameter shape: scope, fieldScope, tier)
-- `bios:reagent` — step-specific standards and materials
-- `bios:computationalTool` — step-specific software
-- `schema:instrument` — step-specific equipment
-- `prov:used` / `schema:result` / `schema:object` — input/output chaining
+- `schema:instrument` — step-specific equipment, software, standards and materials (kind items, or `{@id}` references)
+- `schema:object` / `schema:result` — input/output chaining
 - `schema:actionProcess` — nested sub-workflow
 - `dqv:hasQualityMeasurement` — step-specific quality metrics
 
@@ -76,7 +78,7 @@ TAPP-level quality metrics using CDIF qualityMeasure building block. Step-specif
 
 ### EPMA TAPP Definition Example (Concord glass)
 Electron Microprobe Analysis TAPP definition for CU tephra glass,
-modeled as cdi:Activity + schema:Action. Workflow in schema:actionProcess
+modeled as a prov:Plan + schema:Action + schema:HowTo. Workflow in schema:actionProcess
 with 5 ordered steps: sample preparation, calibration, WDS acquisition,
 data processing, and quality control. Each step carries its own
 parameters, reagents, and quality measurements.
@@ -96,10 +98,10 @@ parameters, reagents, and quality measurements.
   "@id": "https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "CU routine tephra glass version 1.0 with 6nA",
   "schema:version": "1.0.6",
@@ -122,51 +124,66 @@ parameters, reagents, and quality measurements.
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ARL SEMQ",
-    "schema:additionalType": [
-      {
-        "@id": "ada:EPMAInstrument"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "schema:manufacturer": {
+  "schema:instrument": [
+    {
       "@type": [
-        "schema:Organization"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:name": "ARL"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
+      "schema:name": "ARL SEMQ",
+      "schema:additionalType": [
+        {
+          "@id": "ada:EPMAInstrument"
+        },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
       ],
-      "schema:name": "SEMQ"
-    },
-    "schema:hasPart": [
-      {
+      "schema:manufacturer": {
         "@type": [
-          "schema:Product",
-          "schema:Thing"
+          "schema:Organization"
         ],
-        "schema:additionalType": [
-          "WDS Spectrometer",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
+        "schema:name": "ARL"
+      },
+      "schema:model": {
+        "@type": [
+          "schema:ProductModel"
         ],
-        "schema:name": "WDS Spectrometer Array",
-        "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
-        "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer"
-      }
-    ],
-    "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument"
-  },
+        "schema:name": "SEMQ"
+      },
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "WDS Spectrometer Array",
+          "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
+          "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer"
+        }
+      ],
+      "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "schema:version": "9.6.4",
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -179,16 +196,6 @@ parameters, reagents, and quality measurements.
     ],
     "schema:name": "Concord University"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Probe for EPMA",
-      "schema:version": "9.6.4",
-      "ada:toolRole": "acquisition"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -213,7 +220,6 @@ parameters, reagents, and quality measurements.
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -225,22 +231,26 @@ parameters, reagents, and quality measurements.
           }
         ],
         "schema:description": "Tephra glass grains mounted, polished, and carbon coated for EPMA.",
-        "bios:reagent": [
+        "schema:result": {
+          "@id": "#preparedMount"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Carbon",
-            "ada:reagentRole": "coatingMaterial"
+            "ada:reagentRole": "coatingMaterial",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#preparedMount"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -250,47 +260,71 @@ parameters, reagents, and quality measurements.
         "schema:object": {
           "@id": "#preparedMount"
         },
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Albite",
-            "ada:reagentRole": "primaryStandard"
+            "ada:reagentRole": "primaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Kaersutite amphibole",
-            "ada:reagentRole": "primaryStandard"
+            "ada:reagentRole": "primaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "Lipari obsidian ID3506",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "USGS BHVO-2g",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "USGS NKT-1g",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -371,7 +405,6 @@ parameters, reagents, and quality measurements.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -381,16 +414,6 @@ parameters, reagents, and quality measurements.
         "schema:object": {
           "@id": "#rawAnalyses"
         },
-        "bios:computationalTool": [
-          {
-            "@type": [
-              "schema:SoftwareApplication"
-            ],
-            "schema:name": "Probe for EPMA",
-            "schema:version": "9.6.4",
-            "ada:toolRole": "dataReduction"
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@type": [
@@ -417,11 +440,25 @@ parameters, reagents, and quality measurements.
         ],
         "schema:result": {
           "@id": "#quantifiedResults"
-        }
+        },
+        "schema:instrument": [
+          {
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
+            "schema:name": "Probe for EPMA",
+            "schema:version": "9.6.4",
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
+          }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -725,10 +762,10 @@ parameters, reagents, and quality measurements.
   "@id": "https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "CU routine tephra glass version 1.0 with 6nA",
   "schema:version": "1.0.6",
@@ -751,51 +788,66 @@ parameters, reagents, and quality measurements.
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ARL SEMQ",
-    "schema:additionalType": [
-      {
-        "@id": "ada:EPMAInstrument"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "schema:manufacturer": {
+  "schema:instrument": [
+    {
       "@type": [
-        "schema:Organization"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:name": "ARL"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
+      "schema:name": "ARL SEMQ",
+      "schema:additionalType": [
+        {
+          "@id": "ada:EPMAInstrument"
+        },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
       ],
-      "schema:name": "SEMQ"
-    },
-    "schema:hasPart": [
-      {
+      "schema:manufacturer": {
         "@type": [
-          "schema:Product",
-          "schema:Thing"
+          "schema:Organization"
         ],
-        "schema:additionalType": [
-          "WDS Spectrometer",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
+        "schema:name": "ARL"
+      },
+      "schema:model": {
+        "@type": [
+          "schema:ProductModel"
         ],
-        "schema:name": "WDS Spectrometer Array",
-        "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
-        "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer"
-      }
-    ],
-    "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument"
-  },
+        "schema:name": "SEMQ"
+      },
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "WDS Spectrometer Array",
+          "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
+          "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer"
+        }
+      ],
+      "@id": "ex:concord-glass-v1-0-6/instrument/ada-EPMAInstrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "schema:version": "9.6.4",
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -808,16 +860,6 @@ parameters, reagents, and quality measurements.
     ],
     "schema:name": "Concord University"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Probe for EPMA",
-      "schema:version": "9.6.4",
-      "ada:toolRole": "acquisition"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -842,7 +884,6 @@ parameters, reagents, and quality measurements.
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -854,22 +895,26 @@ parameters, reagents, and quality measurements.
           }
         ],
         "schema:description": "Tephra glass grains mounted, polished, and carbon coated for EPMA.",
-        "bios:reagent": [
+        "schema:result": {
+          "@id": "#preparedMount"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Carbon",
-            "ada:reagentRole": "coatingMaterial"
+            "ada:reagentRole": "coatingMaterial",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#preparedMount"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -879,47 +924,71 @@ parameters, reagents, and quality measurements.
         "schema:object": {
           "@id": "#preparedMount"
         },
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Albite",
-            "ada:reagentRole": "primaryStandard"
+            "ada:reagentRole": "primaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:ChemicalSubstance"
             ],
             "schema:name": "Kaersutite amphibole",
-            "ada:reagentRole": "primaryStandard"
+            "ada:reagentRole": "primaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "Lipari obsidian ID3506",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "USGS BHVO-2g",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
               "schema:DefinedTerm"
             ],
             "schema:name": "USGS NKT-1g",
-            "ada:reagentRole": "secondaryStandard"
+            "ada:reagentRole": "secondaryStandard",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -1000,7 +1069,6 @@ parameters, reagents, and quality measurements.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -1010,16 +1078,6 @@ parameters, reagents, and quality measurements.
         "schema:object": {
           "@id": "#rawAnalyses"
         },
-        "bios:computationalTool": [
-          {
-            "@type": [
-              "schema:SoftwareApplication"
-            ],
-            "schema:name": "Probe for EPMA",
-            "schema:version": "9.6.4",
-            "ada:toolRole": "dataReduction"
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@type": [
@@ -1046,11 +1104,25 @@ parameters, reagents, and quality measurements.
         ],
         "schema:result": {
           "@id": "#quantifiedResults"
-        }
+        },
+        "schema:instrument": [
+          {
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
+            "schema:name": "Probe for EPMA",
+            "schema:version": "9.6.4",
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
+          }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -1330,21 +1402,20 @@ parameters, reagents, and quality measurements.
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> a cdi:Activity,
-        schema1:Action,
+<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "EPMA WDS tephra glass analytical workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 10 ;
@@ -1360,13 +1431,11 @@ parameters, reagents, and quality measurements.
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 6 ;
-                            schema1:maxValue 200 ;
-                            schema1:minValue 1 ;
-                            schema1:name "Beam Current" ;
+                            schema1:defaultValue 15 ;
+                            schema1:name "Accelerating Voltage" ;
                             schema1:readonlyValue true ;
-                            schema1:unitText "nA" ;
-                            schema1:valueName "beamCurrent" ;
+                            schema1:unitText "kV" ;
+                            schema1:valueName "acceleratingVoltage" ;
                             schema1:valueRequired true ;
                             ada:category "Beam Conditions" ;
                             ada:dataType "number" ;
@@ -1384,11 +1453,13 @@ parameters, reagents, and quality measurements.
                             ada:fieldScope "method" ;
                             ada:tier "R" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 15 ;
-                            schema1:name "Accelerating Voltage" ;
+                            schema1:defaultValue 6 ;
+                            schema1:maxValue 200 ;
+                            schema1:minValue 1 ;
+                            schema1:name "Beam Current" ;
                             schema1:readonlyValue true ;
-                            schema1:unitText "kV" ;
-                            schema1:valueName "acceleratingVoltage" ;
+                            schema1:unitText "nA" ;
+                            schema1:valueName "beamCurrent" ;
                             schema1:valueRequired true ;
                             ada:category "Beam Conditions" ;
                             ada:dataType "number" ;
@@ -1398,8 +1469,33 @@ parameters, reagents, and quality measurements.
                     schema1:name "WDS data acquisition" ;
                     schema1:position 3 ;
                     schema1:result <file:///github/workspace/#rawAnalyses> ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "Calibrate WDS spectrometers on primary standards. Verify on secondary standards at start and end of session." ;
+                    schema1:instrument [ a schema1:ChemicalSubstance ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:name "Albite" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:name "Lipari obsidian ID3506" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:name "USGS NKT-1g" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:name "USGS BHVO-2g" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:ChemicalSubstance ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:name "Kaersutite amphibole" ;
+                            ada:reagentRole "primaryStandard" ] ;
+                    schema1:name "Instrument calibration" ;
+                    schema1:object <file:///github/workspace/#preparedMount> ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "Armstrong/Packwood-Brown 1981 MAS Phi(pz) with CITZMU MACs" ;
@@ -1414,27 +1510,16 @@ parameters, reagents, and quality measurements.
                             ada:fieldScope "method" ;
                             ada:tier "M" ] ;
                     schema1:description "Matrix correction, blank correction, and standards-based normalization using Probe for EPMA." ;
+                    schema1:instrument [ a schema1:SoftwareApplication ;
+                            schema1:additionalType wd:Q7397 ;
+                            schema1:name "Probe for EPMA" ;
+                            schema1:version "9.6.4" ;
+                            ada:toolRole "dataReduction" ] ;
                     schema1:name "Data processing" ;
                     schema1:object <file:///github/workspace/#rawAnalyses> ;
                     schema1:position 4 ;
-                    schema1:result <file:///github/workspace/#quantifiedResults> ;
-                    bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe for EPMA" ;
-                            schema1:version "9.6.4" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Tephra glass grains mounted, polished, and carbon coated for EPMA." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ;
-                    bios:reagent [ a schema1:ChemicalSubstance ;
-                            schema1:name "Carbon" ;
-                            ada:reagentRole "coatingMaterial" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                    schema1:result <file:///github/workspace/#quantifiedResults> ],
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "Primary reference materials at start/end of session; calibration interpolated" ;
@@ -1453,32 +1538,26 @@ parameters, reagents, and quality measurements.
                     dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
                             dqv:isMeasurementOf "analytical precision (1-sigma)" ;
                             dqv:value "Reported per element on secondary standards; see relatedLink publications" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:description "Calibrate WDS spectrometers on primary standards. Verify on secondary standards at start and end of session." ;
-                    schema1:name "Instrument calibration" ;
-                    schema1:object <file:///github/workspace/#preparedMount> ;
-                    schema1:position 2 ;
-                    bios:reagent [ a schema1:ChemicalSubstance ;
-                            schema1:name "Kaersutite amphibole" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:ChemicalSubstance ;
-                            schema1:name "Albite" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:name "USGS BHVO-2g" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:name "Lipari obsidian ID3506" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:name "USGS NKT-1g" ;
-                            ada:reagentRole "secondaryStandard" ] ] ] ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Tephra glass grains mounted, polished, and carbon coated for EPMA." ;
+                    schema1:instrument [ a schema1:ChemicalSubstance ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:name "Carbon" ;
+                            ada:reagentRole "coatingMaterial" ] ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "Concord University" ] ;
     schema1:datePublished "2011-10-20" ;
-    schema1:instrument <https://example.org/concord-glass-v1-0-6/instrument/ada-EPMAInstrument> ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Probe for EPMA" ;
+            schema1:version "9.6.4" ;
+            ada:toolRole "acquisition" ],
+        <https://example.org/concord-glass-v1-0-6/instrument/ada-EPMAInstrument> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Concord University, Athens, West Virginia, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -1502,28 +1581,24 @@ parameters, reagents, and quality measurements.
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "SiO2",
                 "TiO2" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Detection Limit" ;
-                    schema1:valueName "detectionLimit" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "number" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "SDD" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "P-10" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "xenon" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Other" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Si(Li)" ] ] ;
-                    schema1:name "Detector Type" ;
-                    schema1:valueName "detectorType" ;
+                    schema1:name "Detection Limit Unit" ;
+                    schema1:valueName "detectionLimitUnit" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Sequence" ;
+                    schema1:valueName "sequence" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "integer" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
+                    schema1:name "Background Method" ;
+                    schema1:valueName "backgroundMethod" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:name "Normalization Standards" ;
                     schema1:valueName "normalizationStandards" ;
@@ -1531,45 +1606,8 @@ parameters, reagents, and quality measurements.
                     ada:dataType "string" ;
                     ada:tier "O" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:maxValue 200 ;
-                    schema1:minValue 1 ;
-                    schema1:name "Beam Current (nA)" ;
-                    schema1:unitText "nA" ;
-                    schema1:valueName "beamCurrent" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Peak Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "peakCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:name "Detection Limit Method" ;
                     schema1:valueName "detectionLimitMethod" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Calibration Standard Name" ;
-                    schema1:valueName "calibrationStandardName" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Background Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "backgroundCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Spectrometer" ;
-                    schema1:valueName "spectrometer" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
@@ -1581,12 +1619,34 @@ parameters, reagents, and quality measurements.
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
-                    schema1:name "Background Method" ;
-                    schema1:valueName "backgroundMethod" ;
+                    schema1:maxValue 200 ;
+                    schema1:minValue 1 ;
+                    schema1:name "Beam Current (nA)" ;
+                    schema1:unitText "nA" ;
+                    schema1:valueName "beamCurrent" ;
                     schema1:valueRequired true ;
-                    ada:dataType "string" ;
+                    ada:dataType "number" ;
                     ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Spectrometer" ;
+                    schema1:valueName "spectrometer" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:minValue 1 ;
+                    schema1:name "Background Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "backgroundCountingTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Detection Limit" ;
+                    schema1:valueName "detectionLimit" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "number" ;
+                    ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                             schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
@@ -1599,12 +1659,6 @@ parameters, reagents, and quality measurements.
                     ada:dataType "string" ;
                     ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Normalization Method" ;
-                    schema1:valueName "normalizationMethod" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "O" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
                     schema1:name "X-ray Line" ;
                     schema1:valueName "xrayLine" ;
@@ -1612,10 +1666,27 @@ parameters, reagents, and quality measurements.
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Sequence" ;
-                    schema1:valueName "sequence" ;
+                    schema1:name "Calibration Standard Name" ;
+                    schema1:valueName "calibrationStandardName" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Si(Li)" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "SDD" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "xenon" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Other" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "P-10" ] ] ;
+                    schema1:name "Detector Type" ;
+                    schema1:valueName "detectorType" ;
                     schema1:valueRequired false ;
-                    ada:dataType "integer" ;
+                    ada:dataType "string" ;
                     ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:description "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings." ;
@@ -1627,20 +1698,24 @@ parameters, reagents, and quality measurements.
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Detection Limit Unit" ;
-                    schema1:valueName "detectionLimitUnit" ;
+                    schema1:name "Normalization Method" ;
+                    schema1:valueName "normalizationMethod" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
-                    ada:tier "R" ] ] ;
-    bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            schema1:version "9.6.4" ;
-            ada:toolRole "acquisition" ] .
+                    ada:tier "O" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:minValue 1 ;
+                    schema1:name "Peak Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "peakCountingTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ] ] .
 
 <https://example.org/concord-glass-v1-0-6/instrument/ada-EPMAInstrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType ada:EPMAInstrument,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:hasPart <https://example.org/concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "ARL" ] ;
@@ -1650,7 +1725,7 @@ parameters, reagents, and quality measurements.
 
 <https://example.org/concord-glass-v1-0-6/instrument/ada-EPMAInstrument/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "WDS Spectrometer" ;
     schema1:description "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows" ;
     schema1:name "WDS Spectrometer Array" .
@@ -1661,7 +1736,7 @@ parameters, reagents, and quality measurements.
 
 ### NMNH Spinel Oxybarometry TAPP Definition (NMNH Smithsonian)
 Spinel oxybarometry TAPP definition at NMNH Smithsonian, modeled as
-cdi:Activity + schema:Action. Workflow with 5 steps including
+a prov:Plan + schema:Action + schema:HowTo. Workflow with 5 steps including
 calibration with Smithsonian reference standards carrying
 catalog identifiers and citations. Multiple target materials
 (spinel, olivine, orthopyroxene) via schema:object.
@@ -1682,10 +1757,10 @@ catalog identifiers and citations. Multiple target materials
   "@id": "https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "Spinel oxybarometry version 1",
   "schema:version": "1.0",
@@ -1722,51 +1797,65 @@ catalog identifiers and citations. Multiple target materials
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "JEOL JXA-8900 Superprobe; JEOL JXA-8530F Hyperprobe",
-    "schema:manufacturer": {
+  "schema:instrument": [
+    {
       "@type": [
-        "schema:Organization"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:name": "JEOL"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
-      ],
-      "schema:name": "JXA-8900"
-    },
-    "schema:hasPart": [
-      {
+      "schema:name": "JEOL JXA-8900 Superprobe; JEOL JXA-8530F Hyperprobe",
+      "schema:manufacturer": {
         "@type": [
-          "schema:Product",
-          "schema:Thing"
+          "schema:Organization"
         ],
-        "schema:additionalType": [
-          "WDS Spectrometer",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "WDS Spectrometer Array",
-        "schema:description": "5 WDS spectrometers with TAPx2, LiFx2, PETJ, LiFH.",
-        "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
+        "schema:name": "JEOL"
       },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument"
-  },
+      "schema:model": {
+        "@type": [
+          "schema:ProductModel"
+        ],
+        "schema:name": "JXA-8900"
+      },
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "WDS Spectrometer Array",
+          "schema:description": "5 WDS spectrometers with TAPx2, LiFx2, PETJ, LiFH.",
+          "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
+        },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1779,15 +1868,6 @@ catalog identifiers and citations. Multiple target materials
     ],
     "schema:name": "Smithsonian Institution, Department of Mineral Sciences"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Probe for EPMA",
-      "ada:toolRole": "acquisition"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -1852,7 +1932,6 @@ catalog identifiers and citations. Multiple target materials
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -1870,7 +1949,6 @@ catalog identifiers and citations. Multiple target materials
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -1880,7 +1958,7 @@ catalog identifiers and citations. Multiple target materials
         "schema:object": {
           "@id": "#preparedMount"
         },
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:Product"
@@ -1894,7 +1972,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 111312/444"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -1909,7 +1992,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 117075"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -1924,7 +2012,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 143965"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -1939,7 +2032,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 136041"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -1954,7 +2052,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 114887"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -1962,7 +2065,12 @@ catalog identifiers and citations. Multiple target materials
             ],
             "schema:name": "Wollastonite (synthetic, F.R. Boyd)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -1971,13 +2079,17 @@ catalog identifiers and citations. Multiple target materials
             "schema:name": "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320",
             "schema:description": "Secondary spinel standards for Fe3+/Î£Fe calibration",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)."
+            "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2069,7 +2181,6 @@ catalog identifiers and citations. Multiple target materials
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2079,15 +2190,6 @@ catalog identifiers and citations. Multiple target materials
         "schema:object": {
           "@id": "#rawAnalyses"
         },
-        "bios:computationalTool": [
-          {
-            "@type": [
-              "schema:SoftwareApplication"
-            ],
-            "schema:name": "Probe for EPMA",
-            "ada:toolRole": "dataReduction"
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@type": [
@@ -2114,11 +2216,24 @@ catalog identifiers and citations. Multiple target materials
         ],
         "schema:result": {
           "@id": "#quantifiedResults"
-        }
+        },
+        "schema:instrument": [
+          {
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
+            "schema:name": "Probe for EPMA",
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
+          }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2325,10 +2440,10 @@ catalog identifiers and citations. Multiple target materials
   "@id": "https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "Spinel oxybarometry version 1",
   "schema:version": "1.0",
@@ -2365,51 +2480,65 @@ catalog identifiers and citations. Multiple target materials
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "JEOL JXA-8900 Superprobe; JEOL JXA-8530F Hyperprobe",
-    "schema:manufacturer": {
+  "schema:instrument": [
+    {
       "@type": [
-        "schema:Organization"
+        "schema:Product",
+        "schema:Thing"
       ],
-      "schema:name": "JEOL"
-    },
-    "schema:model": {
-      "@type": [
-        "schema:ProductModel"
-      ],
-      "schema:name": "JXA-8900"
-    },
-    "schema:hasPart": [
-      {
+      "schema:name": "JEOL JXA-8900 Superprobe; JEOL JXA-8530F Hyperprobe",
+      "schema:manufacturer": {
         "@type": [
-          "schema:Product",
-          "schema:Thing"
+          "schema:Organization"
         ],
-        "schema:additionalType": [
-          "WDS Spectrometer",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "WDS Spectrometer Array",
-        "schema:description": "5 WDS spectrometers with TAPx2, LiFx2, PETJ, LiFH.",
-        "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
+        "schema:name": "JEOL"
       },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument"
-  },
+      "schema:model": {
+        "@type": [
+          "schema:ProductModel"
+        ],
+        "schema:name": "JXA-8900"
+      },
+      "schema:hasPart": [
+        {
+          "@type": [
+            "schema:Product",
+            "schema:Thing"
+          ],
+          "schema:additionalType": [
+            "WDS Spectrometer",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "WDS Spectrometer Array",
+          "schema:description": "5 WDS spectrometers with TAPx2, LiFx2, PETJ, LiFH.",
+          "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
+        },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:nmnh-spinel-oxybar-v1/instrument/instrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Probe for EPMA",
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -2422,15 +2551,6 @@ catalog identifiers and citations. Multiple target materials
     ],
     "schema:name": "Smithsonian Institution, Department of Mineral Sciences"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Probe for EPMA",
-      "ada:toolRole": "acquisition"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -2495,7 +2615,6 @@ catalog identifiers and citations. Multiple target materials
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2513,7 +2632,6 @@ catalog identifiers and citations. Multiple target materials
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2523,7 +2641,7 @@ catalog identifiers and citations. Multiple target materials
         "schema:object": {
           "@id": "#preparedMount"
         },
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:Product"
@@ -2537,7 +2655,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 111312/444"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -2552,7 +2675,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 117075"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -2567,7 +2695,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 143965"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47."
+            "schema:citation": "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43\u00e2\u20ac\u201c47.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -2582,7 +2715,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 136041"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -2597,7 +2735,12 @@ catalog identifiers and citations. Multiple target materials
               "schema:value": "NMNH 114887"
             },
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -2605,7 +2748,12 @@ catalog identifiers and citations. Multiple target materials
             ],
             "schema:name": "Wollastonite (synthetic, F.R. Boyd)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Davis et al. (2017), American Mineralogist."
+            "schema:citation": "Davis et al. (2017), American Mineralogist.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -2614,13 +2762,17 @@ catalog identifiers and citations. Multiple target materials
             "schema:name": "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320",
             "schema:description": "Secondary spinel standards for Fe3+/\u00ce\u00a3Fe calibration",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)."
+            "schema:citation": "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2712,7 +2864,6 @@ catalog identifiers and citations. Multiple target materials
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2722,15 +2873,6 @@ catalog identifiers and citations. Multiple target materials
         "schema:object": {
           "@id": "#rawAnalyses"
         },
-        "bios:computationalTool": [
-          {
-            "@type": [
-              "schema:SoftwareApplication"
-            ],
-            "schema:name": "Probe for EPMA",
-            "ada:toolRole": "dataReduction"
-          }
-        ],
         "schema:additionalProperty": [
           {
             "@type": [
@@ -2757,11 +2899,24 @@ catalog identifiers and citations. Multiple target materials
         ],
         "schema:result": {
           "@id": "#quantifiedResults"
-        }
+        },
+        "schema:instrument": [
+          {
+            "@type": [
+              "schema:SoftwareApplication"
+            ],
+            "schema:name": "Probe for EPMA",
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
+          }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -2951,21 +3106,84 @@ catalog identifiers and citations. Multiple target materials
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1> a cdi:Activity,
-        schema1:Action,
+<https://registry.onegeochemistry.org/methods/nmnh-spinel-oxybar-v1> a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "EPMA WDS spinel oxybarometry workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "Calibrate WDS spectrometers on primary Smithsonian standards. Verify with secondary spinel standards from Wood & Virgo (1989), Bryndzia & Wood (1990), and Ionov & Wood (1992)." ;
+                    schema1:instrument [ a schema1:Product ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 136041" ] ;
+                            schema1:name "Spinel" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Product ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 114887" ] ;
+                            schema1:name "Manganite" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Product ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 143965" ] ;
+                            schema1:name "Kakanui Hornblende" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Product ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 111312/444" ] ;
+                            schema1:name "San Carlos olivine" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Product ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 117075" ] ;
+                            schema1:name "Tiebaghi Mine chromite" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Product ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)." ;
+                            schema1:description "Secondary spinel standards for Fe3+/Î£Fe calibration" ;
+                            schema1:name "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:ChemicalSubstance ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
+                            schema1:name "Wollastonite (synthetic, F.R. Boyd)" ;
+                            ada:reagentRole "primaryStandard" ] ;
+                    schema1:name "Instrument calibration" ;
+                    schema1:object <file:///github/workspace/#preparedMount> ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Spinel-bearing peridotite samples mounted in epoxy, polished, and carbon coated." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ],
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "Primary and secondary standards at start/end; subset run regularly during session." ;
@@ -2984,8 +3202,7 @@ catalog identifiers and citations. Multiple target materials
                     dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
                             dqv:isMeasurementOf "analytical reproducibility" ;
                             dqv:value "Davis et al. (2017) report reproducibility on spinels PS211, PS212, OC231350, KLB8304" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "CITZAF" ;
@@ -3000,97 +3217,17 @@ catalog identifiers and citations. Multiple target materials
                             ada:fieldScope "method" ;
                             ada:tier "M" ] ;
                     schema1:description "Matrix correction using CITZAF. Fe3+/Î£Fe calculated from spinel stoichiometry using flank method calibrated against secondary spinel standards with known MÃ¶ssbauer Fe3+/Î£Fe ratios." ;
+                    schema1:instrument [ a schema1:SoftwareApplication ;
+                            schema1:additionalType wd:Q7397 ;
+                            schema1:name "Probe for EPMA" ;
+                            ada:toolRole "dataReduction" ] ;
                     schema1:name "Data processing" ;
                     schema1:object <file:///github/workspace/#rawAnalyses> ;
                     schema1:position 4 ;
-                    schema1:result <file:///github/workspace/#quantifiedResults> ;
-                    bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Probe for EPMA" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:description "Calibrate WDS spectrometers on primary Smithsonian standards. Verify with secondary spinel standards from Wood & Virgo (1989), Bryndzia & Wood (1990), and Ionov & Wood (1992)." ;
-                    schema1:name "Instrument calibration" ;
-                    schema1:object <file:///github/workspace/#preparedMount> ;
-                    schema1:position 2 ;
-                    bios:reagent [ a schema1:Product ;
-                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 143965" ] ;
-                            schema1:name "Kakanui Hornblende" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:ChemicalSubstance ;
-                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
-                            schema1:name "Wollastonite (synthetic, F.R. Boyd)" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Product ;
-                            schema1:citation "Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992)." ;
-                            schema1:description "Secondary spinel standards for Fe3+/Î£Fe calibration" ;
-                            schema1:name "IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:Product ;
-                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 117075" ] ;
-                            schema1:name "Tiebaghi Mine chromite" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Product ;
-                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 111312/444" ] ;
-                            schema1:name "San Carlos olivine" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Product ;
-                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 114887" ] ;
-                            schema1:name "Manganite" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Product ;
-                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 136041" ] ;
-                            schema1:name "Spinel" ;
-                            ada:reagentRole "primaryStandard" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Spinel-bearing peridotite samples mounted in epoxy, polished, and carbon coated." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                    schema1:result <file:///github/workspace/#quantifiedResults> ],
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Focused beam" ;
-                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/beam-modes> ;
-                            schema1:name "Beam Diameter" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "beamDiameter" ;
-                            schema1:valueRequired true ;
-                            ada:category "Beam Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "none" ;
-                            schema1:name "Beam Raster" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "beamRaster" ;
-                            schema1:valueRequired false ;
-                            ada:category "Beam Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "R" ],
-                        [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "not applicable" ;
                             schema1:name "Beam Damage Minimization" ;
                             schema1:readonlyValue true ;
@@ -3100,6 +3237,17 @@ catalog identifiers and citations. Multiple target materials
                             ada:dataType "string" ;
                             ada:fieldScope "method" ;
                             ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 15 ;
+                            schema1:name "Accelerating Voltage" ;
+                            schema1:readonlyValue true ;
+                            schema1:unitText "kV" ;
+                            schema1:valueName "acceleratingVoltage" ;
+                            schema1:valueRequired true ;
+                            ada:category "Beam Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 40 ;
                             schema1:maxValue 200 ;
@@ -3114,14 +3262,24 @@ catalog identifiers and citations. Multiple target materials
                             ada:fieldScope "method" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 15 ;
-                            schema1:name "Accelerating Voltage" ;
+                            schema1:defaultValue "none" ;
+                            schema1:name "Beam Raster" ;
                             schema1:readonlyValue true ;
-                            schema1:unitText "kV" ;
-                            schema1:valueName "acceleratingVoltage" ;
+                            schema1:valueName "beamRaster" ;
+                            schema1:valueRequired false ;
+                            ada:category "Beam Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Focused beam" ;
+                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/beam-modes> ;
+                            schema1:name "Beam Diameter" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "beamDiameter" ;
                             schema1:valueRequired true ;
                             ada:category "Beam Conditions" ;
-                            ada:dataType "number" ;
+                            ada:dataType "string" ;
                             ada:fieldScope "method" ;
                             ada:tier "M" ] ;
                     schema1:description "Quantitative WDS analysis at 15 kV / 40 nA, focused beam. 5 spectrometers measuring SiO2, TiO2, Al2O3, Cr2O3, FeOT, MnO, MgO, CaO, NiO simultaneously." ;
@@ -3131,7 +3289,11 @@ catalog identifiers and citations. Multiple target materials
     schema1:agent [ a schema1:Organization ;
             schema1:name "Smithsonian Institution, Department of Mineral Sciences" ] ;
     schema1:datePublished "2013-11-08" ;
-    schema1:instrument <https://example.org/nmnh-spinel-oxybar-v1/instrument/instrument> ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Probe for EPMA" ;
+            ada:toolRole "acquisition" ],
+        <https://example.org/nmnh-spinel-oxybar-v1/instrument/instrument> ;
     schema1:location [ a schema1:Place ;
             schema1:name "National Museum of Natural History, Smithsonian Institution" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -3140,21 +3302,21 @@ catalog identifiers and citations. Multiple target materials
     schema1:name "Spinel oxybarometry version 1" ;
     schema1:object [ a schema1:DefinedTerm ;
             schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/materials" ;
-            schema1:name "olivine" ],
-        [ a schema1:DefinedTerm ;
-            schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/materials" ;
             schema1:name "spinel" ],
         [ a schema1:DefinedTerm ;
             schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/materials" ;
-            schema1:name "orthopyroxene" ] ;
+            schema1:name "orthopyroxene" ],
+        [ a schema1:DefinedTerm ;
+            schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/materials" ;
+            schema1:name "olivine" ] ;
     schema1:version "1.0" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "No" ;
             schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                     schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                            schema1:termCode "No" ],
+                            schema1:termCode "Yes" ],
                         [ a schema1:DefinedTerm ;
-                            schema1:termCode "Yes" ] ] ;
+                            schema1:termCode "No" ] ] ;
             schema1:name "EDS Utilization" ;
             schema1:readonlyValue true ;
             schema1:valueName "edsUtilization" ;
@@ -3167,9 +3329,9 @@ catalog identifiers and citations. Multiple target materials
             schema1:defaultValue "Yes" ;
             schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                     schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                            schema1:termCode "Yes" ],
+                            schema1:termCode "No" ],
                         [ a schema1:DefinedTerm ;
-                            schema1:termCode "No" ] ] ;
+                            schema1:termCode "Yes" ] ] ;
             schema1:name "WDS Utilization" ;
             schema1:readonlyValue true ;
             schema1:valueName "wdsUtilization" ;
@@ -3188,18 +3350,12 @@ catalog identifiers and citations. Multiple target materials
                 "SiO2",
                 "TiO2" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
-                    schema1:name "Background Method" ;
-                    schema1:valueName "backgroundMethod" ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
+                    schema1:name "Diffracting Crystal" ;
+                    schema1:valueName "diffractingCrystal" ;
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Spectrometer" ;
-                    schema1:valueName "spectrometer" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:description "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings." ;
                     schema1:name "Analysed Oxide/Element" ;
@@ -3208,51 +3364,6 @@ catalog identifiers and citations. Multiple target materials
                     schema1:valueRequired true ;
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
-                    schema1:name "Diffracting Crystal" ;
-                    schema1:valueName "diffractingCrystal" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Background Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "backgroundCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:minValue 1 ;
-                    schema1:name "Peak Counting Time (s)" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "peakCountingTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Calibration Standard Name" ;
-                    schema1:valueName "calibrationStandardName" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
-                    schema1:name "X-ray Line" ;
-                    schema1:valueName "xrayLine" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:maxValue 200 ;
-                    schema1:minValue 1 ;
-                    schema1:name "Beam Current (nA)" ;
-                    schema1:unitText "nA" ;
-                    schema1:valueName "beamCurrent" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:name "Calibration Standard ID" ;
@@ -3265,15 +3376,63 @@ catalog identifiers and citations. Multiple target materials
                     schema1:valueName "citationForStandard" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
-                    ada:tier "R" ] ] ;
-    bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            ada:toolRole "acquisition" ] .
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Spectrometer" ;
+                    schema1:valueName "spectrometer" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Calibration Standard Name" ;
+                    schema1:valueName "calibrationStandardName" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
+                    schema1:name "Background Method" ;
+                    schema1:valueName "backgroundMethod" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
+                    schema1:name "X-ray Line" ;
+                    schema1:valueName "xrayLine" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:minValue 1 ;
+                    schema1:name "Peak Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "peakCountingTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:maxValue 200 ;
+                    schema1:minValue 1 ;
+                    schema1:name "Beam Current (nA)" ;
+                    schema1:unitText "nA" ;
+                    schema1:valueName "beamCurrent" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:minValue 1 ;
+                    schema1:name "Background Counting Time (s)" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "backgroundCountingTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ] ] .
 
 <https://example.org/nmnh-spinel-oxybar-v1/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:hasPart <https://example.org/nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer> ;
     schema1:manufacturer [ a schema1:Organization ;
             schema1:name "JEOL" ] ;
@@ -3283,7 +3442,7 @@ catalog identifiers and citations. Multiple target materials
 
 <https://example.org/nmnh-spinel-oxybar-v1/instrument/instrument/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "WDS Spectrometer" ;
     schema1:description "5 WDS spectrometers with TAPx2, LiFx2, PETJ, LiFH." ;
     schema1:name "WDS Spectrometer Array" .
@@ -3318,10 +3477,10 @@ template, and TAPP-level funding/references.
   "@id": "https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "UoC volcanic glass trace elements v.1",
   "schema:identifier": "http://doi.org/10.60520/IEDA/114187",
@@ -3346,66 +3505,82 @@ template, and TAPP-level funding/references.
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
-    "schema:hasPart": [
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "Laser Ablation System",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "ESI imageGEO193",
-        "schema:description": "193 nm ArF excimer laser ablation system",
-        "schema:manufacturer": {
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
+      "schema:hasPart": [
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Elemental Scientific Lasers (ESI)"
+          "schema:additionalType": [
+            "Laser Ablation System",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "ESI imageGEO193",
+          "schema:description": "193 nm ArF excimer laser ablation system",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Elemental Scientific Lasers (ESI)"
+          },
+          "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System"
         },
-        "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System"
-      },
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "ICPMS",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "Thermo Fischer iCAP Q",
-        "schema:description": "Single-quadrupole ICP-MS",
-        "schema:manufacturer": {
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Thermo Fisher Scientific"
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "Thermo Fischer iCAP Q",
+          "schema:description": "Single-quadrupole ICP-MS",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Thermo Fisher Scientific"
+          },
+          "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
         },
-        "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument"
-  },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Iolite",
+      "schema:version": "4",
+      "schema:url": "https://iolite-software.com/",
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -3418,17 +3593,6 @@ template, and TAPP-level funding/references.
     ],
     "schema:name": "University of Cologne, Institute of Geology and Mineralogy"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Iolite",
-      "schema:version": "4",
-      "schema:url": "https://iolite-software.com/",
-      "ada:toolRole": "dataReduction"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -3517,7 +3681,6 @@ template, and TAPP-level funding/references.
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -3535,7 +3698,6 @@ template, and TAPP-level funding/references.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -3620,14 +3782,13 @@ template, and TAPP-level funding/references.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
         "schema:name": "Laser ablation calibration",
         "schema:position": 3,
         "schema:description": "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G.",
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:DefinedTerm"
@@ -3635,7 +3796,12 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -3644,7 +3810,12 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -3653,7 +3824,12 @@ template, and TAPP-level funding/references.
             "schema:name": "ATHO-G",
             "schema:description": "MPI-DING Icelandic rhyolite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -3662,13 +3838,17 @@ template, and TAPP-level funding/references.
             "schema:name": "StHs6/80-G",
             "schema:description": "MPI-DING St. Helens dacite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -3777,7 +3957,6 @@ template, and TAPP-level funding/references.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -3787,23 +3966,27 @@ template, and TAPP-level funding/references.
         "schema:object": {
           "@id": "#rawSignals"
         },
-        "bios:computationalTool": [
+        "schema:result": {
+          "@id": "#quantifiedConcentrations"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:SoftwareApplication"
             ],
             "schema:name": "Iolite",
             "schema:version": "4",
-            "ada:toolRole": "dataReduction"
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#quantifiedConcentrations"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -3972,10 +4155,10 @@ template, and TAPP-level funding/references.
   "@id": "https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "UoC volcanic glass trace elements v.1",
   "schema:identifier": "http://doi.org/10.60520/IEDA/114187",
@@ -4000,66 +4183,82 @@ template, and TAPP-level funding/references.
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
-    "schema:hasPart": [
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "Laser Ablation System",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "ESI imageGEO193",
-        "schema:description": "193 nm ArF excimer laser ablation system",
-        "schema:manufacturer": {
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
+      "schema:hasPart": [
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Elemental Scientific Lasers (ESI)"
+          "schema:additionalType": [
+            "Laser Ablation System",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "ESI imageGEO193",
+          "schema:description": "193 nm ArF excimer laser ablation system",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Elemental Scientific Lasers (ESI)"
+          },
+          "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System"
         },
-        "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System"
-      },
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "ICPMS",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "Thermo Fischer iCAP Q",
-        "schema:description": "Single-quadrupole ICP-MS",
-        "schema:manufacturer": {
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Thermo Fisher Scientific"
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "Thermo Fischer iCAP Q",
+          "schema:description": "Single-quadrupole ICP-MS",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Thermo Fisher Scientific"
+          },
+          "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
         },
-        "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument"
-  },
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:uoc-laicpms-glass-v1/instrument/instrument"
+    },
+    {
+      "@type": [
+        "schema:SoftwareApplication"
+      ],
+      "schema:name": "Iolite",
+      "schema:version": "4",
+      "schema:url": "https://iolite-software.com/",
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -4072,17 +4271,6 @@ template, and TAPP-level funding/references.
     ],
     "schema:name": "University of Cologne, Institute of Geology and Mineralogy"
   },
-  "bios:computationalTool": [
-    {
-      "@type": [
-        "schema:SoftwareApplication"
-      ],
-      "schema:name": "Iolite",
-      "schema:version": "4",
-      "schema:url": "https://iolite-software.com/",
-      "ada:toolRole": "dataReduction"
-    }
-  ],
   "ada:methodParameters": [
     {
       "@type": [
@@ -4171,7 +4359,6 @@ template, and TAPP-level funding/references.
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -4189,7 +4376,6 @@ template, and TAPP-level funding/references.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -4274,14 +4460,13 @@ template, and TAPP-level funding/references.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
         "schema:name": "Laser ablation calibration",
         "schema:position": 3,
         "schema:description": "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G.",
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:DefinedTerm"
@@ -4289,7 +4474,12 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -4298,7 +4488,12 @@ template, and TAPP-level funding/references.
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -4307,7 +4502,12 @@ template, and TAPP-level funding/references.
             "schema:name": "ATHO-G",
             "schema:description": "MPI-DING Icelandic rhyolite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -4316,13 +4516,17 @@ template, and TAPP-level funding/references.
             "schema:name": "StHs6/80-G",
             "schema:description": "MPI-DING St. Helens dacite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -4431,7 +4635,6 @@ template, and TAPP-level funding/references.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -4441,23 +4644,27 @@ template, and TAPP-level funding/references.
         "schema:object": {
           "@id": "#rawSignals"
         },
-        "bios:computationalTool": [
+        "schema:result": {
+          "@id": "#quantifiedConcentrations"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:SoftwareApplication"
             ],
             "schema:name": "Iolite",
             "schema:version": "4",
-            "ada:toolRole": "dataReduction"
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#quantifiedConcentrations"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -4609,27 +4816,130 @@ template, and TAPP-level funding/references.
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1> a cdi:Activity,
-        schema1:Action,
+<https://registry.onegeochemistry.org/methods/uoc-laicpms-glass-v1> a schema1:Action,
+        schema1:HowTo,
         prov:Plan,
         ada:TAPPDefinition,
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "LA-ICP-MS volcanic glass trace element workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Volcanic glass shards or tephra grains mounted in epoxy, polished to expose flat surfaces, and carbon coated for prior EPMA analysis of major elements (Si used as internal standard)." ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    schema1:result <file:///github/workspace/#preparedMount> ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G." ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
+                            schema1:description "Trace Elements in Glass (nominal 500 ppm)" ;
+                            schema1:name "NIST SRM 610" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
+                            schema1:description "MPI-DING Icelandic rhyolite glass" ;
+                            schema1:name "ATHO-G" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
+                            schema1:description "MPI-DING St. Helens dacite glass" ;
+                            schema1:name "StHs6/80-G" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
+                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
+                            schema1:name "NIST SRM 612" ;
+                            ada:reagentRole "primaryStandard" ] ;
+                    schema1:name "Laser ablation calibration" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 1200 ;
+                            schema1:name "RF Power" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "W" ;
+                            schema1:valueName "rfPower" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 9e-01 ;
+                            schema1:name "Carrier Gas (He) Flow Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "L/min" ;
+                            schema1:valueName "carrierGasHeFlowRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Glass smoothing device" ;
+                            schema1:name "Signal Smoothing" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "signalSmoothing" ;
+                            schema1:valueRequired false ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "ca. 0.7%" ;
+                            schema1:name "Oxide Production (ThO/Th)" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "oxideProduction" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 8e-01 ;
+                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "L/min" ;
+                            schema1:valueName "carrierGasArFlowRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ] ;
+                    schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
+                    schema1:name "ICP-MS tuning and optimization" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "193 nm (ArF excimer)" ;
                             schema1:name "Laser Wavelength" ;
                             schema1:readonlyValue true ;
                             schema1:valueName "laserWavelength" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "7 ns" ;
+                            schema1:name "Laser Pulse Time" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "laserPulseTime" ;
                             schema1:valueRequired true ;
                             ada:category "Laser Conditions" ;
                             ada:dataType "string" ;
@@ -4659,14 +4969,15 @@ template, and TAPP-level funding/references.
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "7 ns" ;
-                            schema1:name "Laser Pulse Time" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "laserPulseTime" ;
+                            schema1:defaultValue 5 ;
+                            schema1:name "Repetition Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "Hz" ;
+                            schema1:valueName "repetitionRate" ;
                             schema1:valueRequired true ;
                             ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 1e-03 ;
@@ -4678,59 +4989,13 @@ template, and TAPP-level funding/references.
                             ada:category "Laser Conditions" ;
                             ada:dataType "number" ;
                             ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 5 ;
-                            schema1:name "Repetition Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "Hz" ;
-                            schema1:valueName "repetitionRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
                             ada:tier "M" ] ;
                     schema1:description "Ablate sample in point mode with 15â€“20 um spot. 30 s gas blank followed by 40 s ablation. Helium carrier gas transports aerosol to ICP-MS via signal smoothing device." ;
                     schema1:name "Laser ablation data acquisition" ;
                     schema1:object <file:///github/workspace/#preparedMount> ;
                     schema1:position 4 ;
                     schema1:result <file:///github/workspace/#rawSignals> ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:description "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G." ;
-                    schema1:name "Laser ablation calibration" ;
-                    schema1:position 3 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
-                            schema1:description "MPI-DING Icelandic rhyolite glass" ;
-                            schema1:name "ATHO-G" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
-                            schema1:description "MPI-DING St. Helens dacite glass" ;
-                            schema1:name "StHs6/80-G" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
-                            schema1:description "Trace Elements in Glass (nominal 500 ppm)" ;
-                            schema1:name "NIST SRM 610" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
-                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
-                            schema1:name "NIST SRM 612" ;
-                            ada:reagentRole "primaryStandard" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Volcanic glass shards or tephra grains mounted in epoxy, polished to expose flat surfaces, and carbon coated for prior EPMA analysis of major elements (Si used as internal standard)." ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:description "Secondary standards (NIST610, ATHO-G, StHs6/80-G) analysed interspersed with unknowns in ratio 2 calibration / 4 QC / 15 unknowns. Drift monitored via repeated NIST612 analyses throughout session." ;
                     schema1:name "Quality control" ;
@@ -4742,77 +5007,18 @@ template, and TAPP-level funding/references.
                         [ a dqv:QualityMeasurement ;
                             dqv:isMeasurementOf "oxide production" ;
                             dqv:value "ThO/Th ca. 0.7%" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:description "Process raw time-resolved signals in Iolite 4. Background subtraction using 30 s pre-ablation gas blank. Normalize to NIST612 with Si as internal standard. Calculate concentrations and sample-individual detection limits per Pettke et al. (2012)." ;
+                    schema1:instrument [ a schema1:SoftwareApplication ;
+                            schema1:additionalType wd:Q7397 ;
+                            schema1:name "Iolite" ;
+                            schema1:version "4" ;
+                            ada:toolRole "dataReduction" ] ;
                     schema1:name "Data processing" ;
                     schema1:object <file:///github/workspace/#rawSignals> ;
                     schema1:position 5 ;
-                    schema1:result <file:///github/workspace/#quantifiedConcentrations> ;
-                    bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Iolite" ;
-                            schema1:version "4" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 9e-01 ;
-                            schema1:name "Carrier Gas (He) Flow Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasHeFlowRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "ca. 0.7%" ;
-                            schema1:name "Oxide Production (ThO/Th)" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "oxideProduction" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 1200 ;
-                            schema1:name "RF Power" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "W" ;
-                            schema1:valueName "rfPower" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 8e-01 ;
-                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasArFlowRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Glass smoothing device" ;
-                            schema1:name "Signal Smoothing" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "signalSmoothing" ;
-                            schema1:valueRequired false ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "R" ] ;
-                    schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
-                    schema1:name "ICP-MS tuning and optimization" ;
-                    schema1:position 2 ] ] ;
+                    schema1:result <file:///github/workspace/#quantifiedConcentrations> ] ] ;
     schema1:agent [ a schema1:Organization ;
             schema1:name "University of Cologne, Institute of Geology and Mineralogy" ] ;
     schema1:datePublished "2022-04-22" ;
@@ -4822,7 +5028,13 @@ template, and TAPP-level funding/references.
             schema1:identifier [ a schema1:PropertyValue ;
                     schema1:value "DFG INST 216/1019-1 FUGG no. 665508" ] ] ;
     schema1:identifier "http://doi.org/10.60520/IEDA/114187" ;
-    schema1:instrument <https://example.org/uoc-laicpms-glass-v1/instrument/instrument> ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Iolite" ;
+            schema1:url "https://iolite-software.com/" ;
+            schema1:version "4" ;
+            ada:toolRole "dataReduction" ],
+        <https://example.org/uoc-laicpms-glass-v1/instrument/instrument> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Geo-/Cosmochemistry lab, Institute of Geology and Mineralogy, University of Cologne, Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
@@ -4835,16 +5047,6 @@ template, and TAPP-level funding/references.
             schema1:name "volcanic glass" ] ;
     schema1:version "1.0" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
-            schema1:name "Element Fractionation Correction" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "elementFractionationCorrection" ;
-            schema1:valueRequired false ;
-            ada:category "Data Processing" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Si analyzed by EPMA or EDS" ;
             schema1:description "Internal standard element and how its concentration is derived for each unknown." ;
             schema1:name "Internal Standard" ;
@@ -4855,6 +5057,16 @@ template, and TAPP-level funding/references.
             ada:dataType "string" ;
             ada:fieldScope "method" ;
             ada:tier "M" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Sample individual LOD calculation according to Pettke et al. (2012)" ;
+            schema1:name "Detection Limit Method" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "detectionLimitMethod" ;
+            schema1:valueRequired false ;
+            ada:category "Quality Control" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "2/4/15" ;
             schema1:description "Ratio of calibration standard / QC standard / unknown analyses in a repeating block." ;
@@ -4867,12 +5079,12 @@ template, and TAPP-level funding/references.
             ada:fieldScope "session" ;
             ada:tier "R" ],
         [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Sample individual LOD calculation according to Pettke et al. (2012)" ;
-            schema1:name "Detection Limit Method" ;
+            schema1:defaultValue "No correction other than measurement relative to NIST612 and use of Si as internal standard" ;
+            schema1:name "Element Fractionation Correction" ;
             schema1:readonlyValue true ;
-            schema1:valueName "detectionLimitMethod" ;
+            schema1:valueName "elementFractionationCorrection" ;
             schema1:valueRequired false ;
-            ada:category "Quality Control" ;
+            ada:category "Data Processing" ;
             ada:dataType "string" ;
             ada:fieldScope "method" ;
             ada:tier "R" ] ;
@@ -4898,15 +5110,6 @@ template, and TAPP-level funding/references.
                 "Yb172",
                 "Zr90" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
-                    schema1:name "Measured Isotope" ;
-                    schema1:readonlyValue true ;
-                    schema1:valueName "targetSpecies" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:description "Dwell time per isotope per sweep in seconds." ;
                     schema1:name "Spectrometer Dwell Time" ;
                     schema1:unitText "seconds" ;
@@ -4914,28 +5117,6 @@ template, and TAPP-level funding/references.
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:description "Total signal integration time during ablation in seconds." ;
-                    schema1:minValue 1 ;
-                    schema1:name "Analysis Count Time" ;
-                    schema1:unitText "seconds" ;
-                    schema1:valueName "analysisCountTime" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "ppb" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "weight percent (%m/m)" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "ppm" ] ] ;
-                    schema1:name "Detection Limit Unit" ;
-                    schema1:valueName "detectionLimitUnit" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:description "Typical detection limit at 99% confidence (3-sigma)." ;
                     schema1:name "Detection Limit" ;
@@ -4951,24 +5132,50 @@ template, and TAPP-level funding/references.
                     schema1:valueName "backgroundCountTime" ;
                     schema1:valueRequired true ;
                     ada:dataType "number" ;
-                    ada:tier "M" ] ] ;
-    bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "Iolite" ;
-            schema1:url "https://iolite-software.com/" ;
-            schema1:version "4" ;
-            ada:toolRole "dataReduction" ] .
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Total signal integration time during ablation in seconds." ;
+                    schema1:minValue 1 ;
+                    schema1:name "Analysis Count Time" ;
+                    schema1:unitText "seconds" ;
+                    schema1:valueName "analysisCountTime" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:description "Element symbol with mass number (e.g. Si29, Ba138, U238)." ;
+                    schema1:name "Measured Isotope" ;
+                    schema1:readonlyValue true ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                                    schema1:termCode "ppb" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "weight percent (%m/m)" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "ppm" ] ] ;
+                    schema1:name "Detection Limit Unit" ;
+                    schema1:valueName "detectionLimitUnit" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ] ] .
 
 <https://example.org/uoc-laicpms-glass-v1/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:hasPart <https://example.org/uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS>,
         <https://example.org/uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System> ;
     schema1:name "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS" .
 
 <https://example.org/uoc-laicpms-glass-v1/instrument/instrument/part/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:description "Single-quadrupole ICP-MS" ;
     schema1:manufacturer [ a schema1:Organization ;
@@ -4977,7 +5184,7 @@ template, and TAPP-level funding/references.
 
 <https://example.org/uoc-laicpms-glass-v1/instrument/instrument/part/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:description "193 nm ArF excimer laser ablation system" ;
     schema1:manufacturer [ a schema1:Organization ;
@@ -5018,10 +5225,10 @@ as one.
   "@id": "https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "CU routine tephra glass version 1.0 with 6nA",
   "schema:identifier": {
@@ -5121,67 +5328,67 @@ as one.
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
-    "schema:hasPart": [
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "Laser Ablation System",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "ESI imageGEO193",
-        "schema:description": "193 nm ArF excimer laser ablation system",
-        "schema:manufacturer": {
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
+      "schema:hasPart": [
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Elemental Scientific Lasers (ESI)"
+          "schema:additionalType": [
+            "Laser Ablation System",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "ESI imageGEO193",
+          "schema:description": "193 nm ArF excimer laser ablation system",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Elemental Scientific Lasers (ESI)"
+          },
+          "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System"
         },
-        "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System"
-      },
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "ICPMS",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "Thermo Fischer iCAP Q",
-        "schema:description": "Single-quadrupole ICP-MS",
-        "schema:manufacturer": {
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Thermo Fisher Scientific"
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "Thermo Fischer iCAP Q",
+          "schema:description": "Single-quadrupole ICP-MS",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Thermo Fisher Scientific"
+          },
+          "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/ICPMS"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
         },
-        "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/ICPMS"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:concord-glass-v1-0-6/instrument/instrument"
-  },
-  "bios:computationalTool": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:concord-glass-v1-0-6/instrument/instrument"
+    },
     {
       "@type": [
         "schema:SoftwareApplication"
@@ -5191,7 +5398,12 @@ as one.
       "schema:version": "1.0.6",
       "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
       "schema:url": "https://iolite-software.com/",
-      "ada:toolRole": "acquisition"
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
@@ -5199,7 +5411,12 @@ as one.
       ],
       "schema:name": "Probe for EPMA",
       "schema:version": "9.6.4",
-      "ada:toolRole": "acquisition"
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
@@ -5207,21 +5424,36 @@ as one.
       ],
       "schema:name": "Probe for EPMA",
       "schema:version": "9.6.4",
-      "ada:toolRole": "dataReduction"
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
         "schema:SoftwareApplication"
       ],
       "schema:name": "Probe for EPMA",
-      "ada:toolRole": "acquisition"
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
         "schema:SoftwareApplication"
       ],
       "schema:name": "Probe for EPMA",
-      "ada:toolRole": "dataReduction"
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
@@ -5230,10 +5462,13 @@ as one.
       "schema:name": "Iolite",
       "schema:version": "4",
       "schema:url": "https://iolite-software.com/",
-      "ada:toolRole": "dataReduction"
-    }
-  ],
-  "bios:reagent": [
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
     {
       "@type": [
         "schema:DefinedTerm"
@@ -5260,42 +5495,72 @@ as one.
         ],
         "schema:name": "CU routine tephra glass version 1.0 with 6nA",
         "schema:url": "https://iolite-software.com/"
-      }
+      },
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:ChemicalSubstance"
       ],
       "schema:name": "Carbon",
-      "ada:reagentRole": "coatingMaterial"
+      "ada:reagentRole": "coatingMaterial",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:ChemicalSubstance"
       ],
       "schema:name": "Albite",
-      "ada:reagentRole": "primaryStandard"
+      "ada:reagentRole": "primaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:ChemicalSubstance"
       ],
       "schema:name": "Kaersutite amphibole",
-      "ada:reagentRole": "primaryStandard"
+      "ada:reagentRole": "primaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:DefinedTerm"
       ],
       "schema:name": "Lipari obsidian ID3506",
-      "ada:reagentRole": "secondaryStandard"
+      "ada:reagentRole": "secondaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:DefinedTerm"
       ],
       "schema:name": "USGS BHVO-2g",
-      "ada:reagentRole": "secondaryStandard"
+      "ada:reagentRole": "secondaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     }
   ],
   "schema:location": {
@@ -5404,7 +5669,7 @@ as one.
           "@id": "ada:EPMAInstrument"
         },
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "CU routine tephra glass version 1.0 with 6nA",
@@ -5446,7 +5711,6 @@ as one.
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -5464,7 +5728,6 @@ as one.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -5549,14 +5812,13 @@ as one.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
         "schema:name": "Laser ablation calibration",
         "schema:position": 3,
         "schema:description": "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G.",
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:DefinedTerm"
@@ -5564,7 +5826,12 @@ as one.
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -5573,7 +5840,12 @@ as one.
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -5582,7 +5854,12 @@ as one.
             "schema:name": "ATHO-G",
             "schema:description": "MPI-DING Icelandic rhyolite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -5591,13 +5868,17 @@ as one.
             "schema:name": "StHs6/80-G",
             "schema:description": "MPI-DING St. Helens dacite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -5706,7 +5987,6 @@ as one.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -5716,23 +5996,27 @@ as one.
         "schema:object": {
           "@id": "#rawSignals"
         },
-        "bios:computationalTool": [
+        "schema:result": {
+          "@id": "#quantifiedConcentrations"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:SoftwareApplication"
             ],
             "schema:name": "Iolite",
             "schema:version": "4",
-            "ada:toolRole": "dataReduction"
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#quantifiedConcentrations"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -6349,7 +6633,7 @@ as one.
               "@id": "ada:EPMAInstrument"
             },
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "CU routine tephra glass version 1.0 with 6nA",
@@ -6443,10 +6727,10 @@ as one.
   "@id": "https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6",
   "@type": [
     "prov:Plan",
-    "cdi:Activity",
     "schema:Action",
     "ada:TAPPDefinition",
-    "bios:LabProtocol"
+    "bios:LabProtocol",
+    "schema:HowTo"
   ],
   "schema:name": "CU routine tephra glass version 1.0 with 6nA",
   "schema:identifier": {
@@ -6546,67 +6830,67 @@ as one.
       "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/materials"
     }
   ],
-  "schema:instrument": {
-    "@type": [
-      "schema:Product",
-      "schema:Thing"
-    ],
-    "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
-    "schema:hasPart": [
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "Laser Ablation System",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "ESI imageGEO193",
-        "schema:description": "193 nm ArF excimer laser ablation system",
-        "schema:manufacturer": {
+  "schema:instrument": [
+    {
+      "@type": [
+        "schema:Product",
+        "schema:Thing"
+      ],
+      "schema:name": "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS",
+      "schema:hasPart": [
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Elemental Scientific Lasers (ESI)"
+          "schema:additionalType": [
+            "Laser Ablation System",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "ESI imageGEO193",
+          "schema:description": "193 nm ArF excimer laser ablation system",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Elemental Scientific Lasers (ESI)"
+          },
+          "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System"
         },
-        "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System"
-      },
-      {
-        "@type": [
-          "schema:Product",
-          "schema:Thing"
-        ],
-        "schema:additionalType": [
-          "ICPMS",
-          {
-            "@id": "https://www.wikidata.org/wiki/Q3099911"
-          }
-        ],
-        "schema:name": "Thermo Fischer iCAP Q",
-        "schema:description": "Single-quadrupole ICP-MS",
-        "schema:manufacturer": {
+        {
           "@type": [
-            "schema:Organization"
+            "schema:Product",
+            "schema:Thing"
           ],
-          "schema:name": "Thermo Fisher Scientific"
+          "schema:additionalType": [
+            "ICPMS",
+            {
+              "@id": "https://www.wikidata.org/entity/Q3099911"
+            }
+          ],
+          "schema:name": "Thermo Fischer iCAP Q",
+          "schema:description": "Single-quadrupole ICP-MS",
+          "schema:manufacturer": {
+            "@type": [
+              "schema:Organization"
+            ],
+            "schema:name": "Thermo Fisher Scientific"
+          },
+          "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/ICPMS"
+        }
+      ],
+      "schema:additionalType": [
+        {
+          "@id": "nxs:base_classes/NXinstrument.html"
         },
-        "@id": "ex:concord-glass-v1-0-6/instrument/instrument/part/ICPMS"
-      }
-    ],
-    "schema:additionalType": [
-      {
-        "@id": "nxs:base_classes/NXinstrument.html"
-      },
-      {
-        "@id": "https://www.wikidata.org/wiki/Q3099911"
-      }
-    ],
-    "@id": "ex:concord-glass-v1-0-6/instrument/instrument"
-  },
-  "bios:computationalTool": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q3099911"
+        }
+      ],
+      "@id": "ex:concord-glass-v1-0-6/instrument/instrument"
+    },
     {
       "@type": [
         "schema:SoftwareApplication"
@@ -6616,7 +6900,12 @@ as one.
       "schema:version": "1.0.6",
       "schema:description": "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows",
       "schema:url": "https://iolite-software.com/",
-      "ada:toolRole": "acquisition"
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
@@ -6624,7 +6913,12 @@ as one.
       ],
       "schema:name": "Probe for EPMA",
       "schema:version": "9.6.4",
-      "ada:toolRole": "acquisition"
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
@@ -6632,21 +6926,36 @@ as one.
       ],
       "schema:name": "Probe for EPMA",
       "schema:version": "9.6.4",
-      "ada:toolRole": "dataReduction"
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
         "schema:SoftwareApplication"
       ],
       "schema:name": "Probe for EPMA",
-      "ada:toolRole": "acquisition"
+      "ada:toolRole": "acquisition",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
         "schema:SoftwareApplication"
       ],
       "schema:name": "Probe for EPMA",
-      "ada:toolRole": "dataReduction"
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
     },
     {
       "@type": [
@@ -6655,10 +6964,13 @@ as one.
       "schema:name": "Iolite",
       "schema:version": "4",
       "schema:url": "https://iolite-software.com/",
-      "ada:toolRole": "dataReduction"
-    }
-  ],
-  "bios:reagent": [
+      "ada:toolRole": "dataReduction",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q7397"
+        }
+      ]
+    },
     {
       "@type": [
         "schema:DefinedTerm"
@@ -6685,42 +6997,72 @@ as one.
         ],
         "schema:name": "CU routine tephra glass version 1.0 with 6nA",
         "schema:url": "https://iolite-software.com/"
-      }
+      },
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:ChemicalSubstance"
       ],
       "schema:name": "Carbon",
-      "ada:reagentRole": "coatingMaterial"
+      "ada:reagentRole": "coatingMaterial",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:ChemicalSubstance"
       ],
       "schema:name": "Albite",
-      "ada:reagentRole": "primaryStandard"
+      "ada:reagentRole": "primaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:ChemicalSubstance"
       ],
       "schema:name": "Kaersutite amphibole",
-      "ada:reagentRole": "primaryStandard"
+      "ada:reagentRole": "primaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:DefinedTerm"
       ],
       "schema:name": "Lipari obsidian ID3506",
-      "ada:reagentRole": "secondaryStandard"
+      "ada:reagentRole": "secondaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     },
     {
       "@type": [
         "schema:DefinedTerm"
       ],
       "schema:name": "USGS BHVO-2g",
-      "ada:reagentRole": "secondaryStandard"
+      "ada:reagentRole": "secondaryStandard",
+      "schema:additionalType": [
+        {
+          "@id": "https://www.wikidata.org/entity/Q2356542"
+        }
+      ]
     }
   ],
   "schema:location": {
@@ -6829,7 +7171,7 @@ as one.
           "@id": "ada:EPMAInstrument"
         },
         {
-          "@id": "https://www.wikidata.org/wiki/Q3099911"
+          "@id": "https://www.wikidata.org/entity/Q3099911"
         }
       ],
       "schema:name": "CU routine tephra glass version 1.0 with 6nA",
@@ -6871,7 +7213,6 @@ as one.
     "schema:step": [
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -6889,7 +7230,6 @@ as one.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -6974,14 +7314,13 @@ as one.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
         "schema:name": "Laser ablation calibration",
         "schema:position": 3,
         "schema:description": "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G.",
-        "bios:reagent": [
+        "schema:instrument": [
           {
             "@type": [
               "schema:DefinedTerm"
@@ -6989,7 +7328,12 @@ as one.
             "schema:name": "NIST SRM 612",
             "schema:description": "Trace Elements in Glass (nominal 50 ppm)",
             "ada:reagentRole": "primaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -6998,7 +7342,12 @@ as one.
             "schema:name": "NIST SRM 610",
             "schema:description": "Trace Elements in Glass (nominal 500 ppm)",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429."
+            "schema:citation": "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397\u00e2\u20ac\u201c429.",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -7007,7 +7356,12 @@ as one.
             "schema:name": "ATHO-G",
             "schema:description": "MPI-DING Icelandic rhyolite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           },
           {
             "@type": [
@@ -7016,13 +7370,17 @@ as one.
             "schema:name": "StHs6/80-G",
             "schema:description": "MPI-DING St. Helens dacite glass",
             "ada:reagentRole": "secondaryStandard",
-            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)."
+            "schema:citation": "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2).",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q2356542"
+              }
+            ]
           }
         ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -7131,7 +7489,6 @@ as one.
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -7141,23 +7498,27 @@ as one.
         "schema:object": {
           "@id": "#rawSignals"
         },
-        "bios:computationalTool": [
+        "schema:result": {
+          "@id": "#quantifiedConcentrations"
+        },
+        "schema:instrument": [
           {
             "@type": [
               "schema:SoftwareApplication"
             ],
             "schema:name": "Iolite",
             "schema:version": "4",
-            "ada:toolRole": "dataReduction"
+            "ada:toolRole": "dataReduction",
+            "schema:additionalType": [
+              {
+                "@id": "https://www.wikidata.org/entity/Q7397"
+              }
+            ]
           }
-        ],
-        "schema:result": {
-          "@id": "#quantifiedConcentrations"
-        }
+        ]
       },
       {
         "@type": [
-          "cdi:Activity",
           "schema:Action",
           "schema:HowToStep"
         ],
@@ -7774,7 +8135,7 @@ as one.
               "@id": "ada:EPMAInstrument"
             },
             {
-              "@id": "https://www.wikidata.org/wiki/Q3099911"
+              "@id": "https://www.wikidata.org/entity/Q3099911"
             }
           ],
           "schema:name": "CU routine tephra glass version 1.0 with 6nA",
@@ -7843,24 +8204,24 @@ as one.
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
-@prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix ns1: <geosparql:> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
+@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/concord-glass-v1-0-6/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q3099911 ;
     schema1:hasPart <https://example.org/concord-glass-v1-0-6/instrument/instrument/part/ICPMS>,
         <https://example.org/concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System> ;
     schema1:name "ESI imageGEO193 laser + Thermo Fischer iCAP Q ICP-MS" .
 
 <https://example.org/concord-glass-v1-0-6/instrument/instrument/part/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "ICPMS" ;
     schema1:description "Single-quadrupole ICP-MS" ;
     schema1:manufacturer [ a schema1:Organization ;
@@ -7869,7 +8230,7 @@ as one.
 
 <https://example.org/concord-glass-v1-0-6/instrument/instrument/part/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/wiki/Q3099911>,
+    schema1:additionalType wd:Q3099911,
         "Laser Ablation System" ;
     schema1:description "193 nm ArF excimer laser ablation system" ;
     schema1:manufacturer [ a schema1:Organization ;
@@ -7878,9 +8239,9 @@ as one.
 
 <https://vocab.onegeochemistry.org/epma/beam-damage-methods> schema1:name "CU routine tephra glass version 1.0 with 6nA" .
 
-<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> a cdi:Activity,
-        schema1:Action,
+<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> a schema1:Action,
         schema1:DefinedTerm,
+        schema1:HowTo,
         schema1:MonetaryGrant,
         schema1:Organization,
         schema1:Person,
@@ -7890,130 +8251,9 @@ as one.
         bios:LabProtocol ;
     schema1:actionProcess [ a schema1:HowTo ;
             schema1:name "LA-ICP-MS volcanic glass trace element workflow" ;
-            schema1:step [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:description "Process raw time-resolved signals in Iolite 4. Background subtraction using 30 s pre-ablation gas blank. Normalize to NIST612 with Si as internal standard. Calculate concentrations and sample-individual detection limits per Pettke et al. (2012)." ;
-                    schema1:name "Data processing" ;
-                    schema1:object <file:///github/workspace/#rawSignals> ;
-                    schema1:position 5 ;
-                    schema1:result <file:///github/workspace/#quantifiedConcentrations> ;
-                    bios:computationalTool [ a schema1:SoftwareApplication ;
-                            schema1:name "Iolite" ;
-                            schema1:version "4" ;
-                            ada:toolRole "dataReduction" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:description "Secondary standards (NIST610, ATHO-G, StHs6/80-G) analysed interspersed with unknowns in ratio 2 calibration / 4 QC / 15 unknowns. Drift monitored via repeated NIST612 analyses throughout session." ;
-                    schema1:name "Quality control" ;
-                    schema1:object <file:///github/workspace/#quantifiedConcentrations> ;
-                    schema1:position 6 ;
-                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "oxide production" ;
-                            dqv:value "ThO/Th ca. 0.7%" ],
-                        [ a dqv:QualityMeasurement ;
-                            dqv:isMeasurementOf "detection limit method" ;
-                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
+            schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "ca. 0.7%" ;
-                            schema1:name "Oxide Production (ThO/Th)" ;
-                            schema1:readonlyValue false ;
-                            schema1:valueName "oxideProduction" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 9e-01 ;
-                            schema1:name "Carrier Gas (He) Flow Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasHeFlowRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 1200 ;
-                            schema1:name "RF Power" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "W" ;
-                            schema1:valueName "rfPower" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "Glass smoothing device" ;
-                            schema1:name "Signal Smoothing" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "signalSmoothing" ;
-                            schema1:valueRequired false ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "R" ],
-                        [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 8e-01 ;
-                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "L/min" ;
-                            schema1:valueName "carrierGasArFlowRate" ;
-                            schema1:valueRequired true ;
-                            ada:category "ICP-MS Conditions" ;
-                            ada:dataType "number" ;
-                            ada:fieldScope "session" ;
-                            ada:tier "M" ] ;
-                    schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
-                    schema1:name "ICP-MS tuning and optimization" ;
-                    schema1:position 2 ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:description "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G." ;
-                    schema1:name "Laser ablation calibration" ;
-                    schema1:position 3 ;
-                    bios:reagent [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
-                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
-                            schema1:name "NIST SRM 612" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
-                            schema1:description "MPI-DING Icelandic rhyolite glass" ;
-                            schema1:name "ATHO-G" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
-                            schema1:description "Trace Elements in Glass (nominal 500 ppm)" ;
-                            schema1:name "NIST SRM 610" ;
-                            ada:reagentRole "secondaryStandard" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
-                            schema1:description "MPI-DING St. Helens dacite glass" ;
-                            schema1:name "StHs6/80-G" ;
-                            ada:reagentRole "secondaryStandard" ] ],
-                [ a cdi:Activity,
-                        schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "193 nm (ArF excimer)" ;
-                            schema1:name "Laser Wavelength" ;
-                            schema1:readonlyValue true ;
-                            schema1:valueName "laserWavelength" ;
-                            schema1:valueRequired true ;
-                            ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
-                            ada:fieldScope "method" ;
-                            ada:tier "M" ],
-                        [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue "7 ns" ;
                             schema1:name "Laser Pulse Time" ;
                             schema1:readonlyValue true ;
@@ -8024,14 +8264,14 @@ as one.
                             ada:fieldScope "method" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "point" ;
-                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
-                            schema1:name "Laser Spot Path Geometry" ;
+                            schema1:defaultValue 1e-03 ;
+                            schema1:name "Laser Energy" ;
                             schema1:readonlyValue false ;
-                            schema1:valueName "laserSpotPathGeometry" ;
+                            schema1:unitText "mJ" ;
+                            schema1:valueName "laserEnergy" ;
                             schema1:valueRequired true ;
                             ada:category "Laser Conditions" ;
-                            ada:dataType "string" ;
+                            ada:dataType "number" ;
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
@@ -8046,14 +8286,24 @@ as one.
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 1e-03 ;
-                            schema1:name "Laser Energy" ;
-                            schema1:readonlyValue false ;
-                            schema1:unitText "mJ" ;
-                            schema1:valueName "laserEnergy" ;
+                            schema1:defaultValue "193 nm (ArF excimer)" ;
+                            schema1:name "Laser Wavelength" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "laserWavelength" ;
                             schema1:valueRequired true ;
                             ada:category "Laser Conditions" ;
-                            ada:dataType "number" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "point" ;
+                            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/laicpms/spot-geometries> ;
+                            schema1:name "Laser Spot Path Geometry" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "laserSpotPathGeometry" ;
+                            schema1:valueRequired true ;
+                            ada:category "Laser Conditions" ;
+                            ada:dataType "string" ;
                             ada:fieldScope "session" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
@@ -8073,64 +8323,125 @@ as one.
                     schema1:object <file:///github/workspace/#preparedMount> ;
                     schema1:position 4 ;
                     schema1:result <file:///github/workspace/#rawSignals> ],
-                [ a cdi:Activity,
-                        schema1:Action,
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "Secondary standards (NIST610, ATHO-G, StHs6/80-G) analysed interspersed with unknowns in ratio 2 calibration / 4 QC / 15 unknowns. Drift monitored via repeated NIST612 analyses throughout session." ;
+                    schema1:name "Quality control" ;
+                    schema1:object <file:///github/workspace/#quantifiedConcentrations> ;
+                    schema1:position 6 ;
+                    dqv:hasQualityMeasurement [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "detection limit method" ;
+                            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ],
+                        [ a dqv:QualityMeasurement ;
+                            dqv:isMeasurementOf "oxide production" ;
+                            dqv:value "ThO/Th ca. 0.7%" ] ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "Calibrate using NIST612 as primary reference material. Verify with secondary standards NIST610, ATHO-G, and StHs6/80-G." ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
+                            schema1:description "MPI-DING St. Helens dacite glass" ;
+                            schema1:name "StHs6/80-G" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2006), Geochemistry Geophysics Geosystems, 7(2)." ;
+                            schema1:description "MPI-DING Icelandic rhyolite glass" ;
+                            schema1:name "ATHO-G" ;
+                            ada:reagentRole "secondaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
+                            schema1:description "Trace Elements in Glass (nominal 50 ppm)" ;
+                            schema1:name "NIST SRM 612" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:additionalType wd:Q2356542 ;
+                            schema1:citation "Jochum et al. (2011), Geostandards and Geoanalytical Research, 35(4): 397â€“429." ;
+                            schema1:description "Trace Elements in Glass (nominal 500 ppm)" ;
+                            schema1:name "NIST SRM 610" ;
+                            ada:reagentRole "secondaryStandard" ] ;
+                    schema1:name "Laser ablation calibration" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:description "Process raw time-resolved signals in Iolite 4. Background subtraction using 30 s pre-ablation gas blank. Normalize to NIST612 with Si as internal standard. Calculate concentrations and sample-individual detection limits per Pettke et al. (2012)." ;
+                    schema1:instrument [ a schema1:SoftwareApplication ;
+                            schema1:additionalType wd:Q7397 ;
+                            schema1:name "Iolite" ;
+                            schema1:version "4" ;
+                            ada:toolRole "dataReduction" ] ;
+                    schema1:name "Data processing" ;
+                    schema1:object <file:///github/workspace/#rawSignals> ;
+                    schema1:position 5 ;
+                    schema1:result <file:///github/workspace/#quantifiedConcentrations> ],
+                [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Volcanic glass shards or tephra grains mounted in epoxy, polished to expose flat surfaces, and carbon coated for prior EPMA analysis of major elements (Si used as internal standard)." ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    schema1:result <file:///github/workspace/#preparedMount> ] ] ;
+                    schema1:result <file:///github/workspace/#preparedMount> ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 8e-01 ;
+                            schema1:name "Carrier Gas (Ar) Flow Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "L/min" ;
+                            schema1:valueName "carrierGasArFlowRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "Glass smoothing device" ;
+                            schema1:name "Signal Smoothing" ;
+                            schema1:readonlyValue true ;
+                            schema1:valueName "signalSmoothing" ;
+                            schema1:valueRequired false ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "method" ;
+                            ada:tier "R" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 1200 ;
+                            schema1:name "RF Power" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "W" ;
+                            schema1:valueName "rfPower" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue "ca. 0.7%" ;
+                            schema1:name "Oxide Production (ThO/Th)" ;
+                            schema1:readonlyValue false ;
+                            schema1:valueName "oxideProduction" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "string" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ],
+                        [ a schema1:PropertyValueSpecification ;
+                            schema1:defaultValue 9e-01 ;
+                            schema1:name "Carrier Gas (He) Flow Rate" ;
+                            schema1:readonlyValue false ;
+                            schema1:unitText "L/min" ;
+                            schema1:valueName "carrierGasHeFlowRate" ;
+                            schema1:valueRequired true ;
+                            ada:category "ICP-MS Conditions" ;
+                            ada:dataType "number" ;
+                            ada:fieldScope "session" ;
+                            ada:tier "M" ] ;
+                    schema1:description "Tune ICP-MS using auto-tune function on line scan of NIST612. Optimize for maximum sensitivity while minimizing oxide production (ThO/Th ~0.7%)." ;
+                    schema1:name "ICP-MS tuning and optimization" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue 10 ;
-            schema1:maxValue 50 ;
-            schema1:minValue 0 ;
-            schema1:name "Beam Diameter" ;
-            schema1:readonlyValue false ;
-            schema1:unitText "um" ;
-            schema1:valueName "beamDiameter" ;
-            schema1:valueRequired true ;
-            ada:category "Beam Conditions" ;
-            ada:dataType "number" ;
-            ada:fieldScope "session" ;
-            ada:tier "M" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Armstrong/Packwood-Brown 1981 MAS Phi(pz) with CITZMU MACs" ;
-            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/matrix-correction-models> ;
-            schema1:name "Matrix Correction Model" ;
-            schema1:propertyID <https://vocab.onegeochemistry.org/epma/matrix-correction> ;
-            schema1:readonlyValue true ;
-            schema1:valueName "matrixCorrectionModel" ;
-            schema1:valueRequired true ;
-            ada:category "Data Processing" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "M" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Si, Al, Na acquired first; 6-7 time intervals for TDI correction" ;
-            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/beam-damage-methods> ;
-            schema1:name "Beam Damage Minimization" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "beamDamageMinimization" ;
-            schema1:valueRequired false ;
-            ada:category "Beam Conditions" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "R" ],
-        [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue 6 ;
-            schema1:maxValue 200 ;
-            schema1:minValue 1 ;
-            schema1:name "Beam Current" ;
-            schema1:readonlyValue true ;
-            schema1:unitText "nA" ;
-            schema1:valueName "beamCurrent" ;
-            schema1:valueRequired true ;
-            ada:category "Beam Conditions" ;
-            ada:dataType "number" ;
-            ada:fieldScope "method" ;
-            ada:tier "M" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "Water by difference included in x-ray matrix corrections for improved accuracy on hydrated glasses; offline multi-standard blank correction; offline standards-based normalization" ;
             schema1:description "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows" ;
             schema1:inDefinedTermSet [ a schema1:CreativeWork ;
@@ -8175,6 +8486,42 @@ as one.
             ada:fieldScope "method" ;
             ada:tier "M" ],
         [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue 6 ;
+            schema1:maxValue 200 ;
+            schema1:minValue 1 ;
+            schema1:name "Beam Current" ;
+            schema1:readonlyValue true ;
+            schema1:unitText "nA" ;
+            schema1:valueName "beamCurrent" ;
+            schema1:valueRequired true ;
+            ada:category "Beam Conditions" ;
+            ada:dataType "number" ;
+            ada:fieldScope "method" ;
+            ada:tier "M" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Si, Al, Na acquired first; 6-7 time intervals for TDI correction" ;
+            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/beam-damage-methods> ;
+            schema1:name "Beam Damage Minimization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "beamDamageMinimization" ;
+            schema1:valueRequired false ;
+            ada:category "Beam Conditions" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "R" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Armstrong/Packwood-Brown 1981 MAS Phi(pz) with CITZMU MACs" ;
+            schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/matrix-correction-models> ;
+            schema1:name "Matrix Correction Model" ;
+            schema1:propertyID <https://vocab.onegeochemistry.org/epma/matrix-correction> ;
+            schema1:readonlyValue true ;
+            schema1:valueName "matrixCorrectionModel" ;
+            schema1:valueRequired true ;
+            ada:category "Data Processing" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "M" ],
+        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue 15 ;
             schema1:name "Accelerating Voltage" ;
             schema1:readonlyValue true ;
@@ -8184,9 +8531,24 @@ as one.
             ada:category "Beam Conditions" ;
             ada:dataType "number" ;
             ada:fieldScope "method" ;
+            ada:tier "M" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue 10 ;
+            schema1:maxValue 50 ;
+            schema1:minValue 0 ;
+            schema1:name "Beam Diameter" ;
+            schema1:readonlyValue false ;
+            schema1:unitText "um" ;
+            schema1:valueName "beamDiameter" ;
+            schema1:valueRequired true ;
+            ada:category "Beam Conditions" ;
+            ada:dataType "number" ;
+            ada:fieldScope "session" ;
             ada:tier "M" ] ;
     schema1:additionalType ada:EPMAInstrument,
-        <https://www.wikidata.org/wiki/Q3099911> ;
+        wd:Q2356542,
+        wd:Q3099911,
+        wd:Q7397 ;
     schema1:affiliation <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
     schema1:alternateName "synthetic schema:alternateName" ;
     schema1:citation [ a prov:Plan ;
@@ -8207,8 +8569,17 @@ as one.
             schema1:identifier [ a schema1:PropertyValue ;
                     schema1:value "DFG INST 216/1019-1 FUGG no. 665508" ] ],
         <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
-    schema1:identifier [ a prov:Plan ;
-            schema1:propertyID "Smithsonian catalog" ;
+    schema1:identifier [ a schema1:PropertyValue ;
+            schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
+            schema1:url "https://iolite-software.com/" ;
+            schema1:value "NMNH 111312/444" ],
+        [ a schema1:PropertyValue ;
+            schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
+            schema1:url "https://iolite-software.com/" ;
+            schema1:value "NMNH 111312/444" ],
+        [ a schema1:PropertyValue ;
+            schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
+            schema1:url "https://iolite-software.com/" ;
             schema1:value "NMNH 111312/444" ],
         [ a schema1:PropertyValue ;
             schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
@@ -8218,24 +8589,60 @@ as one.
             schema1:propertyID "synthetic schema:propertyID" ;
             schema1:url "https://iolite-software.com/" ;
             schema1:value "NMNH 111312/444" ],
-        [ a schema1:PropertyValue ;
-            schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
-            schema1:url "https://iolite-software.com/" ;
-            schema1:value "NMNH 111312/444" ],
-        [ a schema1:PropertyValue ;
-            schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
-            schema1:url "https://iolite-software.com/" ;
-            schema1:value "NMNH 111312/444" ],
-        [ a schema1:PropertyValue ;
-            schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
-            schema1:url "https://iolite-software.com/" ;
+        [ a prov:Plan ;
+            schema1:propertyID "Smithsonian catalog" ;
             schema1:value "NMNH 111312/444" ],
         [ a schema1:PropertyValue ;
             schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
             schema1:url "https://iolite-software.com/" ;
             schema1:value "NMNH 111312/444" ] ;
     schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/beam-damage-methods> ;
-    schema1:instrument <https://example.org/concord-glass-v1-0-6/instrument/instrument> ;
+    schema1:instrument [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Probe for EPMA" ;
+            schema1:version "9.6.4" ;
+            ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Probe for EPMA" ;
+            schema1:version "9.6.4" ;
+            ada:toolRole "dataReduction" ],
+        [ a schema1:ChemicalSubstance ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "Albite" ;
+            ada:reagentRole "primaryStandard" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Probe for EPMA" ;
+            ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Iolite" ;
+            schema1:url "https://iolite-software.com/" ;
+            schema1:version "4" ;
+            ada:toolRole "dataReduction" ],
+        [ a schema1:ChemicalSubstance ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "Kaersutite amphibole" ;
+            ada:reagentRole "primaryStandard" ],
+        [ a schema1:DefinedTerm ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "Lipari obsidian ID3506" ;
+            ada:reagentRole "secondaryStandard" ],
+        [ a schema1:DefinedTerm ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "USGS BHVO-2g" ;
+            ada:reagentRole "secondaryStandard" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType wd:Q7397 ;
+            schema1:name "Probe for EPMA" ;
+            ada:toolRole "acquisition" ],
+        [ a schema1:ChemicalSubstance ;
+            schema1:additionalType wd:Q2356542 ;
+            schema1:name "Carbon" ;
+            ada:reagentRole "coatingMaterial" ],
+        <https://example.org/concord-glass-v1-0-6/instrument/instrument>,
+        <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
     schema1:location [ a schema1:Place ;
             ns1:hasGeometry [ a schema1:Place ;
                     ns1:asWKT "synthetic @value"^^<['geosparql:wktLiteral']> ;
@@ -8264,9 +8671,8 @@ as one.
                     schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/techniques" ;
                     schema1:termCode "xenon" ] ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
-            schema1:description "Laser Ablation Inductively Coupled Plasma Mass Spectrometry" ;
             schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/techniques" ;
-            schema1:name "LA-ICP-MS" ],
+            schema1:name "EPMA-WDS" ],
         [ a schema1:DefinedTerm ;
             schema1:identifier [ a schema1:PropertyValue ;
                     schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
@@ -8276,8 +8682,9 @@ as one.
             schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
             schema1:termCode "xenon" ],
         [ a schema1:DefinedTerm ;
+            schema1:description "Laser Ablation Inductively Coupled Plasma Mass Spectrometry" ;
             schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/techniques" ;
-            schema1:name "EPMA-WDS" ] ;
+            schema1:name "LA-ICP-MS" ] ;
     schema1:name "CU routine tephra glass version 1.0 with 6nA",
         "Deutsche Forschungsgemeinschaft (DFG)" ;
     schema1:object [ a schema1:DefinedTerm ;
@@ -8317,9 +8724,6 @@ as one.
             dqv:isMeasurementOf "analytical reproducibility" ;
             dqv:value "Davis et al. (2017) report reproducibility on spinels PS211, PS212, OC231350, KLB8304" ],
         [ a dqv:QualityMeasurement ;
-            dqv:isMeasurementOf "detection limit method" ;
-            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ],
-        [ a dqv:QualityMeasurement ;
             dqv:isMeasurementOf [ a schema1:DefinedTerm ;
                     schema1:identifier [ a schema1:PropertyValue ;
                             schema1:propertyID <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
@@ -8336,6 +8740,9 @@ as one.
                     schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/techniques" ;
                     schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
                     schema1:termCode "xenon" ] ],
+        [ a dqv:QualityMeasurement ;
+            dqv:isMeasurementOf "detection limit method" ;
+            dqv:value "Sample-individual LOD per Pettke et al. (2012)" ],
         [ a dqv:QualityMeasurement ;
             dqv:isMeasurementOf "oxide production" ;
             dqv:value "ThO/Th ca. 0.7%" ] ;
@@ -8408,34 +8815,42 @@ as one.
                     ada:tier "M" ] ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies [ a schema1:DefinedTerm ;
                     schema1:inDefinedTermSet "https://w3id.org/ada/vocab/analyte" ;
-                    schema1:name "Al2O3" ;
-                    schema1:termCode "Al2O3" ],
-                [ a schema1:DefinedTerm ;
-                    schema1:inDefinedTermSet "https://w3id.org/ada/vocab/analyte" ;
                     schema1:name "Cr2O3" ;
                     schema1:termCode "Cr2O3" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:inDefinedTermSet "https://w3id.org/ada/vocab/analyte" ;
+                    schema1:name "Al2O3" ;
+                    schema1:termCode "Al2O3" ],
                 [ a schema1:DefinedTerm ;
                     schema1:inDefinedTermSet "https://w3id.org/ada/vocab/analyte" ;
                     schema1:name "TiO2" ;
                     schema1:termCode "TiO2" ],
                 "SiO2" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                                    schema1:termCode "xenon" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Other" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "Si(Li)" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "P-10" ],
-                                [ a schema1:DefinedTerm ;
-                                    schema1:termCode "SDD" ] ] ;
-                    schema1:name "Detector Type" ;
-                    schema1:valueName "detectorType" ;
-                    schema1:valueRequired false ;
+                    schema1:defaultValue "Water by difference included in x-ray matrix corrections for improved accuracy on hydrated glasses; offline multi-standard blank correction; offline standards-based normalization" ;
+                    schema1:description "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows" ;
+                    schema1:inDefinedTermSet [ a schema1:CreativeWork ;
+                            schema1:description "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows" ;
+                            schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
+                            schema1:url "https://iolite-software.com/" ] ;
+                    schema1:maxValue 200 ;
+                    schema1:minValue 1 ;
+                    schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
+                    schema1:propertyID [ a schema1:DefinedTerm ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:url "https://iolite-software.com/" ;
+                                    schema1:value "NMNH 111312/444" ] ;
+                            schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/techniques" ;
+                            schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
+                            schema1:termCode "xenon" ] ;
+                    schema1:readonlyValue true ;
+                    schema1:unitText "kV" ;
+                    schema1:valueName "targetSpecies" ;
+                    schema1:valuePattern "synthetic schema:valuePattern" ;
+                    schema1:valueRequired true ;
+                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
-                    ada:tier "R" ],
+                    ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:name "Spectrometer" ;
                     schema1:valueName "spectrometer" ;
@@ -8465,67 +8880,23 @@ as one.
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:defaultValue "Water by difference included in x-ray matrix corrections for improved accuracy on hydrated glasses; offline multi-standard blank correction; offline standards-based normalization" ;
-                    schema1:description "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows" ;
-                    schema1:inDefinedTermSet [ a schema1:CreativeWork ;
-                            schema1:description "4 WDS spectrometers: #1 PET/xenon, #2 RAP/P-10, #3 LIF/xenon, #4 TAP/P-10; flow detectors with polypropylene windows" ;
-                            schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
-                            schema1:url "https://iolite-software.com/" ] ;
-                    schema1:maxValue 200 ;
-                    schema1:minValue 1 ;
-                    schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
-                    schema1:propertyID [ a schema1:DefinedTerm ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:url "https://iolite-software.com/" ;
-                                    schema1:value "NMNH 111312/444" ] ;
-                            schema1:inDefinedTermSet "https://vocab.onegeochemistry.org/techniques" ;
-                            schema1:name "CU routine tephra glass version 1.0 with 6nA" ;
-                            schema1:termCode "xenon" ] ;
-                    schema1:readonlyValue true ;
-                    schema1:unitText "kV" ;
-                    schema1:valueName "targetSpecies" ;
-                    schema1:valuePattern "synthetic schema:valuePattern" ;
-                    schema1:valueRequired true ;
-                    ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
+                    schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                            schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Si(Li)" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "SDD" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "Other" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "xenon" ],
+                                [ a schema1:DefinedTerm ;
+                                    schema1:termCode "P-10" ] ] ;
+                    schema1:name "Detector Type" ;
+                    schema1:valueName "detectorType" ;
+                    schema1:valueRequired false ;
                     ada:dataType "string" ;
-                    ada:tier "M" ] ] ;
-    ada:toolRole "acquisition" ;
-    bios:computationalTool [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            schema1:version "9.6.4" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:name "Iolite" ;
-            schema1:url "https://iolite-software.com/" ;
-            schema1:version "4" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            schema1:version "9.6.4" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:name "Probe for EPMA" ;
-            ada:toolRole "dataReduction" ],
-        <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> ;
-    bios:reagent [ a schema1:ChemicalSubstance ;
-            schema1:name "Albite" ;
-            ada:reagentRole "primaryStandard" ],
-        [ a schema1:ChemicalSubstance ;
-            schema1:name "Kaersutite amphibole" ;
-            ada:reagentRole "primaryStandard" ],
-        [ a schema1:ChemicalSubstance ;
-            schema1:name "Carbon" ;
-            ada:reagentRole "coatingMaterial" ],
-        [ a schema1:DefinedTerm ;
-            schema1:name "USGS BHVO-2g" ;
-            ada:reagentRole "secondaryStandard" ],
-        [ a schema1:DefinedTerm ;
-            schema1:name "Lipari obsidian ID3506" ;
-            ada:reagentRole "secondaryStandard" ],
-        <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6> .
+                    ada:tier "R" ] ] ;
+    ada:toolRole "acquisition" .
 
 
 ```
@@ -8536,19 +8907,21 @@ as one.
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Technique-Aligned Protocol Profile (TAPP) Definition v3
 description: "A registered Technique-Aligned Protocol Profile (TAPP) definition modeled
-  as a PLAN \u2014 prov:Plan / bios:LabProtocol (also cdi:Activity + schema:Action
-  for the DDI-CDI process/action description). It is a reusable procedure that prescribes
-  an analysis; the analysis OCCURRENCE is the prov:Activity in adaProduct.prov:wasGeneratedBy,
-  which references this plan via prov:used. Because the TAPP is a plan, its instrument
-  / bios:computationalTool / bios:reagent are directly-specified resources (not prov:used
-  entities). The TAPP identity (name, technique, instrument, location) lives at the
-  top level. The standard workflow is encoded in schema:actionProcess as a schema:HowTo
-  containing an ordered sequence of cdi:Activity + schema:Action steps (sample preparation,
-  calibration, acquisition, data processing, quality control). Each workflow step
-  carries its own parameters, reagents, and instruments. TAPP-level parameters that
-  apply across all steps remain at the top level in schema:additionalProperty. Integrates
-  Bioschemas vocabulary for computational tools and reagents, DDI-CDI for activity
-  sequence, and dqv:hasQualityMeasurement for quality metrics."
+  as a PLAN \u2014 prov:Plan / bios:LabProtocol, also schema:Action and schema:HowTo.
+  It is a reusable procedure that prescribes an analysis; the analysis OCCURRENCE
+  is the prov:Activity in geochemProduct's prov:wasGeneratedBy, which links this plan
+  with schema:actionProcess {\"@id\": ...} (or, when the analysis records its own
+  workflow, with schema:isBasedOn on that workflow). schema:HowTo is what makes it
+  a valid value of schema:actionProcess. The instruments, computational tools and
+  reagents the plan prescribes are all items of schema:instrument, told apart by their
+  Wikidata kind term, exactly as on the analysis event. The TAPP identity (name, technique,
+  instrument, location) lives at the top level. The standard workflow is encoded in
+  schema:actionProcess as a schema:HowTo containing an ordered sequence of schema:Action
+  + schema:HowToStep steps (sample preparation, calibration, acquisition, data processing,
+  quality control). Each workflow step carries its own parameters, instruments, tools
+  and reagents. TAPP-level parameters that apply across all steps remain at the top
+  level in schema:additionalProperty. Integrates Bioschemas vocabulary for the protocol,
+  and dqv:hasQualityMeasurement for quality metrics."
 type: object
 properties:
   '@context':
@@ -8589,20 +8962,25 @@ properties:
     - contains:
         const: prov:Plan
     - contains:
-        const: cdi:Activity
-    - contains:
         const: schema:Action
     - contains:
         const: ada:TAPPDefinition
     - contains:
         const: bios:LabProtocol
-    description: "Must include prov:Plan, cdi:Activity, schema:Action, ada:TAPPDefinition,
-      and bios:LabProtocol. The TAPP is a PLAN (prov:Plan / bios:LabProtocol) \u2014
-      a reusable procedure description that prescribes the analysis, NOT the analysis
-      occurrence (that is the prov:Activity in adaProduct.prov:wasGeneratedBy, which
-      references this plan via prov:used). As a plan, its instrument / bios:computationalTool
-      / bios:reagent are directly-specified resources (bios:LabProtocol convention),
-      not prov:used entities."
+    - contains:
+        const: schema:HowTo
+    description: "Must include prov:Plan, schema:Action, ada:TAPPDefinition, bios:LabProtocol
+      and schema:HowTo. The TAPP is a PLAN (prov:Plan / bios:LabProtocol) \u2014 a
+      reusable procedure description that prescribes the analysis, NOT the analysis
+      occurrence (that is the prov:Activity in geochemProduct's prov:wasGeneratedBy,
+      which links this plan with schema:actionProcess). schema:HowTo is required because
+      schema:actionProcess ranges over HowTo, so a bare {\"@id\"} link to a TAPP is
+      a link to a HowTo. A node that is both an Action and a HowTo is allowed by schema.org.\ncdi:Activity
+      was dropped on 2026-11-11: no TAPP carries any DDI-CDI process property (step
+      links, parameters, sequence or names), so the type promised structure a DDI-CDI
+      consumer would not find, and in DDI-CDI it is the class of the RUN, not of a
+      plan. It is still accepted, as any further type is, but nothing requires or
+      emits it."
   schema:name:
     type: string
     title: Method Name
@@ -8700,32 +9078,31 @@ properties:
             x-jsonld-id: http://schema.org/additionalProperty
     x-jsonld-id: http://schema.org/object
   schema:instrument:
-    description: 'Instrument specification(s) for this method: a single instrument
-      object, or an array of instruments when the method uses more than one (e.g.
-      LA-ICP-MS = a laser ablation system plus the ICP-MS). Use schema:hasPart for
-      instrument sub-components (spectrometers, detectors, ICP source, sample introduction
-      system). Path-driven technique overlays select a specific instrument by schema:additionalType
-      and constrain its sub-component tree.'
-    anyOf:
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-    - type: array
-      items:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+    description: 'The instruments, computational tools and reagents this method prescribes,
+      as one array -- always an array, since a method commonly uses several (LA-ICP-MS
+      = a laser ablation system plus the ICP-MS, and the acquisition and reduction
+      software). Each item carries exactly one Wikidata kind term in schema:additionalType,
+      and the kind pins its shape (see PlanResource): Q3099911 an instrument, Q7397
+      a computational tool, Q2356542 a reagent or reference material. This is the
+      same rule CDIF''s cdifProvActivity applies to the analysis event, so the plan
+      and the run carry their resources key for key. Use schema:hasPart for instrument
+      sub-components (spectrometers, detectors, ICP source, sample introduction system).
+      Path-driven technique overlays select a specific item by schema:additionalType
+      (an instrument), ada:toolRole (a tool) or ada:reagentRole (a reagent) and constrain
+      its tree. Reagents specific to a single workflow step belong on that step instead.'
+    type: array
+    items:
+      $ref: '#/$defs/PlanResource'
     x-jsonld-id: http://schema.org/instrument
   bios:computationalTool:
-    description: Software tools used for data acquisition, reduction, and processing.
-      Each tool carries name, version, and optional URL.
-    type: array
-    items:
-      $ref: '#/$defs/ComputationalTool'
+    description: 'Superseded: a computational tool is a schema:instrument item of
+      the software kind (Wikidata Q7397). Move it there.'
+    not: {}
     x-jsonld-id: https://bioschemas.org/computationalTool
   bios:reagent:
-    description: Reference materials, calibration standards, and chemical reagents
-      used across this method. Reagents specific to a single workflow step should
-      be placed on that step instead.
-    type: array
-    items:
-      $ref: '#/$defs/Reagent'
+    description: 'Superseded: a reagent or reference material is a schema:instrument
+      item of the reagent kind (Wikidata Q2356542). Move it there.'
+    not: {}
     x-jsonld-id: https://bioschemas.org/reagent
   schema:location:
     title: Laboratory
@@ -8769,10 +9146,10 @@ properties:
     x-jsonld-id: http://schema.org/creator
   schema:actionProcess:
     description: The standard workflow for this method, expressed as a schema:HowTo
-      containing an ordered sequence of workflow steps. Each step is a cdi:Activity
-      + schema:Action describing a distinct phase (sample preparation, calibration,
+      containing an ordered sequence of workflow steps. Each step is a schema:Action
+      + schema:HowToStep describing a distinct phase (sample preparation, calibration,
       acquisition, data processing, quality control). Steps carry their own parameters,
-      reagents, instruments, and sub-steps. Exactly one step must be the sample-preparation
+      instruments, tools, reagents, and sub-steps. Exactly one step must be the sample-preparation
       step -- see MethodWorkflowHowTo.
     $ref: '#/$defs/MethodWorkflowHowTo'
     x-jsonld-id: http://schema.org/actionProcess
@@ -9224,8 +9601,8 @@ $defs:
   WorkflowHowTo:
     type: object
     description: The method's standard workflow expressed as a schema:HowTo. Contains
-      an ordered array of workflow steps in schema:step, where each step is a cdi:Activity
-      + schema:Action.
+      an ordered array of workflow steps in schema:step, where each step is a schema:Action
+      + schema:HowToStep.
     properties:
       '@type':
         type: array
@@ -9251,12 +9628,11 @@ $defs:
         x-jsonld-id: http://schema.org/url
       schema:step:
         type: array
-        description: Ordered sequence of workflow steps. Each step is a cdi:Activity
-          + schema:Action + schema:HowToStep describing a distinct phase of the analytical
-          procedure. This shape carries NO sample-preparation requirement, because
-          it is used for a STEP's sub-workflow as well as for a method's top-level
-          workflow; see MethodWorkflowHowTo for the method form that does require
-          one.
+        description: Ordered sequence of workflow steps. Each step is a schema:Action
+          + schema:HowToStep describing a distinct phase of the analytical procedure.
+          This shape carries NO sample-preparation requirement, because it is used
+          for a STEP's sub-workflow as well as for a method's top-level workflow;
+          see MethodWorkflowHowTo for the method form that does require one.
         items:
           $ref: '#/$defs/WorkflowStep'
         x-jsonld-id: http://schema.org/step
@@ -9309,28 +9685,31 @@ $defs:
       - schema:step
   WorkflowStep:
     type: object
-    description: A single step in the analytical workflow, modeled as a cdi:Activity
-      + schema:Action. Each step describes a distinct phase such as sample preparation,
+    description: A single step in the analytical workflow, modeled as a schema:Action
+      + schema:HowToStep. Each step describes a distinct phase such as sample preparation,
       instrument calibration, data acquisition, data processing, or quality control.
       Steps carry their own parameters, instruments, reagents, and may contain sub-steps
       via schema:actionProcess.
     properties:
       '@type':
-        description: 'All THREE are required. cdi:Activity and schema:Action carry
-          the DDI-CDI and schema.org process semantics this model is built on; schema:HowToStep
-          is what schema.org itself expects of a value of schema:step on a schema:HowTo,
-          and omitting it made these steps invalid against the plain schema.org reading
-          -- and against the base cdifProvActivity, whose own step shape requires
-          schema:HowToStep. The two shapes disagreed, which is observable in the examples:
-          565 steps carried cdi:Activity + schema:Action and 15 carried schema:HowToStep,
-          depending on which side emitted them.'
+        description: 'Both are required. schema:Action carries the schema.org process
+          semantics this model is built on; schema:HowToStep is what schema.org itself
+          expects of a value of schema:step on a schema:HowTo, and omitting it made
+          these steps invalid against the plain schema.org reading -- and against
+          the base cdifProvActivity, whose own step shape requires schema:HowToStep.
+          The two shapes disagreed, which is observable in the examples: 565 steps
+          carried cdi:Activity + schema:Action and 15 carried schema:HowToStep, depending
+          on which side emitted them.
+
+          cdi:Activity was required too until 2026-11-11, and was dropped with the
+          TAPP''s own: no step carries any DDI-CDI process property, and in DDI-CDI
+          the class names a run, not a plan. A plan step and a run step are typed
+          alike. It is still accepted, as any further type is.'
         type: array
         items:
           type: string
-        minItems: 3
+        minItems: 2
         allOf:
-        - contains:
-            const: cdi:Activity
         - contains:
             const: schema:Action
         - contains:
@@ -9360,43 +9739,36 @@ $defs:
           $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
         x-jsonld-id: http://schema.org/additionalType
       schema:instrument:
-        description: Instrument or equipment used in this step.
-        anyOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
-        - type: object
-          additionalProperties: false
-          properties:
-            '@id':
-              type: string
-          required:
-          - '@id'
-        x-jsonld-id: http://schema.org/instrument
-      bios:computationalTool:
-        description: Software tools used in this step.
-        type: array
-        items:
-          $ref: '#/$defs/ComputationalTool'
-        x-jsonld-id: https://bioschemas.org/computationalTool
-      bios:reagent:
-        description: Reference materials, standards, or reagents used in this step.
-        type: array
-        items:
-          $ref: '#/$defs/Reagent'
-        x-jsonld-id: https://bioschemas.org/reagent
-      prov:used:
-        description: Input entities consumed or referenced by this step (e.g. prepared
-          sample from a prior step).
+        description: 'The instruments, computational tools and reagents used in this
+          step, as on the plan: each item one of the three kinds (see PlanResource),
+          or a sealed {@id} reference to one described elsewhere -- typically an instrument
+          the plan already describes. Always an array; a single instrument object
+          was accepted here until 2026-11-11.'
         type: array
         items:
           anyOf:
-          - type: string
           - type: object
-            required:
-            - '@id'
             additionalProperties: false
             properties:
               '@id':
                 type: string
+            required:
+            - '@id'
+          - $ref: '#/$defs/PlanResource'
+        x-jsonld-id: http://schema.org/instrument
+      bios:computationalTool:
+        description: 'Superseded: a computational tool is a schema:instrument item
+          of the software kind (Wikidata Q7397). Move it there.'
+        not: {}
+        x-jsonld-id: https://bioschemas.org/computationalTool
+      bios:reagent:
+        description: 'Superseded: a reagent is a schema:instrument item of the reagent
+          kind (Wikidata Q2356542). Move it there.'
+        not: {}
+        x-jsonld-id: https://bioschemas.org/reagent
+      prov:used:
+        description: 'Superseded: a step''s inputs are schema:object. Move them there.'
+        not: {}
         x-jsonld-id: http://www.w3.org/ns/prov#used
       schema:result:
         description: Output entity produced by this step (can be referenced as input
@@ -9412,8 +9784,11 @@ $defs:
               type: string
         x-jsonld-id: http://schema.org/result
       schema:object:
-        description: Reference to a prior step whose result is the input for this
-          step (action chaining).
+        description: 'The input(s) of this step: a reference to a prior step whose
+          result is the input (action chaining), or the entities it consumed or referenced
+          (e.g. a prepared sample). One value or an array of them, each a string or
+          a sealed {@id} reference -- the shape the step''s prov:used inputs had before
+          they moved here on 2026-11-11.'
         anyOf:
         - type: string
         - type: object
@@ -9423,6 +9798,17 @@ $defs:
           properties:
             '@id':
               type: string
+        - type: array
+          items:
+            anyOf:
+            - type: string
+            - type: object
+              required:
+              - '@id'
+              additionalProperties: false
+              properties:
+                '@id':
+                  type: string
         x-jsonld-id: http://schema.org/object
       schema:additionalProperty:
         description: Step-specific parameters (e.g. beam conditions for the acquisition
@@ -10023,10 +10409,100 @@ $defs:
       - schema:valueRequired
       - ada:tier
       - ada:cdifPropertyPath
+  KindInstrument:
+    description: 'The instrument kind test: schema:additionalType names Wikidata Q3099911
+      (measuring instrument), as the entity IRI or the wd: CURIE -- the two spellings
+      CDIF''s cdifProvActivity accepts. Used as an `if`, never on its own.'
+    type: object
+    required:
+    - schema:additionalType
+    properties:
+      schema:additionalType:
+        type: array
+        contains:
+          type: object
+          required:
+          - '@id'
+          properties:
+            '@id':
+              enum:
+              - https://www.wikidata.org/entity/Q3099911
+              - wd:Q3099911
+        x-jsonld-id: http://schema.org/additionalType
+  KindSoftware:
+    description: 'The software kind test: schema:additionalType names Wikidata Q7397
+      (software), as the entity IRI or the wd: CURIE -- the two spellings CDIF''s
+      cdifProvActivity accepts. Used as an `if`, never on its own.'
+    type: object
+    required:
+    - schema:additionalType
+    properties:
+      schema:additionalType:
+        type: array
+        contains:
+          type: object
+          required:
+          - '@id'
+          properties:
+            '@id':
+              enum:
+              - https://www.wikidata.org/entity/Q7397
+              - wd:Q7397
+        x-jsonld-id: http://schema.org/additionalType
+  KindReagent:
+    description: 'The reagent kind test: schema:additionalType names Wikidata Q2356542
+      (chemical reagent), as the entity IRI or the wd: CURIE -- the two spellings
+      CDIF''s cdifProvActivity accepts. Used as an `if`, never on its own.'
+    type: object
+    required:
+    - schema:additionalType
+    properties:
+      schema:additionalType:
+        type: array
+        contains:
+          type: object
+          required:
+          - '@id'
+          properties:
+            '@id':
+              enum:
+              - https://www.wikidata.org/entity/Q2356542
+              - wd:Q2356542
+        x-jsonld-id: http://schema.org/additionalType
+  PlanResource:
+    type: object
+    description: 'One item of a plan''s or a step''s schema:instrument: an instrument,
+      a computational tool or a reagent / reference material, told apart by the Wikidata
+      kind term in schema:additionalType (exactly one of the three), which then pins
+      the shape -- the instrument building block, ComputationalTool or Reagent. The
+      kind is read from additionalType, not @type, because a reagent can be a schema:Product
+      just as an instrument is. Mirrors CDIF''s cdifProvActivity UsedResource, so
+      a plan and the analysis event that followed it carry their resources alike.'
+    required:
+    - schema:additionalType
+    oneOf:
+    - $ref: '#/$defs/KindInstrument'
+    - $ref: '#/$defs/KindSoftware'
+    - $ref: '#/$defs/KindReagent'
+    allOf:
+    - if:
+        $ref: '#/$defs/KindInstrument'
+      then:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
+    - if:
+        $ref: '#/$defs/KindSoftware'
+      then:
+        $ref: '#/$defs/ComputationalTool'
+    - if:
+        $ref: '#/$defs/KindReagent'
+      then:
+        $ref: '#/$defs/Reagent'
   ComputationalTool:
     type: object
-    description: Software application used for data acquisition, reduction, or processing.
-      Follows Bioschemas ComputationalTool pattern.
+    description: 'Software application used for data acquisition, reduction, or processing:
+      a schema:instrument item of the software kind (schema:additionalType contains
+      Wikidata Q7397). Follows Bioschemas ComputationalTool pattern. @type is required,
+      as CDIF''s Software kind requires it.'
     properties:
       '@type':
         type: array
@@ -10053,6 +10529,12 @@ $defs:
         format: uri
         description: URL to the software product or documentation.
         x-jsonld-id: http://schema.org/url
+      schema:additionalType:
+        description: 'Carries the software kind term, {"@id": "https://www.wikidata.org/entity/Q7397"}.'
+        type: array
+        items:
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        x-jsonld-id: http://schema.org/additionalType
       ada:toolRole:
         type: string
         enum:
@@ -10063,12 +10545,14 @@ $defs:
         description: Role this software plays in the analytical workflow.
         x-jsonld-id: https://ada.astromat.org/metadata/toolRole
     required:
+    - '@type'
     - schema:name
   Reagent:
     type: object
-    description: A reference material, calibration standard, or chemical reagent.
-      Follows Bioschemas reagent pattern with extensions for geochemistry reference
-      materials.
+    description: 'A reference material, calibration standard, or chemical reagent:
+      a schema:instrument item of the reagent kind (schema:additionalType contains
+      Wikidata Q2356542). Follows Bioschemas reagent pattern with extensions for geochemistry
+      reference materials.'
     properties:
       '@type':
         type: array
@@ -10136,6 +10620,12 @@ $defs:
               type: string
               x-jsonld-id: http://schema.org/name
         x-jsonld-id: http://schema.org/inDefinedTermSet
+      schema:additionalType:
+        description: 'Carries the reagent kind term, {"@id": "https://www.wikidata.org/entity/Q2356542"}.'
+        type: array
+        items:
+          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        x-jsonld-id: http://schema.org/additionalType
       ada:reagentRole:
         type: string
         enum:
