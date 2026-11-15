@@ -14,7 +14,7 @@ description: >-
   file-classification (componentType) scheme, and delivery-packaging rules.
 type: object
 allOf:
-  - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCore/schema.yaml
+  - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/profiles-v1.1/_sources/profiles/cdifProfile/cdifCore/schema.yaml
   # cdifDataDescription is the VARIABLE-DESCRIPTION profile, and it applies only when there is
   # something to describe. Made conditional 2026-10-16, mirroring cdifManifest below.
   #
@@ -87,7 +87,7 @@ allOf:
           required:
             - "schema:distribution"
     then:
-      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/profiles-v1.1/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
   # cdifManifest is the BUNDLE/archive profile: it applies (and its manifest/1.1
   # conformance is required) ONLY when a distribution is positively typed as a
   # bundle/archive -- schema:Collection in @type (alongside schema:DataDownload).
@@ -109,8 +109,8 @@ allOf:
             required:
               - "@type"
     then:
-      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
-  - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/profiles-v1.1/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
+  - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/profiles-v1.1/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml
   # The geochem overlay itself -- everything this repository ADDS to the CDIF profiles above
   # -- lives in its own block so that it can be read and diffed without them. Factored out
   # 2026-11-04, following cdifProfile / cdifCompositeProfile upstream, where each component

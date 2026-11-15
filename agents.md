@@ -84,7 +84,24 @@ Profiles additionally compose base schemas via `allOf` references.
 - `geochemProduct` is the **domain-neutral base product profile**: it composes the CDIF base schemas from mbb's `_sources/profiles/cdifProfile/` (CDIF **v1.1**) via `allOf` — `cdifCore`, `cdifDataDescription`, and `cdifProvenance` unconditionally; `cdifManifest` (was `cdifArchiveDistribution` in ≤1.0) behind an `if/then` that fires only when a `schema:distribution` item carries `schema:Collection` in `@type`, so monolithic single-file distributions aren't held to the manifest rules. It carries **no** ADA-specific requirements (optional `schema:additionalType`, not required `ada:componentType`), so it stays reusable outside ADA.
 - `adaProduct` **extends `geochemProduct`** (`allOf: [$ref ../geochemProduct/schema.yaml, …]`) and adds the ADA/SAMIS overlays: technique types, instrument/lab/sample, required `ada:componentType`. `geochemProduct` has **no** dependency on `adaProduct` (verified) — the arrow points one way.
 - Base-selection rule for technique profiles: `geochemProfile/<TECH>/profile/` (generic, path-driven, 34) → **geochemProduct**; `geochemProfile/<TECH>/profile-ada/` (4 ADA variants) and every `adaProfile/<TECH>/profile-ada/` (31) → **adaProduct**. `profile` variants additionally compose the technique's `detail` block (the TAPP link itself, `schema:actionProcess {"@id"}`, is a reference no schema can follow). Principle: geochem→geochemProduct, ada→adaProduct.
-- External schemas are referenced via full HTTP URLs to `cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/`
+- External schemas are referenced via full HTTP URLs **pinned to an mBB release tag**:
+  `raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/profiles-v1.1/_sources/...`.
+  That tag is the mBB tree the CDIF 1.1 profile family was emitted from, so this repo resolves the
+  same schemas the published `profile-*` / `doc-*` releases were built against. The Pages base
+  (`cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/`) serves mBB's `main`
+  and is therefore the cutting edge; it is deliberately **not** used for `$ref` targets here,
+  because a moving base makes a build unreproducible and can change validation outcomes without a
+  commit in this repo. `raw.githubusercontent.com` returns `text/plain`, which is harmless: the
+  postprocessor's `$ref` retriever parses response bytes as YAML and never inspects Content-Type.
+  To move to a newer CDIF release, change the tag in these URLs and re-run
+  `resolve_schema.py --refresh-remote`.
+- Human-facing prose links in `description.md` files still point at the Pages base on purpose — a
+  reader following a documentation link wants the rendered page, and raw would serve plain text.
+  Those links do not affect validation.
+- `vendor/remote/` holds a vendored copy of every mBB file in the `$ref` closure (91 files), keyed
+  by URL, with `vendor/remote-lock.json` recording `{bytes, sha256}` for each. Fetching is off by
+  default (`_ALLOW_FETCH = False`), so a regeneration is offline and reproducible, and the resolver
+  warns if a vendored file stops matching its lock entry.
 - Local schemas use relative `$ref` paths (e.g., `../stringArray/schema.yaml`)
 
 ## Module composition — how a shared field is defined once
@@ -169,6 +186,12 @@ and provisional; the library's modules are Ruolin's to author (see
 
 - **Identifier prefix:** `ogch.` (e.g. `ogch.BaseSchema.instrument`, `ogch.techniqueProfile.EPMA.detail`, `ogch.BaseSchema.adaProduct`; was `ada.bbr.metadata.`)
 - **Import source:** `https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json`
+  — still the Pages base, i.e. mBB's cutting edge, unlike the `$ref` targets above. Nothing in this
+  repo resolves a schema through the imported register (there are no `bblocks://` refs), so this
+  feeds register metadata and cross-linking only. Pinning it to the release tag would be a partial
+  fix at best: mBB's published `register.json` has ~1835 absolute Pages URLs baked into it, so the
+  tagged copy still advertises cutting-edge locations for every block it describes. Left as-is
+  pending a decision.
 - **Viewer URL:** `https://amds-ldeo.github.io/geochemBuildingBlocks/`
 
 ## componentType architecture (canonical mapping in spreadsheet)
