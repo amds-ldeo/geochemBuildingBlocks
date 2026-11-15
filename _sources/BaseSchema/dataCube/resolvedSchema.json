@@ -188,19 +188,16 @@
                                             "type": "string"
                                           },
                                           {
-                                            "title": "Object Reference",
-                                            "description": "A reference to a node defined elsewhere, by its @id.",
                                             "type": "object",
-                                            "properties": {
-                                              "@id": {
-                                                "type": "string",
-                                                "description": "resolvable @id of the referenced node"
-                                              }
-                                            },
+                                            "additionalProperties": false,
                                             "required": [
                                               "@id"
                                             ],
-                                            "additionalProperties": false
+                                            "properties": {
+                                              "@id": {
+                                                "type": "string"
+                                              }
+                                            }
                                           }
                                         ],
                                         "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
@@ -246,19 +243,16 @@
                                     "type": "string"
                                   },
                                   {
-                                    "title": "Object Reference",
-                                    "description": "A reference to a node defined elsewhere, by its @id.",
                                     "type": "object",
-                                    "properties": {
-                                      "@id": {
-                                        "type": "string",
-                                        "description": "resolvable @id of the referenced node"
-                                      }
-                                    },
                                     "required": [
                                       "@id"
                                     ],
-                                    "additionalProperties": false
+                                    "additionalProperties": false,
+                                    "properties": {
+                                      "@id": {
+                                        "type": "string"
+                                      }
+                                    }
                                   }
                                 ]
                               },
@@ -295,7 +289,7 @@
                             ]
                           },
                           {
-                            "$ref": "#/$defs/Concept"
+                            "$ref": "#/$defs/cdifConcept"
                           }
                         ]
                       }
@@ -361,47 +355,19 @@
     }
   ],
   "$defs": {
-    "Concept": {
+    "cdifConcept": {
       "type": "object",
       "properties": {
         "@context": {
           "description": "JSON-LD context declaring the skos namespace prefix. May be a single object or an array of strings and objects.",
-          "anyOf": [
-            {
-              "type": "object",
-              "properties": {
-                "skos": {
-                  "const": "http://www.w3.org/2004/02/skos/core#"
-                }
-              },
-              "required": [
-                "skos"
-              ]
-            },
-            {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "type": "object"
-                  }
-                ]
-              },
-              "contains": {
-                "type": "object",
-                "properties": {
-                  "skos": {
-                    "const": "http://www.w3.org/2004/02/skos/core#"
-                  }
-                },
-                "required": [
-                  "skos"
-                ]
-              }
+          "type": "object",
+          "properties": {
+            "skos": {
+              "const": "http://www.w3.org/2004/02/skos/core#"
             }
+          },
+          "required": [
+            "skos"
           ]
         },
         "@id": {
@@ -463,104 +429,8 @@
             }
           ]
         },
-        "skos:scopeNote": {
-          "description": "Note clarifying meaning and/or intended use.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/$defs/LanguageTaggedValue"
-            },
-            {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/LanguageTaggedValue"
-                  }
-                ]
-              }
-            }
-          ]
-        },
         "skos:note": {
           "description": "General note about this concept.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/$defs/LanguageTaggedValue"
-            },
-            {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/LanguageTaggedValue"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "skos:historyNote": {
-          "description": "Note about past state or use.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/$defs/LanguageTaggedValue"
-            },
-            {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/LanguageTaggedValue"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "skos:changeNote": {
-          "description": "Note documenting a change.",
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "$ref": "#/$defs/LanguageTaggedValue"
-            },
-            {
-              "type": "array",
-              "items": {
-                "anyOf": [
-                  {
-                    "type": "string"
-                  },
-                  {
-                    "$ref": "#/$defs/LanguageTaggedValue"
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        "skos:editorialNote": {
-          "description": "Note for editors and maintainers.",
           "anyOf": [
             {
               "type": "string"
@@ -615,38 +485,6 @@
             }
           ]
         },
-        "skos:topConceptOf": {
-          "description": "Concept scheme(s) for which this is a top concept.",
-          "anyOf": [
-            {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
-            },
-            {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
-              }
-            }
-          ]
-        },
         "skos:broader": {
           "description": "Broader (parent) concepts in the hierarchy. Items are inline concept objects or @id references.",
           "type": "array",
@@ -655,7 +493,7 @@
               {
                 "type": "object",
                 "additionalProperties": false,
-                "description": "A reference to a SKOS Concept by URI.",
+                "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -667,7 +505,7 @@
                 ]
               },
               {
-                "$ref": "#/$defs/Concept"
+                "$ref": "#/$defs/cdifConcept"
               }
             ]
           }
@@ -680,7 +518,7 @@
               {
                 "type": "object",
                 "additionalProperties": false,
-                "description": "A reference to a SKOS Concept by URI.",
+                "description": "Reference (by URI) to a skos:Concept defined elsewhere. Used inside skos:broader / skos:narrower as the @id-reference alternative to an inline Concept.",
                 "properties": {
                   "@id": {
                     "type": "string",
@@ -692,7 +530,7 @@
                 ]
               },
               {
-                "$ref": "#/$defs/Concept"
+                "$ref": "#/$defs/cdifConcept"
               }
             ]
           }
@@ -700,14 +538,12 @@
       },
       "required": [
         "@type",
-        "skos:prefLabel",
-        "skos:definition",
-        "skos:inScheme"
+        "skos:prefLabel"
       ]
     },
     "LanguageTaggedValue": {
       "type": "object",
-      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object.",
+      "description": "An RDF literal value with a language tag, serialized as a JSON-LD value object. Inlined from skosConcept (the resolver does not preserve cross-file '#/$defs/...' fragment refs).",
       "properties": {
         "@value": {
           "type": "string",
@@ -719,8 +555,7 @@
         }
       },
       "required": [
-        "@value",
-        "@language"
+        "@value"
       ]
     }
   }
