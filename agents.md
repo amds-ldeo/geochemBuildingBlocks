@@ -84,10 +84,17 @@ Profiles additionally compose base schemas via `allOf` references.
 - `geochemProduct` is the **domain-neutral base product profile**: it composes the CDIF base schemas from mbb's `_sources/profiles/cdifProfile/` (CDIF **v1.1**) via `allOf` — `cdifCore`, `cdifDataDescription`, and `cdifProvenance` unconditionally; `cdifManifest` (was `cdifArchiveDistribution` in ≤1.0) behind an `if/then` that fires only when a `schema:distribution` item carries `schema:Collection` in `@type`, so monolithic single-file distributions aren't held to the manifest rules. It carries **no** ADA-specific requirements (optional `schema:additionalType`, not required `ada:componentType`), so it stays reusable outside ADA.
 - `adaProduct` **extends `geochemProduct`** (`allOf: [$ref ../geochemProduct/schema.yaml, …]`) and adds the ADA/SAMIS overlays: technique types, instrument/lab/sample, required `ada:componentType`. `geochemProduct` has **no** dependency on `adaProduct` (verified) — the arrow points one way.
 - Base-selection rule for technique profiles: `geochemProfile/<TECH>/profile/` (generic, path-driven, 34) → **geochemProduct**; `geochemProfile/<TECH>/profile-ada/` (4 ADA variants) and every `adaProfile/<TECH>/profile-ada/` (31) → **adaProduct**. `profile` variants additionally compose the technique's `detail` block (the TAPP link itself, `schema:actionProcess {"@id"}`, is a reference no schema can follow). Principle: geochem→geochemProduct, ada→adaProduct.
-- External schemas are referenced via full HTTP URLs **pinned to an mBB release tag**:
-  `raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/profiles-v1.1/_sources/...`.
-  That tag is the mBB tree the CDIF 1.1 profile family was emitted from, so this repo resolves the
-  same schemas the published `profile-*` / `doc-*` releases were built against. The Pages base
+- External schemas are referenced via full HTTP URLs **pinned to an immutable mBB tag**:
+  `raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/...`.
+  That tag is a dated snapshot of mBB's `main`, **not** a release: it carries current development
+  content, and the pin exists for reproducibility rather than release parity. Pinning instead to
+  `profiles-v1.1` (the tree the CDIF 1.1 profile family was emitted from) was measured and
+  rejected: mBB gained a great deal between that commit and now, so resolving the older tree
+  dropped roughly 55,000 constraint occurrences across 208 of 253 blocks -- 12,466 `required`,
+  8,723 `anyOf`, 1,907 `additionalProperties: false` -- which `tools/constraint_census.py` caught
+  and no positive example could (see `docs/SILENT_SUCCESS.md` section 1). To move to a newer mBB,
+  cut a new snapshot tag there, swap it in these URLs, re-run `--refresh-remote`, then
+  `regenerate.py` and `constraint_census.py --write` in the same change. The Pages base
   (`cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/`) serves mBB's `main`
   and is therefore the cutting edge; it is deliberately **not** used for `$ref` targets here,
   because a moving base makes a build unreproducible and can change validation outcomes without a
@@ -188,7 +195,7 @@ and provisional; the library's modules are Ruolin's to author (see
 - **Import source:** `https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json`
   — still the Pages base, i.e. mBB's cutting edge, unlike the `$ref` targets above. Nothing in this
   repo resolves a schema through the imported register (there are no `bblocks://` refs), so this
-  feeds register metadata and cross-linking only. Pinning it to the release tag would be a partial
+  feeds register metadata and cross-linking only. Pinning it to the snapshot tag would be a partial
   fix at best: mBB's published `register.json` has ~1835 absolute Pages URLs baked into it, so the
   tagged copy still advertises cutting-edge locations for every block it describes. Left as-is
   pending a decision.
