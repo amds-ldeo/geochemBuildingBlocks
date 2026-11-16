@@ -200,17 +200,19 @@
                 "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                 "anyOf": [
                   {
+                    "title": "Object Reference",
+                    "description": "reference to a skos concept for the data type",
                     "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
-                        "description": "reference to a skos concept for the data type"
+                        "description": "resolvable @id of the referenced node"
                       }
-                    }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -570,17 +572,19 @@
                           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                           "anyOf": [
                             {
+                              "title": "Object Reference",
+                              "description": "reference to a skos concept for the data type",
                               "type": "object",
-                              "required": [
-                                "@id"
-                              ],
-                              "additionalProperties": false,
                               "properties": {
                                 "@id": {
                                   "type": "string",
-                                  "description": "reference to a skos concept for the data type"
+                                  "description": "resolvable @id of the referenced node"
                                 }
-                              }
+                              },
+                              "required": [
+                                "@id"
+                              ],
+                              "additionalProperties": false
                             },
                             {
                               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -888,8 +892,18 @@
                   ]
                 },
                 "schema:alternateName": {
-                  "type": "string",
-                  "description": "other labels by which the person might be known"
+                  "description": "other labels by which the person might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
                 },
                 "schema:affiliation": {
                   "type": "object",
@@ -937,8 +951,18 @@
                       "description": "string label for organization that is meaningful for human users"
                     },
                     "schema:alternateName": {
-                      "type": "string",
-                      "description": "other labels by which the organization might be known"
+                      "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
                     },
                     "schema:description": {
                       "type": "string",
@@ -1207,8 +1231,18 @@
                   "description": "string label for organization that is meaningful for human users"
                 },
                 "schema:alternateName": {
-                  "type": "string",
-                  "description": "other labels by which the organization might be known"
+                  "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
                 },
                 "schema:description": {
                   "type": "string",
@@ -2143,17 +2177,19 @@
                     "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                     "anyOf": [
                       {
+                        "title": "Object Reference",
+                        "description": "reference to a skos concept for the data type",
                         "type": "object",
-                        "required": [
-                          "@id"
-                        ],
-                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string",
-                            "description": "reference to a skos concept for the data type"
+                            "description": "resolvable @id of the referenced node"
                           }
-                        }
+                        },
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false
                       },
                       {
                         "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -2658,17 +2694,19 @@
                     "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                     "anyOf": [
                       {
+                        "title": "Object Reference",
+                        "description": "reference to a skos concept for the data type",
                         "type": "object",
-                        "required": [
-                          "@id"
-                        ],
-                        "additionalProperties": false,
                         "properties": {
                           "@id": {
                             "type": "string",
-                            "description": "reference to a skos concept for the data type"
+                            "description": "resolvable @id of the referenced node"
                           }
-                        }
+                        },
+                        "required": [
+                          "@id"
+                        ],
+                        "additionalProperties": false
                       },
                       {
                         "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -3219,30 +3257,36 @@
           "description": "Concept scheme(s) this concept belongs to.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "A reference to a node defined elsewhere, by its @id.",
               "type": "object",
-              "additionalProperties": false,
               "properties": {
                 "@id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "resolvable @id of the referenced node"
                 }
               },
               "required": [
                 "@id"
-              ]
+              ],
+              "additionalProperties": false
             },
             {
               "type": "array",
               "items": {
+                "title": "Object Reference",
+                "description": "A reference to a node defined elsewhere, by its @id.",
                 "type": "object",
-                "additionalProperties": false,
                 "properties": {
                   "@id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "resolvable @id of the referenced node"
                   }
                 },
                 "required": [
                   "@id"
-                ]
+                ],
+                "additionalProperties": false
               }
             }
           ]
@@ -3251,30 +3295,36 @@
           "description": "Concept scheme(s) for which this is a top concept.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "A reference to a node defined elsewhere, by its @id.",
               "type": "object",
-              "additionalProperties": false,
               "properties": {
                 "@id": {
-                  "type": "string"
+                  "type": "string",
+                  "description": "resolvable @id of the referenced node"
                 }
               },
               "required": [
                 "@id"
-              ]
+              ],
+              "additionalProperties": false
             },
             {
               "type": "array",
               "items": {
+                "title": "Object Reference",
+                "description": "A reference to a node defined elsewhere, by its @id.",
                 "type": "object",
-                "additionalProperties": false,
                 "properties": {
                   "@id": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "resolvable @id of the referenced node"
                   }
                 },
                 "required": [
                   "@id"
-                ]
+                ],
+                "additionalProperties": false
               }
             }
           ]
@@ -3519,17 +3569,19 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "reference to a skos concept for the data type",
               "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
-                  "description": "reference to a skos concept for the data type"
+                  "description": "resolvable @id of the referenced node"
                 }
-              }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
             },
             {
               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -4455,17 +4507,19 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "reference to a skos concept for the data type",
               "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
-                  "description": "reference to a skos concept for the data type"
+                  "description": "resolvable @id of the referenced node"
                 }
-              }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
             },
             {
               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -4795,8 +4849,18 @@
           ]
         },
         "schema:alternateName": {
-          "type": "string",
-          "description": "other labels by which the person might be known"
+          "description": "other labels by which the person might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
         },
         "schema:affiliation": {
           "type": "object",
@@ -4844,8 +4908,18 @@
               "description": "string label for organization that is meaningful for human users"
             },
             "schema:alternateName": {
-              "type": "string",
-              "description": "other labels by which the organization might be known"
+              "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             },
             "schema:description": {
               "type": "string",
@@ -5114,8 +5188,18 @@
           "description": "string label for organization that is meaningful for human users"
         },
         "schema:alternateName": {
-          "type": "string",
-          "description": "other labels by which the organization might be known"
+          "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
         },
         "schema:description": {
           "type": "string",
@@ -5258,17 +5342,19 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "reference to a skos concept for the data type",
               "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
-                  "description": "reference to a skos concept for the data type"
+                  "description": "resolvable @id of the referenced node"
                 }
-              }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
             },
             {
               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -5655,17 +5741,19 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "reference to a skos concept for the data type",
               "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
-                  "description": "reference to a skos concept for the data type"
+                  "description": "resolvable @id of the referenced node"
                 }
-              }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
             },
             {
               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -5938,8 +6026,18 @@
           "description": "string label for organization that is meaningful for human users"
         },
         "schema:alternateName": {
-          "type": "string",
-          "description": "other labels by which the organization might be known"
+          "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
         },
         "schema:description": {
           "type": "string",
@@ -6225,7 +6323,9 @@
       "type": "object",
       "properties": {
         "@type": {
-          "default": "schema:Role",
+          "default": [
+            "schema:Role"
+          ],
           "type": "array",
           "items": {
             "type": "string"
@@ -6241,17 +6341,19 @@
         "schema:contributor": {
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "IRI reference to a Person or Organization defined elsewhere",
               "type": "object",
-              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
-                  "description": "IRI reference to a Person or Organization defined elsewhere"
+                  "description": "resolvable @id of the referenced node"
                 }
               },
               "required": [
                 "@id"
-              ]
+              ],
+              "additionalProperties": false
             },
             {
               "description": "schema for cdif profile of schema.org/Person",
@@ -6356,8 +6458,18 @@
                   ]
                 },
                 "schema:alternateName": {
-                  "type": "string",
-                  "description": "other labels by which the person might be known"
+                  "description": "other labels by which the person might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
                 },
                 "schema:affiliation": {
                   "type": "object",
@@ -6405,8 +6517,18 @@
                       "description": "string label for organization that is meaningful for human users"
                     },
                     "schema:alternateName": {
-                      "type": "string",
-                      "description": "other labels by which the organization might be known"
+                      "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      ]
                     },
                     "schema:description": {
                       "type": "string",
@@ -6675,8 +6797,18 @@
                   "description": "string label for organization that is meaningful for human users"
                 },
                 "schema:alternateName": {
-                  "type": "string",
-                  "description": "other labels by which the organization might be known"
+                  "description": "other labels by which the organization might be known. A list when there are several; a single label may be a plain string, as JSON-LD framing writes a one-item list.",
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
                 },
                 "schema:description": {
                   "type": "string",
@@ -7055,7 +7187,9 @@
       "type": "object",
       "properties": {
         "@type": {
-          "default": "schema:LinkRole",
+          "default": [
+            "schema:LinkRole"
+          ],
           "type": "array",
           "items": {
             "type": "string"
@@ -7075,7 +7209,9 @@
           "description": "The entry point being linked to. Deliberately not sealed: real targets also carry schema:httpMethod, schema:urlTemplate, schema:contentType and domain-specific properties, and JSON-LD is open-world.",
           "properties": {
             "@type": {
-              "default": "schema:EntryPoint",
+              "default": [
+                "schema:EntryPoint"
+              ],
               "type": "array",
               "items": {
                 "type": "string"
@@ -7123,18 +7259,19 @@
       ]
     },
     "ConceptRef": {
-      "type": "object",
-      "additionalProperties": false,
+      "title": "Object Reference",
       "description": "A reference to a SKOS Concept by URI.",
+      "type": "object",
       "properties": {
         "@id": {
           "type": "string",
-          "description": "URI of the referenced concept."
+          "description": "resolvable @id of the referenced node"
         }
       },
       "required": [
         "@id"
-      ]
+      ],
+      "additionalProperties": false
     },
     "KindInstrument": {
       "description": "The instrument kind test: schema:additionalType names Wikidata Q3099911 (measuring instrument), as the entity IRI or the wd: CURIE -- the two spellings CDIF's cdifProvActivity accepts. Used as an `if`, never on its own.",
@@ -7261,17 +7398,19 @@
                 "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                 "anyOf": [
                   {
+                    "title": "Object Reference",
+                    "description": "reference to a skos concept for the data type",
                     "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
-                        "description": "reference to a skos concept for the data type"
+                        "description": "resolvable @id of the referenced node"
                       }
-                    }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -7504,17 +7643,19 @@
                       "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                       "anyOf": [
                         {
+                          "title": "Object Reference",
+                          "description": "reference to a skos concept for the data type",
                           "type": "object",
-                          "required": [
-                            "@id"
-                          ],
-                          "additionalProperties": false,
                           "properties": {
                             "@id": {
                               "type": "string",
-                              "description": "reference to a skos concept for the data type"
+                              "description": "resolvable @id of the referenced node"
                             }
-                          }
+                          },
+                          "required": [
+                            "@id"
+                          ],
+                          "additionalProperties": false
                         },
                         {
                           "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -7719,17 +7860,19 @@
                 "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                 "anyOf": [
                   {
+                    "title": "Object Reference",
+                    "description": "reference to a skos concept for the data type",
                     "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
-                        "description": "reference to a skos concept for the data type"
+                        "description": "resolvable @id of the referenced node"
                       }
-                    }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -8412,17 +8555,19 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "reference to a skos concept for the data type",
               "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
-                  "description": "reference to a skos concept for the data type"
+                  "description": "resolvable @id of the referenced node"
                 }
-              }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
             },
             {
               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -8586,16 +8731,19 @@
           "type": "string"
         },
         {
+          "title": "Object Reference",
+          "description": "A reference to a node defined elsewhere, by its @id.",
           "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string",
+              "description": "resolvable @id of the referenced node"
+            }
+          },
           "required": [
             "@id"
           ],
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string"
-            }
-          }
+          "additionalProperties": false
         },
         {
           "$ref": "#/$defs/AdditionalProperty_DefinedTerm"
@@ -8762,17 +8910,19 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
+              "title": "Object Reference",
+              "description": "reference to a skos concept for the data type",
               "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
               "properties": {
                 "@id": {
                   "type": "string",
-                  "description": "reference to a skos concept for the data type"
+                  "description": "resolvable @id of the referenced node"
                 }
-              }
+              },
+              "required": [
+                "@id"
+              ],
+              "additionalProperties": false
             },
             {
               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -8983,17 +9133,19 @@
                 "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
                 "anyOf": [
                   {
+                    "title": "Object Reference",
+                    "description": "reference to a skos concept for the data type",
                     "type": "object",
-                    "required": [
-                      "@id"
-                    ],
-                    "additionalProperties": false,
                     "properties": {
                       "@id": {
                         "type": "string",
-                        "description": "reference to a skos concept for the data type"
+                        "description": "resolvable @id of the referenced node"
                       }
-                    }
+                    },
+                    "required": [
+                      "@id"
+                    ],
+                    "additionalProperties": false
                   },
                   {
                     "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
