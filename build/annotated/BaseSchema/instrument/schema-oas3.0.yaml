@@ -1,6 +1,6 @@
 x-defs:
-  cdif.bbr.metadata.schemaorgProperties.instrument:
-    title: Instrument Description
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema
+  : title: Instrument Description
     description: Schema for describing laboratory instruments and instrument systems.
       Supports ownership, manufacturer, model, commissioning dates, hierarchical sub-components
       via schema:hasPart, and domain-specific typing. Instruments may be standalone
@@ -38,18 +38,15 @@ x-defs:
           instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).
         type: array
         items:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/cdifConceptOrTermOrString
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/cdifConceptOrTermOrString
         minItems: 1
-        x-jsonld-id: http://schema.org/additionalType
       schema:name:
         type: string
         minLength: 3
         description: Human-readable name for this instrument.
-        x-jsonld-id: http://schema.org/name
       schema:description:
         type: string
         description: Text description of this instrument, its purpose, and capabilities.
-        x-jsonld-id: http://schema.org/description
       schema:alternateName:
         description: Alternate name(s), e.g. specific make/model designation, common
           abbreviation.
@@ -57,8 +54,7 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        x-jsonld-id: http://schema.org/alternateName
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
       schema:identifier:
         description: Formal identifier(s) for this instrument. Use PropertyValue for
           structured identifiers (e.g. PIDINST, serial number, inventory number).
@@ -66,18 +62,15 @@ x-defs:
         items:
           anyOf:
           - type: string
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
-        x-jsonld-id: http://schema.org/identifier
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/Identifier
       schema:url:
         type: string
         format: uri
         description: Landing page URL for this instrument.
-        x-jsonld-id: http://schema.org/url
       schema:manufacturer:
         description: Organization that manufactured this instrument.
-        x-jsonld-id: http://schema.org/manufacturer
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/Organization
       schema:model:
         type: object
         description: Product model information for this instrument.
@@ -93,36 +86,30 @@ x-defs:
           schema:name:
             type: string
             description: Model name or number.
-            x-jsonld-id: http://schema.org/name
           schema:identifier:
             description: Model identifier.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
-            x-jsonld-id: http://schema.org/identifier
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/Identifier
         required:
         - '@type'
         - schema:name
-        x-jsonld-id: http://schema.org/model
       schema:category:
         description: Instrument type classification(s) from a controlled vocabulary.
         type: array
         items:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/DefinedTerm
-        x-jsonld-id: http://schema.org/category
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/DefinedTerm
       schema:owner:
         description: Organization that owns this instrument.
-        x-jsonld-id: http://schema.org/owner
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/Organization
       schema:contributor:
         description: Agents associated with this instrument in specific roles (e.g.
           operator, custodian, principal investigator). Use schema:owner for the owning
           organization.
         type: array
         items:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AgentInRole
-        x-jsonld-id: http://schema.org/contributor
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/AgentInRole
       schema:additionalProperty:
         type: array
         description: Instrument-specific properties (measured variables, detection
@@ -134,29 +121,25 @@ x-defs:
           a profile SHACL rule pins which form applies in which context.
         items:
           anyOf:
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalPropertySpecification
-        x-jsonld-id: http://schema.org/additionalProperty
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/AdditionalProperty
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/AdditionalPropertySpecification
       schema:validFrom:
         type: string
         description: Date the instrument was commissioned (ISO 8601).
-        x-jsonld-id: http://schema.org/validFrom
       schema:validThrough:
         type: string
         description: Date the instrument was decommissioned (ISO 8601). Absent if
           still operational.
-        x-jsonld-id: http://schema.org/validThrough
       schema:hasPart:
         type: array
         description: Sub-components of this instrument system. Each item is either
           an inline instrument description or an @id reference.
         items:
           anyOf:
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/InstrumentComponent
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/InstrumentComponent
           - description: Reference to a sub-component defined elsewhere.
             allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        x-jsonld-id: http://schema.org/hasPart
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
       schema:relatedLink:
         type: array
         description: Links to related resources (manuals, datasheets, calibration
@@ -164,8 +147,7 @@ x-defs:
           instrument. Uses the same linkRole block as cdifCore; before 2026-09-23
           this property was a labeled link here and a LinkRole there.
         items:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/LinkRole
-        x-jsonld-id: http://schema.org/relatedLink
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/LinkRole
       schema:subjectOf:
         description: Catalog record metadata-about-metadata for this instrument description.
         type: object
@@ -179,40 +161,37 @@ x-defs:
           schema:dateModified:
             type: string
             description: Date this metadata record was last modified (ISO 8601).
-            x-jsonld-id: http://schema.org/dateModified
           schema:about:
             description: Reference back to the instrument @id.
-            x-jsonld-id: http://schema.org/about
             allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
           dcterms:conformsTo:
             description: Schema or profile this metadata record conforms to.
             type: array
             items:
               anyOf:
               - type: string
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
         required:
         - '@type'
-        x-jsonld-id: http://schema.org/subjectOf
     required:
     - '@type'
     - schema:name
     $defs:
       cdifConceptOrTermOrString:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
       Identifier:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_identifier_schema
       Organization:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_organization_schema
       Person:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_person_schema
       DefinedTerm:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_definedTerm_schema
       AgentInRole:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_agentInRole_schema
       AdditionalProperty:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_additionalProperty_schema
       AdditionalPropertySpecification:
         type: object
         title: additionalProperty PropertyValueSpecification
@@ -244,18 +223,15 @@ x-defs:
           schema:name:
             description: Human-readable label for the parameter.
             type: string
-            x-jsonld-id: http://schema.org/name
           schema:valueName:
             description: Machine-readable name for the parameter, for serialization
               and for binding a form control to it.
             type: string
-            x-jsonld-id: http://schema.org/valueName
           schema:defaultValue:
             description: 'The overridable default this specification carries -- the
               value that applies unless the analysis overrides it. Left untyped: a
               default may be a string, a number or a boolean, and which one is a property
               of the parameter rather than of this shape.'
-            x-jsonld-id: http://schema.org/defaultValue
           schema:value:
             description: 'A value fixed by the procedure, where the parameter is NOT
               overridable. Both keys are declared because both occur: measured across
@@ -263,12 +239,10 @@ x-defs:
               entries under schema:instrument, 203 carry schema:defaultValue and 166
               carry schema:value. A specification that pins a value rather than defaulting
               one is still a specification.'
-            x-jsonld-id: http://schema.org/value
           schema:description:
             description: Guidance text for the parameter, e.g. shown beside a form
               control.
             type: string
-            x-jsonld-id: http://schema.org/description
           '@id':
             description: Identifier for this specification, so a recorded value elsewhere
               can reference the parameter it instantiates.
@@ -277,9 +251,9 @@ x-defs:
         - '@type'
         - schema:name
       Reference:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_labeledLink_schema
       LinkRole:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_linkRole_schema
       InstrumentComponent:
         type: object
         description: A sub-component of an instrument system. Uses the same structure
@@ -304,37 +278,29 @@ x-defs:
           schema:name:
             type: string
             minLength: 3
-            x-jsonld-id: http://schema.org/name
           schema:description:
             type: string
-            x-jsonld-id: http://schema.org/description
           schema:alternateName:
             type: array
             items:
               type: string
-            x-jsonld-id: http://schema.org/alternateName
           schema:identifier:
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
-            x-jsonld-id: http://schema.org/identifier
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/Identifier
           schema:additionalType:
             description: Component type classification.
             type: array
             items:
-              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/cdifConceptOrTermOrString
-            x-jsonld-id: http://schema.org/additionalType
+              $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/cdifConceptOrTermOrString
           schema:additionalProperty:
             type: array
             items:
               anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalProperty
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/AdditionalPropertySpecification
-            x-jsonld-id: http://schema.org/additionalProperty
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/AdditionalProperty
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/AdditionalPropertySpecification
           schema:manufacturer:
-            x-jsonld-id: http://schema.org/manufacturer
-            allOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Organization
+            $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/Organization
           schema:model:
             type: object
             properties:
@@ -343,53 +309,37 @@ x-defs:
                 items:
                   anyOf:
                   - type: string
-                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+                  - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
                 contains:
                   enum:
                   - schema:ProductModel
                 minItems: 1
               schema:name:
                 type: string
-                x-jsonld-id: http://schema.org/name
               schema:identifier:
                 anyOf:
                 - type: string
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument/$defs/Identifier
-                x-jsonld-id: http://schema.org/identifier
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema/$defs/Identifier
             required:
             - '@type'
-            x-jsonld-id: http://schema.org/model
         required:
         - '@type'
         - schema:name
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-      wd: https://www.wikidata.org/entity/
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.instrument
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.2'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString:
-    title: CDIF Concept-or-Term-or-String
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
+  : title: CDIF Concept-or-Term-or-String
     description: Shared shape for a CDIF property that carries either a controlled-vocabulary
       value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref,
       schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative
       used for legacy or single-word labels not yet bound to a vocabulary.
     anyOf:
     - type: string
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTerm_schema
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.objectReference:
-    title: Object Reference
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
+  : title: Object Reference
     description: A reference to a node defined elsewhere, by its @id.
     type: object
     properties:
@@ -399,15 +349,10 @@ x-defs:
     required:
     - '@id'
     additionalProperties: false
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.cdifDataType.objectReference
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/objectReference/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.identifier:
-    description: 'Properties for a schema.org identifier (schema:PropertyValue pattern).
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_identifier_schema
+  : description: 'Properties for a schema.org identifier (schema:PropertyValue pattern).
 
       **Union-type policy:** In CDIF profile UML models an attribute typed as
 
@@ -435,24 +380,21 @@ x-defs:
       schema:propertyID:
         anyOf:
         - type: string
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
         description: In this context for the schema:PropertyValue, this field is an
           identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/
           for interoperability. URI-shape values MUST be serialized as JSON-LD IRI
           references ({"@id":"..."}) so they participate in RDF entailment; free-label
           strings remain valid as strings.
-        x-jsonld-id: http://schema.org/propertyID
       schema:value:
         type: string
         description: the identifier string. E.g. 10.5066/F7VX0DMQ
-        x-jsonld-id: http://schema.org/value
       schema:url:
         type: string
         format: uri
         description: 'web-resolveable string for the identifier; host name part is
           location of a resolver that will return some representation for the given
           identifier value. E.g. https://doi.org/10.5066/F7VX0DMQ '
-        x-jsonld-id: http://schema.org/url
     allOf:
     - required:
       - '@type'
@@ -461,17 +403,10 @@ x-defs:
         - schema:value
       - required:
         - schema:url
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.identifier
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/identifier/schema.yaml
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/identifier/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.organization:
-    type: object
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_organization_schema
+  : type: object
     properties:
       '@id':
         type: string
@@ -500,12 +435,10 @@ x-defs:
       schema:additionalType:
         type: array
         items:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization/$defs/cdifConceptOrTermOrString
-        x-jsonld-id: http://schema.org/additionalType
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_organization_schema/$defs/cdifConceptOrTermOrString
       schema:name:
         type: string
         description: string label for organization that is meaningful for human users
-        x-jsonld-id: http://schema.org/name
       schema:alternateName:
         description: other labels by which the organization might be known. A list
           when there are several; a single label may be a plain string, as JSON-LD
@@ -515,26 +448,22 @@ x-defs:
         - type: array
           items:
             type: string
-        x-jsonld-id: http://schema.org/alternateName
       schema:description:
         type: string
         description: additional information about the agent or their relation to the
           described resource
-        x-jsonld-id: http://schema.org/description
       schema:identifier:
         description: identifier for organization
         anyOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_identifier_schema
         - type: string
-        x-jsonld-id: http://schema.org/identifier
       schema:sameAs:
         type: array
         description: other identifiers for the organization
         items:
           anyOf:
           - type: string
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        x-jsonld-id: http://schema.org/sameAs
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
     allOf:
     - required:
       - '@type'
@@ -545,18 +474,11 @@ x-defs:
         - schema:identifier
     $defs:
       cdifConceptOrTermOrString:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.organization
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/organization/schema.yaml
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/organization/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.person:
-    description: schema for cdif profile of schema.org/Person
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_person_schema
+  : description: schema for cdif profile of schema.org/Person
     type: object
     properties:
       '@id':
@@ -573,18 +495,15 @@ x-defs:
         type: string
         description: string label for person that is meaningful for human users, should
           format consistently. Recommend 'Family Name, Given name' format.
-        x-jsonld-id: http://schema.org/name
       schema:description:
         type: string
         description: additional information about the agent or their relation to the
           described resource
-        x-jsonld-id: http://schema.org/description
       schema:identifier:
         description: identifier for person, recommend ORCID
         anyOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_identifier_schema
         - type: string
-        x-jsonld-id: http://schema.org/identifier
       schema:alternateName:
         description: other labels by which the person might be known. A list when
           there are several; a single label may be a plain string, as JSON-LD framing
@@ -594,12 +513,10 @@ x-defs:
         - type: array
           items:
             type: string
-        x-jsonld-id: http://schema.org/alternateName
       schema:affiliation:
         description: if affiliation is present, value must be a schema:Organization.
-        x-jsonld-id: http://schema.org/affiliation
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_organization_schema
       schema:contactPoint:
         type: object
         description: An email address or a contact web page (a form, an issue tracker),
@@ -619,11 +536,9 @@ x-defs:
             minItems: 1
           schema:email:
             type: string
-            x-jsonld-id: http://schema.org/email
           schema:url:
             type: string
             format: uri
-            x-jsonld-id: http://schema.org/url
         required:
         - '@type'
         anyOf:
@@ -631,15 +546,13 @@ x-defs:
           - schema:email
         - required:
           - schema:url
-        x-jsonld-id: http://schema.org/contactPoint
       schema:sameAs:
         type: array
         description: other identifiers for the person
         items:
           anyOf:
           - type: string
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        x-jsonld-id: http://schema.org/sameAs
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
     allOf:
     - required:
       - '@type'
@@ -648,17 +561,10 @@ x-defs:
         - schema:name
       - required:
         - schema:identifier
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.person
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/person/schema.yaml
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/person/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.definedTerm:
-    description: "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_definedTerm_schema
+  : description: "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF
       profile UML models an attribute typed as\nschema:DefinedTerm is represented
       by a single attribute of that class type.\nThe JSON Schema implementation permits
       the property value to be EITHER a\nplain string (interpreted as schema:name
@@ -682,12 +588,10 @@ x-defs:
       schema:name:
         type: string
         description: text label for the term that is useful to human user
-        x-jsonld-id: http://schema.org/name
       schema:identifier:
         anyOf:
         - type: string
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.identifier
-        x-jsonld-id: http://schema.org/identifier
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_identifier_schema
       schema:inDefinedTermSet:
         description: 'The controlled vocabulary responsible for this keyword, as EITHER
           a plain URI string identifying the vocabulary, OR an object reference ({"@id":
@@ -698,13 +602,11 @@ x-defs:
           above explicitly anticipates both.'
         anyOf:
         - type: string
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        x-jsonld-id: http://schema.org/inDefinedTermSet
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
       schema:termCode:
         type: string
         description: A representative code for this keyword in the controlled vocabulary.
           Analogous to skos:Notation
-        x-jsonld-id: http://schema.org/termCode
     allOf:
     - required:
       - '@type'
@@ -715,17 +617,10 @@ x-defs:
         - schema:identifier
       - required:
         - schema:termCode
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.definedTerm
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/definedTerm/schema.yaml
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/definedTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.agentInRole:
-    description: For more granularity on how a person contributed to a Dataset, use
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_agentInRole_schema
+  : description: For more granularity on how a person contributed to a Dataset, use
       schema:Role. The schema.org documentation does not state that the Role type
       is an expected data type of author, creator and contributor, but that is addressed
       in this blog post (http://blog.schema.org/2014/06/introducing-role.html). see
@@ -743,35 +638,25 @@ x-defs:
           - schema:Role
         minItems: 1
       schema:roleName:
-        x-jsonld-id: http://schema.org/roleName
-        allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.agentInRole/$defs/cdifConceptOrTermOrString
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_agentInRole_schema/$defs/cdifConceptOrTermOrString
       schema:contributor:
         anyOf:
         - description: IRI reference to a Person or Organization defined elsewhere
           allOf:
-          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.person
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.organization
-        x-jsonld-id: http://schema.org/contributor
+          - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_person_schema
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_organization_schema
     required:
     - '@type'
     - schema:roleName
     - schema:contributor
     $defs:
       cdifConceptOrTermOrString:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.agentInRole
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/agentInRole/schema.yaml
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/agentInRole/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.additionalProperty:
-    type: object
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_additionalProperty_schema
+  : type: object
     title: additionalProperty PropertyValue
     description: 'PropertyValue values required to define a soft-typed property with
       a value. '
@@ -787,53 +672,40 @@ x-defs:
       schema:propertyID:
         type: array
         items:
-          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/propertyID_item
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_additionalProperty_schema/$defs/propertyID_item
         minItems: 1
         description: identifier or name for the property concept quantified by the
           values in this variable slot. Multiple values can specify the property at
           different levels of granularity.
-        x-jsonld-id: http://schema.org/propertyID
       schema:name:
         type: string
-        x-jsonld-id: http://schema.org/name
       schema:value:
         anyOf:
         - type: string
         - type: number
         - type: boolean
         - type: object
-        x-jsonld-id: http://schema.org/value
       schema:unitCode:
         anyOf:
         - type: string
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
-        x-jsonld-id: http://schema.org/unitCode
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_additionalProperty_schema/$defs/DefinedTerm
       schema:unitText:
         type: string
-        x-jsonld-id: http://schema.org/unitText
     required:
     - schema:name
     - schema:value
     $defs:
       DefinedTerm:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_definedTerm_schema
       propertyID_item:
         anyOf:
         - type: string
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.additionalProperty/$defs/DefinedTerm
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-      nxs: https://manual.nexusformat.org/classes/
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.additionalProperty
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/additionalProperty/schema.yaml
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_additionalProperty_schema/$defs/DefinedTerm
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/additionalProperty/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.labeledLink:
-    description: 'Schema for a labeled link, a profile of schema.org/CreativeWork:
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_labeledLink_schema
+  : description: 'Schema for a labeled link, a profile of schema.org/CreativeWork:
       a resolvable URL with an optional name and description. Optionally carries the
       DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses
       a typed relationship rather than a plain reference.
@@ -880,14 +752,11 @@ x-defs:
             - dcat:Relationship
       schema:name:
         type: string
-        x-jsonld-id: http://schema.org/name
       schema:description:
         type: string
-        x-jsonld-id: http://schema.org/description
       schema:url:
         type: string
         format: uri
-        x-jsonld-id: http://schema.org/url
       dcat:hadRole:
         description: 'Role of the related resource. Present only on a link that expresses
           a relationship; a plain labeled link such as a license omits it.
@@ -908,9 +777,8 @@ x-defs:
           and it is a choice rather than an oversight -- do not read the extra branches
           as something not yet tightened.'
         anyOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/DcatRole
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.labeledLink/$defs/cdifConceptOrTermOrString
-        x-jsonld-id: http://www.w3.org/ns/dcat#hadRole
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_labeledLink_schema/$defs/DcatRole
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_labeledLink_schema/$defs/cdifConceptOrTermOrString
       dcterms:relation:
         description: 'The related resource -- the DCAT canonical pointer to what is
           being related to, which is distinct from schema:url, the presentation URL
@@ -938,10 +806,9 @@ x-defs:
           URI serialization policy (agents.md) says URI values SHOULD be {"@id": ...}.
           The register required the one form its own policy argues against.'
         anyOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
         - type: string
           format: uri
-        x-jsonld-id: http://purl.org/dc/terms/relation
     required:
     - '@type'
     allOf:
@@ -958,7 +825,7 @@ x-defs:
         - schema:url
     $defs:
       cdifConceptOrTermOrString:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
       DcatRole:
         description: 'A dcat:Role -- DCAT''s declared range for dcat:hadRole. Defined
           inline rather than as its own building block because nothing else in the
@@ -987,20 +854,10 @@ x-defs:
             minItems: 1
         required:
         - '@type'
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-      skos: http://www.w3.org/2004/02/skos/core#
-      dcterms: http://purl.org/dc/terms/
-      dcat: http://www.w3.org/ns/dcat#
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.labeledLink
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.yaml
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/labeledLink/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.schemaorgProperties.linkRole:
-    description: 'A typed link, implemented as a schema.org LinkRole: schema:linkRelationship
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_linkRole_schema
+  : description: 'A typed link, implemented as a schema.org LinkRole: schema:linkRelationship
       names how the target relates to the subject, and schema:target carries the EntryPoint
       actually being linked to.
 
@@ -1034,9 +891,8 @@ x-defs:
           is unstated carries no more information than a bare URL, which is what schemaorgProperties/labeledLink
           is for.'
         default: missing
-        x-jsonld-id: http://schema.org/linkRelationship
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.linkRole/$defs/cdifConceptOrTermOrString
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_linkRole_schema/$defs/cdifConceptOrTermOrString
       schema:target:
         type: object
         description: 'The entry point being linked to. Deliberately not sealed: real
@@ -1055,58 +911,41 @@ x-defs:
             minItems: 1
           schema:name:
             type: string
-            x-jsonld-id: http://schema.org/name
           schema:url:
             type: string
             format: uri
-            x-jsonld-id: http://schema.org/url
           schema:encodingFormat:
             type: string
             description: registered MIME types are expected
-            x-jsonld-id: http://schema.org/encodingFormat
-        x-jsonld-id: http://schema.org/target
     required:
     - '@type'
     - schema:linkRelationship
     $defs:
       cdifConceptOrTermOrString:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
-    x-jsonld-prefixes:
-      schema: http://schema.org/
-      skos: http://www.w3.org/2004/02/skos/core#
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.schemaorgProperties.linkRole
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/linkRole/schema.yaml
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/linkRole/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm:
-    description: A SKOS concept identified by URI, a schema:DefinedTerm, or an inline
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTerm_schema
+  : description: A SKOS concept identified by URI, a schema:DefinedTerm, or an inline
       cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary
       reference or an inline concept definition.
     anyOf:
     - description: reference to a skos concept for the data type
       allOf:
-      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.definedTerm
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.cdifDataType.cdifConceptOrTerm
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTerm/schema.yaml
+      - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_definedTerm_schema
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/Concept
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTerm/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
-  cdif.bbr.metadata.skosProperties.skosConcept:
-    title: SKOS Concept
+  ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema
+  : title: SKOS Concept
     description: JSON Schema for a SKOS Concept in JSON-LD form. A unit of thought
       within a concept scheme. Supports labels (prefLabel, altLabel, hiddenLabel),
       notations, hierarchical relations (broader/narrower), associative relations
       (related), cross-scheme mapping properties, scheme membership, and documentary
       notes. Based on the W3C SKOS Reference (https://www.w3.org/TR/skos-reference/).
     allOf:
-    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept
+    - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/Concept
     $defs:
       Concept:
         type: object
@@ -1152,116 +991,104 @@ x-defs:
               Each language should appear at most once.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
             - type: array
               items:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#prefLabel
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
           skos:notation:
             description: Classification code for this concept within a scheme (a single
               notation string, consistent with CdifCodelistConcept).
             type: string
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#notation
           skos:definition:
             description: Formal explanation of the meaning of this concept.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#definition
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
           skos:scopeNote:
             description: Note clarifying meaning and/or intended use.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#scopeNote
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
           skos:note:
             description: General note about this concept.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#note
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
           skos:historyNote:
             description: Note about past state or use.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#historyNote
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
           skos:changeNote:
             description: Note documenting a change.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#changeNote
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
           skos:editorialNote:
             description: Note for editors and maintainers.
             anyOf:
             - type: string
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
             - type: array
               items:
                 anyOf:
                 - type: string
-                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/LanguageTaggedValue
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#editorialNote
+                - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue
           skos:inScheme:
             description: Concept scheme(s) this concept belongs to.
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
             - type: array
               items:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#inScheme
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
           skos:topConceptOf:
             description: Concept scheme(s) for which this is a top concept.
             anyOf:
-            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+            - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
             - type: array
               items:
-                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#topConceptOf
+                $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
           skos:broader:
             description: Broader (parent) concepts in the hierarchy. Items are inline
               concept objects or @id references.
             type: array
             items:
               anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/ConceptRef
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#broader
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/Concept
           skos:narrower:
             description: Narrower (child) concepts in the hierarchy. Items are inline
               concept objects or @id references.
             type: array
             items:
               anyOf:
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/ConceptRef
-              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.skosProperties.skosConcept/$defs/Concept
-            x-jsonld-id: http://www.w3.org/2004/02/skos/core#narrower
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/ConceptRef
+              - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_skosProperties_skosConcept_schema/$defs/Concept
         required:
         - '@type'
         - skos:prefLabel
@@ -1270,7 +1097,7 @@ x-defs:
       ConceptRef:
         description: A reference to a SKOS Concept by URI.
         allOf:
-        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.objectReference
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_objectReference_schema
       LanguageTaggedValue:
         type: object
         description: An RDF literal value with a language tag, serialized as a JSON-LD
@@ -1285,14 +1112,7 @@ x-defs:
         required:
         - '@value'
         - '@language'
-    x-jsonld-prefixes:
-      skos: http://www.w3.org/2004/02/skos/core#
-    x-bblocks-metadata:
-      itemIdentifier: cdif.bbr.metadata.skosProperties.skosConcept
-      register: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/register.json
-      version: '0.1'
-      dateOfLastChange: '2026-11-11'
-    x-schema-source: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/skosProperties/skosConcept/schema.yaml
+    x-schema-source: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/skosProperties/skosConcept/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
 title: ADA Analysis Instrument
 description: ADA analytical instrument building block. Extends the core CDIF instrument
@@ -1300,7 +1120,7 @@ description: ADA analytical instrument building block. Extends the core CDIF ins
   are typed schema:Product (from core; schema:Thing allowed) with domain-specific
   types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.
 allOf:
-- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.schemaorgProperties.instrument
+- $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_instrument_schema
 - type: object
   properties:
     '@id':
@@ -1328,7 +1148,7 @@ allOf:
         from software and reagents in an activity''s schema:instrument.'
       type: array
       items:
-        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/cdif.bbr.metadata.cdifDataType.cdifConceptOrTermOrString
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
       minItems: 1
       contains:
         type: object
@@ -1500,5 +1320,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.instrument
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

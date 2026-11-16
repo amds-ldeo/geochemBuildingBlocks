@@ -1,6 +1,6 @@
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix cdif: <https://cdif.org/0.1/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
@@ -9,7 +9,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaLabXCT-example-001 a schema1:Dataset,
@@ -86,18 +85,18 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
         ex:adaProduct-var-002,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
-            dqv:value "no value available: metalStreakArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "no value available: beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
             dqv:value "no value available: partialVolumeEffectAssessment" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "no value available: beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "no value available: crossValidationOutcome" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ] ;
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+            dqv:value "no value available: metalStreakArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:labxctTAPP-P0 ;
@@ -122,7 +121,7 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalType ada:ADAInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        wd:Q3099911,
+        <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:identifier "ex:instrument-ada-001" ;
     schema1:name "Example ADA Instrument" .

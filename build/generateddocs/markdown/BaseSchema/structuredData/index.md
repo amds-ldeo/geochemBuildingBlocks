@@ -132,12 +132,12 @@ container, not tabular text).
     ada:componentType "ada:other" .
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
-    cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ],
-        [ a cdi:DimensionComponent ;
+    cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
             cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
         [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ] ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ],
+        [ a cdi:MeasureComponent ;
+            cdif:name "intensity" ] ;
     schema1:name "Elemental map cube structure" .
 
 
@@ -178,11 +178,11 @@ properties:
       or an @id reference to a structure declared elsewhere in the document (e.g.
       shared across parts)."
     anyOf:
-    - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
-    - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
-    - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
-    - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
-    - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/objectReference/schema.yaml
     x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy
 required:
 - '@type'
@@ -197,7 +197,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.structuredData
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -216,14 +216,6 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "cdif": "https://cdif.org/0.1/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "spdx": "http://spdx.org/rdf/terms#",
-    "xas": "https://w3id.org/cdif/xas/",
-    "nxs": "https://manual.nexusformat.org/classes/",
-    "prov": "http://www.w3.org/ns/prov#",
     "@version": 1.1
   }
 }

@@ -3,7 +3,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-Liu2017 a schema1:Action,
@@ -16,6 +15,12 @@ ex:semTAPP-Liu2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -26,12 +31,6 @@ ex:semTAPP-Liu2017 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -39,7 +38,7 @@ ex:semTAPP-Liu2017 a schema1:Action,
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v88.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
             ada:toolRole "dataReduction" ],
         <https://example.org/semTAPP-Liu2017/instrument/SEM> ;
@@ -127,7 +126,7 @@ ex:semTAPP-Liu2017 a schema1:Action,
 
 <https://example.org/semTAPP-Liu2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:description "missing" ;
     schema1:hasPart <https://example.org/semTAPP-Liu2017/instrument/SEM/part/BSE-Detector>,
@@ -149,26 +148,26 @@ ex:semTAPP-Liu2017 a schema1:Action,
 
 <https://example.org/semTAPP-Liu2017/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
 <https://example.org/semTAPP-Liu2017/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/semTAPP-Liu2017/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/semTAPP-Liu2017/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 

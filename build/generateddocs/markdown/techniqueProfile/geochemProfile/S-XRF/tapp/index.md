@@ -202,7 +202,6 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:sXrfTAPP-P0 a schema1:Action,
@@ -237,7 +236,7 @@ ex:sXrfTAPP-P0 a schema1:Action,
 <https://example.org/sXrfTAPP-P0/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        wd:Q3099911 ;
+        <https://www.wikidata.org/entity/Q3099911> ;
     schema1:name "Synchrotron (beamline ID15A - Materials Chemistry and Materials Engineering)" .
 
 
@@ -414,7 +413,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.S-XRF.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -437,9 +436,6 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

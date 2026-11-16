@@ -88,7 +88,7 @@
           "type": "string"
         },
         {
-          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/identifier/schema.json"
+          "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/identifier/schema.yaml"
         }
       ],
       "x-jsonld-id": "http://schema.org/identifier"
@@ -126,7 +126,7 @@
       "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for. This was the last of the eight sites in #77 still rejecting the @id form -- with it widened, the conversion probe goes from 344/345 to 345/345.",
       "type": "array",
       "items": {
-        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
+        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml"
       },
       "x-jsonld-id": "http://schema.org/additionalType"
     },
@@ -135,7 +135,7 @@
       "description": "The analytical technique this method implements. Must be a DefinedTerm from a controlled vocabulary of techniques.",
       "type": "array",
       "items": {
-        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/definedTerm/schema.json"
+        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/definedTerm/schema.yaml"
       },
       "x-jsonld-id": "http://schema.org/measurementTechnique"
     },
@@ -176,7 +176,7 @@
               "schema:additionalType": {
                 "type": "array",
                 "items": {
-                  "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
+                  "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml"
                 },
                 "x-jsonld-id": "http://schema.org/additionalType"
               },
@@ -235,10 +235,10 @@
       "description": "Person or organisation who defined or is responsible for this method.\nThe nested schema:description is OPTIONAL, and where present it records the PROVENANCE OF THIS DEFINITION -- how the TAPP definition itself came to be, as distinct from the method it describes. It is where a definition states that it was transcribed from a published protocol, derived from existing metadata records rather than authored by the laboratory, or produced automatically and reviewed by a person. A laboratory-authored TAPP needs nothing here; a draft assembled from other sources should not be mistaken for one, so it says so. The draft TAPP sidecars target it as the 'Procedure Author Description' row.\nIt sits on the creator rather than at the root deliberately: the claim is about who produced the definition and how, so it belongs with that agent, and a root-level property would invite a second copy. Note that the {'@id'} branch below is sealed, so a creator given as a bare reference cannot carry it -- a reference names an agent described elsewhere and makes no claim of its own.\nThe property is DECLARED by the person and organization building blocks this anyOfs, where it is a plain optional string. The note is here rather than there because those two blocks are general-purpose CDIF blocks with five other consumers, and this meaning is specific to a TAPP definition.",
       "anyOf": [
         {
-          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/person/schema.json"
+          "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/person/schema.yaml"
         },
         {
-          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/organization/schema.json"
+          "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/organization/schema.yaml"
         },
         {
           "type": "object",
@@ -583,7 +583,7 @@
       "type": "array",
       "description": "Publications, Zenodo records, or other references reports describing or evaluating this method.",
       "items": {
-        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.json"
+        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/labeledLink/schema.yaml"
       },
       "x-jsonld-id": "http://schema.org/relatedLink"
     },
@@ -591,7 +591,7 @@
       "title": "Funding Source",
       "type": "array",
       "items": {
-        "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/monetaryGrant/schema.json"
+        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/monetaryGrant/schema.yaml"
       },
       "x-jsonld-id": "http://schema.org/funding"
     },
@@ -801,7 +801,7 @@
           "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
           "type": "array",
           "items": {
-            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
+            "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml"
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -1003,7 +1003,7 @@
               ]
             },
             {
-              "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.json"
+              "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/labeledLink/schema.yaml"
             },
             {
               "type": "object",
@@ -1270,7 +1270,7 @@
               ]
             },
             {
-              "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/labeledLink/schema.json"
+              "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/labeledLink/schema.yaml"
             },
             {
               "type": "object",
@@ -1814,7 +1814,7 @@
           "description": "Carries the software kind term, {\"@id\": \"https://www.wikidata.org/entity/Q7397\"}.",
           "type": "array",
           "items": {
-            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
+            "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml"
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -1885,7 +1885,7 @@
                   "minItems": 1
                 },
                 "schema:propertyID": {
-                  "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json",
+                  "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml",
                   "x-jsonld-id": "http://schema.org/propertyID"
                 },
                 "schema:value": {
@@ -1930,7 +1930,7 @@
           "description": "Carries the reagent kind term, {\"@id\": \"https://www.wikidata.org/entity/Q2356542\"}.",
           "type": "array",
           "items": {
-            "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.json"
+            "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml"
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -2012,7 +2012,7 @@
       "description": "CDIF's qualityMeasure, extended with what an ANALYTICAL quality statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value, and the properties below say what that number means. Without them an RSD is unusable -- 0.5% at one sigma over three replicates against one standard is a different claim from 0.5% at two sigma over thirty against another.\nada:assessmentMethod is listed here because the workbooks currently BUNDLE it into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in one field. The value belongs in dqv:value and the method beside it.",
       "allOf": [
         {
-          "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.json"
+          "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/qualityProperties/qualityMeasure/schema.yaml"
         },
         {
           "type": "object",
@@ -2066,7 +2066,7 @@
       ]
     },
     "DefinedTerm": {
-      "$ref": "https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/definedTerm/schema.json"
+      "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/definedTerm/schema.yaml"
     }
   },
   "x-jsonld-prefixes": {
@@ -2083,6 +2083,6 @@
     "itemIdentifier": "ogch.BaseSchema.tappDefinition",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.3",
-    "dateOfLastChange": "2026-11-12"
+    "dateOfLastChange": "2026-11-16"
   }
 }

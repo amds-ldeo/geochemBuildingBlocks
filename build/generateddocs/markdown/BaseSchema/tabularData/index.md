@@ -83,22 +83,22 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix cdif: <https://w3id.org/cdif/> .
+@prefix ns1: <cdif:> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a cdi:TabularTextDataSet,
         ada:tabularData ;
+    ns1:hasPhysicalMapping [ a ns1:TextMapping ;
+            ns1:formats_InstanceVariable <ex:tabularData-var-x> ;
+            ns1:index 1 ],
+        [ a ns1:TextMapping ;
+            ns1:formats_InstanceVariable <ex:tabularData-var-y> ;
+            ns1:index 2 ] ;
     cdi:isDelimited true ;
     ada:componentType "ada:MCICPMSTabular" ;
     ada:coordUnits "micrometer" ;
     ada:xCoordCol "X_um" ;
-    ada:yCoordCol "Y_um" ;
-    cdif:hasPhysicalMapping [ a cdif:TextMapping ;
-            cdif:formats_InstanceVariable <ex:tabularData-var-y> ;
-            cdif:index 2 ],
-        [ a cdif:TextMapping ;
-            cdif:formats_InstanceVariable <ex:tabularData-var-x> ;
-            cdif:index 1 ] .
+    ada:yCoordCol "Y_um" .
 
 
 ```
@@ -249,7 +249,7 @@ allOf:
   required:
   - '@type'
   - ada:componentType
-- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifTabularData/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifTabularData/schema.yaml
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/
@@ -258,7 +258,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.tabularData
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -276,9 +276,6 @@ Links to the schema:
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://w3id.org/cdif/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "nxs": "https://manual.nexusformat.org/classes/",
     "@version": 1.1
   }
 }

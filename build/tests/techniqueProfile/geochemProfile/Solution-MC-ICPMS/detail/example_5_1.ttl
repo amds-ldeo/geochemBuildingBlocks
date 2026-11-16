@@ -3,7 +3,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
@@ -13,11 +12,11 @@ ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
                     schema1:name "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]" ] ;
@@ -44,7 +43,7 @@ ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS> ;
@@ -79,7 +78,7 @@ ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
 <https://example.org/solutionMcicpmsTAPP-detail-Tissot2020/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:name "no value available: schema:name" .
 

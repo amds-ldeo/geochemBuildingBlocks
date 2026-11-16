@@ -536,7 +536,6 @@ detail instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites Raster 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Zhang2022 a schema1:Dataset,
@@ -546,14 +545,14 @@ ex:laSficpmsTAPP-detail-Zhang2022 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)" ] ;
+            dqv:value "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens" ;
@@ -573,7 +572,7 @@ ex:laSficpmsTAPP-detail-Zhang2022 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/laSficpmsTAPP-detail-Zhang2022/instrument/ICPMS>,
@@ -605,13 +604,13 @@ ex:laSficpmsTAPP-detail-Zhang2022 a schema1:Dataset,
 <https://example.org/laSficpmsTAPP-detail-Zhang2022/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:name "no value available: schema:name" .
 
 <https://example.org/laSficpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserRepetitionRate "raster: 50 Hz; Ge spots: 50 Hz — §2.2" ;
@@ -1343,7 +1342,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
@@ -1370,7 +1368,7 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "In-house MatLab script (Appendix C1)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/ICPMS>,
@@ -1407,7 +1405,7 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -1417,13 +1415,13 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "5–7 J cm⁻²" ;
@@ -2297,7 +2295,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
@@ -2306,13 +2303,13 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 1 standard deviation — Table 1: 'the uncertainty corresponds to 1 standard deviation'" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -2337,7 +2334,7 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "In-house MatLab script (Appendix C2)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS>,
@@ -2371,7 +2368,7 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021-2/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -2381,13 +2378,13 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021-2/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "4.72 J/cm² (both runs) — §2.2.3" ;
@@ -3122,7 +3119,6 @@ detail instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
@@ -3131,14 +3127,14 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Flat polished thick sections (§2.1)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Flat polished thick sections (§2.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/numberOfReplicates>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
@@ -3148,7 +3144,7 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "In-house MatLab script (Appendix C3)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS>,
@@ -3184,7 +3180,7 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021-3/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -3194,13 +3190,13 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsTAPP-detail-Chernonozhkin2021-3/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "3.5 J cm⁻²" ;
@@ -3986,7 +3982,6 @@ detail instance derived from Mittlefehldt 2024 Appendix A Pallasite olivine Spot
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
@@ -3995,12 +3990,12 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
             schema1:name "N — no funding section in this appendix document; funding would be in the parent paper which was not assessed" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "N — within-session precision not formally assessed" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
@@ -4023,7 +4018,7 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS>,
@@ -4058,7 +4053,7 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -4066,13 +4061,13 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
 <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "N — parameters lost" ;
@@ -4850,7 +4845,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Navarro2024 a schema1:Dataset,
@@ -4885,14 +4879,14 @@ ex:laSficpmsTAPP-detail-Navarro2024 a schema1:Dataset,
             schema1:description "Two measurement standards complement each other: North Chile for matrix similarity and NIST SRM 612 for its well-known composition; Fe + Ni + Co = 100% normalisation removes the need for an internal standard" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
-                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
+                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024/instrument/ICPMS>,
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
@@ -4923,7 +4917,7 @@ ex:laSficpmsTAPP-detail-Navarro2024 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Navarro2024/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -4933,13 +4927,13 @@ ex:laSficpmsTAPP-detail-Navarro2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "7 J cm⁻²" ;
@@ -5670,7 +5664,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
@@ -5679,14 +5672,14 @@ ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
             schema1:name "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts; J.E.: CNPq grant 316191/2021-3" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea>,
@@ -5695,14 +5688,14 @@ ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
             schema1:description "Mapping over regions with diverse phases of Augusto Pestana; Fe + Ni + Co = 100% normalisation 'is mandatory when acquiring elemental maps of multiphasic samples'" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
-                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
+                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/ICPMS>,
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
@@ -5735,7 +5728,7 @@ ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -5745,13 +5738,13 @@ ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "7 J cm⁻²" ;
@@ -6543,7 +6536,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -6561,8 +6554,6 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
@@ -6571,7 +6562,7 @@ Links to the schema:
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "dcat": "http://www.w3.org/ns/dcat#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }

@@ -3,17 +3,16 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:solutionQicpmsTAPP-detail-P8 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "N — the Allende replicate averages and uncertainties are in the supplementary materials" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
@@ -35,7 +34,7 @@ ex:solutionQicpmsTAPP-detail-P8 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5" ;
                     ada:reagentRole "referenceMaterial" ],
                 <https://example.org/solutionQicpmsTAPP-detail-P8/instrument/ICPMS> ;
@@ -67,7 +66,7 @@ ex:solutionQicpmsTAPP-detail-P8 a schema1:Dataset,
 
 <https://example.org/solutionQicpmsTAPP-detail-P8/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:name "ICPMS" .
 

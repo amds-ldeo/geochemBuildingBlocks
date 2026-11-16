@@ -220,7 +220,6 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:stemTAPP-HF5000 a schema1:Action,
@@ -258,7 +257,7 @@ ex:stemTAPP-HF5000 a schema1:Action,
 
 <https://example.org/stemTAPP-HF5000/instrument/STEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "STEM" ;
     schema1:name "no value available: schema:name" ;
     ada:acceleratingVoltage "200 kV" .
@@ -478,7 +477,6 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:stemTAPP-P1 a schema1:Action,
@@ -516,7 +514,7 @@ ex:stemTAPP-P1 a schema1:Action,
 
 <https://example.org/stemTAPP-P1/instrument/STEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "STEM" ;
     schema1:name "missing" ;
     ada:acceleratingVoltage -9999 .
@@ -694,7 +692,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -717,9 +715,6 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

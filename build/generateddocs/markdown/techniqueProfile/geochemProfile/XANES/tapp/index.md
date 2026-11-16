@@ -230,7 +230,6 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:xanesTAPP-Gainsforth2023 a schema1:Action,
@@ -269,7 +268,7 @@ ex:xanesTAPP-Gainsforth2023 a schema1:Action,
 <https://example.org/xanesTAPP-Gainsforth2023/instrument/nxs-base-classes-NXinstrument-html> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        wd:Q3099911 ;
+        <https://www.wikidata.org/entity/Q3099911> ;
     schema1:name "ALS STXM beamline 5.3.2.2" .
 
 
@@ -442,7 +441,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XANES.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -465,9 +464,6 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

@@ -3,7 +3,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
@@ -12,12 +11,12 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
             schema1:name "N — no funding section in this appendix document; funding would be in the parent paper which was not assessed" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "N — within-session precision not formally assessed" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
@@ -40,7 +39,7 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Excel spreadsheets developed by C.-T. A. Lee (Rice University)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS>,
@@ -75,7 +74,7 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSetting>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> ;
     schema1:name "no value available: schema:name" .
@@ -83,13 +82,13 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
 <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/ICPMS/part/ICP-Source> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laSficpmsTAPP-detail-Mittlefehldt2024/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "N — parameters lost" ;

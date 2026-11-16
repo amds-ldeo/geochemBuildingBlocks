@@ -72,7 +72,7 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
   "@context": {
     "schema": "http://schema.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://cdif.org/0.1/",
+    "cdif": "https://w3id.org/cdif/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -610,7 +610,7 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
     {
       "schema": "http://schema.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "cdif": "https://cdif.org/0.1/",
+      "cdif": "https://w3id.org/cdif/",
       "csvw": "http://www.w3.org/ns/csvw#",
       "prov": "http://www.w3.org/ns/prov#",
       "spdx": "http://spdx.org/rdf/terms#",
@@ -1138,7 +1138,7 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix bios: <https://bioschemas.org/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix cdif: <https://cdif.org/0.1/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
@@ -1147,7 +1147,6 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:geochemProduct-example-001 a schema1:Dataset,
@@ -1228,21 +1227,21 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:description "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard." ;
     schema1:endTime "2026-01-10T14:30:00" ;
     schema1:instrument [ a schema1:DefinedTerm ;
-            schema1:additionalType wd:Q2356542 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
             schema1:name "BCR-2 basalt reference material" ;
             schema1:termCode "BCR-2" ;
             ada:reagentRole "secondaryStandard" ],
-        [ a schema1:ChemicalSubstance ;
-            schema1:additionalType wd:Q2356542 ;
-            schema1:name "2% HNO3 procedural blank" ;
-            ada:reagentRole "blankMaterial" ],
         [ a schema1:DefinedTerm ;
-            schema1:additionalType wd:Q2356542 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
             schema1:name "BHVO-2 basalt reference material" ;
             schema1:termCode "BHVO-2" ;
             ada:reagentRole "primaryStandard" ],
+        [ a schema1:ChemicalSubstance ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:name "2% HNO3 procedural blank" ;
+            ada:reagentRole "blankMaterial" ],
         <https://example.org/geochemProduct-example-001/instrument/instrument> ;
     schema1:name "Data acquisition" ;
     schema1:object <https://example.org/geochemProduct-example-001/digest/RP-123> ;
@@ -1260,12 +1259,12 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:description "Synthetic step. 100 mg of rock powder digested in HF-HNO3 on a hotplate, dried down and taken up in 2% HNO3." ;
     schema1:endTime "2026-01-09T16:00:00" ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
-            schema1:additionalType wd:Q2356542 ;
-            schema1:name "Concentrated HF, trace-metal grade" ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:name "Concentrated HNO3, trace-metal grade" ;
             ada:reagentRole "reagent" ],
         [ a schema1:ChemicalSubstance ;
-            schema1:additionalType wd:Q2356542 ;
-            schema1:name "Concentrated HNO3, trace-metal grade" ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:name "Concentrated HF, trace-metal grade" ;
             ada:reagentRole "reagent" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Clean laboratory, Analytical Sciences Laboratory" ] ;
@@ -1282,7 +1281,7 @@ ex:geochemProduct-example-001 a schema1:Dataset,
             schema1:value "115In" ] ;
     schema1:description "Synthetic step. Blank subtraction, internal-standard and drift correction, and calibration to concentrations." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Example ICP-MS reduction software" ;
             schema1:version "2.1" ;
             ada:toolRole "dataReduction" ] ;
@@ -1298,16 +1297,16 @@ ex:geochemProduct-example-001 a schema1:Dataset,
         schema1:HowToStep ;
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:additionalProperty [ a schema1:PropertyValue ;
-            schema1:name "RF power" ;
-            schema1:unitText "W" ;
-            schema1:value 1550 ],
-        [ a schema1:PropertyValue ;
             schema1:name "Nebulizer gas flow" ;
             schema1:unitText "L/min" ;
-            schema1:value 1.05e+00 ] ;
+            schema1:value 1.05e+00 ],
+        [ a schema1:PropertyValue ;
+            schema1:name "RF power" ;
+            schema1:unitText "W" ;
+            schema1:value 1550 ] ;
     schema1:description "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation." ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
-            schema1:additionalType wd:Q2356542 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:name "Multi-element tuning solution, 1 ug/L" ;
             ada:reagentRole "referenceMaterial" ],
         <https://example.org/geochemProduct-example-001/instrument/instrument> ;
@@ -1360,7 +1359,7 @@ ex:geochemProduct-var-001 a cdi:InstanceVariable,
 <https://example.org/geochemProduct-example-001/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        wd:Q3099911 ;
+        <https://www.wikidata.org/entity/Q3099911> ;
     schema1:identifier "ex:instrument-001" ;
     schema1:name "Example ICP-MS Instrument" .
 
@@ -1672,7 +1671,7 @@ properties:
               schema:additionalType:
                 type: array
                 items:
-                  $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+                  $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
                 x-jsonld-id: http://schema.org/additionalType
               schema:identifier:
                 title: Sample Identifier
@@ -1897,21 +1896,21 @@ properties:
     description: Geographic extent of resource content.
     type: array
     items:
-      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/spatialExtent/schema.yaml
     x-jsonld-id: http://schema.org/spatialCoverage
   schema:temporalCoverage:
     title: Temporal Coverage
     description: Temporal extent of resource content.
     type: array
     items:
-      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/temporalExtent/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/temporalExtent/schema.yaml
     x-jsonld-id: http://schema.org/temporalCoverage
   dqv:hasQualityMeasurement:
     title: Quality Measurements
     description: Quality measurements reported to assess the resource.
     type: array
     items:
-      $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/qualityProperties/qualityMeasure/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/qualityProperties/qualityMeasure/schema.yaml
   schema:additionalProperty:
     title: Additional Properties
     description: PropertyValue entries describing the DELIVERED DATA rather than the
@@ -1941,11 +1940,11 @@ properties:
             referenced from them by @id. One of the four CDIF DataStructure variants
             inline, or an @id reference. Optional.
           anyOf:
-          - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
-          - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
-          - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
-          - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
-          - $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/objectReference/schema.yaml
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/objectReference/schema.yaml
           x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy
         schema:additionalType:
           description: Optional file-classification of this distribution (or, on a
@@ -1956,7 +1955,7 @@ properties:
             not hard-enumerated in JSON Schema.
           type: array
           items:
-            $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+            $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
           schema:inDefinedTermSet: ada:vocab/componentType
           x-jsonld-id: http://schema.org/additionalType
       allOf:
@@ -2055,7 +2054,7 @@ $defs:
           schema:instrument.'
         type: array
         items:
-          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+          $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
         x-jsonld-id: http://schema.org/additionalType
       '@type':
         type: array
@@ -2101,7 +2100,7 @@ $defs:
           activity''s schema:instrument.'
         type: array
         items:
-          $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+          $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
         x-jsonld-id: http://schema.org/additionalType
       '@type':
         type: array
@@ -2139,7 +2138,7 @@ $defs:
                 type: string
               minItems: 1
             schema:propertyID:
-              $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+              $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
               x-jsonld-id: http://schema.org/propertyID
             schema:value:
               type: string
@@ -2270,7 +2269,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.geochemBaseProfile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -2297,12 +2296,6 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "time": "http://www.w3.org/2006/time#",
-    "cdif": "https://w3id.org/cdif/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "xas": "cdif:xas/",
     "@version": 1.1
   }
 }

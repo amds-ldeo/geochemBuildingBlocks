@@ -122,7 +122,7 @@ allOf:
     ada:dataComponentResource:
       type: string
       x-jsonld-id: https://ada.astromat.org/metadata/dataComponentResource
-- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifDataCube/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifDataCube/schema.yaml
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/
@@ -131,7 +131,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.dataCube
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -149,8 +149,6 @@ Links to the schema:
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://w3id.org/cdif/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }
