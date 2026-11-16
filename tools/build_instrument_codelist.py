@@ -26,8 +26,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 VOCAB = os.path.join(ROOT, "_sources", "registry", "vocab")
-CODELIST_SCHEMA = ("https://cross-domain-interoperability-framework.github.io/"
-                   "metadataBuildingBlocks/_sources/profiles/cdifProfile/cdifCodelist/schema.yaml")
+# Pinned to the mBB release tag the CDIF 1.1 profile family was emitted from, not the
+# Pages base: Pages serves mBB's main (the cutting edge), so a moving base would change
+# what these code lists validate against with no commit here. See agents.md.
+CODELIST_SCHEMA = ("https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/"
+                   "metadataBuildingBlocks/refs/tags/profiles-v1.1/"
+                   "_sources/profiles/cdifProfile/cdifCodelist/schema.yaml")
 CONTEXT = {"skos": "http://www.w3.org/2004/02/skos/core#",
            "schema": "http://schema.org/",
            "dcterms": "http://purl.org/dc/terms/",
