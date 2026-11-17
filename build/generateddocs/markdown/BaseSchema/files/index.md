@@ -263,7 +263,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.files
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-16'
+  dateOfLastChange: '2026-11-17'
 
 ```
 
@@ -282,7 +282,7 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "spdx": "http://spdx.org/rdf/terms#",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://cdif.org/0.1/",
+    "cdif": "https://w3id.org/cdif/",
     "@version": 1.1
   }
 }

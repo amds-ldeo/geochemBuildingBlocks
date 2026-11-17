@@ -1167,7 +1167,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.adaProfile.NanoSIMS.profile-ada
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-16'
+  dateOfLastChange: '2026-11-17'
 
 ```
 
@@ -1194,7 +1194,7 @@ Links to the schema:
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "cdif": "https://cdif.org/0.1/",
+    "cdif": "https://w3id.org/cdif/",
     "@version": 1.1
   }
 }

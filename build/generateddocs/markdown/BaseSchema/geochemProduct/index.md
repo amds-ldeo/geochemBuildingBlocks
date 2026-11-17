@@ -774,7 +774,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.geochemProduct
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-16'
+  dateOfLastChange: '2026-11-17'
 
 ```
 
