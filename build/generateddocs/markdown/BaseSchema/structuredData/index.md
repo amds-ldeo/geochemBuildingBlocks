@@ -65,7 +65,7 @@ container, not tabular text).
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "cdif": "https://cdif.org/0.1/"
+      "cdif": "https://w3id.org/cdif/"
     },
     "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/structuredData/context.jsonld"
   ],
@@ -120,7 +120,7 @@ container, not tabular text).
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix cdif: <https://cdif.org/0.1/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix schema1: <http://schema.org/> .
 
 <ex:file-map-cube-001> a cdi:PhysicalDataSet,
@@ -132,12 +132,12 @@ container, not tabular text).
     ada:componentType "ada:other" .
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
-    cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
+    cdi:has_DataStructureComponent [ a cdi:MeasureComponent ;
+            cdif:name "intensity" ],
         [ a cdi:DimensionComponent ;
             cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ],
-        [ a cdi:MeasureComponent ;
-            cdif:name "intensity" ] ;
+        [ a cdi:DimensionComponent ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ] ;
     schema1:name "Elemental map cube structure" .
 
 
@@ -192,12 +192,12 @@ x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/
   cdi: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/
-  cdif: https://cdif.org/0.1/
+  cdif: https://w3id.org/cdif/
 x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.structuredData
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-16'
+  dateOfLastChange: '2026-11-17'
 
 ```
 
@@ -215,7 +215,7 @@ Links to the schema:
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://cdif.org/0.1/",
+    "cdif": "https://w3id.org/cdif/",
     "@version": 1.1
   }
 }

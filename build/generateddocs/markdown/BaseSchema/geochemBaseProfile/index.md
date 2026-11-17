@@ -1226,7 +1226,11 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:description "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard." ;
     schema1:endTime "2026-01-10T14:30:00" ;
-    schema1:instrument [ a schema1:DefinedTerm ;
+    schema1:instrument [ a schema1:ChemicalSubstance ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:name "2% HNO3 procedural blank" ;
+            ada:reagentRole "blankMaterial" ],
+        [ a schema1:DefinedTerm ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
             schema1:name "BCR-2 basalt reference material" ;
@@ -1238,10 +1242,6 @@ ex:geochemProduct-example-001 a schema1:Dataset,
             schema1:name "BHVO-2 basalt reference material" ;
             schema1:termCode "BHVO-2" ;
             ada:reagentRole "primaryStandard" ],
-        [ a schema1:ChemicalSubstance ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "2% HNO3 procedural blank" ;
-            ada:reagentRole "blankMaterial" ],
         <https://example.org/geochemProduct-example-001/instrument/instrument> ;
     schema1:name "Data acquisition" ;
     schema1:object <https://example.org/geochemProduct-example-001/digest/RP-123> ;
@@ -2269,7 +2269,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.geochemBaseProfile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-16'
+  dateOfLastChange: '2026-11-17'
 
 ```
 
