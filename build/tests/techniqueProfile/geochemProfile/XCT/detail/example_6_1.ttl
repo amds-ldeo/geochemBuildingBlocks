@@ -2,7 +2,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
@@ -10,13 +9,13 @@ ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -43,7 +42,7 @@ ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 

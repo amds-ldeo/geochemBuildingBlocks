@@ -2,7 +2,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:temTAPP-detail-Singerling2025 a schema1:Dataset,
@@ -15,14 +14,14 @@ ex:temTAPP-detail-Singerling2025 a schema1:Dataset,
             schema1:target "TEM data products at AstroMat (DOIs in Table A4 supplementary); full EDS and electron diffraction data in Tables A1–A2 supplementary; data also at Figshare: https://doi.org/10.6084/m9.figshare.29383433.v1" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "Crushing / dispersion on grid" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod>,
@@ -33,13 +32,13 @@ ex:temTAPP-detail-Singerling2025 a schema1:Dataset,
             schema1:endTime "December 2024 (four sessions total: Dec 2023, Jan 2024, May 2024, Dec 2024)" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
-                    schema1:name "TS Velox" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "TS Velox" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "TS Velox" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/temTAPP-detail-Singerling2025/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany" ] ;
@@ -64,7 +63,7 @@ ex:temTAPP-detail-Singerling2025 a schema1:Dataset,
 <https://example.org/temTAPP-detail-Singerling2025/instrument/TEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "TEM" ;
     schema1:name "no value available: schema:name" .
 

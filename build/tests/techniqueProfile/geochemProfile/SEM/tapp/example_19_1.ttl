@@ -3,7 +3,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-Pascucci2026-2 a schema1:Action,
@@ -16,10 +15,13 @@ ex:semTAPP-Pascucci2026-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -29,24 +31,21 @@ ex:semTAPP-Pascucci2026-2 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy) Reported detail: ada:edsAcquisitionMode = Spot analysis." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
             ada:toolRole "dataReduction" ],
         [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
         <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM> ;
@@ -212,7 +211,7 @@ ex:semTAPP-Pascucci2026-2 a schema1:Action,
 
 <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:description "ESEM" ;
     schema1:hasPart <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM/part/BSE-Detector>,
@@ -234,27 +233,27 @@ ex:semTAPP-Pascucci2026-2 a schema1:Action,
 
 <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM/part/BSE-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "BSE Detector" ;
     schema1:name "missing" .
 
 <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:description "Oxford INCA Energy 350; X-ACT LN2-free Silicon Drift Detector (SDD)" ;
     schema1:name "missing" .
 
 <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "Field emission gun (FEG) — subtype not specified" ;
     schema1:name "missing" .
 
 <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 

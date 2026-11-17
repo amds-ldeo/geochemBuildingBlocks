@@ -1278,7 +1278,6 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Ma2015 a schema1:Action,
@@ -1307,11 +1306,11 @@ ex:epmaTAPP-Ma2015 a schema1:Action,
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 — 'SEM, EBSD and EPMA analyses were carried out at the Caltech GPS Division Analytical Facility, which is supported, in part, by NSF Grants EAR-0318518 and DMR-0080065'" ] ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
             ada:toolRole "acquisition" ],
         [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
             ada:toolRole "dataReduction" ],
         <https://example.org/epmaTAPP-Ma2015/instrument/EPMA>,
@@ -1578,7 +1577,7 @@ ex:epmaTAPP-Ma2015 a schema1:Action,
 
 <https://example.org/epmaTAPP-Ma2015/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source>,
@@ -1593,26 +1592,26 @@ ex:epmaTAPP-Ma2015 a schema1:Action,
 
 <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Ma2015/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Ma2015/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix stated)" ] ;
@@ -2859,7 +2858,6 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Hu2020 a schema1:Action,
@@ -2886,7 +2884,7 @@ ex:epmaTAPP-Hu2020 a schema1:Action,
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named" ;
             ada:toolRole "dataReduction" ],
         <https://example.org/epmaTAPP-Hu2020/instrument/EPMA>,
@@ -3159,7 +3157,7 @@ ex:epmaTAPP-Hu2020 a schema1:Action,
 
 <https://example.org/epmaTAPP-Hu2020/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Hu2020/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Hu2020/instrument/EPMA/part/Electron-Source>,
@@ -3174,26 +3172,26 @@ ex:epmaTAPP-Hu2020 a schema1:Action,
 
 <https://example.org/epmaTAPP-Hu2020/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Hu2020/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Hu2020/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Hu2020/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JXA-8100 (stated as \"JEOL JXA-8100\")" ] ;
@@ -4412,7 +4410,6 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Liu2016 a schema1:Action,
@@ -4449,13 +4446,13 @@ ex:epmaTAPP-Liu2016 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
-            schema1:url "https://doi.org/10.1111/maps.12726" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
+            schema1:url "https://doi.org/10.1111/maps.12726" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -4706,7 +4703,7 @@ ex:epmaTAPP-Liu2016 a schema1:Action,
 
 <https://example.org/epmaTAPP-Liu2016/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Liu2016/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Liu2016/instrument/EPMA/part/Electron-Source>,
@@ -4721,26 +4718,26 @@ ex:epmaTAPP-Liu2016 a schema1:Action,
 
 <https://example.org/epmaTAPP-Liu2016/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Liu2016/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Liu2016/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Liu2016/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "SX100 (stated as \"Cameca SX100\")" ] ;
@@ -5959,7 +5956,6 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Liu2016-2 a schema1:Action,
@@ -5972,15 +5968,15 @@ ex:epmaTAPP-Liu2016-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin sections (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin sections (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses; WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA>,
@@ -6253,7 +6249,7 @@ ex:epmaTAPP-Liu2016-2 a schema1:Action,
 
 <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA/part/Electron-Source>,
@@ -6268,26 +6264,26 @@ ex:epmaTAPP-Liu2016-2 a schema1:Action,
 
 <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Liu2016-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JXA-8200 (stated as \"JEOL JXA-8200\")" ] ;
@@ -7566,7 +7562,6 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Ma2017 a schema1:Action,
@@ -7579,15 +7574,15 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -7595,13 +7590,13 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065 — 'SEM, EBSD, EPMA, and Raman measurements were carried out at the Geological and Planetary Science Division Analytical Facility at Caltech, which is supported in part by NSF grants EAR-0318518, EAR-1322082, and DMR-0080065'" ] ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
-            schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/epmaTAPP-Ma2017/instrument/EPMA>,
         <https://example.org/epmaTAPP-Ma2017/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -7864,7 +7859,7 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
 
 <https://example.org/epmaTAPP-Ma2017/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Ma2017/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Ma2017/instrument/EPMA/part/Electron-Source>,
@@ -7879,26 +7874,26 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
 
 <https://example.org/epmaTAPP-Ma2017/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Ma2017/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Ma2017/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Ma2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix in paper)" ] ;
@@ -9127,7 +9122,6 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Frank2023 a schema1:Action,
@@ -9164,13 +9158,13 @@ ex:epmaTAPP-Frank2023 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511; doi:10.1111/maps.14083" ] ;
-            schema1:url "https://doi.org/10.1111/maps.14083" ] ;
+            schema1:url "https://doi.org/10.1111/maps.14083" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -9420,7 +9414,7 @@ ex:epmaTAPP-Frank2023 a schema1:Action,
 
 <https://example.org/epmaTAPP-Frank2023/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Frank2023/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Frank2023/instrument/EPMA/part/Electron-Source>,
@@ -9435,26 +9429,26 @@ ex:epmaTAPP-Frank2023 a schema1:Action,
 
 <https://example.org/epmaTAPP-Frank2023/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Frank2023/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Frank2023/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Frank2023/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "SX100 (stated as \"Cameca SX100\")" ] ;
@@ -10669,7 +10663,6 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Broussard2026 a schema1:Action,
@@ -10682,24 +10675,24 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis; WDS Mapping — 'wavelength-dispersive quantitative compositional mapping and analysis'." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Probe for EPMA microanalysis software" ;
             ada:toolRole "acquisition" ],
         [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
             ada:toolRole "dataReduction" ],
         <https://example.org/epmaTAPP-Broussard2026/instrument/EPMA>,
@@ -10714,13 +10707,13 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
-            schema1:url "https://doi.org/10.1111/maps.70138" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
+            schema1:url "https://doi.org/10.1111/maps.70138" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -10949,7 +10942,7 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
 
 <https://example.org/epmaTAPP-Broussard2026/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Broussard2026/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Broussard2026/instrument/EPMA/part/Electron-Source>,
@@ -10964,26 +10957,26 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
 
 <https://example.org/epmaTAPP-Broussard2026/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Broussard2026/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Broussard2026/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "5 wavelength-dispersive spectrometers (JEOL)" .
 
 <https://example.org/epmaTAPP-Broussard2026/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")" ] ;
@@ -12231,7 +12224,6 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Seifert2026 a schema1:Action,
@@ -12271,13 +12263,13 @@ ex:epmaTAPP-Seifert2026 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
-            schema1:url "https://doi.org/10.1111/maps.70167" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167" ] ;
+            schema1:url "https://doi.org/10.1111/maps.70167" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -12532,7 +12524,7 @@ ex:epmaTAPP-Seifert2026 a schema1:Action,
 
 <https://example.org/epmaTAPP-Seifert2026/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Seifert2026/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Seifert2026/instrument/EPMA/part/Electron-Source>,
@@ -12547,26 +12539,26 @@ ex:epmaTAPP-Seifert2026 a schema1:Action,
 
 <https://example.org/epmaTAPP-Seifert2026/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Seifert2026/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Seifert2026/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Seifert2026/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)" ] ;
@@ -13451,7 +13443,6 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Pang2016 a schema1:Action,
@@ -13464,15 +13455,15 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'Electron Probe Micro-Analyzer (EPMA) with wavelength dispersive spectrometers (WDS)'." ;
     schema1:instrument <https://example.org/epmaTAPP-Pang2016/instrument/EPMA>,
@@ -13487,13 +13478,13 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
-            schema1:url "https://doi.org/10.1038/srep26063" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
+            schema1:url "https://doi.org/10.1038/srep26063" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -13642,7 +13633,7 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
 
 <https://example.org/epmaTAPP-Pang2016/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Pang2016/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Pang2016/instrument/EPMA/part/Electron-Source>,
@@ -13657,26 +13648,26 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
 
 <https://example.org/epmaTAPP-Pang2016/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Pang2016/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Pang2016/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Pang2016/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JXA-8100 (stated as \"JEOL 8100\")" ] ;
@@ -14835,7 +14826,6 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-McCoy2025 a schema1:Action,
@@ -14874,13 +14864,13 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -15109,7 +15099,7 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-McCoy2025/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-McCoy2025/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-McCoy2025/instrument/EPMA/part/Electron-Source>,
@@ -15124,26 +15114,26 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-McCoy2025/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-McCoy2025/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "Unknown" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-McCoy2025/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "N — the crystals (LIFL, TAPL, PETL) are recorded under Diffracting Crystal; the spectrometer configuration and the X-ray lines are not stated" .
 
 <https://example.org/epmaTAPP-McCoy2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JXA-8530F Plus (stated as \"JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer\")" ] ;
@@ -16364,7 +16354,6 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-McCoy2025-2 a schema1:Action,
@@ -16377,15 +16366,15 @@ ex:epmaTAPP-McCoy2025-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished section; 20 nm carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Polished section; 20 nm carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. Zega" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -16402,13 +16391,13 @@ ex:epmaTAPP-McCoy2025-2 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -16653,7 +16642,7 @@ ex:epmaTAPP-McCoy2025-2 a schema1:Action,
 
 <https://example.org/epmaTAPP-McCoy2025-2/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-McCoy2025-2/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-McCoy2025-2/instrument/EPMA/part/Electron-Source>,
@@ -16668,26 +16657,26 @@ ex:epmaTAPP-McCoy2025-2 a schema1:Action,
 
 <https://example.org/epmaTAPP-McCoy2025-2/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-McCoy2025-2/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-McCoy2025-2/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-McCoy2025-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "SX-100 (stated as \"Cameca SX-100 electron microprobe located at K-ALFAA\")" ] ;
@@ -17470,7 +17459,6 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Zega2025 a schema1:Action,
@@ -17497,7 +17485,7 @@ ex:epmaTAPP-Zega2025 a schema1:Action,
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA Planetary Science Enabling Facilities 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G and NNX15AJ22G; NASA Early Career Award 80NSSC20K1087; NSF Major Research Instrumentation 1531243 and 0619599; Gordon and Betty Moore Foundation; State of Arizona Technology and Research Initiative Fund — acknowledged 'for supporting K-ALFAA operations' and 'for supporting the instrumentation in K-ALFAA'; which award bought the microprobe is not stated" ] ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "XMapTools (for phase maps)" ;
             ada:toolRole "dataReduction" ],
         <https://example.org/epmaTAPP-Zega2025/instrument/EPMA>,
@@ -17513,13 +17501,13 @@ ex:epmaTAPP-Zega2025 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS; TEM-EDS/EELS; FIB-SEM; XRD; XANES" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0" ] ;
-            schema1:url "https://doi.org/10.1038/s41561-025-01741-0" ] ;
+            schema1:url "https://doi.org/10.1038/s41561-025-01741-0" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS; TEM-EDS/EELS; FIB-SEM; XRD; XANES" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -17624,7 +17612,7 @@ ex:epmaTAPP-Zega2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-Zega2025/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Zega2025/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Zega2025/instrument/EPMA/part/Electron-Source>,
@@ -17639,26 +17627,26 @@ ex:epmaTAPP-Zega2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-Zega2025/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Zega2025/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Zega2025/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Zega2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "SX-100 Ultra (stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\")" ] ;
@@ -18871,7 +18859,6 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Barnes2025 a schema1:Action,
@@ -18884,15 +18871,15 @@ ex:epmaTAPP-Barnes2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si). Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument). Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses on an instrument 'equipped with five wavelength-dispersive spectrometers and one silicon drift detector energy dispersive spectrometer'; which detector measured which element is not stated." ;
     schema1:instrument <https://example.org/epmaTAPP-Barnes2025/instrument/EPMA>,
@@ -18908,13 +18895,13 @@ ex:epmaTAPP-Barnes2025 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
-            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -19164,7 +19151,7 @@ ex:epmaTAPP-Barnes2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-Barnes2025/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Barnes2025/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Barnes2025/instrument/EPMA/part/Electron-Source>,
@@ -19179,26 +19166,26 @@ ex:epmaTAPP-Barnes2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-Barnes2025/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Barnes2025/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Barnes2025/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "5 wavelength-dispersive spectrometers (JEOL)" .
 
 <https://example.org/epmaTAPP-Barnes2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JXA-8230 (stated as \"JEOL JXA-8230 electron microprobe analyser (EPMA)\")" ] ;
@@ -19935,7 +19922,6 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Barnes2025-2 a schema1:Action,
@@ -19972,13 +19958,13 @@ ex:epmaTAPP-Barnes2025-2 a schema1:Action,
                 <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
-            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -20080,7 +20066,7 @@ ex:epmaTAPP-Barnes2025-2 a schema1:Action,
 
 <https://example.org/epmaTAPP-Barnes2025-2/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Barnes2025-2/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Barnes2025-2/instrument/EPMA/part/Electron-Source>,
@@ -20095,26 +20081,26 @@ ex:epmaTAPP-Barnes2025-2 a schema1:Action,
 
 <https://example.org/epmaTAPP-Barnes2025-2/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Barnes2025-2/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Barnes2025-2/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Barnes2025-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "SX100 (stated as \"CAMECA SX100 electron microprobe\")" ] ;
@@ -21391,7 +21377,6 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:epmaTAPP-Neuman2025 a schema1:Action,
@@ -21404,26 +21389,26 @@ ex:epmaTAPP-Neuman2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "N — attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "N — attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'" ] ] ;
+                    schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/stageScanVsBeamScan> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard; ada:analyticalMode = WDS Mapping — 'five EPMA stage maps were acquired using fixed wavelength-dispersive spectrometers (WDS)'." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
-            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType wd:Q7397 ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA>,
         <https://example.org/epmaTAPP-Neuman2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -21685,7 +21670,7 @@ ex:epmaTAPP-Neuman2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EPMA" ;
     schema1:hasPart <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA/part/EDS-Detector>,
         <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA/part/Electron-Source>,
@@ -21700,27 +21685,27 @@ ex:epmaTAPP-Neuman2025 a schema1:Action,
 
 <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA/part/EDS-Detector> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "EDS Detector" ;
     schema1:description "N/A — WDS mapping procedure" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA/part/Electron-Source> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Electron Source" ;
     schema1:description "missing" ;
     schema1:name "missing" .
 
 <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA/part/WDS-Spectrometer> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "Fixed wavelength-dispersive spectrometers; count not stated (five elements collected per pass)" .
 
 <https://example.org/epmaTAPP-Neuman2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:model [ a schema1:ProductModel ;
             schema1:name "JEOL JXA-8200" ] ;
@@ -24366,7 +24351,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -24389,9 +24374,6 @@ Links to the schema:
     "nxs": "https://manual.nexusformat.org/classes/",
     "dqv": "http://www.w3.org/ns/dqv#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
     "@version": 1.1
   }
 }

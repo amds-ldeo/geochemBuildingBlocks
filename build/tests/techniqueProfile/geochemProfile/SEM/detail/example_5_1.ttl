@@ -2,7 +2,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
@@ -11,6 +10,10 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -18,11 +21,7 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabase> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
             schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -62,7 +61,7 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamCurrent> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 

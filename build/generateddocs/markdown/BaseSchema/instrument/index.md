@@ -71,13 +71,12 @@ classifications in additionalType.
 #### ttl
 ```ttl
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 
 <ex:instrument/EPMA> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://gcmd.earthdata.nasa.gov/kms/concept/76a947a3-4529-4fb7-87a7-f4b3a0a0de48>,
         <https://manual.nexusformat.org/classes/BaseClass/NXinstrument>,
-        wd:Q3099911 ;
+        <https://www.wikidata.org/entity/Q3099911> ;
     schema1:description "Field-emission electron probe microanalyzer with 5 wavelength-dispersive spectrometers" ;
     schema1:identifier "https://www.wikidata.org/wiki/Q116917974" ;
     schema1:name "JEOL JXA-8530F Electron Microprobe" .
@@ -95,7 +94,7 @@ description: ADA analytical instrument building block. Extends the core CDIF ins
   are typed schema:Product (from core; schema:Thing allowed) with domain-specific
   types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.
 allOf:
-- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/instrument/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/instrument/schema.yaml
 - type: object
   properties:
     '@id':
@@ -123,7 +122,7 @@ allOf:
         from software and reagents in an activity''s schema:instrument.'
       type: array
       items:
-        $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       minItems: 1
       contains:
         type: object
@@ -291,7 +290,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.instrument
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -307,8 +306,6 @@ Links to the schema:
 {
   "@context": {
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "nxs": "https://manual.nexusformat.org/classes/",
     "@version": 1.1
   }

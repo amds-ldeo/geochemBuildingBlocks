@@ -78,7 +78,7 @@ description: ADA laboratory or facility building block. Extends the core CDIF sp
   place name, identifier, alternateName, geo coordinates, and geosparql geometry from
   spatialExtent.
 allOf:
-- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/schemaorgProperties/spatialExtent/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/spatialExtent/schema.yaml
 - type: object
   properties:
     schema:identifier:
@@ -112,7 +112,7 @@ allOf:
         describe the procedure and the run, not the place.'
       type: array
       items:
-        $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       contains:
         type: object
         additionalProperties: false
@@ -128,7 +128,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.laboratory
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -144,7 +144,6 @@ Links to the schema:
 {
   "@context": {
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }

@@ -2,17 +2,16 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:temTAPP-detail-Zega2025-3 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Dr. Rolf M. Schwiete Stiftung; DFG project 471212473" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "None" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "None" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
@@ -31,11 +30,11 @@ ex:temTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "ThermoScientific Velox" ;
                     ada:toolRole "acquisition" ],
                 [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "ThermoScientific Velox" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/temTAPP-detail-Zega2025-3/instrument/TEM> ;
@@ -61,7 +60,7 @@ ex:temTAPP-detail-Zega2025-3 a schema1:Dataset,
 <https://example.org/temTAPP-detail-Zega2025-3/instrument/TEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "TEM" ;
     schema1:name "no value available: schema:name" .
 

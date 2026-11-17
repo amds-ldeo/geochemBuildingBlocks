@@ -58,7 +58,7 @@ Mock data for validation and testing.
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://cdif.org/0.1/",
+    "cdif": "https://w3id.org/cdif/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -492,7 +492,7 @@ Mock data for validation and testing.
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "cdif": "https://cdif.org/0.1/",
+      "cdif": "https://w3id.org/cdif/",
       "csvw": "http://www.w3.org/ns/csvw#",
       "prov": "http://www.w3.org/ns/prov#",
       "spdx": "http://spdx.org/rdf/terms#",
@@ -914,7 +914,7 @@ Mock data for validation and testing.
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix cdif: <https://cdif.org/0.1/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <https://example.org/> .
@@ -922,7 +922,6 @@ Mock data for validation and testing.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaARGT-example-001 a schema1:Dataset,
@@ -1018,7 +1017,7 @@ ex:adaARGT-example-001 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalType ada:ARGTInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        wd:Q3099911 ;
+        <https://www.wikidata.org/entity/Q3099911> ;
     schema1:identifier "ex:instrument-argt-001" ;
     schema1:name "Example ARGT Instrument" .
 
@@ -1164,7 +1163,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.adaProfile.ARGT.profile-ada
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -1180,24 +1179,18 @@ Links to the schema:
 {
   "@context": {
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "cdif": "https://w3id.org/cdif/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
     "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
-    "xas": "cdif:xas/",
-    "wd": "https://www.wikidata.org/entity/",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "time": "http://www.w3.org/2006/time#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "cdif": "https://cdif.org/0.1/",
     "@version": 1.1
   }
 }

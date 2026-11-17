@@ -413,7 +413,6 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Garvie2008 a schema1:Dataset,
@@ -424,18 +423,18 @@ ex:semTAPP-detail-Garvie2008 a schema1:Dataset,
             schema1:target [ schema1:name "FIB milling and TEM cross-section preparation (same instrument)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
             schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -475,7 +474,7 @@ ex:semTAPP-detail-Garvie2008 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamCurrent> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -898,25 +897,25 @@ ex:semTAPP-detail-Garvie2008-2 a schema1:Dataset,
             schema1:name "NASA NNG06GE37G (LAJG); NASA NNG06GF08G (PRB)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value -9999 ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value -9999 ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value -9999 ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions> ;
@@ -1239,7 +1238,6 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Genge2025 a schema1:Dataset,
@@ -1282,7 +1280,7 @@ ex:semTAPP-detail-Genge2025 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Genge2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -1624,7 +1622,6 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Genge2025-2 a schema1:Dataset,
@@ -1669,7 +1666,7 @@ ex:semTAPP-detail-Genge2025-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/beamDiameter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -2117,7 +2114,6 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
@@ -2126,6 +2122,10 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "BSE Imaging and EDS (same instrument); SIMS (University of Wisconsin-Madison); EPMA (out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -2133,11 +2133,7 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabase> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
             schema1:description "EBSD done in variable pressure mode (25 Pa) to suppress charging on tilted sample; spatial resolution ~30 nm stated; calibrated with single-crystal silicon standard" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -2177,7 +2173,7 @@ ex:semTAPP-detail-Genge2025-3 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamCurrent> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -2700,7 +2696,6 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Gucsik2013-2 a schema1:Dataset,
@@ -2742,7 +2737,7 @@ ex:semTAPP-detail-Gucsik2013-2 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Gucsik2013-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -3226,7 +3221,6 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
@@ -3240,13 +3234,13 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/clIntegrationTime>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
@@ -3254,11 +3248,11 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
                     ada:toolRole "acquisition" ],
                 [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Gatan DigitalMicrograph" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/semTAPP-detail-Izawa2010/instrument/SEM> ;
@@ -3295,7 +3289,7 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Izawa2010/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -4715,7 +4709,6 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Liu2017 a schema1:Dataset,
@@ -4741,7 +4734,7 @@ ex:semTAPP-detail-Liu2017 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/semTAPP-detail-Liu2017/instrument/SEM> ;
@@ -4778,7 +4771,7 @@ ex:semTAPP-detail-Liu2017 a schema1:Dataset,
 
 <https://example.org/semTAPP-detail-Liu2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "SEM" .
 
@@ -5106,18 +5099,18 @@ ex:semTAPP-detail-Liu2017-2 a schema1:Dataset,
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
             schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -5465,10 +5458,6 @@ ex:semTAPP-detail-Liu2017-3 a schema1:Dataset,
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -5476,7 +5465,11 @@ ex:semTAPP-detail-Liu2017-3 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure> ;
             schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -5812,10 +5805,6 @@ ex:semTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:target [ schema1:name "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -5823,7 +5812,11 @@ ex:semTAPP-detail-Ma2017 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -6246,20 +6239,15 @@ ex:semTAPP-detail-Ma2017-2 a schema1:Dataset,
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
                             schema1:name "Sample preparation" ;
@@ -6268,7 +6256,12 @@ ex:semTAPP-detail-Ma2017-2 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabase> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/ebsdPhaseList> ;
             schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -6732,7 +6725,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Pascucci2026 a schema1:Dataset,
@@ -6741,13 +6733,13 @@ ex:semTAPP-detail-Pascucci2026 a schema1:Dataset,
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
@@ -6759,7 +6751,7 @@ ex:semTAPP-detail-Pascucci2026 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford INCA Energy" ;
                     ada:toolRole "acquisition" ],
                 <https://example.org/semTAPP-detail-Pascucci2026/instrument/SEM> ;
@@ -6796,7 +6788,7 @@ ex:semTAPP-detail-Pascucci2026 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Pascucci2026/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -7319,7 +7311,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Pascucci2026-2 a schema1:Dataset,
@@ -7333,13 +7324,13 @@ ex:semTAPP-detail-Pascucci2026-2 a schema1:Dataset,
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/beamDamageMinimization>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/edsLiveTimePerPointOrPixel> ;
@@ -7347,13 +7338,13 @@ ex:semTAPP-detail-Pascucci2026-2 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
-                    schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford INCA Energy" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/semTAPP-detail-Pascucci2026-2/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -7389,7 +7380,7 @@ ex:semTAPP-detail-Pascucci2026-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/beamDiameter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -7960,7 +7951,6 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | EDS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
@@ -7975,13 +7965,13 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/edsLiveTimePerPointOrPixel>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/stepSizePixelSize> ;
@@ -7989,13 +7979,13 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
-                    schema1:name "Oxford INCA Energy" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Oxford INCA Energy" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/semTAPP-detail-Pascucci2026-3/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -8030,7 +8020,7 @@ ex:semTAPP-detail-Pascucci2026-3 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamDiameter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -8822,17 +8812,11 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
         schema1:Product ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
@@ -8840,7 +8824,12 @@ ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/imageRegistration3D>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethod>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
@@ -8848,7 +8837,7 @@ ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/semTAPP-detail-Zhou2017/instrument/SEM> ;
@@ -8885,7 +8874,7 @@ ex:semTAPP-detail-Zhou2017 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Zhou2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -9286,7 +9275,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zega2025 a schema1:Dataset,
@@ -9297,23 +9285,23 @@ ex:semTAPP-detail-Zega2025 a schema1:Dataset,
             schema1:target [ schema1:name "EDS (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "SE and BSE imaging; EDS point spectra; Oxford AZtec system; EDS detector: Oxford Instruments Ultim Max SDD 170 mm²" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford AZtec (Point & ID programme)" ;
                     ada:toolRole "acquisition" ],
                 <https://example.org/semTAPP-detail-Zega2025/instrument/SEM> ;
@@ -9350,7 +9338,7 @@ ex:semTAPP-detail-Zega2025 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Zega2025/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -9790,7 +9778,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zega2025-2 a schema1:Dataset,
@@ -9801,29 +9788,29 @@ ex:semTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/edsLiveTimePerPointOrPixel> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
-                    schema1:name "Oxford AZtec" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford AZtec (Point & ID programme)" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Oxford AZtec" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/semTAPP-detail-Zega2025-2/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -9858,7 +9845,7 @@ ex:semTAPP-detail-Zega2025-2 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Zega2025-2/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -10169,18 +10156,18 @@ ex:semTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -10507,10 +10494,6 @@ ex:semTAPP-detail-Zega2025-4 a schema1:Dataset,
             schema1:target [ schema1:name "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
@@ -10518,7 +10501,11 @@ ex:semTAPP-detail-Zega2025-4 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -10915,7 +10902,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zega2025-5 a schema1:Dataset,
@@ -10931,24 +10917,24 @@ ex:semTAPP-detail-Zega2025-5 a schema1:Dataset,
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
-                    schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford Instruments Aztec" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/semTAPP-detail-Zega2025-5/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
@@ -10982,7 +10968,7 @@ ex:semTAPP-detail-Zega2025-5 a schema1:Dataset,
 
 <https://example.org/semTAPP-detail-Zega2025-5/instrument/SEM> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "SEM" .
 
@@ -11436,7 +11422,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zega2025-6 a schema1:Dataset,
@@ -11445,28 +11430,28 @@ ex:semTAPP-detail-Zega2025-6 a schema1:Dataset,
             schema1:name "NASA PSEF 80NSSC23K0327; NASA Planetary Major Equipment NNX12AL47G; NSF MRI 0619599" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value -9999 ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
                                 <https://ada.astromat.org/metadata/parameter/semTAPP/protectiveCoatingDeposition> ;
                             schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -11508,7 +11493,7 @@ ex:semTAPP-detail-Zega2025-6 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Zega2025-6/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -12009,7 +11994,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zega2025-7 a schema1:Dataset,
@@ -12018,32 +12002,32 @@ ex:semTAPP-detail-Zega2025-7 a schema1:Dataset,
             schema1:name "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value -9999 ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semTAPP/finePolishingConditions> ;
-                            schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semTAPP/finePolishingConditions> ;
+                            schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -12082,7 +12066,7 @@ ex:semTAPP-detail-Zega2025-7 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Zega2025-7/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -12616,7 +12600,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zega2025-8 a schema1:Dataset,
@@ -12625,20 +12608,21 @@ ex:semTAPP-detail-Zega2025-8 a schema1:Dataset,
             schema1:name "NASA award NNH09ZDA007O; contract NNM10AA11C (OSIRIS-REx New Frontiers)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value -9999 ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ] ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
@@ -12649,9 +12633,8 @@ ex:semTAPP-detail-Zega2025-8 a schema1:Dataset,
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 3 ] ] ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -12690,7 +12673,7 @@ ex:semTAPP-detail-Zega2025-8 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Zega2025-8/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -13086,7 +13069,6 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Zega2025-9 a schema1:Dataset,
@@ -13095,13 +13077,13 @@ ex:semTAPP-detail-Zega2025-9 a schema1:Dataset,
             schema1:target [ schema1:name "BSE/EDS (JEOL 7600F, JSC); SE/BSE/EDS (Hitachi S-4800, U Arizona)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
@@ -13145,7 +13127,7 @@ ex:semTAPP-detail-Zega2025-9 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/mappingBeamCurrent> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 
@@ -15406,7 +15388,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -15424,8 +15406,6 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
@@ -15434,7 +15414,7 @@ Links to the schema:
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "dcat": "http://www.w3.org/ns/dcat#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }

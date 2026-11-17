@@ -2,7 +2,6 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
@@ -16,13 +15,13 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/clIntegrationTime>,
                 <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistance> ;
@@ -30,11 +29,11 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
                     ada:toolRole "acquisition" ],
                 [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Gatan DigitalMicrograph" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/semTAPP-detail-Izawa2010/instrument/SEM> ;
@@ -71,7 +70,7 @@ ex:semTAPP-detail-Izawa2010 a schema1:Dataset,
 <https://example.org/semTAPP-detail-Izawa2010/instrument/SEM> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/acceleratingVoltage> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SEM" ;
     schema1:name "no value available: schema:name" .
 

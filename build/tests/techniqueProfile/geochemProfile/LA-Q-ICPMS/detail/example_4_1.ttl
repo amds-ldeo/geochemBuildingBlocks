@@ -3,20 +3,19 @@
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laQicpmsTAPP-detail-Liu2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -35,7 +34,7 @@ ex:laQicpmsTAPP-detail-Liu2025-2 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
                     ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsTAPP-detail-Liu2025-2/instrument/ICPMS>,
@@ -69,13 +68,13 @@ ex:laQicpmsTAPP-detail-Liu2025-2 a schema1:Dataset,
 
 <https://example.org/laQicpmsTAPP-detail-Liu2025-2/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:name "ICPMS" .
 
 <https://example.org/laQicpmsTAPP-detail-Liu2025-2/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "~2.5 J cm⁻²" ;

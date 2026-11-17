@@ -58,7 +58,7 @@ their delivery-packaging vocabulary (see adaProduct).
   "@context": {
     "schema": "http://schema.org/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://cdif.org/0.1/",
+    "cdif": "https://w3id.org/cdif/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -322,7 +322,7 @@ their delivery-packaging vocabulary (see adaProduct).
     {
       "schema": "http://schema.org/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "cdif": "https://cdif.org/0.1/",
+      "cdif": "https://w3id.org/cdif/",
       "csvw": "http://www.w3.org/ns/csvw#",
       "prov": "http://www.w3.org/ns/prov#",
       "spdx": "http://spdx.org/rdf/terms#",
@@ -574,7 +574,7 @@ their delivery-packaging vocabulary (see adaProduct).
 #### ttl
 ```ttl
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix cdif: <https://cdif.org/0.1/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ex: <https://example.org/> .
@@ -582,7 +582,6 @@ their delivery-packaging vocabulary (see adaProduct).
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:geochemProduct-example-001 a schema1:Dataset,
@@ -645,7 +644,7 @@ ex:geochemProduct-example-001 a schema1:Dataset,
 <https://example.org/geochemProduct-example-001/instrument/instrument> a schema1:Product,
         schema1:Thing ;
     schema1:additionalType <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        wd:Q3099911 ;
+        <https://www.wikidata.org/entity/Q3099911> ;
     schema1:identifier "ex:instrument-001" ;
     schema1:name "Example ICP-MS Instrument" .
 
@@ -703,7 +702,7 @@ description: 'Generic schema for JSON-LD metadata documenting an analytical prod
   (componentType) scheme, and delivery-packaging rules.'
 type: object
 allOf:
-- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifCore/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifCore/schema.yaml
 - if:
     anyOf:
     - properties:
@@ -742,7 +741,7 @@ allOf:
       required:
       - schema:distribution
   then:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifDataDescription/schema.yaml
+    $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
 - if:
     properties:
       schema:distribution:
@@ -757,8 +756,8 @@ allOf:
           required:
           - '@type'
   then:
-    $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifManifest/schema.yaml
-- $ref: https://cross-domain-interoperability-framework.github.io/metadataBuildingBlocks/build/annotated/bbr/metadata/profiles/cdifProfile/cdifProvenance/schema.yaml
+    $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml
 x-jsonld-prefixes:
   schema: http://schema.org/
@@ -775,7 +774,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.geochemProduct
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -791,24 +790,17 @@ Links to the schema:
 {
   "@context": {
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "cdif": "https://w3id.org/cdif/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
     "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
-    "xas": "cdif:xas/",
-    "wd": "https://www.wikidata.org/entity/",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "time": "http://www.w3.org/2006/time#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }

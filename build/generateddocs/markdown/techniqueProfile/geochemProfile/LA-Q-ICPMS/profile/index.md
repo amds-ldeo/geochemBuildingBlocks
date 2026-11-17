@@ -19,7 +19,7 @@ and technique component types on the archive distribution. Mock data for validat
     "schema": "http://schema.org/",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-    "cdif": "https://cdif.org/0.1/",
+    "cdif": "https://w3id.org/cdif/",
     "csvw": "http://www.w3.org/ns/csvw#",
     "prov": "http://www.w3.org/ns/prov#",
     "spdx": "http://spdx.org/rdf/terms#",
@@ -547,7 +547,7 @@ and technique component types on the archive distribution. Mock data for validat
       "schema": "http://schema.org/",
       "ada": "https://ada.astromat.org/metadata/",
       "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
-      "cdif": "https://cdif.org/0.1/",
+      "cdif": "https://w3id.org/cdif/",
       "csvw": "http://www.w3.org/ns/csvw#",
       "prov": "http://www.w3.org/ns/prov#",
       "spdx": "http://spdx.org/rdf/terms#",
@@ -1063,7 +1063,7 @@ and technique component types on the archive distribution. Mock data for validat
 ```ttl
 @prefix ada: <https://ada.astromat.org/metadata/> .
 @prefix cdi: <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
-@prefix cdif: <https://cdif.org/0.1/> .
+@prefix cdif: <https://w3id.org/cdif/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
@@ -1072,7 +1072,6 @@ and technique component types on the archive distribution. Mock data for validat
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema1: <http://schema.org/> .
 @prefix spdx: <http://spdx.org/rdf/terms#> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:adaLAQICPMS-example-001 a schema1:Dataset,
@@ -1151,16 +1150,16 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
         <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ] ;
+            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:laQicpmsTAPP-P0 ;
@@ -1188,7 +1187,7 @@ ex:adaLAQICPMS-example-001 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalType ada:ADAInstrument,
         <https://manual.nexusformat.org/classes/base_classes/NXinstrument.html>,
-        wd:Q3099911,
+        <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS",
         "Laser Ablation System" ;
     schema1:identifier "ex:instrument-ada-001" ;
@@ -1338,7 +1337,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -1354,24 +1353,17 @@ Links to the schema:
 {
   "@context": {
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "dcterms": "http://purl.org/dc/terms/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "cdif": "https://w3id.org/cdif/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "ex": "https://example.org/",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "ada": "https://ada.astromat.org/metadata/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
+    "prov": "http://www.w3.org/ns/prov#",
     "bios": "https://bioschemas.org/",
     "spdx": "http://spdx.org/rdf/terms#",
     "nxs": "https://manual.nexusformat.org/classes/",
+    "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
-    "xas": "cdif:xas/",
-    "wd": "https://www.wikidata.org/entity/",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "time": "http://www.w3.org/2006/time#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }

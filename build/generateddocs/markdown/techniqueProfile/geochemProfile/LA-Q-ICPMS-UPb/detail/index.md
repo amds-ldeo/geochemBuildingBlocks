@@ -698,7 +698,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laQicpmsUPbTAPP-detail-Nakanishi2022 a schema1:Dataset,
@@ -708,11 +707,11 @@ ex:laQicpmsUPbTAPP-detail-Nakanishi2022 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "N — the 2SE is stated for individual measurements (p.4), not for a standard" ] ;
@@ -735,7 +734,7 @@ ex:laQicpmsUPbTAPP-detail-Nakanishi2022 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "Tawallah Valley (IVB iron meteorite) — 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)" ;
                     ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS>,
@@ -770,7 +769,7 @@ ex:laQicpmsUPbTAPP-detail-Nakanishi2022 a schema1:Dataset,
 
 <https://example.org/laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS/part/Collision-Reaction-Cell>,
         <https://example.org/laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS/part/ICP-Source> ;
@@ -778,7 +777,7 @@ ex:laQicpmsUPbTAPP-detail-Nakanishi2022 a schema1:Dataset,
 
 <https://example.org/laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "Collision Reaction Cell" .
 
@@ -787,13 +786,13 @@ ex:laQicpmsUPbTAPP-detail-Nakanishi2022 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laQicpmsUPbTAPP-detail-Nakanishi2022/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "12 J cm⁻²" ;
@@ -1676,21 +1675,20 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laQicpmsUPbTAPP-detail-Liu2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategy Priority Research Program (Category B) of Chinese Academy of Sciences (XDB0710000); NSFC 42073022" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] — §3.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: relative standard deviation — 'relative standard deviations are reported as the precision measure'" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] — §3.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] — §3.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
@@ -1714,11 +1712,11 @@ ex:laQicpmsUPbTAPP-detail-Liu2024 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Iolite 4 (Paton et al. 2011)" ;
                     ada:toolRole "dataReduction" ],
                 [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A — six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (§2.1); reference values from GeoReM (§3.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS" ;
                     ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2024/instrument/ICPMS>,
@@ -1754,7 +1752,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2024 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laQicpmsUPbTAPP-detail-Liu2024/instrument/ICPMS/part/Collision-Reaction-Cell>,
         <https://example.org/laQicpmsUPbTAPP-detail-Liu2024/instrument/ICPMS/part/ICP-Source> ;
@@ -1762,7 +1760,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2024 a schema1:Dataset,
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2024/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "Collision Reaction Cell" .
 
@@ -1771,13 +1769,13 @@ ex:laQicpmsUPbTAPP-detail-Liu2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2024/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "6.79 J cm⁻²" ;
@@ -2360,31 +2358,30 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laQicpmsUPbTAPP-detail-Liu2025 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ] ;
+            dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
@@ -2394,7 +2391,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2025 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
                     ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2025/instrument/ICPMS>,
@@ -2430,13 +2427,13 @@ ex:laQicpmsUPbTAPP-detail-Liu2025 a schema1:Dataset,
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2025/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:name "ICPMS" .
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2025/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")" ;
@@ -2972,31 +2969,30 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laQicpmsUPbTAPP-detail-Liu2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
@@ -3006,7 +3002,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2025-2 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
                     ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2025-2/instrument/ICPMS>,
@@ -3042,13 +3038,13 @@ ex:laQicpmsUPbTAPP-detail-Liu2025-2 a schema1:Dataset,
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2025-2/instrument/ICPMS> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:name "ICPMS" .
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2025-2/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "~2.5 J cm⁻²" ;
@@ -4016,7 +4012,6 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
@@ -4026,28 +4021,28 @@ ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "N — not stated" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "N — not stated" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
                             schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantities>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/numberOfReplicates>,
@@ -4061,11 +4056,11 @@ ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
                     ada:toolRole "dataReduction" ],
                 [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "N — not stated" ;
                     ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS>,
@@ -4102,7 +4097,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell>,
         <https://example.org/laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS/part/ICP-Source> ;
@@ -4110,7 +4105,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "Collision Reaction Cell" .
 
@@ -4118,14 +4113,14 @@ ex:laQicpmsUPbTAPP-detail-Liu2016 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergy> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
@@ -5145,7 +5140,6 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:laQicpmsUPbTAPP-detail-Liu2016-2 a schema1:Dataset,
@@ -5155,13 +5149,13 @@ ex:laQicpmsUPbTAPP-detail-Liu2016-2 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP CaO is the internal standard: 'we calculated the trace element abundances by normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "N — not stated" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -5186,14 +5180,14 @@ ex:laQicpmsUPbTAPP-detail-Liu2016-2 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType wd:Q2356542 ;
-                    schema1:name "N — not stated" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                    schema1:name "N — not stated" ;
+                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016-2/instrument/ICPMS>,
                 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016-2/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
@@ -5229,7 +5223,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2016-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/icpTuning>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/memoryEffectMitigation> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICPMS" ;
     schema1:hasPart <https://example.org/laQicpmsUPbTAPP-detail-Liu2016-2/instrument/ICPMS/part/Collision-Reaction-Cell>,
         <https://example.org/laQicpmsUPbTAPP-detail-Liu2016-2/instrument/ICPMS/part/ICP-Source> ;
@@ -5237,7 +5231,7 @@ ex:laQicpmsUPbTAPP-detail-Liu2016-2 a schema1:Dataset,
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016-2/instrument/ICPMS/part/Collision-Reaction-Cell> a schema1:Product,
         schema1:Thing ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Collision Reaction Cell" ;
     schema1:name "Collision Reaction Cell" .
 
@@ -5245,14 +5239,14 @@ ex:laQicpmsUPbTAPP-detail-Liu2016-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRate>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/rfPower> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "ICP Source" ;
     schema1:name "missing" .
 
 <https://example.org/laQicpmsUPbTAPP-detail-Liu2016-2/instrument/Laser-Ablation-System> a schema1:Product,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/laserEnergy> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "Laser Ablation System" ;
     schema1:name "no value available: schema:name" ;
     ada:laserFluence "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)" ;
@@ -6285,7 +6279,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS-UPb.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -6303,8 +6297,6 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
@@ -6313,7 +6305,7 @@ Links to the schema:
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "dcat": "http://www.w3.org/ns/dcat#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }

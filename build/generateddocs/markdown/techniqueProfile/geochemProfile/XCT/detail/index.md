@@ -671,7 +671,6 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
@@ -697,7 +696,7 @@ ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Nikon CTPro3D v5.4" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> ;
@@ -723,7 +722,7 @@ ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -1544,7 +1543,6 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
@@ -1558,13 +1556,13 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
             dqv:value "61 SSOs by polished SEM sections vs. 108 by XCT; discrepancy attributed to disruption by polishing; XCT detects more SSOs" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -1577,7 +1575,7 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> ;
@@ -1603,7 +1601,7 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -2227,7 +2225,6 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
@@ -2273,7 +2270,7 @@ ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -2821,7 +2818,6 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
@@ -2830,20 +2826,20 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "Post-reconstruction ring corrections applied; severity not documented" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
-            dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ] ;
+            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ],
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+            dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
@@ -2869,7 +2865,7 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -3273,7 +3269,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
@@ -3313,7 +3308,7 @@ ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -3726,7 +3721,6 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
@@ -3734,13 +3728,13 @@ ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPower> ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -3767,7 +3761,7 @@ ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -4408,7 +4402,6 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
@@ -4418,19 +4411,19 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "BSE images compared with XCT attenuation contrast" ;
                     schema1:name "SEM-BSE (qualitative comparison)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "High noise in central portion of sample attributed to BH; augite/mesostasis difficult to distinguish in central region" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria>,
@@ -4440,7 +4433,7 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Avizo™" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ;
@@ -4464,7 +4457,7 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -5256,7 +5249,6 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
@@ -5287,7 +5279,7 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Glavin2023/instrument/XCT> ;
@@ -5313,7 +5305,7 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -6039,7 +6031,6 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
@@ -6069,7 +6060,7 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ;
@@ -6094,7 +6085,7 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -6733,7 +6724,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
@@ -6759,7 +6749,7 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "ImageJ; Avizo 9.2" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> ;
@@ -6782,7 +6772,7 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
         schema1:Thing ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -7525,7 +7515,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
@@ -7552,7 +7541,7 @@ ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Avizo 9.2.0" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Richard2019-2/instrument/XCT> ;
@@ -7578,7 +7567,7 @@ ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -8345,7 +8334,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
@@ -8372,7 +8360,7 @@ ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Avizo 9.2.0" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Richard2019-3/instrument/XCT> ;
@@ -8398,7 +8386,7 @@ ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPreFilter> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -9180,7 +9168,6 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
@@ -9190,10 +9177,10 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "CLSM performed on same inclusion for volumetric cross-validation" ;
                     schema1:name "Confocal laser scanning microscopy (Sample I)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "Software ring artifact correction applied; outcome not documented" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "Software ring artifact correction applied; outcome not documented" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -9214,7 +9201,7 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Avizo 9.2.0" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Richard2019-4/instrument/XCT> ;
@@ -9239,7 +9226,7 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -9927,7 +9914,6 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix wd: <https://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
@@ -9941,13 +9927,13 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
             dqv:value "XCT qualitatively compared with thin sections and EBSD; cm-scale plagioclase confirmed" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
@@ -9957,7 +9943,7 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
-                    schema1:additionalType wd:Q7397 ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
                     ada:toolRole "dataReduction" ],
                 <https://example.org/labxctTAPP-detail-Tait2014/instrument/XCT> ;
@@ -9981,7 +9967,7 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/acceleratingVoltage>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/tubeCurrent>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voxelSize> ;
-    schema1:additionalType wd:Q3099911,
+    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "XCT" ;
     schema1:name "no value available: schema:name" .
 
@@ -12445,7 +12431,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-12'
+  dateOfLastChange: '2026-11-16'
 
 ```
 
@@ -12463,8 +12449,6 @@ Links to the schema:
     "ada": "https://ada.astromat.org/metadata/",
     "prov": "http://www.w3.org/ns/prov#",
     "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "wd": "https://www.wikidata.org/entity/",
     "nxs": "https://manual.nexusformat.org/classes/",
     "cdi": "http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/",
     "csvw": "http://www.w3.org/ns/csvw#",
@@ -12473,7 +12457,7 @@ Links to the schema:
     "dcterms": "http://purl.org/dc/terms/",
     "geosparql": "http://www.opengis.net/ont/geosparql#",
     "dqv": "http://www.w3.org/ns/dqv#",
-    "dcat": "http://www.w3.org/ns/dcat#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
     "@version": 1.1
   }
 }
