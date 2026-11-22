@@ -344,7 +344,7 @@ def check_stability(reg, term_techs, rel):
     #    then never be corrected. Collisions are the readable symptom; mutability is
     #    the real hazard, and no check can see a rename that has not happened yet.
     by_slug = collections.defaultdict(set)
-    for _, (_, _, j) in reg.items():
+    for _, (_, j) in reg.items():
         for n in notations(j):
             by_slug[slug(n)].add(n)
     coll = {s: v for s, v in by_slug.items() if len(v) > 1}
@@ -372,7 +372,7 @@ def check_stability(reg, term_techs, rel):
     # 4. Decision 4 gives a term one IRI, hence one definition. Correct for a crystal
     #    like LIF, wrong for a word like Linear that two fields may use differently.
     by_field = collections.defaultdict(set)
-    for _, (_, field, j) in reg.items():
+    for _, (field, j) in reg.items():
         for n in notations(j):
             by_field[n].add(field)
     rec = sorted(((len(f), n) for n, f in by_field.items() if len(f) > 1), reverse=True)
