@@ -10,14 +10,14 @@ ex:solutionSficpmsTAPP-detail-P0 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)" ;
                     schema1:name "Agilent 7700x Q-ICP-MS (used for Pb isotope comparison; stated section 2.4)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: 2sd of repeat analyses] — Table 1; 'regular analyses of Tl-doped ~1 ppb solutions of several rock standards (unseparated)' (§2.4)" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: % deviation from published Pb isotope values] — Table 1 and §3" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: 2sd — '(2sd, n = 22)'; averages given with '±2sd%'" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: 2sd — '(2sd, n = 22)'; averages given with '±2sd%'" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: % deviation from published Pb isotope values] — Table 1 and §3" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "BCR-2, AGV-2, JB-2, BR, JB-3 [all: 2sd of repeat analyses] — Table 1; 'regular analyses of Tl-doped ~1 ppb solutions of several rock standards (unseparated)' (§2.4)" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
