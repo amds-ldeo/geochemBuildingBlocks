@@ -6,12 +6,14 @@ no generator is wired to it. It exists to answer "is this feasible, and what doe
 measurements instead of estimates, in the shape of CODATA's variable index
 (https://ai.codata.org/variableindex).
 
-WHAT THE REGISTRIES LOOK LIKE TODAY. Six collections under `_sources/registry/` hold 1893 `$defs`
-between them, every one minted per consuming technique: the `$def` key carries a technique prefix
-(`epma_detectionLimitDefault`) and the `@id` const is `ada:parameter/<tapp>TAPP/<name>`. The
-LOGICAL variable is neither of those -- it is the `schema:name` const, the TAPP workbook's Metadata
-Item, and there are 267 distinct ones. So one logical variable such as `Pre-Analysis Imaging and
-Screening` exists 116 times over, once per technique that consumes it.
+WHAT THE REGISTRIES LOOK LIKE TODAY. Six collections under `_sources/registry/` hold 1906 `$defs`
+between them (re-measured 2026-11-22), every one minted per consuming technique: the `$def` key
+carries a technique prefix (`epma_detectionLimitDefault`) and the `@id` const is
+`ada:parameter/<tapp>TAPP/<name>`. The LOGICAL variable is neither of those -- it is the
+`schema:name` const, the TAPP workbook's Metadata Item, and there are 269 distinct ones, 259 of
+them still carried by the technique whose def names them (see _live_labels). So one logical
+variable such as `Pre-Analysis Imaging and Screening` exists 116 times over, once per technique
+that consumes it.
 
 THE TARGET SHAPE IS ALREADY DEFINED UPSTREAM, which is what makes this tractable. CDIF publishes
 `cdifDataType/cdifRepresentedVariable` and `cdifDataType/cdifInstanceVariable`, and the latter
@@ -24,8 +26,8 @@ extension we have to propose upstream:
 
 Two things an earlier pass got wrong, measured here instead:
 
-  * `schema:propertyID` is NOT patchily present. It partitions CLEANLY by side -- 1233
-    analysis-side defs carry it and none carry `schema:valueName`; 660 procedure-side defs carry
+  * `schema:propertyID` is NOT patchily present. It partitions CLEANLY by side -- 1271
+    analysis-side defs carry it and none carry `schema:valueName`; 635 procedure-side defs carry
     `valueName` and none carry `propertyID`; 0 defs carry both, 0 carry neither. There is no
     coverage gap and no branch is needed. CDIF documents `cdif:uses` as "essentially the same as
     schema:propertyID", so the analysis side already carries the link in all but name.
@@ -33,19 +35,23 @@ Two things an earlier pass got wrong, measured here instead:
     `cdifRepresentedVariable` schema. `cdi:measures` is a different property -- it points at the
     CONCEPT measured, not at the variable's label.
 
-THE REAL COST IS DEFINITIONAL, NOT MECHANICAL. 31 of the 267 logical names carry more than one
-`description` across their defs, and only 2 of those reduce to the procedure/analysis side split
-(where two descriptions of one concept at two levels is correct, and is precisely the
-RepresentedVariable/InstanceVariable distinction this registry is built on). The other 29 conflict
+THE REAL COST IS DEFINITIONAL, NOT MECHANICAL. 23 of the 259 live logical names carry more than
+one `description` across their defs, and only 2 of those reduce to the procedure/analysis side
+split (where two descriptions of one concept at two levels is correct, and is precisely the
+RepresentedVariable/InstanceVariable distinction this registry is built on). The other 21 conflict
 WITHIN a side: the same workbook label means subtly different things per technique. `Detection
 Limit` has 5 variants across 23 defs -- a procedure-typical estimate, a session value in ug/g, a
 method detection limit at 99% confidence, an elemental limit with units specified, and one
 carrying an isotope-dilution caveat. That is not wording drift.
 
-So each of the 29 is a decision nobody can automate: ONE RepresentedVariable whose definition is
+So each of the 21 is a decision nobody can automate: ONE RepresentedVariable whose definition is
 chosen and whose per-technique nuance moves onto the usage, or SEVERAL because the label is
 overloaded. This tool refuses to pick. It emits them under `conflicts` with every variant and the
 defs behind it, and mints a RepresentedVariable only where the definition is already unanimous.
+
+The decisions themselves live in `docs/variable_registry_decisions.json`, which this tool does NOT
+read: 25 recorded there, and the 12 settled on 2026-10-23 are still re-reported as conflicts in
+consequence. Reading that file is the obvious next step and nobody has taken it.
 
 Usage:
     python tools/draft_variable_registry.py           # measure and report
@@ -57,6 +63,7 @@ import io
 import json
 import os
 import re
+import sys
 
 import yaml
 
@@ -197,7 +204,17 @@ def _camel(label):
 
 
 def _live_labels():
-    """Metadata Items that exist in the CURRENT sources, keyed case- and space-insensitively.
+    """`is_live(tapp, label)` -- does this technique still carry this Metadata Item?
+
+    PER TECHNIQUE, which is the whole of the question. One pooled set of labels across all 61
+    workbooks answers "does any technique still carry this", and a def belongs to exactly one
+    technique, so the pooled answer keeps a def alive on the strength of a DIFFERENT technique's
+    row. Measured 2026-11-22: 3 defs read live that way -- `Dwell Time per Mass` in laMcicpmsTAPP
+    and laMcicpmsUPbTAPP, `Beam Current` in semFibsemTAPP -- each absent from its own workbook and
+    present in others'. `Dwell Time per Mass` appears in exactly 6 workbooks, every one of them
+    single-collector (la/solution Q and SF ICP-MS), so its absence from the multi-collector tables
+    is a property of the instrument rather than a gap: a multi-collector measures all masses at
+    once and has no per-mass dwell. Pooling asserted the opposite.
 
     `registry/` is `isTypeLibrary`, so a def whose row has been renamed away is not removed -- it
     simply stops being referenced. Measured 2026-10-23: 37 of the 1893 defs (2.0%) carry a label
@@ -212,9 +229,19 @@ def _live_labels():
     Interference Corrections Applied`). So the filter exists to keep the measurement honest, not
     to fix anything in the schemas.
 
+    Module sidecar labels stay POOLED, deliberately: a module composes into many techniques, so a
+    label a module places is live wherever it lands, and narrowing it would need the per-technique
+    module membership rather than the label alone. Neither of the two labels above appears in any
+    module sidecar, so the pooled fallback does not reach them.
+
     Matched case- and space-insensitively: checked for re-casing drift and found none, but an
     exact match would report a re-cased label as retired, which is a failure mode worth not
     having.
+
+    FAILS OPEN for a technique whose workbook could not be read. Pooling masked an unreadable
+    workbook behind the other 60; per-technique, an empty label set would mark every one of that
+    technique's defs retired -- a load failure reported as a measurement, which is the shape
+    docs/SILENT_SUCCESS.md exists to break. An unreadable technique is named on stderr instead.
     """
     def key(s):
         return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
@@ -224,29 +251,36 @@ def _live_labels():
     import build_tapp as bt
     import tapp_source
 
-    live = {}
+    per_tapp, pooled = {}, {}
     for tapp in sorted(bt.TAPP_CONFIGS):
         try:
             bt.configure(tapp)
             rows = tapp_source.rows(bt.XLSX)
-        except Exception:
+        except Exception as exc:
+            sys.stderr.write("WARN  %s: workbook unreadable (%s); its defs fail OPEN\n"
+                             % (tapp, exc))
             continue
+        labels = per_tapp.setdefault(tapp, {})
         for r in rows[1:]:
             item = bt.norm(r[0]) if r else ""
             if item and not re.match(r"^\d+\.\s", item):
-                live.setdefault(key(item), item)
+                labels.setdefault(key(item), item)
     for f in glob.glob(os.path.join("docs", "modules", "Module_*.schemapaths.csv")):
         for r in csv.DictReader(io.open(f, encoding="utf-8-sig")):
             item = (r.get("Metadata Item") or "").strip()
             if item:
-                live.setdefault(key(item), item)
-    return live, key
+                pooled.setdefault(key(item), item)
+
+    def is_live(tapp, label):
+        k = key(label)
+        return k in pooled or tapp not in per_tapp or k in per_tapp[tapp]
+
+    return is_live
 
 
 def load_defs():
     """Every registry $def, with the fields a variable registry would need from it."""
-    # `lkey`, not `key`: the loop below binds `key` to each $def name and would shadow it.
-    live, lkey = _live_labels()
+    is_live = _live_labels()
     out = []
     for coll in COLLECTIONS:
         path = os.path.join(ROOT, "_sources", "registry", coll, "schema.yaml")
@@ -257,20 +291,26 @@ def load_defs():
             def const(name, _p=props):
                 return (_p.get(name) or {}).get("const")
 
+            tapp = (const("@id") or "//").split("/")[1]
             out.append({
                 "collection": coll,
                 "def": key,
                 # The side is the identity property, measured per def. See COLLECTIONS.
                 "side": "analysis" if "schema:propertyID" in props else "procedure",
                 "id": const("@id"),
+                # Every @id in these six collections is `<ns>/<tapp>/<name>` -- 1906 of 1906, and
+                # the 61 technique segments are exactly TAPP_CONFIGS, so this is the def's own
+                # technique and not a guess. The $def key prefix agrees, but the @id is the
+                # generated identity, so it is the one to read.
+                "tapp": tapp,
                 "name": const("schema:name"),
                 # Canonicalised here, so every consumer of a definition -- the conflict triage as
                 # well as the emitted registry -- sees the same text.
                 "definition": canonicalise((sub.get("description") or "").strip()),
                 "dataType": const("ada:dataType"),
                 "unitText": const("schema:unitText"),
-                # Does a row with this label still exist? See _live_labels.
-                "live": lkey(const("schema:name")) in live,
+                # Does THIS TECHNIQUE still carry a row with this label? See _live_labels.
+                "live": is_live(tapp, const("schema:name")),
             })
     return out
 
@@ -279,9 +319,9 @@ def build(defs):
     """({variable @id -> node}, [conflict, ...]) grouped on the logical name."""
     by_name = collections.defaultdict(list)
     for d in defs:
-        # Retired labels are EXCLUDED, not silently dropped: main() reports them under
-        # `retired_labels` with their def counts. A silent skip is lost coverage, which is the
-        # habit docs/SILENT_SUCCESS.md exists to break.
+        # Retired usages are EXCLUDED, not silently dropped: main() reports them under
+        # `retired_usages` with their def counts and techniques. A silent skip is lost coverage,
+        # which is the habit docs/SILENT_SUCCESS.md exists to break.
         if d["name"] and d.get("live", True):
             by_name[d["name"]].append(d)
 
@@ -458,15 +498,40 @@ _VERDICT = {
 }
 
 
+def retired_usages(defs):
+    """{label: {"defs": n, "techniques": [...], "live_elsewhere": bool}} for the excluded defs.
+
+    A USAGE is excluded, not a label: liveness is per technique (see _live_labels), so a label can
+    be retired for laMcicpmsTAPP and current everywhere else. `live_elsewhere` is that distinction
+    and it is the only actionable part -- a label no workbook carries is residue from an earlier
+    delivery, whereas one that is live elsewhere is a def minted for a technique whose table does
+    not have the row.
+    """
+    out = {}
+    live_names = {d["name"] for d in defs if d["name"] and d.get("live", True)}
+    for d in defs:
+        if d["name"] and not d.get("live", True):
+            e = out.setdefault(d["name"], {"defs": 0, "techniques": set(),
+                                           "live_elsewhere": d["name"] in live_names})
+            e["defs"] += 1
+            e["techniques"].add(d["tapp"])
+    return collections.OrderedDict(
+        (n, {"defs": e["defs"], "techniques": sorted(e["techniques"]),
+             "live_elsewhere": e["live_elsewhere"]})
+        for n, e in sorted(out.items(), key=lambda kv: (-kv[1]["defs"], kv[0])))
+
+
 def report(defs, variables, conflicts):
     sides = collections.Counter(d["side"] for d in defs)
-    retired = collections.Counter(d["name"] for d in defs if d["name"] and not d.get("live", True))
+    retired = retired_usages(defs)
     names = {d["name"] for d in defs if d["name"] and d.get("live", True)}
     if retired:
-        print("retired labels EXCLUDED               : %d defs across %d label(s)"
-              % (sum(retired.values()), len(retired)))
-        for n, c in retired.most_common():
-            print("    %-46s %d defs" % (n[:46], c))
+        print("retired USAGES excluded               : %d defs across %d label(s)"
+              % (sum(e["defs"] for e in retired.values()), len(retired)))
+        for n, e in retired.items():
+            where = (", ".join(e["techniques"]) if e["live_elsewhere"]
+                     else "no workbook carries it")
+            print("    %-46s %d defs  (%s)" % (n[:46], e["defs"], where[:64]))
         print()
     print("registry $defs                       : %d" % len(defs))
     print("  procedure side (schema:valueName)  : %d" % sides["procedure"])
@@ -543,9 +608,9 @@ def main():
                      "records the usages without asserting an @type on them."),
         },
         # Reported, not silently dropped. See _live_labels for why they exist and why nothing in
-        # the schemas is affected by them.
-        "retired_labels": dict(collections.Counter(
-            d["name"] for d in defs if d["name"] and not d.get("live", True))),
+        # the schemas is affected by them. Keyed by label, but each entry names the TECHNIQUES the
+        # excluded defs belong to, because liveness is per technique.
+        "retired_usages": retired_usages(defs),
         "counts": {
             "registry_defs": len(defs),
             "registry_defs_live": sum(1 for d in defs if d.get("live", True)),

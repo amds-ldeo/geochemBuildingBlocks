@@ -7,7 +7,8 @@
     "measures": "when splitting, the shared concept both variables point at via cdi:measures, so a query on the concept still finds both",
     "blocked_on": "present when the decision cannot be delivered from gBB alone -- the registry is GENERATED from the TAPP workbooks, so a variable no workbook row declares cannot be minted here",
     "decided_by": "who made the call",
-    "rationale": "why, in enough detail that it is not re-litigated"
+    "rationale": "why, in enough detail that it is not re-litigated",
+    "takes_variants": "which of the conflict's reported variants this variable absorbs. POSITIONAL and not stable: the tool numbers variants by def count (most defs first), so excluding a def renumbers them. See _measured for the run these indices were taken against; re-read the indices from a fresh --group-conflicts run before relying on them."
   },
   "decisions": [
     {
@@ -352,6 +353,214 @@
       ],
       "rationale": "Both variants answer whether and how drift was monitored and corrected. They differ in WHICH drift their technique cares about, which is usage-level.",
       "latent": "the one of these four where a split could be argued: positional drift (stage, sample position) and intensity or calibration drift (beam current, spectrometer) are corrected by different means and could be separate variables. Not recommended -- the label is singular and both variants treat it as one field -- but recorded so it is not re-derived from scratch."
+    },
+    {
+      "conflict": "Proportional Counter / Detector",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/proportionalCounterDetector",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "epma",
+            "sem",
+            "semComposition"
+          ],
+          "definition_from": "variant 2 -- keeps the sensitivity and count-rate-linearity note"
+        }
+      ],
+      "rationale": "sem and semComposition appear in both variants, so the per-spectrometer def is the same variable inside a keyed table, not a second variable. Splitting would encode cardinality in the identifier."
+    },
+    {
+      "conflict": "Diffracting Crystal",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/diffractingCrystal",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "epma",
+            "sem",
+            "semComposition"
+          ],
+          "definition_from": "variant 2 -- keeps the wavelength-range and dispersion note"
+        }
+      ],
+      "rationale": "same question as Proportional Counter / Detector and answered the same way, deliberately."
+    },
+    {
+      "conflict": "Beam Diameter",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/beamDiameter",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "epma",
+            "sem",
+            "semComposition"
+          ],
+          "definition_from": "variant 2 (point-analysis scope, cedes mapping to Mapping Beam Diameter), PLUS variant 1's value-domain rule: 0 indicates a fully focused beam"
+        }
+      ],
+      "rationale": "one quantity. The zero convention is a value-domain rule and is lost if the shorter wording simply wins, so it is carried explicitly."
+    },
+    {
+      "conflict": "Dwell Time per Mass",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/dwellTimePerMass",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "laQicpms",
+            "laQicpmsUPb",
+            "laSficpms",
+            "laSficpmsUPb",
+            "solutionQicpms",
+            "solutionSficpms"
+          ],
+          "definition_from": "variant 1, folding in variant 2's note that the value may differ per target species where species-specific dwell times are programmed"
+        }
+      ],
+      "rationale": "the empty variant -- reported as variant 2 before the liveness fix, with the two surviving readings as 1 and 3 -- was not a competing definition and not a missing one: its two defs (laMcicpms, laMcicpmsUPb) are orphans. A multi-collector reads all masses simultaneously on separate Faraday cups, so there is no per-mass dwell, and those workbooks correctly carry Integration Time per Cycle instead. Nothing is blocked upstream."
+    },
+    {
+      "conflict": "Detection Limit Method",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/detectionLimitMethod",
+          "takes_variants": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "techniques": [
+            "laMcicpms",
+            "laMcicpmsUPb",
+            "laQicpms",
+            "laQicpmsUPb",
+            "laSficpms",
+            "laSficpmsUPb",
+            "sem",
+            "semComposition",
+            "solutionQicpms",
+            "solutionSficpms",
+            "solutionMcicpms"
+          ],
+          "definition_from": "variant 1 -- the fullest, keeping the consistency requirement against the reported Detection Limit values"
+        }
+      ],
+      "rationale": "one quantity at four lengths. Variant 4 differs from 3 by a condition (where concentration data are reported), not a concept; that condition belongs on the usage."
+    },
+    {
+      "conflict": "EDS Live Time per Point or Pixel",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/edsLiveTimePerPointOrPixel",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "epma",
+            "sem",
+            "semComposition",
+            "tem"
+          ],
+          "definition_from": "variant 2 (tem) -- it states the point/pixel distinction and records that this was renamed from 'EDS Acquisition Time', which is what stops it being renamed back"
+        }
+      ],
+      "rationale": "one quantity. EPMA's wording has since converged with SEM's, so only TEM still carries the renaming history; the N/A instruction belongs on the usage, not in the definition."
+    },
+    {
+      "conflict": "EDS Spectral Processing Type",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/edsSpectralProcessingType",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "epma",
+            "sem",
+            "semComposition",
+            "tem"
+          ],
+          "definition_from": "variant 1"
+        }
+      ],
+      "rationale": "the two texts differ only in which sibling they cross-reference -- Matrix Correction Method for EPMA/SEM, EDS Quantification Method for TEM. Both the cross-reference and the N/A rule are per-technique facts and move to the usage."
+    },
+    {
+      "conflict": "Beam Current",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/beamCurrent",
+          "takes_variants": [
+            1,
+            2,
+            3
+          ],
+          "techniques": [
+            "sem",
+            "semComposition",
+            "semImaging",
+            "epma",
+            "ebsd"
+          ],
+          "definition_from": "variant 1 -- the only wording that cedes the mapping case to Mapping Beam Current, and it carries the sub-nA decimal convention"
+        }
+      ],
+      "rationale": "all variants are the current in an electron beam, so the Accelerating Voltage split does not apply: that one split because Lab-XCT's variant was an X-ray tube voltage, and there is no Lab-XCT variant here. The fourth variant (semFibsem) is an orphan -- the label is absent from that technique's own workbook -- so the conflict is 9 defs across 3 variants. EPMA's note that the current often varies by phase type or target species is recorded as a keyed value only if that variation is to be captured, consistently with Proportional Counter / Detector."
+    },
+    {
+      "conflict": "Step Size / Pixel Size",
+      "decision": "one-of",
+      "decided_by": "Stephen, 2026-11-22",
+      "variables": [
+        {
+          "@id": "ada:variable/stepSize",
+          "takes_variants": [
+            1,
+            2
+          ],
+          "techniques": [
+            "epma",
+            "sem",
+            "semComposition"
+          ],
+          "definition_from": "variant 1 (centre-to-centre distance between adjacent measurement points for WDS mapping or pixels for EDS mapping), with EPMA's clause 'defining the spatial resolution' STRUCK as false"
+        }
+      ],
+      "blocked_on": "the TAPP label itself. 'Step Size / Pixel Size' names two independent quantities -- the retargeting offset between measurements, and the real-world area one measurement represents. Only the first is defined by either variant. Renaming the column is a workbook change; see the metadata repo's TAPP-2026-11-22-step-size-label-request.md. The ruling is deliverable from gBB without it, since the definition is corrected here; the label stays misleading until upstream acts. This is also the one entry whose @id departs from the tool's proposal: the tool derives `ada:variable/stepSizePixelSize` from the label, and the chosen identity drops the half the definition does not cover.",
+      "rationale": "step and footprint are independent: a sensor may step 1 cm and image 100 by 100 um. The registry already separates them in Spot Size, Image Pixel Size, Detector Pixel Size and Effective Spatial Resolution (PSF/MTF), the last of which exists precisely because resolution is coarser than and distinct from the sampling grid. No footprint variable is minted: Beam Diameter and Mapping Beam Diameter already cover epma, semComposition and sem, which are exactly the three techniques carrying this label. X-versus-Y anisotropy is a separate and smaller question about the step alone, with Beam Raster Dimensions as the precedent."
     }
   ],
   "terminology": {
@@ -381,5 +590,6 @@
       "`Mass Resolution per Analyte` (7 defs) has NO `Target Species` twin, so it is an un-migrated LABEL rather than a duplicate -- a rename candidate for tapp, not a registry decision."
     ],
     "normaliser": "tools/draft_variable_registry.py `_NORMALISERS` now maps analyte -> target species. The direction does not change which conflicts are detected (the test is symmetric: does the difference vanish) but it records which term survives; the first version pointed at the retired term."
-  }
+  },
+  "_measured": "The 16 decisions of 2026-10-23 were measured against 206b31096f (1893 defs, 257 logical variables, 23 conflicts). The nine of 2026-11-22 were taken against main 0db13df3ee WITH the per-technique liveness fix applied in the same change: 1906 defs, 259 live logical variables, 21 conflicts, 40 retired usages. That fix excludes 3 orphan defs that a pooled label check kept alive, which moved two of the nine -- Dwell Time per Mass from 15 defs/3 variants to 13/2, Beam Current from 10/4 to 9/3 -- and renumbered Dwell Time per Mass's surviving variants from 1 and 3 to 1 and 2. The rulings themselves are unchanged by it; the indices recorded below are the post-fix ones."
 }
