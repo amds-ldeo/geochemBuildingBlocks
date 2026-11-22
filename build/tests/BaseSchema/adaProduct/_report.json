@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.BaseSchema.adaProduct - ADA Product Profile",
   "bblockName": "ADA Product Profile",
   "bblockId": "ogch.BaseSchema.adaProduct",
-  "generated": "2026-11-22T17:19:47.442657+00:00",
+  "generated": "2026-11-22T19:35:39.587159+00:00",
   "result": false,
   "items": [
     {
@@ -73,7 +73,7 @@
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Violation",
-              "focusNode": "N8929c39ca9d2463b877cc39ca06098f7",
+              "focusNode": "N6e2af262ee594139b0277b5aac40c8fc",
               "resultPath": "prov:used",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -83,23 +83,23 @@
               "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
               "isError": true,
               "severity": "error",
-              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaActivityShape/sh:property (path prov:used)\n  Focus node: _:N8929c39ca9d2463b877cc39ca06098f7\n  Result path: prov:used\n  Message: Analysis events must reference at least one instrument (prov:used)."
+              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaActivityShape/sh:property (path prov:used)\n  Focus node: _:N6e2af262ee594139b0277b5aac40c8fc\n  Result path: prov:used\n  Message: Analysis events must reference at least one instrument (prov:used)."
             },
             {
               "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
               "focusNodes": {
+                "cdifd:adaProductShape": {
+                  "nodes": []
+                },
                 "cdifd:adaVariableMeasuredShape": {
                   "nodes": []
                 },
                 "cdifd:adaActivityShape": {
                   "nodes": []
-                },
-                "cdifd:adaProductShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/adaProduct/rules.shacl:\n - Shape cdifd:adaVariableMeasuredShape: *none*\n - Shape cdifd:adaActivityShape: *none*\n - Shape cdifd:adaProductShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/adaProduct/rules.shacl:\n - Shape cdifd:adaProductShape: *none*\n - Shape cdifd:adaVariableMeasuredShape: *none*\n - Shape cdifd:adaActivityShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -331,10 +331,10 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:provUsedInstrumentParamValueShape": {
                   "nodes": []
                 },
                 "cdifd:tappInstrumentParamSpecShape": {
@@ -342,7 +342,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
             },
             {
               "op": "shacl-report",

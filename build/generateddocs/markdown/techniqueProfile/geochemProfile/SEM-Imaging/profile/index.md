@@ -1091,12 +1091,12 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
         ex:adaProduct-var-002,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
+        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
+            dqv:value 1e+00 ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:semImagingTAPP-P0 ;

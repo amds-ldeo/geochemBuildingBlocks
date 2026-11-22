@@ -1297,13 +1297,13 @@ ex:geochemProduct-example-001 a schema1:Dataset,
         schema1:HowToStep ;
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:additionalProperty [ a schema1:PropertyValue ;
-            schema1:name "Nebulizer gas flow" ;
-            schema1:unitText "L/min" ;
-            schema1:value 1.05e+00 ],
-        [ a schema1:PropertyValue ;
             schema1:name "RF power" ;
             schema1:unitText "W" ;
-            schema1:value 1550 ] ;
+            schema1:value 1550 ],
+        [ a schema1:PropertyValue ;
+            schema1:name "Nebulizer gas flow" ;
+            schema1:unitText "L/min" ;
+            schema1:value 1.05e+00 ] ;
     schema1:description "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation." ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
@@ -1626,7 +1626,7 @@ properties:
                 x-jsonld-id: http://www.w3.org/ns/prov#reagent
               ada:tappDefinition:
                 description: 'Superseded wrapper: the TAPP link is schema:actionProcess
-                  {"@id": ...}, or schema:isBasedOn on the event''s inline workflow.'
+                  ''{"@id": ...}'', or schema:isBasedOn on the event''s inline workflow.'
                 not: {}
                 x-jsonld-id: https://ada.astromat.org/metadata/tappDefinition
             allOf:

@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.BaseSchema.tappDefinition - Technique-Aligned Protocol Profile (TAPP) Definition",
   "bblockName": "Technique-Aligned Protocol Profile (TAPP) Definition",
   "bblockId": "ogch.BaseSchema.tappDefinition",
-  "generated": "2026-11-22T17:19:34.534724+00:00",
+  "generated": "2026-11-22T19:35:18.961768+00:00",
   "result": true,
   "items": [
     {
@@ -140,10 +140,10 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:provUsedInstrumentParamValueShape": {
                   "nodes": []
                 },
                 "cdifd:tappInstrumentParamSpecShape": {
@@ -151,7 +151,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -287,14 +287,14 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix ns1: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a schema1:Product ;\n                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;\n                    schema1:citation \"Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992).\" ;\n                    schema1:description \"Secondary spinel standards for Fe3+/\u00ce\u00a3Fe calibration\" ;\n                    schema1:name \"IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320\" ;\n                    ns1:reagentRole \"secondaryStandard\" ] ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0a66f543705645478e3071d40bdda1a0b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/nmnh-spinel-oxybar-v1/instrument/instrument> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0a66f543705645478e3071d40bdda1a0b3 ] .\n\n_:n0a66f543705645478e3071d40bdda1a0b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix ns1: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/nmnh-spinel-oxybar-v1/instrument/instrument> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n009d4f939b3a4eada955c9ad8797041ab3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode [ a schema1:Product ;\n                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;\n                    schema1:citation \"Wood & Virgo (1989); Bryndzia & Wood (1990); Ionov & Wood (1992).\" ;\n                    schema1:description \"Secondary spinel standards for Fe3+/\u00ce\u00a3Fe calibration\" ;\n                    schema1:name \"IO-5657, PS-216, Vi314-5, IM8703, DB8803-3, BAR8601-10, MO4334-14, KLB8320\" ;\n                    ns1:reagentRole \"secondaryStandard\" ] ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n009d4f939b3a4eada955c9ad8797041ab3 ] .\n\n_:n009d4f939b3a4eada955c9ad8797041ab3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Warning",
-              "focusNode": "N5ae29fc4a2a34fd9a9ac0bd9d5874f5e",
+              "focusNode": "N0d5db47ac2de4936800ce08347b3ec78",
               "resultPath": "schema1:identifier",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -304,7 +304,7 @@
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "isError": false,
               "severity": "warning",
-              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:N5ae29fc4a2a34fd9a9ac0bd9d5874f5e\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
+              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:N0d5db47ac2de4936800ce08347b3ec78\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
             },
             {
               "op": "shacl-result",
@@ -324,10 +324,10 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:provUsedInstrumentParamValueShape": {
                   "nodes": []
                 },
                 "cdifd:tappInstrumentParamSpecShape": {
@@ -335,7 +335,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -493,10 +493,10 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:provUsedInstrumentParamValueShape": {
                   "nodes": []
                 },
                 "cdifd:tappInstrumentParamSpecShape": {
@@ -504,7 +504,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -632,16 +632,16 @@
               "focusNodes": {
                 "cdifd:creativeWorkShape": {
                   "nodes": [
-                    "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:relatedLink",
-                    "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:inDefinedTermSet",
                     "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:inDefinedTermSet",
                     "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:inDefinedTermSet",
-                    "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:inDefinedTermSet"
+                    "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:inDefinedTermSet",
+                    "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:inDefinedTermSet",
+                    "<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:relatedLink"
                   ]
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/creativeWork/rules.shacl:\n - Shape cdifd:creativeWorkShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:relatedLink,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:inDefinedTermSet\n"
+              "message": "Focus nodes for _sources/BaseSchema/creativeWork/rules.shacl:\n - Shape cdifd:creativeWorkShape: <https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:reportedPropertyTemplate/ada:reportedPropertyColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:targetSpeciesTemplate/ada:targetSpeciesColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/ada:monitoredPropertyTemplate/ada:monitoredPropertyColumns/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:additionalProperty/schema1:inDefinedTermSet,<https://registry.onegeochemistry.org/methods/concord-glass-v1-0-6>/schema1:relatedLink\n"
             },
             {
               "op": "shacl-report",
@@ -668,10 +668,10 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:provUsedInstrumentParamValueShape": {
                   "nodes": []
                 },
                 "cdifd:tappInstrumentParamSpecShape": {
@@ -679,7 +679,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
             },
             {
               "op": "shacl-report",
