@@ -1166,16 +1166,16 @@ ex:adaSEM-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
             dqv:value 1e+00 ],
-        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracy" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: analyticalPrecision" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ],
         [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value 1e+00 ] ;
+            dqv:value 1e+00 ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: analyticalPrecision" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:semTAPP-P0 ;
