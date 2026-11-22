@@ -20,14 +20,6 @@
                             schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
                             schema1:identifier [ a schema1:PropertyValue ;
                                     schema1:propertyID "Smithsonian catalog" ;
-                                    schema1:value "NMNH 117075" ] ;
-                            schema1:name "Tiebaghi Mine chromite" ;
-                            ada:reagentRole "primaryStandard" ],
-                        [ a schema1:Product ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
-                            schema1:identifier [ a schema1:PropertyValue ;
-                                    schema1:propertyID "Smithsonian catalog" ;
                                     schema1:value "NMNH 143965" ] ;
                             schema1:name "Kakanui Hornblende" ;
                             ada:reagentRole "primaryStandard" ],
@@ -45,11 +37,6 @@
                                     schema1:value "NMNH 111312/444" ] ;
                             schema1:name "San Carlos olivine" ;
                             ada:reagentRole "primaryStandard" ],
-                        [ a schema1:ChemicalSubstance ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
-                            schema1:name "Wollastonite (synthetic, F.R. Boyd)" ;
-                            ada:reagentRole "primaryStandard" ],
                         [ a schema1:Product ;
                             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                             schema1:citation "Davis et al. (2017), American Mineralogist." ;
@@ -65,6 +52,19 @@
                                     schema1:propertyID "Smithsonian catalog" ;
                                     schema1:value "NMNH 136041" ] ;
                             schema1:name "Spinel" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:Product ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:citation "Jarosewich et al. (1980), Geostandards Newsletter, 4(1): 43â€“47." ;
+                            schema1:identifier [ a schema1:PropertyValue ;
+                                    schema1:propertyID "Smithsonian catalog" ;
+                                    schema1:value "NMNH 117075" ] ;
+                            schema1:name "Tiebaghi Mine chromite" ;
+                            ada:reagentRole "primaryStandard" ],
+                        [ a schema1:ChemicalSubstance ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:citation "Davis et al. (2017), American Mineralogist." ;
+                            schema1:name "Wollastonite (synthetic, F.R. Boyd)" ;
                             ada:reagentRole "primaryStandard" ] ;
                     schema1:name "Instrument calibration" ;
                     schema1:object <file:///github/workspace/#preparedMount> ;
@@ -121,18 +121,15 @@
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue 40 ;
-                            schema1:maxValue 200 ;
-                            schema1:minValue 1 ;
-                            schema1:name "Beam Current" ;
+                            schema1:defaultValue "not applicable" ;
+                            schema1:name "Beam Damage Minimization" ;
                             schema1:readonlyValue true ;
-                            schema1:unitText "nA" ;
-                            schema1:valueName "beamCurrent" ;
-                            schema1:valueRequired true ;
+                            schema1:valueName "beamDamageMinimization" ;
+                            schema1:valueRequired false ;
                             ada:category "Beam Conditions" ;
-                            ada:dataType "number" ;
+                            ada:dataType "string" ;
                             ada:fieldScope "method" ;
-                            ada:tier "M" ],
+                            ada:tier "R" ],
                         [ a schema1:PropertyValueSpecification ;
                             schema1:defaultValue 15 ;
                             schema1:name "Accelerating Voltage" ;
@@ -166,15 +163,18 @@
                             ada:fieldScope "method" ;
                             ada:tier "M" ],
                         [ a schema1:PropertyValueSpecification ;
-                            schema1:defaultValue "not applicable" ;
-                            schema1:name "Beam Damage Minimization" ;
+                            schema1:defaultValue 40 ;
+                            schema1:maxValue 200 ;
+                            schema1:minValue 1 ;
+                            schema1:name "Beam Current" ;
                             schema1:readonlyValue true ;
-                            schema1:valueName "beamDamageMinimization" ;
-                            schema1:valueRequired false ;
+                            schema1:unitText "nA" ;
+                            schema1:valueName "beamCurrent" ;
+                            schema1:valueRequired true ;
                             ada:category "Beam Conditions" ;
-                            ada:dataType "string" ;
+                            ada:dataType "number" ;
                             ada:fieldScope "method" ;
-                            ada:tier "R" ] ;
+                            ada:tier "M" ] ;
                     schema1:description "Quantitative WDS analysis at 15 kV / 40 nA, focused beam. 5 spectrometers measuring SiO2, TiO2, Al2O3, Cr2O3, FeOT, MnO, MgO, CaO, NiO simultaneously." ;
                     schema1:name "WDS data acquisition" ;
                     schema1:position 3 ;
@@ -204,21 +204,6 @@
             schema1:name "orthopyroxene" ] ;
     schema1:version "1.0" ;
     ada:methodParameters [ a schema1:PropertyValueSpecification ;
-            schema1:defaultValue "Yes" ;
-            schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
-                    schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
-                            schema1:termCode "No" ],
-                        [ a schema1:DefinedTerm ;
-                            schema1:termCode "Yes" ] ] ;
-            schema1:name "WDS Utilization" ;
-            schema1:readonlyValue true ;
-            schema1:valueName "wdsUtilization" ;
-            schema1:valueRequired true ;
-            ada:category "Instrument & Software" ;
-            ada:dataType "string" ;
-            ada:fieldScope "method" ;
-            ada:tier "M" ],
-        [ a schema1:PropertyValueSpecification ;
             schema1:defaultValue "No" ;
             schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
                     schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
@@ -228,6 +213,21 @@
             schema1:name "EDS Utilization" ;
             schema1:readonlyValue true ;
             schema1:valueName "edsUtilization" ;
+            schema1:valueRequired true ;
+            ada:category "Instrument & Software" ;
+            ada:dataType "string" ;
+            ada:fieldScope "method" ;
+            ada:tier "M" ],
+        [ a schema1:PropertyValueSpecification ;
+            schema1:defaultValue "Yes" ;
+            schema1:inDefinedTermSet [ a schema1:DefinedTermSet ;
+                    schema1:hasDefinedTerm [ a schema1:DefinedTerm ;
+                            schema1:termCode "No" ],
+                        [ a schema1:DefinedTerm ;
+                            schema1:termCode "Yes" ] ] ;
+            schema1:name "WDS Utilization" ;
+            schema1:readonlyValue true ;
+            schema1:valueName "wdsUtilization" ;
             schema1:valueRequired true ;
             ada:category "Instrument & Software" ;
             ada:dataType "string" ;
@@ -243,43 +243,8 @@
                 "SiO2",
                 "TiO2" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Citation for Standard" ;
-                    schema1:valueName "citationForStandard" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:maxValue 200 ;
-                    schema1:minValue 1 ;
-                    schema1:name "Beam Current (nA)" ;
-                    schema1:unitText "nA" ;
-                    schema1:valueName "beamCurrent" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "number" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Calibration Standard ID" ;
-                    schema1:valueName "calibrationStandardID" ;
-                    schema1:valueRequired false ;
-                    ada:dataType "string" ;
-                    ada:tier "R" ],
-                [ a schema1:PropertyValueSpecification ;
                     schema1:name "Calibration Standard Name" ;
                     schema1:valueName "calibrationStandardName" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
-                    schema1:name "Diffracting Crystal" ;
-                    schema1:valueName "diffractingCrystal" ;
-                    schema1:valueRequired true ;
-                    ada:dataType "string" ;
-                    ada:tier "M" ],
-                [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
-                    schema1:name "Background Method" ;
-                    schema1:valueName "backgroundMethod" ;
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
@@ -292,12 +257,40 @@
                     ada:dataType "number" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
-                    schema1:name "X-ray Line" ;
-                    schema1:valueName "xrayLine" ;
+                    schema1:name "Calibration Standard ID" ;
+                    schema1:valueName "calibrationStandardID" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/background-methods> ;
+                    schema1:name "Background Method" ;
+                    schema1:valueName "backgroundMethod" ;
                     schema1:valueRequired true ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:maxValue 200 ;
+                    schema1:minValue 1 ;
+                    schema1:name "Beam Current (nA)" ;
+                    schema1:unitText "nA" ;
+                    schema1:valueName "beamCurrent" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "number" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/diffracting-crystals> ;
+                    schema1:name "Diffracting Crystal" ;
+                    schema1:valueName "diffractingCrystal" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Spectrometer" ;
+                    schema1:valueName "spectrometer" ;
+                    schema1:valueRequired false ;
+                    ada:dataType "string" ;
+                    ada:tier "R" ],
                 [ a schema1:PropertyValueSpecification ;
                     schema1:description "Each row in the analyte table identifies the analyzed constituent for that row (e.g. an oxide, element, or isotope). In the long run, values should come from a DefinedTermSet; for now they are strings." ;
                     schema1:name "Analysed Oxide/Element" ;
@@ -308,8 +301,15 @@
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 [ a schema1:PropertyValueSpecification ;
-                    schema1:name "Spectrometer" ;
-                    schema1:valueName "spectrometer" ;
+                    schema1:inDefinedTermSet <https://vocab.onegeochemistry.org/epma/xray-lines> ;
+                    schema1:name "X-ray Line" ;
+                    schema1:valueName "xrayLine" ;
+                    schema1:valueRequired true ;
+                    ada:dataType "string" ;
+                    ada:tier "M" ],
+                [ a schema1:PropertyValueSpecification ;
+                    schema1:name "Citation for Standard" ;
+                    schema1:valueName "citationForStandard" ;
                     schema1:valueRequired false ;
                     ada:dataType "string" ;
                     ada:tier "R" ],
