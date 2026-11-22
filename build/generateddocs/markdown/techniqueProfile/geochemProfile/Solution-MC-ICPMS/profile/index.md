@@ -1195,18 +1195,18 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ] ;
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:solutionMcicpmsTAPP-P0 ;
@@ -1392,7 +1392,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-17'
+  dateOfLastChange: '2026-11-22'
 
 ```
 
