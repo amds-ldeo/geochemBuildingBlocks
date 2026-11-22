@@ -37,13 +37,8 @@ allOf:
   # The tabular test keys on `cdi:TabularTextDataSet`, NOT on `ada:tabularData`, although the two
   # select the same 880 records: this file is the domain-NEUTRAL base, and its own description
   # says archive-specific vocabulary belongs in the extending profile (adaProduct). Parts carry
-  # both types -- ["cdi:TabularTextDataSet", "ada:tabularData", "schema:MediaObject"] -- so the
-  # neutral one is available at no cost in selectivity.
-  #
-  # Consequence for conformance detection: under the stage-2 derivation rule an if/then
-  # composition is not a flat `requires`, so geochemProduct.requires becomes core/1.1 +
-  # discovery/1.1 + provenance/1.1. A record that DOES carry variables still gets
-  # data_description/1.1 from stage 1 on its own.
+  # both types -- ["cdi:TabularTextDataSet", "ada:tabularData", "schema:MediaObject"]
+
   - if:
       anyOf:
         - properties:
