@@ -82,12 +82,34 @@ cdifd:adaActivityShape
         sh:hasValue prov:Activity ;
         sh:message "Analysis event nodes must be typed as prov:Activity." ;
     ] ;
-    sh:property [
-        sh:path prov:used ;
-        sh:minCount 1 ;
-        sh:message "Analysis events must reference at least one instrument (prov:used)." ;
-    ] ;
-    sh:message "ADA analysis events (prov:Activity) must identify instruments used." ;
+    # An activity must say what it acted on, in one of the three ways CDIF accepts.
+    #
+    # This replaced `sh:path prov:used ; sh:minCount 1`, retired by the 2026-11-11 CDIF
+    # activity-used-resources change: schema:instrument became the ONE array holding
+    # instruments, computational tools and reagents, told apart by a Wikidata kind term,
+    # and geochemBaseProfile closes off the prov:used wrappers by name. The stale rule
+    # demanded a property no conforming record is permitted to carry, so it fired on
+    # every analysis event its target selected -- 38 of the corpus's 46 violations.
+    #
+    # The disjunction is CDIF's, copied from cdifProvActivity/rules.shacl rather than
+    # restated: an sh:or over schema:instrument / schema:object / schema:actionProcess,
+    # because not every activity is instrumental -- one may instead name the material it
+    # acted on, or the procedure it followed. That is LOOSER than requiring
+    # schema:instrument outright, and it costs nothing here: all 112 activities the
+    # target selects carry schema:instrument and satisfy the first disjunct.
+    #
+    # NOTE this duplicates CDIF's own rule, which is tolerable only while CDIF's shapes
+    # do not run here -- `vendor/shapes/` is empty, so 0 of its 69 rules.shacl load and
+    # every run says so. Once they are vendored, cdifProvActivityShape targets exactly
+    # the same 112 nodes (measured: gBB's product-rooted target and CDIF's dual-typed
+    # one select the same set over this corpus), and this becomes a second home for one
+    # fact. Delete it then, and let the upstream rule carry it.
+    sh:or (
+        [ sh:path schema:instrument ; sh:minCount 1 ]
+        [ sh:path schema:object ; sh:minCount 1 ]
+        [ sh:path schema:actionProcess ; sh:minCount 1 ]
+    ) ;
+    sh:message "ADA analysis events (prov:Activity) must say what they acted on: at least one of schema:instrument, schema:object or schema:actionProcess." ;
     .
 
 # Validates variableMeasured nodes under ADA products.
