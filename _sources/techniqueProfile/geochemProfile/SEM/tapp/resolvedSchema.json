@@ -7550,32 +7550,1922 @@
     {
       "type": "object",
       "properties": {
-        "ada:imageRegistration3DDefault": {
-          "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
-          "type": "string"
-        },
-        "ada:segmentationMethod3DDefault": {
-          "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
-          "anyOf": [
+        "schema:additionalProperty": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "3D Image Registration",
+                "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/imageRegistration3DDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imageRegistration3DDefault"
+                  },
+                  "schema:name": {
+                    "const": "3D Image Registration"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Segmentation Method",
+                "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/segmentationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "segmentationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Segmentation Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Global threshold (single grayscale boundary)",
+                          "Multi-threshold (separate range per phase)",
+                          "Manual threshold per phase",
+                          "Semi-automated: threshold + morphological filtering",
+                          "Region growing",
+                          "Manual tracing",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/segmentation-method"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Beam Damage Minimization",
+                "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/beamDamageMinimizationDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "beamDamageMinimizationDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Damage Minimization"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Beam Raster Dimensions",
+                "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/beamRasterDimensionsDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "beamRasterDimensionsDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "µm"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Chamber Pressure",
+                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/chamberPressureDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "chamberPressureDefault"
+                  },
+                  "schema:name": {
+                    "const": "Chamber Pressure"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "CL Integration Time",
+                "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/clIntegrationTimeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "clIntegrationTimeDefault"
+                  },
+                  "schema:name": {
+                    "const": "CL Integration Time"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "CL Wavelength Calibration Reference",
+                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/clWavelengthCalibrationReferenceDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "clWavelengthCalibrationReferenceDefault"
+                  },
+                  "schema:name": {
+                    "const": "CL Wavelength Calibration Reference"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Drift Correction",
+                "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/driftCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "driftCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Drift Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "EBSD Frame Time",
+                "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdFrameTimeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ebsdFrameTimeDefault"
+                  },
+                  "schema:name": {
+                    "const": "EBSD Frame Time"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "ms"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "EBSD Phase List",
+                "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdPhaseListDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ebsdPhaseListDefault"
+                  },
+                  "schema:name": {
+                    "const": "EBSD Phase List"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "EBSD Step Size",
+                "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdStepSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ebsdStepSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "EBSD Step Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "EDS Live Time per Point or Pixel",
+                "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "schema:name": {
+                    "const": "EDS Live Time per Point or Pixel"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "s"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "EDS Spectral Processing Type",
+                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/edsSpectralProcessingType"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "EDS Spectral Processing Type"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/eds-spectral-processing-type"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
+              },
+              {
+                "title": "Halogen Correction on Oxygen",
+                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/halogenCorrectionOnOxygenDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "halogenCorrectionOnOxygenDefault"
+                  },
+                  "schema:name": {
+                    "const": "Halogen Correction on Oxygen"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Yes — F and Cl substitution in apatite; O calculated as 1-F-Cl=OH",
+                          "No",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/halogen-correction-on-oxygen"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Image Pixel Size",
+                "description": "Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/imagePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imagePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Image Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Stage Scan vs. Beam Scan",
+                "description": "For mapping modes, whether the map was acquired by moving the stage while the beam is held fixed (stage scan), or by deflecting the beam across the field while the stage is stationary (beam scan).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/stageScanVsBeamScan"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semTAPP/stageScanVsBeamScan"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Stage Scan vs. Beam Scan"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
+              },
+              {
+                "title": "Step Size / Pixel Size",
+                "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/stepSizePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "stepSizePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Step Size / Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "µm"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Working Distance",
+                "description": "Distance between the objective lens pole piece and the specimen surface in millimetres.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/workingDistanceDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "workingDistanceDefault"
+                  },
+                  "schema:name": {
+                    "const": "Working Distance"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "mm"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              }
+            ]
+          },
+          "allOf": [
             {
-              "type": "string",
-              "enum": [
-                "Global threshold (single grayscale boundary)",
-                "Multi-threshold (separate range per phase)",
-                "Manual threshold per phase",
-                "Semi-automated: threshold + morphological filtering",
-                "Region growing",
-                "Manual tracing",
-                "N/A",
-                "None",
-                "missing"
-              ]
+              "contains": {
+                "title": "3D Image Registration",
+                "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/imageRegistration3DDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imageRegistration3DDefault"
+                  },
+                  "schema:name": {
+                    "const": "3D Image Registration"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
             },
             {
-              "type": "string"
+              "contains": {
+                "title": "Segmentation Method",
+                "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/segmentationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "segmentationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Segmentation Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Global threshold (single grayscale boundary)",
+                          "Multi-threshold (separate range per phase)",
+                          "Manual threshold per phase",
+                          "Semi-automated: threshold + morphological filtering",
+                          "Region growing",
+                          "Manual tracing",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/segmentation-method"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Beam Damage Minimization",
+                "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/beamDamageMinimizationDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "beamDamageMinimizationDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Damage Minimization"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Beam Raster Dimensions",
+                "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/beamRasterDimensionsDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "beamRasterDimensionsDefault"
+                  },
+                  "schema:name": {
+                    "const": "Beam Raster Dimensions"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "µm"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Chamber Pressure",
+                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/chamberPressureDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "chamberPressureDefault"
+                  },
+                  "schema:name": {
+                    "const": "Chamber Pressure"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "CL Integration Time",
+                "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/clIntegrationTimeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "clIntegrationTimeDefault"
+                  },
+                  "schema:name": {
+                    "const": "CL Integration Time"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "CL Wavelength Calibration Reference",
+                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/clWavelengthCalibrationReferenceDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "clWavelengthCalibrationReferenceDefault"
+                  },
+                  "schema:name": {
+                    "const": "CL Wavelength Calibration Reference"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Drift Correction",
+                "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/driftCorrectionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "driftCorrectionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Drift Correction"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EBSD Frame Time",
+                "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdFrameTimeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ebsdFrameTimeDefault"
+                  },
+                  "schema:name": {
+                    "const": "EBSD Frame Time"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "ms"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EBSD Phase List",
+                "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdPhaseListDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ebsdPhaseListDefault"
+                  },
+                  "schema:name": {
+                    "const": "EBSD Phase List"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EBSD Step Size",
+                "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/ebsdStepSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "ebsdStepSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "EBSD Step Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EDS Live Time per Point or Pixel",
+                "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "schema:name": {
+                    "const": "EDS Live Time per Point or Pixel"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "s"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EDS Spectral Processing Type",
+                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/edsSpectralProcessingType"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "EDS Spectral Processing Type"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/eds-spectral-processing-type"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Halogen Correction on Oxygen",
+                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/halogenCorrectionOnOxygenDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "halogenCorrectionOnOxygenDefault"
+                  },
+                  "schema:name": {
+                    "const": "Halogen Correction on Oxygen"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Yes — F and Cl substitution in apatite; O calculated as 1-F-Cl=OH",
+                          "No",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/halogen-correction-on-oxygen"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Image Pixel Size",
+                "description": "Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/imagePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imagePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Image Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Stage Scan vs. Beam Scan",
+                "description": "For mapping modes, whether the map was acquired by moving the stage while the beam is held fixed (stage scan), or by deflecting the beam across the field while the stage is stationary (beam scan).",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/stageScanVsBeamScan"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValue"
+                    ]
+                  },
+                  "schema:propertyID": {
+                    "const": [
+                      {
+                        "@id": "ada:parameter/semTAPP/stageScanVsBeamScan"
+                      }
+                    ]
+                  },
+                  "schema:name": {
+                    "const": "Stage Scan vs. Beam Scan"
+                  },
+                  "schema:value": {
+                    "type": "string"
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/stage-scan-vs-beam-scan"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:propertyID",
+                  "schema:name",
+                  "schema:value"
+                ],
+                "readOnly": true
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Step Size / Pixel Size",
+                "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/stepSizePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "stepSizePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Step Size / Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "µm"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Working Distance",
+                "description": "Distance between the objective lens pole piece and the specimen surface in millimetres.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semTAPP/workingDistanceDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "workingDistanceDefault"
+                  },
+                  "schema:name": {
+                    "const": "Working Distance"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "mm"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
             }
-          ],
-          "schema:inDefinedTermSet": "ada:vocab/segmentation-method"
+          ]
         },
         "schema:instrument": {
           "type": "array",
@@ -11093,1013 +12983,6 @@
           },
           "title": "Monitored Property Template"
         },
-        "schema:additionalProperty": {
-          "type": "array",
-          "items": {
-            "anyOf": [
-              {
-                "title": "Beam Damage Minimization",
-                "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/beamDamageMinimizationDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "beamDamageMinimizationDefault"
-                  },
-                  "schema:name": {
-                    "const": "Beam Damage Minimization"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Beam Raster Dimensions",
-                "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/beamRasterDimensionsDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "beamRasterDimensionsDefault"
-                  },
-                  "schema:name": {
-                    "const": "Beam Raster Dimensions"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "const": "µm x µm"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Chamber Pressure",
-                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/chamberPressureDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "chamberPressureDefault"
-                  },
-                  "schema:name": {
-                    "const": "Chamber Pressure"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "CL Wavelength Calibration Reference",
-                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/clWavelengthCalibrationReferenceDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "clWavelengthCalibrationReferenceDefault"
-                  },
-                  "schema:name": {
-                    "const": "CL Wavelength Calibration Reference"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Drift Correction",
-                "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/driftCorrectionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "driftCorrectionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Drift Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "EBSD Frame Time",
-                "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/ebsdFrameTimeDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "ebsdFrameTimeDefault"
-                  },
-                  "schema:name": {
-                    "const": "EBSD Frame Time"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "const": "ms"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "EDS Spectral Processing Type",
-                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/edsSpectralProcessingType"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "EDS Spectral Processing Type"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/eds-spectral-processing-type"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              {
-                "title": "Halogen Correction on Oxygen",
-                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/halogenCorrectionOnOxygenDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "halogenCorrectionOnOxygenDefault"
-                  },
-                  "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/halogen-correction-on-oxygen"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Image Pixel Size",
-                "description": "Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/imagePixelSizeDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "imagePixelSizeDefault"
-                  },
-                  "schema:name": {
-                    "const": "Image Pixel Size"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              {
-                "title": "Stage Scan vs. Beam Scan",
-                "description": "For mapping modes, whether the map was acquired by moving the stage while the beam is held fixed (stage scan), or by deflecting the beam across the field while the stage is stationary (beam scan).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/stageScanVsBeamScan"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semTAPP/stageScanVsBeamScan"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Stage Scan vs. Beam Scan"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/stage-scan-vs-beam-scan"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              }
-            ]
-          },
-          "allOf": [
-            {
-              "contains": {
-                "title": "Beam Damage Minimization",
-                "description": "Describes any measures taken to reduce electron beam damage to the sample during analysis. Examples: reduced accelerating voltage, lowered beam current, defocused or rastered beam, cooled stage, short acquisition sequences, or rotating between multiple points.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/beamDamageMinimizationDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "beamDamageMinimizationDefault"
-                  },
-                  "schema:name": {
-                    "const": "Beam Damage Minimization"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Beam Raster Dimensions",
-                "description": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/beamRasterDimensionsDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "beamRasterDimensionsDefault"
-                  },
-                  "schema:name": {
-                    "const": "Beam Raster Dimensions"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "const": "µm x µm"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Chamber Pressure",
-                "description": "Chamber pressure and gas type during analysis. Required for variable pressure (VP-SEM) and environmental SEM (ESEM) modes. Report value and unit (Pa or Torr) and gas composition. Use 'None' for standard high-vacuum operation.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/chamberPressureDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "chamberPressureDefault"
-                  },
-                  "schema:name": {
-                    "const": "Chamber Pressure"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "CL Wavelength Calibration Reference",
-                "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/clWavelengthCalibrationReferenceDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "clWavelengthCalibrationReferenceDefault"
-                  },
-                  "schema:name": {
-                    "const": "CL Wavelength Calibration Reference"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Drift Correction",
-                "description": "Describes whether and how stage or beam drift was monitored and corrected during the measurement session. Examples: periodic stage realignment to a fiducial marker, automated beam drift correction in acquisition software, or reanalysis of a reference point at regular intervals.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/driftCorrectionDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "driftCorrectionDefault"
-                  },
-                  "schema:name": {
-                    "const": "Drift Correction"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "EBSD Frame Time",
-                "description": "Acquisition time per EBSD diffraction pattern frame in milliseconds.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/ebsdFrameTimeDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "ebsdFrameTimeDefault"
-                  },
-                  "schema:name": {
-                    "const": "EBSD Frame Time"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "const": "ms"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "EDS Spectral Processing Type",
-                "description": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/edsSpectralProcessingType"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semTAPP/edsSpectralProcessingType"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "EDS Spectral Processing Type"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/eds-spectral-processing-type"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Halogen Correction on Oxygen",
-                "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/halogenCorrectionOnOxygenDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "halogenCorrectionOnOxygenDefault"
-                  },
-                  "schema:name": {
-                    "const": "Halogen Correction on Oxygen"
-                  },
-                  "ada:dataType": {
-                    "const": "string"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/halogen-correction-on-oxygen"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Image Pixel Size",
-                "description": "Physical size of each image pixel at the sample surface, in nm or µm. For large-area mosaic imaging, report the pixel size of individual tiles and the number and arrangement of tiles.",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/imagePixelSizeDefault"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValueSpecification"
-                    ]
-                  },
-                  "schema:valueName": {
-                    "const": "imagePixelSizeDefault"
-                  },
-                  "schema:name": {
-                    "const": "Image Pixel Size"
-                  },
-                  "ada:dataType": {
-                    "const": "number"
-                  },
-                  "ada:fieldScope": {
-                    "const": "session"
-                  },
-                  "schema:readonlyValue": {
-                    "const": false
-                  },
-                  "ada:tier": {
-                    "const": "R"
-                  },
-                  "schema:defaultValue": {
-                    "anyOf": [
-                      {
-                        "type": "number"
-                      },
-                      {
-                        "type": "string"
-                      }
-                    ]
-                  },
-                  "schema:unitText": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:valueName",
-                  "schema:name",
-                  "ada:dataType",
-                  "ada:fieldScope"
-                ]
-              },
-              "minContains": 0,
-              "maxContains": 1
-            },
-            {
-              "contains": {
-                "title": "Stage Scan vs. Beam Scan",
-                "description": "For mapping modes, whether the map was acquired by moving the stage while the beam is held fixed (stage scan), or by deflecting the beam across the field while the stage is stationary (beam scan).",
-                "type": "object",
-                "properties": {
-                  "@id": {
-                    "const": "ada:parameter/semTAPP/stageScanVsBeamScan"
-                  },
-                  "@type": {
-                    "const": [
-                      "schema:PropertyValue"
-                    ]
-                  },
-                  "schema:propertyID": {
-                    "const": [
-                      {
-                        "@id": "ada:parameter/semTAPP/stageScanVsBeamScan"
-                      }
-                    ]
-                  },
-                  "schema:name": {
-                    "const": "Stage Scan vs. Beam Scan"
-                  },
-                  "schema:value": {
-                    "type": "string"
-                  },
-                  "schema:inDefinedTermSet": {
-                    "const": {
-                      "@id": "ada:vocab/stage-scan-vs-beam-scan"
-                    }
-                  }
-                },
-                "required": [
-                  "@id",
-                  "@type",
-                  "schema:propertyID",
-                  "schema:name",
-                  "schema:value"
-                ],
-                "readOnly": true
-              },
-              "minContains": 0,
-              "maxContains": 1
-            }
-          ]
-        },
         "ada:clAcquisitionMode": {
           "description": "CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.",
           "type": "string",
@@ -12115,17 +12998,6 @@
           ],
           "schema:inDefinedTermSet": "ada:vocab/cl-acquisition-mode",
           "readOnly": true
-        },
-        "ada:clIntegrationTimeDefault": {
-          "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
         },
         "ada:clWavelengthRange": {
           "description": "Detection wavelength range of the CL system in nm.",
@@ -12182,21 +13054,6 @@
             ]
           }
         },
-        "ada:ebsdPhaseListDefault": {
-          "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
-          "type": "string"
-        },
-        "ada:ebsdStepSizeDefault": {
-          "description": "Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:edsAcquisitionMode": {
           "description": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers what the literature also calls spot or point-spectrum analysis. 'Map' and 'Spectrum image' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with '; ' rather than looking for a combined member.",
           "type": "string",
@@ -12212,17 +13069,6 @@
           ],
           "schema:inDefinedTermSet": "ada:vocab/eds-acquisition-mode",
           "readOnly": true
-        },
-        "ada:edsLiveTimePerPointOrPixelDefault": {
-          "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
         },
         "schema:object": {
           "type": "array",
@@ -12386,17 +13232,6 @@
           "schema:inDefinedTermSet": "ada:vocab/se-detector-type",
           "readOnly": true
         },
-        "ada:stepSizePixelSizeDefault": {
-          "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:wdsDeadTimeCorrection": {
           "description": "Method used to correct for WDS proportional counter dead time at high count rates. Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion. Record the algorithm here and any instrument-specific constant alongside it — 'Default constant (manufacturer) — 3 µs, Cameca'. The instrument vendor itself is recorded by Instrument Manufacturer, not by this field's allowed values.",
           "anyOf": [
@@ -12420,17 +13255,6 @@
           ],
           "schema:inDefinedTermSet": "ada:vocab/wds-dead-time-correction",
           "readOnly": true
-        },
-        "ada:workingDistanceDefault": {
-          "description": "Distance between the objective lens pole piece and the specimen surface in millimetres.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
         },
         "ada:monitoredElements": {
           "type": "array",
@@ -12461,23 +13285,15 @@
         }
       },
       "required": [
-        "ada:imageRegistration3DDefault",
-        "ada:segmentationMethod3DDefault",
         "ada:clAcquisitionMode",
-        "ada:clIntegrationTimeDefault",
         "ada:clWavelengthRange",
         "ada:ebsdDetectorConfiguration",
-        "ada:ebsdPhaseListDefault",
-        "ada:ebsdStepSizeDefault",
         "ada:edsAcquisitionMode",
-        "ada:edsLiveTimePerPointOrPixelDefault",
         "ada:massAbsorptionCoefficients",
         "ada:matrixCorrectionMethod",
         "ada:sampleTiltAngle",
         "ada:seDetectorType",
-        "ada:stepSizePixelSizeDefault",
-        "ada:wdsDeadTimeCorrection",
-        "ada:workingDistanceDefault"
+        "ada:wdsDeadTimeCorrection"
       ]
     }
   ],

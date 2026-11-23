@@ -12470,6 +12470,50 @@
                 ]
               },
               {
+                "title": "Constants Reference Values",
+                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "constantsReferenceValuesDefault"
+                  },
+                  "schema:name": {
+                    "const": "Constants Reference Values"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "Double Spike Isotope Pair",
                 "description": "The pair of enriched isotopes used to construct the double spike. Both isotopes must be naturally rare and free from isobaric interferences. The double spike composition must be accurately calibrated before use. Specify both isotope masses and the spike certificate or calibration reference. Record 'N/A' where the procedure does not use a double spike.",
                 "type": "object",
@@ -13085,6 +13129,54 @@
                   },
                   "schema:readonlyValue": {
                     "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Constants Reference Values",
+                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "constantsReferenceValuesDefault"
+                  },
+                  "schema:name": {
+                    "const": "Constants Reference Values"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -13744,10 +13836,6 @@
             }
           ]
         },
-        "ada:constantsAndReferenceValuesUsedDefault": {
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-          "type": "string"
-        },
         "ada:isobaricInterferenceCorrectionsApplied": {
           "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
           "anyOf": [
@@ -14233,7 +14321,6 @@
         }
       },
       "required": [
-        "ada:constantsAndReferenceValuesUsedDefault",
         "ada:isobaricInterferenceCorrectionsApplied",
         "ada:massBiasCorrectionStrategy",
         "ada:numberOfAcquisitionPasses"

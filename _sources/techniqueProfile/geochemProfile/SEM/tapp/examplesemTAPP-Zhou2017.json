@@ -16,9 +16,43 @@
     "schema:HowTo"
   ],
   "schema:name": "sem protocol — Zhou2017",
-  "schema:description": "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE).",
-  "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
-  "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
+  "schema:description": "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/imageRegistration3DDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageRegistration3DDefault",
+      "schema:name": "3D Image Registration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/workingDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "workingDistanceDefault",
+      "schema:name": "Working Distance",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4,
+      "schema:description": "4 mm"
+    }
+  ],
   "schema:instrument": [
     {
       "schema:additionalType": [
@@ -199,7 +233,6 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Stated, but by procedure rather than by criterion — \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (§2.3, p.4); no rule is given for where the area was placed",
-  "ada:workingDistanceDefault": "4 mm",
   "ada:monitoredElements": [
     "N/A — this procedure is 3D Tomography. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
   ],
@@ -284,18 +317,13 @@
     }
   ],
   "ada:clAcquisitionMode": "missing",
-  "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:ebsdDetectorConfiguration": "no value available: ada:ebsdDetectorConfiguration",
-  "ada:ebsdPhaseListDefault": "no value available: ada:ebsdPhaseListDefault",
-  "ada:ebsdStepSizeDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:seDetectorType": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }

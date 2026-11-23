@@ -17,9 +17,27 @@
     "schema:HowTo"
   ],
   "schema:name": "SEM analytical workflow",
-  "ada:imageRegistration3DDefault": "no value available: imageRegistration3D",
-  "ada:segmentationMethod3DDefault": "Global threshold (single grayscale boundary)",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semTAPP/imageRegistration3DDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageRegistration3DDefault",
+      "schema:name": "3D Image Registration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
     {
       "@id": "ada:parameter/semTAPP/beamDamageMinimizationDefault",
       "@type": [
@@ -51,6 +69,16 @@
       "ada:fieldScope": "session"
     },
     {
+      "@id": "ada:parameter/semTAPP/clIntegrationTimeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "clIntegrationTimeDefault",
+      "schema:name": "CL Integration Time",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
       "@id": "ada:parameter/semTAPP/clWavelengthCalibrationReferenceDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -77,6 +105,36 @@
       ],
       "schema:valueName": "ebsdFrameTimeDefault",
       "schema:name": "EBSD Frame Time",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/ebsdPhaseListDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ebsdPhaseListDefault",
+      "schema:name": "EBSD Phase List",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/ebsdStepSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "ebsdStepSizeDefault",
+      "schema:name": "EBSD Step Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
       "ada:dataType": "number",
       "ada:fieldScope": "session"
     },
@@ -125,10 +183,29 @@
       ],
       "schema:name": "Stage Scan vs. Beam Scan",
       "schema:value": "no value available: unnamed property"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/stepSizePixelSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stepSizePixelSizeDefault",
+      "schema:name": "Step Size / Pixel Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/workingDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "workingDistanceDefault",
+      "schema:name": "Working Distance",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
     }
   ],
   "ada:clAcquisitionMode": "Panchromatic",
-  "ada:clIntegrationTimeDefault": 1.0,
   "ada:clWavelengthRange": 1.0,
   "ada:ebsdDetectorConfiguration": "no value available: ebsdDetectorConfiguration",
   "dqv:hasQualityMeasurement": [
@@ -137,10 +214,7 @@
       "dqv:value": "no value available: ebsdPatternQualityThreshold"
     }
   ],
-  "ada:ebsdPhaseListDefault": "no value available: ebsdPhaseList",
-  "ada:ebsdStepSizeDefault": 1.0,
   "ada:edsAcquisitionMode": "Point",
-  "ada:edsLiveTimePerPointOrPixelDefault": 1.0,
   "ada:massAbsorptionCoefficients": "LINEMU",
   "ada:matrixCorrectionMethod": "XPP (Simplified PAP)",
   "ada:sampleTiltAngle": 1.0,
@@ -148,10 +222,8 @@
   "ada:secondaryReferenceMaterialDefault": [
     "no value available: secondaryReferenceMaterials"
   ],
-  "ada:stepSizePixelSizeDefault": 1.0,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: samplingUnitSelectionCriteria",
   "ada:wdsDeadTimeCorrection": "Default constant (manufacturer)",
-  "ada:workingDistanceDefault": 1.0,
   "ada:monitoredElements": [
     "no value available: monitoredElements"
   ],

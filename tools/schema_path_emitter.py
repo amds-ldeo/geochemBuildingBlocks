@@ -1134,6 +1134,19 @@ def build(tapp):
                       # emitters annotate schema:inDefinedTermSet from it, and "controlled" is
                       # not recoverable from jtype's "string".
                       "dt": m.get("dt", "")}
+                # The workbook's allowed-value list, as the SUBSCHEMA the flat
+                # `$MethodDefinition.ada:<name>Default` form used to carry. Built with the same
+                # leaf_for() so the two placements cannot disagree about the value space, and
+                # consumed by param_template_def for schema:defaultValue. Without it, converting
+                # a flat procedure half to the parameter-path form silently dropped the enum:
+                # -87 members over 6 techniques, which the constraint census caught.
+                # None when the Data Type names no controlled list, and then the emitter's own
+                # jtype-based typing stands.
+                if "controlled" in (m.get("dt") or "").lower():
+                    _terms = b.enum_terms(m.get("ex")) or None
+                    if _terms:
+                        _dl = leaf_for(None, m.get("dt"), _terms)
+                        bd["allowed_leaf"] = _dl
                 if parsed.segments[-1].prop == "schema:defaultValue":
                     name, body = b.param_template_def(bd, pt_seen)
                     registries["parameterTemplates"].update(body); pt_seen.add(name)

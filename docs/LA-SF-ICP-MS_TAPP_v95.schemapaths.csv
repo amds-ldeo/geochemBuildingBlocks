@@ -101,7 +101,7 @@ Triple Scanning Mode,Advanced,Read-Only,Controlled list,$MethodDefinition.schema
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),,module,,placement owned by Module ICPMS,
 Ion Counter Dead Time,Basic,Editable,Numeric (ns),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Ion Counter Dead Time'].schema:value,inferred,,,
 Dwell Time per Mass,Basic,Editable,Numeric (ms) / Text,$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[],authored,shared,,monitored property
-Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$MethodDefinition.ada:totalIntegrationTimePerOutputDataPointDefault,inferred,,,
+Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$MethodDefinition.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:defaultValue,inferred,,procedure half converted to the parameter-path form so a template is emitted,
 Total Integration Time per Output Data Point,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Total Integration Time per Output Data Point'].schema:value,inferred,,,
 Background Count Time,Basic,Editable,Numeric (s),,module,,placement owned by Module LaserAblation,
 Background Count Time,Basic,Editable,Numeric (s),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Background Count Time'].schema:value,authored,,tier rule: session parameter is an additionalProperty on the analysis,
@@ -134,7 +134,7 @@ Normalization / Standards-Based Correction,Advanced,Editable,Text (free),,module
 Calibration Factor and Determination Method,Basic,Editable,Text (free),,module,,placement owned by Module CalibrationFactor,reported property
 Procedural Blank Level,N/A,Basic,Text (free),$Dataset.prov:wasGeneratedBy.ada:proceduralBlankLevel,authored,,analysis-instance (needs mapping) | path from owning module,target species
 Analysis Inclusion and Rejection Criteria,Basic,Editable,Text (free),$MethodDefinition.schema:actionProcess.schema:step[schema:name='Data processing'].schema:additionalProperty[schema:name='Analysis Inclusion and Rejection Criteria'].schema:value,inferred,,path from owning module,
-Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.ada:constantsAndReferenceValuesUsedDefault,inferred,,,
+Constants and Reference Values Used,Basic,Editable,Text (free),$MethodDefinition.schema:additionalProperty[schema:name='Constants and Reference Values Used'].schema:defaultValue,inferred,,procedure half converted to the parameter-path form so a template is emitted,
 Constants and Reference Values Used,Basic,Editable,Text (free),$Dataset.prov:wasGeneratedBy.schema:additionalProperty[schema:name='Constants and Reference Values Used'].schema:value,inferred,,,
 Primary Calibration Standard Name,Basic,Editable,Text (free),$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[],keyed,divergent,keyed route for `target material x target species`. Returned to the technique: the module that covered it cannot constrain this container.,target material x target species
 Calibration Standard Measurement Frequency,Basic,Read-Only,Text (free),,module,shared,placement owned by Module ICPMS,

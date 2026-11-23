@@ -123,7 +123,21 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - Free-standing on stage pin
+                - Free-standing without holder
+                - Tube or vial
+                - Glass capillary
+                - Sealed bag or wrap
+                - Embedded or adhered
+                - On a flat support or substrate
+                - Fixed to the stage or gantry
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/sample-mounting-method
@@ -340,6 +354,74 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - &id006
+          title: Rotation Range
+          description: Total angular range over which projection images are acquired, in degrees.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/rotationRangeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: rotationRangeDefault
+            schema:name:
+              const: Rotation Range
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: °
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id007
+          title: Number of Projections
+          description: Total number of equally-spaced projection images acquired over the full rotation range. For Mode B (multi-volume stitching), this is the number per sub-volume.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/numberOfProjectionsDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: numberOfProjectionsDefault
+            schema:name:
+              const: Number of Projections
+            ada:dataType:
+              const: integer
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id008
           title: Rotation Step Size
           description: Angular increment between successive projection images, in degrees. Equal to Rotation Range divided by Number of Projections when both are reported; however, some sources report step size as the primary rotation parameter without stating the total number of projections explicitly.
           type: object
@@ -374,7 +456,42 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id007
+        - &id009
+          title: Exposure Time per Projection
+          description: Duration of X-ray exposure for each individual projection image frame, in seconds. Adjustment is warranted for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5–2 s).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/exposureTimePerProjectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: exposureTimePerProjectionDefault
+            schema:name:
+              const: Exposure Time per Projection
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id010
           title: Frames Averaged per Projection
           description: Number of individual detector frames acquired and averaged to produce each saved projection image. The effective exposure per projection = exposure time per frame × frames averaged.
           type: object
@@ -407,7 +524,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id008
+        - &id011
           title: Detector Binning
           description: Detector pixel binning factor applied during acquisition. Binning combines adjacent pixels (e.g., 2×2 combines 4 pixels into one).
           type: object
@@ -431,6 +548,13 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+              enum:
+              - 1×1 (no binning)
+              - 2×2
+              - 4×4
+              - N/A
+              - None
+              - missing
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/detector-binning
@@ -441,7 +565,47 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id012
+          title: Rotation Mode
+          description: Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/rotationModeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: rotationModeDefault
+            schema:name:
+              const: Rotation Mode
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+              enum:
+              - Step rotation (stop-and-shoot)
+              - Continuous rotation
+              - N/A
+              - None
+              - missing
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/rotation-mode
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id013
           title: Reconstruction Convolution Filter
           description: Convolution (apodization) filter kernel applied during back-projection reconstruction.
           type: object
@@ -472,7 +636,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id014
           title: Beam Hardening Correction Parameter
           description: Numerical value or setting applied in the software beam hardening correction algorithm for this specific analysis. Companion to Beam Hardening Correction Method.
           type: object
@@ -503,7 +667,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id015
           title: Ring Artifact Correction Method
           description: Procedure specification for how ring artifacts are handled. Whether correction was applied and its outcome are recorded separately in Group 6.
           type: object
@@ -534,7 +698,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id016
           title: CT Number Calibration
           description: Whether the raw CT grayscale values have been calibrated to physically meaningful units using reference materials.
           type: object
@@ -557,7 +721,16 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - None — raw instrument grayscale
+                - Compared to MuCalc calculated LAC values (Hanna & Ketcham 2017)
+                - Calibrated to LAC (cm⁻¹) using air and known mineral standards
+                - Calibrated to Hounsfield Units (HU) relative to water
+                - N/A
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/ct-number-calibration
@@ -568,7 +741,53 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id013
+        - &id017
+          title: Segmentation Method
+          description: Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/segmentationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: segmentationMethodDefault
+            schema:name:
+              const: Segmentation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Global threshold (single grayscale boundary)
+                - Multi-threshold (separate range per phase)
+                - Manual threshold per phase
+                - 'Semi-automated: threshold + morphological filtering'
+                - Region growing
+                - Manual tracing
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/segmentation-method
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id018
           title: Segmentation Threshold Values or Criteria
           description: Specific CT number range(s) or quantitative criteria used to define each segmented phase or feature. For LAC-calibrated datasets, report values in cm⁻¹.
           type: object
@@ -599,7 +818,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id014
+        - &id019
           title: Phase Identification Method
           description: Method used to assign reconstructed CT number ranges to specific mineral phases or material types. Approaches include comparison to calculated linear attenuation coefficients (LAC), cross-validation with independent analytical techniques, or empirical calibration.
           type: object
@@ -630,7 +849,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id015
+        - &id020
           title: VOI Selection Criteria
           description: Rules specifying how the Volume of Interest (VOI) is to be defined for quantitative analysis. Common criteria exclude cone-beam artifact zones at sample edges, beam hardening halos near dense inclusions, and sample holder signal. The actual VOI applied in a specific analysis is recorded separately at analysis level.
           type: object
@@ -661,7 +880,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
+        - &id021
           title: Output Bit Depth
           description: Bit depth of the reconstructed 3D volume (number of bits used to encode each voxel's grayscale value). Common values are 8-bit (256 gray levels), 16-bit (65,536 gray levels), or 32-bit floating point. A required output bit depth may be specified if downstream analysis workflows depend on a consistent grayscale range.
           type: object
@@ -685,6 +904,13 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+              enum:
+              - 16-bit
+              - 32-bit
+              - 8-bit
+              - N/A
+              - None
+              - missing
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/output-bit-depth
@@ -695,7 +921,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id017
+        - &id022
           title: Partial Volume Effect Criteria
           description: Specification of how partial volume effects (PVE) are managed in quantitative analysis. PVE correction can be implemented via PSF-based deconvolution tools such as Blob3D. Record the minimum feature size criterion adopted for the procedure (in voxels or µm), the basis for it, the treatment of boundary voxels in modal abundance or size distribution calculations, and whether PVE correction is required or optional. State whether the criterion follows the Withers et al. (2021) convention — a feature must span at least 3 voxels to be positively identified and at least 10 for reliable shape and volume characterisation — or is SNR-limited, PVE-limited or analyst-defined.
           type: object
@@ -726,7 +952,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id023
           title: Cross-Validation Procedure Requirement
           description: Specification of what independent analytical validation is required to confirm CT segmentation results, phase identification, or quantitative measurements. Common approaches include BSE imaging, SEM-EDS or EPMA modal analysis, He pycnometry for bulk porosity, and Raman or SIMS phase mapping. Record the required validation method(s) and the sampling fraction (e.g., every sample, one per session, or a representative subset).
           type: object
@@ -921,6 +1147,21 @@ allOf:
       - contains: *id018
         minContains: 0
         maxContains: 1
+      - contains: *id019
+        minContains: 0
+        maxContains: 1
+      - contains: *id020
+        minContains: 0
+        maxContains: 1
+      - contains: *id021
+        minContains: 0
+        maxContains: 1
+      - contains: *id022
+        minContains: 0
+        maxContains: 1
+      - contains: *id023
+        minContains: 0
+        maxContains: 1
     ada:xRaySourceConfiguration:
       description: Focal spot geometry and scale of the X-ray tube.
       anyOf:
@@ -1068,21 +1309,6 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:rotationRangeDefault:
-      description: Total angular range over which projection images are acquired, in degrees.
-      anyOf:
-      - type: number
-      - type: string
-    ada:numberOfProjectionsDefault:
-      description: Total number of equally-spaced projection images acquired over the full rotation range. For Mode B (multi-volume stitching), this is the number per sub-volume.
-      anyOf:
-      - type: integer
-      - type: string
-    ada:exposureTimePerProjectionDefault:
-      description: Duration of X-ray exposure for each individual projection image frame, in seconds. Adjustment is warranted for samples that are unusually dense or unusually transparent. If the exposure time was varied across samples within the same procedure or session, report the full range applied (e.g., 0.5–2 s).
-      anyOf:
-      - type: number
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -1104,7 +1330,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id019
+                      - &id024
                         title: Flat Field Correction
                         description: Whether dark-field (detector read with X-ray source off; electronic noise baseline) and bright-field (source on, no sample; gain calibration) reference images are acquired and applied to normalize detector response before reconstruction.
                         type: object
@@ -1127,7 +1353,15 @@ allOf:
                           ada:tier:
                             const: R
                           schema:defaultValue:
-                            type: string
+                            anyOf:
+                            - type: string
+                              enum:
+                              - Yes — flat-field applied; residual Poisson noise from flat-fielding noted
+                              - No — flux normalization not applied
+                              - N/A
+                              - None
+                              - missing
+                            - type: string
                           schema:inDefinedTermSet:
                             const:
                               '@id': ada:vocab/flat-field-correction
@@ -1138,7 +1372,7 @@ allOf:
                         - schema:name
                         - ada:dataType
                         - ada:fieldScope
-                      - &id020
+                      - &id025
                         title: Sub-volume Stitching and Registration Method
                         description: Method used to register adjacent sub-volume datasets to each other and stitch them into a single continuous 3D volume. Report the alignment strategy (manual, automated, fiducial-based), the software used, and any correction steps applied. Where rotational mismatch has been corrected via raw projection re-alignment, document it here.
                         type: object
@@ -1171,10 +1405,10 @@ allOf:
                         - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id019
+                    - contains: *id024
                       minContains: 0
                       maxContains: 1
-                    - contains: *id020
+                    - contains: *id025
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -1188,16 +1422,6 @@ allOf:
                   const: Data processing
               required:
               - schema:name
-    ada:rotationModeDefault:
-      description: Whether projection images are acquired during continuous sample rotation (faster; may introduce slight motion blur at high rotation speeds) or at discrete step positions with the stage stationary during each exposure (stop-and-shoot; eliminates motion blur).
-      type: string
-      enum:
-      - Step rotation (stop-and-shoot)
-      - Continuous rotation
-      - N/A
-      - None
-      - missing
-      schema:inDefinedTermSet: ada:vocab/rotation-mode
     ada:minimumSubVolumeOverlap:
       description: Minimum number of reconstructed slices that must overlap between adjacent sub-volumes in a stitched dataset.
       anyOf:
@@ -1247,22 +1471,6 @@ allOf:
         - missing
       - type: string
       schema:inDefinedTermSet: ada:vocab/output-data-format
-    ada:segmentationMethodDefault:
-      description: Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.
-      anyOf:
-      - type: string
-        enum:
-        - Global threshold (single grayscale boundary)
-        - Multi-threshold (separate range per phase)
-        - Manual threshold per phase
-        - 'Semi-automated: threshold + morphological filtering'
-        - Region growing
-        - Manual tracing
-        - N/A
-        - None
-        - missing
-      - type: string
-      schema:inDefinedTermSet: ada:vocab/segmentation-method
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -1288,12 +1496,7 @@ allOf:
   - ada:applicableSampleDimensionRange
   - ada:xRaySourceConfiguration
   - ada:detectorType
-  - ada:rotationRangeDefault
-  - ada:numberOfProjectionsDefault
-  - ada:exposureTimePerProjectionDefault
-  - ada:rotationModeDefault
   - ada:minimumSubVolumeOverlap
   - ada:reconstructionAlgorithm
   - ada:beamHardeningCorrectionMethod
   - ada:outputDataFormatDefault
-  - ada:segmentationMethodDefault

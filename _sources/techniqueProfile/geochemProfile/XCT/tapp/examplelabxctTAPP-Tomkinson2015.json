@@ -16,7 +16,7 @@
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Tomkinson2015",
-  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume.",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Martian meteorite"
@@ -69,6 +69,40 @@
       ],
       "schema:name": "X-ray Tube Anode Material",
       "schema:value": "Copper"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3143
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20,
+      "schema:description": "20 s"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -148,11 +182,8 @@
       "@id": "ex:labxctTAPP-Tomkinson2015/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "3143",
-  "ada:exposureTimePerProjectionDefault": "20 s",
   "ada:samplingUnitSelectionCriteriaDefault": "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis",
   "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
-  "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite",
@@ -247,8 +278,6 @@
   "ada:detectorType": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }

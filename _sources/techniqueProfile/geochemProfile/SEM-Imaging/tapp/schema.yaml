@@ -518,6 +518,142 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - &id004
+          title: Dwell Time per Pixel
+          description: Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/dwellTimePerPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: dwellTimePerPixelDefault
+            schema:name:
+              const: Dwell Time per Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id005
+          title: CL Integration Time
+          description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/clIntegrationTimeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: clIntegrationTimeDefault
+            schema:name:
+              const: CL Integration Time
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id006
+          title: EBSD Step Size
+          description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/ebsdStepSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ebsdStepSizeDefault
+            schema:name:
+              const: EBSD Step Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id007
+          title: EBSD Phase List
+          description: Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/ebsdPhaseListDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ebsdPhaseListDefault
+            schema:name:
+              const: EBSD Phase List
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id008
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.
           type: object
@@ -558,11 +694,18 @@ allOf:
       - contains: *id004
         minContains: 0
         maxContains: 1
-    ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.
-      anyOf:
-      - type: number
-      - type: string
+      - contains: *id005
+        minContains: 0
+        maxContains: 1
+      - contains: *id006
+        minContains: 0
+        maxContains: 1
+      - contains: *id007
+        minContains: 0
+        maxContains: 1
+      - contains: *id008
+        minContains: 0
+        maxContains: 1
     ada:clAcquisitionMode:
       description: 'CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.'
       type: string
@@ -583,25 +726,12 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:clIntegrationTimeDefault:
-      description: Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.
-      anyOf:
-      - type: number
-      - type: string
     ada:sampleTiltAngle:
       description: Sample tilt angle for EBSD acquisition in degrees, measured from horizontal.
       anyOf:
       - type: number
       - type: string
       readOnly: true
-    ada:ebsdStepSizeDefault:
-      description: Distance between adjacent EBSD measurement points in the map in nm or µm. Must be smaller than the smallest grain of interest.
-      anyOf:
-      - type: number
-      - type: string
-    ada:ebsdPhaseListDefault:
-      description: Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.
-      type: string
     schema:actionProcess:
       type: object
       properties:
@@ -650,7 +780,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id005
+                      - &id009
                         title: Crystal Structure Database
                         description: Crystal structure database used for EBSD phase identification and Kikuchi pattern simulation.
                         type: object
@@ -683,7 +813,7 @@ allOf:
                         - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id005
+                    - contains: *id009
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -731,10 +861,6 @@ allOf:
         - EBSD
   required:
   - ada:ebsdDetectorConfiguration
-  - ada:dwellTimePerPixelDefault
   - ada:clAcquisitionMode
   - ada:clWavelengthRange
-  - ada:clIntegrationTimeDefault
   - ada:sampleTiltAngle
-  - ada:ebsdStepSizeDefault
-  - ada:ebsdPhaseListDefault

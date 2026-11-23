@@ -1197,6 +1197,41 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - &id037
+          title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/epmaTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              const: EDS Live Time per Point or Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: EDS Spectral Processing Type
           description: Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.
           type: object
@@ -1223,7 +1258,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id037
+        - &id038
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.
           type: object
@@ -1246,7 +1281,15 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - Yes — F and Cl substitution in apatite; O calculated as 1-F-Cl=OH
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/halogen-correction-on-oxygen
@@ -1283,8 +1326,46 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
+        - &id039
+          title: Step Size / Pixel Size
+          description: Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/epmaTAPP/stepSizePixelSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: stepSizePixelSizeDefault
+            schema:name:
+              const: Step Size / Pixel Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: µm
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains: *id036
+        minContains: 0
+        maxContains: 1
+      - contains: *id037
         minContains: 0
         maxContains: 1
       - contains:
@@ -1316,7 +1397,7 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id037
+      - contains: *id038
         minContains: 0
         maxContains: 1
       - contains:
@@ -1346,6 +1427,9 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains: *id039
         minContains: 0
         maxContains: 1
     ada:edsAcquisitionMode:
@@ -1384,11 +1468,6 @@ allOf:
                     $ref: ../../../../BaseSchema/modules/samplingUnitSelection/schema.yaml#/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
-    ada:edsLiveTimePerPointOrPixelDefault:
-      description: EDS spectral acquisition live time per analysis point or per pixel in seconds.
-      anyOf:
-      - type: number
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -1410,7 +1489,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id038
+                      - &id040
                         title: Analysis Inclusion and Rejection Criteria
                         description: 'The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.'
                         type: object
@@ -1443,7 +1522,7 @@ allOf:
                         - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id038
+                    - contains: *id040
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -1494,11 +1573,6 @@ allOf:
       - type: string
       schema:inDefinedTermSet: ada:vocab/matrix-correction-method
       readOnly: true
-    ada:stepSizePixelSizeDefault:
-      description: Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.
-      anyOf:
-      - type: number
-      - type: string
     ada:wdsDeadTimeCorrection:
       description: Method used to correct for WDS proportional counter dead time at high count rates. Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion. Record the algorithm here and any instrument-specific constant alongside it — 'Default constant (manufacturer) — 3 µs, Cameca'. The instrument vendor itself is recorded by Instrument Manufacturer, not by this field's allowed values.
       anyOf:
@@ -1527,8 +1601,6 @@ allOf:
         - WDS Mapping
   required:
   - ada:edsAcquisitionMode
-  - ada:edsLiveTimePerPointOrPixelDefault
   - ada:massAbsorptionCoefficients
   - ada:matrixCorrectionMethod
-  - ada:stepSizePixelSizeDefault
   - ada:wdsDeadTimeCorrection

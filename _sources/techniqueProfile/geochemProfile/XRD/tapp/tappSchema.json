@@ -47,27 +47,384 @@
                     ],
                     "readOnly": true
                 },
-                "ada:sampleMountDefault": {
-                    "description": "The holder or mounting geometry the specimen is presented in. Distinct from Sample Preparation Method, which states how the material was brought to that form.",
-                    "anyOf": [
+                "schema:additionalProperty": {
+                    "type": "array",
+                    "items": {
+                        "anyOf": [
+                            {
+                                "title": "Sample Mount",
+                                "description": "The holder or mounting geometry the specimen is presented in. Distinct from Sample Preparation Method, which states how the material was brought to that form.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/xrdTAPP/sampleMountDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "sampleMountDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Sample Mount"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:defaultValue": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Zero-background holder",
+                                                    "Capillary (transmission)",
+                                                    "Flat plate (reflection)",
+                                                    "Spinner stage",
+                                                    "Fibre mount",
+                                                    "N/A",
+                                                    "None",
+                                                    "missing"
+                                                ]
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/sample-mount"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Step Size",
+                                "description": "Angular increment between recorded points.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/xrdTAPP/stepSizeDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "stepSizeDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Step Size"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:defaultValue": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
+                                        "const": "degrees 2-theta"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "title": "Time per Step",
+                                "description": "Counting time at each angular step.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/xrdTAPP/timePerStepDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "timePerStepDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Time per Step"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:defaultValue": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
+                                        "const": "s"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            {
+                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                            }
+                        ]
+                    },
+                    "allOf": [
                         {
-                            "type": "string",
-                            "enum": [
-                                "Zero-background holder",
-                                "Capillary (transmission)",
-                                "Flat plate (reflection)",
-                                "Spinner stage",
-                                "Fibre mount",
-                                "N/A",
-                                "None",
-                                "missing"
-                            ]
+                            "contains": {
+                                "title": "Sample Mount",
+                                "description": "The holder or mounting geometry the specimen is presented in. Distinct from Sample Preparation Method, which states how the material was brought to that form.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/xrdTAPP/sampleMountDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "sampleMountDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Sample Mount"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "string"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:defaultValue": {
+                                        "anyOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Zero-background holder",
+                                                    "Capillary (transmission)",
+                                                    "Flat plate (reflection)",
+                                                    "Spinner stage",
+                                                    "Fibre mount",
+                                                    "N/A",
+                                                    "None",
+                                                    "missing"
+                                                ]
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:inDefinedTermSet": {
+                                        "const": {
+                                            "@id": "ada:vocab/sample-mount"
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
                         },
                         {
-                            "type": "string"
+                            "contains": {
+                                "title": "Step Size",
+                                "description": "Angular increment between recorded points.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/xrdTAPP/stepSizeDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "stepSizeDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Step Size"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:defaultValue": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
+                                        "const": "degrees 2-theta"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "title": "Time per Step",
+                                "description": "Counting time at each angular step.",
+                                "type": "object",
+                                "properties": {
+                                    "@id": {
+                                        "const": "ada:parameter/xrdTAPP/timePerStepDefault"
+                                    },
+                                    "@type": {
+                                        "const": [
+                                            "schema:PropertyValueSpecification"
+                                        ]
+                                    },
+                                    "schema:valueName": {
+                                        "const": "timePerStepDefault"
+                                    },
+                                    "schema:name": {
+                                        "const": "Time per Step"
+                                    },
+                                    "ada:dataType": {
+                                        "const": "number"
+                                    },
+                                    "ada:fieldScope": {
+                                        "const": "session"
+                                    },
+                                    "schema:readonlyValue": {
+                                        "const": false
+                                    },
+                                    "ada:tier": {
+                                        "const": "R"
+                                    },
+                                    "schema:defaultValue": {
+                                        "anyOf": [
+                                            {
+                                                "type": "number"
+                                            },
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    "schema:unitText": {
+                                        "const": "s"
+                                    }
+                                },
+                                "required": [
+                                    "@id",
+                                    "@type",
+                                    "schema:valueName",
+                                    "schema:name",
+                                    "ada:dataType",
+                                    "ada:fieldScope"
+                                ]
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
+                        },
+                        {
+                            "contains": {
+                                "$ref": "../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues"
+                            },
+                            "minContains": 0,
+                            "maxContains": 1
                         }
-                    ],
-                    "schema:inDefinedTermSet": "ada:vocab/sample-mount"
+                    ]
                 },
                 "schema:object": {
                     "type": "array",
@@ -164,28 +521,6 @@
                     ],
                     "readOnly": true
                 },
-                "ada:stepSizeDefault": {
-                    "description": "Angular increment between recorded points.",
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
-                "ada:timePerStepDefault": {
-                    "description": "Counting time at each angular step.",
-                    "anyOf": [
-                        {
-                            "type": "number"
-                        },
-                        {
-                            "type": "string"
-                        }
-                    ]
-                },
                 "ada:reportedPropertyTemplate": {
                     "type": "object",
                     "properties": {
@@ -210,22 +545,14 @@
                         "ada:defaultReportedProperties"
                     ],
                     "title": "Reported Property Template"
-                },
-                "ada:constantsAndReferenceValuesUsedDefault": {
-                    "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-                    "type": "string"
                 }
             },
             "required": [
                 "ada:targetMaterial",
-                "ada:sampleMountDefault",
                 "ada:instrumentManufacturer",
                 "ada:instrumentModel",
                 "ada:diffractometerGeometry",
-                "ada:xRayWavelength",
-                "ada:stepSizeDefault",
-                "ada:timePerStepDefault",
-                "ada:constantsAndReferenceValuesUsedDefault"
+                "ada:xRayWavelength"
             ]
         }
     ]

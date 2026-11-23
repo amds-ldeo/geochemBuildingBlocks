@@ -25,8 +25,17 @@
   "ada:beamsplitter": "KBr",
   "ada:spectralRangeMinimum": 1.0,
   "ada:spectralRangeMaximum": 1.0,
-  "ada:spectralResolutionDefault": 1.0,
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/vnmirTAPP/spectralResolutionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectralResolutionDefault",
+      "schema:name": "Spectral Resolution",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
     {
       "@id": "ada:parameter/vnmirTAPP/spectralSampling",
       "@type": [
@@ -40,6 +49,36 @@
       "schema:name": "Spectral Sampling",
       "schema:value": 1,
       "schema:unitText": "no value available: unnamed property"
+    },
+    {
+      "@id": "ada:parameter/vnmirTAPP/measurementEnvironmentDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "measurementEnvironmentDefault",
+      "schema:name": "Measurement Environment",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/vnmirTAPP/spotSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spotSizeDefault",
+      "schema:name": "Spot Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/vnmirTAPP/numberOfScansDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfScansDefault",
+      "schema:name": "Number of Scans",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session"
     },
     {
       "@id": "ada:parameter/vnmirTAPP/emissivityMaximumFitRegionMinimumDefault",
@@ -60,14 +99,29 @@
       "schema:name": "Emissivity Maximum Fit Region Maximum",
       "ada:dataType": "number",
       "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "constantsReferenceValuesDefault",
+      "schema:name": "Constants Reference Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/vnmirTAPP/calibrationStandardsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "calibrationStandardsDefault",
+      "schema:name": "Calibration Standards",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
     }
   ],
   "ada:measurementType": "Reflectance (bidirectional)",
-  "ada:measurementEnvironmentDefault": "Ambient air",
-  "ada:spotSizeDefault": 1.0,
-  "ada:numberOfScansDefault": 1,
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: constantsAndReferenceValuesUsed",
-  "ada:calibrationStandardsDefault": "no value available: calibrationStandards",
   "schema:measurementTechnique": [
     {
       "@type": [
