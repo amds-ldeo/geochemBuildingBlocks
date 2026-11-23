@@ -644,6 +644,12 @@ ex:semTAPP-Garvie2008 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -657,13 +663,7 @@ ex:semTAPP-Garvie2008 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <https://example.org/semTAPP-Garvie2008/instrument/SEM> ;
@@ -1424,6 +1424,13 @@ ex:semTAPP-Garvie2008-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -1436,14 +1443,7 @@ ex:semTAPP-Garvie2008-2 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_TAPP_v88.csv)." ;
     schema1:instrument <https://example.org/semTAPP-Garvie2008-2/instrument/SEM> ;
@@ -2208,16 +2208,16 @@ ex:semTAPP-Genge2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
                     ada:ebsdIndexingMethod "missing" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -3024,12 +3024,6 @@ ex:semTAPP-Genge2025-2 a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
@@ -3042,7 +3036,13 @@ ex:semTAPP-Genge2025-2 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_TAPP_v88.csv)." ;
@@ -3868,18 +3868,18 @@ ex:semTAPP-Genge2025-3 a schema1:Action,
             schema1:name "SEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/crystalStructureDatabaseDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
                     ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -4714,16 +4714,16 @@ ex:semTAPP-Gucsik2013 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
                     ada:ebsdIndexingMethod "missing" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -5496,6 +5496,13 @@ ex:semTAPP-Gucsik2013-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
@@ -5508,14 +5515,7 @@ ex:semTAPP-Gucsik2013-2 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Described as semiquantitative; BSE images also captured with this instrument at same conditions; EPMA (JEOL JXA-8900R WDS) used for quantitative analyses (out of scope)" ;
     schema1:instrument <https://example.org/semTAPP-Gucsik2013-2/instrument/SEM> ;
@@ -6380,16 +6380,16 @@ ex:semTAPP-Izawa2010 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
                     ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -7181,9 +7181,10 @@ ex:semTAPP-Izawa2010-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -7197,10 +7198,9 @@ ex:semTAPP-Izawa2010-2 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 440) (publication column of SEM_TAPP_v88.csv)." ;
     schema1:instrument <https://example.org/semTAPP-Izawa2010-2/instrument/SEM> ;
@@ -7964,6 +7964,16 @@ ex:semTAPP-Izawa2010-3 a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a schema1:Action,
@@ -7972,17 +7982,7 @@ ex:semTAPP-Izawa2010-3 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/semTAPP-Izawa2010-3/instrument/SEM> ;
@@ -8749,20 +8749,20 @@ ex:semTAPP-Izawa2010-4 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BSE Imaging (Leo 1540 FIB/SEM CrossBeam) (publication column of SEM_TAPP_v88.csv)." ;
     schema1:instrument <https://example.org/semTAPP-Izawa2010-4/instrument/SEM> ;
@@ -9526,16 +9526,6 @@ ex:semTAPP-Izawa2010-5 a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a schema1:Action,
@@ -9544,7 +9534,17 @@ ex:semTAPP-Izawa2010-5 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <https://example.org/semTAPP-Izawa2010-5/instrument/SEM> ;
@@ -11182,10 +11182,13 @@ ex:semTAPP-Liu2017-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -11195,13 +11198,10 @@ ex:semTAPP-Liu2017-2 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pore and mineral sizes >0.1 µm measured; minerals analyzed via EDS (surface energy spectrum analysis); magnification range 10³ to 10⁴" ;
@@ -12804,13 +12804,10 @@ ex:semTAPP-Ma2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -12820,10 +12817,13 @@ ex:semTAPP-Ma2017 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
     schema1:instrument <https://example.org/semTAPP-Ma2017/instrument/SEM> ;
@@ -13626,16 +13626,6 @@ ex:semTAPP-Ma2017-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
@@ -13646,7 +13636,17 @@ ex:semTAPP-Ma2017-2 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
     schema1:instrument <https://example.org/semTAPP-Ma2017-2/instrument/SEM> ;
@@ -14470,12 +14470,6 @@ ex:semTAPP-Pascucci2026 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -14489,7 +14483,13 @@ ex:semTAPP-Pascucci2026 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
@@ -15609,9 +15609,13 @@ ex:semTAPP-Pascucci2026-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -15622,13 +15626,9 @@ ex:semTAPP-Pascucci2026-2 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
@@ -15636,12 +15636,12 @@ ex:semTAPP-Pascucci2026-2 a schema1:Action,
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy) Reported detail: ada:edsAcquisitionMode = Spot analysis." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semTAPP-Pascucci2026-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -16841,16 +16841,6 @@ ex:semTAPP-Pascucci2026-3 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
@@ -16860,19 +16850,29 @@ ex:semTAPP-Pascucci2026-3 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/semTAPP-Pascucci2026-3/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -17728,12 +17728,6 @@ ex:semTAPP-Pascucci2026-4 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -17747,7 +17741,13 @@ ex:semTAPP-Pascucci2026-4 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SE imaging used for topographic examination; instrument capability: up to ×200,000 magnification, 5 nm resolution; SE acquired before EDS to minimize charging effects" ;
     schema1:instrument <https://example.org/semTAPP-Pascucci2026-4/instrument/SEM> ;
@@ -18519,6 +18519,12 @@ ex:semTAPP-Zhou2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -18526,12 +18532,6 @@ ex:semTAPP-Zhou2017 a schema1:Action,
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
                     ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -19331,6 +19331,12 @@ ex:semTAPP-Zega2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -19338,12 +19344,6 @@ ex:semTAPP-Zega2025 a schema1:Action,
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
                     ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -20167,10 +20167,13 @@ ex:semTAPP-Zega2025-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -20180,23 +20183,20 @@ ex:semTAPP-Zega2025-2 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_TAPP_v88.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford AZtec" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/semTAPP-Zega2025-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -20957,6 +20957,12 @@ ex:semTAPP-Zega2025-3 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -20970,13 +20976,7 @@ ex:semTAPP-Zega2025-3 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-3/instrument/SEM> ;
@@ -21740,6 +21740,12 @@ ex:semTAPP-Zega2025-4 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -21753,13 +21759,7 @@ ex:semTAPP-Zega2025-4 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-4/instrument/SEM> ;
@@ -22582,26 +22582,26 @@ ex:semTAPP-Zega2025-5 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford Instruments Aztec Live/x-stream" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford Instruments Aztec" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford Instruments Aztec Live/x-stream" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/semTAPP-Zega2025-5/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
@@ -23362,12 +23362,6 @@ ex:semTAPP-Zega2025-6 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -23381,7 +23375,13 @@ ex:semTAPP-Zega2025-6 a schema1:Action,
                     ada:coarseMillingConditionsDefault "Standard stair step; 30 keV, currents 2.5 to 0.8 nA" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "In-situ (micromanipulator, Cu or Mo TEM half-grid)" ;
-                    ada:protectiveCoatingDepositionDefault "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "12-µm wide × 4-µm tall carbon capping layer deposited on matrix areas" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-6/instrument/SEM> ;
@@ -24170,19 +24170,19 @@ ex:semTAPP-Zega2025-7 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 16–30 keV (coarse milling)" ;
                     ada:finePolishingConditionsDefault "Various voltages down to 1 keV (polishing)" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-7/instrument/SEM> ;
@@ -24978,16 +24978,16 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-8/instrument/SEM> ;
@@ -25789,12 +25789,6 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -25808,7 +25802,13 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-9/instrument/SEM> ;
@@ -26576,16 +26576,6 @@ ex:semTAPP-Barnes2025 a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
-                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
-                    ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
                 [ a schema1:Action,
@@ -26594,7 +26584,17 @@ ex:semTAPP-Barnes2025 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
+                    ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
+                    ada:liftOutMethod "missing" ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <https://example.org/semTAPP-Barnes2025/instrument/SEM> ;

@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.tapp - LA-SF-ICP-MS Technique-Aligned Procedure Profile (laSficpmsTAPP)",
   "bblockName": "LA-SF-ICP-MS Technique-Aligned Procedure Profile (laSficpmsTAPP)",
   "bblockId": "ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.tapp",
-  "generated": "2026-11-23T00:56:20.462278+00:00",
+  "generated": "2026-11-23T03:25:11.784227+00:00",
   "result": true,
   "items": [
     {
@@ -138,7 +138,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Zhang2022/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ] .\n\n_:n66651a5606a248b09f0f8cfa86ba1ddfb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Zhang2022/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ] .\n\n_:n35e0da61c3314b068e68d9513aa8d5eeb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -299,15 +299,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
               "focusNodes": {
-                "cdifd:coreProcedureIdentificationShape": {
+                "cdifd:coreAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:coreAnalysisIdentificationShape": {
+                "cdifd:coreProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -319,15 +319,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -339,15 +339,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -519,7 +519,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ] .\n\n_:n66651a5606a248b09f0f8cfa86ba1ddfb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ] .\n\n_:n35e0da61c3314b068e68d9513aa8d5eeb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -680,15 +680,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
               "focusNodes": {
-                "cdifd:coreProcedureIdentificationShape": {
+                "cdifd:coreAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:coreAnalysisIdentificationShape": {
+                "cdifd:coreProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -700,15 +700,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -735,15 +735,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -915,7 +915,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-2/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ] .\n\n_:n66651a5606a248b09f0f8cfa86ba1ddfb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-2/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-2/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ] .\n\n_:n35e0da61c3314b068e68d9513aa8d5eeb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -1076,15 +1076,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
               "focusNodes": {
-                "cdifd:coreProcedureIdentificationShape": {
+                "cdifd:coreAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:coreAnalysisIdentificationShape": {
+                "cdifd:coreProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1096,15 +1096,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1131,15 +1131,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1311,7 +1311,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-3/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ] .\n\n_:n66651a5606a248b09f0f8cfa86ba1ddfb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-3/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Chernonozhkin2021-3/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ] .\n\n_:n35e0da61c3314b068e68d9513aa8d5eeb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -1472,15 +1472,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
               "focusNodes": {
-                "cdifd:coreProcedureIdentificationShape": {
+                "cdifd:coreAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:coreAnalysisIdentificationShape": {
+                "cdifd:coreProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1492,15 +1492,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1527,15 +1527,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1707,7 +1707,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Mittlefehldt2024/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Mittlefehldt2024/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ] .\n\n_:n66651a5606a248b09f0f8cfa86ba1ddfb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Mittlefehldt2024/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Mittlefehldt2024/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ] .\n\n_:n35e0da61c3314b068e68d9513aa8d5eeb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -1868,15 +1868,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
               "focusNodes": {
-                "cdifd:coreProcedureIdentificationShape": {
+                "cdifd:coreAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:coreAnalysisIdentificationShape": {
+                "cdifd:coreProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1888,15 +1888,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1923,15 +1923,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -2088,7 +2088,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ] .\n\n_:n66651a5606a248b09f0f8cfa86ba1ddfb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ] .\n\n_:n35e0da61c3314b068e68d9513aa8d5eeb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -2249,15 +2249,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
               "focusNodes": {
-                "cdifd:coreProcedureIdentificationShape": {
+                "cdifd:coreAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:coreAnalysisIdentificationShape": {
+                "cdifd:coreProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -2269,15 +2269,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -2304,15 +2304,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -2469,7 +2469,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024-2/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024-2/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n66651a5606a248b09f0f8cfa86ba1ddfb3 ] .\n\n_:n66651a5606a248b09f0f8cfa86ba1ddfb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024-2/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laSficpmsTAPP-Navarro2024-2/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n35e0da61c3314b068e68d9513aa8d5eeb3 ] .\n\n_:n35e0da61c3314b068e68d9513aa8d5eeb3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -2630,15 +2630,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
               "focusNodes": {
-                "cdifd:coreProcedureIdentificationShape": {
+                "cdifd:coreAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:coreAnalysisIdentificationShape": {
+                "cdifd:coreProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -2650,15 +2650,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -2685,15 +2685,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",

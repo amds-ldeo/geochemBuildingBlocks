@@ -571,8 +571,9 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/reportedPropertyDeclaration"
             },
             "ada:defaultReportedProperties": {
+              "title": "Default Reported Properties",
               "type": "array",
-              "description": "The reported properties this procedure defines by default \u2014 the ROWS of the reported- property table. Each is a bare string or a schema:DefinedTerm identifying the property; per-property column VALUES live in the analysis record, not here.",
+              "description": "The reported properties this procedure defines by default \u2014 the ROWS of the reported- property table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns declared in ada:reportedPropertyColumns, which MUST carry the 'reportedProperty' key.\nThe row-object branch was absent here for the same reason it was absent from ada:defaultStandards, and it was unsatisfiable in the same way -- see that property's description for the measurement and the allOf-intersection argument.",
               "items": {
                 "anyOf": [
                   {
@@ -580,6 +581,20 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/AIVA/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-reported-property row",
+                    "description": "One row of the reported-property table, keyed by column schema:valueName.",
+                    "required": [
+                      "reportedProperty"
+                    ],
+                    "properties": {
+                      "reportedProperty": {
+                        "type": "string",
+                        "description": "The property reported in this row. Becomes a schema:variableMeasured entry on the data product."
+                      }
+                    }
                   }
                 ]
               },
@@ -593,7 +608,7 @@
         },
         "ada:standardTemplate": {
           "title": "Standard Template",
-          "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. A standard STANDARDIZES something: ada:standardizationType names which domain that is (target species, monitored property or reported property) and the standardization-target column names the member of it. Rows are standard-by-target PAIRS, not one row per standard -- one natural kaersutite standard calibrates Si, Fe and Mg as three rows -- which is why the TAPP workbook keys this as the cross-product `standard x reported property` and why the identifier column is not unique per row.\nA CALIBRATION STANDARD IS NOT A REAGENT, and the rows of this table are its own entities (Stephen, 2026-11-01). The two carry different metadata because different things can go wrong with them: a reagent is described by purity, lot number, expiration and the contamination it contributes, tracked through method blanks, while a calibration standard is described by its CERTIFIED VALUES, the uncertainties on those values, its traceability chain (NIST SRM to SI units), its source or manufacturer, and preparation details such as dilution factors. Bioschemas' reagentUsed ranges -- BioChemEntity, MolecularEntity, ChemicalSubstance, DefinedTerm -- are oriented toward biological and chemical substances, not reference materials with certified compositions, so flattening a standard into bios:reagent loses exactly the metrological traceability an analytical provenance record exists to carry.\nKnown gap: this table records the citation for a standard's accepted values (the `source` column) and the analytical precision and accuracy MEASURED against it, but it has no column for the certified value itself or the uncertainty on that value. Those are properties of the standard, not of a measurement made with it.",
+          "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. THIS TABLE IDENTIFIES THE STANDARDS. What each one calibrates is a separate table, because one table cannot do both jobs: a standard calibrates several target species (one natural kaersutite standard calibrates Si, Fe and Mg) and the SAME material takes different roles for different phases (San Carlos olivine is a primary calibration standard for one phase and a secondary for another). So the role belongs to the ASSIGNMENT, not to the standard, and the assignment table is keyed `target material x target species`. Settled with Ruolin on https://github.com/amds-ldeo/tapp/issues/22 (2026-11-19/20); the assignment table is not built here yet, because its rows come from TAPP workbook fields that are still to be delivered.\nRows here are standard-by-target PAIRS rather than one row per standard, which is why the identifier column is deliberately not unique per row: a standard has one accepted value per reported property, so the workbook keys this table as the cross-product `standard x reported property`.\nAn earlier version of this description named `ada:standardizationType` as the property that said which domain a row's target was in. NO SUCH PROPERTY HAS EVER BEEN DECLARED, here or anywhere else in the repo (measured 2026-11-22: one occurrence, in this description, plus its copy in the generated tappDefinitionSchema.json). It is gone rather than declared because the agreed split removes the question it answered -- the target is not a free choice of domain any more, it is the assignment table's key.\nA CALIBRATION STANDARD IS NOT A REAGENT, and the rows of this table are its own entities (Stephen, 2026-11-01). The two carry different metadata because different things can go wrong with them: a reagent is described by purity, lot number, expiration and the contamination it contributes, tracked through method blanks, while a calibration standard is described by its CERTIFIED VALUES, the uncertainties on those values, its traceability chain (NIST SRM to SI units), its source or manufacturer, and preparation details such as dilution factors. Bioschemas' reagentUsed ranges -- BioChemEntity, MolecularEntity, ChemicalSubstance, DefinedTerm -- are oriented toward biological and chemical substances, not reference materials with certified compositions, so flattening a standard into bios:reagent loses exactly the metrological traceability an analytical provenance record exists to carry.\nKnown gap, still open: this table records the citation for a standard's accepted values (the `source` column) and the analytical precision and accuracy MEASURED against it, but it has no column for the certified value itself or the uncertainty on that value. The citation says where to look a value up; it does not let anyone recompute an accuracy figure. Both sides agree the column belongs (tapp#22); its keying -- `standard x reported property`, the key this table already has -- is one of the three questions awaiting confirmation there, so the column is not added yet.\nThis whole template is UNEXERCISED: measured 2026-11-22, ada:standardTemplate, ada:standardColumns and ada:defaultStandards are referenced by 0 sidecar rows, carried by 0 examples and pinned by 0 counterexamples, so no gate in this repo can see a change to any of them. Anything added here must arrive with an example that exercises it and a counterexample that fails without it, or it joins the infrastructure that was built and never run.",
           "type": "object",
           "properties": {
             "ada:standardColumns": {
@@ -611,8 +626,9 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/standardColumns"
             },
             "ada:defaultStandards": {
+              "title": "Default Standards",
               "type": "array",
-              "description": "The standards this procedure uses by default -- the ROWS of the standards table. Each is a bare string or a schema:DefinedTerm identifying the standard; per-standard column VALUES live in the analysis record, not here.",
+              "description": "The standards this procedure uses by default -- the ROWS of the standards table. An entry is a bare string or a schema:DefinedTerm naming the standard, or a ROW OBJECT keyed by the schema:valueName of the columns declared in ada:standardColumns, which is what carries the per-standard facts:\n\n  {\"standard\": \"USGS BHVO-2\", \"referenceMaterialType\": \"basalt glass\",\n   \"referenceValueSource\": \"Jochum et al. 2005\"}\n\nA row object MUST carry the 'standard' key, the column that identifies the standard named in each row. Which values belong here follows the Analysis-Level Tier, as for every other keyed table: a Read-Only column is fixed by the procedure and its value belongs on the row, an Editable column takes a starting value here that an analysis may override.\nThis branch used to be absent, and its absence was not a decision -- the description asserted that per-standard column values \"live in the analysis record, not here\", which is false for a procedure-side standards table whose entire content is per-standard. It was also UNSATISFIABLE rather than merely unstated: schema_path_emitter.DEFAULT_ROW_ARRAYS lists all five default-row arrays and emits string|DefinedTerm|object for each, the overlay narrows this same array, and allOf intersects -- so the first sidecar row to path a standards default would have failed with \"{'standard': ...} is not valid under any of the given schemas\" while this base read as though it allowed exactly that. Measured 2026-11-22: three of the five arrays carried the branch (targetSpecies, targetMaterials, monitoredProperties) and two did not (this one and ada:defaultReportedProperties).",
               "items": {
                 "anyOf": [
                   {
@@ -620,6 +636,20 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/AIVA/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-standard row",
+                    "description": "One row of the standards table, keyed by column schema:valueName. null records a value that is deliberately absent for this standard rather than merely unstated.",
+                    "required": [
+                      "standard"
+                    ],
+                    "properties": {
+                      "standard": {
+                        "type": "string",
+                        "description": "The standard named in this row. Becomes a schema:variableMeasured entry on the data product, as every keyed table's identifier column does."
+                      }
+                    }
                   }
                 ]
               },
@@ -5144,8 +5174,9 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/reportedPropertyDeclaration"
             },
             "ada:defaultReportedProperties": {
+              "title": "Default Reported Properties",
               "type": "array",
-              "description": "The reported properties this procedure defines by default \u2014 the ROWS of the reported- property table. Each is a bare string or a schema:DefinedTerm identifying the property; per-property column VALUES live in the analysis record, not here.",
+              "description": "The reported properties this procedure defines by default \u2014 the ROWS of the reported- property table. An entry is a bare string or a schema:DefinedTerm naming the property, or a ROW OBJECT keyed by the schema:valueName of the columns declared in ada:reportedPropertyColumns, which MUST carry the 'reportedProperty' key.\nThe row-object branch was absent here for the same reason it was absent from ada:defaultStandards, and it was unsatisfiable in the same way -- see that property's description for the measurement and the allOf-intersection argument.",
               "items": {
                 "anyOf": [
                   {
@@ -5153,6 +5184,20 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/AIVA/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-reported-property row",
+                    "description": "One row of the reported-property table, keyed by column schema:valueName.",
+                    "required": [
+                      "reportedProperty"
+                    ],
+                    "properties": {
+                      "reportedProperty": {
+                        "type": "string",
+                        "description": "The property reported in this row. Becomes a schema:variableMeasured entry on the data product."
+                      }
+                    }
                   }
                 ]
               },
@@ -5166,7 +5211,7 @@
         },
         "ada:standardTemplate": {
           "title": "Standard Template",
-          "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. A standard STANDARDIZES something: ada:standardizationType names which domain that is (target species, monitored property or reported property) and the standardization-target column names the member of it. Rows are standard-by-target PAIRS, not one row per standard -- one natural kaersutite standard calibrates Si, Fe and Mg as three rows -- which is why the TAPP workbook keys this as the cross-product `standard x reported property` and why the identifier column is not unique per row.\nA CALIBRATION STANDARD IS NOT A REAGENT, and the rows of this table are its own entities (Stephen, 2026-11-01). The two carry different metadata because different things can go wrong with them: a reagent is described by purity, lot number, expiration and the contamination it contributes, tracked through method blanks, while a calibration standard is described by its CERTIFIED VALUES, the uncertainties on those values, its traceability chain (NIST SRM to SI units), its source or manufacturer, and preparation details such as dilution factors. Bioschemas' reagentUsed ranges -- BioChemEntity, MolecularEntity, ChemicalSubstance, DefinedTerm -- are oriented toward biological and chemical substances, not reference materials with certified compositions, so flattening a standard into bios:reagent loses exactly the metrological traceability an analytical provenance record exists to carry.\nKnown gap: this table records the citation for a standard's accepted values (the `source` column) and the analytical precision and accuracy MEASURED against it, but it has no column for the certified value itself or the uncertainty on that value. Those are properties of the standard, not of a measurement made with it.",
+          "description": "Template for the standards this procedure calibrates against, and the columns that repeat over them. THIS TABLE IDENTIFIES THE STANDARDS. What each one calibrates is a separate table, because one table cannot do both jobs: a standard calibrates several target species (one natural kaersutite standard calibrates Si, Fe and Mg) and the SAME material takes different roles for different phases (San Carlos olivine is a primary calibration standard for one phase and a secondary for another). So the role belongs to the ASSIGNMENT, not to the standard, and the assignment table is keyed `target material x target species`. Settled with Ruolin on https://github.com/amds-ldeo/tapp/issues/22 (2026-11-19/20); the assignment table is not built here yet, because its rows come from TAPP workbook fields that are still to be delivered.\nRows here are standard-by-target PAIRS rather than one row per standard, which is why the identifier column is deliberately not unique per row: a standard has one accepted value per reported property, so the workbook keys this table as the cross-product `standard x reported property`.\nAn earlier version of this description named `ada:standardizationType` as the property that said which domain a row's target was in. NO SUCH PROPERTY HAS EVER BEEN DECLARED, here or anywhere else in the repo (measured 2026-11-22: one occurrence, in this description, plus its copy in the generated tappDefinitionSchema.json). It is gone rather than declared because the agreed split removes the question it answered -- the target is not a free choice of domain any more, it is the assignment table's key.\nA CALIBRATION STANDARD IS NOT A REAGENT, and the rows of this table are its own entities (Stephen, 2026-11-01). The two carry different metadata because different things can go wrong with them: a reagent is described by purity, lot number, expiration and the contamination it contributes, tracked through method blanks, while a calibration standard is described by its CERTIFIED VALUES, the uncertainties on those values, its traceability chain (NIST SRM to SI units), its source or manufacturer, and preparation details such as dilution factors. Bioschemas' reagentUsed ranges -- BioChemEntity, MolecularEntity, ChemicalSubstance, DefinedTerm -- are oriented toward biological and chemical substances, not reference materials with certified compositions, so flattening a standard into bios:reagent loses exactly the metrological traceability an analytical provenance record exists to carry.\nKnown gap, still open: this table records the citation for a standard's accepted values (the `source` column) and the analytical precision and accuracy MEASURED against it, but it has no column for the certified value itself or the uncertainty on that value. The citation says where to look a value up; it does not let anyone recompute an accuracy figure. Both sides agree the column belongs (tapp#22); its keying -- `standard x reported property`, the key this table already has -- is one of the three questions awaiting confirmation there, so the column is not added yet.\nThis whole template is UNEXERCISED: measured 2026-11-22, ada:standardTemplate, ada:standardColumns and ada:defaultStandards are referenced by 0 sidecar rows, carried by 0 examples and pinned by 0 counterexamples, so no gate in this repo can see a change to any of them. Anything added here must arrive with an example that exercises it and a counterexample that fails without it, or it joins the infrastructure that was built and never run.",
           "type": "object",
           "properties": {
             "ada:standardColumns": {
@@ -5184,8 +5229,9 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/standardColumns"
             },
             "ada:defaultStandards": {
+              "title": "Default Standards",
               "type": "array",
-              "description": "The standards this procedure uses by default -- the ROWS of the standards table. Each is a bare string or a schema:DefinedTerm identifying the standard; per-standard column VALUES live in the analysis record, not here.",
+              "description": "The standards this procedure uses by default -- the ROWS of the standards table. An entry is a bare string or a schema:DefinedTerm naming the standard, or a ROW OBJECT keyed by the schema:valueName of the columns declared in ada:standardColumns, which is what carries the per-standard facts:\n\n  {\"standard\": \"USGS BHVO-2\", \"referenceMaterialType\": \"basalt glass\",\n   \"referenceValueSource\": \"Jochum et al. 2005\"}\n\nA row object MUST carry the 'standard' key, the column that identifies the standard named in each row. Which values belong here follows the Analysis-Level Tier, as for every other keyed table: a Read-Only column is fixed by the procedure and its value belongs on the row, an Editable column takes a starting value here that an analysis may override.\nThis branch used to be absent, and its absence was not a decision -- the description asserted that per-standard column values \"live in the analysis record, not here\", which is false for a procedure-side standards table whose entire content is per-standard. It was also UNSATISFIABLE rather than merely unstated: schema_path_emitter.DEFAULT_ROW_ARRAYS lists all five default-row arrays and emits string|DefinedTerm|object for each, the overlay narrows this same array, and allOf intersects -- so the first sidecar row to path a standards default would have failed with \"{'standard': ...} is not valid under any of the given schemas\" while this base read as though it allowed exactly that. Measured 2026-11-22: three of the five arrays carried the branch (targetSpecies, targetMaterials, monitoredProperties) and two did not (this one and ada:defaultReportedProperties).",
               "items": {
                 "anyOf": [
                   {
@@ -5193,6 +5239,20 @@
                   },
                   {
                     "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/AIVA/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.tappDefinition_1/$defs/DefinedTerm"
+                  },
+                  {
+                    "type": "object",
+                    "title": "Per-standard row",
+                    "description": "One row of the standards table, keyed by column schema:valueName. null records a value that is deliberately absent for this standard rather than merely unstated.",
+                    "required": [
+                      "standard"
+                    ],
+                    "properties": {
+                      "standard": {
+                        "type": "string",
+                        "description": "The standard named in this row. Becomes a schema:variableMeasured entry on the data product, as every keyed table's identifier column does."
+                      }
+                    }
                   }
                 ]
               },
