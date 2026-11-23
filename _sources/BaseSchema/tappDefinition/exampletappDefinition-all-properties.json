@@ -1294,6 +1294,85 @@
       }
     ]
   },
+  "ada:standardTemplate": {
+    "ada:standardColumns": [
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Reference Material",
+        "schema:valueName": "standard",
+        "schema:description": "The standard named in this row. One row per standard; what each one calibrates is the assignment table, which is not built yet (tapp#22).",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true,
+        "schema:valueRequired": true,
+        "ada:tier": "M",
+        "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      },
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Reference Material Type",
+        "schema:valueName": "referenceMaterialType",
+        "schema:description": "The standard's OWN material -- its matrix, not a target material of the procedure.",
+        "ada:dataType": "string",
+        "ada:tier": "R"
+      },
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Reference Material Identifier",
+        "schema:valueName": "referenceMaterialIdentifier",
+        "schema:description": "Registered identifier for the specific material, where one exists.",
+        "ada:dataType": "string",
+        "ada:tier": "R"
+      },
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Reference Value Source",
+        "schema:valueName": "referenceValueSource",
+        "schema:description": "Citation for the accepted values used for this standard.",
+        "ada:dataType": "string",
+        "ada:tier": "M"
+      }
+    ],
+    "ada:defaultStandards": [
+      {
+        "standard": "CU routine tephra glass version 1.0 with 6nA",
+        "referenceMaterialType": "rhyolitic glass",
+        "referenceMaterialIdentifier": "in-house, unregistered",
+        "referenceValueSource": "in-house characterization, this laboratory"
+      },
+      {
+        "standard": "Albite",
+        "referenceMaterialType": "albite (plagioclase feldspar)",
+        "referenceMaterialIdentifier": "in-house, unregistered",
+        "referenceValueSource": "in-house characterization, this laboratory"
+      },
+      {
+        "standard": "Kaersutite amphibole",
+        "referenceMaterialType": "kaersutite amphibole",
+        "referenceMaterialIdentifier": "NMNH 143965",
+        "referenceValueSource": "Jarosewich, Nelen & Norberg 1980, Geostandards Newsletter 4, 43-47"
+      },
+      {
+        "standard": "Lipari obsidian ID3506",
+        "referenceMaterialType": "rhyolitic obsidian glass",
+        "referenceMaterialIdentifier": "ID3506",
+        "referenceValueSource": "Hunt & Hill 1996, Quaternary International 34-36, 229-241"
+      },
+      {
+        "standard": "USGS BHVO-2g",
+        "referenceMaterialType": "basaltic glass",
+        "referenceMaterialIdentifier": "USGS BHVO-2G",
+        "referenceValueSource": "Jochum et al. 2005, Geostandards and Geoanalytical Research 29, 285-302"
+      }
+    ]
+  },
   "dqv:hasQualityMeasurement": [
     {
       "@type": [
