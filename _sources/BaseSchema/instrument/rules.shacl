@@ -53,8 +53,9 @@ cdifd:adaInstrumentShape
 #   - On an ada:TAPPDefinition (a prov:Plan / procedure), instrument parameters are
 #     PARAMETER TEMPLATES an analyst may override -> schema:PropertyValueSpecification
 #     (the value is a schema:defaultValue).
-#   - On a prov:used analysis-event instrument (the concrete run), instrument parameters
-#     carry the ACTUAL value used -> schema:PropertyValue (the value is a schema:value).
+#   - On an analysis-event instrument, reached through prov:wasGeneratedBy (the concrete
+#     run), instrument parameters carry the ACTUAL value used -> schema:PropertyValue
+#     (the value is a schema:value).
 #
 # These two shapes pin the correct form per context.
 
@@ -80,7 +81,26 @@ cdifd:tappInstrumentParamSpecShape
     ] ;
     .
 
-cdifd:provUsedInstrumentParamValueShape
+# Renamed from cdifd:provUsedInstrumentParamValueShape, because its target walked the
+# role-keyed prov:used wrapper that the 2026-11-11 CDIF activity-used-resources change
+# retired -- it matched an activity's used resources through an intermediate node that
+# no conforming record carries any more. Nothing in the corpus spells that property now,
+# 0 of 658 examples, so the target selected NOTHING and the shape reported nothing, while
+# the 581 run-side instrument nodes it exists to check went unchecked. This is the SILENT
+# half of the same migration whose LOUD half was adaActivityShape in
+# adaProduct/rules.shacl: one shape demanded a retired property and failed everything it
+# saw, the other went looking for it and found nobody.
+#
+# check_shacl_targets.py --execute exists to catch exactly a target that selects nothing,
+# and could not see this one: it tests a target against `example*.json` in the shape
+# file's OWN directory, and instrument/ has none. 43 blocks are in that position,
+# including every shared BaseSchema block and all 16 modules.
+#
+# The prov:wasGeneratedBy hop is what keeps this shape off the PLAN's instruments, which
+# need the specification form instead: a plan is reached by schema:actionProcess and is
+# never the object of prov:wasGeneratedBy, so the two targets stay disjoint. That
+# disjointness is the whole reason there are two shapes rather than one.
+cdifd:analysisInstrumentParamValueShape
     a sh:NodeShape ;
     sh:target [
         a sh:SPARQLTarget ;
@@ -89,8 +109,8 @@ cdifd:provUsedInstrumentParamValueShape
             PREFIX schema: <http://schema.org/>
             SELECT ?this
             WHERE {
-                ?activity prov:used ?used .
-                ?used schema:instrument ?this .
+                ?product prov:wasGeneratedBy ?activity .
+                ?activity schema:instrument ?this .
             }
         """ ;
     ] ;
@@ -98,6 +118,6 @@ cdifd:provUsedInstrumentParamValueShape
         sh:path schema:additionalProperty ;
         sh:class schema:PropertyValue ;
         sh:severity sh:Violation ;
-        sh:message "On a prov:used analysis-event instrument, schema:additionalProperty entries must be schema:PropertyValue (concrete values), not schema:PropertyValueSpecification." ;
+        sh:message "On an analysis-event instrument (reached through prov:wasGeneratedBy), schema:additionalProperty entries must be schema:PropertyValue (concrete values), not schema:PropertyValueSpecification." ;
     ] ;
     .

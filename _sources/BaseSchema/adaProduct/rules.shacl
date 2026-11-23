@@ -82,10 +82,24 @@ cdifd:adaActivityShape
         sh:hasValue prov:Activity ;
         sh:message "Analysis event nodes must be typed as prov:Activity." ;
     ] ;
+    # What an activity used is schema:instrument, not prov:used. The 2026-11-11 CDIF
+    # activity-used-resources change made schema:instrument the ONE array holding
+    # instruments, computational tools and reagents, told apart by a Wikidata kind term,
+    # and geochemBaseProfile closes off the prov:used wrappers by name. This shape kept
+    # asking for the retired spelling, so it fired on every analysis event its target
+    # selected: 38 of the 46 violations in the whole corpus were this one rule demanding
+    # a property no conforming record is permitted to carry.
+    #
+    # The ASSERTION is unchanged -- an ADA analysis event is an instrumental measurement
+    # and must name its instrument -- only the spelling moves. All 112 activities the
+    # SPARQL target selects carry schema:instrument, so the rule still bites and fails
+    # nothing. CDIF's own cdifProvActivity shape is deliberately weaker here, an sh:or
+    # over schema:instrument / schema:object / schema:actionProcess, because not every
+    # CDIF activity is instrumental; this is the ADA domain rule layered on top of it.
     sh:property [
-        sh:path prov:used ;
+        sh:path schema:instrument ;
         sh:minCount 1 ;
-        sh:message "Analysis events must reference at least one instrument (prov:used)." ;
+        sh:message "Analysis events must reference at least one instrument (schema:instrument)." ;
     ] ;
     sh:message "ADA analysis events (prov:Activity) must identify instruments used." ;
     .
