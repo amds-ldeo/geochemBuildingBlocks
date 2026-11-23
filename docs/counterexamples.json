@@ -513,6 +513,48 @@
       },
       "expect": "contains",
       "why": "The laboratory block classifies the place as Wikidata Q483242 (laboratory, a subclass of facility). It carried NeXus nxs:base_classes/NXsource.html until 2026-11-09, which was wrong: NXsource is the radiation or particle source that produces a beam, not the place it stands in. This case pins the retired value as REJECTED, for the same reason tappdef-old-reference-form-is-closed-off exists -- 186 example files carried the old spelling, so re-accepting it would silently re-admit a whole generation of them, and it is the only tripwire for an artifact restored from before the change. The loss would otherwise be invisible twice over: schema:additionalType is OPTIONAL, so no positive example can show the contains/const going missing, and constraint_census.json does not record const VALUES, so a swap to any other IRI would not move a single count."
+    },
+    {
+      "id": "standards-row-needs-standard-key",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/ada:standardTemplate/ada:defaultStandards/0/standard"
+      },
+      "expect": "'standard' is a required property",
+      "why": "ada:defaultStandards gained a row-object branch so a procedure-side standards table can carry its per-standard facts (the description had asserted those \"live in the analysis record, not here\", which is false for table 1). A row object must name the standard it is about: without the key the row is an anonymous bag of columns and nothing can join it to an assignment or to a measurement. Two sibling anyOf branches accept non-objects (string, DefinedTerm), so a stripped row could have slipped through one of them -- it does not, and this case is what proves the identifier requirement is the branch that decides."
+    },
+    {
+      "id": "standards-table-needs-identifier-column",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "remove",
+        "pointer": "/ada:standardTemplate/ada:standardColumns/0"
+      },
+      "expect": "does not contain items matching the given schema",
+      "why": "Every keyed table must declare the column that identifies its rows, and for the standards table that is StandardIdentifierColumn (schema:valueName 'standard'). Lose it and the remaining columns describe rows nothing can name. Pinned here because ada:standardTemplate was carried by NO example at all until this commit, so this constraint -- declared since the table was drafted -- had never once been evaluated against an instance."
+    },
+    {
+      "id": "standards-table-one-identifier-column",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "add",
+        "pointer": "/ada:standardTemplate/ada:standardColumns/-",
+        "value": {
+          "@type": [
+            "schema:PropertyValueSpecification"
+          ],
+          "schema:name": "Reference Material",
+          "schema:valueName": "standard",
+          "ada:dataType": "string",
+          "schema:readonlyValue": true,
+          "schema:valueRequired": true,
+          "ada:tier": "M",
+          "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+        }
+      },
+      "expect": "Too many items match the given schema",
+      "why": "maxContains: 1 -- the table identifies its rows by ONE column. Two columns both claiming schema:valueName 'standard' would make the row key ambiguous, and since rows here are standard-by-target pairs (the identifier is deliberately not unique PER ROW), a reader cannot fall back on uniqueness to tell which column is the key."
     }
   ]
 }
