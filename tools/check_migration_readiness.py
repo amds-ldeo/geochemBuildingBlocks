@@ -2,7 +2,7 @@
 
 Every ADA record declares its profiles at `schema:subjectOf.dcterms:conformsTo` -- 7,447 of
 7,447, 36 distinct cids. A *cid* is the conformance-class identifier, the last segment of a
-profile URI: a record asserting `https://w3id.org/geochem/metadata/profiles/adaSEM` declares the
+profile URI: a record asserting `https://w3id.org/geochem/metadata/profiles/1.1/adaSEM` declares the
 cid `adaSEM`. It is the same string a block pins in its `contains` const and the same one
 `build_profile.PROFILES` carries as `cid=`, so one cid is meant to name exactly one schema.
 
@@ -60,7 +60,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "_sources")
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
-CID = re.compile(r"https://w3id\.org/geochem/metadata/profiles/([A-Za-z0-9_-]+)")
+CID = re.compile(r"https://w3id\.org/geochem/metadata/profiles/1\.1/([A-Za-z0-9_-]+)")
 
 
 def cid_to_blocks():

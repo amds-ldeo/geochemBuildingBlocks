@@ -24,7 +24,7 @@ It composes the CDIF profiles and adds the generic geochem surface:
   mapping for tabular-text files. File-classification vocabulary (e.g. ADA
   `ada:componentType`) is added by the extending profile.
 
-A record declares conformance to `https://w3id.org/geochem/metadata/profiles/geochemProduct`
+A record declares conformance to `https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct`
 (alongside the CDIF profile URIs). Extending profiles add their own conformance URI, so
 a record self-declares the full profile chain.
 

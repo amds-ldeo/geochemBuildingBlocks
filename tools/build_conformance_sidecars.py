@@ -82,7 +82,7 @@ SRC = os.path.join(ROOT, "_sources")
 sys.path.insert(0, os.path.join(ROOT, "tools"))
 
 VALIDATION_DIR = os.environ.get("CDIF_VALIDATION_DIR", r"C:\GithubC\CDIF\validation")
-GEOCHEM_BASE = "https://w3id.org/geochem/metadata/profiles/"
+GEOCHEM_BASE = "https://w3id.org/geochem/metadata/profiles/1.1/"
 CDIF = "https://w3id.org/cdif/%s/1.1"
 
 #: CDIF block name -> the module URI composing it implies. One each: the modules are independent
