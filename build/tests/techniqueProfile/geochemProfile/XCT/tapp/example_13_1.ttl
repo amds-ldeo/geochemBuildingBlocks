@@ -15,22 +15,25 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software; ada:segmentationMethodDefault = Manual grayscale threshold per phase." ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 9.2.0" ;
@@ -57,9 +60,7 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Software BHC applied per respective software" ;
     ada:detectorType "CCD Hamamatsu (2300 × 2300 px)" ;
-    ada:exposureTimePerProjectionDefault "750–1250 ms (varies by sample)" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "1200–2000 (varies by sample)" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Total fluid inclusion volume (mm3)",
@@ -72,11 +73,8 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)" ;
-    ada:segmentationMethodDefault "Manual grayscale threshold per phase" ;
     ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -88,11 +86,27 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
             ada:targetMaterialDeclaration "Minerals with fluid inclusions (quartz, garnet, emerald, wolframite, feldspar)" ] ;
     ada:xRaySourceConfiguration "missing" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 750 ;
+    schema1:description "750–1250 ms (varies by sample)" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 3 ;
     schema1:description "3–6 (varies by sample)" ;
     schema1:name "Frames Averaged per Projection" ;
     schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1200 ;
+    schema1:description "1200–2000 (varies by sample)" ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
@@ -114,6 +128,13 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
     schema1:defaultValue "Varies: 0.3×0.4 to 11×11×7 mm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual grayscale threshold per phase" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

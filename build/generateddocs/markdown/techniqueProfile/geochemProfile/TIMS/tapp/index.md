@@ -104,7 +104,6 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
@@ -217,7 +216,6 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
@@ -257,7 +255,6 @@ ex:timsTAPP-P0 a schema1:Action,
     schema1:name "tims protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "(ETHZ)Triton Thermo Fisher TIMS" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "140Ce/144Nd",
@@ -388,20 +385,19 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
+    schema:additionalProperty:
+      type: array
+      items:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+      allOf:
+      - contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        minContains: 0
+        maxContains: 1
   required:
   - ada:targetMaterial
   - ada:instrumentManufacturer
   - ada:instrumentModel
-  - ada:constantsAndReferenceValuesUsedDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

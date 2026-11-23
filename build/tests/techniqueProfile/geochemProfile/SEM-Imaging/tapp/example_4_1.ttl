@@ -15,15 +15,15 @@ ex:semImagingTAPP-Gucsik2013 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2 Reported detail: ada:clAcquisitionMode = Panchromatic; Spectral point." ;
     schema1:instrument <https://example.org/semImagingTAPP-Gucsik2013/instrument/SEM> ;
@@ -37,12 +37,8 @@ ex:semImagingTAPP-Gucsik2013 a schema1:Action,
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Spectral point" ;
-    ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "CL colour (nominal)",
                 "CL emission bands (nm)",
                 "CL zoning (nominal)" ;
@@ -65,6 +61,20 @@ ex:semImagingTAPP-Gucsik2013 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Mini-CL (Gatan, multialkali PMT) for scanning CL images; Oxford MonoCL2 grating monochromator with Hamamatsu R2228 PMT and parabolic mirror (75% efficiency) for spectral CL" ;
+    schema1:name "CL Detector Configuration" ;
+    schema1:valueName "clDetectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clGrating> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "1200 gr/mm, focal length 0.3 m, F/4.2, resolution 0.5 nm, slit width 4 mm (Oxford MonoCL2)" ;
+    schema1:name "CL Grating" ;
+    schema1:valueName "clGrating" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/semImagingTAPP-Gucsik2013/instrument/SEM> a schema1:Product,
         schema1:Thing ;
@@ -103,14 +113,4 @@ ex:semImagingTAPP-Gucsik2013 a schema1:Action,
     schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SE Detector" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "CL Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> ;
-    schema1:value "Mini-CL (Gatan, multialkali PMT) for scanning CL images; Oxford MonoCL2 grating monochromator with Hamamatsu R2228 PMT and parabolic mirror (75% efficiency) for spectral CL" .
-
-<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clGrating> a schema1:PropertyValue ;
-    schema1:name "CL Grating" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clGrating> ;
-    schema1:value "1200 gr/mm, focal length 0.3 m, F/4.2, resolution 0.5 nm, slit width 4 mm (Oxford MonoCL2)" .
 

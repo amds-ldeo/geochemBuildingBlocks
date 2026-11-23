@@ -8933,12 +8933,278 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning,
-        or on each step position during mapping, in microseconds or milliseconds.
-      anyOf:
-      - type: number
-      - type: string
+    schema:additionalProperty:
+      type: array
+      items:
+        anyOf:
+        - title: Dwell Time per Pixel
+          description: Time the electron beam dwells on each pixel during raster scanning,
+            or on each step position during mapping, in microseconds or milliseconds.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semFibsemTAPP/dwellTimePerPixelDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - dwellTimePerPixelDefault
+            schema:name:
+              enum:
+              - Dwell Time per Pixel
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: 3D Image Registration
+          description: Method used to align consecutive SEM image slices in the 3D
+            stack to correct for drift, vibration, and curtaining artifacts. Include
+            software used.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semFibsemTAPP/imageRegistration3DDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - imageRegistration3DDefault
+            schema:name:
+              enum:
+              - 3D Image Registration
+            ada:dataType:
+              enum:
+              - string
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Segmentation Method
+          description: Method and software used to separate distinct phases or features
+            in the reconstructed 3D volume, turning the grayscale volume into labelled
+            regions.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semFibsemTAPP/segmentationMethodDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - segmentationMethodDefault
+            schema:name:
+              enum:
+              - Segmentation Method
+            ada:dataType:
+              enum:
+              - string
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Global threshold (single grayscale boundary)
+                - Multi-threshold (separate range per phase)
+                - Manual threshold per phase
+                - 'Semi-automated: threshold + morphological filtering'
+                - Region growing
+                - Manual tracing
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              enum:
+              - '@id': ada:vocab/segmentation-method
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains:
+          title: Dwell Time per Pixel
+          description: Time the electron beam dwells on each pixel during raster scanning,
+            or on each step position during mapping, in microseconds or milliseconds.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semFibsemTAPP/dwellTimePerPixelDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - dwellTimePerPixelDefault
+            schema:name:
+              enum:
+              - Dwell Time per Pixel
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: 3D Image Registration
+          description: Method used to align consecutive SEM image slices in the 3D
+            stack to correct for drift, vibration, and curtaining artifacts. Include
+            software used.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semFibsemTAPP/imageRegistration3DDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - imageRegistration3DDefault
+            schema:name:
+              enum:
+              - 3D Image Registration
+            ada:dataType:
+              enum:
+              - string
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Segmentation Method
+          description: Method and software used to separate distinct phases or features
+            in the reconstructed 3D volume, turning the grayscale volume into labelled
+            regions.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semFibsemTAPP/segmentationMethodDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - segmentationMethodDefault
+            schema:name:
+              enum:
+              - Segmentation Method
+            ada:dataType:
+              enum:
+              - string
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Global threshold (single grayscale boundary)
+                - Multi-threshold (separate range per phase)
+                - Manual threshold per phase
+                - 'Semi-automated: threshold + morphological filtering'
+                - Region growing
+                - Manual tracing
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              enum:
+              - '@id': ada:vocab/segmentation-method
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     schema:actionProcess:
       type: object
       properties:
@@ -9426,29 +9692,6 @@ allOf:
                   - Data processing
               required:
               - schema:name
-    ada:imageRegistration3DDefault:
-      description: Method used to align consecutive SEM image slices in the 3D stack
-        to correct for drift, vibration, and curtaining artifacts. Include software
-        used.
-      type: string
-    ada:segmentationMethod3DDefault:
-      description: Method and software used to separate distinct phases or features
-        in the reconstructed 3D volume, turning the grayscale volume into labelled
-        regions.
-      anyOf:
-      - type: string
-        enum:
-        - Global threshold (single grayscale boundary)
-        - Multi-threshold (separate range per phase)
-        - Manual threshold per phase
-        - 'Semi-automated: threshold + morphological filtering'
-        - Region growing
-        - Manual tracing
-        - N/A
-        - None
-        - missing
-      - type: string
-      schema:inDefinedTermSet: ada:vocab/segmentation-method
     ada:analyticalMode:
       type: array
       items:
@@ -9456,10 +9699,6 @@ allOf:
         enum:
         - TEM Sample Preparation
         - 3D Tomography
-  required:
-  - ada:dwellTimePerPixelDefault
-  - ada:imageRegistration3DDefault
-  - ada:segmentationMethod3DDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

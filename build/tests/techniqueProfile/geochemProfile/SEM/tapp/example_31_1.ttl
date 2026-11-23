@@ -15,6 +15,12 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
@@ -28,13 +34,7 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-9/instrument/SEM> ;
@@ -52,14 +52,9 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Monochromatic imaging" ;
-    ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is CL Mapping. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
@@ -79,8 +74,6 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states the mounting and imaging conditions only, and no rule for choosing units (p.9)" ;
     ada:samplingUnitType "Whole sample (particle thin section) > Region of interest — panchromatic and monochromatic CL imaging of \"Bennu particle thin sections\", the emitting volume reaching \"up to 230 nm below the bombarded sample surface and around to 200 nm sideways\" (p.9)" ;
     ada:seDetectorType "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonate",
                 "olivine" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
@@ -94,8 +87,14 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
-    ada:wdsDeadTimeCorrection "missing" ;
-    ada:workingDistanceDefault -9999 .
+    ada:wdsDeadTimeCorrection "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/clDetectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "MonoCL4 GATAN monochromator; high-sensitivity array detector and photomultiplier; paraboloidal mirror collection (CRHEA Valbonne, France)" ;
+    schema1:name "CL Detector Configuration" ;
+    schema1:valueName "clDetectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
@@ -162,9 +161,4 @@ ex:semTAPP-Zega2025-9 a schema1:Action,
     schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "WDS Spectrometer" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/semTAPP/clDetectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "CL Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semTAPP/clDetectorConfiguration> ;
-    schema1:value "MonoCL4 GATAN monochromator; high-sensitivity array detector and photomultiplier; paraboloidal mirror collection (CRHEA Valbonne, France)" .
 

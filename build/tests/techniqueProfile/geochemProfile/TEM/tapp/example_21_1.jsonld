@@ -27,7 +27,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 Mo2022-2",
-  "schema:description": "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5\u20130.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe\u2070), 707.2 eV (Fe\u00b2\u207a), 709.0 eV (Fe\u00b3\u207a). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe\u2070/Fe\u00b2\u207a; terrestrial hematite for Fe\u00b3\u207a; w\u00fcstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe. Reported detail: ada:spectroscopicDetectorDefault = EELS (Gatan GIF Quantum ER System Model 965); ada:analyticalSubModeDefault = HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan; ada:eelsAcquisitionModeDefault = Point analysis and line scan EELS.",
+  "schema:description": "Hitachi HF5000 at Shanghai Institute of Ceramics CAS; 200 kV; 100 pA; Gatan GIF Quantum ER System Model 965 parallel EELS spectrometer. Energy resolution: 0.5\u20130.7 eV FWHM at ZLP. Fe L3,2 edge: L3 peak positions 707.7 eV (Fe\u2070), 707.2 eV (Fe\u00b2\u207a), 709.0 eV (Fe\u00b3\u207a). EELS acquired in DualEELS mode; 10 s point analysis, 18 s line scan. Reference standards: Fe metal + troilite (L6 ordinary chondrite GRV051874) for Fe\u2070/Fe\u00b2\u207a; terrestrial hematite for Fe\u00b3\u207a; w\u00fcstite and hematite from Yao et al. 2018 (AES refs). ZLP aligned before spectral comparison. Background and continuum removal methods not stated. Valence state ID is qualitative (peak position + lineshape). Coordinated with FEI Talos F200X (EDS at SINANO) and PHI 700/710 Auger nanoprobe.",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "lunar soil grains \u2014 Chang'E-5 lunar soil grain CE5C0400YJFM00505 (two grains selected); <50 \u00b5m; dispersed on Al double-sided tape in Ar-filled glovebox; coated with gold layer to prevent charging",
     "ada:targetMaterialColumns": [
@@ -248,9 +248,29 @@
       "@id": "ex:temTAPP-Mo2022-2/instrument/TEM"
     }
   ],
-  "ada:spectroscopicDetectorDefault": "N/A",
-  "ada:analyticalSubModeDefault": "ADF",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "HAADF-STEM; TEM-EELS point analysis; TEM-EELS line scan"
+    },
     {
       "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
       "@type": [
@@ -262,6 +282,17 @@
       "ada:fieldScope": "session",
       "schema:defaultValue": 100,
       "schema:description": "100 pA"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsAcquisitionModeDefault",
+      "schema:name": "EELS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
     },
     {
       "@id": "ada:parameter/temTAPP/eelsEnergyResolution",
@@ -277,6 +308,29 @@
       "schema:value": 0.5,
       "schema:unitText": "no value available: unnamed property",
       "schema:description": "0.5\u20130.7"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrumDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsAcquisitionTimePerSpectrumDefault",
+      "schema:name": "EELS Acquisition Time per Spectrum",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3,
+      "schema:description": "Fe (L3,2)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsEnergyLossRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsEnergyLossRangeDefault",
+      "schema:name": "EELS Energy Loss Range",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fe (L3,2)"
     },
     {
       "@id": "ada:parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault",
@@ -324,12 +378,9 @@
       }
     ]
   },
-  "ada:eelsAcquisitionModeDefault": "Line scan",
   "ada:eelsEdgesDefault": [
     "\"Fe L3,2 edge\" (~707\u2013709 eV) \u2192 Fe \u2014 L3 peak at 707.7 eV for Fe\u2070, 707.2 eV for Fe\u00b2\u207a, 709.0 eV for Fe\u00b3\u207a"
   ],
-  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L3,2)",
-  "ada:eelsEnergyLossRangeDefault": "Fe (L3,2)",
   "ada:phaseIdentificationMethod": "EELS peak position and lineshape comparison to reference spectra; qualitative valence state ID (np-Fe0 = metallic; matrix = Fe\u00b3\u207a; olivine = Fe\u00b2\u207a)",
   "schema:measurementTechnique": [
     {
@@ -368,12 +419,8 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
-  "ada:edsAcquisitionModeDefault": "missing",
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
   "ada:edsQuantificationMethod": "missing",
   "ada:eelsCollectionSemiAngle": -9999,
-  "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }

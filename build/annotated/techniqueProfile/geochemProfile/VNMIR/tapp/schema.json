@@ -103,7 +103,21 @@
                                 "const": "R"
                               },
                               "schema:defaultValue": {
-                                "type": "string"
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "enum": [
+                                      "Yes",
+                                      "No",
+                                      "N/A",
+                                      "None",
+                                      "missing"
+                                    ]
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ]
                               },
                               "schema:inDefinedTermSet": {
                                 "const": {
@@ -152,7 +166,21 @@
                                 "const": "R"
                               },
                               "schema:defaultValue": {
-                                "type": "string"
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "enum": [
+                                      "Yes",
+                                      "No",
+                                      "N/A",
+                                      "None",
+                                      "missing"
+                                    ]
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ]
                               },
                               "schema:inDefinedTermSet": {
                                 "const": {
@@ -208,7 +236,21 @@
                                 "const": "R"
                               },
                               "schema:defaultValue": {
-                                "type": "string"
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "enum": [
+                                      "Yes",
+                                      "No",
+                                      "N/A",
+                                      "None",
+                                      "missing"
+                                    ]
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ]
                               },
                               "schema:inDefinedTermSet": {
                                 "const": {
@@ -261,7 +303,21 @@
                                 "const": "R"
                               },
                               "schema:defaultValue": {
-                                "type": "string"
+                                "anyOf": [
+                                  {
+                                    "type": "string",
+                                    "enum": [
+                                      "Yes",
+                                      "No",
+                                      "N/A",
+                                      "None",
+                                      "missing"
+                                    ]
+                                  },
+                                  {
+                                    "type": "string"
+                                  }
+                                ]
                               },
                               "schema:inDefinedTermSet": {
                                 "const": {
@@ -407,21 +463,64 @@
           ],
           "readOnly": true
         },
-        "ada:spectralResolutionDefault": {
-          "description": "Instrumental spectral resolution the procedure operates at.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "schema:additionalProperty": {
           "type": "array",
           "items": {
             "anyOf": [
+              {
+                "title": "Spectral Resolution",
+                "description": "Instrumental spectral resolution the procedure operates at.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/spectralResolutionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "spectralResolutionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Spectral Resolution"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
               {
                 "title": "Spectral Sampling",
                 "description": "Spacing between adjacent recorded spectral points. Distinct from resolution: sampling may oversample the instrumental resolution.",
@@ -468,6 +567,177 @@
                   "schema:unitText"
                 ],
                 "readOnly": true
+              },
+              {
+                "title": "Measurement Environment",
+                "description": "Atmosphere the measurement chamber is held in.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/measurementEnvironmentDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "measurementEnvironmentDefault"
+                  },
+                  "schema:name": {
+                    "const": "Measurement Environment"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Ambient air",
+                          "Purged (dry N2)",
+                          "Purged (dry air)",
+                          "Vacuum",
+                          "Simulated planetary",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/measurement-environment"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Spot Size",
+                "description": "Diameter of the analysed area for a point measurement, or the pixel footprint for a map.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/spotSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "spotSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Spot Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Number of Scans",
+                "description": "Interferograms co-added per reported spectrum.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/numberOfScansDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "numberOfScansDefault"
+                  },
+                  "schema:name": {
+                    "const": "Number of Scans"
+                  },
+                  "ada:dataType": {
+                    "const": "integer"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               {
                 "title": "Emissivity Maximum Fit Region Minimum",
@@ -565,6 +835,53 @@
                     ]
                   },
                   "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Procedure_constantsReferenceValues"
+              },
+              {
+                "title": "Calibration Standards",
+                "description": "Reference materials measured to calibrate the reported quantity, with source.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/calibrationStandardsDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationStandardsDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Standards"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
                     "type": "string"
                   }
                 },
@@ -582,6 +899,64 @@
           "allOf": [
             {
               "contains": {
+                "title": "Spectral Resolution",
+                "description": "Instrumental spectral resolution the procedure operates at.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/spectralResolutionDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "spectralResolutionDefault"
+                  },
+                  "schema:name": {
+                    "const": "Spectral Resolution"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Spectral Sampling",
                 "description": "Spacing between adjacent recorded spectral points. Distinct from resolution: sampling may oversample the instrumental resolution.",
                 "type": "object",
@@ -627,6 +1002,189 @@
                   "schema:unitText"
                 ],
                 "readOnly": true
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Measurement Environment",
+                "description": "Atmosphere the measurement chamber is held in.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/measurementEnvironmentDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "measurementEnvironmentDefault"
+                  },
+                  "schema:name": {
+                    "const": "Measurement Environment"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Ambient air",
+                          "Purged (dry N2)",
+                          "Purged (dry air)",
+                          "Vacuum",
+                          "Simulated planetary",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/measurement-environment"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Spot Size",
+                "description": "Diameter of the analysed area for a point measurement, or the pixel footprint for a map.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/spotSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "spotSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Spot Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Number of Scans",
+                "description": "Interferograms co-added per reported spectrum.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/numberOfScansDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "numberOfScansDefault"
+                  },
+                  "schema:name": {
+                    "const": "Number of Scans"
+                  },
+                  "ada:dataType": {
+                    "const": "integer"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
               },
               "minContains": 0,
               "maxContains": 1
@@ -732,6 +1290,61 @@
                     ]
                   },
                   "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.json#/$defs/Param_Procedure_constantsReferenceValues"
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Calibration Standards",
+                "description": "Reference materials measured to calibrate the reported quantity, with source.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/vnmirTAPP/calibrationStandardsDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "calibrationStandardsDefault"
+                  },
+                  "schema:name": {
+                    "const": "Calibration Standards"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
                     "type": "string"
                   }
                 },
@@ -773,50 +1386,6 @@
           "schema:inDefinedTermSet": "ada:vocab/measurement-type",
           "readOnly": true
         },
-        "ada:measurementEnvironmentDefault": {
-          "description": "Atmosphere the measurement chamber is held in.",
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Ambient air",
-                "Purged (dry N2)",
-                "Purged (dry air)",
-                "Vacuum",
-                "Simulated planetary",
-                "N/A",
-                "None",
-                "missing"
-              ]
-            },
-            {
-              "type": "string"
-            }
-          ],
-          "schema:inDefinedTermSet": "ada:vocab/measurement-environment"
-        },
-        "ada:spotSizeDefault": {
-          "description": "Diameter of the analysed area for a point measurement, or the pixel footprint for a map.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:numberOfScansDefault": {
-          "description": "Interferograms co-added per reported spectrum.",
-          "anyOf": [
-            {
-              "type": "integer"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:reportedPropertyTemplate": {
           "type": "object",
           "properties": {
@@ -842,14 +1411,6 @@
           ],
           "title": "Reported Property Template"
         },
-        "ada:constantsAndReferenceValuesUsedDefault": {
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-          "type": "string"
-        },
-        "ada:calibrationStandardsDefault": {
-          "description": "Reference materials measured to calibrate the reported quantity, with source.",
-          "type": "string"
-        },
         "ada:analyticalMode": {
           "type": "array",
           "items": {
@@ -870,13 +1431,7 @@
         "ada:beamsplitter",
         "ada:spectralRangeMinimum",
         "ada:spectralRangeMaximum",
-        "ada:spectralResolutionDefault",
-        "ada:measurementType",
-        "ada:measurementEnvironmentDefault",
-        "ada:spotSizeDefault",
-        "ada:numberOfScansDefault",
-        "ada:constantsAndReferenceValuesUsedDefault",
-        "ada:calibrationStandardsDefault"
+        "ada:measurementType"
       ]
     }
   ],

@@ -27,7 +27,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 Dobrica2022",
-  "schema:description": "FIB sections transferred to Cu TEM half-grids (not standard full grids); nanodiffraction used 0.1\u20130.3 mrad convergence angle in STEM mode (quasi-parallel beam); some carbonate compositions and modulation measurements reported using Molecular Foundry TitanX EDS (see separate column) Reported detail: ada:analyticalSubModeDefault = DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction).",
+  "schema:description": "FIB sections transferred to Cu TEM half-grids (not standard full grids); nanodiffraction used 0.1\u20130.3 mrad convergence angle in STEM mode (quasi-parallel beam); some carbonate compositions and modulation measurements reported using Molecular Foundry TitanX EDS (see separate column)",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonates",
@@ -251,10 +251,43 @@
       "@id": "ex:temTAPP-Dobrica2022/instrument/TEM"
     }
   ],
-  "ada:spectroscopicDetectorDefault": "EDS only",
-  "ada:analyticalSubModeDefault": "BF-STEM",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "EDS only"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "DF-STEM; BF-STEM; BF-TEM; HRTEM (TEM Imaging); Nanodiffraction (STEM mode, near-parallel probe); SAED (Electron Diffraction)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/cameraLengthDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "cameraLengthDefault",
+      "schema:name": "Camera Length",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 295,
+      "schema:description": "295 mm (stated for nanodiffraction)"
+    }
+  ],
   "ada:convergenceSemiAngle": "0.1\u20130.3 mrad (for nanodiffraction in STEM mode)",
-  "ada:cameraLengthDefault": "295 mm (stated for nanodiffraction)",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Mg",
@@ -336,13 +369,7 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "missing",
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
   "ada:edsQuantificationMethod": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsEnergyLossRangeDefault": "no value available: ada:eelsEnergyLossRangeDefault",
-  "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }

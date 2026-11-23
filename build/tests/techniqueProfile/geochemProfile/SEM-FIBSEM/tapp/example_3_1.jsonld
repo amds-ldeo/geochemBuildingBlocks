@@ -27,7 +27,7 @@
     "schema:HowTo"
   ],
   "schema:name": "semFibsem protocol \u2014 Zhou2017",
-  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE).",
+  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "subbituminous coal; high-volatile bituminous coal \u2014 Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China",
     "ada:defaultTargetMaterials": [
@@ -187,8 +187,30 @@
       }
     ]
   },
-  "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
-  "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semFibsemTAPP/imageRegistration3DDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageRegistration3DDefault",
+      "schema:name": "3D Image Registration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment"
+    },
+    {
+      "@id": "ada:parameter/semFibsemTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -258,6 +280,5 @@
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }

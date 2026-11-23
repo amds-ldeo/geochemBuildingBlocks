@@ -192,7 +192,20 @@
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20,
+      "schema:description": "20 to 200 s (per point)"
+    }
+  ],
   "ada:monitoredElements": [
     "N \u2014 \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated"
   ],
@@ -271,7 +284,6 @@
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
