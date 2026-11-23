@@ -254,9 +254,6 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -516,9 +513,6 @@ semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanogl
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -542,9 +536,10 @@ ex:semFibsemTAPP-Garvie2008 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
+                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -553,10 +548,9 @@ ex:semFibsemTAPP-Garvie2008 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "30 kV, 10 pA Ga beam" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semFibsemTAPP instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules | TEM Sample Preparation (FIB, FEI Nova 200 NanoLab) (publication column of SEM_FIBSEM_TAPP_v45.csv)." ;
     schema1:instrument <https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM>,
@@ -572,8 +566,6 @@ ex:semFibsemTAPP-Garvie2008 a schema1:Action,
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
-    ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "internal structure of the sectioned globules (nominal)" ;
             ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -585,7 +577,6 @@ ex:semFibsemTAPP-Garvie2008 a schema1:Action,
             ada:reportedPropertyDeclaration "internal structure of the sectioned globules (nominal) — Internal structure of the sectioned globules (nominal) — \"The FIB-SEM analysis shows that the globules range from solid to hollow. Some hollow globules show a central open core, with adjoining smaller cores\" (p.1)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper claims the capability without stating a rule: \"The rapid site-specific cross-sectioning capabilities of the FIB allow the preservation of the internal morphology of the nanoglobules\" (p.1), but which globules were sectioned is not said" ;
     ada:samplingUnitType "Grain (individual nanoglobule) > Sub-volume (FIB cross-section) — \"The internal structure of the globules was investigated after sectioning by focused ion beam (FIB) milling\" (p.1)" ;
-    ada:segmentationMethod3DDefault "missing" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous nanoglobules" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -670,7 +661,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     "schema:HowTo"
   ],
   "schema:name": "semFibsem protocol — Liu2017",
-  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics.",
+  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "anthracite",
@@ -906,7 +897,19 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     ],
     "schema:name": "FIB-SEM analytical workflow"
   },
-  "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semFibsemTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -938,8 +941,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -976,7 +977,7 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     "schema:HowTo"
   ],
   "schema:name": "semFibsem protocol \u2014 Liu2017",
-  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics.",
+  "schema:description": "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "anthracite",
@@ -1212,7 +1213,19 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
     ],
     "schema:name": "FIB-SEM analytical workflow"
   },
-  "ada:segmentationMethod3DDefault": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semFibsemTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1244,8 +1257,6 @@ semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui ba
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -1276,18 +1287,19 @@ ex:semFibsemTAPP-Liu2017 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThicknessDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv). Reported detail: ada:segmentationMethod3DDefault = Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics." ;
+    schema1:description "semFibsemTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_FIBSEM_TAPP_v45.csv)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
@@ -1305,8 +1317,6 @@ ex:semFibsemTAPP-Liu2017 a schema1:Action,
             schema1:target [ schema1:name "X-ray CT (Xradia 520 Versa, Carl Zeiss)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "3D Tomography" ;
-    ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "pore connectivity (nominal)",
                 "pore type (nominal)",
                 "pore volume percent by pore class (vol%)",
@@ -1321,7 +1331,6 @@ ex:semFibsemTAPP-Liu2017 a schema1:Action,
             ada:reportedPropertyDeclaration "pore volume percent by pore class (vol%); pore width (nm); pore type (nominal); pore connectivity (nominal) — Pore volume percent by pore class (vol%: macropores, mesopores, micropores — \"Volume percent of pores of these high-rank coals are dominated by mesopores of approximately 10–50 nm in width\", p.1); pore width (nm); pore type and connectivity (nominal: coalification-related vs mineral-related, \"mesopore-dominated pore network\", p.1); the 3D pore-network model reports pore connectivity for coal sample #1 (p.8)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper states the scope of the model rather than a rule for siting the volume: it \"only focuses on the coal sample #1\" (p.8)" ;
     ada:samplingUnitType "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — the volume supports \"a three dimensional (3D) pore network model, which was further used to characterize the pore connectivity\" (p.1), with pores classified as coalification-related and mineral-related (p.1); the model \"only focuses on the coal sample #1\" (p.8)" ;
-    ada:segmentationMethod3DDefault "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "anthracite",
                 "lean coal" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
@@ -1336,6 +1345,13 @@ ex:semFibsemTAPP-Liu2017 a schema1:Action,
     schema1:defaultValue "No coating applied; not sputtered with gold or other materials" ;
     schema1:name "Protective Coating Deposition" ;
     schema1:valueName "protectiveCoatingDepositionDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Image denoising, binarization, and segmentation; 3D model established using Avizo 7 and Multiple-point geostatistics" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1422,7 +1438,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     "schema:HowTo"
   ],
   "schema:name": "semFibsem protocol — Zhou2017",
-  "schema:description": "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE).",
+  "schema:description": "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "subbituminous coal; high-volatile bituminous coal — Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China",
     "ada:defaultTargetMaterials": [
@@ -1582,8 +1598,30 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       }
     ]
   },
-  "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
-  "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semFibsemTAPP/imageRegistration3DDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageRegistration3DDefault",
+      "schema:name": "3D Image Registration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment"
+    },
+    {
+      "@id": "ada:parameter/semFibsemTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1653,7 +1691,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -1690,7 +1727,7 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
     "schema:HowTo"
   ],
   "schema:name": "semFibsem protocol \u2014 Zhou2017",
-  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE).",
+  "schema:description": "Stage tilt 52\u00b0 between electron and ion columns; SEM range 20V\u201330kV and FIB range 500V\u201330kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52\u00b0) for pixel scale correction",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "subbituminous coal; high-volatile bituminous coal \u2014 Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China",
     "ada:defaultTargetMaterials": [
@@ -1850,8 +1887,30 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       }
     ]
   },
-  "ada:imageRegistration3DDefault": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment",
-  "ada:segmentationMethod3DDefault": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semFibsemTAPP/imageRegistration3DDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageRegistration3DDefault",
+      "schema:name": "3D Image Registration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment"
+    },
+    {
+      "@id": "ada:parameter/semFibsemTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)"
+    }
+  ],
   "schema:location": {
     "@type": [
       "schema:Place"
@@ -1921,7 +1980,6 @@ semFibsemTAPP instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar B
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -1945,13 +2003,6 @@ ex:semFibsemTAPP-Zhou2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
@@ -1959,9 +2010,18 @@ ex:semFibsemTAPP-Zhou2017 a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/imageRegistration3DDefault>,
+        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
+    schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
@@ -1975,8 +2035,6 @@ ex:semFibsemTAPP-Zhou2017 a schema1:Action,
             schema1:termCode "semFibsem" ] ;
     schema1:name "semFibsem protocol — Zhou2017" ;
     ada:analyticalMode "3D Tomography" ;
-    ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "pore connectivity (nominal)",
                 "pore diameter (nm)",
                 "pore type (nominal)",
@@ -1993,7 +2051,6 @@ ex:semFibsemTAPP-Zhou2017 a schema1:Action,
             ada:reportedPropertyDeclaration "pore-space volume (voxels); pore diameter (nm); pore connectivity (nominal); pore type (nominal); throat size (nm); throat length (µm) — Pore-space volume as voxel counts (\"total voxel numbers of 28,944 and 83,866\", p.1); pore diameter (nm, with both samples predominantly showing closed-pore diameters of 10–50 nm, p.1); pore connectivity and pore type (nominal), from ~800 serial FIB slices at 14.8 × 14.8 nm pixel size (pp.3–4)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Stated, but by procedure rather than by criterion — \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (§2.3, p.4); no rule is given for where the area was placed" ;
     ada:samplingUnitType "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — \"an area within the coal sample was selected for FIB-SEM tomography\" on \"cuboidal-shaped 0.5 × 1 × 1 cm3 coal samples\", and \"~800 SEM images of FIB slices were obtained\" at a \"pixel-size of 14.8 × 14.8 nm\" (pp.3–4)" ;
-    ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "subbituminous coal" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -2003,6 +2060,20 @@ ex:semFibsemTAPP-Zhou2017 a schema1:Action,
                     ada:dataType "string" ;
                     ada:tier "M" ] ;
             ada:targetMaterialDeclaration "subbituminous coal; high-volatile bituminous coal — Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China" ] .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/imageRegistration3DDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
+    schema1:name "3D Image Registration" ;
+    schema1:valueName "imageRegistration3DDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
 
 <https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM> a schema1:Product,
         schema1:Thing ;
@@ -2332,9 +2403,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -2624,9 +2692,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -2649,13 +2714,6 @@ ex:semFibsemTAPP-Zega2025 a schema1:Action,
             schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDepositionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
@@ -2666,7 +2724,14 @@ ex:semFibsemTAPP-Zega2025 a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
     schema1:instrument <https://example.org/semFibsemTAPP-Zega2025/instrument/FIBSEM>,
@@ -2682,8 +2747,6 @@ ex:semFibsemTAPP-Zega2025 a schema1:Action,
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
-    ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "electron-transparent section (nominal)",
                 "section thickness (nm)" ;
             ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
@@ -2696,7 +2759,6 @@ ex:semFibsemTAPP-Zega2025 a schema1:Action,
             ada:reportedPropertyDeclaration "electron-transparent section (nominal); section thickness (nm) — Electron-transparent sections ~100 nm thick (\"final thinning at 5 kV until the sections were ~100 nm thick\", p.10) — the reported product is the section itself and its location within the particle (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Position within the particle — \"All sections were extracted from varied regions of matrix within the particles\" (p.9)" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"All sections were extracted from varied regions of matrix within the particles\" (p.9)" ;
-    ada:segmentationMethod3DDefault "missing" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "fine-grained matrix" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -3043,9 +3105,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -3332,9 +3391,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -3357,14 +3413,6 @@ ex:semFibsemTAPP-Zega2025-2 a schema1:Action,
             schema1:name "FIB-SEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
-                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Particles placed on PELCO carbon conductive tabs on Al SEM round; no protective coating stated" ;
                     schema1:name "Sample preparation" ;
@@ -3374,7 +3422,15 @@ ex:semFibsemTAPP-Zega2025-2 a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
+                        <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
     schema1:instrument <https://example.org/semFibsemTAPP-Zega2025-2/instrument/FIBSEM>,
@@ -3390,8 +3446,6 @@ ex:semFibsemTAPP-Zega2025-2 a schema1:Action,
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
-    ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "electron-transparent section (nominal)" ;
             ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -3403,7 +3457,6 @@ ex:semFibsemTAPP-Zega2025-2 a schema1:Action,
             ada:reportedPropertyDeclaration "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.9)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states only how particles were mounted, \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9), and no rule for choosing where to cut" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"Bennu particles were placed on PELCO carbon conductive tabs\" for extraction (p.9)" ;
-    ada:segmentationMethod3DDefault "missing" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -3778,9 +3831,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -4092,9 +4142,6 @@ semFibsemTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles 
       "schema:termCode": "semFibsem"
     }
   ],
-  "ada:dwellTimePerPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
-  "ada:segmentationMethod3DDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -4125,18 +4172,18 @@ ex:semFibsemTAPP-Zega2025-3 a schema1:Action,
                     ada:coarseMillingConditionsDefault "Ga+ ion beam at 30 kV (initial milling); 16 kV (intermediate)" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditionsDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThicknessDefault>,
                         <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/liftOutMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <https://example.org/semFibsemTAPP-Zega2025-3/instrument/FIBSEM>,
@@ -4152,8 +4199,6 @@ ex:semFibsemTAPP-Zega2025-3 a schema1:Action,
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
-    ada:dwellTimePerPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "electron-transparent section (nominal)" ;
             ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -4165,7 +4210,6 @@ ex:semFibsemTAPP-Zega2025-3 a schema1:Action,
             ada:reportedPropertyDeclaration "electron-transparent section (nominal) — Electron-transparent sections for TEM analysis — the reported product is the section and its provenance (nominal); no measured variable is reported by this procedure (p.10)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states only that \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), and no rule for choosing where to cut" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10)" ;
-    ada:segmentationMethod3DDefault "missing" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -4657,12 +4701,248 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning,
-        or on each step position during mapping, in microseconds or milliseconds.
-      anyOf:
-      - type: number
-      - type: string
+    schema:additionalProperty:
+      type: array
+      items:
+        anyOf:
+        - title: Dwell Time per Pixel
+          description: Time the electron beam dwells on each pixel during raster scanning,
+            or on each step position during mapping, in microseconds or milliseconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semFibsemTAPP/dwellTimePerPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: dwellTimePerPixelDefault
+            schema:name:
+              const: Dwell Time per Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: 3D Image Registration
+          description: Method used to align consecutive SEM image slices in the 3D
+            stack to correct for drift, vibration, and curtaining artifacts. Include
+            software used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semFibsemTAPP/imageRegistration3DDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: imageRegistration3DDefault
+            schema:name:
+              const: 3D Image Registration
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Segmentation Method
+          description: Method and software used to separate distinct phases or features
+            in the reconstructed 3D volume, turning the grayscale volume into labelled
+            regions.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semFibsemTAPP/segmentationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: segmentationMethodDefault
+            schema:name:
+              const: Segmentation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Global threshold (single grayscale boundary)
+                - Multi-threshold (separate range per phase)
+                - Manual threshold per phase
+                - 'Semi-automated: threshold + morphological filtering'
+                - Region growing
+                - Manual tracing
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/segmentation-method
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains:
+          title: Dwell Time per Pixel
+          description: Time the electron beam dwells on each pixel during raster scanning,
+            or on each step position during mapping, in microseconds or milliseconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semFibsemTAPP/dwellTimePerPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: dwellTimePerPixelDefault
+            schema:name:
+              const: Dwell Time per Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: 3D Image Registration
+          description: Method used to align consecutive SEM image slices in the 3D
+            stack to correct for drift, vibration, and curtaining artifacts. Include
+            software used.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semFibsemTAPP/imageRegistration3DDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: imageRegistration3DDefault
+            schema:name:
+              const: 3D Image Registration
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Segmentation Method
+          description: Method and software used to separate distinct phases or features
+            in the reconstructed 3D volume, turning the grayscale volume into labelled
+            regions.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semFibsemTAPP/segmentationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: segmentationMethodDefault
+            schema:name:
+              const: Segmentation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Global threshold (single grayscale boundary)
+                - Multi-threshold (separate range per phase)
+                - Manual threshold per phase
+                - 'Semi-automated: threshold + morphological filtering'
+                - Region growing
+                - Manual tracing
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/segmentation-method
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     schema:actionProcess:
       type: object
       properties:
@@ -5098,29 +5378,6 @@ allOf:
                   const: Data processing
               required:
               - schema:name
-    ada:imageRegistration3DDefault:
-      description: Method used to align consecutive SEM image slices in the 3D stack
-        to correct for drift, vibration, and curtaining artifacts. Include software
-        used.
-      type: string
-    ada:segmentationMethod3DDefault:
-      description: Method and software used to separate distinct phases or features
-        in the reconstructed 3D volume, turning the grayscale volume into labelled
-        regions.
-      anyOf:
-      - type: string
-        enum:
-        - Global threshold (single grayscale boundary)
-        - Multi-threshold (separate range per phase)
-        - Manual threshold per phase
-        - 'Semi-automated: threshold + morphological filtering'
-        - Region growing
-        - Manual tracing
-        - N/A
-        - None
-        - missing
-      - type: string
-      schema:inDefinedTermSet: ada:vocab/segmentation-method
     ada:analyticalMode:
       type: array
       items:
@@ -5128,10 +5385,6 @@ allOf:
         enum:
         - TEM Sample Preparation
         - 3D Tomography
-  required:
-  - ada:dwellTimePerPixelDefault
-  - ada:imageRegistration3DDefault
-  - ada:segmentationMethod3DDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

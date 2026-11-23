@@ -30,15 +30,13 @@
         {
           "@id": "ada:parameter/semTAPP/clDetectorConfiguration",
           "@type": [
-            "schema:PropertyValue"
+            "schema:PropertyValueSpecification"
           ],
-          "schema:propertyID": [
-            {
-              "@id": "ada:parameter/semTAPP/clDetectorConfiguration"
-            }
-          ],
+          "schema:valueName": "clDetectorConfiguration",
           "schema:name": "CL Detector Configuration",
-          "schema:value": "Gatan ChromaCL detector; 4-channel pseudo-color detection (UV: ~300-400nm, Blue: ~400-500nm, Green: ~500-600nm, Red: ~600-850nm including near-IR ~700-850nm); Robinson Backscatter detector also present"
+          "ada:dataType": "string",
+          "ada:fieldScope": "session",
+          "schema:defaultValue": "Gatan ChromaCL detector; 4-channel pseudo-color detection (UV: ~300-400nm, Blue: ~400-500nm, Green: ~500-600nm, Red: ~600-850nm including near-IR ~700-850nm); Robinson Backscatter detector also present"
         }
       ],
       "schema:hasPart": [
@@ -162,10 +160,33 @@
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "High vacuum"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/clIntegrationTimeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "clIntegrationTimeDefault",
+      "schema:name": "CL Integration Time",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 80,
+      "schema:description": "80\u2013500 ms per pixel (varied based on IR luminescence duration in carbonates)"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/workingDistanceDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "workingDistanceDefault",
+      "schema:name": "Working Distance",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 10,
+      "schema:description": "~10 mm"
     }
   ],
   "ada:clAcquisitionMode": "Multi-channel pseudo-color",
-  "ada:clIntegrationTimeDefault": "80\u2013500 ms per pixel (varied based on IR luminescence duration in carbonates)",
   "ada:clWavelengthRange": "300\u2013850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "CL colour (nominal); CL zoning (nominal) \u2014 Cathodoluminescence colour and zoning (nominal), recorded through four spectral channels \u2014 \"red (600\u2013850 nm, including near-infrared from 700\u2013850 nm), green (500\u2026\", detected \"in the range 300\u2013850 nm\" (p.3); the reported result is CL zoning in relict CAI spinel, chondrule and AOA forsterite and calcite nodules (p.1)",
@@ -235,7 +256,6 @@
     ]
   },
   "ada:samplingUnitSelectionCriteriaDefault": "Located by prior \u03bcXRD reconnaissance \u2014 the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)",
-  "ada:workingDistanceDefault": "~10 mm",
   "ada:monitoredElements": [
     "N/A \u2014 this procedure is CL Mapping. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns"
   ],
@@ -332,17 +352,11 @@
     }
   ],
   "ada:ebsdDetectorConfiguration": "no value available: ada:ebsdDetectorConfiguration",
-  "ada:ebsdPhaseListDefault": "no value available: ada:ebsdPhaseListDefault",
-  "ada:ebsdStepSizeDefault": -9999,
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:seDetectorType": "missing",
-  "ada:segmentationMethod3DDefault": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }

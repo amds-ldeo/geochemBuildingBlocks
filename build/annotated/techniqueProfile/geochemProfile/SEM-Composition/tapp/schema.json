@@ -1715,7 +1715,7 @@
                     ]
                   },
                   "schema:unitText": {
-                    "const": "\u00b5m x \u00b5m"
+                    "const": "\u00b5m"
                   }
                 },
                 "required": [
@@ -1911,6 +1911,114 @@
                 ]
               },
               {
+                "title": "EDS Live Time per Point or Pixel",
+                "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "schema:name": {
+                    "const": "EDS Live Time per Point or Pixel"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "s"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Step Size / Pixel Size",
+                "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in \u00b5m.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "stepSizePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Step Size / Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "\u00b5m"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "Halogen Correction on Oxygen",
                 "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
                 "type": "object",
@@ -1942,7 +2050,21 @@
                     "const": "R"
                   },
                   "schema:defaultValue": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH",
+                          "No",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "schema:inDefinedTermSet": {
                     "const": {
@@ -2046,7 +2168,7 @@
                     ]
                   },
                   "schema:unitText": {
-                    "const": "\u00b5m x \u00b5m"
+                    "const": "\u00b5m"
                   }
                 },
                 "required": [
@@ -2262,6 +2384,122 @@
             },
             {
               "contains": {
+                "title": "EDS Live Time per Point or Pixel",
+                "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "edsLiveTimePerPointOrPixelDefault"
+                  },
+                  "schema:name": {
+                    "const": "EDS Live Time per Point or Pixel"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "s"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Step Size / Pixel Size",
+                "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in \u00b5m.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "stepSizePixelSizeDefault"
+                  },
+                  "schema:name": {
+                    "const": "Step Size / Pixel Size"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "\u00b5m"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Halogen Correction on Oxygen",
                 "description": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.",
                 "type": "object",
@@ -2293,7 +2531,21 @@
                     "const": "R"
                   },
                   "schema:defaultValue": {
-                    "type": "string"
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH",
+                          "No",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
                   },
                   "schema:inDefinedTermSet": {
                     "const": {
@@ -3366,28 +3618,6 @@
           ],
           "title": "Reported Property Template"
         },
-        "ada:edsLiveTimePerPointOrPixelDefault": {
-          "description": "EDS spectral acquisition live time per analysis point or per pixel in seconds.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:stepSizePixelSizeDefault": {
-          "description": "Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in \u00b5m.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:matrixCorrectionMethod": {
           "description": "X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps. Where the k-factors or calibration constants themselves came from \u2014 measured standards, a vendor library, or theoretical cross-sections \u2014 is a separate question answered by this technique's calibration-standard field, not here; a procedure may be both absorption-corrected and standardless.",
           "anyOf": [
@@ -3634,8 +3864,6 @@
       },
       "required": [
         "ada:edsAcquisitionMode",
-        "ada:edsLiveTimePerPointOrPixelDefault",
-        "ada:stepSizePixelSizeDefault",
         "ada:matrixCorrectionMethod",
         "ada:massAbsorptionCoefficients",
         "ada:wdsDeadTimeCorrection"

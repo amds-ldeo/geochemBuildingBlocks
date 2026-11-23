@@ -292,20 +292,28 @@ allOf:
                         const: ada:parameter/semImagingTAPP/clDetectorConfiguration
                       '@type':
                         const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/semImagingTAPP/clDetectorConfiguration
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: clDetectorConfiguration
                       schema:name:
                         const: CL Detector Configuration
-                      schema:value:
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: true
+                      ada:tier:
+                        const: R
+                      schema:defaultValue:
                         type: string
                     required:
                     - '@id'
                     - '@type'
-                    - schema:propertyID
+                    - schema:valueName
                     - schema:name
-                    - schema:value
+                    - ada:dataType
+                    - ada:fieldScope
                     readOnly: true
                   - title: CL Grating
                     description: Diffraction grating specification for spectral or
@@ -317,20 +325,28 @@ allOf:
                         const: ada:parameter/semImagingTAPP/clGrating
                       '@type':
                         const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/semImagingTAPP/clGrating
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: clGrating
                       schema:name:
                         const: CL Grating
-                      schema:value:
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: true
+                      ada:tier:
+                        const: R
+                      schema:defaultValue:
                         type: string
                     required:
                     - '@id'
                     - '@type'
-                    - schema:propertyID
+                    - schema:valueName
                     - schema:name
-                    - schema:value
+                    - ada:dataType
+                    - ada:fieldScope
                     readOnly: true
                 allOf:
                 - contains:
@@ -345,20 +361,28 @@ allOf:
                         const: ada:parameter/semImagingTAPP/clDetectorConfiguration
                       '@type':
                         const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/semImagingTAPP/clDetectorConfiguration
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: clDetectorConfiguration
                       schema:name:
                         const: CL Detector Configuration
-                      schema:value:
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: true
+                      ada:tier:
+                        const: R
+                      schema:defaultValue:
                         type: string
                     required:
                     - '@id'
                     - '@type'
-                    - schema:propertyID
+                    - schema:valueName
                     - schema:name
-                    - schema:value
+                    - ada:dataType
+                    - ada:fieldScope
                     readOnly: true
                   minContains: 0
                   maxContains: 1
@@ -373,20 +397,28 @@ allOf:
                         const: ada:parameter/semImagingTAPP/clGrating
                       '@type':
                         const:
-                        - schema:PropertyValue
-                      schema:propertyID:
-                        const:
-                        - '@id': ada:parameter/semImagingTAPP/clGrating
+                        - schema:PropertyValueSpecification
+                      schema:valueName:
+                        const: clGrating
                       schema:name:
                         const: CL Grating
-                      schema:value:
+                      ada:dataType:
+                        const: string
+                      ada:fieldScope:
+                        const: session
+                      schema:readonlyValue:
+                        const: true
+                      ada:tier:
+                        const: R
+                      schema:defaultValue:
                         type: string
                     required:
                     - '@id'
                     - '@type'
-                    - schema:propertyID
+                    - schema:valueName
                     - schema:name
-                    - schema:value
+                    - ada:dataType
+                    - ada:fieldScope
                     readOnly: true
                   minContains: 0
                   maxContains: 1
@@ -602,6 +634,143 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: Dwell Time per Pixel
+          description: Time the electron beam dwells on each pixel during raster scanning,
+            or on each step position during mapping, in microseconds or milliseconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/dwellTimePerPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: dwellTimePerPixelDefault
+            schema:name:
+              const: Dwell Time per Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: CL Integration Time
+          description: Acquisition time per pixel (hyperspectral map mode) or per
+            spectrum (spectral point mode), in ms or s.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/clIntegrationTimeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: clIntegrationTimeDefault
+            schema:name:
+              const: CL Integration Time
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: EBSD Step Size
+          description: "Distance between adjacent EBSD measurement points in the map
+            in nm or \xB5m. Must be smaller than the smallest grain of interest."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/ebsdStepSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ebsdStepSizeDefault
+            schema:name:
+              const: EBSD Step Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: EBSD Phase List
+          description: Mineral phases included in the EBSD reference pattern library
+            for this procedure. Phases may be added for specific sample compositions
+            beyond the expected suite for the target material.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/ebsdPhaseListDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ebsdPhaseListDefault
+            schema:name:
+              const: EBSD Phase List
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate
             the wavelength axis of the CL spectrometer. Required for quantitative
@@ -715,6 +884,155 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: Dwell Time per Pixel
+          description: Time the electron beam dwells on each pixel during raster scanning,
+            or on each step position during mapping, in microseconds or milliseconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/dwellTimePerPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: dwellTimePerPixelDefault
+            schema:name:
+              const: Dwell Time per Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: CL Integration Time
+          description: Acquisition time per pixel (hyperspectral map mode) or per
+            spectrum (spectral point mode), in ms or s.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/clIntegrationTimeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: clIntegrationTimeDefault
+            schema:name:
+              const: CL Integration Time
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: EBSD Step Size
+          description: "Distance between adjacent EBSD measurement points in the map
+            in nm or \xB5m. Must be smaller than the smallest grain of interest."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/ebsdStepSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ebsdStepSizeDefault
+            schema:name:
+              const: EBSD Step Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: EBSD Phase List
+          description: Mineral phases included in the EBSD reference pattern library
+            for this procedure. Phases may be added for specific sample compositions
+            beyond the expected suite for the target material.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semImagingTAPP/ebsdPhaseListDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: ebsdPhaseListDefault
+            schema:name:
+              const: EBSD Phase List
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
           title: CL Wavelength Calibration Reference
           description: Reference light source or standard material used to calibrate
             the wavelength axis of the CL spectrometer. Required for quantitative
@@ -749,12 +1067,6 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
-    ada:dwellTimePerPixelDefault:
-      description: Time the electron beam dwells on each pixel during raster scanning,
-        or on each step position during mapping, in microseconds or milliseconds.
-      anyOf:
-      - type: number
-      - type: string
     ada:clAcquisitionMode:
       description: 'CL data collection strategy. Panchromatic: total light intensity
         collected by PMT across the full detector wavelength range. Spectral point:
@@ -778,12 +1090,6 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:clIntegrationTimeDefault:
-      description: Acquisition time per pixel (hyperspectral map mode) or per spectrum
-        (spectral point mode), in ms or s.
-      anyOf:
-      - type: number
-      - type: string
     ada:sampleTiltAngle:
       description: Sample tilt angle for EBSD acquisition in degrees, measured from
         horizontal.
@@ -791,17 +1097,6 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:ebsdStepSizeDefault:
-      description: "Distance between adjacent EBSD measurement points in the map in
-        nm or \xB5m. Must be smaller than the smallest grain of interest."
-      anyOf:
-      - type: number
-      - type: string
-    ada:ebsdPhaseListDefault:
-      description: Mineral phases included in the EBSD reference pattern library for
-        this procedure. Phases may be added for specific sample compositions beyond
-        the expected suite for the target material.
-      type: string
     schema:actionProcess:
       type: object
       properties:
@@ -969,13 +1264,9 @@ allOf:
         - EBSD
   required:
   - ada:ebsdDetectorConfiguration
-  - ada:dwellTimePerPixelDefault
   - ada:clAcquisitionMode
   - ada:clWavelengthRange
-  - ada:clIntegrationTimeDefault
   - ada:sampleTiltAngle
-  - ada:ebsdStepSizeDefault
-  - ada:ebsdPhaseListDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Imaging.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

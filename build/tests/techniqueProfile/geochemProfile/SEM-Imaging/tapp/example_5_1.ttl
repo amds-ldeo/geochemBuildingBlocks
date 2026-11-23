@@ -24,17 +24,18 @@ ex:semImagingTAPP-Izawa2010 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault>,
+        <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clIntegrationTimeDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Gatan DigitalMicrograph" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Gatan DigitalMicrograph" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semImagingTAPP-Izawa2010/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Zircon and Accessory Phase Laboratory, University of Western Ontario" ] ;
@@ -48,12 +49,8 @@ ex:semImagingTAPP-Izawa2010 a schema1:Action,
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Multi-channel pseudo-color" ;
-    ada:clIntegrationTimeDefault "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
     ada:clWavelengthRange "300–850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "CL colour (nominal)",
                 "CL zoning (nominal)" ;
             ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
@@ -80,6 +77,21 @@ ex:semImagingTAPP-Izawa2010 a schema1:Action,
     schema1:defaultValue "High vacuum" ;
     schema1:name "Chamber Pressure" ;
     schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Gatan ChromaCL detector; 4-channel pseudo-color detection (UV: ~300-400nm, Blue: ~400-500nm, Green: ~500-600nm, Red: ~600-850nm including near-IR ~700-850nm); Robinson Backscatter detector also present" ;
+    schema1:name "CL Detector Configuration" ;
+    schema1:valueName "clDetectorConfiguration" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clIntegrationTimeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 80 ;
+    schema1:description "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
+    schema1:name "CL Integration Time" ;
+    schema1:valueName "clIntegrationTimeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -119,9 +131,4 @@ ex:semImagingTAPP-Izawa2010 a schema1:Action,
     schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
         "SE Detector" ;
     schema1:name "missing" .
-
-<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> a schema1:PropertyValue ;
-    schema1:name "CL Detector Configuration" ;
-    schema1:propertyID <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clDetectorConfiguration> ;
-    schema1:value "Gatan ChromaCL detector; 4-channel pseudo-color detection (UV: ~300-400nm, Blue: ~400-500nm, Green: ~500-600nm, Red: ~600-850nm including near-IR ~700-850nm); Robinson Backscatter detector also present" .
 

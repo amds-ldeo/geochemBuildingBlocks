@@ -16,7 +16,7 @@
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Neuman2025",
-  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix); ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction.",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction.",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Lunar regolith"
@@ -82,6 +82,17 @@
       "schema:value": "2048 \u00d7 2048 (physical); 4096 \u00d7 4096 (effective, NSI Subpix)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -127,7 +138,6 @@
       "@id": "ex:labxctTAPP-Neuman2025/instrument/XCT"
     }
   ],
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
   "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
   "schema:actionProcess": {
@@ -197,12 +207,8 @@
     "Multi-volume stitching"
   ],
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
-  "ada:exposureTimePerProjectionDefault": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }

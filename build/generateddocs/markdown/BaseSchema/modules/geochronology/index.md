@@ -117,11 +117,11 @@ The procedure half of the Geochronology module, with every property populated. G
 @prefix schema1: <http://schema.org/> .
 
 [] schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Reported Date Type" ],
+            schema1:name "Age Datum / Reference Epoch" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: unnamed property" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Age Datum / Reference Epoch" ],
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: unnamed property" ;
             schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ageCalculationMethod "no value available: unnamed property" ;

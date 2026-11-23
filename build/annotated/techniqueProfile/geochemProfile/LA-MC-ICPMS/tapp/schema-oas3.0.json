@@ -21126,6 +21126,9 @@
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_baselineMeasurementApproach"
               },
               {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues"
+              },
+              {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_doubleSpikeIsotopePair"
               },
               {
@@ -21305,6 +21308,13 @@
             {
               "contains": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.mcIcpms/$defs/Param_Procedure_baselineMeasurementApproach"
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-MC-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues"
               },
               "minContains": 0,
               "maxContains": 1
@@ -21536,10 +21546,6 @@
               "maxContains": 1
             }
           ]
-        },
-        "ada:constantsAndReferenceValuesUsedDefault": {
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-          "type": "string"
         },
         "ada:isobaricInterferenceCorrectionsApplied": {
           "description": "Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.",
@@ -22009,7 +22015,6 @@
         }
       },
       "required": [
-        "ada:constantsAndReferenceValuesUsedDefault",
         "ada:isobaricInterferenceCorrectionsApplied",
         "ada:massBiasCorrectionStrategy",
         "ada:numberOfAcquisitionPasses"
