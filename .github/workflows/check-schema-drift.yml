@@ -265,6 +265,29 @@ jobs:
       - name: Counterexamples still rejected
         run: python tools/validate_counterexamples.py
 
+      # schema:inDefinedTermSet is the annotation linking a parameter or a keyed-table column to
+      # the controlled vocabulary its values come from, and it is invisible to every other gate
+      # here: the census counts only what RESTRICTS, and a corpus of positive examples only gets
+      # looser when an annotation disappears. That is not hypothetical -- four of these vanished
+      # in 8c601ccb4f and nobody noticed for 25 days with every required check green, which is
+      # why tools/check_vocab_references.py exists.
+      #
+      # It was in NO workflow until 2026-11-23, so it could not see the loss it was written to
+      # catch. It had in fact been red on main since the CDIF activity-used-resources migration
+      # (eaed3f4b90): a sealed `schema:actionProcess {"@id"}` reference no longer inlines the plan
+      # into a record profile, so 20 profile and detail resolvedSchema.json files legitimately
+      # stopped carrying the TAPP's annotations -- every scheme still present in the technique's
+      # own tapp/ block -- and the baseline was never re-written. An ungated gate drifts and then
+      # stays wrong.
+      #
+      # Three checks: no reference dangles (A), the per-file count has not dropped against
+      # docs/vocab_reference_census.json (B), and each reference points at a scheme its OWN
+      # technique uses (C, routed from the deliveries, so it needs the submodule populated above).
+      # 4s on a warm tree. A deliberate change is regenerate, then --write and commit the baseline
+      # in the same PR -- the census pattern.
+      - name: Vocabulary references resolve and have not been lost
+        run: python tools/check_vocab_references.py
+
       # Structural completeness of every building block: required files present,
       # schema.yaml in agreement with its *Schema.json, SHACL shapes covering the
       # schema's properties, examples covering them. Until 2026-10-16 nothing in
