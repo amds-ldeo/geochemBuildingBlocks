@@ -261,6 +261,11 @@ def load_shapes():
     """
     try:
         from rdflib import Graph
+        # pyshacl too, although only validate_shacl() uses it. It is imported lazily
+        # there, so its absence used to surface as a per-example exception -- loud, but
+        # attributed to the example rather than to the pass being unable to run. Probing
+        # both here means "SHACL is unavailable" is decided in one place.
+        import pyshacl  # noqa: F401
     except ImportError:
         return None, 0, 0
     local = sorted(SOURCES_DIR.rglob("rules.shacl"))
@@ -467,8 +472,22 @@ def main():
     if not args.no_shacl:
         shapes, local_shapes, vendored_shapes = load_shapes()
         if shapes is None:
-            print("NOTE: rdflib/pyshacl not installed — SHACL pass skipped.",
+            # REFUSE, do not skip. This printed a NOTE and carried on until 2026-11-23,
+            # and exited 0, so check-examples.yml -- which installs requirements.txt
+            # alone -- never ran the SHACL pass at all. The 38 violations from the
+            # retired prov:used spelling were invisible to CI for as long as they
+            # existed, under a check reporting success.
+            #
+            # Same stance as check_shacl_targets.py, which refuses rather than skipping
+            # "because a check that quietly does not run is the thing this file exists to
+            # prevent". Nothing is lost: --no-shacl is the deliberate opt-out, and saying
+            # so explicitly is the difference between a decision and an accident.
+            print("ERROR: rdflib/pyshacl are not installed, so the SHACL pass cannot "
+                  "run.\n"
+                  "       Install them with:  pip install -r requirements-shacl.txt\n"
+                  "       Or pass --no-shacl to validate JSON Schema only, on purpose.",
                   file=sys.stderr)
+            return 1
 
     for example_path, schema_path in pairs:
         rel = example_path.relative_to(REPO_ROOT)
