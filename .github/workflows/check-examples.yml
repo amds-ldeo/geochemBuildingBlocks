@@ -65,6 +65,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # The SHACL layer, split out of requirements.txt so the checks that do not need it
+      # cannot be blocked by it. Installing it HERE is what makes validate_examples run
+      # its SHACL pass, which this workflow has never done: load_shapes() returned None
+      # on ImportError, the run printed a NOTE to stderr and exited 0, and every SHACL
+      # result this repository has ever had came from someone running the tool locally
+      # with rdflib installed. The 38 violations from the retired prov:used spelling were
+      # invisible here for as long as they existed.
+      #
+      # validate_examples now REFUSES rather than skipping when these are missing, so the
+      # two changes are a pair: without the install this check would fail outright, and
+      # without the refusal the install could silently stop mattering again.
+      - name: Install the SHACL layer
+        run: pip install -r requirements-shacl.txt
+
       - name: Validate every example against its block's schema
         id: validate
         run: |
@@ -91,6 +105,31 @@ jobs:
             echo "written. Either a large part of _sources has gone, or the glob stopped"
             echo "matching -- a gate reporting success over a handful of files is worse than"
             echo "no gate, because it reads as assurance."
+            exit 1
+          fi
+
+      # Third tripwire, same reasoning as the two below: assert the SHACL pass actually
+      # ran. The refusal in validate_examples covers a missing library; this covers the
+      # SHACL line going away for any other reason -- a flag added to the invocation, the
+      # shape glob ceasing to match, load_shapes() returning empty. A pass whose SHACL
+      # section is simply absent reads exactly like a pass with no violations.
+      - name: Assert the SHACL pass actually ran
+        if: always() && steps.validate.outcome != 'cancelled'
+        run: |
+          line=$(grep -m1 '^SHACL: ' /tmp/validate.log || true)
+          if [ -z "$line" ]; then
+            echo "::error::validate_examples.py printed no 'SHACL:' line, so the SHACL"
+            echo "pass either did not run or reported nothing. A skipped pass is not a"
+            echo "clean one. Check that requirements-shacl.txt installed and that"
+            echo "--no-shacl was not passed."
+            exit 1
+          fi
+          echo "$line"
+          shapes=$(echo "$line" | sed -n 's/.*\[\([0-9]\+\) local.*/\1/p')
+          if [ -z "$shapes" ] || [ "$shapes" -lt 40 ]; then
+            echo "::error::only ${shapes:-0} local shape file(s) loaded, against 82 when"
+            echo "this check was written. Shapes that are not loaded cannot fail, which"
+            echo "is the failure this workflow exists to catch."
             exit 1
           fi
 
