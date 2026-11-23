@@ -24,13 +24,16 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit); ada:segmentationMethodDefault = Grayscale threshold range selection (ImageJ)." ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "ImageJ; Avizo 9.2" ;
@@ -51,9 +54,7 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "CCD ANDOR camera (1080 × 1080 px, 32-bit)" ;
-    ada:exposureTimePerProjectionDefault "8 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "1601" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)" ;
@@ -64,11 +65,8 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)" ;
-    ada:segmentationMethodDefault "Grayscale threshold range selection (ImageJ)" ;
     ada:targetFeature "Silicate melt inclusion morphology and phase volumes" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -80,6 +78,14 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
             ada:targetMaterialDeclaration "Olivine phenocryst with silicate melt inclusion" ] ;
     ada:xRaySourceConfiguration "missing" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 8 ;
+    schema1:description "8 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 200 ;
     schema1:description "~200 reference (blank) images taken; number of frames averaged per projection N" ;
@@ -88,8 +94,15 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1601 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "32-bit (ZEISS XRM output)" ;
+    schema1:defaultValue "N/A" ;
     schema1:name "Output Bit Depth" ;
     schema1:valueName "outputBitDepthDefault" ;
     ada:dataType "string" ;
@@ -106,6 +119,13 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
     schema1:defaultValue "~1 mm olivine" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Grayscale threshold range selection (ImageJ)" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

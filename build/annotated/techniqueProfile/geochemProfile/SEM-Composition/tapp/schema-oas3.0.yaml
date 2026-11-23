@@ -10495,7 +10495,7 @@ allOf:
               - type: string
             schema:unitText:
               enum:
-              - "\xB5m x \xB5m"
+              - "\xB5m"
           required:
           - '@id'
           - '@type'
@@ -10651,6 +10651,88 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per
+            pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              enum:
+              - EDS Live Time per Point or Pixel
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Step Size / Pixel Size
+          description: "Centre-to-centre distance between adjacent measurement points
+            (WDS mapping) or pixels (EDS mapping) in \xB5m."
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - stepSizePixelSizeDefault
+            schema:name:
+              enum:
+              - Step Size / Pixel Size
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - "\xB5m"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen
             substitution (F and/or Cl replacing OH) in halogen-bearing phases such
@@ -10680,7 +10762,15 @@ allOf:
               enum:
               - R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH"
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               enum:
               - '@id': ada:vocab/halogen-correction-on-oxygen
@@ -10760,7 +10850,7 @@ allOf:
               - type: string
             schema:unitText:
               enum:
-              - "\xB5m x \xB5m"
+              - "\xB5m"
           required:
           - '@id'
           - '@type'
@@ -10931,6 +11021,94 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per
+            pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              enum:
+              - EDS Live Time per Point or Pixel
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Step Size / Pixel Size
+          description: "Centre-to-centre distance between adjacent measurement points
+            (WDS mapping) or pixels (EDS mapping) in \xB5m."
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - stepSizePixelSizeDefault
+            schema:name:
+              enum:
+              - Step Size / Pixel Size
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - "\xB5m"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen
             substitution (F and/or Cl replacing OH) in halogen-bearing phases such
@@ -10960,7 +11138,15 @@ allOf:
               enum:
               - R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH"
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               enum:
               - '@id': ada:vocab/halogen-correction-on-oxygen
@@ -11756,18 +11942,6 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:edsLiveTimePerPointOrPixelDefault:
-      description: EDS spectral acquisition live time per analysis point or per pixel
-        in seconds.
-      anyOf:
-      - type: number
-      - type: string
-    ada:stepSizePixelSizeDefault:
-      description: "Centre-to-centre distance between adjacent measurement points
-        (WDS mapping) or pixels (EDS mapping) in \xB5m."
-      anyOf:
-      - type: number
-      - type: string
     ada:matrixCorrectionMethod:
       description: "X-ray matrix correction algorithm applied during quantitative
         EDS or WDS data reduction. For X-ray mapping, applies when raw count maps
@@ -11998,8 +12172,6 @@ allOf:
         - WDS Mapping
   required:
   - ada:edsAcquisitionMode
-  - ada:edsLiveTimePerPointOrPixelDefault
-  - ada:stepSizePixelSizeDefault
   - ada:matrixCorrectionMethod
   - ada:massAbsorptionCoefficients
   - ada:wdsDeadTimeCorrection

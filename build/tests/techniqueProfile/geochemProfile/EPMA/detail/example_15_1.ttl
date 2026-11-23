@@ -17,13 +17,13 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
             schema1:target "Ogliore (2025) — 'The quantitative EPMA image data and coregistered image sets are available in Ogliore (2025)'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensions>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> ;
             schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes." ;
@@ -31,12 +31,12 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;

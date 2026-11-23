@@ -283,6 +283,18 @@
       "schema:defaultValue": "High vacuum"
     },
     {
+      "@id": "ada:parameter/semTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 5,
+      "schema:description": "5 ms dwell time per pixel"
+    },
+    {
       "@id": "ada:parameter/semTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -294,10 +306,21 @@
       ],
       "schema:name": "EDS Spectral Processing Type",
       "schema:value": "Semi-quantitative analysis with virtual standards (Oxford INCA Energy); mineral phase determination from atomic % of constituent elements"
+    },
+    {
+      "@id": "ada:parameter/semTAPP/stepSizePixelSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stepSizePixelSizeDefault",
+      "schema:name": "Step Size / Pixel Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2.5,
+      "schema:description": "2.5 \u00b5m"
     }
   ],
   "ada:edsAcquisitionMode": "Map",
-  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "element maps (pixel by pixel); Cameo+ energy-colour map (nominal); mineral phase map (nominal) \u2014 INCA gives 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni) so to derive the distribution of each mineral phase'; the SEM-EDS area is '10.5 \u00d7 4.0 mm wide'. The 'Si, Fe, Ca, Al, and S' maps at 3 \u03bcm resolution are the EMPA-WDS mapping's, a different procedure",
     "ada:defaultReportedProperties": [
@@ -317,7 +340,6 @@
       }
     ]
   },
-  "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonaceous chondrite"
@@ -464,18 +486,12 @@
     }
   ],
   "ada:clAcquisitionMode": "missing",
-  "ada:clIntegrationTimeDefault": -9999,
   "ada:clWavelengthRange": -9999,
   "ada:ebsdDetectorConfiguration": "no value available: ada:ebsdDetectorConfiguration",
-  "ada:ebsdPhaseListDefault": "no value available: ada:ebsdPhaseListDefault",
-  "ada:ebsdStepSizeDefault": -9999,
-  "ada:imageRegistration3DDefault": "no value available: ada:imageRegistration3DDefault",
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:sampleTiltAngle": -9999,
   "ada:seDetectorType": "missing",
-  "ada:segmentationMethod3DDefault": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
-  "ada:workingDistanceDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }

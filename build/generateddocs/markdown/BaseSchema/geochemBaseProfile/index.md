@@ -1229,6 +1229,12 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:instrument [ a schema1:DefinedTerm ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
+            schema1:name "BCR-2 basalt reference material" ;
+            schema1:termCode "BCR-2" ;
+            ada:reagentRole "secondaryStandard" ],
+        [ a schema1:DefinedTerm ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
             schema1:name "BHVO-2 basalt reference material" ;
             schema1:termCode "BHVO-2" ;
             ada:reagentRole "primaryStandard" ],
@@ -1236,12 +1242,6 @@ ex:geochemProduct-example-001 a schema1:Dataset,
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:name "2% HNO3 procedural blank" ;
             ada:reagentRole "blankMaterial" ],
-        [ a schema1:DefinedTerm ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
-            schema1:name "BCR-2 basalt reference material" ;
-            schema1:termCode "BCR-2" ;
-            ada:reagentRole "secondaryStandard" ],
         <https://example.org/geochemProduct-example-001/instrument/instrument> ;
     schema1:name "Data acquisition" ;
     schema1:object <https://example.org/geochemProduct-example-001/digest/RP-123> ;
@@ -1260,11 +1260,11 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:endTime "2026-01-09T16:00:00" ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "Concentrated HNO3, trace-metal grade" ;
+            schema1:name "Concentrated HF, trace-metal grade" ;
             ada:reagentRole "reagent" ],
         [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "Concentrated HF, trace-metal grade" ;
+            schema1:name "Concentrated HNO3, trace-metal grade" ;
             ada:reagentRole "reagent" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Clean laboratory, Analytical Sciences Laboratory" ] ;

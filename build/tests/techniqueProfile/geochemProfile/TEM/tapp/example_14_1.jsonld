@@ -27,7 +27,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 Thompson2020",
-  "schema:description": "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used). Reported detail: ada:spectroscopicDetectorDefault = EDS (thin-window Thermo EDX); ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles); ada:edsAcquisitionModeDefault = Spectrum imaging (spatially resolved maps and line profiles); successive accumulated scans.",
+  "schema:description": "STEM probe diameter = 2 nm (used for EDS spectrum imaging); 1% counting statistics criterion for EDX accumulation. Same instrument (JEOL 2500SE at ARES JSC) as KellerBerger2014. Phase ID relies entirely on HRTEM+FFT (no SAED used).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "CM2 carbonaceous chondrite \u2014 CM2 carbonaceous chondrite (Murchison); laboratory-simulated progressively space-weathered chips (1\u00d7, 2\u00d7, 5\u00d7 pulsed-laser irradiation passes)",
     "ada:targetMaterialColumns": [
@@ -247,9 +247,29 @@
       "@id": "ex:temTAPP-Thompson2020/instrument/TEM"
     }
   ],
-  "ada:spectroscopicDetectorDefault": "N/A",
-  "ada:analyticalSubModeDefault": "BF-STEM",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "BF-STEM; DF-STEM; HRTEM; STEM-EDS spectrum imaging (maps + line profiles)"
+    },
     {
       "@id": "ada:parameter/temTAPP/stemProbeDiameterDefault",
       "@type": [
@@ -263,6 +283,18 @@
       "schema:description": "2 nm"
     },
     {
+      "@id": "ada:parameter/temTAPP/dwellTimePerPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "dwellTimePerPixelDefault",
+      "schema:name": "Dwell Time per Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 50,
+      "schema:description": "50 \u00b5s (kept short to prevent beam damage)"
+    },
+    {
       "@id": "ada:parameter/temTAPP/stemFrameAveragingDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -272,6 +304,17 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Successive scans accumulated until major element counts achieved 1% counting statistics"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/edsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsAcquisitionModeDefault",
+      "schema:name": "EDS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
     },
     {
       "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault",
@@ -285,8 +328,6 @@
       "schema:defaultValue": "Successive scans accumulated until major element counts achieved 1% counting statistics"
     }
   ],
-  "ada:stemDwellTimePerPixelDefault": "50 \u00b5s (kept short to prevent beam damage)",
-  "ada:edsAcquisitionModeDefault": "Map",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Fe",
@@ -369,13 +410,8 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
   "ada:edsQuantificationMethod": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsEnergyLossRangeDefault": "no value available: ada:eelsEnergyLossRangeDefault",
   "schema:datePublished": "no value available: schema:datePublished"
 }

@@ -21,20 +21,21 @@ ex:semTAPP-Garvie2008 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistanceDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Sample imaged without coating; initial ~5% beam-induced shrinkage observed upon first e-beam exposure; sample stable thereafter; focusing performed away from particles of interest to minimise beam exposure" ;
     schema1:instrument <https://example.org/semTAPP-Garvie2008/instrument/SEM> ;
@@ -52,14 +53,9 @@ ex:semTAPP-Garvie2008 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:clAcquisitionMode "missing" ;
-    ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is SE Imaging. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
@@ -78,8 +74,6 @@ ex:semTAPP-Garvie2008 a schema1:Action,
     ada:samplingUnitSelectionCriteriaDefault "N — no rule is given for which globules were imaged; the stated criterion is at sample level, \"Several millimeter-sized pieces of the pristine Tagish Lake meteorite free of fusion crust were digested in HCl and HF in order to concentrate the carbonaceous materials\" (p.1)" ;
     ada:samplingUnitType "Grain (individual carbonaceous nanoglobule) — \"low voltage scanning electron microscopy (SEM) was used to characterize the globule forms and external structures\" (p.1) of globules on an Al-SEM stub (p.2)" ;
     ada:seDetectorType "In-lens / TLD (through-the-lens)" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous nanoglobules" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -92,8 +86,15 @@ ex:semTAPP-Garvie2008 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
-    ada:wdsDeadTimeCorrection "missing" ;
-    ada:workingDistanceDefault "0.5–5.4 mm" .
+    ada:wdsDeadTimeCorrection "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/workingDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 5e-01 ;
+    schema1:description "0.5–5.4 mm" ;
+    schema1:name "Working Distance" ;
+    schema1:valueName "workingDistanceDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;

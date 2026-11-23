@@ -15,24 +15,28 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 × 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt); ada:segmentationMethodDefault = ImageJ threshold-based; TANGO plugin for 3D object detection." ;
+    schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 × 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
@@ -59,9 +63,7 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (LE4 inbuilt)" ;
     ada:detectorType "2000 × 2000 CCD plane (16-bit)" ;
-    ada:exposureTimePerProjectionDefault "33 s (A0180-A); 28 s (A0180-B)" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "2401" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "microchondrule and sulphide-silicate object diameter (µm)",
@@ -76,11 +78,8 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
                     ada:dataType "string" ;
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "microchondrule and sulphide-silicate object diameter (µm); shape factor; object abundance; particle volume — Microchondrule / sulphide-silicate object diameter (um) and shape factor; object abundance; particle volume" ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault "360°" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)" ;
-    ada:segmentationMethodDefault "ImageJ threshold-based; TANGO plugin for 3D object detection" ;
     ada:targetFeature "Microchondrules (SSOs); 3D volume fraction" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -93,14 +92,29 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     ada:xRaySourceConfiguration "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "No binning" ;
+    schema1:defaultValue "1×1 (no binning)" ;
     schema1:name "Detector Binning" ;
     schema1:valueName "detectorBinningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 33 ;
+    schema1:description "33 s (A0180-A); 28 s (A0180-B)" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2401 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "16-bit (CCD pixel depth)" ;
+    schema1:defaultValue "N/A" ;
     schema1:name "Output Bit Depth" ;
     schema1:valueName "outputBitDepthDefault" ;
     ada:dataType "string" ;
@@ -120,6 +134,14 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 360 ;
+    schema1:description "360°" ;
+    schema1:name "Rotation Range" ;
+    schema1:valueName "rotationRangeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "1.592 × 0.756 × 0.985 mm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
@@ -131,6 +153,13 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     schema1:defaultValue "Mounted in pipette tips" ;
     schema1:name "Sample Mounting Method" ;
     schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "ImageJ threshold-based; TANGO plugin for 3D object detection" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

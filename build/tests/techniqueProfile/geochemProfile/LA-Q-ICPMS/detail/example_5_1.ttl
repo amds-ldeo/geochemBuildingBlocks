@@ -12,14 +12,14 @@ ex:laQicpmsTAPP-detail-Liu2016 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "N — not stated" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
@@ -44,14 +44,14 @@ ex:laQicpmsTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "N — not stated" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                    schema1:name "N — not stated" ;
+                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/ICPMS>,
                 <https://example.org/laQicpmsTAPP-detail-Liu2016/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;

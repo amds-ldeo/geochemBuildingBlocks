@@ -324,7 +324,7 @@ $defs:
         - type: string
         x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
-        const: mg or mL
+        type: string
         x-jsonld-id: http://schema.org/unitText
     required:
     - '@id'
@@ -697,7 +697,7 @@ $defs:
         - type: string
         x-jsonld-id: http://schema.org/defaultValue
       schema:unitText:
-        const: "\xB5L/min or mL/min"
+        type: string
         x-jsonld-id: http://schema.org/unitText
     required:
     - '@id'

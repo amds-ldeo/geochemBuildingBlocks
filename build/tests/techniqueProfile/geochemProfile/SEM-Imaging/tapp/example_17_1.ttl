@@ -15,15 +15,15 @@ ex:semImagingTAPP-Zega2025-4 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ],
+                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin sections; ~100 nm graphite coating (as stated in CL emitting volume calculation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "CL emitting volume at 5 keV: up to 230 nm depth, 200 nm sideways (assuming 100-nm graphite coating); recording below focal plane for magnifications <×500 to minimize hotspot effect Reported detail: ada:clAcquisitionMode = Panchromatic imaging; hyperspectral analysis; monochromatic imaging." ;
     schema1:instrument <https://example.org/semImagingTAPP-Zega2025-4/instrument/SEM> ;
@@ -39,12 +39,8 @@ ex:semImagingTAPP-Zega2025-4 a schema1:Action,
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Monochromatic imaging" ;
-    ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "hyperspectral CL",
                 "luminescence zoning (nominal)",
                 "monochromatic CL images",

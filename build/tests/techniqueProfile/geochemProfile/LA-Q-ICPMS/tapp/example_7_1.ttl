@@ -32,6 +32,8 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v98.csv). Reported detail: ada:signalCollectionMode = Peak jump." ;
@@ -56,7 +58,6 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He ablation gas 900 mL/min; Ar carrier gas 0.65 L/min — Table 1 'Ablation gas flow (He)' and 'Carrier gas flow (Ar)'" ;
-    ada:constantsAndReferenceValuesUsedDefault "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga" ;
     ada:internalStandardApproach "no value available: ada:internalStandardApproach" ;
     ada:internalStandardElement "no value available: ada:internalStandardElement" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
@@ -114,7 +115,6 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "0.659 s" ;
     ada:uncertaintyLevel "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault> a schema1:PropertyValueSpecification ;
@@ -122,6 +122,14 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     schema1:name "Collision/Reaction Gas Mixture Ratio" ;
     schema1:valueName "collisionReactionGasMixtureRatioDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 6.59e-01 ;
+    schema1:description "0.659 s" ;
+    schema1:name "Total Integration Time per Output Data Point" ;
+    schema1:valueName "totalIntegrationTimePerOutputDataPointDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/cellExitDiscriminationVoltageDefault> a schema1:PropertyValueSpecification ;
@@ -136,6 +144,13 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     schema1:name "Reaction Gas Type" ;
     schema1:value "all: NH3, high purity (>99.999%) — supplied in T4; He (>99.999%, T1) was pre-mixed with NH3 before the cell in a test of mixture composition" ;
     schema1:valueName "reactionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga" ;
+    schema1:name "Constants Reference Values" ;
+    schema1:valueName "constantsReferenceValuesDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

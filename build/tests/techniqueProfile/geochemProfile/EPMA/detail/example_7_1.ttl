@@ -13,12 +13,12 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
             schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ],
         [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "N — 'The data that support the findings of this study are available from the corresponding author upon reasonable request'" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ] ;
+            dqv:value "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -35,14 +35,14 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)" ;
                     ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "Probe for EPMA microanalysis software" ;
-                    ada:toolRole "acquisition" ],
                 [ a schema1:DefinedTerm ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
                     schema1:name "Smithsonian Microbeam standards (specific materials and values N)" ;
                     ada:reagentRole "referenceMaterial" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Probe for EPMA microanalysis software" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/epmaTAPP-detail-Broussard2026/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;

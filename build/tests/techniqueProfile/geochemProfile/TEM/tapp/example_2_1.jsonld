@@ -27,7 +27,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 Zega2025",
-  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A) Reported detail: ada:analyticalSubModeDefault = HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map).",
+  "schema:description": "Probe size 136 pm stated for EDS spectrum images (Methods/TEM/U of A)",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "serpentine/saponite)",
@@ -278,10 +278,41 @@
       ]
     }
   ],
-  "ada:spectroscopicDetectorDefault": "EDS and EELS",
-  "ada:analyticalSubModeDefault": "BF-STEM",
-  "ada:stemDwellTimePerPixelDefault": "8 \u00b5s (EDS spectrum image frame time per pixel)",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "EDS and EELS"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "HAADF-STEM; BF-STEM (STEM Imaging); BF-TEM; HRTEM (TEM Imaging); SAED (Electron Diffraction)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/dwellTimePerPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "dwellTimePerPixelDefault",
+      "schema:name": "Dwell Time per Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8 \u00b5s (EDS spectrum image frame time per pixel)"
+    },
     {
       "@id": "ada:parameter/temTAPP/stemScanDimensionsDefault",
       "@type": [
@@ -295,6 +326,17 @@
       "schema:description": "512\u00d7512 pixels (EDS spectrum images)"
     },
     {
+      "@id": "ada:parameter/temTAPP/edsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsAcquisitionModeDefault",
+      "schema:name": "EDS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/temTAPP/edsEnergyRangeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -306,7 +348,6 @@
       "schema:defaultValue": "20 keV (2048 channels)"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Si",
@@ -388,13 +429,8 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
   "ada:edsQuantificationMethod": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsEnergyLossRangeDefault": "no value available: ada:eelsEnergyLossRangeDefault",
   "schema:datePublished": "no value available: schema:datePublished"
 }

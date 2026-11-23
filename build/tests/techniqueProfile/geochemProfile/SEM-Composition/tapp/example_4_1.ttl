@@ -15,15 +15,15 @@ ex:semCompositionTAPP-Izawa2010-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <https://example.org/semCompositionTAPP-Izawa2010-2/instrument/SEM> ;
@@ -41,7 +41,6 @@ ex:semCompositionTAPP-Izawa2010-2 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "Point" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — the Leo 1540 FIB/SEM CrossBeam is \"equipped with an Oxford Instruments INCA EDX system allowing for elemental analysis\" (p.3); no element set is stated" ;
@@ -57,7 +56,6 @@ ex:semCompositionTAPP-Izawa2010-2 a schema1:Action,
             ada:reportedPropertyDeclaration "elemental composition of the analysed phases; phase identification (nominal) — Elemental compositions of the analysed phases, used with the μXRD and CL data for phase identification (nominal); the EDX system detects \"all elements from C to U, with a detection limit of 0.5 wt% for most elements\" (p.3)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Follow-up on features already located — this is the third stage of the paper's strategy, \"finally higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), on features identified by the earlier μXRD and SEM-EDX/CL stages" ;
     ada:samplingUnitType "Phase > Analysis point — \"High-resolution BSE imaging and EDX spot analysis were carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;

@@ -25,10 +25,15 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixelDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandardDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/stemFrameAveragingDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemScanDimensionsDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction); ada:edsAcquisitionModeDefault = Spectrum image (map); ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
+    schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Thermo System7" ;
@@ -55,16 +60,9 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyticalSubModeDefault "BF-STEM" ;
-    ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Spectrum image" ;
-    ada:edsCalibrationStandardDefault "k-factors from well-characterized standards (standards not specified); Thermo System7" ;
     ada:edsQuantificationMethod "Cliff-Lorimer (k-factor)" ;
-    ada:eelsAcquisitionModeDefault "missing" ;
-    ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEnergyLossRangeDefault "no value available: ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "no value available: ada:phaseIdentificationMethod" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Fe3+/ΣFe",
                 "d-spacing (nm)",
@@ -81,8 +79,6 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
             ada:reportedPropertyDeclaration "phase identification (nominal); d-spacing (nm); phase composition (At%); sulfide polytype (nominal); Fe3+/ΣFe — Phase identifications and their structures from HRTEM and SAED (nominal, with d-spacings in nm — serpentine 0.7 nm and saponite 1.0 nm, Fig. 3, p.4); phase compositions from STEM-EDS, plotted as atomic proportions (At%: Mg, Fe, Si+Al for the sheet silicates, Fig. 4, p.4); sulfide polytypes (nominal, e.g. pyrrhotite 4C, 5C; Fig. 5, p.5); Fe3+/ΣFe from Fe L2,3 XANES mapping (Fig. 4, p.4)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Phase — the reported data are phases within a section, \"STEM-HAADF ... images of FIB sections extracted from OREX-803095-100 and OREX-803096-100\" showing \"the coarse- and fine-grained sheet silicates\" (Fig. 2 caption, p.3)" ;
-    ada:spectroscopicDetectorDefault "EDS and EELS" ;
-    ada:stemDwellTimePerPixelDefault "50 µs" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Carbonate",
                 "Organic matter/IOM",
                 "Oxide",
@@ -103,10 +99,46 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "BF-STEM; DF-STEM (STEM Imaging); HRTEM (TEM Imaging); SAED (Electron Diffraction)" ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:valueName "analyticalSubModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixelDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 50 ;
+    schema1:description "50 µs" ;
+    schema1:name "Dwell Time per Pixel" ;
+    schema1:valueName "dwellTimePerPixelDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:valueName "edsAcquisitionModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandardDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "k-factors from well-characterized standards (standards not specified); Thermo System7" ;
+    schema1:name "EDS Calibration Standard(s)" ;
+    schema1:valueName "edsCalibrationStandardDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Quanta3D600 dual-beam FIB-SEM; e-beam C cap 0.5–1 µm + ion-beam C cap 2–3 µm; milling 30 kV Ga+ → 16 kV → 5 kV final; ~100 nm thick; ion-beam Pt weld to Cu half grids" ;
     schema1:name "Sample Preparation Details" ;
     schema1:valueName "samplePreparationDetailsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "EDS and EELS" ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:valueName "spectroscopicDetectorDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

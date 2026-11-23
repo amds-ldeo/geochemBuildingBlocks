@@ -15,13 +15,6 @@ ex:semTAPP-Izawa2010 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
                     schema1:position 3 ],
@@ -34,8 +27,17 @@ ex:semTAPP-Izawa2010 a schema1:Action,
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> ;
+                    ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault>,
+        <https://ada.astromat.org/metadata/parameter/semTAPP/clIntegrationTimeDefault>,
+        <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistanceDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
     schema1:instrument [ a schema1:SoftwareApplication ;
@@ -61,14 +63,9 @@ ex:semTAPP-Izawa2010 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Multi-channel pseudo-color" ;
-    ada:clIntegrationTimeDefault "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
     ada:clWavelengthRange "300–850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)" ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is CL Mapping. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
@@ -86,8 +83,6 @@ ex:semTAPP-Izawa2010 a schema1:Action,
     ada:samplingUnitSelectionCriteriaDefault "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished thin section) > Region of interest — \"colour SEM-CL analysis of polished thin sections\" (p.1), reported as CL zoning within named textural components, \"relict CAI spinel, in chondrule and AOA forsterite, and in calcite nodules\" (p.1)" ;
     ada:seDetectorType "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -100,13 +95,28 @@ ex:semTAPP-Izawa2010 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
-    ada:wdsDeadTimeCorrection "missing" ;
-    ada:workingDistanceDefault "~10 mm" .
+    ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semTAPP/chamberPressureDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "High vacuum" ;
     schema1:name "Chamber Pressure" ;
     schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/clIntegrationTimeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 80 ;
+    schema1:description "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
+    schema1:name "CL Integration Time" ;
+    schema1:valueName "clIntegrationTimeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/workingDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 10 ;
+    schema1:description "~10 mm" ;
+    schema1:name "Working Distance" ;
+    schema1:valueName "workingDistanceDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
