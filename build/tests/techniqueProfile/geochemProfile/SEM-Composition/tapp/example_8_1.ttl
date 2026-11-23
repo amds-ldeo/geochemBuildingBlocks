@@ -28,12 +28,12 @@ ex:semCompositionTAPP-Zega2025-2 a schema1:Action,
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford Instruments Aztec Live/x-stream" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semCompositionTAPP-Zega2025-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
@@ -49,7 +49,6 @@ ex:semCompositionTAPP-Zega2025-2 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" on the Hitachi S-4800 (p.9); no element set is stated" ;
@@ -65,7 +64,6 @@ ex:semCompositionTAPP-Zega2025-2 a schema1:Action,
             ada:reportedPropertyDeclaration "element maps; phase identification (nominal) — Elemental maps used to assess \"The compositional heterogeneity of the particles\" (p.9); the phases resolved from them are the nominal output" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Coverage of heterogeneity — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" (p.9); no finer rule is given for placing the maps" ;
     ada:samplingUnitType "Whole sample (particle) > Phase — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" (p.9)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;

@@ -25,13 +25,16 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold." ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 9.2.0" ;
@@ -53,9 +56,7 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
     ada:detectorType "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)" ;
-    ada:exposureTimePerProjectionDefault "1.415 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "3141" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Total fluid inclusion volume (mm3)",
@@ -69,11 +70,8 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "1.4 x 1.4 x 1.4 mm region of interest containing fluid inclusion #3, scanned at higher resolution after the whole-sample scan" ;
     ada:samplingUnitType "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)" ;
-    ada:segmentationMethodDefault "Manual grayscale threshold" ;
     ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -85,11 +83,26 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
             ada:targetMaterialDeclaration "Synthetic quartz monocrystal with aqueous fluid inclusions" ] ;
     ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.415e+00 ;
+    schema1:description "1.415 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:description "1 frame per projection" ;
     schema1:name "Frames Averaged per Projection" ;
     schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3141 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
@@ -104,6 +117,13 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
     schema1:defaultValue "3 × 5 × 2 cm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual grayscale threshold" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

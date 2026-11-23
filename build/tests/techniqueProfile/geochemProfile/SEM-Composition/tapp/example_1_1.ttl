@@ -15,15 +15,15 @@ ex:semCompositionTAPP-Genge2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) | EDS Point Analysis (ZEISS Sigma 1550VP, 10 kV) (publication column of SEM_Composition_TAPP_v86.csv)." ;
@@ -42,7 +42,6 @@ ex:semCompositionTAPP-Genge2025 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "XPP (Simplified PAP)" ;
     ada:monitoredElements "N — \"quantitative EDS analyses (with an Oxford X-Max SDD system and an XPP correction procedure calibrated with Oxford factory internal standards) were carried out at 10 kV\" (p.2), to determine the composition of the Al-Cu alloy phases and associated minerals; no element set is enumerated" ;
@@ -59,7 +58,6 @@ ex:semCompositionTAPP-Genge2025 a schema1:Action,
             ada:reportedPropertyDeclaration "phase composition (normalised); fayalite content (Fa); phase identification (nominal) — Phase compositions as normalised analyses, with the olivine reported by fayalite content (Fa11–25) and \"Phase identification ... determined using normalised analyses, since the stoichiometry provides an adequate confirmation of analysis quality\" (p.2); phase identification is the nominal output" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the target phases are named (see `Sampling Unit Type`) but no rule is given for choosing the analysed points" ;
     ada:samplingUnitType "Phase > Analysis point — \"quantitative EDS analyses\" of the alloy phases and associated minerals in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "associated minerals" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;

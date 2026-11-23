@@ -551,13 +551,11 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1115,13 +1113,11 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
   "ada:ablationSpotDurationDefault": -9999,
   "ada:backgroundCountTimeDefault": -9999,
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1146,15 +1142,15 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Thick sections embedded in petropoxy 154 resin, the surface finalised by polishing with 0.5 µm diamond paste; carbon-coated before the EPMA measurements (§2.1–2.2). Whether the coat was removed before ablation is not stated; the later 0.5 µm polish (§2.5) preceded micromilling, not ablation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
@@ -1180,13 +1176,13 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
             schema1:termCode "fs-LA-Q-ICP-MS" ] ;
     schema1:name "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -1198,7 +1194,6 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "N — the signal 'decayed to the background level immediately after the end of ablation' (p.3); the background correction is not described" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "Ar, 0.6 L/min — Table 1, under 'Ar gas flow rate': 'Carrier gas 0.6 L/min'" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:elementalFractionationCorrection "N — quantification is by 'the calibration curve method' against Warburton Range with ⁶¹Ni internal standardization (p.3); no fractionation correction as such is described" ;
     ada:internalStandardApproach "all: single element, its concentration measured by EPMA at the ablated spot — '61Ni was monitored for internal standardization. The concentration of Ni in the ablated spot was obtained by EPMA' (p.3)" ;
     ada:internalStandardElement "all: Ni (⁶¹Ni) — concentration from EPMA at the ablated spot (p.3)" ;
@@ -1258,7 +1253,6 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -2074,13 +2068,11 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -2725,13 +2717,11 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -2755,6 +2745,13 @@ ex:laQicpmsTAPP-Liu2024 a schema1:Action,
             schema1:name "LA-Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
@@ -2766,14 +2763,7 @@ ex:laQicpmsTAPP-Liu2024 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Pettke (2012) — §3.2" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -2808,7 +2798,6 @@ ex:laQicpmsTAPP-Liu2024 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "25 s gas blank before each ablation; flux procedure-blank contributions deducted for V, Co, Zn, Ba, La, Ce, Ta and U — 'after measuring a gas blank for 25 s' (§2.2); 'All results of the eight pollution elements above have deducted the flux blank contributions' (§3.2)" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He: chamber gas 0.7 L/min; cup gas 0.1 L/min — Table 1" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:elementalFractionationCorrection "N — the paper states that fs lasers 'are considered stoichiometric erosion processes without any element or isotope fractionation effects' (§3.4); no correction is described" ;
     ada:internalStandardApproach "all: two internal standard elements, chosen per target element — Si for Co, Ni, Cu and Zn, and Al for the others, after comparing Si, Ca and Al on GSR-3 (§3.3); the disks were 'initially measured for major elements by WD-XRF' (§2.3)" ;
     ada:internalStandardElement "all: Si (for Co, Ni, Cu, Zn), Al (for the other trace elements) — §3.3" ;
@@ -2920,7 +2909,6 @@ ex:laQicpmsTAPP-Liu2024 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -3585,14 +3573,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -4064,14 +4050,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -4103,15 +4087,15 @@ ex:laQicpmsTAPP-Liu2025 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -4143,7 +4127,6 @@ ex:laQicpmsTAPP-Liu2025 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "no value available: ada:blankBackgroundCorrectionMethod" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He; flow not stated — 'Helium served as the carrier gas, to which nitrogen or argon gas was mixed for sensitivity optimization' (§2.2.2)" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: an element measured by EMP — 'with Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); which element serves the glass and which the sulfide is not stated" ;
     ada:internalStandardElement "all: Si, Fe — 'Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); the assignment to glass or sulfide is not stated" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
@@ -4194,7 +4177,6 @@ ex:laQicpmsTAPP-Liu2025 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> a schema1:PropertyValueSpecification ;
@@ -4794,14 +4776,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -5273,14 +5253,12 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
   "ada:backgroundCountTimeDefault": -9999,
   "ada:blankBackgroundCorrectionMethod": "no value available: ada:blankBackgroundCorrectionMethod",
   "ada:calibrationMeasurementFrequency": "no value available: ada:calibrationMeasurementFrequency",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -5304,6 +5282,13 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
             schema1:name "LA-Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
                     schema1:name "Sample preparation" ;
@@ -5313,14 +5298,7 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -5352,7 +5330,6 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "no value available: ada:blankBackgroundCorrectionMethod" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He; flow not stated — 'Helium served as the carrier gas, to which nitrogen or argon gas was mixed for sensitivity optimization' (§2.2.2)" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: an element measured by EMP — 'with Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); which element serves the glass and which the sulfide is not stated" ;
     ada:internalStandardElement "all: Si, Fe — 'Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); the assignment to glass or sulfide is not stated" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
@@ -5403,7 +5380,6 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> a schema1:PropertyValueSpecification ;
@@ -6189,12 +6165,10 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     }
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -6852,12 +6826,10 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     }
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -6889,17 +6861,17 @@ ex:laQicpmsTAPP-Liu2016 a schema1:Action,
                     schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ] ] ;
+                    ada:detectionLimitMethod "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -6937,7 +6909,6 @@ ex:laQicpmsTAPP-Liu2016 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "N — the background 'was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4); how it was subtracted is not described" ;
     ada:calibrationMeasurementFrequency "Before and after every session — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)" ;
     ada:carrierGasFlowRateDefault "N — not stated" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: normalization to 100 wt% oxide total — 'For silicates and oxides, trace element abundances were calculated by normalization to 100 wt% oxide total' (Methods, p.4)" ;
     ada:internalStandardElement "all: none — oxide-total normalization (Methods, p.4)" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
@@ -7068,7 +7039,6 @@ ex:laQicpmsTAPP-Liu2016 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -7849,12 +7819,10 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     }
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -8447,12 +8415,10 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
     }
   ],
   "ada:ablationPitDepthRateDefault": "no value available: ada:ablationPitDepthRateDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalCollectionMode": "missing",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -8514,13 +8480,13 @@ ex:laQicpmsTAPP-Liu2016-2 a schema1:Action,
             schema1:termCode "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ] ;
     schema1:name "laQicpms protocol — Liu2016-2" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP CaO is the internal standard: 'we calculated the trace element abundances by normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -8532,7 +8498,6 @@ ex:laQicpmsTAPP-Liu2016-2 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "N — the background 'was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4); how it was subtracted is not described" ;
     ada:calibrationMeasurementFrequency "Before and after every session — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)" ;
     ada:carrierGasFlowRateDefault "N — not stated" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: single element measured by EMP — 'normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' (Methods, p.4)" ;
     ada:internalStandardElement "all: Ca (⁴⁰Ca) — CaO from EMP (Methods, p.4)" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
@@ -8598,7 +8563,6 @@ ex:laQicpmsTAPP-Liu2016-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/coolantPlasmaGasFlowRateDefault> a schema1:PropertyValueSpecification ;
@@ -9129,6 +9093,29 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
       "schema:description": "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported"
     },
     {
+      "@id": "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "totalIntegrationTimePerOutputDataPointDefault",
+      "schema:name": "Total Integration Time per Output Data Point",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.659,
+      "schema:description": "0.659 s"
+    },
+    {
+      "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "constantsReferenceValuesDefault",
+      "schema:name": "Constants Reference Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga"
+    },
+    {
       "@id": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -9275,9 +9262,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     ]
   },
   "ada:signalCollectionMode": "N/A",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
   "ada:backgroundCountTimeDefault": "N — gas-blank correction applied in Iolite, duration not stated",
-  "ada:constantsAndReferenceValuesUsedDefault": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9711,6 +9696,29 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
       "schema:description": "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported"
     },
     {
+      "@id": "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "totalIntegrationTimePerOutputDataPointDefault",
+      "schema:name": "Total Integration Time per Output Data Point",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.659,
+      "schema:description": "0.659 s"
+    },
+    {
+      "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "constantsReferenceValuesDefault",
+      "schema:name": "Constants Reference Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga"
+    },
+    {
       "@id": "ada:parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -9857,9 +9865,7 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
     ]
   },
   "ada:signalCollectionMode": "N/A",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": "0.659 s",
   "ada:backgroundCountTimeDefault": "N \u2014 gas-blank correction applied in Iolite, duration not stated",
-  "ada:constantsAndReferenceValuesUsedDefault": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -9981,17 +9987,19 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "N — not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "N — not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition>,
+        <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault>,
+        <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS (publication column of LA-Q-ICP-MS_TAPP_v98.csv). Reported detail: ada:signalCollectionMode = Peak jump." ;
@@ -10016,7 +10024,6 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "He ablation gas 900 mL/min; Ar carrier gas 0.65 L/min — Table 1 'Ablation gas flow (He)' and 'Carrier gas flow (Ar)'" ;
-    ada:constantsAndReferenceValuesUsedDefault "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga" ;
     ada:internalStandardApproach "no value available: ada:internalStandardApproach" ;
     ada:internalStandardElement "no value available: ada:internalStandardElement" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
@@ -10074,7 +10081,6 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault "0.659 s" ;
     ada:uncertaintyLevel "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s" .
 
 <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault> a schema1:PropertyValueSpecification ;
@@ -10082,6 +10088,14 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     schema1:name "Collision/Reaction Gas Mixture Ratio" ;
     schema1:valueName "collisionReactionGasMixtureRatioDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 6.59e-01 ;
+    schema1:description "0.659 s" ;
+    schema1:name "Total Integration Time per Output Data Point" ;
+    schema1:valueName "totalIntegrationTimePerOutputDataPointDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/module/CollisionCell/cellExitDiscriminationVoltageDefault> a schema1:PropertyValueSpecification ;
@@ -10096,6 +10110,13 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     schema1:name "Reaction Gas Type" ;
     schema1:value "all: NH3, high purity (>99.999%) — supplied in T4; He (>99.999%, T1) was pre-mixed with NH3 before the cell in a test of mixture composition" ;
     schema1:valueName "reactionGasType" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga" ;
+    schema1:name "Constants Reference Values" ;
+    schema1:valueName "constantsReferenceValuesDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -10614,7 +10635,46 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
+        - title: Total Integration Time per Output Data Point
+          description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+            the sum of all per-isotope dwell times plus inter-mass settling times.
+            Not recoverable from Dwell Time per Mass alone, because settling time
+            is not captured there. Applies to sequential (quadrupole and single-collector
+            sector-field) acquisition."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: totalIntegrationTimePerOutputDataPointDefault
+            schema:name:
+              const: Total Integration Time per Output Data Point
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
         - title: Collision/Reaction Gas Mixture Ratio
           description: Where the collision or reaction cell is supplied with a mixture
             of gases rather than a single gas, the identities and proportions of that
@@ -10723,7 +10783,52 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: Total Integration Time per Output Data Point
+          description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+            the sum of all per-isotope dwell times plus inter-mass settling times.
+            Not recoverable from Dwell Time per Mass alone, because settling time
+            is not captured there. Applies to sequential (quadrupole and single-collector
+            sector-field) acquisition."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: totalIntegrationTimePerOutputDataPointDefault
+            schema:name:
+              const: Total Integration Time per Output Data Point
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_matrixOffsetCorrectionLief
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
         minContains: 0
         maxContains: 1
       - contains:
@@ -11868,15 +11973,6 @@ allOf:
       - missing
       schema:inDefinedTermSet: ada:vocab/signal-collection-mode
       readOnly: true
-    ada:totalIntegrationTimePerOutputDataPointDefault:
-      description: "Total duty-cycle time for one complete mass-scan sweep \u2014
-        the sum of all per-isotope dwell times plus inter-mass settling times. Not
-        recoverable from Dwell Time per Mass alone, because settling time is not captured
-        there. Applies to sequential (quadrupole and single-collector sector-field)
-        acquisition."
-      anyOf:
-      - type: number
-      - type: string
     ada:massBiasCorrectionStrategy:
       description: 'Strategy used to correct instrumental isotopic mass fractionation,
         also called mass bias or mass discrimination. Distinct from Elemental Fractionation
@@ -11885,15 +11981,6 @@ allOf:
         element, and applies wherever the procedure reports isotope ratios.'
       type: string
       readOnly: true
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the
         passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures
@@ -11912,9 +11999,7 @@ allOf:
         - Mapping
   required:
   - ada:signalCollectionMode
-  - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:massBiasCorrectionStrategy
-  - ada:constantsAndReferenceValuesUsedDefault
   - ada:numberOfAcquisitionPasses
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.tapp

@@ -27,7 +27,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 Zega2025-2",
-  "schema:description": "Beam energy range 80\u2013300 keV; specific voltage per dataset not stated Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (STEM Imaging); ada:edsAcquisitionModeDefault = Spectrum image (map).",
+  "schema:description": "Beam energy range 80\u2013300 keV; specific voltage per dataset not stated",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "serpentine/saponite)",
@@ -276,9 +276,29 @@
       ]
     }
   ],
-  "ada:spectroscopicDetectorDefault": "EDS only",
-  "ada:analyticalSubModeDefault": "ADF",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "EDS only"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "HAADF-STEM (STEM Imaging)"
+    },
     {
       "@id": "ada:parameter/temTAPP/stemProbeCurrentDefault",
       "@type": [
@@ -301,9 +321,19 @@
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Sequential acquisition several minutes to >1 h; combined using Python (light-element volatilization control)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/edsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsAcquisitionModeDefault",
+      "schema:name": "EDS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "elemental distribution; phase composition (At%); phase identification (nominal) \u2014 Elemental distributions from STEM/EDS maps acquired over minutes to hours and combined in Python (p.10), reported as phase compositions in atomic proportions (At%) and as the phases resolved from them (nominal, Fig. 4, p.4)",
     "ada:defaultReportedProperties": [
@@ -360,15 +390,9 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
   "ada:edsQuantificationMethod": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsEnergyLossRangeDefault": "no value available: ada:eelsEnergyLossRangeDefault",
   "ada:phaseIdentificationMethod": "no value available: ada:phaseIdentificationMethod",
-  "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }

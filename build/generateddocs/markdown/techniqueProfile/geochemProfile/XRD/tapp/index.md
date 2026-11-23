@@ -108,14 +108,10 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
-  "ada:sampleMountDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
-  "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -230,14 +226,10 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
-  "ada:sampleMountDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
-  "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -279,7 +271,6 @@ ex:xrdTAPP-King2024 a schema1:Action,
     schema1:name "xrd protocol — King2024" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "(NHM)Position Sensitive Detector X-ray Diffraction" ;
@@ -292,12 +283,9 @@ ex:xrdTAPP-King2024 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:sampleMountDefault "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
-    ada:stepSizeDefault -9999 ;
     ada:targetMaterial "missing" ;
-    ada:timePerStepDefault -9999 ;
     ada:xRayWavelength -9999 .
 
 
@@ -403,14 +391,10 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
-  "ada:sampleMountDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
-  "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -525,14 +509,10 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
-  "ada:sampleMountDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
-  "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -574,7 +554,6 @@ ex:xrdTAPP-King2024-2 a schema1:Action,
     schema1:name "xrd protocol — King2024-2" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Malvern PANalytical" ;
     ada:instrumentModel "(JSC-ARES)Malvern PANalytical XPert Pro XRD" ;
@@ -587,12 +566,9 @@ ex:xrdTAPP-King2024-2 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:sampleMountDefault "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
-    ada:stepSizeDefault -9999 ;
     ada:targetMaterial "missing" ;
-    ada:timePerStepDefault -9999 ;
     ada:xRayWavelength -9999 .
 
 
@@ -698,14 +674,10 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
-  "ada:sampleMountDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
-  "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -820,14 +792,10 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:diffractometerGeometry": "missing",
-  "ada:sampleMountDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
-  "ada:stepSizeDefault": -9999,
   "ada:targetMaterial": "missing",
-  "ada:timePerStepDefault": -9999,
   "ada:xRayWavelength": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -869,7 +837,6 @@ ex:xrdTAPP-King2023 a schema1:Action,
     schema1:name "xrd protocol — King2023" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:diffractometerGeometry "missing" ;
     ada:instrumentManufacturer "Rigaku" ;
     ada:instrumentModel "Rigaku Rapid 2 Micro-XRD" ;
@@ -882,12 +849,9 @@ ex:xrdTAPP-King2023 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:sampleMountDefault "missing" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
-    ada:stepSizeDefault -9999 ;
     ada:targetMaterial "missing" ;
-    ada:timePerStepDefault -9999 ;
     ada:xRayWavelength -9999 .
 
 
@@ -933,23 +897,253 @@ allOf:
         - missing
       - type: string
       readOnly: true
-    ada:sampleMountDefault:
-      description: The holder or mounting geometry the specimen is presented in. Distinct
-        from Sample Preparation Method, which states how the material was brought
-        to that form.
-      anyOf:
-      - type: string
-        enum:
-        - Zero-background holder
-        - Capillary (transmission)
-        - Flat plate (reflection)
-        - Spinner stage
-        - Fibre mount
-        - N/A
-        - None
-        - missing
-      - type: string
-      schema:inDefinedTermSet: ada:vocab/sample-mount
+    schema:additionalProperty:
+      type: array
+      items:
+        anyOf:
+        - title: Sample Mount
+          description: The holder or mounting geometry the specimen is presented in.
+            Distinct from Sample Preparation Method, which states how the material
+            was brought to that form.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/xrdTAPP/sampleMountDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: sampleMountDefault
+            schema:name:
+              const: Sample Mount
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Zero-background holder
+                - Capillary (transmission)
+                - Flat plate (reflection)
+                - Spinner stage
+                - Fibre mount
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/sample-mount
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Step Size
+          description: Angular increment between recorded points.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/xrdTAPP/stepSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: stepSizeDefault
+            schema:name:
+              const: Step Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: degrees 2-theta
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Time per Step
+          description: Counting time at each angular step.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/xrdTAPP/timePerStepDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: timePerStepDefault
+            schema:name:
+              const: Time per Step
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+      allOf:
+      - contains:
+          title: Sample Mount
+          description: The holder or mounting geometry the specimen is presented in.
+            Distinct from Sample Preparation Method, which states how the material
+            was brought to that form.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/xrdTAPP/sampleMountDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: sampleMountDefault
+            schema:name:
+              const: Sample Mount
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Zero-background holder
+                - Capillary (transmission)
+                - Flat plate (reflection)
+                - Spinner stage
+                - Fibre mount
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/sample-mount
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Step Size
+          description: Angular increment between recorded points.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/xrdTAPP/stepSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: stepSizeDefault
+            schema:name:
+              const: Step Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: degrees 2-theta
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Time per Step
+          description: Counting time at each angular step.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/xrdTAPP/timePerStepDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: timePerStepDefault
+            schema:name:
+              const: Time per Step
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        minContains: 0
+        maxContains: 1
     schema:object:
       type: array
       items:
@@ -1018,16 +1212,6 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:stepSizeDefault:
-      description: Angular increment between recorded points.
-      anyOf:
-      - type: number
-      - type: string
-    ada:timePerStepDefault:
-      description: Counting time at each angular step.
-      anyOf:
-      - type: number
-      - type: string
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -1041,25 +1225,12 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
   required:
   - ada:targetMaterial
-  - ada:sampleMountDefault
   - ada:instrumentManufacturer
   - ada:instrumentModel
   - ada:diffractometerGeometry
   - ada:xRayWavelength
-  - ada:stepSizeDefault
-  - ada:timePerStepDefault
-  - ada:constantsAndReferenceValuesUsedDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XRD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

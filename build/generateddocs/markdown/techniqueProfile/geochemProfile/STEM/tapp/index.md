@@ -99,7 +99,6 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
@@ -206,7 +205,6 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
@@ -248,7 +246,6 @@ ex:stemTAPP-HF5000 a schema1:Action,
             schema1:termCode "Scanning Transmission Electron Microscopy" ] ;
     schema1:name "stem protocol — HF5000" ;
     ada:analyticalMode "STEM" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "HF5000" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
@@ -356,7 +353,6 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "@id": "ex:stemTAPP-P1/instrument/STEM"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
@@ -463,7 +459,6 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "@id": "ex:stemTAPP-P1/instrument/STEM"
     }
   ],
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing"
@@ -505,7 +500,6 @@ ex:stemTAPP-P1 a schema1:Action,
             schema1:termCode "Scanning Transmission Electron Microscopy" ] ;
     schema1:name "stem protocol — P1" ;
     ada:analyticalMode "STEM" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "TitanX TEM" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
@@ -644,15 +638,15 @@ allOf:
         separately, as a controlled value, so that procedures remain findable by vendor.
       type: string
       readOnly: true
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
+    schema:additionalProperty:
+      type: array
+      items:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+      allOf:
+      - contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        minContains: 0
+        maxContains: 1
     schema:instrument:
       type: array
       items:
@@ -687,7 +681,6 @@ allOf:
   - ada:targetMaterial
   - ada:instrumentManufacturer
   - ada:instrumentModel
-  - ada:constantsAndReferenceValuesUsedDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

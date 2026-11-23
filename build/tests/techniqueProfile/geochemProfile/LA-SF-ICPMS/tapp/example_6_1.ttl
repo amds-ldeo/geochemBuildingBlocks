@@ -14,13 +14,6 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
             schema1:name "LA-SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al., calculated for each acquisition in iolite 4 — 'the LOD must be calculated for each acquisition'; Table 3 gives the medians" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
                     schema1:name "Sample preparation" ;
@@ -31,7 +24,14 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Longerich et al., calculated for each acquisition in iolite 4 — 'the LOD must be calculated for each acquisition'; Table 3 gives the medians" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -67,7 +67,6 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "20 s blank before each spot, laser firing with the shutter closed; LODs calculated per acquisition in iolite 4 — Experimental section" ;
     ada:calibrationMeasurementFrequency "Every ten unknowns (about every 15 min) — calibration blocks bracket blocks of ten unknowns; 'every 15 min calibration block'" ;
     ada:carrierGasFlowRateDefault "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell; combined with Ar makeup via T-piece near torch" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:internalStandardApproach "all: sum normalization, Fe + Ni + Co = 100% — 'In the final step, sum normalization was applied to the major constituents of iron meteorites, specifically Fe + Ni + Co = 100%. This ... eliminated the conventional practice of needing an internal standard'" ;
     ada:internalStandardElement "all: none — Fe + Ni + Co sum normalisation" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
@@ -135,7 +134,6 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;

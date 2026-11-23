@@ -15,13 +15,6 @@ ex:semTAPP-Pascucci2026-4 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -29,6 +22,13 @@ ex:semTAPP-Pascucci2026-4 a schema1:Action,
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
                     ada:protectiveCoatingDepositionDefault "no value available: ada:protectiveCoatingDepositionDefault" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -52,14 +52,9 @@ ex:semTAPP-Pascucci2026-4 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "SE Imaging" ;
     ada:clAcquisitionMode "missing" ;
-    ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is SE Imaging. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
@@ -77,8 +72,6 @@ ex:semTAPP-Pascucci2026-4 a schema1:Action,
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Whole sample (polished slab) > Region of interest — \"Secondary electrons were used to construct images enlarged up to ×200,000 and resolved up to 5 nm\" (p.3) on the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" ;
     ada:seDetectorType "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -91,8 +84,7 @@ ex:semTAPP-Pascucci2026-4 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
-    ada:wdsDeadTimeCorrection "missing" ;
-    ada:workingDistanceDefault -9999 .
+    ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;

@@ -227,7 +227,20 @@
       ]
     }
   ],
-  "ada:stepSizePixelSizeDefault": "8-12 \u00b5m (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 \u00b5m (olivine megacryst Ka maps; instrument ambiguous)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/epmaTAPP/stepSizePixelSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stepSizePixelSizeDefault",
+      "schema:name": "Step Size / Pixel Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8-12 \u00b5m (BSE + Ca/Al/Fe/Mg Ka phase maps at UT); 2 \u00b5m (olivine megacryst Ka maps; instrument ambiguous)"
+    }
+  ],
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "olivine",
@@ -593,7 +606,6 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
   "ada:wdsDeadTimeCorrection": "missing",
