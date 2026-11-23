@@ -1176,7 +1176,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.adaProfile.ICPOES.profile-ada
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-22'
+  dateOfLastChange: '2026-11-23'
 
 ```
 

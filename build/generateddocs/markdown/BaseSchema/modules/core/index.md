@@ -253,11 +253,11 @@ The procedure half of the Core module, with every property populated. Generated 
             schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
     schema1:name "no value available: unnamed property" ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "no value available: unnamed property" ] ] ;
+                    schema1:name "no value available: unnamed property" ] ] ;
     ada:analyticalMode "no value available: unnamed property" ;
     ada:samplingUnitType "no value available: unnamed property" .
 
@@ -1280,7 +1280,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.core
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-22'
+  dateOfLastChange: '2026-11-23'
 
 ```
 
