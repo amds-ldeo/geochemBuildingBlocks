@@ -1,0 +1,30 @@
+# Optional: the SHACL layer. Kept out of requirements.txt deliberately.
+#
+# Two tools reach for these:
+#
+#   check_shacl_targets.py --execute   runs each sh:SPARQLTarget against its examples and
+#                                      fails on any that selects nothing. Needs rdflib only.
+#                                      Run in CI by check-schema-drift.yml.
+#   validate_examples.py               its SHACL pass. Needs both. NOT yet installed by
+#                                      check-examples.yml -- see below.
+#
+# Why separate, like requirements-db.txt: so the required checks that do not need SHACL cannot
+# be blocked by it, and so installing it is a deliberate act with a visible consequence.
+#
+# THE CONSEQUENCE, because it is not obvious. `load_shapes()` returns None on ImportError and
+# validate_examples prints "NOTE: rdflib/pyshacl not installed -- SHACL pass skipped" to stderr
+# and carries on. check-examples.yml installs requirements.txt only, so its SHACL pass has
+# never run: the 38 violations from the retired prov:used spelling were invisible to CI for
+# as long as they existed. validate_examples also returns 1 on any violation, so adding this
+# file to check-examples.yml turns that check RED until the corpus is clean. That is the
+# lever, and the order matters -- clear the violations first, then install this there.
+#
+#   pip install -r requirements.txt -r requirements-shacl.txt
+
+-r requirements.txt
+
+# Parses rules.shacl (turtle), parses examples as JSON-LD, and runs the SPARQL targets.
+rdflib==7.6.0
+
+# Executes the shape graphs against an example's graph. validate_examples only.
+pyshacl==0.31.0
