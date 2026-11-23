@@ -15,20 +15,23 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume." ;
+    schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo™" ;
@@ -54,9 +57,7 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault "20 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "3143" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "Filtered back projection (Nikon proprietary)" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite",
@@ -68,11 +69,8 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis" ;
     ada:samplingUnitType "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)" ;
-    ada:segmentationMethodDefault "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume" ;
     ada:targetFeature "Modal mineralogy (vol%); secondary minerals" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Martian meteorite" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
@@ -83,6 +81,21 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     ada:xRaySourceConfiguration "missing" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 20 ;
+    schema1:description "20 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3143 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable" ;
@@ -102,6 +115,13 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
     schema1:defaultValue "~1.1 × 1.2 × 0.8 cm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

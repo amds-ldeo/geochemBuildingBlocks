@@ -275,9 +275,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     }
   ],
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -559,9 +557,7 @@ semCompositionTAPP instance derived from Genge et al. 2025 | Micrometeorite NG-1
     }
   ],
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -613,7 +609,6 @@ ex:semCompositionTAPP-Genge2025 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "XPP (Simplified PAP)" ;
     ada:monitoredElements "N — \"quantitative EDS analyses (with an Oxford X-Max SDD system and an XPP correction procedure calibrated with Oxford factory internal standards) were carried out at 10 kV\" (p.2), to determine the composition of the Al-Cu alloy phases and associated minerals; no element set is enumerated" ;
@@ -630,7 +625,6 @@ ex:semCompositionTAPP-Genge2025 a schema1:Action,
             ada:reportedPropertyDeclaration "phase composition (normalised); fayalite content (Fa); phase identification (nominal) — Phase compositions as normalised analyses, with the olivine reported by fayalite content (Fa11–25) and \"Phase identification ... determined using normalised analyses, since the stoichiometry provides an adequate confirmation of analysis quality\" (p.2); phase identification is the nominal output" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the target phases are named (see `Sampling Unit Type`) but no rule is given for choosing the analysed points" ;
     ada:samplingUnitType "Phase > Analysis point — \"quantitative EDS analyses\" of the alloy phases and associated minerals in the NG-1 section, with settings given per phase (\"12 kV for metals and 10 kV for silicates and oxides, beam current at 10 nA for metals and 5 nA for silicates and oxides\", p.2)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "associated minerals" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -960,10 +954,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
     }
   ],
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1223,10 +1215,8 @@ semCompositionTAPP instance derived from Gucsik et al. 2013 | Forsterite, Kaba m
     }
   ],
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1275,7 +1265,6 @@ ex:semCompositionTAPP-Gucsik2013 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "Mg, Al, Ca, Si, Ti, Cr, Mn, Fe — \"Among the detected elements were Mg, Al, Ca, Si, Ti, Cr, Mn, and Fe\" (p.2). NOTE the sentence attaches these to the WDS X-ray distribution maps; the EDS itself is described only as \"semiquantitative analyses for major elements\" and \"qualitative measurements by EDS\", so the EDS element set is not separately stated" ;
@@ -1291,7 +1280,6 @@ ex:semCompositionTAPP-Gucsik2013 a schema1:Action,
             ada:reportedPropertyDeclaration "mineral composition; forsterite content (Fo) — Mineral compositions of the seven analysed grains, reported for the olivine as forsterite content (\"Fo: 99.2–99.7\", p.1), with WDS X-ray distribution maps alongside; detection limits are stated per element (\"ranged between 0.03 (light element…\", p.2)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Freedom from defects, after a prior survey — \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses because they did not contain any irregular fracturing or crystallographic imperfections\" (p.2); the same grains carry the microprobe analyses" ;
     ada:samplingUnitType "Grain > Analysis point — \"Semiquantitative analyses\" on the same \"seven representative grains (designated as B-1 through B-7)\" of a Kaba thin section (p.2)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "constituent minerals" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -1619,10 +1607,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1888,10 +1874,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1916,15 +1900,15 @@ ex:semCompositionTAPP-Izawa2010 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM> ;
@@ -1942,7 +1926,6 @@ ex:semCompositionTAPP-Izawa2010 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — the Leo 440 SEM carries \"a Gresham light element detector and a Quartz XOne EDX analysis system, capable of detecting all elements from C to U, with a detection limit of ~0.5 wt% for most elements\" (p.3). That is the detector's range, not the set monitored; the maps' elements are not enumerated" ;
@@ -1958,7 +1941,6 @@ ex:semCompositionTAPP-Izawa2010 a schema1:Action,
             ada:reportedPropertyDeclaration "elemental distribution (counts per pixel); phase identification (nominal) — Elemental distribution as X-ray maps (counts per pixel, \"full spectral imaging, recording all X-rays collected from each pixel location\", p.3) and the phase identifications read from them (nominal); BSE images give the accompanying textural relationships (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Located by prior μXRD reconnaissance — the paper's stated strategy is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) ... to identify features of interest, followed by spatially correlated mXRD, scanning electron microscopy with energy-dispersive X-ray spectroscopy (SEM-EDX), and cathodoluminescence (CL) analysis\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished thin section) > Phase — \"full spectral imaging, recording all X-rays collected from each pixel location\" over \"polished thin sections\" of Tagish Lake (p.2), read as elemental distribution (p.3)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -2286,10 +2268,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -2555,10 +2535,8 @@ semCompositionTAPP instance derived from Izawa et al. 2010 | Tagish Lake (C2) me
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -2583,15 +2561,15 @@ ex:semCompositionTAPP-Izawa2010-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <https://example.org/semCompositionTAPP-Izawa2010-2/instrument/SEM> ;
@@ -2609,7 +2587,6 @@ ex:semCompositionTAPP-Izawa2010-2 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "Point" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — the Leo 1540 FIB/SEM CrossBeam is \"equipped with an Oxford Instruments INCA EDX system allowing for elemental analysis\" (p.3); no element set is stated" ;
@@ -2625,7 +2602,6 @@ ex:semCompositionTAPP-Izawa2010-2 a schema1:Action,
             ada:reportedPropertyDeclaration "elemental composition of the analysed phases; phase identification (nominal) — Elemental compositions of the analysed phases, used with the μXRD and CL data for phase identification (nominal); the EDX system detects \"all elements from C to U, with a detection limit of 0.5 wt% for most elements\" (p.3)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Follow-up on features already located — this is the third stage of the paper's strategy, \"finally higher resolution SEM-BSE mapping to establish spatial context for textural variation\" (p.2), on features identified by the earlier μXRD and SEM-EDX/CL stages" ;
     ada:samplingUnitType "Phase > Analysis point — \"High-resolution BSE imaging and EDX spot analysis were carried out with the Leo 1540 FIB/SEM CrossBeam field emission SEM\" (p.3)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -2906,6 +2882,18 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:defaultValue": "High vacuum"
     },
     {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 30,
+      "schema:description": "30 s live time per spot analysis"
+    },
+    {
       "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -3049,7 +3037,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
   "ada:monitoredElements": [
     "N — the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 — a different instrument and a different procedure — and is deliberately not read across"
   ],
@@ -3128,7 +3115,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -3347,6 +3333,18 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:defaultValue": "High vacuum"
     },
     {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 30,
+      "schema:description": "30 s live time per spot analysis"
+    },
+    {
       "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -3490,7 +3488,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
   "ada:monitoredElements": [
     "N \u2014 the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 \u2014 a different instrument and a different procedure \u2014 and is deliberately not read across"
   ],
@@ -3569,7 +3566,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -3605,17 +3601,18 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy) Reported detail: ada:edsAcquisitionMode = Spot analysis." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semCompositionTAPP-Pascucci2026/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -3631,7 +3628,6 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "N/A" ;
-    ada:edsLiveTimePerPointOrPixelDefault "30 s live time per spot analysis" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 — a different instrument and a different procedure — and is deliberately not read across" ;
@@ -3647,7 +3643,6 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
             ada:reportedPropertyDeclaration "atomic proportions of the constituent elements (%); phase identification (nominal) — Atomic proportions of the constituent elements (%), from which \"mineral phases were determined from atomic proportions in percentages (%) of constituent elements and compared to the atomic proportions of constituent elements in stoichiometric proportions\" (p.4); the phase identification is the nominal output" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Phase > Analysis point — \"semi-quantitative analyses with virtual standards present within the INCA software\" (p.3), to \"determine its elemental composition\" for the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -3692,6 +3687,14 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
     schema1:defaultValue "High vacuum" ;
     schema1:name "Chamber Pressure" ;
     schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 30 ;
+    schema1:description "30 s live time per spot analysis" ;
+    schema1:name "EDS Live Time per Point or Pixel" ;
+    schema1:valueName "edsLiveTimePerPointOrPixelDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -4008,6 +4011,30 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:defaultValue": "High vacuum"
     },
     {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 5,
+      "schema:description": "5 ms dwell time per pixel"
+    },
+    {
+      "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stepSizePixelSizeDefault",
+      "schema:name": "Step Size / Pixel Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2.5,
+      "schema:description": "2.5 µm"
+    },
+    {
       "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -4163,8 +4190,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "ada:stepSizePixelSizeDefault": "2.5 µm",
   "ada:monitoredElements": [
     "O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni — the SEM-EDS maps give 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni)', and the Cameo+ energy threshold covers 'Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni, Ti'. The 'Si, Fe, Ca, Al, and S' list belongs to the EMPA-WDS mapping, a different procedure"
   ],
@@ -4450,6 +4475,30 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       "schema:defaultValue": "High vacuum"
     },
     {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 5,
+      "schema:description": "5 ms dwell time per pixel"
+    },
+    {
+      "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stepSizePixelSizeDefault",
+      "schema:name": "Step Size / Pixel Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2.5,
+      "schema:description": "2.5 \u00b5m"
+    },
+    {
       "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -4605,8 +4654,6 @@ semCompositionTAPP instance derived from Pascucci et al. 2026 | NWA 7317 CR6 cho
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
   "ada:monitoredElements": [
     "O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni \u2014 the SEM-EDS maps give 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni)', and the Cameo+ energy threshold covers 'Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni, Ti'. The 'Si, Fe, Ca, Al, and S' list belongs to the EMPA-WDS mapping, a different procedure"
   ],
@@ -4719,17 +4766,19 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
-        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault>,
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType>,
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSizeDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semCompositionTAPP-Pascucci2026-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -4745,7 +4794,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
-    ada:edsLiveTimePerPointOrPixelDefault "5 ms dwell time per pixel" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni — the SEM-EDS maps give 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni)', and the Cameo+ energy threshold covers 'Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni, Ti'. The 'Si, Fe, Ca, Al, and S' list belongs to the EMPA-WDS mapping, a different procedure" ;
@@ -4762,7 +4810,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
             ada:reportedPropertyDeclaration "element maps (pixel by pixel); Cameo+ energy-colour map (nominal); mineral phase map (nominal) — INCA gives 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni) so to derive the distribution of each mineral phase'; the SEM-EDS area is '10.5 × 4.0 mm wide'. The 'Si, Fe, Ca, Al, and S' maps at 3 μm resolution are the EMPA-WDS mapping's, a different procedure" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Whole sample (polished slab) > Phase — elemental mapping of the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4), acquired on \"almost the same portion of the VIS-IR SPIM images\" (p.4) so the two datasets can be compared pixel for pixel" ;
-    ada:stepSizePixelSizeDefault "2.5 µm" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -4810,6 +4857,22 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
     schema1:defaultValue "High vacuum" ;
     schema1:name "Chamber Pressure" ;
     schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 5 ;
+    schema1:description "5 ms dwell time per pixel" ;
+    schema1:name "EDS Live Time per Point or Pixel" ;
+    schema1:valueName "edsLiveTimePerPointOrPixelDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2.5e+00 ;
+    schema1:description "2.5 µm" ;
+    schema1:name "Step Size / Pixel Size" ;
+    schema1:valueName "stepSizePixelSizeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
@@ -5132,7 +5195,20 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20,
+      "schema:description": "20 to 200 s (per point)"
+    }
+  ],
   "ada:monitoredElements": [
     "N — \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated"
   ],
@@ -5211,7 +5287,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -5425,7 +5500,20 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "20 to 200 s (per point)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20,
+      "schema:description": "20 to 200 s (per point)"
+    }
+  ],
   "ada:monitoredElements": [
     "N \u2014 \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated"
   ],
@@ -5504,7 +5592,6 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -5538,6 +5625,7 @@ ex:semCompositionTAPP-Zega2025 a schema1:Action,
                     schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v86.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
@@ -5563,7 +5651,6 @@ ex:semCompositionTAPP-Zega2025 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "Point" ;
-    ada:edsLiveTimePerPointOrPixelDefault "20 to 200 s (per point)" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — \"EDS spectra were acquired at 15 kV with acquisition times ranging from 20 to 200 s with an incident beam current of ~900 pA\" on the JEOL 7600F (p.9); no element set is stated" ;
@@ -5579,7 +5666,6 @@ ex:semCompositionTAPP-Zega2025 a schema1:Action,
             ada:reportedPropertyDeclaration "phase composition (At%); phase identification (nominal) — Phase compositions from point spectra, reported with the EMPA data as atomic proportions (At%: Fe + Co, S, Ni for the sulfides, Fig. 1, p.2); phase identification is the nominal output" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the passage says regions of interest were characterized (\"Characterization of regions of interest was performed at an accelerating voltage of 15 kV\", p.9) but gives no rule for choosing them" ;
     ada:samplingUnitType "Region of interest > Analysis point — \"The Oxford AZtec 'Point & ID' programme was used for the acquisition of images and point spectra\" (p.9)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -5593,6 +5679,14 @@ ex:semCompositionTAPP-Zega2025 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
     ada:wdsDeadTimeCorrection "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 20 ;
+    schema1:description "20 to 200 s (per point)" ;
+    schema1:name "EDS Live Time per Point or Pixel" ;
+    schema1:valueName "edsLiveTimePerPointOrPixelDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
@@ -5931,10 +6025,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -6224,10 +6316,8 @@ semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid parti
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -6286,7 +6376,6 @@ ex:semCompositionTAPP-Zega2025-2 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" on the Hitachi S-4800 (p.9); no element set is stated" ;
@@ -6302,7 +6391,6 @@ ex:semCompositionTAPP-Zega2025-2 a schema1:Action,
             ada:reportedPropertyDeclaration "element maps; phase identification (nominal) — Elemental maps used to assess \"The compositional heterogeneity of the particles\" (p.9); the phases resolved from them are the nominal output" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Coverage of heterogeneity — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" (p.9); no finer rule is given for placing the maps" ;
     ada:samplingUnitType "Whole sample (particle) > Phase — \"The compositional heterogeneity of the particles was assessed through EDS mapping\" (p.9)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -6627,10 +6715,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
     }
   ],
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -6893,10 +6979,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
     }
   ],
   "ada:edsAcquisitionMode": "missing",
-  "ada:edsLiveTimePerPointOrPixelDefault": -9999,
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -6921,15 +7005,15 @@ ex:semCompositionTAPP-Barnes2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "SEM-EDS (referred to as SEM-EDX in Extended Data Fig. 8) used to confirm phase identifications of two O-rich presolar grains identified by NanoSIMS isotope mapping: one grain confirmed as ferromagnesian silicate; one confirmed as Al,Mg-bearing oxide (Barnes et al. 2025, p.2 and Extended Data Fig. 8 caption). No instrument name, accelerating voltage, beam current, or sample preparation specifics stated for the JSC SEM-EDS step in this paper." ;
     schema1:instrument <https://example.org/semCompositionTAPP-Barnes2025/instrument/SEM> ;
@@ -6946,7 +7030,6 @@ ex:semCompositionTAPP-Barnes2025 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — no element set is named for the JSC SEM-EDS of the two presolar grains (p.2, p.11, Extended Data Fig. 8). The 'multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains' (p.11) is the CRPG JEOL JSM-6510 work on other samples" ;
@@ -6962,7 +7045,6 @@ ex:semCompositionTAPP-Barnes2025 a schema1:Action,
             ada:reportedPropertyDeclaration "elemental composition of the presolar grains; phase assignment (nominal: silicate vs oxide) — Elemental composition of the two presolar grains, used \"to further constrain the phase and to confirm the phase identifications made based on the NanoSIMS data\" (p.11); the reported output is the phase assignment (nominal: silicate vs oxide)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Isotopic anomaly, found by prior NanoSIMS imaging — grains \"were considered presolar if their isotopic composition differed from the reference ratios by >5σ and if the isotopic anomaly was present in multiple consecutive frames\", and of those \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase\" (p.11)" ;
     ada:samplingUnitType "Grain (presolar grain) > Phase — EDS was used on grains first found by NanoSIMS raster imaging of \"aggregate QL material pressed onto a gold (Au) foil mount\": \"Two O-rich presolar grains were also analysed by SEM-EDS to further constrain the phase and to confirm the phase identifications\" (pp.10–11)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -8280,7 +8362,7 @@ allOf:
               - type: number
               - type: string
             schema:unitText:
-              const: "\xB5m x \xB5m"
+              const: "\xB5m"
           required:
           - '@id'
           - '@type'
@@ -8419,6 +8501,76 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per
+            pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              const: EDS Live Time per Point or Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Step Size / Pixel Size
+          description: "Centre-to-centre distance between adjacent measurement points
+            (WDS mapping) or pixels (EDS mapping) in \xB5m."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: stepSizePixelSizeDefault
+            schema:name:
+              const: Step Size / Pixel Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: "\xB5m"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen
             substitution (F and/or Cl replacing OH) in halogen-bearing phases such
@@ -8443,7 +8595,15 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH"
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/halogen-correction-on-oxygen
@@ -8515,7 +8675,7 @@ allOf:
               - type: number
               - type: string
             schema:unitText:
-              const: "\xB5m x \xB5m"
+              const: "\xB5m"
           required:
           - '@id'
           - '@type'
@@ -8669,6 +8829,82 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per
+            pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              const: EDS Live Time per Point or Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Step Size / Pixel Size
+          description: "Centre-to-centre distance between adjacent measurement points
+            (WDS mapping) or pixels (EDS mapping) in \xB5m."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: stepSizePixelSizeDefault
+            schema:name:
+              const: Step Size / Pixel Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: "\xB5m"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen
             substitution (F and/or Cl replacing OH) in halogen-bearing phases such
@@ -8693,7 +8929,15 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH"
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/halogen-correction-on-oxygen
@@ -9399,18 +9643,6 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:edsLiveTimePerPointOrPixelDefault:
-      description: EDS spectral acquisition live time per analysis point or per pixel
-        in seconds.
-      anyOf:
-      - type: number
-      - type: string
-    ada:stepSizePixelSizeDefault:
-      description: "Centre-to-centre distance between adjacent measurement points
-        (WDS mapping) or pixels (EDS mapping) in \xB5m."
-      anyOf:
-      - type: number
-      - type: string
     ada:matrixCorrectionMethod:
       description: "X-ray matrix correction algorithm applied during quantitative
         EDS or WDS data reduction. For X-ray mapping, applies when raw count maps
@@ -9629,8 +9861,6 @@ allOf:
         - WDS Mapping
   required:
   - ada:edsAcquisitionMode
-  - ada:edsLiveTimePerPointOrPixelDefault
-  - ada:stepSizePixelSizeDefault
   - ada:matrixCorrectionMethod
   - ada:massAbsorptionCoefficients
   - ada:wdsDeadTimeCorrection

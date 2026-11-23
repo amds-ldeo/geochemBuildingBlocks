@@ -23,11 +23,14 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:segmentationMethodDefault = Dedicated workflow (Godel 2013) modified for plagioclase network segmentation." ;
+    schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
@@ -53,9 +56,7 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "2000" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Plagioclase network interconnectivity" ;
@@ -66,11 +67,8 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault "360°" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (8 mm core) > Phase (plagioclase network)" ;
-    ada:segmentationMethodDefault "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation" ;
     ada:targetFeature "Plagioclase network connectivity; partial melt evidence" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -82,6 +80,13 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
             ada:targetMaterialDeclaration "H7 ordinary chondrite (Watson 012)" ] ;
     ada:xRaySourceConfiguration "missing" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2000 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable" ;
     schema1:name "Phase Identification Method" ;
@@ -89,10 +94,25 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 360 ;
+    schema1:description "360°" ;
+    schema1:name "Rotation Range" ;
+    schema1:valueName "rotationRangeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "8 mm diameter core" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

@@ -508,7 +508,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: "\xB5m x \xB5m"
+        const: "\xB5m"
     required:
     - '@id'
     - '@type'
@@ -685,6 +685,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/halogen-correction-on-oxygen
     required:
     - '@id'
     - '@type'
@@ -788,6 +791,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
     required:
     - '@id'
     - '@type'
@@ -1638,6 +1644,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -2519,6 +2528,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -3432,6 +3444,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -3687,6 +3702,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -4314,6 +4332,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -4569,6 +4590,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -5231,6 +5255,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -5486,6 +5513,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -6041,6 +6071,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -6296,6 +6329,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -6566,6 +6602,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/ct-number-calibration
     required:
     - '@id'
     - '@type'
@@ -6598,6 +6637,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/detector-binning
     required:
     - '@id'
     - '@type'
@@ -6668,6 +6710,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/output-bit-depth
     required:
     - '@id'
     - '@type'
@@ -6948,6 +6993,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-mounting-method
     required:
     - '@id'
     - '@type'
@@ -7801,7 +7849,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: "\xB5m x \xB5m"
+        const: "\xB5m"
     required:
     - '@id'
     - '@type'
@@ -8017,6 +8065,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/halogen-correction-on-oxygen
     required:
     - '@id'
     - '@type'
@@ -8120,6 +8171,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
     required:
     - '@id'
     - '@type'
@@ -8538,7 +8592,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: "\xB5m x \xB5m"
+        const: "\xB5m"
     required:
     - '@id'
     - '@type'
@@ -8855,6 +8909,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/halogen-correction-on-oxygen
     required:
     - '@id'
     - '@type'
@@ -8995,6 +9052,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
     required:
     - '@id'
     - '@type'
@@ -9488,6 +9548,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -9670,7 +9733,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: mg or mL
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10122,6 +10185,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -10307,6 +10373,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -10380,7 +10449,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: mg or mL
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10798,6 +10867,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/limit-of-quantification-method
     required:
     - '@id'
     - '@type'
@@ -10983,6 +11055,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -11018,7 +11093,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: mg or mL
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11329,6 +11404,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/diffraction-camera-length-calibration-method
     required:
     - '@id'
     - '@type'
@@ -11506,6 +11584,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-background-subtraction-method
     required:
     - '@id'
     - '@type'
@@ -11541,6 +11622,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-chemical-state-determination-method
     required:
     - '@id'
     - '@type'
@@ -11643,6 +11727,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-plural-scattering-correction
     required:
     - '@id'
     - '@type'
@@ -11880,6 +11967,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-holder
     required:
     - '@id'
     - '@type'
@@ -11983,6 +12073,9 @@ $defs:
         const: R
       schema:defaultValue:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/specimen-thickness-determination-method
     required:
     - '@id'
     - '@type'
@@ -12087,7 +12180,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: pA or nA
+        type: string
     required:
     - '@id'
     - '@type'
@@ -12163,7 +12256,7 @@ $defs:
         - type: number
         - type: string
       schema:unitText:
-        const: pixels x pixels
+        const: pixels
     required:
     - '@id'
     - '@type'

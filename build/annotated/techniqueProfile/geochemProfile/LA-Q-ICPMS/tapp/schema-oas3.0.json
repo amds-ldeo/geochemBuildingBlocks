@@ -18875,7 +18875,78 @@
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.icpms/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit"
               },
               {
+                "title": "Total Integration Time per Output Data Point",
+                "description": "Total duty-cycle time for one complete mass-scan sweep \u2014 the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "totalIntegrationTimePerOutputDataPointDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "Total Integration Time per Output Data Point"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "enum": [
+                      "s"
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_matrixOffsetCorrectionLief"
+              },
+              {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues"
               },
               {
                 "title": "Collision/Reaction Gas Mixture Ratio",
@@ -19054,7 +19125,86 @@
             },
             {
               "contains": {
+                "title": "Total Integration Time per Output Data Point",
+                "description": "Total duty-cycle time for one complete mass-scan sweep \u2014 the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "totalIntegrationTimePerOutputDataPointDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "Total Integration Time per Output Data Point"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "enum": [
+                      "s"
+                    ]
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.laserAblation/$defs/Param_Procedure_matrixOffsetCorrectionLief"
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/LA-Q-ICPMS/tapp/schema-oas3.0.json#/x-defs/ogch.BaseSchema.modules.core/$defs/Param_Procedure_constantsReferenceValues"
               },
               "minContains": 0,
               "maxContains": 1
@@ -20963,25 +21113,10 @@
           "schema:inDefinedTermSet": "ada:vocab/signal-collection-mode",
           "readOnly": true
         },
-        "ada:totalIntegrationTimePerOutputDataPointDefault": {
-          "description": "Total duty-cycle time for one complete mass-scan sweep \u2014 the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:massBiasCorrectionStrategy": {
           "description": "Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.",
           "type": "string",
           "readOnly": true
-        },
-        "ada:constantsAndReferenceValuesUsedDefault": {
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-          "type": "string"
         },
         "ada:numberOfAcquisitionPasses": {
           "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
@@ -21009,9 +21144,7 @@
       },
       "required": [
         "ada:signalCollectionMode",
-        "ada:totalIntegrationTimePerOutputDataPointDefault",
         "ada:massBiasCorrectionStrategy",
-        "ada:constantsAndReferenceValuesUsedDefault",
         "ada:numberOfAcquisitionPasses"
       ]
     }

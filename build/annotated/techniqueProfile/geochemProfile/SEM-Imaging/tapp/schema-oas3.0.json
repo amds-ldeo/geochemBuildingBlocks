@@ -13882,6 +13882,260 @@
                 ]
               },
               {
+                "title": "Dwell Time per Pixel",
+                "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/dwellTimePerPixelDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "dwellTimePerPixelDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "Dwell Time per Pixel"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "CL Integration Time",
+                "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/clIntegrationTimeDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "clIntegrationTimeDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "CL Integration Time"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "EBSD Step Size",
+                "description": "Distance between adjacent EBSD measurement points in the map in nm or \u00b5m. Must be smaller than the smallest grain of interest.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/ebsdStepSizeDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "ebsdStepSizeDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "EBSD Step Size"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "EBSD Phase List",
+                "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/ebsdPhaseListDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "ebsdPhaseListDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "EBSD Phase List"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "string"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "CL Wavelength Calibration Reference",
                 "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
                 "type": "object",
@@ -14082,6 +14336,276 @@
             },
             {
               "contains": {
+                "title": "Dwell Time per Pixel",
+                "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/dwellTimePerPixelDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "dwellTimePerPixelDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "Dwell Time per Pixel"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "CL Integration Time",
+                "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/clIntegrationTimeDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "clIntegrationTimeDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "CL Integration Time"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EBSD Step Size",
+                "description": "Distance between adjacent EBSD measurement points in the map in nm or \u00b5m. Must be smaller than the smallest grain of interest.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/ebsdStepSizeDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "ebsdStepSizeDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "EBSD Step Size"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "number"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "EBSD Phase List",
+                "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "enum": [
+                      "ada:parameter/semImagingTAPP/ebsdPhaseListDefault"
+                    ]
+                  },
+                  "@type": {
+                    "enum": [
+                      [
+                        "schema:PropertyValueSpecification"
+                      ]
+                    ]
+                  },
+                  "schema:valueName": {
+                    "enum": [
+                      "ebsdPhaseListDefault"
+                    ]
+                  },
+                  "schema:name": {
+                    "enum": [
+                      "EBSD Phase List"
+                    ]
+                  },
+                  "ada:dataType": {
+                    "enum": [
+                      "string"
+                    ]
+                  },
+                  "ada:fieldScope": {
+                    "enum": [
+                      "session"
+                    ]
+                  },
+                  "schema:readonlyValue": {},
+                  "ada:tier": {
+                    "enum": [
+                      "R"
+                    ]
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "CL Wavelength Calibration Reference",
                 "description": "Reference light source or standard material used to calibrate the wavelength axis of the CL spectrometer. Required for quantitative spectral CL and hyperspectral mapping.",
                 "type": "object",
@@ -14142,17 +14666,6 @@
             }
           ]
         },
-        "ada:dwellTimePerPixelDefault": {
-          "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:clAcquisitionMode": {
           "description": "CL data collection strategy. Panchromatic: total light intensity collected by PMT across the full detector wavelength range. Spectral point: full CL spectrum at discrete point locations. Hyperspectral map: full CL spectrum acquired at each pixel of a raster scan.",
           "type": "string",
@@ -14181,17 +14694,6 @@
           ],
           "readOnly": true
         },
-        "ada:clIntegrationTimeDefault": {
-          "description": "Acquisition time per pixel (hyperspectral map mode) or per spectrum (spectral point mode), in ms or s.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:sampleTiltAngle": {
           "description": "Sample tilt angle for EBSD acquisition in degrees, measured from horizontal.",
           "anyOf": [
@@ -14203,21 +14705,6 @@
             }
           ],
           "readOnly": true
-        },
-        "ada:ebsdStepSizeDefault": {
-          "description": "Distance between adjacent EBSD measurement points in the map in nm or \u00b5m. Must be smaller than the smallest grain of interest.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
-        "ada:ebsdPhaseListDefault": {
-          "description": "Mineral phases included in the EBSD reference pattern library for this procedure. Phases may be added for specific sample compositions beyond the expected suite for the target material.",
-          "type": "string"
         },
         "schema:actionProcess": {
           "type": "object",
@@ -14499,13 +14986,9 @@
       },
       "required": [
         "ada:ebsdDetectorConfiguration",
-        "ada:dwellTimePerPixelDefault",
         "ada:clAcquisitionMode",
         "ada:clWavelengthRange",
-        "ada:clIntegrationTimeDefault",
-        "ada:sampleTiltAngle",
-        "ada:ebsdStepSizeDefault",
-        "ada:ebsdPhaseListDefault"
+        "ada:sampleTiltAngle"
       ]
     }
   ],

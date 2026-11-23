@@ -14,6 +14,14 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
@@ -27,17 +35,10 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -63,10 +64,10 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -83,7 +84,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
     ada:internalStandardElement "all: Mg (²⁵Mg) — §3.3" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: medium resolution (m/Δm of 4000) — §3.3" ;
-    ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "N — parameters lost" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
@@ -151,13 +151,19 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

@@ -71,7 +71,6 @@ icMsTAPP instance derived from ADA n=47 | no named analyst | Japan Agency for Ma
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
@@ -151,7 +150,6 @@ icMsTAPP instance derived from ADA n=47 | no named analyst | Japan Agency for Ma
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
@@ -189,7 +187,6 @@ ex:icMsTAPP-P0 a schema1:Action,
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Ion Chromatography-Mass Spectrometry" ] ;
     schema1:name "icMs protocol — P0" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;
     ada:instrumentModel "(JAMSTEC) Thermo Fisher QExactive with Dionex ICS-6000 HPIC" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
@@ -301,20 +298,19 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
+    schema:additionalProperty:
+      type: array
+      items:
+        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+      allOf:
+      - contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        minContains: 0
+        maxContains: 1
   required:
   - ada:targetMaterial
   - ada:instrumentManufacturer
   - ada:instrumentModel
-  - ada:constantsAndReferenceValuesUsedDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.IC-MS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

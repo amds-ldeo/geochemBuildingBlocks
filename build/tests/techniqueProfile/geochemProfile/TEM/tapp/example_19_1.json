@@ -16,7 +16,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 Cymes2023-2",
-  "schema:description": "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe\u00b3\u207a/\u03a3Fe quantified by integral I(L3)/I(L2) ratio \u2192 Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe\u2070+Fe\u00b2\u207a not separated by MLLS (overlapping L3 peaks); Fe\u2070 identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174. Reported detail: ada:spectroscopicDetectorDefault = EELS (Gatan Enfinium ER Dual EELS); EDS (Bruker X-Flash windowless SDD, 0.7 sr solid angle); ada:analyticalSubModeDefault = HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging; ada:edsAcquisitionModeDefault = Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected; ada:edsQuantificationMethod = Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%; ada:eelsAcquisitionModeDefault = Dual EELS spectrum imaging (simultaneous low-loss and core-loss).",
+  "schema:description": "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe\u00b3\u207a/\u03a3Fe quantified by integral I(L3)/I(L2) ratio \u2192 Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe\u2070+Fe\u00b2\u207a not separated by MLLS (overlapping L3 peaks); Fe\u2070 identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174. Reported detail: ada:edsQuantificationMethod = Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%.",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "pyroxene"
@@ -238,9 +238,29 @@
       "@id": "ex:temTAPP-Cymes2023-2/instrument/TEM"
     }
   ],
-  "ada:spectroscopicDetectorDefault": "N/A",
-  "ada:analyticalSubModeDefault": "ADF",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging"
+    },
     {
       "@id": "ada:parameter/temTAPP/stemProbeDiameterDefault",
       "@type": [
@@ -266,6 +286,28 @@
       "schema:description": "40 pA"
     },
     {
+      "@id": "ada:parameter/temTAPP/edsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsAcquisitionModeDefault",
+      "schema:name": "EDS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsAcquisitionModeDefault",
+      "schema:name": "EELS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/temTAPP/eelsEnergyDispersion",
       "@type": [
         "schema:PropertyValue"
@@ -279,6 +321,29 @@
       "schema:value": 2,
       "schema:unitText": "no value available: unnamed property",
       "schema:description": "Double-arctan continuum removal (for Fe L2,3 white-line integration)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrumDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsAcquisitionTimePerSpectrumDefault",
+      "schema:name": "EELS Acquisition Time per Spectrum",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2,
+      "schema:description": "Fe (L2,3); O (K)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/eelsEnergyLossRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "eelsEnergyLossRangeDefault",
+      "schema:name": "EELS Energy Loss Range",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Fe (L2,3); O (K)"
     },
     {
       "@id": "ada:parameter/temTAPP/eelsEnergyCalibrationDefault",
@@ -303,7 +368,6 @@
       "schema:defaultValue": "Integral white-line intensity ratio I(L3)/I(L2) \u2192 Van Aken & Liebscher (2002) universal calibration curve for Fe\u00b3\u207a/\u03a3Fe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps"
     }
   ],
-  "ada:edsAcquisitionModeDefault": "N/A",
   "ada:edsQuantificationMethod": "Cliff-Lorimer (k-factor)",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
@@ -349,13 +413,10 @@
       }
     ]
   },
-  "ada:eelsAcquisitionModeDefault": "N/A",
   "ada:eelsEdgesDefault": [
     "\"Fe L2,3 edge\" (700\u2013735 eV) \u2192 Fe; \"O K-edge\" (528\u2013550 eV) \u2192 O"
   ],
   "ada:eelsCollectionSemiAngle": "Power-law background removal",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": "Fe (L2,3); O (K)",
-  "ada:eelsEnergyLossRangeDefault": "Fe (L2,3); O (K)",
   "ada:phaseIdentificationMethod": "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe\u2070 identified by anti-correlation with O K-edge and lattice fringe measurement in HR images",
   "schema:measurementTechnique": [
     {
@@ -394,9 +455,6 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
-  "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }

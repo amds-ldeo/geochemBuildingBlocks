@@ -16,7 +16,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 KellerBerger2014",
-  "schema:description": "Incident probe diameter 4 nm for spectrum imaging (9 nA); EDS spectrum images: successive layers combined for >10% counting statistics per pixel; solar flare track density ~2\u00d710\u00b9\u2070 cm\u207b\u00b2 in RA-QD02-0211 Reported detail: ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging); ada:edsAcquisitionModeDefault = Spectrum image (map); line profile.",
+  "schema:description": "Incident probe diameter 4 nm for spectrum imaging (9 nA); EDS spectrum images: successive layers combined for >10% counting statistics per pixel; solar flare track density ~2\u00d710\u00b9\u2070 cm\u207b\u00b2 in RA-QD02-0211",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "olivine"
@@ -236,9 +236,29 @@
       "@id": "ex:temTAPP-KellerBerger2014/instrument/TEM"
     }
   ],
-  "ada:spectroscopicDetectorDefault": "EDS only",
-  "ada:analyticalSubModeDefault": "BF-STEM",
   "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "EDS only"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "BF-STEM; DF-STEM; HRTEM (TEM Imaging); SAED (Electron Diffraction); STEM-EDS (spectrum imaging)"
+    },
     {
       "@id": "ada:parameter/temTAPP/stemProbeDiameterDefault",
       "@type": [
@@ -264,6 +284,18 @@
       "schema:description": "9 nA"
     },
     {
+      "@id": "ada:parameter/temTAPP/dwellTimePerPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "dwellTimePerPixelDefault",
+      "schema:name": "Dwell Time per Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 50,
+      "schema:description": "50 \u00b5s/pixel"
+    },
+    {
       "@id": "ada:parameter/temTAPP/stemScanDimensionsDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -287,6 +319,17 @@
       "schema:defaultValue": "Multiple consecutive spectrum image layers accumulated (target: >10% counting statistics per pixel for major elements)"
     },
     {
+      "@id": "ada:parameter/temTAPP/edsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsAcquisitionModeDefault",
+      "schema:name": "EDS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/temTAPP/edsCountingStatisticsAccumulationCriterionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -298,8 +341,6 @@
       "schema:defaultValue": "Successive layers averaged for >10% counting statistics"
     }
   ],
-  "ada:stemDwellTimePerPixelDefault": "50 \u00b5s/pixel",
-  "ada:edsAcquisitionModeDefault": "Spectrum image",
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Si",
@@ -370,13 +411,8 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
   "ada:edsQuantificationMethod": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsEnergyLossRangeDefault": "no value available: ada:eelsEnergyLossRangeDefault",
   "schema:datePublished": "no value available: schema:datePublished"
 }

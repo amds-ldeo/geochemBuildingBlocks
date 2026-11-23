@@ -349,6 +349,43 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
+        - title: Monitored Masses
+          description: Specific masses monitored in this procedure, grouped by the
+            target species element they serve where they serve one. Covers atomic
+            isotopes and, where a reaction cell shifts an target species onto a different
+            mass, the product mass actually measured. Includes interference-monitor
+            and internal-standard masses, which serve no target species and so have
+            no parent element. The target species list is given by the Target Species
+            field and is never inferred from the element symbols appearing here.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsUPbTAPP/monitoredMasses
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: monitoredMasses
+            schema:name:
+              const: Monitored Masses
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: true
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+          readOnly: true
         - title: Ion Counter Dead Time
           description: Dead time of the ion-counting detector(s), used in the dead-time
             correction applied to high count rates. Distinct from pulse/analog cross-calibration,
@@ -533,6 +570,46 @@ allOf:
         maxContains: 1
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Monitored Masses
+          description: Specific masses monitored in this procedure, grouped by the
+            target species element they serve where they serve one. Covers atomic
+            isotopes and, where a reaction cell shifts an target species onto a different
+            mass, the product mass actually measured. Includes interference-monitor
+            and internal-standard masses, which serve no target species and so have
+            no parent element. The target species list is given by the Target Species
+            field and is never inferred from the element symbols appearing here.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laMcicpmsUPbTAPP/monitoredMasses
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: monitoredMasses
+            schema:name:
+              const: Monitored Masses
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: true
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains:
@@ -1753,16 +1830,6 @@ allOf:
       required:
       - ada:defaultMonitoredProperties
       title: Monitored Property Template
-    ada:massesMeasuredDefault:
-      description: Specific masses monitored in this procedure, grouped by the target
-        species element they serve where they serve one. Covers atomic isotopes and,
-        where a reaction cell shifts an target species onto a different mass, the
-        product mass actually measured. Includes interference-monitor and internal-standard
-        masses, which serve no target species and so have no parent element. The target
-        species list is given by the Target Species field and is never inferred from
-        the element symbols appearing here.
-      type: string
-      readOnly: true
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -1808,7 +1875,6 @@ allOf:
         - Transect
         - Mapping
   required:
-  - ada:massesMeasuredDefault
   - ada:massResolutionAssignment
   - ada:massBiasCorrectionStrategy
   - ada:numberOfAcquisitionPasses

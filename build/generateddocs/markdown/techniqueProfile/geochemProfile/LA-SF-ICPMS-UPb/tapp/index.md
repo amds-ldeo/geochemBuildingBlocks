@@ -85,6 +85,17 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "schema:defaultValue": "raster: 10 µm/s; Ge spots: N/A — 'scanned at 10 µm/s' (§2.2)"
     },
     {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)"
+    },
+    {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -381,7 +392,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       }
     ]
   },
-  "ada:massesMeasuredDefault": "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g) — abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'",
     "ada:defaultReportedProperties": [
@@ -567,7 +577,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
   "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -657,6 +666,17 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "raster: 10 \u00b5m/s; Ge spots: N/A \u2014 'scanned at 10 \u00b5m/s' (\u00a72.2)"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u00b3\u00b9P \u2192 P; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2077\u00b9Ga \u2192 Ga; \u2077\u2074Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2075Mo \u2192 Mo; \u00b9\u2070\u00b2Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2076Pd \u2192 Pd; \u00b9\u00b2\u2070Sn \u2192 Sn; \u00b9\u00b2\u00b9Sb \u2192 Sb; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2079\u2070Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 'were used to acquire the peaks 31P, 51V, ... and 197Au' (\u00a72.2)"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -955,7 +975,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
       }
     ]
   },
-  "ada:massesMeasuredDefault": "\u00b3\u00b9P \u2192 P; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2077\u00b9Ga \u2192 Ga; \u2077\u2074Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2075Mo \u2192 Mo; \u00b9\u2070\u00b2Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2076Pd \u2192 Pd; \u00b9\u00b2\u2070Sn \u2192 Sn; \u00b9\u00b2\u00b9Sb \u2192 Sb; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2079\u2070Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 'were used to acquire the peaks 31P, 51V, ... and 197Au' (\u00a72.2)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (\u00b5g/g) \u2014 abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'",
     "ada:defaultReportedProperties": [
@@ -1141,7 +1160,6 @@ laSficpmsUPbTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorit
   "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1165,12 +1183,6 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
@@ -1183,9 +1195,16 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
                     schema1:description "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
@@ -1213,14 +1232,14 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "raster: raster scan over a few millimeters; Ge spots: spot — §2.2" ;
     ada:ablationSpotDurationDefault "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated" ;
@@ -1236,7 +1255,6 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
     ada:internalStandardElement "N — not stated; standardization follows Humayun (2012)" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "no value available: ada:massResolutionAssignment" ;
-    ada:massesMeasuredDefault "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
@@ -1305,13 +1323,19 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1563,6 +1587,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.81,
       "schema:description": "Ar, 0.81–0.99 L/min — Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -1963,7 +1998,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       }
     ]
   },
-  "ada:massesMeasuredDefault": "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, µg/g); Fa#; principal-component scores — '2D concentration matrices of all target elements'; pure-olivine averages in Table E1",
     "ada:defaultReportedProperties": [
@@ -2153,7 +2187,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -2256,6 +2289,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.81,
       "schema:description": "Ar, 0.81\u20130.99 L/min \u2014 Table B1; 'No N2 was blent into ICP to avoid elevated nitrogen-based spectral interferences'"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2076\u2070Ni \u2192 Ni; \u2077\u00b9Ga \u2192 Ga; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2079\u2075Pt \u2192 Pt \u2014 'a total scan cycle time of 1.944 s for 14 nuclides' (\u00a72.2.2)"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -2656,7 +2700,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       }
     ]
   },
-  "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2076\u2070Ni \u2192 Ni; \u2077\u00b9Ga \u2192 Ga; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2079\u2075Pt \u2192 Pt \u2014 'a total scan cycle time of 1.944 s for 14 nuclides' (\u00a72.2.2)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Mg, Al, Si, P, Sc, V, Cr, Mn, Fe, Ni, Ga, La, Eu, Pt (concentration maps, \u00b5g/g); Fa#; principal-component scores \u2014 '2D concentration matrices of all target elements'; pure-olivine averages in Table E1",
     "ada:defaultReportedProperties": [
@@ -2846,7 +2889,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -2892,6 +2934,7 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a schema1:Action,
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -2919,12 +2962,12 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a schema1:Action,
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: grid of parallel, adjacent lines — §2.2.2; the grid runs 'from the metal-olivine margin to the olivine cores'" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
@@ -2939,7 +2982,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a schema1:Action,
     ada:internalStandardElement "all: none — a virtual internal standard from the oxide sum (App. C1)" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: low resolution (M/ΔM = 300) — Table B1" ;
-    ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "Adjacent lines — 'a grid of parallel, adjacent lines using a 20 µm × 20 µm square-masked laser spot' (§2.2.2)" ;
@@ -3000,13 +3042,19 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁶⁰Ni → Ni; ⁷¹Ga → Ga; ¹³⁹La → La; ¹⁵³Eu → Eu; ¹⁹⁵Pt → Pt — 'a total scan cycle time of 1.944 s for 14 nuclides' (§2.2.2)" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -3451,6 +3499,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "schema:description": "Ar, 0.947 L/min (both runs) — Table B1; no N2 added"
     },
     {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)"
+    },
+    {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -3855,7 +3914,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       }
     ]
   },
-  "ada:massesMeasuredDefault": "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (µg/g); Fa# — Table 1, 'the average from 3 replicate measurements'",
     "ada:defaultReportedProperties": [
@@ -3957,7 +4015,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -4160,6 +4217,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.947,
       "schema:description": "Ar, 0.947 L/min (both runs) \u2014 Table B1; no N2 added"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2074Ca \u2192 Ca; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2077Li \u2192 Li; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2076\u2076Zn \u2192 Zn; \u2078\u2079Y \u2192 Y; \u2079\u2070Zr \u2192 Zr; \u2079\u00b3Nb \u2192 Nb; \u00b9\u00b3\u00b3Cs \u2192 Cs; \u00b9\u00b3\u2077Ba \u2192 Ba; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2074\u2070Ce \u2192 Ce; \u00b9\u2074\u00b9Pr \u2192 Pr; \u00b9\u2074\u2075Nd \u2192 Nd; \u00b9\u2074\u2077Sm \u2192 Sm; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2075\u2078Gd \u2192 Gd; \u00b9\u2075\u2079Tb \u2192 Tb; \u00b9\u2076\u2074Dy \u2192 Dy; \u00b9\u2076\u2075Ho \u2192 Ho; \u00b9\u2076\u2070Er \u2192 Er; \u00b9\u2076\u2079Tm \u2192 Tm; \u00b9\u2077\u2074Yb \u2192 Yb; \u00b9\u2077\u2075Lu \u2192 Lu; \u00b9\u2078\u2070Hf \u2192 Hf; \u00b9\u2078\u00b9Ta \u2192 Ta; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au; \u00b2\u00b3\u00b2Th \u2192 Th; \u00b2\u00b3\u2078U \u2192 U \u2014 run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (\u00a72.2.3), \u2075\u00b3Cr also in run 2 (Table B1)"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -4566,7 +4634,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       }
     ]
   },
-  "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u2074\u2074Ca \u2192 Ca; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2077Li \u2192 Li; \u2074\u2075Sc \u2192 Sc; \u2075\u00b9V \u2192 V; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2076\u2076Zn \u2192 Zn; \u2078\u2079Y \u2192 Y; \u2079\u2070Zr \u2192 Zr; \u2079\u00b3Nb \u2192 Nb; \u00b9\u00b3\u00b3Cs \u2192 Cs; \u00b9\u00b3\u2077Ba \u2192 Ba; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2074\u2070Ce \u2192 Ce; \u00b9\u2074\u00b9Pr \u2192 Pr; \u00b9\u2074\u2075Nd \u2192 Nd; \u00b9\u2074\u2077Sm \u2192 Sm; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2075\u2078Gd \u2192 Gd; \u00b9\u2075\u2079Tb \u2192 Tb; \u00b9\u2076\u2074Dy \u2192 Dy; \u00b9\u2076\u2075Ho \u2192 Ho; \u00b9\u2076\u2070Er \u2192 Er; \u00b9\u2076\u2079Tm \u2192 Tm; \u00b9\u2077\u2074Yb \u2192 Yb; \u00b9\u2077\u2075Lu \u2192 Lu; \u00b9\u2078\u2070Hf \u2192 Hf; \u00b9\u2078\u00b9Ta \u2192 Ta; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au; \u00b2\u00b3\u00b2Th \u2192 Th; \u00b2\u00b3\u2078U \u2192 U \u2014 run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (\u00a72.2.3), \u2075\u00b3Cr also in run 2 (Table B1)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Mg, Si, P, Ca, Cr, Mn, Fe, Li, Sc, V, Co, Ni, Cu, Zn, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Re, Ir, Pt, Au, Th, U (\u00b5g/g); Fa# \u2014 Table 1, 'the average from 3 replicate measurements'",
     "ada:defaultReportedProperties": [
@@ -4668,7 +4735,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -4692,12 +4758,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Flat polished thick sections (§2.1)" ;
@@ -4712,9 +4772,16 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ] ] ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "run 1 (major elements); run 2 (trace elements) — two line-scans on the same 400 µm line, each after pre-ablation; 'Every analysis was carried out 3 times' (§2.2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -4741,13 +4808,13 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
+            schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "run 1: line scan, 400 µm; run 2: line scan on top of run 1, 400 µm — 'a second line-scan was completed on top of the first one' (§2.2.3)" ;
     ada:ablationSpotDurationDefault "50 s of sample ablation per 400 µm line, both runs — Table B1" ;
@@ -4762,7 +4829,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
     ada:internalStandardElement "run 1: none (oxide sum); run 2: Cr (concentration from run 1) — §2.2.3" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "run 1: medium resolution (M/ΔM = 4000); run 2: low resolution (M/ΔM = 300) — §2.2.3" ;
-    ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — line scan + spot; not 2D mapping" ;
@@ -4850,13 +4916,19 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -5191,6 +5263,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.96,
       "schema:description": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -5598,7 +5681,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       }
     ]
   },
-  "ada:massesMeasuredDefault": "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g); phosphate mineral (nominal) — Table 2, each 'single parallel measurement' listed per grain",
     "ada:defaultReportedProperties": [
@@ -5776,7 +5858,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -5880,6 +5961,17 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.96,
       "schema:description": "Ar make-up: 0.96 l min\u207b\u00b9; N\u2082 not added"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u00b2\u00b3Na \u2192 Na; \u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u00b3\u2079K \u2192 K; \u2074\u2074Ca \u2192 Ca; \u2074\u2075Sc \u2192 Sc; \u2074\u2077Ti \u2192 Ti; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2076\u2076Zn \u2192 Zn; \u2078\u2075Rb \u2192 Rb; \u2078\u2078Sr \u2192 Sr; \u2078\u2079Y \u2192 Y; \u2079\u2070Zr \u2192 Zr; \u2079\u00b3Nb \u2192 Nb; \u00b9\u00b3\u00b3Cs \u2192 Cs; \u00b9\u00b3\u2077Ba \u2192 Ba; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2074\u2070Ce \u2192 Ce; \u00b9\u2074\u00b9Pr \u2192 Pr; \u00b9\u2074\u2075Nd \u2192 Nd; \u00b9\u2074\u2077Sm \u2192 Sm; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2075\u2078Gd \u2192 Gd; \u00b9\u2075\u2079Tb \u2192 Tb; \u00b9\u2076\u2074Dy \u2192 Dy; \u00b9\u2076\u2075Ho \u2192 Ho; \u00b9\u2076\u2070Er \u2192 Er; \u00b9\u2076\u2079Tm \u2192 Tm; \u00b9\u2077\u2074Yb \u2192 Yb; \u00b9\u2077\u2075Lu \u2192 Lu; \u00b9\u2078\u2070Hf \u2192 Hf; \u00b9\u2078\u00b9Ta \u2192 Ta; \u00b2\u2070\u2078Pb \u2192 Pb; \u00b2\u00b3\u00b2Th \u2192 Th; \u00b2\u00b3\u2078U \u2192 U \u2014 \u00a72.2.4"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -6287,7 +6379,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
       }
     ]
   },
-  "ada:massesMeasuredDefault": "\u00b2\u00b3Na \u2192 Na; \u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b2\u2079Si \u2192 Si; \u00b3\u00b9P \u2192 P; \u00b3\u2079K \u2192 K; \u2074\u2074Ca \u2192 Ca; \u2074\u2075Sc \u2192 Sc; \u2074\u2077Ti \u2192 Ti; \u2075\u00b9V \u2192 V; \u2075\u00b3Cr \u2192 Cr; \u2075\u2075Mn \u2192 Mn; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b3Cu \u2192 Cu; \u2076\u2076Zn \u2192 Zn; \u2078\u2075Rb \u2192 Rb; \u2078\u2078Sr \u2192 Sr; \u2078\u2079Y \u2192 Y; \u2079\u2070Zr \u2192 Zr; \u2079\u00b3Nb \u2192 Nb; \u00b9\u00b3\u00b3Cs \u2192 Cs; \u00b9\u00b3\u2077Ba \u2192 Ba; \u00b9\u00b3\u2079La \u2192 La; \u00b9\u2074\u2070Ce \u2192 Ce; \u00b9\u2074\u00b9Pr \u2192 Pr; \u00b9\u2074\u2075Nd \u2192 Nd; \u00b9\u2074\u2077Sm \u2192 Sm; \u00b9\u2075\u00b3Eu \u2192 Eu; \u00b9\u2075\u2078Gd \u2192 Gd; \u00b9\u2075\u2079Tb \u2192 Tb; \u00b9\u2076\u2074Dy \u2192 Dy; \u00b9\u2076\u2075Ho \u2192 Ho; \u00b9\u2076\u2070Er \u2192 Er; \u00b9\u2076\u2079Tm \u2192 Tm; \u00b9\u2077\u2074Yb \u2192 Yb; \u00b9\u2077\u2075Lu \u2192 Lu; \u00b9\u2078\u2070Hf \u2192 Hf; \u00b9\u2078\u00b9Ta \u2192 Ta; \u00b2\u2070\u2078Pb \u2192 Pb; \u00b2\u00b3\u00b2Th \u2192 Th; \u00b2\u00b3\u2078U \u2192 U \u2014 \u00a72.2.4",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (\u00b5g/g); phosphate mineral (nominal) \u2014 Table 2, each 'single parallel measurement' listed per grain",
     "ada:defaultReportedProperties": [
@@ -6465,7 +6556,6 @@ laSficpmsUPbTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562)
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -6489,12 +6579,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
@@ -6507,9 +6591,16 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
                     schema1:description "Flat polished thick sections (§2.1)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -6536,13 +6627,13 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: single spot ablation — §2.2.4" ;
     ada:ablationSpotDurationDefault "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
@@ -6557,7 +6648,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
     ada:internalStandardElement "all: none — oxide-sum normalisation (App. C3)" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "no value available: ada:massResolutionAssignment" ;
-    ada:massesMeasuredDefault "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
@@ -6647,13 +6737,19 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -7085,6 +7181,17 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "schema:defaultValue": "N — parameters lost"
     },
     {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)"
+    },
+    {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -7434,7 +7541,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       }
     ]
   },
-  "ada:massesMeasuredDefault": "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (µg/g) — olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (§4)",
     "ada:defaultReportedProperties": [
@@ -7538,7 +7644,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -7751,6 +7856,17 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       "ada:dataType": "number",
       "ada:fieldScope": "session",
       "schema:defaultValue": "N \u2014 parameters lost"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b3\u00b9P \u2192 P; \u2074\u00b3Ca \u2192 Ca; \u2074\u2074Ca \u2192 Ca; \u2074\u2075Sc \u2192 Sc; \u2074\u2077Ti \u2192 Ti; \u2074\u2079Ti \u2192 Ti; \u2075\u00b9V \u2192 V; \u2075\u00b2Cr \u2192 Cr; \u2075\u00b3Cr \u2192 Cr; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b9Ni \u2192 Ni; \u2076\u00b2Ni \u2192 Ni; \u2076\u2074Zn \u2192 Zn; \u2076\u2076Zn \u2192 Zn; \u2076\u2079Ga \u2192 Ga; \u2077\u00b9Ga \u2192 Ga \u2014 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (\u00a73.3)"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -8102,7 +8218,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
       }
     ]
   },
-  "ada:massesMeasuredDefault": "\u00b2\u2075Mg \u2192 Mg; \u00b2\u2077Al \u2192 Al; \u00b3\u00b9P \u2192 P; \u2074\u00b3Ca \u2192 Ca; \u2074\u2074Ca \u2192 Ca; \u2074\u2075Sc \u2192 Sc; \u2074\u2077Ti \u2192 Ti; \u2074\u2079Ti \u2192 Ti; \u2075\u00b9V \u2192 V; \u2075\u00b2Cr \u2192 Cr; \u2075\u00b3Cr \u2192 Cr; \u2075\u2079Co \u2192 Co; \u2076\u2070Ni \u2192 Ni; \u2076\u00b9Ni \u2192 Ni; \u2076\u00b2Ni \u2192 Ni; \u2076\u2074Zn \u2192 Zn; \u2076\u2076Zn \u2192 Zn; \u2076\u2079Ga \u2192 Ga; \u2077\u00b9Ga \u2192 Ga \u2014 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (\u00a73.3)",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Mg, Al, P, Ca, Sc, Ti, V, Cr, Co, Ni, Zn, Ga (\u00b5g/g) \u2014 olivine trace element contents, individual data in Table L1, averages per sample split in Table L2 and per meteorite in Table L3 (\u00a74)",
     "ada:defaultReportedProperties": [
@@ -8206,7 +8321,6 @@ laSficpmsUPbTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite ol
   "ada:massBiasCorrectionStrategy": "no value available: ada:massBiasCorrectionStrategy",
   "ada:numberOfAcquisitionPasses": -9999,
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -8230,6 +8344,14 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
@@ -8243,17 +8365,10 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -8279,10 +8394,10 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -8299,7 +8414,6 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
     ada:internalStandardElement "all: Mg (²⁵Mg) — §3.3" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: medium resolution (m/Δm of 4000) — §3.3" ;
-    ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "N — parameters lost" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
@@ -8367,13 +8481,19 @@ ex:laSficpmsUPbTAPP-Mittlefehldt2024 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "²⁵Mg → Mg; ²⁷Al → Al; ³¹P → P; ⁴³Ca → Ca; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁴⁹Ti → Ti; ⁵¹V → V; ⁵²Cr → Cr; ⁵³Cr → Cr; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶¹Ni → Ni; ⁶²Ni → Ni; ⁶⁴Zn → Zn; ⁶⁶Zn → Zn; ⁶⁹Ga → Ga; ⁷¹Ga → Ga — 'The nuclides measured were 25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V, 52Cr, 53Cr, 59Co, 60Ni, 61Ni, 62Ni, 64Zn, 66Zn, 69Ga and 71Ga' (§3.3)" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -8693,6 +8813,17 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:fieldScope": "session",
       "schema:defaultValue": 2,
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min — Table 2"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -9151,7 +9282,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       }
     ]
   },
-  "ada:massesMeasuredDefault": "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5",
     "ada:defaultReportedProperties": [
@@ -9257,7 +9387,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -9359,6 +9488,17 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:fieldScope": "session",
       "schema:defaultValue": 2,
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min \u2014 Table 2"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u2075\u00b2Cr \u2192 Cr; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u00b9Ni \u2192 Ni; \u2076\u2075Cu \u2192 Cu; \u2076\u2079Ga \u2192 Ga; \u2077\u00b2Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2079Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -9817,7 +9957,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       }
     ]
   },
-  "ada:massesMeasuredDefault": "\u2075\u00b2Cr \u2192 Cr; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u00b9Ni \u2192 Ni; \u2076\u2075Cu \u2192 Cu; \u2076\u2079Ga \u2192 Ga; \u2077\u00b2Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2079Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g); chemical classification (nominal) \u2014 Table 3 and Table 5",
     "ada:defaultReportedProperties": [
@@ -9923,7 +10062,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:oxideProductionMethodAndThreshold": "no value available: ada:oxideProductionMethodAndThreshold",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -9947,19 +10085,19 @@ ex:laSficpmsUPbTAPP-Navarro2024 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: Longerich et al., calculated for each acquisition in iolite 4 — 'the LOD must be calculated for each acquisition'; Table 3 gives the medians" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -9969,6 +10107,7 @@ ex:laSficpmsUPbTAPP-Navarro2024 a schema1:Action,
                     ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -9998,10 +10137,10 @@ ex:laSficpmsUPbTAPP-Navarro2024 a schema1:Action,
             schema1:name "Reported Date Type" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ] ;
+            schema1:name "Calibration Factor and Determination Method" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: spot — Experimental section" ;
     ada:ablationSpotDurationDefault "40 s — '20 s of blank measurement (laser-firing with the shutter closed), followed by 40 s of sample ablation'" ;
@@ -10016,7 +10155,6 @@ ex:laSficpmsUPbTAPP-Navarro2024 a schema1:Action,
     ada:internalStandardElement "all: none — Fe + Ni + Co sum normalisation" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: low resolution (300) — Table 2" ;
-    ada:massesMeasuredDefault "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
@@ -10081,13 +10219,19 @@ ex:laSficpmsUPbTAPP-Navarro2024 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -10405,6 +10549,17 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:fieldScope": "session",
       "schema:defaultValue": 2,
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min — Table 2"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -10863,7 +11018,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       }
     ]
   },
-  "ada:massesMeasuredDefault": "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5",
     "ada:defaultReportedProperties": [
@@ -10969,7 +11123,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -11071,6 +11224,17 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       "ada:fieldScope": "session",
       "schema:defaultValue": 2,
       "schema:description": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min \u2014 Table 2"
+    },
+    {
+      "@id": "ada:parameter/laSficpmsUPbTAPP/monitoredMasses",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "monitoredMasses",
+      "schema:name": "Monitored Masses",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u2075\u00b2Cr \u2192 Cr; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u00b9Ni \u2192 Ni; \u2076\u2075Cu \u2192 Cu; \u2076\u2079Ga \u2192 Ga; \u2077\u00b2Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2079Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'"
     },
     {
       "@id": "ada:parameter/module/UPb/discordanceDefinition",
@@ -11529,7 +11693,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
       }
     ]
   },
-  "ada:massesMeasuredDefault": "\u2075\u00b2Cr \u2192 Cr; \u2075\u2077Fe \u2192 Fe; \u2075\u2079Co \u2192 Co; \u2076\u00b9Ni \u2192 Ni; \u2076\u2075Cu \u2192 Cu; \u2076\u2079Ga \u2192 Ga; \u2077\u00b2Ge \u2192 Ge; \u2077\u2075As \u2192 As; \u2079\u2079Ru \u2192 Ru; \u00b9\u2070\u00b3Rh \u2192 Rh; \u00b9\u2070\u2075Pd \u2192 Pd; \u00b9\u2078\u00b2W \u2192 W; \u00b9\u2078\u2075Re \u2192 Re; \u00b9\u2078\u2079Os \u2192 Os; \u00b9\u2079\u00b3Ir \u2192 Ir; \u00b9\u2079\u2075Pt \u2192 Pt; \u00b9\u2079\u2077Au \u2192 Au \u2014 Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (\u00b5g/g); chemical classification (nominal) \u2014 Table 3 and Table 5",
     "ada:defaultReportedProperties": [
@@ -11635,7 +11798,6 @@ laSficpmsUPbTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron mete
   "ada:rasterLineSpacingDefault": "no value available: ada:rasterLineSpacingDefault",
   "ada:sampleIntroduction": "no value available: ada:sampleIntroduction",
   "ada:signalIntegrationIntervalMethod": "no value available: ada:signalIntegrationIntervalMethod",
-  "ada:totalIntegrationTimePerOutputDataPointDefault": -9999,
   "ada:uncertaintyLevel": "no value available: ada:uncertaintyLevel",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -11659,6 +11821,13 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
                     schema1:name "Sample preparation" ;
@@ -11671,16 +11840,10 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -11707,13 +11870,13 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a schema1:Action,
             schema1:target [ schema1:name "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
         [ schema1:name "Age Calculation Method" ;
             schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:name "Calibration Factor and Determination Method" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: scanning (elemental mapping) — Experimental section" ;
     ada:ablationSpotDurationDefault "N/A — mapping mode" ;
@@ -11728,7 +11891,6 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a schema1:Action,
     ada:internalStandardElement "all: none — Fe + Ni + Co sum normalisation" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "all: low resolution (300) — Table 2" ;
-    ada:massesMeasuredDefault "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
@@ -11793,13 +11955,19 @@ ex:laSficpmsUPbTAPP-Navarro2024-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -12360,6 +12528,43 @@ allOf:
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
+        - title: Monitored Masses
+          description: Specific masses monitored in this procedure, grouped by the
+            target species element they serve where they serve one. Covers atomic
+            isotopes and, where a reaction cell shifts an target species onto a different
+            mass, the product mass actually measured. Includes interference-monitor
+            and internal-standard masses, which serve no target species and so have
+            no parent element. The target species list is given by the Target Species
+            field and is never inferred from the element symbols appearing here.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/monitoredMasses
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: monitoredMasses
+            schema:name:
+              const: Monitored Masses
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: true
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+          readOnly: true
         - title: E-scan Range
           description: Electric scan range used for peak acquisition, expressed as
             percentage of the centre mass (%). Record 'N/A' if E-scan acquisition
@@ -12489,6 +12694,44 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: Total Integration Time per Output Data Point
+          description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+            the sum of all per-isotope dwell times plus inter-mass settling times.
+            Not recoverable from Dwell Time per Mass alone, because settling time
+            is not captured there. Applies to sequential (quadrupole and single-collector
+            sector-field) acquisition."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/totalIntegrationTimePerOutputDataPointDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: totalIntegrationTimePerOutputDataPointDefault
+            schema:name:
+              const: Total Integration Time per Output Data Point
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Inter-Pass Data Dependency
           description: "Which earlier acquisition pass supplied inputs to this one,
             and what those inputs are \u2014 for example a concentration measured
@@ -12534,6 +12777,46 @@ allOf:
         maxContains: 1
       - contains:
           $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Monitored Masses
+          description: Specific masses monitored in this procedure, grouped by the
+            target species element they serve where they serve one. Covers atomic
+            isotopes and, where a reaction cell shifts an target species onto a different
+            mass, the product mass actually measured. Includes interference-monitor
+            and internal-standard masses, which serve no target species and so have
+            no parent element. The target species list is given by the Target Species
+            field and is never inferred from the element symbols appearing here.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/monitoredMasses
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: monitoredMasses
+            schema:name:
+              const: Monitored Masses
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: true
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+          readOnly: true
         minContains: 0
         maxContains: 1
       - contains:
@@ -12674,6 +12957,47 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Total Integration Time per Output Data Point
+          description: "Total duty-cycle time for one complete mass-scan sweep \u2014
+            the sum of all per-isotope dwell times plus inter-mass settling times.
+            Not recoverable from Dwell Time per Mass alone, because settling time
+            is not captured there. Applies to sequential (quadrupole and single-collector
+            sector-field) acquisition."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laSficpmsUPbTAPP/totalIntegrationTimePerOutputDataPointDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: totalIntegrationTimePerOutputDataPointDefault
+            schema:name:
+              const: Total Integration Time per Output Data Point
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
           required:
           - '@id'
           - '@type'
@@ -13749,16 +14073,6 @@ allOf:
       - ada:defaultTargetSpecies
       - ada:targetSpeciesColumns
       title: Target Species Template
-    ada:massesMeasuredDefault:
-      description: Specific masses monitored in this procedure, grouped by the target
-        species element they serve where they serve one. Covers atomic isotopes and,
-        where a reaction cell shifts an target species onto a different mass, the
-        product mass actually measured. Includes interference-monitor and internal-standard
-        masses, which serve no target species and so have no parent element. The target
-        species list is given by the Target Species field and is never inferred from
-        the element symbols appearing here.
-      type: string
-      readOnly: true
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -13787,15 +14101,6 @@ allOf:
         element, and applies wherever the procedure reports isotope ratios.'
       type: string
       readOnly: true
-    ada:totalIntegrationTimePerOutputDataPointDefault:
-      description: "Total duty-cycle time for one complete mass-scan sweep \u2014
-        the sum of all per-isotope dwell times plus inter-mass settling times. Not
-        recoverable from Dwell Time per Mass alone, because settling time is not captured
-        there. Applies to sequential (quadrupole and single-collector sector-field)
-        acquisition."
-      anyOf:
-      - type: number
-      - type: string
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the
         passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures
@@ -13813,10 +14118,8 @@ allOf:
         - Transect
         - Mapping
   required:
-  - ada:massesMeasuredDefault
   - ada:massResolutionAssignment
   - ada:massBiasCorrectionStrategy
-  - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:numberOfAcquisitionPasses
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS-UPb.tapp

@@ -197,6 +197,18 @@
       "schema:defaultValue": "High vacuum"
     },
     {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 30,
+      "schema:description": "30 s live time per spot analysis"
+    },
+    {
       "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -340,7 +352,6 @@
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "30 s live time per spot analysis",
   "ada:monitoredElements": [
     "N \u2014 the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 \u2014 a different instrument and a different procedure \u2014 and is deliberately not read across"
   ],
@@ -419,7 +430,6 @@
   ],
   "ada:massAbsorptionCoefficients": "missing",
   "ada:matrixCorrectionMethod": "missing",
-  "ada:stepSizePixelSizeDefault": -9999,
   "ada:wdsDeadTimeCorrection": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }

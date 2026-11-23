@@ -14,21 +14,22 @@ ex:labxctTAPP-Neuman2025-2 a schema1:Action,
             schema1:name "Lab-XCT analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used)." ;
+    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used)." ;
     schema1:instrument <https://example.org/labxctTAPP-Neuman2025-2/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
@@ -43,16 +44,11 @@ ex:labxctTAPP-Neuman2025-2 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Software BHC (same factor as 73002 re-used)" ;
     ada:detectorType "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
-    ada:rotationModeDefault "Continuous rotation" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Lunar regolith" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
@@ -68,6 +64,13 @@ ex:labxctTAPP-Neuman2025-2 a schema1:Action,
     schema1:defaultValue "Post-reconstruction ring corrections applied" ;
     schema1:name "Ring Artifact Correction Method" ;
     schema1:valueName "ringArtifactCorrectionMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "Rotation Mode" ;
+    schema1:valueName "rotationModeDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

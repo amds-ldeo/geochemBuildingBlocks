@@ -16,7 +16,7 @@
     "schema:HowTo"
   ],
   "schema:name": "tem protocol \u2014 Dobrica2022-2",
-  "schema:description": "EDS analysis areas 5\u201310 nm (Molecular Foundry); compositions displayed as color-coded maps in Esprit 1.9; O abundances noted as subject to variable self-absorption; compositions normalized to 100% Reported detail: ada:analyticalSubModeDefault = HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map); ada:edsAcquisitionModeDefault = Spectrum image (hyperspectral map).",
+  "schema:description": "EDS analysis areas 5\u201310 nm (Molecular Foundry); compositions displayed as color-coded maps in Esprit 1.9; O abundances noted as subject to variable self-absorption; compositions normalized to 100%",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonates"
@@ -248,9 +248,53 @@
       ]
     }
   ],
-  "ada:spectroscopicDetectorDefault": "EDS only",
-  "ada:analyticalSubModeDefault": "ADF",
-  "ada:edsAcquisitionModeDefault": "Spectrum image",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/temTAPP/spectroscopicDetectorDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "spectroscopicDetectorDefault",
+      "schema:name": "Spectroscopic Detector(s)",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "EDS only"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/analyticalSubModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "analyticalSubModeDefault",
+      "schema:name": "Analytical Sub-mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "HAADF-STEM (Z-contrast); STEM-EDS (hyperspectral map)"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/edsAcquisitionModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsAcquisitionModeDefault",
+      "schema:name": "EDS Acquisition Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
+      "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsDetectionLimitDefault",
+      "schema:name": "EDS Detection Limit",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.1,
+      "schema:description": "all: <0.1 wt% \u2014 stated for TEM EDS measurements"
+    }
+  ],
   "ada:targetSpeciesTemplate": {
     "ada:defaultTargetSpecies": [
       "Mg",
@@ -297,20 +341,6 @@
     ]
   },
   "ada:phaseIdentificationMethod": "EDS quantification: compositions normalized to 100%; carbonate chemistry (MgCO3\u2013CaCO3\u2013(Fe+Mn)CO3 ternary) used for dolomite/ankerite ID; structural formulae from EDS spot analyses over 5\u201310 nm areas; detection limit <0.1 wt% (stated for TEM EDS measurements)",
-  "schema:additionalProperty": [
-    {
-      "@id": "ada:parameter/temTAPP/edsDetectionLimitDefault",
-      "@type": [
-        "schema:PropertyValueSpecification"
-      ],
-      "schema:valueName": "edsDetectionLimitDefault",
-      "schema:name": "EDS Detection Limit",
-      "ada:dataType": "number",
-      "ada:fieldScope": "session",
-      "schema:defaultValue": 0.1,
-      "schema:description": "all: <0.1 wt% \u2014 stated for TEM EDS measurements"
-    }
-  ],
   "schema:measurementTechnique": [
     {
       "@type": [
@@ -348,14 +378,8 @@
       "schema:defaultValue": "no value available: schema:defaultValue"
     }
   ],
-  "ada:cameraLengthDefault": -9999,
   "ada:convergenceSemiAngle": -9999,
-  "ada:edsCalibrationStandardDefault": "no value available: ada:edsCalibrationStandardDefault",
   "ada:edsQuantificationMethod": "missing",
-  "ada:eelsAcquisitionModeDefault": "missing",
-  "ada:eelsAcquisitionTimePerSpectrumDefault": -9999,
   "ada:eelsCollectionSemiAngle": -9999,
-  "ada:eelsEnergyLossRangeDefault": "no value available: ada:eelsEnergyLossRangeDefault",
-  "ada:stemDwellTimePerPixelDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }

@@ -114,18 +114,12 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -246,18 +240,12 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -301,14 +289,10 @@ ex:vnmirTAPP-Hiroi2023 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific (Nicolet)" ;
     ada:instrumentModel "Thermo/Nicolet Nexus 870 FTIR" ;
-    ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
-    ada:numberOfScansDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Reflectance",
                 "Reflectance (Reflectance)",
                 "Standard Deviation",
@@ -324,8 +308,6 @@ ex:vnmirTAPP-Hiroi2023 a schema1:Action,
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
-    ada:spectralResolutionDefault -9999 ;
-    ada:spotSizeDefault -9999 ;
     ada:targetMaterial "missing" .
 
 
@@ -438,18 +420,12 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -571,18 +547,12 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -626,14 +596,10 @@ ex:vnmirTAPP-Hiroi2023-2 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "Custom bi-directional" ;
-    ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
-    ada:numberOfScansDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Reflectance",
                 "Reflectance (Reflectance)",
                 "Standard Deviation",
@@ -650,8 +616,6 @@ ex:vnmirTAPP-Hiroi2023-2 a schema1:Action,
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
-    ada:spectralResolutionDefault -9999 ;
-    ada:spotSizeDefault -9999 ;
     ada:targetMaterial "missing" .
 
 
@@ -761,18 +725,12 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -891,18 +849,12 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -946,14 +898,10 @@ ex:vnmirTAPP-Milliken2024 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Bruker" ;
     ada:instrumentModel "Bruker LUMOS FTIR microscope" ;
-    ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
-    ada:numberOfScansDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Reflectance (Reflectance)",
                 "Wavenumber (cm-1) (cm-1)" ;
             ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
@@ -967,8 +915,6 @@ ex:vnmirTAPP-Milliken2024 a schema1:Action,
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
-    ada:spectralResolutionDefault -9999 ;
-    ada:spotSizeDefault -9999 ;
     ada:targetMaterial "missing" .
 
 
@@ -1081,18 +1027,12 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1214,18 +1154,12 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
     }
   ],
   "ada:beamsplitter": "missing",
-  "ada:calibrationStandardsDefault": "no value available: ada:calibrationStandardsDefault",
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
   "ada:detector": "missing",
-  "ada:measurementEnvironmentDefault": "missing",
   "ada:measurementType": "missing",
-  "ada:numberOfScansDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:spectralRangeMaximum": -9999,
   "ada:spectralRangeMinimum": -9999,
-  "ada:spectralResolutionDefault": -9999,
-  "ada:spotSizeDefault": -9999,
   "ada:targetMaterial": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -1269,14 +1203,10 @@ ex:vnmirTAPP-Keller2024 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:beamsplitter "missing" ;
-    ada:calibrationStandardsDefault "no value available: ada:calibrationStandardsDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:detector "missing" ;
     ada:instrumentManufacturer "Unknown" ;
     ada:instrumentModel "JEOL 2500SE" ;
-    ada:measurementEnvironmentDefault "missing" ;
     ada:measurementType "missing" ;
-    ada:numberOfScansDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Clays (Percent transmission)",
                 "MgPO4 (Percent transmission)",
                 "calcite (Percent transmission)",
@@ -1293,8 +1223,6 @@ ex:vnmirTAPP-Keller2024 a schema1:Action,
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:spectralRangeMaximum -9999 ;
     ada:spectralRangeMinimum -9999 ;
-    ada:spectralResolutionDefault -9999 ;
-    ada:spotSizeDefault -9999 ;
     ada:targetMaterial "missing" .
 
 
@@ -1382,7 +1310,15 @@ allOf:
                       ada:tier:
                         const: R
                       schema:defaultValue:
-                        type: string
+                        anyOf:
+                        - type: string
+                          enum:
+                          - 'Yes'
+                          - 'No'
+                          - N/A
+                          - None
+                          - missing
+                        - type: string
                       schema:inDefinedTermSet:
                         const:
                           '@id': ada:vocab/sample-heated
@@ -1417,7 +1353,15 @@ allOf:
                       ada:tier:
                         const: R
                       schema:defaultValue:
-                        type: string
+                        anyOf:
+                        - type: string
+                          enum:
+                          - 'Yes'
+                          - 'No'
+                          - N/A
+                          - None
+                          - missing
+                        - type: string
                       schema:inDefinedTermSet:
                         const:
                           '@id': ada:vocab/vacuum-exposed-sample
@@ -1454,7 +1398,15 @@ allOf:
                       ada:tier:
                         const: R
                       schema:defaultValue:
-                        type: string
+                        anyOf:
+                        - type: string
+                          enum:
+                          - 'Yes'
+                          - 'No'
+                          - N/A
+                          - None
+                          - missing
+                        - type: string
                       schema:inDefinedTermSet:
                         const:
                           '@id': ada:vocab/sample-heated
@@ -1492,7 +1444,15 @@ allOf:
                       ada:tier:
                         const: R
                       schema:defaultValue:
-                        type: string
+                        anyOf:
+                        - type: string
+                          enum:
+                          - 'Yes'
+                          - 'No'
+                          - N/A
+                          - None
+                          - missing
+                        - type: string
                       schema:inDefinedTermSet:
                         const:
                           '@id': ada:vocab/vacuum-exposed-sample
@@ -1590,15 +1550,44 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:spectralResolutionDefault:
-      description: Instrumental spectral resolution the procedure operates at.
-      anyOf:
-      - type: number
-      - type: string
     schema:additionalProperty:
       type: array
       items:
         anyOf:
+        - title: Spectral Resolution
+          description: Instrumental spectral resolution the procedure operates at.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/spectralResolutionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: spectralResolutionDefault
+            schema:name:
+              const: Spectral Resolution
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Spectral Sampling
           description: 'Spacing between adjacent recorded spectral points. Distinct
             from resolution: sampling may oversample the instrumental resolution.'
@@ -1628,6 +1617,117 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
+        - title: Measurement Environment
+          description: Atmosphere the measurement chamber is held in.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/measurementEnvironmentDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: measurementEnvironmentDefault
+            schema:name:
+              const: Measurement Environment
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Ambient air
+                - Purged (dry N2)
+                - Purged (dry air)
+                - Vacuum
+                - Simulated planetary
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/measurement-environment
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Spot Size
+          description: Diameter of the analysed area for a point measurement, or the
+            pixel footprint for a map.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/spotSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: spotSizeDefault
+            schema:name:
+              const: Spot Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Number of Scans
+          description: Interferograms co-added per reported spectrum.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/numberOfScansDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: numberOfScansDefault
+            schema:name:
+              const: Number of Scans
+            ada:dataType:
+              const: integer
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Emissivity Maximum Fit Region Minimum
           description: Short-wavelength limit of the window over which the emissivity
             maximum is fitted. Record 'N/A' where Measurement Type is not Emissivity.
@@ -1698,7 +1798,76 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        - title: Calibration Standards
+          description: Reference materials measured to calibrate the reported quantity,
+            with source.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/calibrationStandardsDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: calibrationStandardsDefault
+            schema:name:
+              const: Calibration Standards
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
+      - contains:
+          title: Spectral Resolution
+          description: Instrumental spectral resolution the procedure operates at.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/spectralResolutionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: spectralResolutionDefault
+            schema:name:
+              const: Spectral Resolution
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
       - contains:
           title: Spectral Sampling
           description: 'Spacing between adjacent recorded spectral points. Distinct
@@ -1729,6 +1898,126 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Measurement Environment
+          description: Atmosphere the measurement chamber is held in.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/measurementEnvironmentDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: measurementEnvironmentDefault
+            schema:name:
+              const: Measurement Environment
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Ambient air
+                - Purged (dry N2)
+                - Purged (dry air)
+                - Vacuum
+                - Simulated planetary
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/measurement-environment
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Spot Size
+          description: Diameter of the analysed area for a point measurement, or the
+            pixel footprint for a map.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/spotSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: spotSizeDefault
+            schema:name:
+              const: Spot Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Number of Scans
+          description: Interferograms co-added per reported spectrum.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/numberOfScansDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: numberOfScansDefault
+            schema:name:
+              const: Number of Scans
+            ada:dataType:
+              const: integer
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         minContains: 0
         maxContains: 1
       - contains:
@@ -1807,6 +2096,44 @@ allOf:
           - ada:fieldScope
         minContains: 0
         maxContains: 1
+      - contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Calibration Standards
+          description: Reference materials measured to calibrate the reported quantity,
+            with source.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/vnmirTAPP/calibrationStandardsDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: calibrationStandardsDefault
+            schema:name:
+              const: Calibration Standards
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:measurementType:
       description: Radiometric quantity the procedure reports.
       anyOf:
@@ -1824,32 +2151,6 @@ allOf:
       - type: string
       schema:inDefinedTermSet: ada:vocab/measurement-type
       readOnly: true
-    ada:measurementEnvironmentDefault:
-      description: Atmosphere the measurement chamber is held in.
-      anyOf:
-      - type: string
-        enum:
-        - Ambient air
-        - Purged (dry N2)
-        - Purged (dry air)
-        - Vacuum
-        - Simulated planetary
-        - N/A
-        - None
-        - missing
-      - type: string
-      schema:inDefinedTermSet: ada:vocab/measurement-environment
-    ada:spotSizeDefault:
-      description: Diameter of the analysed area for a point measurement, or the pixel
-        footprint for a map.
-      anyOf:
-      - type: number
-      - type: string
-    ada:numberOfScansDefault:
-      description: Interferograms co-added per reported spectrum.
-      anyOf:
-      - type: integer
-      - type: string
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -1863,19 +2164,6 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
-    ada:calibrationStandardsDefault:
-      description: Reference materials measured to calibrate the reported quantity,
-        with source.
-      type: string
     ada:analyticalMode:
       type: array
       items:
@@ -1892,13 +2180,7 @@ allOf:
   - ada:beamsplitter
   - ada:spectralRangeMinimum
   - ada:spectralRangeMaximum
-  - ada:spectralResolutionDefault
   - ada:measurementType
-  - ada:measurementEnvironmentDefault
-  - ada:spotSizeDefault
-  - ada:numberOfScansDefault
-  - ada:constantsAndReferenceValuesUsedDefault
-  - ada:calibrationStandardsDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

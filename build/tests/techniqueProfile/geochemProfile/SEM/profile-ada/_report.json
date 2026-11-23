@@ -2,8 +2,8 @@
   "title": "Validation report for ogch.techniqueProfile.geochemProfile.SEM.profile-ada - ADA SEM Profile",
   "bblockName": "ADA SEM Profile",
   "bblockId": "ogch.techniqueProfile.geochemProfile.SEM.profile-ada",
-  "generated": "2026-11-23T03:30:44.999693+00:00",
-  "result": false,
+  "generated": "2026-11-23T19:55:07.326403+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": false,
+      "result": true,
       "hasWarnings": false,
       "sections": [
         {
@@ -73,66 +73,51 @@
             {
               "shaclFile": "_sources/techniqueProfile/geochemProfile/SEM/profile-ada/rules.shacl",
               "focusNodes": {
-                "_:n96729da417624ea8897c0aff8a8dcde1b9": {
-                  "nodes": []
-                },
-                "_:n96729da417624ea8897c0aff8a8dcde1b5": {
+                "_:n3908ef0b671a4e65bec05cdfa8338e9cb9": {
                   "nodes": []
                 },
                 "cdifd:semProductShape/sh:property/sh:qualifiedValueShape": {
                   "nodes": []
                 },
-                "_:n96729da417624ea8897c0aff8a8dcde1b4": {
-                  "nodes": []
-                },
                 "cdifd:semProductShape": {
                   "nodes": []
                 },
-                "_:n96729da417624ea8897c0aff8a8dcde1b8": {
+                "_:n3908ef0b671a4e65bec05cdfa8338e9cb8": {
                   "nodes": []
                 },
-                "_:n96729da417624ea8897c0aff8a8dcde1b7": {
+                "_:n3908ef0b671a4e65bec05cdfa8338e9cb7": {
                   "nodes": []
                 },
-                "_:n96729da417624ea8897c0aff8a8dcde1b6": {
+                "_:n3908ef0b671a4e65bec05cdfa8338e9cb6": {
                   "nodes": []
                 },
-                "_:n96729da417624ea8897c0aff8a8dcde1b10": {
+                "_:n3908ef0b671a4e65bec05cdfa8338e9cb5": {
+                  "nodes": []
+                },
+                "_:n3908ef0b671a4e65bec05cdfa8338e9cb4": {
+                  "nodes": []
+                },
+                "_:n3908ef0b671a4e65bec05cdfa8338e9cb10": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/techniqueProfile/geochemProfile/SEM/profile-ada/rules.shacl:\n - Shape _:n96729da417624ea8897c0aff8a8dcde1b9: *none*\n - Shape _:n96729da417624ea8897c0aff8a8dcde1b5: *none*\n - Shape cdifd:semProductShape/sh:property/sh:qualifiedValueShape: *none*\n - Shape _:n96729da417624ea8897c0aff8a8dcde1b4: *none*\n - Shape cdifd:semProductShape: *none*\n - Shape _:n96729da417624ea8897c0aff8a8dcde1b8: *none*\n - Shape _:n96729da417624ea8897c0aff8a8dcde1b7: *none*\n - Shape _:n96729da417624ea8897c0aff8a8dcde1b6: *none*\n - Shape _:n96729da417624ea8897c0aff8a8dcde1b10: *none*\n"
+              "message": "Focus nodes for _sources/techniqueProfile/geochemProfile/SEM/profile-ada/rules.shacl:\n - Shape _:n3908ef0b671a4e65bec05cdfa8338e9cb9: *none*\n - Shape cdifd:semProductShape/sh:property/sh:qualifiedValueShape: *none*\n - Shape cdifd:semProductShape: *none*\n - Shape _:n3908ef0b671a4e65bec05cdfa8338e9cb8: *none*\n - Shape _:n3908ef0b671a4e65bec05cdfa8338e9cb7: *none*\n - Shape _:n3908ef0b671a4e65bec05cdfa8338e9cb6: *none*\n - Shape _:n3908ef0b671a4e65bec05cdfa8338e9cb5: *none*\n - Shape _:n3908ef0b671a4e65bec05cdfa8338e9cb4: *none*\n - Shape _:n3908ef0b671a4e65bec05cdfa8338e9cb10: *none*\n"
             },
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
-              "graph": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a schema1:Action,\n                        prov:Activity ;\n                    schema1:identifier \"session-sem-20260110-001\" ;\n                    schema1:instrument <https://example.org/adaSEMFull-example-001/instrument/SEM> ;\n                    schema1:location [ a schema1:Place ;\n                            schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;\n                            schema1:identifier \"https://ror.org/00hx57361\" ;\n                            schema1:name \"Analytical Sciences Laboratory\" ] ;\n                    schema1:object [ a schema1:Thing,\n                                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;\n                            schema1:additionalType \"MaterialSample\" ;\n                            schema1:description \"Thin section of Allan Hills 84001 martian meteorite\" ;\n                            schema1:identifier \"igsn:10.60471/GSEEXAMPLE001\" ;\n                            schema1:name \"ALH 84001,123\" ] ;\n                    schema1:startTime \"2026-01-10T09:30:00\" ] ;\n            sh:resultMessage \"Analysis events must reference at least one instrument (prov:used).\" ;\n            sh:resultPath prov:used ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Analysis events must reference at least one instrument (prov:used).\" ;\n                    sh:minCount 1 ;\n                    sh:path prov:used ] ] .\n\n",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/BaseSchema/adaProduct/rules.shacl: 1 violation"
-            },
-            {
-              "op": "shacl-result",
-              "resultSeverity": "http://www.w3.org/ns/shacl#Violation",
-              "focusNode": "Ndf84b70101bb4a79b3bbe08bd9268f98",
-              "resultPath": "prov:used",
-              "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
-              "sourceShape": null,
-              "sourceShapeDescription": "cdifd:adaActivityShape/sh:property (path prov:used)",
-              "value": null,
-              "resultMessage": "Analysis events must reference at least one instrument (prov:used).",
-              "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
-              "isError": true,
-              "severity": "error",
-              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaActivityShape/sh:property (path prov:used)\n  Focus node: _:Ndf84b70101bb4a79b3bbe08bd9268f98\n  Result path: prov:used\n  Message: Analysis events must reference at least one instrument (prov:used)."
+              "message": "Validation result for _sources/BaseSchema/adaProduct/rules.shacl: no results"
             },
             {
               "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
               "focusNodes": {
-                "cdifd:adaVariableMeasuredShape": {
+                "cdifd:adaProductShape": {
                   "nodes": []
                 },
-                "cdifd:adaProductShape": {
+                "cdifd:adaVariableMeasuredShape": {
                   "nodes": []
                 },
                 "cdifd:adaActivityShape": {
@@ -140,7 +125,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/adaProduct/rules.shacl:\n - Shape cdifd:adaVariableMeasuredShape: *none*\n - Shape cdifd:adaProductShape: *none*\n - Shape cdifd:adaActivityShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/adaProduct/rules.shacl:\n - Shape cdifd:adaProductShape: *none*\n - Shape cdifd:adaVariableMeasuredShape: *none*\n - Shape cdifd:adaActivityShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -372,10 +357,10 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:tappInstrumentParamSpecShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
                 "cdifd:adaInstrumentShape": {
@@ -383,7 +368,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -412,15 +397,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             }
           ]
         }
@@ -431,7 +416,7 @@
   "hasWarnings": false,
   "counts": {
     "total": 1,
-    "passed": 0,
-    "failed": 1
+    "passed": 1,
+    "failed": 0
   }
 }

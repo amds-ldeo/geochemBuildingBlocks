@@ -2,8 +2,8 @@
   "title": "Validation report for ogch.techniqueProfile.adaProfile.DSC.profile-ada - ADA DSC Profile",
   "bblockName": "ADA DSC Profile",
   "bblockId": "ogch.techniqueProfile.adaProfile.DSC.profile-ada",
-  "generated": "2026-11-23T03:27:39.748512+00:00",
-  "result": false,
+  "generated": "2026-11-23T19:53:17.487478+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -15,7 +15,7 @@
         "snippetIndex": 1,
         "language": "application/json"
       },
-      "result": false,
+      "result": true,
       "hasWarnings": false,
       "sections": [
         {
@@ -73,51 +73,36 @@
             {
               "shaclFile": "_sources/techniqueProfile/adaProfile/DSC/profile-ada/rules.shacl",
               "focusNodes": {
-                "cdifd:dscProductShape/sh:property/sh:qualifiedValueShape": {
+                "_:n600ce1c938ea45e982948d0a5c2b944eb4": {
                   "nodes": []
                 },
-                "_:naa8ef92d6d8b420dba57c25e459f14a4b4": {
-                  "nodes": []
-                },
-                "_:naa8ef92d6d8b420dba57c25e459f14a4b5": {
+                "_:n600ce1c938ea45e982948d0a5c2b944eb5": {
                   "nodes": []
                 },
                 "cdifd:dscProductShape": {
                   "nodes": []
+                },
+                "cdifd:dscProductShape/sh:property/sh:qualifiedValueShape": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/techniqueProfile/adaProfile/DSC/profile-ada/rules.shacl:\n - Shape cdifd:dscProductShape/sh:property/sh:qualifiedValueShape: *none*\n - Shape _:naa8ef92d6d8b420dba57c25e459f14a4b4: *none*\n - Shape _:naa8ef92d6d8b420dba57c25e459f14a4b5: *none*\n - Shape cdifd:dscProductShape: *none*\n"
+              "message": "Focus nodes for _sources/techniqueProfile/adaProfile/DSC/profile-ada/rules.shacl:\n - Shape _:n600ce1c938ea45e982948d0a5c2b944eb4: *none*\n - Shape _:n600ce1c938ea45e982948d0a5c2b944eb5: *none*\n - Shape cdifd:dscProductShape: *none*\n - Shape cdifd:dscProductShape/sh:property/sh:qualifiedValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
-              "graph": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode [ a schema1:Action,\n                        prov:Activity ;\n                    schema1:identifier \"session-dsc-20260110-001\" ;\n                    schema1:instrument <https://example.org/adaDSC-example-001/instrument/instrument> ;\n                    schema1:location [ a schema1:Place ;\n                            schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;\n                            schema1:identifier \"https://ror.org/00hx57361\" ;\n                            schema1:name \"Analytical Sciences Laboratory\" ] ;\n                    schema1:object [ a schema1:Thing,\n                                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;\n                            schema1:additionalType \"MaterialSample\" ;\n                            schema1:description \"Thin section of Allan Hills 84001 martian meteorite\" ;\n                            schema1:identifier \"igsn:10.60471/GSEEXAMPLE001\" ;\n                            schema1:name \"ALH 84001,123\" ] ;\n                    schema1:startTime \"2026-01-10T09:30:00\" ] ;\n            sh:resultMessage \"Analysis events must reference at least one instrument (prov:used).\" ;\n            sh:resultPath prov:used ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"Analysis events must reference at least one instrument (prov:used).\" ;\n                    sh:minCount 1 ;\n                    sh:path prov:used ] ] .\n\n",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
-              "message": "Validation result for _sources/BaseSchema/adaProduct/rules.shacl: 1 violation"
-            },
-            {
-              "op": "shacl-result",
-              "resultSeverity": "http://www.w3.org/ns/shacl#Violation",
-              "focusNode": "N6c1692ddafc84e33a7dc942f6d931bf9",
-              "resultPath": "prov:used",
-              "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
-              "sourceShape": null,
-              "sourceShapeDescription": "cdifd:adaActivityShape/sh:property (path prov:used)",
-              "value": null,
-              "resultMessage": "Analysis events must reference at least one instrument (prov:used).",
-              "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
-              "isError": true,
-              "severity": "error",
-              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaActivityShape/sh:property (path prov:used)\n  Focus node: _:N6c1692ddafc84e33a7dc942f6d931bf9\n  Result path: prov:used\n  Message: Analysis events must reference at least one instrument (prov:used)."
+              "message": "Validation result for _sources/BaseSchema/adaProduct/rules.shacl: no results"
             },
             {
               "shaclFile": "_sources/BaseSchema/adaProduct/rules.shacl",
               "focusNodes": {
-                "cdifd:adaVariableMeasuredShape": {
+                "cdifd:adaProductShape": {
                   "nodes": []
                 },
-                "cdifd:adaProductShape": {
+                "cdifd:adaVariableMeasuredShape": {
                   "nodes": []
                 },
                 "cdifd:adaActivityShape": {
@@ -125,7 +110,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/adaProduct/rules.shacl:\n - Shape cdifd:adaVariableMeasuredShape: *none*\n - Shape cdifd:adaProductShape: *none*\n - Shape cdifd:adaActivityShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/adaProduct/rules.shacl:\n - Shape cdifd:adaProductShape: *none*\n - Shape cdifd:adaVariableMeasuredShape: *none*\n - Shape cdifd:adaActivityShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -357,10 +342,10 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:tappInstrumentParamSpecShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
                 "cdifd:adaInstrumentShape": {
@@ -368,7 +353,7 @@
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -397,15 +382,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -433,7 +418,7 @@
   "hasWarnings": false,
   "counts": {
     "total": 1,
-    "passed": 0,
-    "failed": 1
+    "passed": 1,
+    "failed": 0
   }
 }

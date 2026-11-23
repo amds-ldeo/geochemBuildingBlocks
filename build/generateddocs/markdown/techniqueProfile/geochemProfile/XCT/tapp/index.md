@@ -100,6 +100,29 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "schema:description": "679.51 mm"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4000
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4.0,
+      "schema:description": "4.00 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -123,6 +146,17 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "schema:defaultValue": "1×1 (no binning)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Continuous rotation"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -142,7 +176,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "16-bit (full grayscale range)"
+      "schema:defaultValue": "N/A"
     }
   ],
   "schema:instrument": [
@@ -189,8 +223,6 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "@id": "ex:labxctTAPP-Eckley2024/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "4000",
-  "ada:exposureTimePerProjectionDefault": "4.00 s",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -239,7 +271,6 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
     ],
     "schema:name": "Lab-XCT analytical workflow"
   },
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (0.25 mm Al) + software BHC preset",
   "ada:outputDataFormatDefault": "TIFF (16-bit, 928 slices)",
   "schema:measurementTechnique": [
@@ -264,9 +295,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
   "ada:detectorType": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -372,6 +401,29 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "schema:description": "679.51 mm"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4000
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4.0,
+      "schema:description": "4.00 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -395,6 +447,17 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "schema:defaultValue": "1\u00d71 (no binning)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Continuous rotation"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -414,7 +477,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "16-bit (full grayscale range)"
+      "schema:defaultValue": "N/A"
     }
   ],
   "schema:instrument": [
@@ -461,8 +524,6 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "@id": "ex:labxctTAPP-Eckley2024/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "4000",
-  "ada:exposureTimePerProjectionDefault": "4.00 s",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -511,7 +572,6 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
     ],
     "schema:name": "Lab-XCT analytical workflow"
   },
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (0.25 mm Al) + software BHC preset",
   "ada:outputDataFormatDefault": "TIFF (16-bit, 928 slices)",
   "schema:measurementTechnique": [
@@ -536,9 +596,7 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
   "ada:detectorType": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -561,20 +619,23 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
             schema1:name "Lab-XCT analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistanceDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
@@ -595,16 +656,11 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (0.25 mm Al) + software BHC preset" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault "4.00 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "4000" ;
     ada:outputDataFormatDefault "TIFF (16-bit, 928 slices)" ;
     ada:reconstructionAlgorithm "missing" ;
-    ada:rotationModeDefault "Continuous rotation" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (single allocated Bennu particle; 928 slices)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Internal structure; mineralogy (reconnaissance scan)" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -630,6 +686,14 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4e+00 ;
+    schema1:description "4.00 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Flux normalization: no" ;
     schema1:name "Flat Field Correction" ;
@@ -645,10 +709,24 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4000 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "16-bit (full grayscale range)" ;
+    schema1:defaultValue "N/A" ;
     schema1:name "Output Bit Depth" ;
     schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Continuous rotation" ;
+    schema1:name "Rotation Mode" ;
+    schema1:valueName "rotationModeDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -721,7 +799,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Genge2025",
-  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 × 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt); ada:segmentationMethodDefault = ImageJ threshold-based; TANGO plugin for 3D object detection.",
+  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 × 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "C-type asteroid particle (Ryugu, Hayabusa2)",
     "ada:targetMaterialColumns": [
@@ -823,6 +901,41 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "schema:value": "4× objective lens"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360°"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2401
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 33,
+      "schema:description": "33 s (A0180-A); 28 s (A0180-B)"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/detectorBinningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -831,7 +944,18 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "schema:name": "Detector Binning",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "No binning"
+      "schema:defaultValue": "1×1 (no binning)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "ImageJ threshold-based; TANGO plugin for 3D object detection"
     },
     {
       "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
@@ -853,7 +977,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "16-bit (CCD pixel depth)"
+      "schema:defaultValue": "N/A"
     },
     {
       "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault",
@@ -912,11 +1036,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "@id": "ex:labxctTAPP-Genge2025/instrument/XCT"
     }
   ],
-  "ada:rotationRangeDefault": "360°",
-  "ada:numberOfProjectionsDefault": "2401",
-  "ada:exposureTimePerProjectionDefault": "33 s (A0180-A); 28 s (A0180-B)",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (LE4 inbuilt)",
-  "ada:segmentationMethodDefault": "ImageJ threshold-based; TANGO plugin for 3D object detection",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "microchondrule and sulphide-silicate object diameter (µm); shape factor; object abundance; particle volume — Microchondrule / sulphide-silicate object diameter (um) and shape factor; object abundance; particle volume",
     "ada:defaultReportedProperties": [
@@ -1013,7 +1133,6 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -1052,7 +1171,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Genge2025",
-  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 \u00d7 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt); ada:segmentationMethodDefault = ImageJ threshold-based; TANGO plugin for 3D object detection.",
+  "schema:description": "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 \u00d7 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "C-type asteroid particle (Ryugu, Hayabusa2)",
     "ada:targetMaterialColumns": [
@@ -1154,6 +1273,41 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "schema:value": "4\u00d7 objective lens"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360\u00b0"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2401
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 33,
+      "schema:description": "33 s (A0180-A); 28 s (A0180-B)"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/detectorBinningDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -1162,7 +1316,18 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "schema:name": "Detector Binning",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "No binning"
+      "schema:defaultValue": "1\u00d71 (no binning)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "ImageJ threshold-based; TANGO plugin for 3D object detection"
     },
     {
       "@id": "ada:parameter/labxctTAPP/phaseIdentificationMethodDefault",
@@ -1184,7 +1349,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "16-bit (CCD pixel depth)"
+      "schema:defaultValue": "N/A"
     },
     {
       "@id": "ada:parameter/labxctTAPP/partialVolumeEffectCriteriaDefault",
@@ -1243,11 +1408,7 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "@id": "ex:labxctTAPP-Genge2025/instrument/XCT"
     }
   ],
-  "ada:rotationRangeDefault": "360\u00b0",
-  "ada:numberOfProjectionsDefault": "2401",
-  "ada:exposureTimePerProjectionDefault": "33 s (A0180-A); 28 s (A0180-B)",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (LE4 inbuilt)",
-  "ada:segmentationMethodDefault": "ImageJ threshold-based; TANGO plugin for 3D object detection",
   "ada:reportedPropertyTemplate": {
     "ada:reportedPropertyDeclaration": "microchondrule and sulphide-silicate object diameter (\u00b5m); shape factor; object abundance; particle volume \u2014 Microchondrule / sulphide-silicate object diameter (um) and shape factor; object abundance; particle volume",
     "ada:defaultReportedProperties": [
@@ -1344,7 +1505,6 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -1380,14 +1540,18 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 × 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt); ada:segmentationMethodDefault = ImageJ threshold-based; TANGO plugin for 3D object detection." ;
+    schema1:description "labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0180) Single-volume Zeiss Versa Not stated (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = 2000 × 2000 CCD plane (16-bit); ada:beamHardeningCorrectionMethod = Hardware filter (LE4 inbuilt)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "ImageJ + TANGO plugin (Ollion et al. 2013)" ;
@@ -1414,9 +1578,7 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (LE4 inbuilt)" ;
     ada:detectorType "2000 × 2000 CCD plane (16-bit)" ;
-    ada:exposureTimePerProjectionDefault "33 s (A0180-A); 28 s (A0180-B)" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "2401" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "microchondrule and sulphide-silicate object diameter (µm)",
@@ -1431,11 +1593,8 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
                     ada:dataType "string" ;
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "microchondrule and sulphide-silicate object diameter (µm); shape factor; object abundance; particle volume — Microchondrule / sulphide-silicate object diameter (um) and shape factor; object abundance; particle volume" ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault "360°" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Sub-volume > Grain (sub-samples A0180-A and A0180-B; size and shape factor reported per microchondrule / sulphide-silicate object)" ;
-    ada:segmentationMethodDefault "ImageJ threshold-based; TANGO plugin for 3D object detection" ;
     ada:targetFeature "Microchondrules (SSOs); 3D volume fraction" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -1448,14 +1607,29 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     ada:xRaySourceConfiguration "missing" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "No binning" ;
+    schema1:defaultValue "1×1 (no binning)" ;
     schema1:name "Detector Binning" ;
     schema1:valueName "detectorBinningDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 33 ;
+    schema1:description "33 s (A0180-A); 28 s (A0180-B)" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2401 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "16-bit (CCD pixel depth)" ;
+    schema1:defaultValue "N/A" ;
     schema1:name "Output Bit Depth" ;
     schema1:valueName "outputBitDepthDefault" ;
     ada:dataType "string" ;
@@ -1475,6 +1649,14 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 360 ;
+    schema1:description "360°" ;
+    schema1:name "Rotation Range" ;
+    schema1:valueName "rotationRangeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "1.592 × 0.756 × 0.985 mm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
@@ -1486,6 +1668,13 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     schema1:defaultValue "Mounted in pipette tips" ;
     schema1:name "Sample Mounting Method" ;
     schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "ImageJ threshold-based; TANGO plugin for 3D object detection" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -1551,7 +1740,7 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Neuman2025",
-  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction.",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction.",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Lunar regolith"
@@ -1617,6 +1806,17 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "schema:value": "2048 × 2048 (physical); 4096 × 4096 (effective, NSI Subpix)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -1662,7 +1862,6 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "@id": "ex:labxctTAPP-Neuman2025/instrument/XCT"
     }
   ],
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
   "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
   "schema:actionProcess": {
@@ -1732,13 +1931,9 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
     "Multi-volume stitching"
   ],
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
-  "ada:exposureTimePerProjectionDefault": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -1775,7 +1970,7 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Neuman2025",
-  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix); ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction.",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction.",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Lunar regolith"
@@ -1841,6 +2036,17 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "schema:value": "2048 \u00d7 2048 (physical); 4096 \u00d7 4096 (effective, NSI Subpix)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -1886,7 +2092,6 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "@id": "ex:labxctTAPP-Neuman2025/instrument/XCT"
     }
   ],
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:minimumSubVolumeOverlap": "~380 slices overlap between sub-volumes",
   "ada:beamHardeningCorrectionMethod": "Software BHC applied during reconstruction",
   "schema:actionProcess": {
@@ -1956,13 +2161,9 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
     "Multi-volume stitching"
   ],
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
-  "ada:exposureTimePerProjectionDefault": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -1997,9 +2198,10 @@ ex:labxctTAPP-Neuman2025 a schema1:Action,
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Continuous rotation (each Subpix sub-acquisition); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction." ;
+    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Space Sci. Rev.) Apollo 17 core 73002 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC applied during reconstruction." ;
     schema1:instrument <https://example.org/labxctTAPP-Neuman2025/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
@@ -2014,16 +2216,11 @@ ex:labxctTAPP-Neuman2025 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Software BHC applied during reconstruction" ;
     ada:detectorType "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap "~380 slices overlap between sub-volumes" ;
-    ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
-    ada:rotationModeDefault "Continuous rotation" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Lunar regolith" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
@@ -2039,6 +2236,13 @@ ex:labxctTAPP-Neuman2025 a schema1:Action,
     schema1:defaultValue "Post-reconstruction ring corrections applied" ;
     schema1:name "Ring Artifact Correction Method" ;
     schema1:valueName "ringArtifactCorrectionMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "Rotation Mode" ;
+    schema1:valueName "rotationModeDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -2108,7 +2312,7 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Neuman2025-2",
-  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used).",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Lunar regolith"
@@ -2174,6 +2378,17 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "schema:value": "2048 × 2048 (physical); 4096 × 4096 (effective, NSI Subpix)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -2219,7 +2434,6 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "@id": "ex:labxctTAPP-Neuman2025-2/instrument/XCT"
     }
   ],
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:beamHardeningCorrectionMethod": "Software BHC (same factor as 73002 re-used)",
   "schema:actionProcess": {
     "schema:step": [
@@ -2288,14 +2502,10 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
     "Multi-volume stitching"
   ],
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -2332,7 +2542,7 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Neuman2025-2",
-  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix); ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used).",
+  "schema:description": "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 \u00d7 2048 Perkin Elmer flat panel (4096 \u00d7 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Lunar regolith"
@@ -2398,6 +2608,17 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "schema:value": "2048 \u00d7 2048 (physical); 4096 \u00d7 4096 (effective, NSI Subpix)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/ringArtifactCorrectionMethodDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -2443,7 +2664,6 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "@id": "ex:labxctTAPP-Neuman2025-2/instrument/XCT"
     }
   ],
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:beamHardeningCorrectionMethod": "Software BHC (same factor as 73002 re-used)",
   "schema:actionProcess": {
     "schema:step": [
@@ -2512,14 +2732,10 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
     "Multi-volume stitching"
   ],
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -2542,21 +2758,22 @@ ex:labxctTAPP-Neuman2025-2 a schema1:Action,
             schema1:name "Lab-XCT analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethodDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:rotationModeDefault = Non-continuous rotation (to avoid rotational mismatch of continuous mode); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used)." ;
+    schema1:description "labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 73001 Multi-volume stitching NSI custom, UTCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Feinfocus FXE 225.48 microfocal source; ada:detectorType = 2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix); ada:beamHardeningCorrectionMethod = Software BHC (same factor as 73002 re-used)." ;
     schema1:instrument <https://example.org/labxctTAPP-Neuman2025-2/instrument/XCT> ;
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
@@ -2571,16 +2788,11 @@ ex:labxctTAPP-Neuman2025-2 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Software BHC (same factor as 73002 re-used)" ;
     ada:detectorType "2048 × 2048 Perkin Elmer flat panel (4096 × 4096 effective via Subpix)" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
-    ada:rotationModeDefault "Continuous rotation" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (six overlapping cone-beam volumes stitched into one continuous dataset per core; the sub-volumes are an acquisition unit, not a reporting unit)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Voids, lithic clasts, stratigraphic layers in core (steel-sleeved)" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Lunar regolith" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
@@ -2596,6 +2808,13 @@ ex:labxctTAPP-Neuman2025-2 a schema1:Action,
     schema1:defaultValue "Post-reconstruction ring corrections applied" ;
     schema1:name "Ring Artifact Correction Method" ;
     schema1:valueName "ringArtifactCorrectionMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "Rotation Mode" ;
+    schema1:valueName "rotationModeDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -2808,15 +3027,10 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:beamHardeningCorrectionMethod": "missing",
   "ada:detectorType": "missing",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -2996,15 +3210,10 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:beamHardeningCorrectionMethod": "missing",
   "ada:detectorType": "missing",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -3028,14 +3237,14 @@ ex:labxctTAPP-Shearer2024 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 225 kV multi-metal reflection target source." ;
@@ -3051,9 +3260,7 @@ ex:labxctTAPP-Shearer2024 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Space between the bottom tip of the CSVC and the Teflon cap",
@@ -3065,11 +3272,8 @@ ex:labxctTAPP-Shearer2024 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (the 73001 CSVC container assembly)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Internal structure of core vacuum seal container" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Lunar regolith" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
@@ -3273,14 +3477,9 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:beamHardeningCorrectionMethod": "missing",
   "ada:detectorType": "missing",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -3462,14 +3661,9 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:beamHardeningCorrectionMethod": "missing",
   "ada:detectorType": "missing",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -3493,14 +3687,14 @@ ex:labxctTAPP-Shearer2024-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
@@ -3516,16 +3710,11 @@ ex:labxctTAPP-Shearer2024-2 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Particles >4 mm extracted during dissection are individually bagged and XCT scanned for classification and characterization, without destructive chipping, sectioning or dust removal" ;
     ada:samplingUnitType "Grain (individual extracted particles >4 mm, each individually bagged and scanned)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Individual particle internal structure" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -3597,7 +3786,7 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Tomkinson2015",
-  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume.",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Martian meteorite"
@@ -3650,6 +3839,40 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       ],
       "schema:name": "X-ray Tube Anode Material",
       "schema:value": "Copper"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3143
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20,
+      "schema:description": "20 s"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -3729,11 +3952,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       "@id": "ex:labxctTAPP-Tomkinson2015/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "3143",
-  "ada:exposureTimePerProjectionDefault": "20 s",
   "ada:samplingUnitSelectionCriteriaDefault": "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis",
   "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
-  "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite",
@@ -3828,8 +4048,6 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
   "ada:detectorType": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -3867,7 +4085,7 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Tomkinson2015",
-  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume.",
+  "schema:description": "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Martian meteorite"
@@ -3920,6 +4138,40 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       ],
       "schema:name": "X-ray Tube Anode Material",
       "schema:value": "Copper"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3143
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 20,
+      "schema:description": "20 s"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -3999,11 +4251,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       "@id": "ex:labxctTAPP-Tomkinson2015/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "3143",
-  "ada:exposureTimePerProjectionDefault": "20 s",
   "ada:samplingUnitSelectionCriteriaDefault": "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis",
   "ada:reconstructionAlgorithm": "Filtered back projection (Nikon proprietary)",
-  "ada:segmentationMethodDefault": "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite",
@@ -4098,8 +4347,6 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
   "ada:detectorType": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
@@ -4124,20 +4371,23 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary); ada:segmentationMethodDefault = Manual segmentation of 2D slices; grayscale threshold applied to 3D volume." ;
+    schema1:description "labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Single-volume Nikon Metris XTH 225 U. Manchester (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:reconstructionAlgorithm = Filtered back projection (Nikon proprietary)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo™" ;
@@ -4163,9 +4413,7 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault "20 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "3143" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "Filtered back projection (Nikon proprietary)" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Modal mineralogy (vol%) for augite, mesostasis, olivine and titanomagnetite",
@@ -4177,11 +4425,8 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "Single 2.7 g chip (~1.1 x 1.2 x 0.8 cm) taken from the outer part of one stone, selected because it provides a profile from the weathered exterior to the fresh interior; six 2-D slices at ~1 mm spacing extracted for modal analysis" ;
     ada:samplingUnitType "Sub-volume (modal mineralogy reported for six 2-D XCT slices at ~1 mm spacing and for the entire chip volume)" ;
-    ada:segmentationMethodDefault "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume" ;
     ada:targetFeature "Modal mineralogy (vol%); secondary minerals" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Martian meteorite" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
@@ -4192,6 +4437,21 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
     ada:xRaySourceConfiguration "missing" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 20 ;
+    schema1:description "20 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3143 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteriaDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Errors from threshold + PVE generally <5% for grains >125 voxels; features smaller than ~3 voxels unreliable" ;
@@ -4211,6 +4471,13 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
     schema1:defaultValue "~1.1 × 1.2 × 0.8 cm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual segmentation of 2D slices; grayscale threshold applied to 3D volume" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -4266,7 +4533,7 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Glavin2023",
-  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 µm spot size); ada:detectorType = 2000 × 2000 pixel Perkin Elmer flat panel CCD; ada:rotationModeDefault = Continuous 360° rotation; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images).",
+  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 µm spot size); ada:detectorType = 2000 × 2000 pixel Perkin Elmer flat panel CCD; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "CM2 carbonaceous chondrite (Murchison)",
     "ada:targetMaterialColumns": [
@@ -4346,6 +4613,29 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "schema:description": "679.51 mm"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360° (continuous)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3141
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -4358,6 +4648,18 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "schema:description": "0.115°"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1.0,
+      "schema:description": "1.00 s per frame"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -4368,6 +4670,17 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "ada:fieldScope": "session",
       "schema:defaultValue": 8,
       "schema:description": "8 frames averaged per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
     }
   ],
   "ada:xRaySourceConfiguration": "180 kV nano-focus tungsten transmission source (~1 µm spot size)",
@@ -4416,10 +4729,6 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "@id": "ex:labxctTAPP-Glavin2023/instrument/XCT"
     }
   ],
-  "ada:rotationRangeDefault": "360° (continuous)",
-  "ada:numberOfProjectionsDefault": "3141",
-  "ada:exposureTimePerProjectionDefault": "1.00 s per frame",
-  "ada:rotationModeDefault": "N/A",
   "ada:reconstructionAlgorithm": "Filtered back projection (FBP)",
   "ada:beamHardeningCorrectionMethod": "None (intentionally unfiltered; no software BHC mentioned)",
   "ada:outputDataFormatDefault": "TIFF (continuous series of 2D TIFF images)",
@@ -4501,7 +4810,6 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -4538,7 +4846,7 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Glavin2023",
-  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size); ada:detectorType = 2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD; ada:rotationModeDefault = Continuous 360\u00b0 rotation; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images).",
+  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size); ada:detectorType = 2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "CM2 carbonaceous chondrite (Murchison)",
     "ada:targetMaterialColumns": [
@@ -4618,6 +4926,29 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "schema:description": "679.51 mm"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360\u00b0 (continuous)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3141
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -4630,6 +4961,18 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "schema:description": "0.115\u00b0"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1.0,
+      "schema:description": "1.00 s per frame"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -4640,6 +4983,17 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "ada:fieldScope": "session",
       "schema:defaultValue": 8,
       "schema:description": "8 frames averaged per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
     }
   ],
   "ada:xRaySourceConfiguration": "180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size)",
@@ -4688,10 +5042,6 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "@id": "ex:labxctTAPP-Glavin2023/instrument/XCT"
     }
   ],
-  "ada:rotationRangeDefault": "360\u00b0 (continuous)",
-  "ada:numberOfProjectionsDefault": "3141",
-  "ada:exposureTimePerProjectionDefault": "1.00 s per frame",
-  "ada:rotationModeDefault": "N/A",
   "ada:reconstructionAlgorithm": "Filtered back projection (FBP)",
   "ada:beamHardeningCorrectionMethod": "None (intentionally unfiltered; no software BHC mentioned)",
   "ada:outputDataFormatDefault": "TIFF (continuous series of 2D TIFF images)",
@@ -4773,7 +5123,6 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -4797,23 +5146,27 @@ ex:labxctTAPP-Glavin2023 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistanceDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 µm spot size); ada:detectorType = 2000 × 2000 pixel Perkin Elmer flat panel CCD; ada:rotationModeDefault = Continuous 360° rotation; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images)." ;
+    schema1:description "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 µm spot size); ada:detectorType = 2000 × 2000 pixel Perkin Elmer flat panel CCD; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Nikon CTAgentPro v5.4 (FBP algorithm)" ;
@@ -4830,9 +5183,7 @@ ex:labxctTAPP-Glavin2023 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "None (intentionally unfiltered; no software BHC mentioned)" ;
     ada:detectorType "2000 × 2000 pixel Perkin Elmer flat panel CCD" ;
-    ada:exposureTimePerProjectionDefault "1.00 s per frame" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "3141" ;
     ada:outputDataFormatDefault "TIFF (continuous series of 2D TIFF images)" ;
     ada:reconstructionAlgorithm "Filtered back projection (FBP)" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Absorbed x-ray dose (~180 Gy, the maximum a Bennu sample would receive during an XCT imaging experiment)" ;
@@ -4843,11 +5194,8 @@ ex:labxctTAPP-Glavin2023 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "N/A" ;
-    ada:rotationRangeDefault "360° (continuous)" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Aliquot (~1 g crushed Murchison B in a glass vial)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Radiation dose assessment (not mineralogy)" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -4859,12 +5207,42 @@ ex:labxctTAPP-Glavin2023 a schema1:Action,
             ada:targetMaterialDeclaration "CM2 carbonaceous chondrite (Murchison)" ] ;
     ada:xRaySourceConfiguration "180 kV nano-focus tungsten transmission source (~1 µm spot size)" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1e+00 ;
+    schema1:description "1.00 s per frame" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 8 ;
     schema1:description "8 frames averaged per projection" ;
     schema1:name "Frames Averaged per Projection" ;
     schema1:valueName "framesAveragedPerProjectionDefault" ;
     ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3141 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "Rotation Mode" ;
+    schema1:valueName "rotationModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 360 ;
+    schema1:description "360° (continuous)" ;
+    schema1:name "Rotation Range" ;
+    schema1:valueName "rotationRangeDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault> a schema1:PropertyValueSpecification ;
@@ -4948,7 +5326,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Dias2019",
-  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned; ada:segmentationMethodDefault = Adaptive (mean) thresholding.",
+  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned.",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Lunar meteorite",
@@ -5015,6 +5393,18 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "schema:value": "2240 × 2240 pixels"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360°"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -5025,6 +5415,17 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.4,
       "schema:description": "0.4°/step"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Adaptive (mean) thresholding"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -5094,9 +5495,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "@id": "ex:labxctTAPP-Dias2019/instrument/XCT"
     }
   ],
-  "ada:rotationRangeDefault": "360°",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned",
-  "ada:segmentationMethodDefault": "Adaptive (mean) thresholding",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Density and porosity",
@@ -5187,12 +5586,9 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
     }
   ],
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -5231,7 +5627,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Dias2019",
-  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 \u00d7 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned; ada:segmentationMethodDefault = Adaptive (mean) thresholding.",
+  "schema:description": "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 \u00d7 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned.",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "Lunar meteorite",
@@ -5298,6 +5694,18 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "schema:value": "2240 \u00d7 2240 pixels"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360\u00b0"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -5308,6 +5716,17 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "ada:fieldScope": "session",
       "schema:defaultValue": 0.4,
       "schema:description": "0.4\u00b0/step"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Adaptive (mean) thresholding"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -5377,9 +5796,7 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "@id": "ex:labxctTAPP-Dias2019/instrument/XCT"
     }
   ],
-  "ada:rotationRangeDefault": "360\u00b0",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned",
-  "ada:segmentationMethodDefault": "Adaptive (mean) thresholding",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Density and porosity",
@@ -5470,12 +5887,9 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
     }
   ],
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
-  "ada:numberOfProjectionsDefault": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -5511,11 +5925,13 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
                     schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned; ada:segmentationMethodDefault = Adaptive (mean) thresholding." ;
+    schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
@@ -5541,9 +5957,7 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned" ;
     ada:detectorType "Flat panel detector (2240 × 2240 pixels)" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Density and porosity",
@@ -5555,11 +5969,8 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault "360°" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)" ;
-    ada:segmentationMethodDefault "Adaptive (mean) thresholding" ;
     ada:targetFeature "Internal structure; porosity; density contrast" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Lunar meteorite",
                 "Martian meteorite" ;
@@ -5577,6 +5988,14 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
     schema1:name "Phase Identification Method" ;
     schema1:valueName "phaseIdentificationMethodDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 360 ;
+    schema1:description "360°" ;
+    schema1:name "Rotation Range" ;
+    schema1:valueName "rotationRangeDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault> a schema1:PropertyValueSpecification ;
@@ -5598,6 +6017,13 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
     schema1:defaultValue "Polystyrene support" ;
     schema1:name "Sample Mounting Method" ;
     schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Adaptive (mean) thresholding" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -5653,7 +6079,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Richard2019",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit); ada:segmentationMethodDefault = Grayscale threshold range selection (ImageJ).",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Olivine phenocryst with silicate melt inclusion",
     "ada:targetMaterialColumns": [
@@ -5721,6 +6147,29 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "schema:value": "4.0× magnification"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1601
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -5731,6 +6180,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "ada:fieldScope": "session",
       "schema:defaultValue": 200,
       "schema:description": "~200 reference (blank) images taken; number of frames averaged per projection N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Grayscale threshold range selection (ImageJ)"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -5763,7 +6223,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "32-bit (ZEISS XRM output)"
+      "schema:defaultValue": "N/A"
     }
   ],
   "schema:instrument": [
@@ -5810,9 +6270,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "@id": "ex:labxctTAPP-Richard2019/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "1601",
-  "ada:exposureTimePerProjectionDefault": "8 s",
-  "ada:segmentationMethodDefault": "Grayscale threshold range selection (ImageJ)",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)"
@@ -5893,8 +6350,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -5933,7 +6388,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Richard2019",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 \u00d7 1080 px, 32-bit); ada:segmentationMethodDefault = Grayscale threshold range selection (ImageJ).",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 \u00d7 1080 px, 32-bit).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Olivine phenocryst with silicate melt inclusion",
     "ada:targetMaterialColumns": [
@@ -6001,6 +6456,29 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "schema:value": "4.0\u00d7 magnification"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1601
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -6011,6 +6489,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "ada:fieldScope": "session",
       "schema:defaultValue": 200,
       "schema:description": "~200 reference (blank) images taken; number of frames averaged per projection N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Grayscale threshold range selection (ImageJ)"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -6043,7 +6532,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "32-bit (ZEISS XRM output)"
+      "schema:defaultValue": "N/A"
     }
   ],
   "schema:instrument": [
@@ -6090,9 +6579,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "@id": "ex:labxctTAPP-Richard2019/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "1601",
-  "ada:exposureTimePerProjectionDefault": "8 s",
-  "ada:segmentationMethodDefault": "Grayscale threshold range selection (ImageJ)",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)"
@@ -6173,8 +6659,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -6200,22 +6684,25 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/opticalObjective>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit); ada:segmentationMethodDefault = Grayscale threshold range selection (ImageJ)." ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "ImageJ; Avizo 9.2" ;
@@ -6236,9 +6723,7 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "CCD ANDOR camera (1080 × 1080 px, 32-bit)" ;
-    ada:exposureTimePerProjectionDefault "8 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "1601" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)" ;
@@ -6249,11 +6734,8 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Region of interest (individual melt inclusion) > Phase (glass, clinopyroxene, spinel, vapour)" ;
-    ada:segmentationMethodDefault "Grayscale threshold range selection (ImageJ)" ;
     ada:targetFeature "Silicate melt inclusion morphology and phase volumes" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -6265,6 +6747,14 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
             ada:targetMaterialDeclaration "Olivine phenocryst with silicate melt inclusion" ] ;
     ada:xRaySourceConfiguration "missing" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 8 ;
+    schema1:description "8 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 200 ;
     schema1:description "~200 reference (blank) images taken; number of frames averaged per projection N" ;
@@ -6273,8 +6763,15 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1601 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "32-bit (ZEISS XRM output)" ;
+    schema1:defaultValue "N/A" ;
     schema1:name "Output Bit Depth" ;
     schema1:valueName "outputBitDepthDefault" ;
     ada:dataType "string" ;
@@ -6291,6 +6788,13 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
     schema1:defaultValue "~1 mm olivine" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Grayscale threshold range selection (ImageJ)" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -6351,7 +6855,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Richard2019-2",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold.",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Synthetic quartz monocrystal with aqueous fluid inclusions",
     "ada:targetMaterialColumns": [
@@ -6457,6 +6961,29 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "schema:description": "11.4 W"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3141
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.708,
+      "schema:description": "0.708 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -6467,6 +6994,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "ada:fieldScope": "session",
       "schema:defaultValue": 1,
       "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual grayscale threshold"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -6536,11 +7074,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@id": "ex:labxctTAPP-Richard2019-2/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "3141",
-  "ada:exposureTimePerProjectionDefault": "0.708 s",
   "ada:samplingUnitSelectionCriteriaDefault": "No sectioning was carried out prior to HRXCT scanning; Sample B was scanned entirely",
   "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
-  "ada:segmentationMethodDefault": "Manual grayscale threshold",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Total fluid inclusion volume (mm3)",
@@ -6623,8 +7158,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -6661,7 +7194,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Richard2019-2",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 \u00d7 2000 px, cell size 0.2 \u00d7 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold.",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 \u00d7 2000 px, cell size 0.2 \u00d7 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Synthetic quartz monocrystal with aqueous fluid inclusions",
     "ada:targetMaterialColumns": [
@@ -6767,6 +7300,29 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "schema:description": "11.4 W"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3141
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 0.708,
+      "schema:description": "0.708 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -6777,6 +7333,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "ada:fieldScope": "session",
       "schema:defaultValue": 1,
       "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual grayscale threshold"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -6846,11 +7413,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@id": "ex:labxctTAPP-Richard2019-2/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "3141",
-  "ada:exposureTimePerProjectionDefault": "0.708 s",
   "ada:samplingUnitSelectionCriteriaDefault": "No sectioning was carried out prior to HRXCT scanning; Sample B was scanned entirely",
   "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
-  "ada:segmentationMethodDefault": "Manual grayscale threshold",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Total fluid inclusion volume (mm3)",
@@ -6933,8 +7497,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -6958,23 +7520,26 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold." ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) Whole sample (low-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 9.2.0" ;
@@ -6996,9 +7561,7 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
     ada:detectorType "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)" ;
-    ada:exposureTimePerProjectionDefault "0.708 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "3141" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Total fluid inclusion volume (mm3)",
@@ -7012,11 +7575,8 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "No sectioning was carried out prior to HRXCT scanning; Sample B was scanned entirely" ;
     ada:samplingUnitType "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)" ;
-    ada:segmentationMethodDefault "Manual grayscale threshold" ;
     ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -7028,11 +7588,26 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
             ada:targetMaterialDeclaration "Synthetic quartz monocrystal with aqueous fluid inclusions" ] ;
     ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 7.08e-01 ;
+    schema1:description "0.708 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:description "1 frame per projection" ;
     schema1:name "Frames Averaged per Projection" ;
     schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3141 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
@@ -7047,6 +7622,13 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
     schema1:defaultValue "3 × 5 × 2 cm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual grayscale threshold" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -7129,7 +7711,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Richard2019-3",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold.",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Synthetic quartz monocrystal with aqueous fluid inclusions",
     "ada:targetMaterialColumns": [
@@ -7235,6 +7817,29 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "schema:description": "7.4 W"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3141
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1.415,
+      "schema:description": "1.415 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -7245,6 +7850,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "ada:fieldScope": "session",
       "schema:defaultValue": 1,
       "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual grayscale threshold"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -7314,11 +7930,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@id": "ex:labxctTAPP-Richard2019-3/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "3141",
-  "ada:exposureTimePerProjectionDefault": "1.415 s",
   "ada:samplingUnitSelectionCriteriaDefault": "1.4 x 1.4 x 1.4 mm region of interest containing fluid inclusion #3, scanned at higher resolution after the whole-sample scan",
   "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
-  "ada:segmentationMethodDefault": "Manual grayscale threshold",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Total fluid inclusion volume (mm3)",
@@ -7401,8 +8014,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
 
@@ -7439,7 +8050,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Richard2019-3",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 \u00d7 2000 px, cell size 0.2 \u00d7 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold.",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 \u00d7 2000 px, cell size 0.2 \u00d7 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Synthetic quartz monocrystal with aqueous fluid inclusions",
     "ada:targetMaterialColumns": [
@@ -7545,6 +8156,29 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "schema:description": "7.4 W"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3141
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1.415,
+      "schema:description": "1.415 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -7555,6 +8189,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "ada:fieldScope": "session",
       "schema:defaultValue": 1,
       "schema:description": "1 frame per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual grayscale threshold"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -7624,11 +8269,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@id": "ex:labxctTAPP-Richard2019-3/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "3141",
-  "ada:exposureTimePerProjectionDefault": "1.415 s",
   "ada:samplingUnitSelectionCriteriaDefault": "1.4 x 1.4 x 1.4 mm region of interest containing fluid inclusion #3, scanned at higher resolution after the whole-sample scan",
   "ada:beamHardeningCorrectionMethod": "None (conditions did not saturate detector; not required)",
-  "ada:segmentationMethodDefault": "Manual grayscale threshold",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Total fluid inclusion volume (mm3)",
@@ -7711,8 +8353,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "schema:datePublished": "no value available: schema:datePublished"
 }
 ```
@@ -7746,13 +8386,16 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required); ada:segmentationMethodDefault = Manual grayscale threshold." ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz (fluid incl.) ROI scan (high-res) Nikon XTH 320/225 U. Strathclyde (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = Microfocus multi-metal target (225 kV); ada:detectorType = Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm); ada:beamHardeningCorrectionMethod = None (conditions did not saturate detector; not required)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 9.2.0" ;
@@ -7774,9 +8417,7 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "None (conditions did not saturate detector; not required)" ;
     ada:detectorType "Flat panel photodetector (2000 × 2000 px, cell size 0.2 × 0.2 mm)" ;
-    ada:exposureTimePerProjectionDefault "1.415 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "3141" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Total fluid inclusion volume (mm3)",
@@ -7790,11 +8431,8 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "1.4 x 1.4 x 1.4 mm region of interest containing fluid inclusion #3, scanned at higher resolution after the whole-sample scan" ;
     ada:samplingUnitType "Region of interest (individual fluid inclusion) > Phase (vapour, liquid)" ;
-    ada:segmentationMethodDefault "Manual grayscale threshold" ;
     ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -7806,11 +8444,26 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
             ada:targetMaterialDeclaration "Synthetic quartz monocrystal with aqueous fluid inclusions" ] ;
     ada:xRaySourceConfiguration "Microfocus multi-metal target (225 kV)" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1.415e+00 ;
+    schema1:description "1.415 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 1 ;
     schema1:description "1 frame per projection" ;
     schema1:name "Frames Averaged per Projection" ;
     schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 3141 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
@@ -7825,6 +8478,13 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
     schema1:defaultValue "3 × 5 × 2 cm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual grayscale threshold" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -7907,7 +8567,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Richard2019-4",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software; ada:segmentationMethodDefault = Manual grayscale threshold per phase.",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software.",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Minerals with fluid inclusions (quartz, garnet, emerald, wolframite, feldspar)",
     "ada:targetMaterialColumns": [
@@ -7985,6 +8645,30 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "schema:description": "6–55 mm (varies by sample)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1200,
+      "schema:description": "1200–2000 (varies by sample)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 750,
+      "schema:description": "750–1250 ms (varies by sample)"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -8006,6 +8690,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Software ring artifact correction filter applied during analysis"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual grayscale threshold per phase"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -8074,10 +8769,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       ]
     }
   ],
-  "ada:numberOfProjectionsDefault": "1200–2000 (varies by sample)",
-  "ada:exposureTimePerProjectionDefault": "750–1250 ms (varies by sample)",
   "ada:beamHardeningCorrectionMethod": "Software BHC applied per respective software",
-  "ada:segmentationMethodDefault": "Manual grayscale threshold per phase",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Total fluid inclusion volume (mm3)",
@@ -8172,8 +8864,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -8212,7 +8902,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Richard2019-4",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 \u00d7 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software; ada:segmentationMethodDefault = Manual grayscale threshold per phase.",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 \u00d7 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software.",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Minerals with fluid inclusions (quartz, garnet, emerald, wolframite, feldspar)",
     "ada:targetMaterialColumns": [
@@ -8290,6 +8980,30 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "schema:description": "6\u201355 mm (varies by sample)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1200,
+      "schema:description": "1200\u20132000 (varies by sample)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 750,
+      "schema:description": "750\u20131250 ms (varies by sample)"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -8311,6 +9025,17 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "ada:dataType": "string",
       "ada:fieldScope": "session",
       "schema:defaultValue": "Software ring artifact correction filter applied during analysis"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Manual grayscale threshold per phase"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -8379,10 +9104,7 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       ]
     }
   ],
-  "ada:numberOfProjectionsDefault": "1200\u20132000 (varies by sample)",
-  "ada:exposureTimePerProjectionDefault": "750\u20131250 ms (varies by sample)",
   "ada:beamHardeningCorrectionMethod": "Software BHC applied per respective software",
-  "ada:segmentationMethodDefault": "Manual grayscale threshold per phase",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Total fluid inclusion volume (mm3)",
@@ -8477,8 +9199,6 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -8513,13 +9233,16 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software; ada:segmentationMethodDefault = Manual grayscale threshold per phase." ;
+    schema1:description "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. minerals (C-I) Single-volume Phoenix Nanotom S U. Lorraine (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD Hamamatsu (2300 × 2300 px); ada:beamHardeningCorrectionMethod = Software BHC applied per respective software." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 9.2.0" ;
@@ -8546,9 +9269,7 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Software BHC applied per respective software" ;
     ada:detectorType "CCD Hamamatsu (2300 × 2300 px)" ;
-    ada:exposureTimePerProjectionDefault "750–1250 ms (varies by sample)" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "1200–2000 (varies by sample)" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Total fluid inclusion volume (mm3)",
@@ -8561,11 +9282,8 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Region of interest (individual fluid inclusion) > Phase (vapour, liquid, oil, solid bitumen)" ;
-    ada:segmentationMethodDefault "Manual grayscale threshold per phase" ;
     ada:targetFeature "Fluid inclusion morphology and phase volumes" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -8577,11 +9295,27 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
             ada:targetMaterialDeclaration "Minerals with fluid inclusions (quartz, garnet, emerald, wolframite, feldspar)" ] ;
     ada:xRaySourceConfiguration "missing" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 750 ;
+    schema1:description "750–1250 ms (varies by sample)" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue 3 ;
     schema1:description "3–6 (varies by sample)" ;
     schema1:name "Frames Averaged per Projection" ;
     schema1:valueName "framesAveragedPerProjectionDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 1200 ;
+    schema1:description "1200–2000 (varies by sample)" ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
@@ -8603,6 +9337,13 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
     schema1:defaultValue "Varies: 0.3×0.4 to 11×11×7 mm" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Manual grayscale threshold per phase" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -8673,7 +9414,7 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Tait2014",
-  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:segmentationMethodDefault = Dedicated workflow (Godel 2013) modified for plagioclase network segmentation.",
+  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "H7 ordinary chondrite (Watson 012)",
     "ada:targetMaterialColumns": [
@@ -8770,6 +9511,40 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "schema:description": "7 W"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360°"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2000
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -8792,9 +9567,6 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "schema:defaultValue": "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable"
     }
   ],
-  "ada:rotationRangeDefault": "360°",
-  "ada:numberOfProjectionsDefault": "2000",
-  "ada:segmentationMethodDefault": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Plagioclase network interconnectivity"
@@ -8886,11 +9658,9 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:beamHardeningCorrectionMethod": "missing",
   "ada:detectorType": "missing",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -8929,7 +9699,7 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Tait2014",
-  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:segmentationMethodDefault = Dedicated workflow (Godel 2013) modified for plagioclase network segmentation.",
+  "schema:description": "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "H7 ordinary chondrite (Watson 012)",
     "ada:targetMaterialColumns": [
@@ -9026,6 +9796,40 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "schema:description": "7 W"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360\u00b0"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2000
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -9048,9 +9852,6 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "schema:defaultValue": "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable"
     }
   ],
-  "ada:rotationRangeDefault": "360\u00b0",
-  "ada:numberOfProjectionsDefault": "2000",
-  "ada:segmentationMethodDefault": "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Plagioclase network interconnectivity"
@@ -9142,11 +9943,9 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:beamHardeningCorrectionMethod": "missing",
   "ada:detectorType": "missing",
-  "ada:exposureTimePerProjectionDefault": -9999,
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
@@ -9180,11 +9979,14 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:segmentationMethodDefault = Dedicated workflow (Godel 2013) modified for plagioclase network segmentation." ;
+    schema1:description "labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-volume XRADIA XRM500 CSIRO Kensington (publication column of Lab-XCT_TAPP_v47.csv)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "AvizoFire 8.0; Matlab; Drishti 2.0" ;
@@ -9210,9 +10012,7 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "missing" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "2000" ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Plagioclase network interconnectivity" ;
@@ -9223,11 +10023,8 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault "360°" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (8 mm core) > Phase (plagioclase network)" ;
-    ada:segmentationMethodDefault "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation" ;
     ada:targetFeature "Plagioclase network connectivity; partial melt evidence" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -9239,6 +10036,13 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
             ada:targetMaterialDeclaration "H7 ordinary chondrite (Watson 012)" ] ;
     ada:xRaySourceConfiguration "missing" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2000 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Plagioclase targeted; olivine + pyroxene not separately resolved; troilite/oxyhydroxide indistinguishable" ;
     schema1:name "Phase Identification Method" ;
@@ -9246,10 +10050,25 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 360 ;
+    schema1:description "360°" ;
+    schema1:name "Rotation Range" ;
+    schema1:valueName "rotationRangeDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "8 mm diameter core" ;
     schema1:name "Sample Dimensions (L × W × H)" ;
     schema1:valueName "sampleDimensionsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Dedicated workflow (Godel 2013) modified for plagioclase network segmentation" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
@@ -9466,7 +10285,21 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - Free-standing on stage pin
+                - Free-standing without holder
+                - Tube or vial
+                - Glass capillary
+                - Sealed bag or wrap
+                - Embedded or adhered
+                - On a flat support or substrate
+                - Fixed to the stage or gantry
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/sample-mounting-method
@@ -9690,6 +10523,75 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: Rotation Range
+          description: Total angular range over which projection images are acquired,
+            in degrees.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/rotationRangeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: rotationRangeDefault
+            schema:name:
+              const: Rotation Range
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: "\xB0"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Number of Projections
+          description: Total number of equally-spaced projection images acquired over
+            the full rotation range. For Mode B (multi-volume stitching), this is
+            the number per sub-volume.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/numberOfProjectionsDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: numberOfProjectionsDefault
+            schema:name:
+              const: Number of Projections
+            ada:dataType:
+              const: integer
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: Rotation Step Size
           description: Angular increment between successive projection images, in
             degrees. Equal to Rotation Range divided by Number of Projections when
@@ -9720,6 +10622,44 @@ allOf:
               - type: string
             schema:unitText:
               const: "\xB0"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Exposure Time per Projection
+          description: "Duration of X-ray exposure for each individual projection
+            image frame, in seconds. Adjustment is warranted for samples that are
+            unusually dense or unusually transparent. If the exposure time was varied
+            across samples within the same procedure or session, report the full range
+            applied (e.g., 0.5\u20132 s)."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/exposureTimePerProjectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: exposureTimePerProjectionDefault
+            schema:name:
+              const: Exposure Time per Projection
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
           required:
           - '@id'
           - '@type'
@@ -9786,9 +10726,58 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+              enum:
+              - "1\xD71 (no binning)"
+              - "2\xD72"
+              - "4\xD74"
+              - N/A
+              - None
+              - missing
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/detector-binning
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Rotation Mode
+          description: Whether projection images are acquired during continuous sample
+            rotation (faster; may introduce slight motion blur at high rotation speeds)
+            or at discrete step positions with the stage stationary during each exposure
+            (stop-and-shoot; eliminates motion blur).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/rotationModeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: rotationModeDefault
+            schema:name:
+              const: Rotation Mode
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+              enum:
+              - Step rotation (stop-and-shoot)
+              - Continuous rotation
+              - N/A
+              - None
+              - missing
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/rotation-mode
           required:
           - '@id'
           - '@type'
@@ -9914,10 +10903,66 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "None \u2014 raw instrument grayscale"
+                - Compared to MuCalc calculated LAC values (Hanna & Ketcham 2017)
+                - "Calibrated to LAC (cm\u207B\xB9) using air and known mineral standards"
+                - Calibrated to Hounsfield Units (HU) relative to water
+                - N/A
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/ct-number-calibration
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Segmentation Method
+          description: Method and software used to separate distinct phases or features
+            in the reconstructed 3D volume, turning the grayscale volume into labelled
+            regions.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/segmentationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: segmentationMethodDefault
+            schema:name:
+              const: Segmentation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Global threshold (single grayscale boundary)
+                - Multi-threshold (separate range per phase)
+                - Manual threshold per phase
+                - 'Semi-automated: threshold + morphological filtering'
+                - Region growing
+                - Manual tracing
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/segmentation-method
           required:
           - '@id'
           - '@type'
@@ -10051,6 +11096,13 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+              enum:
+              - 16-bit
+              - 32-bit
+              - 8-bit
+              - N/A
+              - None
+              - missing
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/output-bit-depth
@@ -10166,7 +11218,21 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - Free-standing on stage pin
+                - Free-standing without holder
+                - Tube or vial
+                - Glass capillary
+                - Sealed bag or wrap
+                - Embedded or adhered
+                - On a flat support or substrate
+                - Fixed to the stage or gantry
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/sample-mounting-method
@@ -10414,6 +11480,81 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains:
+          title: Rotation Range
+          description: Total angular range over which projection images are acquired,
+            in degrees.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/rotationRangeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: rotationRangeDefault
+            schema:name:
+              const: Rotation Range
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: "\xB0"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Number of Projections
+          description: Total number of equally-spaced projection images acquired over
+            the full rotation range. For Mode B (multi-volume stitching), this is
+            the number per sub-volume.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/numberOfProjectionsDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: numberOfProjectionsDefault
+            schema:name:
+              const: Number of Projections
+            ada:dataType:
+              const: integer
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
           title: Rotation Step Size
           description: Angular increment between successive projection images, in
             degrees. Equal to Rotation Range divided by Number of Projections when
@@ -10444,6 +11585,47 @@ allOf:
               - type: string
             schema:unitText:
               const: "\xB0"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Exposure Time per Projection
+          description: "Duration of X-ray exposure for each individual projection
+            image frame, in seconds. Adjustment is warranted for samples that are
+            unusually dense or unusually transparent. If the exposure time was varied
+            across samples within the same procedure or session, report the full range
+            applied (e.g., 0.5\u20132 s)."
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/exposureTimePerProjectionDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: exposureTimePerProjectionDefault
+            schema:name:
+              const: Exposure Time per Projection
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
           required:
           - '@id'
           - '@type'
@@ -10516,9 +11698,61 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+              enum:
+              - "1\xD71 (no binning)"
+              - "2\xD72"
+              - "4\xD74"
+              - N/A
+              - None
+              - missing
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/detector-binning
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Rotation Mode
+          description: Whether projection images are acquired during continuous sample
+            rotation (faster; may introduce slight motion blur at high rotation speeds)
+            or at discrete step positions with the stage stationary during each exposure
+            (stop-and-shoot; eliminates motion blur).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/rotationModeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: rotationModeDefault
+            schema:name:
+              const: Rotation Mode
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+              enum:
+              - Step rotation (stop-and-shoot)
+              - Continuous rotation
+              - N/A
+              - None
+              - missing
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/rotation-mode
           required:
           - '@id'
           - '@type'
@@ -10656,10 +11890,69 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "None \u2014 raw instrument grayscale"
+                - Compared to MuCalc calculated LAC values (Hanna & Ketcham 2017)
+                - "Calibrated to LAC (cm\u207B\xB9) using air and known mineral standards"
+                - Calibrated to Hounsfield Units (HU) relative to water
+                - N/A
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/ct-number-calibration
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Segmentation Method
+          description: Method and software used to separate distinct phases or features
+            in the reconstructed 3D volume, turning the grayscale volume into labelled
+            regions.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/labxctTAPP/segmentationMethodDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: segmentationMethodDefault
+            schema:name:
+              const: Segmentation Method
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - Global threshold (single grayscale boundary)
+                - Multi-threshold (separate range per phase)
+                - Manual threshold per phase
+                - 'Semi-automated: threshold + morphological filtering'
+                - Region growing
+                - Manual tracing
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/segmentation-method
           required:
           - '@id'
           - '@type'
@@ -10805,6 +12098,13 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+              enum:
+              - 16-bit
+              - 32-bit
+              - 8-bit
+              - N/A
+              - None
+              - missing
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/output-bit-depth
@@ -11071,28 +12371,6 @@ allOf:
               schema:inDefinedTermSet: ada:vocab/instrumentType
           required:
           - schema:additionalType
-    ada:rotationRangeDefault:
-      description: Total angular range over which projection images are acquired,
-        in degrees.
-      anyOf:
-      - type: number
-      - type: string
-    ada:numberOfProjectionsDefault:
-      description: Total number of equally-spaced projection images acquired over
-        the full rotation range. For Mode B (multi-volume stitching), this is the
-        number per sub-volume.
-      anyOf:
-      - type: integer
-      - type: string
-    ada:exposureTimePerProjectionDefault:
-      description: "Duration of X-ray exposure for each individual projection image
-        frame, in seconds. Adjustment is warranted for samples that are unusually
-        dense or unusually transparent. If the exposure time was varied across samples
-        within the same procedure or session, report the full range applied (e.g.,
-        0.5\u20132 s)."
-      anyOf:
-      - type: number
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -11140,7 +12418,16 @@ allOf:
                           ada:tier:
                             const: R
                           schema:defaultValue:
-                            type: string
+                            anyOf:
+                            - type: string
+                              enum:
+                              - "Yes \u2014 flat-field applied; residual Poisson noise
+                                from flat-fielding noted"
+                              - "No \u2014 flux normalization not applied"
+                              - N/A
+                              - None
+                              - missing
+                            - type: string
                           schema:inDefinedTermSet:
                             const:
                               '@id': ada:vocab/flat-field-correction
@@ -11215,7 +12502,16 @@ allOf:
                           ada:tier:
                             const: R
                           schema:defaultValue:
-                            type: string
+                            anyOf:
+                            - type: string
+                              enum:
+                              - "Yes \u2014 flat-field applied; residual Poisson noise
+                                from flat-fielding noted"
+                              - "No \u2014 flux normalization not applied"
+                              - N/A
+                              - None
+                              - missing
+                            - type: string
                           schema:inDefinedTermSet:
                             const:
                               '@id': ada:vocab/flat-field-correction
@@ -11277,19 +12573,6 @@ allOf:
                   const: Data processing
               required:
               - schema:name
-    ada:rotationModeDefault:
-      description: Whether projection images are acquired during continuous sample
-        rotation (faster; may introduce slight motion blur at high rotation speeds)
-        or at discrete step positions with the stage stationary during each exposure
-        (stop-and-shoot; eliminates motion blur).
-      type: string
-      enum:
-      - Step rotation (stop-and-shoot)
-      - Continuous rotation
-      - N/A
-      - None
-      - missing
-      schema:inDefinedTermSet: ada:vocab/rotation-mode
     ada:minimumSubVolumeOverlap:
       description: Minimum number of reconstructed slices that must overlap between
         adjacent sub-volumes in a stitched dataset.
@@ -11344,24 +12627,6 @@ allOf:
         - missing
       - type: string
       schema:inDefinedTermSet: ada:vocab/output-data-format
-    ada:segmentationMethodDefault:
-      description: Method and software used to separate distinct phases or features
-        in the reconstructed 3D volume, turning the grayscale volume into labelled
-        regions.
-      anyOf:
-      - type: string
-        enum:
-        - Global threshold (single grayscale boundary)
-        - Multi-threshold (separate range per phase)
-        - Manual threshold per phase
-        - 'Semi-automated: threshold + morphological filtering'
-        - Region growing
-        - Manual tracing
-        - N/A
-        - None
-        - missing
-      - type: string
-      schema:inDefinedTermSet: ada:vocab/segmentation-method
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -11387,15 +12652,10 @@ allOf:
   - ada:applicableSampleDimensionRange
   - ada:xRaySourceConfiguration
   - ada:detectorType
-  - ada:rotationRangeDefault
-  - ada:numberOfProjectionsDefault
-  - ada:exposureTimePerProjectionDefault
-  - ada:rotationModeDefault
   - ada:minimumSubVolumeOverlap
   - ada:reconstructionAlgorithm
   - ada:beamHardeningCorrectionMethod
   - ada:outputDataFormatDefault
-  - ada:segmentationMethodDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

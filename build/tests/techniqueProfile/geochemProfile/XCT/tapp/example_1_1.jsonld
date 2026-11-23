@@ -96,6 +96,29 @@
       "schema:description": "679.51 mm"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4000
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 4.0,
+      "schema:description": "4.00 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -119,6 +142,17 @@
       "schema:defaultValue": "1\u00d71 (no binning)"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Continuous rotation"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/beamHardeningCorrectionParameterDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -138,7 +172,7 @@
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "16-bit (full grayscale range)"
+      "schema:defaultValue": "N/A"
     }
   ],
   "schema:instrument": [
@@ -185,8 +219,6 @@
       "@id": "ex:labxctTAPP-Eckley2024/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "4000",
-  "ada:exposureTimePerProjectionDefault": "4.00 s",
   "schema:actionProcess": {
     "schema:step": [
       {
@@ -235,7 +267,6 @@
     ],
     "schema:name": "Lab-XCT analytical workflow"
   },
-  "ada:rotationModeDefault": "Continuous rotation",
   "ada:beamHardeningCorrectionMethod": "Hardware filter (0.25 mm Al) + software BHC preset",
   "ada:outputDataFormatDefault": "TIFF (16-bit, 928 slices)",
   "schema:measurementTechnique": [
@@ -260,8 +291,6 @@
   "ada:detectorType": "missing",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }

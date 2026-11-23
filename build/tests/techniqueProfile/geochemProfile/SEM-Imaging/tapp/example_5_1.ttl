@@ -15,16 +15,17 @@ ex:semImagingTAPP-Izawa2010 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:ebsdIndexingMethod "missing" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault> ;
+                    schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressureDefault>,
+        <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clIntegrationTimeDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
     schema1:instrument [ a schema1:SoftwareApplication ;
@@ -48,12 +49,8 @@ ex:semImagingTAPP-Izawa2010 a schema1:Action,
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     ada:analyticalMode "CL Mapping" ;
     ada:clAcquisitionMode "Multi-channel pseudo-color" ;
-    ada:clIntegrationTimeDefault "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
     ada:clWavelengthRange "300–850 nm (UV ~300-400, Blue ~400-500, Green ~500-600, Red ~600-850)" ;
-    ada:dwellTimePerPixelDefault -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "CL colour (nominal)",
                 "CL zoning (nominal)" ;
             ada:reportedPropertyColumns [ schema1:name "no value available: schema:name" ;
@@ -80,6 +77,14 @@ ex:semImagingTAPP-Izawa2010 a schema1:Action,
     schema1:defaultValue "High vacuum" ;
     schema1:name "Chamber Pressure" ;
     schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semImagingTAPP/clIntegrationTimeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 80 ;
+    schema1:description "80–500 ms per pixel (varied based on IR luminescence duration in carbonates)" ;
+    schema1:name "CL Integration Time" ;
+    schema1:valueName "clIntegrationTimeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
