@@ -102,6 +102,15 @@ Profiles additionally compose base schemas via `allOf` references.
   postprocessor's `$ref` retriever parses response bytes as YAML and never inspects Content-Type.
   To move to a newer CDIF release, change the tag in these URLs and re-run
   `resolve_schema.py --refresh-remote`.
+- **A profile's conformance URI carries the CDIF version it is built on:**
+  `https://w3id.org/geochem/metadata/profiles/1.1/{profile name}` for every profile built on the
+  CDIF 1.1 conformance URIs (`snapshot-2026-11-16`). A record is validated against the current
+  build of the profile it names, and each CDIF profile requires its own versioned URI, so moving
+  the pin to a CDIF with new URIs (2.0) changes what every existing record must declare. When
+  the pin moves to such a CDIF, change the version segment in the same change
+  (`CID_BASE` in `build_profile.py`, `GEOCHEM_BASE` in `build_conformance_sidecars.py`, the
+  literals in `_tapp_lib.py`, the authored `BaseSchema` schemas and examples), so that records
+  declaring the 1.1 URIs keep naming the schemas they were written for.
 - Human-facing prose links in `description.md` files still point at the Pages base on purpose — a
   reader following a documentation link wants the rendered page, and raw would serve plain text.
   Those links do not affect validation.

@@ -2198,8 +2198,8 @@ _REQUIRED_CONFORMS_TO = [
     "https://w3id.org/cdif/data_description/1.1",
     "https://w3id.org/cdif/provenance/1.1",
     "https://w3id.org/cdif/manifest/1.1",
-    "https://w3id.org/geochem/metadata/profiles/adaEPMA",
-    "https://w3id.org/geochem/metadata/profiles/adaProduct",
+    "https://w3id.org/geochem/metadata/profiles/1.1/adaEPMA",
+    "https://w3id.org/geochem/metadata/profiles/1.1/adaProduct",
 ]
 
 

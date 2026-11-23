@@ -247,7 +247,7 @@ PROFILES = {
         title="ADA TIMS Product Profile"),                    # Thermal ionization mass spectrometry | TIMSProcessedTabular, TIMSRawCollection
 }
 
-CID_BASE = "https://w3id.org/geochem/metadata/profiles/"
+CID_BASE = "https://w3id.org/geochem/metadata/profiles/1.1/"
 
 #: Profiles that mean "any <technique>" and so form a family with their directory-prefixed
 #: siblings. CANONICAL HERE because two consumers need it and a second copy would drift:
