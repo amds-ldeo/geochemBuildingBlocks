@@ -1802,12 +1802,12 @@ ex:semImagingTAPP-detail-Izawa2010 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Gatan DigitalMicrograph" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Gatan DigitalMicrograph (CL image assembly)" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/semImagingTAPP-detail-Izawa2010/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Zircon and Accessory Phase Laboratory, University of Western Ontario" ] ;
@@ -2837,13 +2837,13 @@ ex:semImagingTAPP-detail-Liu2017-2 a schema1:Dataset,
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure> ;
             schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -3124,13 +3124,13 @@ ex:semImagingTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:target [ schema1:name "EBSD (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or SEM-specific preparation stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "BSE images obtained from both ZEISS 1550VP FE-SEM and JEOL 8200 electron microprobe (EPMA); quantitative EPMA on JEOL 8200 at 12 kV, 5 nA (out of scope for SEM TAPP)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -3482,10 +3482,10 @@ ex:semImagingTAPP-detail-Ma2017-2 a schema1:Dataset,
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
@@ -5149,13 +5149,13 @@ ex:semImagingTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -6484,7 +6484,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Imaging.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-22'
+  dateOfLastChange: '2026-11-23'
 
 ```
 

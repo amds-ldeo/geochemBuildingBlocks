@@ -1068,18 +1068,18 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
         ex:adaProduct-var-002,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
+            dqv:value "no value available: signalToNoiseRatio" ],
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
             dqv:value "no value available: beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "no value available: crossValidationOutcome" ],
-        [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
-            dqv:value "no value available: signalToNoiseRatio" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ] ;
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:labxctTAPP-P0 ;
@@ -1227,7 +1227,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-22'
+  dateOfLastChange: '2026-11-23'
 
 ```
 
