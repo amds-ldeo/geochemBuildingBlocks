@@ -25,8 +25,11 @@ ex:temTAPP-Seifert2026 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007. Reported detail: ada:spectroscopicDetectorDefault = EDS (JEOL 60 mm² SDD); ada:analyticalSubModeDefault = BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping; ada:edsAcquisitionModeDefault = Spectrum imaging (EDS elemental maps); false-color RGB maps." ;
+    schema1:description "Same instrument (JEOL 2500SE at JSC ARES) as KellerBerger2014 and Thompson2020. HAADF-STEM images shown in Figures 5–7 but no HAADF angles stated. EDS compositions in Table 2 are normalized to 100%; actual quantification method not stated. FIB prep technique references: Holzapfel et al. 2009; Seifert et al. 2022; Zega et al. 2007." ;
     schema1:instrument <https://example.org/temTAPP-Seifert2026/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
@@ -45,16 +48,9 @@ ex:temTAPP-Seifert2026 a schema1:Action,
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyticalSubModeDefault "BF-STEM" ;
-    ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "Map" ;
-    ada:edsCalibrationStandardDefault "no value available: ada:edsCalibrationStandardDefault" ;
     ada:edsQuantificationMethod "missing" ;
-    ada:eelsAcquisitionModeDefault "missing" ;
-    ada:eelsAcquisitionTimePerSpectrumDefault -9999 ;
     ada:eelsCollectionSemiAngle -9999 ;
-    ada:eelsEnergyLossRangeDefault "no value available: ada:eelsEnergyLossRangeDefault" ;
     ada:phaseIdentificationMethod "no value available: ada:phaseIdentificationMethod" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3 (wt%)",
                 "crystal orientation (nominal)",
@@ -71,8 +67,6 @@ ex:temTAPP-Seifert2026 a schema1:Action,
             ada:reportedPropertyDeclaration "F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3 (wt%); total (wt%); crystallinity (nominal); crystal orientation (nominal); textural relationships (nominal) — Apatite compositions by STEM EDS as oxide concentrations (wt%: F, Cl, SiO2, P2O5, CaO, MnO, Fe2O3, with totals; Table 2, p.11); crystallinity and orientation from zone-axis SAED patterns (nominal, p.12); textural relationships between apatite and phyllosilicate (nominal, Figs 6–7, pp.10–12)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Zoning, seen in CL before extraction — \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Grain (apatite) — one section, \"OREX-803173-100\", carrying \"Ap. #1 and Ap. #2\" (Fig. 5 caption, p.9); compositions are tabulated per grain (Table 2, p.11)" ;
-    ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "apatite" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -106,10 +100,31 @@ ex:temTAPP-Seifert2026 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "BF-STEM; DF-STEM; HAADF-STEM; STEM-EDS mapping" ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:valueName "analyticalSubModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:valueName "edsAcquisitionModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Quanta 3D FEG FIB-SEM at JSC; stair-step milling; in situ extraction; thinned to electron transparency (≤100 nm); techniques following Holzapfel et al. 2009, Seifert et al. 2022, Zega et al. 2007" ;
     schema1:name "Sample Preparation Details" ;
     schema1:valueName "samplePreparationDetailsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:valueName "spectroscopicDetectorDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

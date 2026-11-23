@@ -15,12 +15,6 @@ ex:semTAPP-Zhou2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -31,12 +25,21 @@ ex:semTAPP-Zhou2017 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 2 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
                     ada:ebsdIndexingMethod "missing" ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/imageRegistration3DDefault>,
+        <https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/semTAPP/workingDistanceDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction Reported detail: ada:segmentationMethod3DDefault = Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)." ;
+    schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Fiji/ImageJ (StackReg/TurboReg for slice alignment; VolumeJ for volume rendering); Adobe Photoshop CS6 (image enhancement); FEI Avizo Fire 8.1.1 (pore volume reconstruction and segmentation)" ;
@@ -52,14 +55,9 @@ ex:semTAPP-Zhou2017 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "3D Tomography" ;
     ada:clAcquisitionMode "missing" ;
-    ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is 3D Tomography. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
@@ -81,8 +79,6 @@ ex:semTAPP-Zhou2017 a schema1:Action,
     ada:samplingUnitSelectionCriteriaDefault "Stated, but by procedure rather than by criterion — \"an area within the coal sample was selected for FIB-SEM tomography\" following a published procedure (p.3), and the volume's adequacy is then tested under \"evaluation of representative volumes\" (§2.3, p.4); no rule is given for where the area was placed" ;
     ada:samplingUnitType "Sub-volume (FIB-SEM serial-sectioning volume) > Phase (pore types) — \"an area within the coal sample was selected for FIB-SEM tomography\" on \"cuboidal-shaped 0.5 × 1 × 1 cm3 coal samples\", and \"~800 SEM images of FIB slices were obtained\" at a \"pixel-size of 14.8 × 14.8 nm\" (pp.3–4)" ;
     ada:seDetectorType "missing" ;
-    ada:segmentationMethod3DDefault "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "subbituminous coal" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -96,8 +92,29 @@ ex:semTAPP-Zhou2017 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ;
             ada:targetMaterialDeclaration "subbituminous coal; high-volatile bituminous coal — Subbituminous coal (SC) and high-volatile bituminous coal (HBC), Xishanyao Formation, southern Junggar Basin, NW China" ] ;
-    ada:wdsDeadTimeCorrection "missing" ;
-    ada:workingDistanceDefault "4 mm" .
+    ada:wdsDeadTimeCorrection "missing" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/imageRegistration3DDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Fiji/ImageJ StackReg and TurboReg plugins used for slice realignment" ;
+    schema1:name "3D Image Registration" ;
+    schema1:valueName "imageRegistration3DDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Semi-automatic porosity segmentation by grayscale thresholding; pore volume reconstruction using FEI Avizo Fire 8.1.1; connected component analysis for pore network extraction (PNE)" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semTAPP/workingDistanceDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4 ;
+    schema1:description "4 mm" ;
+    schema1:name "Working Distance" ;
+    schema1:valueName "workingDistanceDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;

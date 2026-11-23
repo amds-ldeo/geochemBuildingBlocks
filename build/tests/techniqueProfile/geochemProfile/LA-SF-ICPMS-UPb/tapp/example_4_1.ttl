@@ -14,12 +14,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
@@ -29,12 +23,19 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Flat polished thick sections (§2.1)" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -61,13 +62,13 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ],
+            schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
-        [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Inherited or Initial Signal Correction" ] ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "all: single spot ablation — §2.2.4" ;
     ada:ablationSpotDurationDefault "20 s spot ablation (plus 10 s washout); 25 cycles acquisition" ;
@@ -82,7 +83,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
     ada:internalStandardElement "all: none — oxide-sum normalisation (App. C3)" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "no value available: ada:massResolutionAssignment" ;
-    ada:massesMeasuredDefault "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — spot mode" ;
@@ -172,13 +172,19 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-3 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

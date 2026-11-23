@@ -15,6 +15,13 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -27,14 +34,7 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Ion milling" ;
-                    schema1:position 3 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ] ] ;
+                    schema1:position 3 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
     schema1:instrument <https://example.org/semTAPP-Zega2025-8/instrument/SEM> ;
@@ -57,14 +57,9 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "TEM Sample Preparation" ;
     ada:clAcquisitionMode "missing" ;
-    ada:clIntegrationTimeDefault -9999 ;
     ada:clWavelengthRange -9999 ;
     ada:ebsdDetectorConfiguration "no value available: ada:ebsdDetectorConfiguration" ;
-    ada:ebsdPhaseListDefault "no value available: ada:ebsdPhaseListDefault" ;
-    ada:ebsdStepSizeDefault -9999 ;
     ada:edsAcquisitionMode "missing" ;
-    ada:edsLiveTimePerPointOrPixelDefault -9999 ;
-    ada:imageRegistration3DDefault "no value available: ada:imageRegistration3DDefault" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N/A — this procedure is TEM Sample Preparation. No X-ray spectrum is acquired, so no element is monitored; `Monitored Elements` is flagged N for this mode in the mode-flag columns" ;
@@ -81,8 +76,6 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
     ada:samplingUnitSelectionCriteriaDefault "N — the passage states only that \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10), and no rule for choosing where to cut" ;
     ada:samplingUnitType "Grain (Bennu particle) > Sub-volume (FIB section) — \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10)" ;
     ada:seDetectorType "missing" ;
-    ada:segmentationMethod3DDefault "missing" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Bennu particles" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -95,8 +88,7 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
-    ada:wdsDeadTimeCorrection "missing" ;
-    ada:workingDistanceDefault -9999 .
+    ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;

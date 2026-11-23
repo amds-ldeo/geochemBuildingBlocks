@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp - FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)",
   "bblockName": "FIB-SEM Technique-Aligned Protocol Profile (semFibsemTAPP)",
   "bblockId": "ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.tapp",
-  "generated": "2026-11-23T03:09:01.739462+00:00",
+  "generated": "2026-11-23T18:57:16.938030+00:00",
   "result": true,
   "items": [
     {
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 119,
+              "size": 116,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -120,7 +120,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ] .\n\n_:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Garvie2008/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Garvie2008/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ] .\n\n_:n0ceb4154ab5f4ef9b0bb362c6a458402b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -160,15 +160,15 @@
                 "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -246,15 +246,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -313,7 +313,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 143,
+              "size": 147,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -392,7 +392,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Liu2017/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Liu2017/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ] .\n\n_:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Liu2017/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Liu2017/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ] .\n\n_:n0ceb4154ab5f4ef9b0bb362c6a458402b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -432,15 +432,15 @@
                 "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -518,15 +518,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -585,7 +585,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_3_1.ttl",
-              "size": 124,
+              "size": 135,
               "isError": false,
               "message": "Output Turtle example_3_1.ttl created"
             }
@@ -662,7 +662,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ] .\n\n_:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zhou2017/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zhou2017/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ] .\n\n_:n0ceb4154ab5f4ef9b0bb362c6a458402b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -702,15 +702,15 @@
                 "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -788,15 +788,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -855,7 +855,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_4_1.ttl",
-              "size": 132,
+              "size": 129,
               "isError": false,
               "message": "Output Turtle example_4_1.ttl created"
             }
@@ -934,7 +934,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ] .\n\n_:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ] .\n\n_:n0ceb4154ab5f4ef9b0bb362c6a458402b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -974,15 +974,15 @@
                 "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1060,15 +1060,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1127,7 +1127,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_5_1.ttl",
-              "size": 134,
+              "size": 131,
               "isError": false,
               "message": "Output Turtle example_5_1.ttl created"
             }
@@ -1206,7 +1206,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-2/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ] .\n\n_:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-2/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-2/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ] .\n\n_:n0ceb4154ab5f4ef9b0bb362c6a458402b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -1246,15 +1246,15 @@
                 "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1332,15 +1332,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1399,7 +1399,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_6_1.ttl",
-              "size": 146,
+              "size": 143,
               "isError": false,
               "message": "Output Turtle example_6_1.ttl created"
             }
@@ -1478,7 +1478,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-3/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 ] .\n\n_:nbbc7cc49d0d647caaeb4f7f0a7a2972db3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-3/instrument/SEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/semFibsemTAPP-Zega2025-3/instrument/FIBSEM> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n0ceb4154ab5f4ef9b0bb362c6a458402b3 ] .\n\n_:n0ceb4154ab5f4ef9b0bb362c6a458402b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -1518,15 +1518,15 @@
                 "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
                 },
-                "cdifd:provUsedInstrumentParamValueShape": {
+                "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
-                "cdifd:adaInstrumentShape": {
+                "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:provUsedInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -1604,15 +1604,15 @@
             {
               "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
               "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
+                "cdifd:tappDefinitionShape": {
                   "nodes": []
                 },
-                "cdifd:tappDefinitionShape": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:tappDefinitionShape: *none*\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n"
             },
             {
               "op": "shacl-report",

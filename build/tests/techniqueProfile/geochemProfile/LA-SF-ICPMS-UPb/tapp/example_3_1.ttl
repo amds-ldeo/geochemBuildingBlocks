@@ -20,23 +20,24 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ] ] ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
@@ -63,13 +64,13 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
             schema1:target [ schema1:name "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
+            schema1:name "Reported Date Type" ],
+        [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ],
         [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
-            schema1:name "Reported Date Type" ] ;
+            schema1:value "no value available: schema:value" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
     ada:ablationSamplingMode "run 1: line scan, 400 µm; run 2: line scan on top of run 1, 400 µm — 'a second line-scan was completed on top of the first one' (§2.2.3)" ;
     ada:ablationSpotDurationDefault "50 s of sample ablation per 400 µm line, both runs — Table B1" ;
@@ -84,7 +85,6 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
     ada:internalStandardElement "run 1: none (oxide sum); run 2: Cr (concentration from run 1) — §2.2.3" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "run 1: medium resolution (M/ΔM = 4000); run 2: low resolution (M/ΔM = 300) — §2.2.3" ;
-    ada:massesMeasuredDefault "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "N/A — line scan + spot; not 2D mapping" ;
@@ -172,13 +172,19 @@ ex:laSficpmsUPbTAPP-Chernonozhkin2021-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "²⁵Mg → Mg; ²⁹Si → Si; ³¹P → P; ⁴⁴Ca → Ca; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁷Li → Li; ⁴⁵Sc → Sc; ⁵¹V → V; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au; ²³²Th → Th; ²³⁸U → U — run 1: '25Mg, 29Si, 31P, 44Ca, 53Cr, 55Mn and 57Fe'; run 2: 36 nuclides (§2.2.3), ⁵³Cr also in run 2 (Table B1)" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

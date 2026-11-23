@@ -1195,16 +1195,16 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ] ;
     prov:wasGeneratedBy [ a schema1:Action,

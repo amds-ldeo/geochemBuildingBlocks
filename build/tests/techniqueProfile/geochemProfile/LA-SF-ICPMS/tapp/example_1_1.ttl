@@ -14,6 +14,13 @@ ex:laSficpmsTAPP-Zhang2022 a schema1:Action,
             schema1:name "LA-SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens" ;
                     schema1:name "Sample preparation" ;
@@ -23,14 +30,7 @@ ex:laSficpmsTAPP-Zhang2022 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -68,7 +68,6 @@ ex:laSficpmsTAPP-Zhang2022 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "no value available: ada:blankBackgroundCorrectionMethod" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "no value available: ada:carrierGasFlowRateDefault" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:elementalFractionationCorrection "N — 'Standardization techniques followed those of Humayun (2012)' (§2.2); the standards are under Primary Calibration Standard Name" ;
     ada:internalStandardApproach "N — 'Standardization techniques followed those of Humayun (2012)' (§2.2)" ;
     ada:internalStandardElement "N — not stated; standardization follows Humayun (2012)" ;
@@ -141,7 +140,6 @@ ex:laSficpmsTAPP-Zhang2022 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/massResolutionSettingDefault> a schema1:PropertyValueSpecification ;

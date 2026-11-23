@@ -2824,12 +2824,12 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "Post-reconstruction ring corrections applied; severity not documented" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ] ;
+            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "Post-reconstruction ring corrections applied; severity not documented" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment — drive tube scanned unopened; \"It was thus decided to leave the core in its stainless steel outer sleeve for scanning\" (pp.4–5)" ;
@@ -3276,13 +3276,13 @@ ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/effectiveSpatialResolution> ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -5260,13 +5260,13 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
     schema1:distribution [ schema1:encodingFormat "TIFF (continuous series of 2D TIFF images)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Powder or crushed split — chips \"lightly crushed by hand\", then \"further ground down by hand with a pestle until no visible fragments could be observed\", vortex mixed 3 min and \"split into two approximately equal mass portions\" (p.3); Murchison B (4.6430 g) was scanned" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -6732,13 +6732,13 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Separated grain or crystal — \"a single olivine phenocryst (1.0 mm large) separated from Sample A\" (p.2); epoxy mounting \"carried out after HRXCT analysis\" (Fig. 1, p.4)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -7523,13 +7523,13 @@ ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -9183,13 +9183,13 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
             dqv:value "Software ring artifact correction applied; outcome not documented" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -9927,13 +9927,13 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
             dqv:value "XCT qualitatively compared with thin sections and EBSD; cm-scale plagioclase confirmed" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Core or trimmed billet — \"An 8 mm diameter core was drilled from the Watson 012 sample and then scanned\" (p.9)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,

@@ -15,23 +15,29 @@ ex:temTAPP-Cymes2023-2 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
-    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault>,
+                    schema1:position 1 ] ] ;
+    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionModeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrumDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyCalibrationDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyDispersion>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRangeDefault>,
+        <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeCurrentDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/stemProbeDiameterDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe³⁺/ΣFe quantified by integral I(L3)/I(L2) ratio → Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe⁰+Fe²⁺ not separated by MLLS (overlapping L3 peaks); Fe⁰ identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174. Reported detail: ada:spectroscopicDetectorDefault = EELS (Gatan Enfinium ER Dual EELS); EDS (Bruker X-Flash windowless SDD, 0.7 sr solid angle); ada:analyticalSubModeDefault = HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging; ada:edsAcquisitionModeDefault = Spectrum imaging (SI): simultaneous EELS + EDS at each pixel; both low-loss and core-loss EELS collected; ada:edsQuantificationMethod = Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%; ada:eelsAcquisitionModeDefault = Dual EELS spectrum imaging (simultaneous low-loss and core-loss)." ;
+    schema1:description "Nion UltraSTEM200-X at NRL; dedicated aberration-corrected STEM; cold-FEG; 0.1 nm probe diameter; 40 pA; 200 keV. Gatan Enfinium ER Dual EELS (simultaneous low-loss + core-loss spectrum imaging). Bruker X-Flash windowless SDD EDS (0.7 sr). EELS Fe³⁺/ΣFe quantified by integral I(L3)/I(L2) ratio → Van Aken & Liebscher (2002) universal calibration curve. Oxidation state maps by MLLS fitting with 2 reference spectra; Fe⁰+Fe²⁺ not separated by MLLS (overlapping L3 peaks); Fe⁰ identified by anti-correlation with O K-edge. EDS: Cliff-Lorimer; detector-specific k-factors; 60% O assumed; no absorption correction. Coordinated with JEOL JEM-2200FS (same FIB section). EELS + EDS acquisition details in supplementary Fig. S1. Data deposited at Zenodo: 10.5281/zenodo.7439174. Reported detail: ada:edsQuantificationMethod = Cliff-Lorimer method with detector-specific k-factors; no absorption correction (sample thin); pyroxene compositions calculated with assumed O stoichiometry of 60%." ;
     schema1:instrument <https://example.org/temTAPP-Cymes2023-2/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
@@ -50,17 +56,10 @@ ex:temTAPP-Cymes2023-2 a schema1:Action,
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
-    ada:analyticalSubModeDefault "ADF" ;
-    ada:cameraLengthDefault -9999 ;
     ada:convergenceSemiAngle -9999 ;
-    ada:edsAcquisitionModeDefault "N/A" ;
-    ada:edsCalibrationStandardDefault "no value available: ada:edsCalibrationStandardDefault" ;
     ada:edsQuantificationMethod "Cliff-Lorimer (k-factor)" ;
-    ada:eelsAcquisitionModeDefault "N/A" ;
-    ada:eelsAcquisitionTimePerSpectrumDefault "Fe (L2,3); O (K)" ;
     ada:eelsCollectionSemiAngle "Power-law background removal" ;
     ada:eelsEdgesDefault "\"Fe L2,3 edge\" (700–735 eV) → Fe; \"O K-edge\" (528–550 eV) → O" ;
-    ada:eelsEnergyLossRangeDefault "Fe (L2,3); O (K)" ;
     ada:phaseIdentificationMethod "EELS oxidation state mapping by MLLS fitting; HAADF-STEM + EDS chemical mapping; Fe⁰ identified by anti-correlation with O K-edge and lattice fringe measurement in HR images" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Fe oxidation-state distribution (nominal)",
                 "iron oxidation state (nominal)",
@@ -78,8 +77,6 @@ ex:temTAPP-Cymes2023-2 a schema1:Action,
             ada:reportedPropertyDeclaration "iron oxidation state (nominal); Fe oxidation-state distribution (nominal); nanophase iron particle size (nm); nanophase iron abundance; lamella width (nm); lamellar and rim microstructure (nominal) — Iron oxidation states and their distribution from EELS spectrum imaging (nominal: \"the presence and heterogeneous distribution of Fe0, Fe2+, and Fe3+ in the exsolved pyroxene\", p.1); nanophase iron particle size and abundance (nm, compared between augite and pigeonite lamellae, p.1); lamellar and rim microstructure from BF/EF-TEM and SAED, with lamellae \"20–35 nm wide\" (p.4)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Position on the space-weathered surface — the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx,”\" which \"was first protected with a 1–2 lm thick layer of electron beam deposited amorphous carbon\" (p.3)" ;
     ada:samplingUnitType "Sub-volume (FIB section) > Grain (pyroxene) — one section carrying the grains \"1pyx\" and \"2pyx\" (p.3); \"Both EELS and EDS data were acquired as spectrum images (SI), in which a spectrum is acquired at each pixel in a given image\" (p.3)" ;
-    ada:spectroscopicDetectorDefault "N/A" ;
-    ada:stemDwellTimePerPixelDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "pyroxene" ;
             ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -110,6 +107,35 @@ ex:temTAPP-Cymes2023-2 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "HAADF-STEM; STEM-EELS spectrum imaging; STEM-EDS spectrum imaging" ;
+    schema1:name "Analytical Sub-mode" ;
+    schema1:valueName "analyticalSubModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "EDS Acquisition Mode" ;
+    schema1:valueName "edsAcquisitionModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "EELS Acquisition Mode" ;
+    schema1:valueName "eelsAcquisitionModeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrumDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2 ;
+    schema1:description "Fe (L2,3); O (K)" ;
+    schema1:name "EELS Acquisition Time per Spectrum" ;
+    schema1:valueName "eelsAcquisitionTimePerSpectrumDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/temTAPP/eelsChemicalStateDeterminationMethodDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Integral white-line intensity ratio I(L3)/I(L2) → Van Aken & Liebscher (2002) universal calibration curve for Fe³⁺/ΣFe; MLLS fitting of Fe L2,3 ELNES with two reference spectra for oxidation state maps" ;
     schema1:name "EELS Chemical State Determination Method" ;
@@ -124,10 +150,24 @@ ex:temTAPP-Cymes2023-2 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/temTAPP/eelsEnergyLossRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Fe (L2,3); O (K)" ;
+    schema1:name "EELS Energy Loss Range" ;
+    schema1:valueName "eelsEnergyLossRangeDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "FEI Helios G3 Dual Beam FIB-SEM at NRL; ~80 nm amorphous C coating applied to grain before FIB; 1–2 µm e-beam amorphous C protection strip; initial in situ thinning to ~1–2 µm, then Pt-welded to Cu TEM half-grid; thinned to ~80–100 nm; stored under N₂; baked 140°C for 8 h under vacuum before TEM" ;
     schema1:name "Sample Preparation Details" ;
     schema1:valueName "samplePreparationDetailsDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "N/A" ;
+    schema1:name "Spectroscopic Detector(s)" ;
+    schema1:valueName "spectroscopicDetectorDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

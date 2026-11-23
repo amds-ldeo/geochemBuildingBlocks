@@ -11504,6 +11504,47 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
+        - title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per
+            pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/epmaTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              enum:
+              - EDS Live Time per Point or Pixel
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: EDS Spectral Processing Type
           description: Method used to process EDS spectra and extract net peak intensities
             from raw spectral data. Applied before quantification (see Matrix Correction
@@ -11565,7 +11606,15 @@ allOf:
               enum:
               - R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH"
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               enum:
               - '@id': ada:vocab/halogen-correction-on-oxygen
@@ -11606,6 +11655,48 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
+        - title: Step Size / Pixel Size
+          description: Distance between adjacent measurement points in the X-ray map
+            in micrometers, defining the spatial resolution. Report both X and Y step
+            if they differ.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/epmaTAPP/stepSizePixelSizeDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - stepSizePixelSizeDefault
+            schema:name:
+              enum:
+              - Step Size / Pixel Size
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - "\xB5m"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
       allOf:
       - contains:
           title: Drift Correction
@@ -11637,6 +11728,50 @@ allOf:
               - R
             schema:defaultValue:
               type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per
+            pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/epmaTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              enum:
+              - EDS Live Time per Point or Pixel
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - s
           required:
           - '@id'
           - '@type'
@@ -11711,7 +11846,15 @@ allOf:
               enum:
               - R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - "Yes \u2014 F and Cl substitution in apatite; O calculated as 1-F-Cl=OH"
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               enum:
               - '@id': ada:vocab/halogen-correction-on-oxygen
@@ -11755,6 +11898,51 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Step Size / Pixel Size
+          description: Distance between adjacent measurement points in the X-ray map
+            in micrometers, defining the spatial resolution. Report both X and Y step
+            if they differ.
+          type: object
+          properties:
+            '@id':
+              enum:
+              - ada:parameter/epmaTAPP/stepSizePixelSizeDefault
+            '@type':
+              enum:
+              - - schema:PropertyValueSpecification
+            schema:valueName:
+              enum:
+              - stepSizePixelSizeDefault
+            schema:name:
+              enum:
+              - Step Size / Pixel Size
+            ada:dataType:
+              enum:
+              - number
+            ada:fieldScope:
+              enum:
+              - session
+            schema:readonlyValue: {}
+            ada:tier:
+              enum:
+              - R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              enum:
+              - "\xB5m"
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         minContains: 0
         maxContains: 1
     ada:edsAcquisitionMode:
@@ -11804,12 +11992,6 @@ allOf:
                     $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/EPMA/tapp/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.modules.samplingUnitSelection/$defs/Param_Procedure_preAnalysisImagingAndScreening
                   minContains: 0
                   maxContains: 1
-    ada:edsLiveTimePerPointOrPixelDefault:
-      description: EDS spectral acquisition live time per analysis point or per pixel
-        in seconds.
-      anyOf:
-      - type: number
-      - type: string
     schema:actionProcess:
       type: object
       properties:
@@ -11994,13 +12176,6 @@ allOf:
       - type: string
       schema:inDefinedTermSet: ada:vocab/matrix-correction-method
       readOnly: true
-    ada:stepSizePixelSizeDefault:
-      description: Distance between adjacent measurement points in the X-ray map in
-        micrometers, defining the spatial resolution. Report both X and Y step if
-        they differ.
-      anyOf:
-      - type: number
-      - type: string
     ada:wdsDeadTimeCorrection:
       description: "Method used to correct for WDS proportional counter dead time
         at high count rates. Unlike EDS dead time \u2014 which is hardware-managed
@@ -12037,10 +12212,8 @@ allOf:
         - WDS Mapping
   required:
   - ada:edsAcquisitionMode
-  - ada:edsLiveTimePerPointOrPixelDefault
   - ada:massAbsorptionCoefficients
   - ada:matrixCorrectionMethod
-  - ada:stepSizePixelSizeDefault
   - ada:wdsDeadTimeCorrection
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.tapp

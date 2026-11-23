@@ -233,6 +233,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -483,6 +486,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -733,6 +739,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -983,6 +992,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -1233,6 +1245,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -1483,6 +1498,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -1733,6 +1751,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -1983,6 +2004,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -2387,6 +2411,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -3013,6 +3040,9 @@ $defs:
         const: EDS Spectral Processing Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eds-spectral-processing-type
     required:
     - '@id'
     - '@type'
@@ -3067,6 +3097,9 @@ $defs:
         const: Halogen Correction on Oxygen
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/halogen-correction-on-oxygen
     required:
     - '@id'
     - '@type'
@@ -3309,6 +3342,9 @@ $defs:
         const: Proportional Counter / Detector
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/proportional-counter-detector
     required:
     - '@id'
     - '@type'
@@ -3362,6 +3398,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -3473,6 +3512,9 @@ $defs:
         const: Stage Scan vs. Beam Scan
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/stage-scan-vs-beam-scan
     required:
     - '@id'
     - '@type'
@@ -3557,6 +3599,9 @@ $defs:
         const: Target Species Estimation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/target-species-estimation-method
     required:
     - '@id'
     - '@type'
@@ -3582,6 +3627,9 @@ $defs:
         const: Time-Dependent Intensity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
     required:
     - '@id'
     - '@type'
@@ -3607,6 +3655,9 @@ $defs:
         const: WDS PHA Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/wds-pha-setting
     required:
     - '@id'
     - '@type'
@@ -3685,6 +3736,9 @@ $defs:
         const: X-ray Background Correction Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-background-correction-method
     required:
     - '@id'
     - '@type'
@@ -3905,6 +3959,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -4155,6 +4212,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -4405,6 +4465,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -4655,6 +4718,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -4905,6 +4971,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -5155,6 +5224,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -5405,6 +5477,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -5655,6 +5730,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -5905,6 +5983,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -6949,6 +7030,9 @@ $defs:
         const: Laser Beam Energy Profile
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/laser-beam-energy-profile
     required:
     - '@id'
     - '@type'
@@ -7120,6 +7204,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -7426,6 +7513,9 @@ $defs:
         const: Reaction Gas Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reaction-gas-type
     required:
     - '@id'
     - '@type'
@@ -7477,6 +7567,9 @@ $defs:
         const: Reported Date Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reported-date-type
     required:
     - '@id'
     - '@type'
@@ -7558,6 +7651,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -7583,6 +7679,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -8729,6 +8828,9 @@ $defs:
         const: Laser Beam Energy Profile
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/laser-beam-energy-profile
     required:
     - '@id'
     - '@type'
@@ -8900,6 +9002,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -9206,6 +9311,9 @@ $defs:
         const: Reaction Gas Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reaction-gas-type
     required:
     - '@id'
     - '@type'
@@ -9314,6 +9422,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -9339,6 +9450,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -10564,6 +10678,9 @@ $defs:
         const: Laser Beam Energy Profile
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/laser-beam-energy-profile
     required:
     - '@id'
     - '@type'
@@ -10735,6 +10852,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -10929,6 +11049,9 @@ $defs:
         const: Pulse/Analog Detector Nonlinearity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -11014,6 +11137,9 @@ $defs:
         const: Reaction Gas Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reaction-gas-type
     required:
     - '@id'
     - '@type'
@@ -11065,6 +11191,9 @@ $defs:
         const: Reported Date Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reported-date-type
     required:
     - '@id'
     - '@type'
@@ -11146,6 +11275,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -11171,6 +11303,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -12321,6 +12456,9 @@ $defs:
         const: Laser Beam Energy Profile
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/laser-beam-energy-profile
     required:
     - '@id'
     - '@type'
@@ -12492,6 +12630,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -12686,6 +12827,9 @@ $defs:
         const: Pulse/Analog Detector Nonlinearity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -12771,6 +12915,9 @@ $defs:
         const: Reaction Gas Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reaction-gas-type
     required:
     - '@id'
     - '@type'
@@ -12879,6 +13026,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -12904,6 +13054,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -14101,6 +14254,9 @@ $defs:
         const: Laser Beam Energy Profile
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/laser-beam-energy-profile
     required:
     - '@id'
     - '@type'
@@ -14272,6 +14428,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -14466,6 +14625,9 @@ $defs:
         const: Pulse/Analog Detector Nonlinearity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -14515,6 +14677,9 @@ $defs:
         const: Reported Date Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reported-date-type
     required:
     - '@id'
     - '@type'
@@ -14596,6 +14761,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -14621,6 +14789,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -14886,6 +15057,9 @@ $defs:
         const: Triple Scanning Mode
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/triple-scanning-mode
     required:
     - '@id'
     - '@type'
@@ -15736,6 +15910,9 @@ $defs:
         const: Laser Beam Energy Profile
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/laser-beam-energy-profile
     required:
     - '@id'
     - '@type'
@@ -15907,6 +16084,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -16101,6 +16281,9 @@ $defs:
         const: Pulse/Analog Detector Nonlinearity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -16207,6 +16390,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -16232,6 +16418,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -16497,6 +16686,9 @@ $defs:
         const: Triple Scanning Mode
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/triple-scanning-mode
     required:
     - '@id'
     - '@type'
@@ -16804,6 +16996,9 @@ $defs:
         const: CT Number Calibration
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/ct-number-calibration
     required:
     - '@id'
     - '@type'
@@ -16877,6 +17072,9 @@ $defs:
         const: Detector Binning
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/detector-binning
     required:
     - '@id'
     - '@type'
@@ -16998,6 +17196,9 @@ $defs:
         const: Flat Field Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/flat-field-correction
     required:
     - '@id'
     - '@type'
@@ -17133,6 +17334,9 @@ $defs:
         const: Output Bit Depth
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/output-bit-depth
     required:
     - '@id'
     - '@type'
@@ -17157,6 +17361,9 @@ $defs:
         const: Output Data Format
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/output-data-format
     required:
     - '@id'
     - '@type'
@@ -17395,6 +17602,9 @@ $defs:
         const: Rotation Mode
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/rotation-mode
     required:
     - '@id'
     - '@type'
@@ -17513,6 +17723,9 @@ $defs:
         const: Sample Mounting Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-mounting-method
     required:
     - '@id'
     - '@type'
@@ -17566,6 +17779,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -17620,6 +17836,9 @@ $defs:
         const: Segmentation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/segmentation-method
     required:
     - '@id'
     - '@type'
@@ -17952,6 +18171,9 @@ $defs:
         const: X-ray Tube Anode Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-tube-anode-material
     required:
     - '@id'
     - '@type'
@@ -18172,6 +18394,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -18422,6 +18647,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -18672,6 +18900,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -18922,6 +19153,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -19172,6 +19406,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -19422,6 +19659,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -19672,6 +19912,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -19922,6 +20165,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -20172,6 +20418,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -20501,6 +20750,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -20751,6 +21003,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -21001,6 +21256,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -21251,6 +21509,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -21501,6 +21762,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -22159,6 +22423,9 @@ $defs:
         const: EDS Spectral Processing Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eds-spectral-processing-type
     required:
     - '@id'
     - '@type'
@@ -22213,6 +22480,9 @@ $defs:
         const: Halogen Correction on Oxygen
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/halogen-correction-on-oxygen
     required:
     - '@id'
     - '@type'
@@ -22455,6 +22725,9 @@ $defs:
         const: Proportional Counter / Detector
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/proportional-counter-detector
     required:
     - '@id'
     - '@type'
@@ -22508,6 +22781,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -22619,6 +22895,9 @@ $defs:
         const: Stage Scan vs. Beam Scan
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/stage-scan-vs-beam-scan
     required:
     - '@id'
     - '@type'
@@ -22702,6 +22981,9 @@ $defs:
         const: Target Species Estimation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/target-species-estimation-method
     required:
     - '@id'
     - '@type'
@@ -22727,6 +23009,9 @@ $defs:
         const: Time-Dependent Intensity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
     required:
     - '@id'
     - '@type'
@@ -22752,6 +23037,9 @@ $defs:
         const: WDS PHA Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/wds-pha-setting
     required:
     - '@id'
     - '@type'
@@ -22859,6 +23147,9 @@ $defs:
         const: X-ray Background Correction Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-background-correction-method
     required:
     - '@id'
     - '@type'
@@ -23292,6 +23583,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -23346,6 +23640,9 @@ $defs:
         const: Segmentation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/segmentation-method
     required:
     - '@id'
     - '@type'
@@ -23978,6 +24275,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -24927,6 +25227,9 @@ $defs:
         const: EDS Spectral Processing Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eds-spectral-processing-type
     required:
     - '@id'
     - '@type'
@@ -25034,6 +25337,9 @@ $defs:
         const: Halogen Correction on Oxygen
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/halogen-correction-on-oxygen
     required:
     - '@id'
     - '@type'
@@ -25328,6 +25634,9 @@ $defs:
         const: Proportional Counter / Detector
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/proportional-counter-detector
     required:
     - '@id'
     - '@type'
@@ -25407,6 +25716,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -25487,6 +25799,9 @@ $defs:
         const: Segmentation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/segmentation-method
     required:
     - '@id'
     - '@type'
@@ -25570,6 +25885,9 @@ $defs:
         const: Stage Scan vs. Beam Scan
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/stage-scan-vs-beam-scan
     required:
     - '@id'
     - '@type'
@@ -25653,6 +25971,9 @@ $defs:
         const: Target Species Estimation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/target-species-estimation-method
     required:
     - '@id'
     - '@type'
@@ -25678,6 +25999,9 @@ $defs:
         const: Time-Dependent Intensity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/time-dependent-intensity-correction
     required:
     - '@id'
     - '@type'
@@ -25703,6 +26027,9 @@ $defs:
         const: WDS PHA Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/wds-pha-setting
     required:
     - '@id'
     - '@type'
@@ -25810,6 +26137,9 @@ $defs:
         const: X-ray Background Correction Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/x-ray-background-correction-method
     required:
     - '@id'
     - '@type'
@@ -26030,6 +26360,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -26280,6 +26613,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -26743,6 +27079,9 @@ $defs:
         const: Desolvation System
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/desolvation-system
     required:
     - '@id'
     - '@type'
@@ -27214,6 +27553,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -27445,6 +27787,9 @@ $defs:
         const: Reaction Gas Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reaction-gas-type
     required:
     - '@id'
     - '@type'
@@ -27582,6 +27927,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -27636,6 +27984,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -28225,6 +28576,9 @@ $defs:
         const: Desolvation System
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/desolvation-system
     required:
     - '@id'
     - '@type'
@@ -28643,6 +28997,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -28787,6 +29144,9 @@ $defs:
         const: Pulse/Analog Detector Nonlinearity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -28847,6 +29207,9 @@ $defs:
         const: Reaction Gas Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reaction-gas-type
     required:
     - '@id'
     - '@type'
@@ -28984,6 +29347,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -29038,6 +29404,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -29539,6 +29908,9 @@ $defs:
         const: Desolvation System
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/desolvation-system
     required:
     - '@id'
     - '@type'
@@ -29986,6 +30358,9 @@ $defs:
         const: Mass Resolution Setting
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/mass-resolution-setting
     required:
     - '@id'
     - '@type'
@@ -30130,6 +30505,9 @@ $defs:
         const: Pulse/Analog Detector Nonlinearity Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
     required:
     - '@id'
     - '@type'
@@ -30240,6 +30618,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -30294,6 +30675,9 @@ $defs:
         const: Sampler and Skimmer Cone Material
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sampler-and-skimmer-cone-material
     required:
     - '@id'
     - '@type'
@@ -30446,6 +30830,9 @@ $defs:
         const: Triple Scanning Mode
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/triple-scanning-mode
     required:
     - '@id'
     - '@type'
@@ -30694,6 +31081,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -30944,6 +31334,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -31194,6 +31587,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -31444,6 +31840,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -31563,6 +31962,9 @@ $defs:
         const: Analytical Sub-mode
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/analytical-sub-mode
     required:
     - '@id'
     - '@type'
@@ -31812,6 +32214,9 @@ $defs:
         const: Diffraction Camera Length Calibration Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/diffraction-camera-length-calibration-method
     required:
     - '@id'
     - '@type'
@@ -31876,6 +32281,9 @@ $defs:
         const: EDS Acquisition Mode
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eds-acquisition-mode
     required:
     - '@id'
     - '@type'
@@ -32012,6 +32420,9 @@ $defs:
         const: EDS Spectral Processing Type
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eds-spectral-processing-type
     required:
     - '@id'
     - '@type'
@@ -32036,6 +32447,9 @@ $defs:
         const: EELS Acquisition Mode
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-acquisition-mode
     required:
     - '@id'
     - '@type'
@@ -32090,6 +32504,9 @@ $defs:
         const: EELS Background Subtraction Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-background-subtraction-method
     required:
     - '@id'
     - '@type'
@@ -32117,6 +32534,9 @@ $defs:
         const: EELS Chemical State Determination Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-chemical-state-determination-method
     required:
     - '@id'
     - '@type'
@@ -32279,6 +32699,9 @@ $defs:
         const: EELS Plural Scattering Correction
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/eels-plural-scattering-correction
     required:
     - '@id'
     - '@type'
@@ -32457,6 +32880,9 @@ $defs:
         const: Monochromator
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/monochromator
     required:
     - '@id'
     - '@type'
@@ -32565,6 +32991,9 @@ $defs:
         const: Sample Holder
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-holder
     required:
     - '@id'
     - '@type'
@@ -32650,6 +33079,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -32727,6 +33159,9 @@ $defs:
         const: Specimen Thickness Determination Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/specimen-thickness-determination-method
     required:
     - '@id'
     - '@type'
@@ -32752,6 +33187,9 @@ $defs:
         const: Spectroscopic Detector(s)
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/spectroscopic-detector
     required:
     - '@id'
     - '@type'
@@ -33247,6 +33685,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -33497,6 +33938,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -33747,6 +34191,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -33997,6 +34444,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -34328,6 +34778,9 @@ $defs:
         const: Measurement Environment
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/measurement-environment
     required:
     - '@id'
     - '@type'
@@ -34490,6 +34943,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -34826,6 +35282,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'
@@ -35048,6 +35507,9 @@ $defs:
         const: Sample Mount
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-mount
     required:
     - '@id'
     - '@type'
@@ -35101,6 +35563,9 @@ $defs:
         const: Sample Preparation Method
       schema:value:
         type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/sample-preparation-method
     required:
     - '@id'
     - '@type'

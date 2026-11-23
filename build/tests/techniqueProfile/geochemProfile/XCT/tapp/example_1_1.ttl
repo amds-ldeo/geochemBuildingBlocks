@@ -26,8 +26,11 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
                     schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/beamHardeningCorrectionParameterDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToDetectorDistanceDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sourceToObjectDistanceDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
@@ -48,16 +51,11 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (0.25 mm Al) + software BHC preset" ;
     ada:detectorType "missing" ;
-    ada:exposureTimePerProjectionDefault "4.00 s" ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault "4000" ;
     ada:outputDataFormatDefault "TIFF (16-bit, 928 slices)" ;
     ada:reconstructionAlgorithm "missing" ;
-    ada:rotationModeDefault "Continuous rotation" ;
-    ada:rotationRangeDefault -9999 ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (single allocated Bennu particle; 928 slices)" ;
-    ada:segmentationMethodDefault "missing" ;
     ada:targetFeature "Internal structure; mineralogy (reconnaissance scan)" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -83,6 +81,14 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4e+00 ;
+    schema1:description "4.00 s" ;
+    schema1:name "Exposure Time per Projection" ;
+    schema1:valueName "exposureTimePerProjectionDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/flatFieldCorrectionDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "Flux normalization: no" ;
     schema1:name "Flat Field Correction" ;
@@ -98,10 +104,24 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
     ada:dataType "integer" ;
     ada:fieldScope "session" .
 
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjectionsDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 4000 ;
+    schema1:name "Number of Projections" ;
+    schema1:valueName "numberOfProjectionsDefault" ;
+    ada:dataType "integer" ;
+    ada:fieldScope "session" .
+
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/outputBitDepthDefault> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "16-bit (full grayscale range)" ;
+    schema1:defaultValue "N/A" ;
     schema1:name "Output Bit Depth" ;
     schema1:valueName "outputBitDepthDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationModeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Continuous rotation" ;
+    schema1:name "Rotation Mode" ;
+    schema1:valueName "rotationModeDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

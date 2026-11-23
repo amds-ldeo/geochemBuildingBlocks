@@ -186,6 +186,30 @@
       "schema:defaultValue": "High vacuum"
     },
     {
+      "@id": "ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "edsLiveTimePerPointOrPixelDefault",
+      "schema:name": "EDS Live Time per Point or Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 5,
+      "schema:description": "5 ms dwell time per pixel"
+    },
+    {
+      "@id": "ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "stepSizePixelSizeDefault",
+      "schema:name": "Step Size / Pixel Size",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 2.5,
+      "schema:description": "2.5 \u00b5m"
+    },
+    {
       "@id": "ada:parameter/semCompositionTAPP/edsSpectralProcessingType",
       "@type": [
         "schema:PropertyValue"
@@ -341,8 +365,6 @@
       }
     ]
   },
-  "ada:edsLiveTimePerPointOrPixelDefault": "5 ms dwell time per pixel",
-  "ada:stepSizePixelSizeDefault": "2.5 \u00b5m",
   "ada:monitoredElements": [
     "O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni \u2014 the SEM-EDS maps give 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni)', and the Cameo+ energy threshold covers 'Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni, Ti'. The 'Si, Fe, Ca, Al, and S' list belongs to the EMPA-WDS mapping, a different procedure"
   ],

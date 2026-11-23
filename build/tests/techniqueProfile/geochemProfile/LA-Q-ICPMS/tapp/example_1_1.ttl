@@ -15,15 +15,15 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Thick sections embedded in petropoxy 154 resin, the surface finalised by polishing with 0.5 µm diamond paste; carbon-coated before the EPMA measurements (§2.1–2.2). Whether the coat was removed before ablation is not stated; the later 0.5 µm polish (§2.5) preceded micromilling, not ablation" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
@@ -67,7 +67,6 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
     ada:blankBackgroundCorrectionMethod "N — the signal 'decayed to the background level immediately after the end of ablation' (p.3); the background correction is not described" ;
     ada:calibrationMeasurementFrequency "no value available: ada:calibrationMeasurementFrequency" ;
     ada:carrierGasFlowRateDefault "Ar, 0.6 L/min — Table 1, under 'Ar gas flow rate': 'Carrier gas 0.6 L/min'" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
     ada:elementalFractionationCorrection "N — quantification is by 'the calibration curve method' against Warburton Range with ⁶¹Ni internal standardization (p.3); no fractionation correction as such is described" ;
     ada:internalStandardApproach "all: single element, its concentration measured by EPMA at the ablated spot — '61Ni was monitored for internal standardization. The concentration of Ni in the ablated spot was obtained by EPMA' (p.3)" ;
     ada:internalStandardElement "all: Ni (⁶¹Ni) — concentration from EPMA at the ablated spot (p.3)" ;
@@ -127,7 +126,6 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/internalAnalyticalPrecisionAndAssessmentMethod>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laQicpmsTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/module/ICPMS/auxiliaryGasFlowRateDefault> a schema1:PropertyValueSpecification ;

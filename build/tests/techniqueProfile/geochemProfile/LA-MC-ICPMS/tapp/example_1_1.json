@@ -361,6 +361,17 @@
       "schema:value": "Laser-off cycles at the start of the same block \u2014 'the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3); 30 cycles x 0.524 s \u2248 15.7 s"
     },
     {
+      "@id": "ada:parameter/module/Core/constantsReferenceValuesDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "constantsReferenceValuesDefault",
+      "schema:name": "Constants Reference Values",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "\u2078\u2077Rb decay constant 1.393 \u00b1 0.004 x 10\u207b\u00b9\u00b9 yr\u207b\u00b9 (Nebel et al. 2011), p.1; \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 for mass fractionation correction (p.4); \u2078\u2077Rb/\u2078\u2075Rb = 0.385706 and \u2078\u2076Sr/\u2078\u2078Sr = 0.119351 for the \u2078\u2077Rb/\u2078\u2076Sr calculation (p.4); natural \u2078\u2077Rb/\u2078\u2075Rb of 0.38571 cited for the interference-correction principle (p.1)"
+    },
+    {
       "@id": "ada:parameter/module/MCICPMS/massFractionationLaw",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -433,7 +444,6 @@
     }
   ],
   "ada:carrierGasFlowRateDefault": "He, 0.90 l min\u207b\u00b9 (two-volume cell)",
-  "ada:constantsAndReferenceValuesUsedDefault": "\u2078\u2077Rb decay constant 1.393 \u00b1 0.004 x 10\u207b\u00b9\u00b9 yr\u207b\u00b9 (Nebel et al. 2011), p.1; \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 for mass fractionation correction (p.4); \u2078\u2077Rb/\u2078\u2075Rb = 0.385706 and \u2078\u2076Sr/\u2078\u2078Sr = 0.119351 for the \u2078\u2077Rb/\u2078\u2076Sr calculation (p.4); natural \u2078\u2077Rb/\u2078\u2075Rb of 0.38571 cited for the interference-correction principle (p.1)",
   "ada:isobaricInterferenceCorrectionsApplied": "Yes \u2014 correction for doubly charged ions: \u00b9\u2076\u2078Er\u00b2\u207a on \u2078\u2074Sr; \u00b9\u2077\u2070Er\u00b2\u207a and \u00b9\u2077\u2070Yb\u00b2\u207a on \u2078\u2075Rb; \u00b9\u2077\u00b2Yb\u00b2\u207a on \u2078\u2076Sr; \u00b9\u2077\u2074Yb\u00b2\u207a on \u2078\u2077Sr; \u2078\u2077Rb isobaric on \u2078\u2077Sr (corrected using 85Rb signal and exponential law)",
   "ada:massBiasCorrectionStrategy": "Internal normalisation to an assumed \u2078\u2078Sr/\u2078\u2076Sr = 8.37520933 applying the exponential law (Russell et al. 1978), after interference correction (p.4). The \u2078\u2077Rb isobaric correction on \u2078\u2077Sr uses the \u2078\u2075Rb signal and a user-specified \u2078\u2077Rb/\u2078\u2075Rb, also via the exponential law, with that ratio calibrated by measuring reference materials of known \u2078\u2077Sr/\u2078\u2076Sr (p.4)",
   "ada:monitoredPropertyTemplate": {

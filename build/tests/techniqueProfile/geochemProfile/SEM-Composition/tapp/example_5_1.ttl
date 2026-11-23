@@ -15,28 +15,29 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy) Reported detail: ada:edsAcquisitionMode = Spot analysis." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semCompositionTAPP-Pascucci2026/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -52,7 +53,6 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Point Analysis" ;
     ada:edsAcquisitionMode "N/A" ;
-    ada:edsLiveTimePerPointOrPixelDefault "30 s live time per spot analysis" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "N — the Zeiss Supra 40 FE-SEM carries an Oxford INCA Energy 350 EDS with an X-ACT SDD (p.3), but no element set is given for the SEM-EDS work. The paper's \"Si, Fe, Ca, Al, and S\" list (p.6) belongs to its EMPA-WDS mapping on a JEOL JXA/8230 — a different instrument and a different procedure — and is deliberately not read across" ;
@@ -68,7 +68,6 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
             ada:reportedPropertyDeclaration "atomic proportions of the constituent elements (%); phase identification (nominal) — Atomic proportions of the constituent elements (%), from which \"mineral phases were determined from atomic proportions in percentages (%) of constituent elements and compared to the atomic proportions of constituent elements in stoichiometric proportions\" (p.4); the phase identification is the nominal output" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Phase > Analysis point — \"semi-quantitative analyses with virtual standards present within the INCA software\" (p.3), to \"determine its elemental composition\" for the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4)" ;
-    ada:stepSizePixelSizeDefault -9999 ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -113,6 +112,14 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
     schema1:defaultValue "High vacuum" ;
     schema1:name "Chamber Pressure" ;
     schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 30 ;
+    schema1:description "30 s live time per spot analysis" ;
+    schema1:name "EDS Live Time per Point or Pixel" ;
+    schema1:valueName "edsLiveTimePerPointOrPixelDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 

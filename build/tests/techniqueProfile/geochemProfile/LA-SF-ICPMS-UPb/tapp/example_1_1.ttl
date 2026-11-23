@@ -14,12 +14,6 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
             schema1:name "LA-SF-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
@@ -32,9 +26,16 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
                     schema1:description "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/interPassDataDependency>,
+        <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault>,
         <https://ada.astromat.org/metadata/parameter/module/UPb/discordanceDefinition> ;
@@ -62,12 +63,12 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
-    schema1:variableMeasured [ schema1:name "Age Calculation Method" ;
-            schema1:value "no value available: schema:value" ],
-        [ schema1:defaultValue "no value available: schema:defaultValue" ;
+    schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Reported Date Type" ],
+        [ schema1:name "Age Calculation Method" ;
+            schema1:value "no value available: schema:value" ],
         [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Inherited or Initial Signal Correction" ] ;
     ada:ablationPitDepthRateDefault "no value available: ada:ablationPitDepthRateDefault" ;
@@ -85,7 +86,6 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
     ada:internalStandardElement "N — not stated; standardization follows Humayun (2012)" ;
     ada:massBiasCorrectionStrategy "no value available: ada:massBiasCorrectionStrategy" ;
     ada:massResolutionAssignment "no value available: ada:massResolutionAssignment" ;
-    ada:massesMeasuredDefault "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)" ;
     ada:numberOfAcquisitionPasses -9999 ;
     ada:oxideProductionMethodAndThreshold "no value available: ada:oxideProductionMethodAndThreshold" ;
     ada:rasterLineSpacingDefault "no value available: ada:rasterLineSpacingDefault" ;
@@ -154,13 +154,19 @@ ex:laSficpmsUPbTAPP-Zhang2022 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/massResolutionAssignment>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/monitoredMasses>,
                 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsUPbTAPP/spectralInterferenceCorrectionsApplied> ] ;
-    ada:totalIntegrationTimePerOutputDataPointDefault -9999 ;
     ada:uncertaintyLevel "no value available: ada:uncertaintyLevel" .
 
 <https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "N — the procedure reports no date" ;
     schema1:name "Error Correlation Between Reported Quantities" ;
     schema1:valueName "errorCorrelationBetweenReportedQuantitiesDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/laSficpmsUPbTAPP/monitoredMasses> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)" ;
+    schema1:name "Monitored Masses" ;
+    schema1:valueName "monitoredMasses" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

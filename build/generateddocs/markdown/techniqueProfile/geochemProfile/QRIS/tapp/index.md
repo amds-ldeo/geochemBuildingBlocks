@@ -85,12 +85,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
-  "ada:exposureTimeDefault": -9999,
   "ada:focalLength": -9999,
   "ada:illuminationColour": "missing",
-  "ada:illuminationLevelDefault": -9999,
-  "ada:reflectanceStandardDefault": "no value available: ada:reflectanceStandardDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
@@ -184,12 +180,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       }
     ]
   },
-  "ada:constantsAndReferenceValuesUsedDefault": "no value available: ada:constantsAndReferenceValuesUsedDefault",
-  "ada:exposureTimeDefault": -9999,
   "ada:focalLength": -9999,
   "ada:illuminationColour": "missing",
-  "ada:illuminationLevelDefault": -9999,
-  "ada:reflectanceStandardDefault": "no value available: ada:reflectanceStandardDefault",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:samplingUnitType": "no value available: ada:samplingUnitType",
   "ada:targetMaterial": "missing",
@@ -231,14 +223,10 @@ ex:qrisTAPP-Golish2024 a schema1:Action,
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
             schema1:termCode "Quantitative Reflectance Imaging System" ] ;
     schema1:name "qris protocol — Golish2024" ;
-    ada:constantsAndReferenceValuesUsedDefault "no value available: ada:constantsAndReferenceValuesUsedDefault" ;
-    ada:exposureTimeDefault -9999 ;
     ada:focalLength -9999 ;
     ada:illuminationColour "missing" ;
-    ada:illuminationLevelDefault -9999 ;
     ada:instrumentManufacturer "Custom-built" ;
     ada:instrumentModel "Quantitative Reflectance Imaging System" ;
-    ada:reflectanceStandardDefault "no value available: ada:reflectanceStandardDefault" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
     ada:targetMaterial "missing" .
@@ -354,16 +342,223 @@ allOf:
       - type: string
       schema:inDefinedTermSet: ada:vocab/illumination-colour
       readOnly: true
-    ada:illuminationLevelDefault:
-      description: Illumination intensity setting used for the exposure.
-      anyOf:
-      - type: number
-      - type: string
-    ada:exposureTimeDefault:
-      description: Detector exposure time per frame.
-      anyOf:
-      - type: number
-      - type: string
+    schema:additionalProperty:
+      type: array
+      items:
+        anyOf:
+        - title: Illumination Level
+          description: Illumination intensity setting used for the exposure.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/qrisTAPP/illuminationLevelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: illuminationLevelDefault
+            schema:name:
+              const: Illumination Level
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: '%'
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - title: Exposure Time
+          description: Detector exposure time per frame.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/qrisTAPP/exposureTimeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: exposureTimeDefault
+            schema:name:
+              const: Exposure Time
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: ms
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        - title: Reflectance Standard
+          description: Reflectance standard imaged to convert raw counts to calibrated
+            reflectance.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/qrisTAPP/reflectanceStandardDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: reflectanceStandardDefault
+            schema:name:
+              const: Reflectance Standard
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+      allOf:
+      - contains:
+          title: Illumination Level
+          description: Illumination intensity setting used for the exposure.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/qrisTAPP/illuminationLevelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: illuminationLevelDefault
+            schema:name:
+              const: Illumination Level
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: '%'
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Exposure Time
+          description: Detector exposure time per frame.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/qrisTAPP/exposureTimeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: exposureTimeDefault
+            schema:name:
+              const: Exposure Time
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: ms
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
+      - contains:
+          $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
+        minContains: 0
+        maxContains: 1
+      - contains:
+          title: Reflectance Standard
+          description: Reflectance standard imaged to convert raw counts to calibrated
+            reflectance.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/qrisTAPP/reflectanceStandardDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: reflectanceStandardDefault
+            schema:name:
+              const: Reflectance Standard
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        minContains: 0
+        maxContains: 1
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -377,29 +572,12 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:constantsAndReferenceValuesUsedDefault:
-      description: Physical constants and reference values used in data reduction
-        to calculate the final reported quantity (e.g., decay constants for age calculation,
-        standard isotope ratios, or other citable reference values used in a correction
-        or calculation), together with their source. Distinct from the Group 6 reference-material
-        fields, which document accepted values for specific calibration/validation
-        materials rather than universal physical constants. Record "None" if no citable,
-        revisable physical constants feed into this procedure's data reduction.
-      type: string
-    ada:reflectanceStandardDefault:
-      description: Reflectance standard imaged to convert raw counts to calibrated
-        reflectance.
-      type: string
   required:
   - ada:targetMaterial
   - ada:instrumentManufacturer
   - ada:instrumentModel
   - ada:focalLength
   - ada:illuminationColour
-  - ada:illuminationLevelDefault
-  - ada:exposureTimeDefault
-  - ada:constantsAndReferenceValuesUsedDefault
-  - ada:reflectanceStandardDefault
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.QRIS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json

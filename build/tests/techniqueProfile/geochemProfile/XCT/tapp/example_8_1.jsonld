@@ -27,7 +27,7 @@
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol \u2014 Glavin2023",
-  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size); ada:detectorType = 2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD; ada:rotationModeDefault = Continuous 360\u00b0 rotation; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images).",
+  "schema:description": "labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volume Nikon XTH 320 NASA JSC X-FaCT (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size); ada:detectorType = 2000 \u00d7 2000 pixel Perkin Elmer flat panel CCD; ada:reconstructionAlgorithm = Filtered back projection (FBP); ada:beamHardeningCorrectionMethod = None (intentionally unfiltered; no software BHC mentioned); ada:outputDataFormatDefault = TIFF (continuous series of 2D TIFF images).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "CM2 carbonaceous chondrite (Murchison)",
     "ada:targetMaterialColumns": [
@@ -107,6 +107,29 @@
       "schema:description": "679.51 mm"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/rotationRangeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationRangeDefault",
+      "schema:name": "Rotation Range",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 360,
+      "schema:description": "360\u00b0 (continuous)"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 3141
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/rotationStepSizeDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -119,6 +142,18 @@
       "schema:description": "0.115\u00b0"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1.0,
+      "schema:description": "1.00 s per frame"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -129,6 +164,17 @@
       "ada:fieldScope": "session",
       "schema:defaultValue": 8,
       "schema:description": "8 frames averaged per projection"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/rotationModeDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "rotationModeDefault",
+      "schema:name": "Rotation Mode",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "N/A"
     }
   ],
   "ada:xRaySourceConfiguration": "180 kV nano-focus tungsten transmission source (~1 \u00b5m spot size)",
@@ -177,10 +223,6 @@
       "@id": "ex:labxctTAPP-Glavin2023/instrument/XCT"
     }
   ],
-  "ada:rotationRangeDefault": "360\u00b0 (continuous)",
-  "ada:numberOfProjectionsDefault": "3141",
-  "ada:exposureTimePerProjectionDefault": "1.00 s per frame",
-  "ada:rotationModeDefault": "N/A",
   "ada:reconstructionAlgorithm": "Filtered back projection (FBP)",
   "ada:beamHardeningCorrectionMethod": "None (intentionally unfiltered; no software BHC mentioned)",
   "ada:outputDataFormatDefault": "TIFF (continuous series of 2D TIFF images)",
@@ -262,6 +304,5 @@
   "ada:applicableSampleDimensionRange": "no value available: ada:applicableSampleDimensionRange",
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
-  "ada:segmentationMethodDefault": "missing",
   "schema:datePublished": "no value available: schema:datePublished"
 }

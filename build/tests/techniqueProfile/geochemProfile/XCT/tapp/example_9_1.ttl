@@ -15,21 +15,23 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
+        <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned; ada:segmentationMethodDefault = Adaptive (mean) thresholding." ;
+    schema1:description "labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) NWA 8277 + NWA 6963 Single-volume Bruker Skyscan 1173 (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = Flat panel detector (2240 × 2240 pixels); ada:beamHardeningCorrectionMethod = Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "DataViewer; CTVox; CTAn (Bruker proprietary suite)" ;
@@ -55,9 +57,7 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
     ada:applicableSampleDimensionRange "no value available: ada:applicableSampleDimensionRange" ;
     ada:beamHardeningCorrectionMethod "Hardware filter (1.0 mm Al); software BHC in NRecon not mentioned" ;
     ada:detectorType "Flat panel detector (2240 × 2240 pixels)" ;
-    ada:exposureTimePerProjectionDefault -9999 ;
     ada:minimumSubVolumeOverlap -9999 ;
-    ada:numberOfProjectionsDefault -9999 ;
     ada:outputDataFormatDefault "missing" ;
     ada:reconstructionAlgorithm "missing" ;
     ada:reportedPropertyTemplate [ ada:defaultReportedProperties "Density and porosity",
@@ -69,11 +69,8 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ] ] ;
-    ada:rotationModeDefault "missing" ;
-    ada:rotationRangeDefault "360°" ;
     ada:samplingUnitSelectionCriteriaDefault "no value available: ada:samplingUnitSelectionCriteriaDefault" ;
     ada:samplingUnitType "Whole sample (one scan per meteorite specimen: NWA 8277, NWA 6963)" ;
-    ada:segmentationMethodDefault "Adaptive (mean) thresholding" ;
     ada:targetFeature "Internal structure; porosity; density contrast" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Lunar meteorite",
                 "Martian meteorite" ;
@@ -91,6 +88,14 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
     schema1:name "Phase Identification Method" ;
     schema1:valueName "phaseIdentificationMethodDefault" ;
     ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 360 ;
+    schema1:description "360°" ;
+    schema1:name "Rotation Range" ;
+    schema1:valueName "rotationRangeDefault" ;
+    ada:dataType "number" ;
     ada:fieldScope "session" .
 
 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSizeDefault> a schema1:PropertyValueSpecification ;
@@ -112,6 +117,13 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
     schema1:defaultValue "Polystyrene support" ;
     schema1:name "Sample Mounting Method" ;
     schema1:valueName "sampleMountingMethodDefault" ;
+    ada:dataType "string" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/labxctTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "Adaptive (mean) thresholding" ;
+    schema1:name "Segmentation Method" ;
+    schema1:valueName "segmentationMethodDefault" ;
     ada:dataType "string" ;
     ada:fieldScope "session" .
 

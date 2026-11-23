@@ -15,27 +15,29 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
-        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType> ;
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault>,
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType>,
+        <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSizeDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "EDS mapping: 20 kV, 60 µm aperture, 5 ms dwell per pixel, 1024×768 pixels, 2.5 µm pixel size, ~10 h total; element maps co-registered with BSE images Reported detail: ada:edsAcquisitionMode = Element mapping." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semCompositionTAPP-Pascucci2026-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -51,7 +53,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "EDS Mapping" ;
     ada:edsAcquisitionMode "Map" ;
-    ada:edsLiveTimePerPointOrPixelDefault "5 ms dwell time per pixel" ;
     ada:massAbsorptionCoefficients "missing" ;
     ada:matrixCorrectionMethod "missing" ;
     ada:monitoredElements "O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni — the SEM-EDS maps give 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni)', and the Cameo+ energy threshold covers 'Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni, Ti'. The 'Si, Fe, Ca, Al, and S' list belongs to the EMPA-WDS mapping, a different procedure" ;
@@ -68,7 +69,6 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
             ada:reportedPropertyDeclaration "element maps (pixel by pixel); Cameo+ energy-colour map (nominal); mineral phase map (nominal) — INCA gives 'a map on a pixel-by-pixel basis of the main elements (O, Si, Mg, Fe, Al, P, Cr, Ca, Na, S, Ni) so to derive the distribution of each mineral phase'; the SEM-EDS area is '10.5 × 4.0 mm wide'. The 'Si, Fe, Ca, Al, and S' maps at 3 μm resolution are the EMPA-WDS mapping's, a different procedure" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Spatial co-registration with the spectral imagery — the SEM work targets \"almost the same portion of the VIS-IR SPIM images\" (p.4), so that the two datasets can be compared on the same area of the slab" ;
     ada:samplingUnitType "Whole sample (polished slab) > Phase — elemental mapping of the \"NWA 7317 slab\", a \"small fragment of about 10 × 6 mm\" embedded in epoxy and polished (pp.3–4), acquired on \"almost the same portion of the VIS-IR SPIM images\" (p.4) so the two datasets can be compared pixel for pixel" ;
-    ada:stepSizePixelSizeDefault "2.5 µm" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -116,6 +116,22 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
     schema1:defaultValue "High vacuum" ;
     schema1:name "Chamber Pressure" ;
     schema1:valueName "chamberPressureDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 5 ;
+    schema1:description "5 ms dwell time per pixel" ;
+    schema1:name "EDS Live Time per Point or Pixel" ;
+    schema1:valueName "edsLiveTimePerPointOrPixelDefault" ;
+    ada:dataType "number" ;
+    ada:fieldScope "session" .
+
+<https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSizeDefault> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue 2.5e+00 ;
+    schema1:description "2.5 µm" ;
+    schema1:name "Step Size / Pixel Size" ;
+    schema1:valueName "stepSizePixelSizeDefault" ;
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
