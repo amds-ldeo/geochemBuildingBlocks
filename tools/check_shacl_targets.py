@@ -58,6 +58,38 @@ CURIE_LITERAL = re.compile(r'(schema:additionalType|dcterms:conformsTo)\s+"([A-Z
 TARGET_BLOCK = re.compile(r'sh:select\s+"""(.*?)"""', re.DOTALL)
 
 
+def _jsonld_args(example):
+    """rdflib.parse kwargs for one example, with the block's context applied.
+
+    An example with no inline @context needs its block's context.jsonld to expand --
+    bblocks-postprocess calls this uplifting. Without it rdflib keeps a CURIE as a
+    RELATIVE IRI resolved against the file path, so `ada:XCTImageCollection` becomes
+    `.../detail-legacy/ada:XCTImageCollection` rather than
+    `https://ada.astromat.org/metadata/XCTImageCollection`. The triple count looks
+    healthy and every IRI-based target matches nothing.
+
+    That is how this tool reported XCT/detail-legacy's target as selecting NOTHING: 0
+    focus nodes unexpanded, 1 once the context is applied. The target was never dead, and
+    the tool that exists to catch a check which cannot fail was the thing failing. Same
+    handling as validate_examples.validate_shacl, which documents the identical trap.
+    """
+    text = io.open(example, encoding="utf-8").read()
+    try:
+        document = json.loads(text)
+    except ValueError:
+        return {"data": text, "format": "json-ld"}
+    if isinstance(document, dict) and "@context" in document:
+        return {"data": text, "format": "json-ld"}
+    ctx_file = os.path.join(os.path.dirname(example), "context.jsonld")
+    context = None
+    if os.path.exists(ctx_file):
+        try:
+            context = json.loads(io.open(ctx_file, encoding="utf-8").read()).get("@context")
+        except ValueError:
+            context = None
+    return {"data": text, "format": "json-ld", "context": context}
+
+
 def shacl_files():
     return sorted(glob.glob(os.path.join(SRC, "**", "rules.shacl"), recursive=True))
 
@@ -112,7 +144,7 @@ def execute(paths):
             for e in examples:
                 g = rdflib.Graph()
                 try:
-                    g.parse(data=io.open(e, encoding="utf-8").read(), format="json-ld")
+                    g.parse(**_jsonld_args(e))
                 except Exception:
                     continue
                 if len(list(g.query(sel))) > 0:

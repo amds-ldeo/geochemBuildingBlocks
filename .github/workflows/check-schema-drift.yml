@@ -78,6 +78,15 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # rdflib, for the `--execute` form of the SHACL target check below. Separate from
+      # requirements.txt so the other required checks cannot be blocked by it, and safe to
+      # install HERE specifically: this workflow does not run validate_examples (only
+      # check-examples.yml does), so it does not switch on that tool's SHACL pass, which
+      # returns 1 on any violation. See requirements-shacl.txt for the ordering that has
+      # to be respected before check-examples.yml installs the same file.
+      - name: Install the SHACL layer
+        run: pip install -r requirements-shacl.txt
+
       # New requirement of regenerating the whole chain: the table-driven stages read the
       # delivery under "tapp/Current TAPPs". `.gitmodules` sets `update = none`, so
       # actions/checkout leaves the submodule registered and EMPTY -- and `submodules: true` is
@@ -250,15 +259,30 @@ jobs:
       # equals a literal of the same spelling. 35 shapes selected nothing, and the OGC postprocess
       # ran them and recorded SHACL as a passing test item the whole time.
       #
-      # The lint is text-only and needs no dependency, which is why it can live in a required
-      # check: neither rdflib nor pyshacl is pinned in requirements.txt. The stronger form,
-      # `--execute`, actually runs each target against its examples and needs rdflib; run it
-      # locally when touching shapes.
+      # `--execute` since 2026-11-23, not the text lint. The lint catches exactly ONE
+      # regression -- a CURIE written as a string literal where an IRI is meant -- and is
+      # blind to a target that selects nothing for any other reason, which is the general
+      # case this tool exists for. It was the lint that ran here while
+      # cdifd:provUsedInstrumentParamValueShape sat dead through the 2026-11-11 CDIF
+      # activity-used-resources change: its target walked a wrapper no record carries any
+      # more, so it selected nothing, reported nothing, and left 581 instrument nodes
+      # unchecked. The lint could not have seen that, because the target was well-formed.
+      #
+      # --execute needs rdflib, installed above from requirements-shacl.txt.
       #
       # Here rather than its own required check, for the same reason as the census and the
       # counterexamples: no separate signal is needed.
+      #
+      # TWO KNOWN LIMITS of --execute, so a pass is not read as more than it is:
+      #   - it tests a target only against `example*.json` in the shape file's OWN
+      #     directory, and 43 of the 82 shape blocks have none -- every shared BaseSchema
+      #     block and all 16 modules. It reports that as "blocks with no example to test",
+      #     which is coverage lost, not information. shape_closure() in validate_examples
+      #     already has the mapping needed to fix it.
+      #   - it asserts only that a target SELECTS, never that validation passed. The
+      #     example SHACL pass is validate_examples', and it does not run in CI yet.
       - name: SHACL targets can select
-        run: python tools/check_shacl_targets.py
+        run: python tools/check_shacl_targets.py --execute
 
       # Here rather than its own required check, for the same reason as the census: no separate
       # signal is needed, and a required context that fails to report deadlocks the PR.
