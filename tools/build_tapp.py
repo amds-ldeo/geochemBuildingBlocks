@@ -1913,6 +1913,12 @@ def route():
         ov = sidecar.get(item, {})
         rec = {"item": item, "name": ov.get("name") or camel(item), "P": P, "A": A, "jtype": jtype(dt),
                "unit": unit(dt), "desc": norm(r[1]), "allowed": ex, "cov": cov,
+               # RAW Data Type, carried alongside jtype/unit for the same reason the path-driven
+               # bundle carries it (schema_path_emitter.build): _annotate_scheme reads it to point
+               # a controlled-list parameter at its ada:vocab scheme, and "controlled" is not
+               # recoverable from jtype's "string". Without it the annotation was dead code on
+               # this route -- 0 of 1626 shared-register defs carried a term set.
+               "dt": dt,
                "multivol_only": (modes == [CFG["conditional_mode"]])}
         # analyte-template columns: from the sidecar's per-column {name, dtype, readOnly}.
         analyte_cols = ov.get("analyteColumn")
