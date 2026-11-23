@@ -9296,6 +9296,60 @@
                 ]
               },
               {
+                "title": "Total Integration Time per Output Data Point",
+                "description": "Total duty-cycle time for one complete mass-scan sweep — the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "totalIntegrationTimePerOutputDataPointDefault"
+                  },
+                  "schema:name": {
+                    "const": "Total Integration Time per Output Data Point"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "s"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
                 "title": "Matrix Offset Correction LIEF",
                 "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
                 "type": "object",
@@ -9322,6 +9376,50 @@
                   },
                   "schema:readonlyValue": {
                     "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Constants Reference Values",
+                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "constantsReferenceValuesDefault"
+                  },
+                  "schema:name": {
+                    "const": "Constants Reference Values"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -9662,6 +9760,64 @@
             },
             {
               "contains": {
+                "title": "Total Integration Time per Output Data Point",
+                "description": "Total duty-cycle time for one complete mass-scan sweep — the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "totalIntegrationTimePerOutputDataPointDefault"
+                  },
+                  "schema:name": {
+                    "const": "Total Integration Time per Output Data Point"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "const": "s"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
                 "title": "Matrix Offset Correction LIEF",
                 "description": "Whether an empirical correction was applied to account for systematic differences in laser-induced elemental fractionation (LIEF) patterns between the external calibration standard and the sample matrix.",
                 "type": "object",
@@ -9688,6 +9844,54 @@
                   },
                   "schema:readonlyValue": {
                     "const": true
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Constants Reference Values",
+                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/module/Core/constantsReferenceValuesDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "constantsReferenceValuesDefault"
+                  },
+                  "schema:name": {
+                    "const": "Constants Reference Values"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
                   },
                   "ada:tier": {
                     "const": "R"
@@ -13201,25 +13405,10 @@
           "schema:inDefinedTermSet": "ada:vocab/signal-collection-mode",
           "readOnly": true
         },
-        "ada:totalIntegrationTimePerOutputDataPointDefault": {
-          "description": "Total duty-cycle time for one complete mass-scan sweep — the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.",
-          "anyOf": [
-            {
-              "type": "number"
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },
         "ada:massBiasCorrectionStrategy": {
           "description": "Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.",
           "type": "string",
           "readOnly": true
-        },
-        "ada:constantsAndReferenceValuesUsedDefault": {
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
-          "type": "string"
         },
         "ada:numberOfAcquisitionPasses": {
           "description": "Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.",
@@ -13247,9 +13436,7 @@
       },
       "required": [
         "ada:signalCollectionMode",
-        "ada:totalIntegrationTimePerOutputDataPointDefault",
         "ada:massBiasCorrectionStrategy",
-        "ada:constantsAndReferenceValuesUsedDefault",
         "ada:numberOfAcquisitionPasses"
       ]
     }

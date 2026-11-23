@@ -18,9 +18,38 @@
   ],
   "schema:name": "FIB-SEM analytical workflow",
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: samplingUnitSelectionCriteria",
-  "ada:dwellTimePerPixelDefault": 1.0,
-  "ada:imageRegistration3DDefault": "no value available: imageRegistration3D",
-  "ada:segmentationMethod3DDefault": "Global threshold (single grayscale boundary)",
+  "schema:additionalProperty": [
+    {
+      "@id": "ada:parameter/semFibsemTAPP/dwellTimePerPixelDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "dwellTimePerPixelDefault",
+      "schema:name": "Dwell Time per Pixel",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semFibsemTAPP/imageRegistration3DDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "imageRegistration3DDefault",
+      "schema:name": "3D Image Registration",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    },
+    {
+      "@id": "ada:parameter/semFibsemTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session"
+    }
+  ],
   "schema:measurementTechnique": [
     {
       "@type": [

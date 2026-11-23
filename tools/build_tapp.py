@@ -1523,10 +1523,44 @@ def jtype(dt):
 UNIT_UNNAMED = "<unnamed unit>"
 
 
+# "Numeric pair (um x um)" states the ARITY in the type phrase and the UNIT in the parenthesis,
+# with the unit repeated once per dimension. Matching the repeat (rather than splitting on the x)
+# is what keeps a genuine compound unit intact: only `A x A` is an arity, `A x B` is not.
+_UNIT_PAIR = re.compile(r"^(.+?)\s*[x\u00d7]\s*\1$")
+
+
 def unit(dt):
+    """The unit a Data Type cell names, UNIT_UNNAMED for "dimensioned but unnamed", else None.
+
+    Taking the whole first parenthesis verbatim put two kinds of non-unit into schema:unitText as
+    a const, in 5 distinct values across 8 committed files. Both are cases where the workbook says
+    something true and the const says something else:
+
+      ALTERNATION -- "Numeric (mg or mL)", "Numeric (pA or nA)", "Numeric (uL/min or mL/min)".
+        The cell asserts a dimension and declines to fix the unit. A const can pin only ONE
+        string, so `{"const": "pA or nA"}` demands that an instance state the literal phrase and
+        rejects the "pA" or "nA" it was offering a choice between -- a constraint the workbook
+        never stated, and one no correct instance satisfies. UNIT_UNNAMED is the encoding that
+        already exists for exactly this ("Numeric + unit"), so the instance states which unit it
+        used and schema:unitText stays REQUIRED on the value side. Nothing Ruolin authored is
+        relaxed; gBB stops asserting what he did not.
+
+      ARITY -- "Numeric pair (um x um)", "Numeric pair (pixels x pixels)". The unit is one factor;
+        the pair is multiplicity. Pinning the whole phrase lost the real unit AND put the arity in
+        the unit slot, where no consumer looks for it. The arity belongs in the multiplicity slot
+        being added for amds-ldeo/tapp#23; until that lands the workbook still carries it, so it
+        is recoverable -- and the tapp rows are listed in docs/UNIT_CONST_DEFECTS.md.
+
+    `jtype()` collapses "Numeric pair" to "number", which is the other half of the same defect and
+    is NOT fixed here: a pair of numbers is not a number. It waits on the same multiplicity slot.
+    """
     m = re.search(r"\(([^)]+)\)", dt)
     if m:
-        return m.group(1)
+        u = m.group(1).strip()
+        if re.search(r"\bor\b", u):
+            return UNIT_UNNAMED
+        pair = _UNIT_PAIR.match(u)
+        return pair.group(1).strip() if pair else u
     return UNIT_UNNAMED if re.search(r"\+\s*units?", dt, re.I) else None
 
 
@@ -1703,9 +1737,14 @@ def param_template_def(b, existing):
     # required schema:value. The objects are open, so nothing failed; the defaults were simply
     # carried by no schema, and 54 sidecar placement paths ending in schema:defaultValue could not
     # be told apart from a misspelling by any checker.
-    props["schema:defaultValue"] = ({"anyOf": [{"type": "number"}, {"type": "string"}]}
-                                    if b["jtype"] in ("number", "integer")
-                                    else {"type": "string"})
+    # `allowed_leaf` is the workbook's allowed-value subschema, built by the caller with
+    # schema_path_emitter.leaf_for so one rule serves both placements. It is what the flat
+    # `$MethodDefinition.ada:<name>Default` form carried, and typing the default from `jtype`
+    # alone is what made converting those rows cost 87 enum members.
+    props["schema:defaultValue"] = (b.get("allowed_leaf")
+                                    or ({"anyOf": [{"type": "number"}, {"type": "string"}]}
+                                        if b["jtype"] in ("number", "integer")
+                                        else {"type": "string"}))
     if b.get("unit") and b["unit"] != "free":
         # a named unit is pinned; "dimensioned but unnamed" only requires that one be given
         props["schema:unitText"] = ({"type": "string"} if b["unit"] == UNIT_UNNAMED

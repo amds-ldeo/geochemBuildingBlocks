@@ -7880,14 +7880,354 @@
           ],
           "title": "Reported Property Template"
         },
-        "ada:dwellTimePerPixelDefault": {
-          "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
-          "anyOf": [
+        "schema:additionalProperty": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "title": "Dwell Time per Pixel",
+                "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semFibsemTAPP/dwellTimePerPixelDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "dwellTimePerPixelDefault"
+                  },
+                  "schema:name": {
+                    "const": "Dwell Time per Pixel"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "3D Image Registration",
+                "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semFibsemTAPP/imageRegistration3DDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imageRegistration3DDefault"
+                  },
+                  "schema:name": {
+                    "const": "3D Image Registration"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              {
+                "title": "Segmentation Method",
+                "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semFibsemTAPP/segmentationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "segmentationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Segmentation Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Global threshold (single grayscale boundary)",
+                          "Multi-threshold (separate range per phase)",
+                          "Manual threshold per phase",
+                          "Semi-automated: threshold + morphological filtering",
+                          "Region growing",
+                          "Manual tracing",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/segmentation-method"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              }
+            ]
+          },
+          "allOf": [
             {
-              "type": "number"
+              "contains": {
+                "title": "Dwell Time per Pixel",
+                "description": "Time the electron beam dwells on each pixel during raster scanning, or on each step position during mapping, in microseconds or milliseconds.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semFibsemTAPP/dwellTimePerPixelDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "dwellTimePerPixelDefault"
+                  },
+                  "schema:name": {
+                    "const": "Dwell Time per Pixel"
+                  },
+                  "ada:dataType": {
+                    "const": "number"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "number"
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:unitText": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
             },
             {
-              "type": "string"
+              "contains": {
+                "title": "3D Image Registration",
+                "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semFibsemTAPP/imageRegistration3DDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "imageRegistration3DDefault"
+                  },
+                  "schema:name": {
+                    "const": "3D Image Registration"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "title": "Segmentation Method",
+                "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
+                "type": "object",
+                "properties": {
+                  "@id": {
+                    "const": "ada:parameter/semFibsemTAPP/segmentationMethodDefault"
+                  },
+                  "@type": {
+                    "const": [
+                      "schema:PropertyValueSpecification"
+                    ]
+                  },
+                  "schema:valueName": {
+                    "const": "segmentationMethodDefault"
+                  },
+                  "schema:name": {
+                    "const": "Segmentation Method"
+                  },
+                  "ada:dataType": {
+                    "const": "string"
+                  },
+                  "ada:fieldScope": {
+                    "const": "session"
+                  },
+                  "schema:readonlyValue": {
+                    "const": false
+                  },
+                  "ada:tier": {
+                    "const": "R"
+                  },
+                  "schema:defaultValue": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "enum": [
+                          "Global threshold (single grayscale boundary)",
+                          "Multi-threshold (separate range per phase)",
+                          "Manual threshold per phase",
+                          "Semi-automated: threshold + morphological filtering",
+                          "Region growing",
+                          "Manual tracing",
+                          "N/A",
+                          "None",
+                          "missing"
+                        ]
+                      },
+                      {
+                        "type": "string"
+                      }
+                    ]
+                  },
+                  "schema:inDefinedTermSet": {
+                    "const": {
+                      "@id": "ada:vocab/segmentation-method"
+                    }
+                  }
+                },
+                "required": [
+                  "@id",
+                  "@type",
+                  "schema:valueName",
+                  "schema:name",
+                  "ada:dataType",
+                  "ada:fieldScope"
+                ]
+              },
+              "minContains": 0,
+              "maxContains": 1
             }
           ]
         },
@@ -8632,33 +8972,6 @@
             }
           }
         },
-        "ada:imageRegistration3DDefault": {
-          "description": "Method used to align consecutive SEM image slices in the 3D stack to correct for drift, vibration, and curtaining artifacts. Include software used.",
-          "type": "string"
-        },
-        "ada:segmentationMethod3DDefault": {
-          "description": "Method and software used to separate distinct phases or features in the reconstructed 3D volume, turning the grayscale volume into labelled regions.",
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "Global threshold (single grayscale boundary)",
-                "Multi-threshold (separate range per phase)",
-                "Manual threshold per phase",
-                "Semi-automated: threshold + morphological filtering",
-                "Region growing",
-                "Manual tracing",
-                "N/A",
-                "None",
-                "missing"
-              ]
-            },
-            {
-              "type": "string"
-            }
-          ],
-          "schema:inDefinedTermSet": "ada:vocab/segmentation-method"
-        },
         "ada:analyticalMode": {
           "type": "array",
           "items": {
@@ -8669,12 +8982,7 @@
             ]
           }
         }
-      },
-      "required": [
-        "ada:dwellTimePerPixelDefault",
-        "ada:imageRegistration3DDefault",
-        "ada:segmentationMethod3DDefault"
-      ]
+      }
     }
   ],
   "$defs": {

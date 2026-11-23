@@ -113,6 +113,14 @@ allOf:
                             const: R
                           schema:defaultValue:
                             type: string
+                            enum:
+                            - Fourier-log deconvolution
+                            - Fourier-ratio deconvolution
+                            - None
+                            - Unknown
+                            - N/A
+                            - None
+                            - missing
                           schema:inDefinedTermSet:
                             const:
                               '@id': ada:vocab/eels-plural-scattering-correction
@@ -620,7 +628,19 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - Standard (room temperature)
+                - Cryo — liquid N2 (~110 K)
+                - Cryo — liquid He
+                - Heating
+                - Tomography
+                - Unknown
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/sample-holder
@@ -632,6 +652,101 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - &id007
+          title: Spectroscopic Detector(s)
+          description: Spectroscopic detectors present and used under this procedure. EDS and EELS parameter fields in Group 4 apply only when the corresponding detector is listed here.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/spectroscopicDetectorDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: spectroscopicDetectorDefault
+            schema:name:
+              const: Spectroscopic Detector(s)
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+              enum:
+              - EDS only
+              - EELS only
+              - EDS and EELS
+              - EELS and EFTEM
+              - EDS and EELS and EFTEM
+              - None
+              - N/A
+              - missing
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/spectroscopic-detector
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id008
+          title: Analytical Sub-mode
+          description: Sub-mode(s) of imaging or diffraction performed under this procedure. Multiple values apply when the procedure covers more than one sub-mode within a given analytical mode.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/analyticalSubModeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: analyticalSubModeDefault
+            schema:name:
+              const: Analytical Sub-mode
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: string
+                enum:
+                - BF-TEM
+                - DF-TEM
+                - HRTEM
+                - EFTEM (TEM Imaging); HAADF
+                - ABF
+                - BF-STEM
+                - ADF
+                - MAADF (STEM Imaging); SAED
+                - CBED
+                - Nanobeam diffraction
+                - Precession ED
+                - 4D-STEM (Electron Diffraction)
+                - N/A
+                - None
+                - missing
+              - type: string
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/analytical-sub-mode
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id009
           title: EFTEM Energy Window
           description: 'Energy window(s) used for EFTEM elemental mapping: center energy, width, and acquisition method (three-window or jump-ratio). Record ''N/A'' where EFTEM is not listed in Analytical Sub-mode.'
           type: object
@@ -662,7 +777,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id008
+        - &id010
           title: HAADF Collection Angles
           description: Inner and outer collection angles of the HAADF detector in milliradians (mrad). Inner angle can be derived from camera length and detector geometry.
           type: object
@@ -693,7 +808,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id009
+        - &id011
           title: STEM Probe Diameter
           description: 'Nominal or measured diameter of the focused electron probe at the sample, reported in nm. Related to, but distinct from, Convergence Semi-Angle: the two quantities are connected via aberration coefficients, defocus, and probe current, which are not always published. Report whichever is known; if both are known, report both fields. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.'
           type: object
@@ -728,7 +843,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id010
+        - &id012
           title: STEM Probe Current
           description: Probe current in picoamperes (pA) or nanoamperes (nA). Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.
           type: object
@@ -755,7 +870,7 @@ allOf:
               - type: number
               - type: string
             schema:unitText:
-              const: pA or nA
+              type: string
           required:
           - '@id'
           - '@type'
@@ -763,7 +878,42 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id011
+        - &id013
+          title: Dwell Time per Pixel
+          description: Time spent acquiring signal at each pixel during STEM scanning in milliseconds. For dose-sensitive materials, minimize dwell and compensate with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/dwellTimePerPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: dwellTimePerPixelDefault
+            schema:name:
+              const: Dwell Time per Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id014
           title: STEM Scan Dimensions
           description: Number of pixels in the STEM scan frame (X × Y pixels). Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.
           type: object
@@ -790,7 +940,7 @@ allOf:
               - type: number
               - type: string
             schema:unitText:
-              const: pixels x pixels
+              const: pixels
           required:
           - '@id'
           - '@type'
@@ -798,7 +948,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id012
+        - &id015
           title: STEM Frame Averaging
           description: Number of frames averaged (with drift correction if applicable) to produce the final STEM image. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used.
           type: object
@@ -829,7 +979,42 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id013
+        - &id016
+          title: Camera Length
+          description: Nominal camera length in millimeters used for diffraction pattern acquisition. Must be calibrated to convert pixel distances to d-spacings. Calibration to absolute d-spacings is required — see 'Diffraction Calibration Reference'.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/cameraLengthDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: cameraLengthDefault
+            schema:name:
+              const: Camera Length
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: mm
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id017
           title: Selected-Area Aperture Size
           description: Diameter of the selected-area aperture used in SAED mode, defining the specimen region that contributes to the diffraction pattern.
           type: object
@@ -860,7 +1045,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id014
+        - &id018
           title: Precession Angle
           description: Precession semi-angle in degrees for precession electron diffraction (PED). Not applicable to SAED, CBED, or standard 4D-STEM. Record 'N/A' where Precession ED is not listed in Analytical Sub-mode.
           type: object
@@ -895,7 +1080,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id015
+        - &id019
           title: 4D-STEM Scan Grid and Area
           description: Number of probe positions in the 4D-STEM dataset (scan pixels × scan pixels) and the physical area covered. Probe step size is the physical area divided by scan pixel count. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.
           type: object
@@ -926,7 +1111,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id016
+        - &id020
           title: 4D-STEM Dwell Time per Probe Position
           description: Time spent acquiring each diffraction pattern in the 4D-STEM dataset in milliseconds. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.
           type: object
@@ -961,7 +1146,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id017
+        - &id021
           title: Diffraction Camera Length Calibration Method
           description: Method used to calibrate the camera length constant and convert pixel distances in diffraction patterns to d-spacings or reciprocal lattice vectors.
           type: object
@@ -984,7 +1169,20 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - External standard (Au film, d111=0.2355 nm)
+                - External standard (Al film)
+                - In-situ Pt nanocrystals
+                - Known phase in specimen (internal standard)
+                - Manufacturer calibration constant
+                - CIPS software
+                - Unknown
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/diffraction-camera-length-calibration-method
@@ -995,7 +1193,50 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id018
+        - &id022
+          title: EDS Acquisition Mode
+          description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record ''N/A'' where the procedure has no EDS detector. ''Point'' covers what the literature also calls spot or point-spectrum analysis. ''Map'' and ''Spectrum image'' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with ''; '' rather than looking for a combined member.'
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/edsAcquisitionModeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: edsAcquisitionModeDefault
+            schema:name:
+              const: EDS Acquisition Mode
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+              enum:
+              - Point
+              - Line scan
+              - Map
+              - Spectrum image
+              - Simultaneous EDS+EELS
+              - N/A
+              - None
+              - missing
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eds-acquisition-mode
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id023
           title: EDS Live Time per Point or Pixel
           description: EDS spectral acquisition live time per analysis point (point/line mode) or per pixel (spectrum image) in seconds. Also referred to as "EDS Acquisition Time" in EPMA and some SEM-EDS contexts, where the per-pixel distinction is less relevant. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
           type: object
@@ -1030,7 +1271,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id019
+        - &id024
           title: EDS Energy Range
           description: Energy range of EDS spectrum acquisition in keV. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
           type: object
@@ -1054,6 +1295,49 @@ allOf:
               const: R
             schema:defaultValue:
               type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id025
+          title: EELS Acquisition Mode
+          description: Mode of EELS data acquisition. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/eelsAcquisitionModeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: eelsAcquisitionModeDefault
+            schema:name:
+              const: EELS Acquisition Mode
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+              enum:
+              - Point spectrum
+              - Line scan
+              - Spectrum image (SI)
+              - Dual-EELS (simultaneous low- and high-loss)
+              - Simultaneous EDS+EELS
+              - N/A
+              - None
+              - missing
+            schema:inDefinedTermSet:
+              const:
+                '@id': ada:vocab/eels-acquisition-mode
           required:
           - '@id'
           - '@type'
@@ -1117,6 +1401,72 @@ allOf:
           - schema:value
           - schema:unitText
           readOnly: true
+        - &id026
+          title: EELS Acquisition Time per Spectrum
+          description: Exposure time per individual EELS spectrum (or per pixel for spectrum images) in seconds. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/eelsAcquisitionTimePerSpectrumDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: eelsAcquisitionTimePerSpectrumDefault
+            schema:name:
+              const: EELS Acquisition Time per Spectrum
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id027
+          title: EELS Energy Loss Range
+          description: Energy loss range acquired, defined by onset energy and width in eV. The target range covers the registered target species edges; the actual range acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/eelsEnergyLossRangeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: eelsEnergyLossRangeDefault
+            schema:name:
+              const: EELS Energy Loss Range
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
         - title: 4D-STEM Orientation Mapping Method
           description: Algorithm, software module, and reference crystal structure database used for automated crystal orientation mapping (ACOM) from 4D-STEM datasets. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.
           type: object
@@ -1166,7 +1516,7 @@ allOf:
           - schema:name
           - schema:value
           readOnly: true
-        - &id020
+        - &id028
           title: Specimen Thickness Determination Method
           description: Method used to estimate TEM foil thickness.
           type: object
@@ -1189,7 +1539,19 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - EELS log-ratio method (Malis et al. 1988)
+                - Convergent-beam diffraction (CBED thickness fringes)
+                - Kramers-Kronig analysis of low-loss EELS
+                - FIB cross-section measurement
+                - Estimated from preparation conditions
+                - Not determined
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/specimen-thickness-determination-method
@@ -1200,7 +1562,38 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id021
+        - &id029
+          title: EDS Calibration Standard(s)
+          description: Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/temTAPP/edsCalibrationStandardDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: edsCalibrationStandardDefault
+            schema:name:
+              const: EDS Calibration Standard(s)
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id030
           title: EELS Energy Calibration
           description: Method and reference used to calibrate the EELS energy axis. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
           type: object
@@ -1231,7 +1624,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id022
+        - &id031
           title: Diffraction Calibration Reference
           description: Reference material or internal standard used to calibrate the electron diffraction camera constant (camera length × electron wavelength), enabling conversion of pixel distances to d-spacings.
           type: object
@@ -1262,7 +1655,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id023
+        - &id032
           title: EDS Detection Limit
           description: Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
           type: object
@@ -1297,7 +1690,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id024
+        - &id033
           title: EDS Counting Statistics / Accumulation Criterion
           description: Quality criterion used to determine when sufficient EDS signal has been accumulated for a given pixel or point, in lieu of or in addition to a fixed live time. Expressed as a target relative uncertainty on major-element peak counts achieved by accumulating successive scan frames (e.g., "1% counting statistics on major elements"; ">10% counting statistics"). Distinct from EDS Live Time per Point or Pixel, which records a fixed-duration setting. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
           type: object
@@ -1328,7 +1721,7 @@ allOf:
           - schema:name
           - ada:dataType
           - ada:fieldScope
-        - &id025
+        - &id034
           title: EELS Chemical State Determination Method
           description: Method used to determine the chemical or oxidation state of an element from the fine structure of its ionization edge (ELNES), together with the reference data or calibration the determination relies on. Name the method family and cite the calibration curve or reference spectra used. Record 'N/A' where no chemical-state determination is made.
           type: object
@@ -1351,7 +1744,18 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - White-line intensity ratio (L3/L2)
+                - Integral white-line ratio against a published calibration curve
+                - Peak position and lineshape comparison to reference standards
+                - Multiple linear least-squares (MLLS) fitting to reference spectra
+                - Edge onset energy shift
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/eels-chemical-state-determination-method
@@ -1403,6 +1807,24 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id019
+        minContains: 0
+        maxContains: 1
+      - contains: *id020
+        minContains: 0
+        maxContains: 1
+      - contains: *id021
+        minContains: 0
+        maxContains: 1
+      - contains: *id022
+        minContains: 0
+        maxContains: 1
+      - contains: *id023
+        minContains: 0
+        maxContains: 1
+      - contains: *id024
+        minContains: 0
+        maxContains: 1
+      - contains: *id025
         minContains: 0
         maxContains: 1
       - contains:
@@ -1467,6 +1889,12 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
+      - contains: *id026
+        minContains: 0
+        maxContains: 1
+      - contains: *id027
+        minContains: 0
+        maxContains: 1
       - contains:
           title: 4D-STEM Orientation Mapping Method
           description: Algorithm, software module, and reference crystal structure database used for automated crystal orientation mapping (ACOM) from 4D-STEM datasets. Record 'N/A' where 4D-STEM is not listed in Analytical Sub-mode.
@@ -1522,88 +1950,33 @@ allOf:
           readOnly: true
         minContains: 0
         maxContains: 1
-      - contains: *id020
+      - contains: *id028
         minContains: 0
         maxContains: 1
-      - contains: *id021
+      - contains: *id029
         minContains: 0
         maxContains: 1
-      - contains: *id022
+      - contains: *id030
         minContains: 0
         maxContains: 1
-      - contains: *id023
+      - contains: *id031
         minContains: 0
         maxContains: 1
-      - contains: *id024
+      - contains: *id032
         minContains: 0
         maxContains: 1
-      - contains: *id025
+      - contains: *id033
         minContains: 0
         maxContains: 1
-    ada:spectroscopicDetectorDefault:
-      description: Spectroscopic detectors present and used under this procedure. EDS and EELS parameter fields in Group 4 apply only when the corresponding detector is listed here.
-      type: string
-      enum:
-      - EDS only
-      - EELS only
-      - EDS and EELS
-      - EELS and EFTEM
-      - EDS and EELS and EFTEM
-      - None
-      - N/A
-      - missing
-      schema:inDefinedTermSet: ada:vocab/spectroscopic-detector
-    ada:analyticalSubModeDefault:
-      description: Sub-mode(s) of imaging or diffraction performed under this procedure. Multiple values apply when the procedure covers more than one sub-mode within a given analytical mode.
-      anyOf:
-      - type: string
-        enum:
-        - BF-TEM
-        - DF-TEM
-        - HRTEM
-        - EFTEM (TEM Imaging); HAADF
-        - ABF
-        - BF-STEM
-        - ADF
-        - MAADF (STEM Imaging); SAED
-        - CBED
-        - Nanobeam diffraction
-        - Precession ED
-        - 4D-STEM (Electron Diffraction)
-        - N/A
-        - None
-        - missing
-      - type: string
-      schema:inDefinedTermSet: ada:vocab/analytical-sub-mode
+      - contains: *id034
+        minContains: 0
+        maxContains: 1
     ada:convergenceSemiAngle:
       description: Semi-angle of the converged electron probe in milliradians.
       anyOf:
       - type: number
       - type: string
       readOnly: true
-    ada:stemDwellTimePerPixelDefault:
-      description: Time spent acquiring signal at each pixel during STEM scanning in milliseconds. For dose-sensitive materials, minimize dwell and compensate with frame averaging. Also governs STEM-EDS and STEM-EELS acquisition where those detectors are used. For 4D-STEM dwell time see '4D-STEM Dwell Time per Probe Position'.
-      anyOf:
-      - type: number
-      - type: string
-    ada:cameraLengthDefault:
-      description: Nominal camera length in millimeters used for diffraction pattern acquisition. Must be calibrated to convert pixel distances to d-spacings. Calibration to absolute d-spacings is required — see 'Diffraction Calibration Reference'.
-      anyOf:
-      - type: number
-      - type: string
-    ada:edsAcquisitionModeDefault:
-      description: 'Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record ''N/A'' where the procedure has no EDS detector. ''Point'' covers what the literature also calls spot or point-spectrum analysis. ''Map'' and ''Spectrum image'' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with ''; '' rather than looking for a combined member.'
-      type: string
-      enum:
-      - Point
-      - Line scan
-      - Map
-      - Spectrum image
-      - Simultaneous EDS+EELS
-      - N/A
-      - None
-      - missing
-      schema:inDefinedTermSet: ada:vocab/eds-acquisition-mode
     ada:edsQuantificationMethod:
       description: X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps. Where the k-factors or calibration constants themselves came from — measured standards, a vendor library, or theoretical cross-sections — is a separate question answered by this technique's calibration-standard field, not here; a procedure may be both absorption-corrected and standardless.
       anyOf:
@@ -1645,19 +2018,6 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:eelsAcquisitionModeDefault:
-      description: Mode of EELS data acquisition. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
-      type: string
-      enum:
-      - Point spectrum
-      - Line scan
-      - Spectrum image (SI)
-      - Dual-EELS (simultaneous low- and high-loss)
-      - Simultaneous EDS+EELS
-      - N/A
-      - None
-      - missing
-      schema:inDefinedTermSet: ada:vocab/eels-acquisition-mode
     ada:eelsEdgesDefault:
       type: array
       items:
@@ -1669,14 +2029,6 @@ allOf:
       - type: number
       - type: string
       readOnly: true
-    ada:eelsAcquisitionTimePerSpectrumDefault:
-      description: Exposure time per individual EELS spectrum (or per pixel for spectrum images) in seconds. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
-      anyOf:
-      - type: number
-      - type: string
-    ada:eelsEnergyLossRangeDefault:
-      description: Energy loss range acquired, defined by onset energy and width in eV. The target range covers the registered target species edges; the actual range acquired may differ. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
-      type: string
     ada:phaseIdentificationMethod:
       description: Method used to identify crystalline phases from electron diffraction patterns or d-spacings, whether from SAED patterns, spot diffraction, or diffraction data extracted from 4D-STEM datasets.
       type: string
@@ -1689,7 +2041,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id028
+            - &id037
               title: EELS Background Subtraction Method
               description: Method used to subtract the background beneath the ionization edge of interest to extract the net edge signal. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
               type: object
@@ -1714,17 +2066,17 @@ allOf:
                     '@id': ada:vocab/eels-background-subtraction-method
                 schema:defaultValue:
                   anyOf:
-                  - &id026
+                  - &id035
                     type: string
                   - type: array
-                    items: *id026
+                    items: *id035
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id029
+            - &id038
               title: EELS Detection Limit
               description: Estimated detection limit or minimum detectable concentration, under this procedure, of each quantity determined by EELS. Record 'N/A' where EELS is not listed in Spectroscopic Detector(s).
               type: object
@@ -1746,12 +2098,12 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id027
+                  - &id036
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id027
+                    items: *id036
               required:
               - '@id'
               - '@type'
@@ -1759,17 +2111,14 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id028
+          - contains: *id037
             minContains: 0
             maxContains: 1
-          - contains: *id029
+          - contains: *id038
             minContains: 0
             maxContains: 1
           title: Monitored Property Columns
       title: Monitored Property Template
-    ada:edsCalibrationStandardDefault:
-      description: Reference material(s) used to validate EDS quantification or determine experimental k-factors or zeta-factors. Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
-      type: string
     schema:variableMeasured:
       type: array
       items:
@@ -1786,9 +2135,9 @@ allOf:
                 enum:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
-        - *id023
+        - *id032
       allOf:
-      - contains: *id023
+      - contains: *id032
         minContains: 0
         maxContains: 1
     ada:analyticalMode:
@@ -1800,16 +2149,7 @@ allOf:
         - STEM Imaging
         - Electron Diffraction
   required:
-  - ada:spectroscopicDetectorDefault
-  - ada:analyticalSubModeDefault
   - ada:convergenceSemiAngle
-  - ada:stemDwellTimePerPixelDefault
-  - ada:cameraLengthDefault
-  - ada:edsAcquisitionModeDefault
   - ada:edsQuantificationMethod
-  - ada:eelsAcquisitionModeDefault
   - ada:eelsCollectionSemiAngle
-  - ada:eelsAcquisitionTimePerSpectrumDefault
-  - ada:eelsEnergyLossRangeDefault
   - ada:phaseIdentificationMethod
-  - ada:edsCalibrationStandardDefault

@@ -218,6 +218,37 @@ allOf:
         - $ref: ../../../../BaseSchema/modules/laserAblation/schema.yaml#/$defs/Param_Procedure_transectRateMappingRateOrStepSize
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_makeUpGasAndFlowRate
         - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
+        - title: Monitored Masses
+          description: Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/monitoredMasses
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: monitoredMasses
+            schema:name:
+              const: Monitored Masses
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: true
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+          readOnly: true
         - &id003
           title: Ion Counter Dead Time
           description: Dead time of the ion-counting detector(s), used in the dead-time correction applied to high count rates. Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode.
@@ -287,6 +318,41 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - &id005
+          title: Total Integration Time per Output Data Point
+          description: Total duty-cycle time for one complete mass-scan sweep — the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/totalIntegrationTimePerOutputDataPointDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: totalIntegrationTimePerOutputDataPointDefault
+            schema:name:
+              const: Total Integration Time per Output Data Point
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id006
           title: Collision/Reaction Gas Mixture Ratio
           description: Where the collision or reaction cell is supplied with a mixture of gases rather than a single gas, the identities and proportions of that mixture. Recorded separately from the gas identity. Record 'N/A' where a single gas is used.
           type: object
@@ -380,6 +446,40 @@ allOf:
           $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_instrumentWarmUpSessionDurationLimit
         minContains: 0
         maxContains: 1
+      - contains:
+          title: Monitored Masses
+          description: Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/laQicpmsUPbTAPP/monitoredMasses
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: monitoredMasses
+            schema:name:
+              const: Monitored Masses
+            ada:dataType:
+              const: string
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: true
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              type: string
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+          readOnly: true
+        minContains: 0
+        maxContains: 1
       - contains: *id003
         minContains: 0
         maxContains: 1
@@ -395,6 +495,9 @@ allOf:
         minContains: 0
         maxContains: 1
       - contains: *id005
+        minContains: 0
+        maxContains: 1
+      - contains: *id006
         minContains: 0
         maxContains: 1
       - contains:
@@ -481,7 +584,7 @@ allOf:
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_massResolutionSetting
                   - $ref: ../../../../BaseSchema/modules/singleCollector/schema.yaml#/$defs/Param_Procedure_detectorConfiguration
                   - $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
-                  - &id006
+                  - &id007
                     title: Doubly-Charged Species Monitor
                     description: The mass ratio monitored to estimate doubly-charged ion (M²⁺) formation during instrument tuning. The monitor species and the mass positions monitored should be stated explicitly. Analogous to Oxide Production Method and Threshold for oxide monitoring.
                     type: object
@@ -512,7 +615,7 @@ allOf:
                     - schema:name
                     - ada:dataType
                     - ada:fieldScope
-                  - &id007
+                  - &id008
                     title: Doubly-Charged Species Production
                     description: Measured percentage of doubly-charged ion production for the monitored species at the time of instrument tuning. The acceptable threshold is typically <1% or <3%. Record both the threshold and the measured value.
                     type: object
@@ -561,10 +664,10 @@ allOf:
                     $ref: ../../../../BaseSchema/modules/icpms/schema.yaml#/$defs/Param_Procedure_icpTuning
                   minContains: 0
                   maxContains: 1
-                - contains: *id006
+                - contains: *id007
                   minContains: 0
                   maxContains: 1
-                - contains: *id007
+                - contains: *id008
                   minContains: 0
                   maxContains: 1
                 - contains:
@@ -806,7 +909,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetSpeciesIdentifierColumn
-            - &id008
+            - &id009
               title: Monitored Masses
               description: Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.
               type: object
@@ -835,7 +938,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id009
+            - &id010
               title: Dwell Time per Mass
               description: Count (dwell) time at the mass position, in milliseconds. Where the procedure defines it per sweep or per scan rather than per measurement, state that basis.
               type: object
@@ -866,7 +969,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id010
+            - &id011
               title: Calibration Strategy per Target Species
               description: Approach used to convert measured ion signals to reported concentrations, and specifically any case where different target species or target species groups within one procedure are calibrated differently - different primary standards for different mass ranges or phases, or one element serving as internal standard while others are externally calibrated. Where a single strategy applies to all target species, record that strategy. Where the procedure reports isotope ratios only and no concentrations, record 'Not applicable (isotope ratios only)'.
               type: object
@@ -895,7 +998,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id011
+            - &id012
               title: Spectral Interference Corrections Applied
               description: Whether mathematical corrections for isobaric, polyatomic or residual interferences are applied in data reduction, supplementary to any suppression already achieved by chemical separation, mass resolution, or a collision/reaction cell. Detail for each affected mass is carried by Interfering Species and Interference Correction Method.
               type: object
@@ -927,7 +1030,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id012
+            - &id013
               title: Interfering Species
               description: The isobaric, polyatomic and doubly charged species that overlap the measured masses and are corrected in data reduction - direct isobars, oxides and argides, hydrides, and abundance-sensitivity tailing from an adjacent large beam. Name each species and the mass it affects.
               type: object
@@ -956,7 +1059,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id013
+            - &id014
               title: Interference Correction Method
               description: Equation or procedure used to calculate and remove each interference contribution, together with how its magnitude was established - a monitor mass measured simultaneously and scaled by natural abundance ratios, a production-rate factor measured on a reference material or interference standard solution, or a tailing factor measured on a pure standard. Name the reference material used.
               type: object
@@ -985,7 +1088,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id014
+            - &id015
               title: Counting Statistics Error
               description: 'How the uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — is computed for each reported quantity, and the sigma level it is quoted at. It is derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately. In the dataset: report, for each analysis and reported quantity, the counting-statistics uncertainty at the stated sigma level.'
               type: object
@@ -1013,7 +1116,7 @@ allOf:
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id015
+            - &id016
               title: Internal (Within-Measurement) Analytical Precision and Assessment Method
               description: 'How the precision of a single measurement is assessed from the scatter of the cycles, sweeps or integrations that make it up: the statistic (2SE, 2SD, 1s RSD) and the number of cycles it is computed over, for each reported quantity. Distinct from Counting Statistics Error, which records how the uncertainty predicted from the counts is computed rather than the scatter observed. In the dataset: report, for each measurement and reported quantity, the internal precision as the stated statistic.'
               type: object
@@ -1042,9 +1145,6 @@ allOf:
               - schema:name
               - ada:dataType
           allOf:
-          - contains: *id008
-            minContains: 0
-            maxContains: 1
           - contains: *id009
             minContains: 0
             maxContains: 1
@@ -1066,16 +1166,15 @@ allOf:
           - contains: *id015
             minContains: 0
             maxContains: 1
+          - contains: *id016
+            minContains: 0
+            maxContains: 1
           minItems: 1
           title: Target Species Columns
       required:
       - ada:defaultTargetSpecies
       - ada:targetSpeciesColumns
       title: Target Species Template
-    ada:massesMeasuredDefault:
-      description: Specific masses monitored in this procedure, grouped by the target species element they serve where they serve one. Covers atomic isotopes and, where a reaction cell shifts an target species onto a different mass, the product mass actually measured. Includes interference-monitor and internal-standard masses, which serve no target species and so have no parent element. The target species list is given by the Target Species field and is never inferred from the element symbols appearing here.
-      type: string
-      readOnly: true
     ada:reportedPropertyTemplate:
       type: object
       properties:
@@ -1104,11 +1203,6 @@ allOf:
       description: 'Strategy used to correct instrumental isotopic mass fractionation, also called mass bias or mass discrimination. Distinct from Elemental Fractionation Correction, which addresses inter-element fractionation during ablation and transport: this field addresses discrimination between isotopes of the same element, and applies wherever the procedure reports isotope ratios.'
       type: string
       readOnly: true
-    ada:totalIntegrationTimePerOutputDataPointDefault:
-      description: Total duty-cycle time for one complete mass-scan sweep — the sum of all per-isotope dwell times plus inter-mass settling times. Not recoverable from Dwell Time per Mass alone, because settling time is not captured there. Applies to sequential (quadrupole and single-collector sector-field) acquisition.
-      anyOf:
-      - type: number
-      - type: string
     ada:numberOfAcquisitionPasses:
       description: Number of acquisition passes the procedure runs. A count of the passes enumerated in Acquisition Pass, recorded separately so multi-pass procedures are findable without parsing that field.
       anyOf:
@@ -1124,8 +1218,6 @@ allOf:
         - Transect
         - Mapping
   required:
-  - ada:massesMeasuredDefault
   - ada:signalCollectionMode
   - ada:massBiasCorrectionStrategy
-  - ada:totalIntegrationTimePerOutputDataPointDefault
   - ada:numberOfAcquisitionPasses

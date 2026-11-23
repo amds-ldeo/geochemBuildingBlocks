@@ -16,7 +16,7 @@
     "schema:HowTo"
   ],
   "schema:name": "labxct protocol — Richard2019",
-  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit); ada:segmentationMethodDefault = Grayscale threshold range selection (ImageJ).",
+  "schema:description": "labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt incl.) Single-volume Zeiss Xradia 510 Versa UNAM Mexico (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:detectorType = CCD ANDOR camera (1080 × 1080 px, 32-bit).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Olivine phenocryst with silicate melt inclusion",
     "ada:targetMaterialColumns": [
@@ -84,6 +84,29 @@
       "schema:value": "4.0× magnification"
     },
     {
+      "@id": "ada:parameter/labxctTAPP/numberOfProjectionsDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "numberOfProjectionsDefault",
+      "schema:name": "Number of Projections",
+      "ada:dataType": "integer",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 1601
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/exposureTimePerProjectionDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "exposureTimePerProjectionDefault",
+      "schema:name": "Exposure Time per Projection",
+      "ada:dataType": "number",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": 8,
+      "schema:description": "8 s"
+    },
+    {
       "@id": "ada:parameter/labxctTAPP/framesAveragedPerProjectionDefault",
       "@type": [
         "schema:PropertyValueSpecification"
@@ -94,6 +117,17 @@
       "ada:fieldScope": "session",
       "schema:defaultValue": 200,
       "schema:description": "~200 reference (blank) images taken; number of frames averaged per projection N"
+    },
+    {
+      "@id": "ada:parameter/labxctTAPP/segmentationMethodDefault",
+      "@type": [
+        "schema:PropertyValueSpecification"
+      ],
+      "schema:valueName": "segmentationMethodDefault",
+      "schema:name": "Segmentation Method",
+      "ada:dataType": "string",
+      "ada:fieldScope": "session",
+      "schema:defaultValue": "Grayscale threshold range selection (ImageJ)"
     },
     {
       "@id": "ada:parameter/labxctTAPP/segmentationThresholdValuesOrCriteriaDefault",
@@ -126,7 +160,7 @@
       "schema:name": "Output Bit Depth",
       "ada:dataType": "string",
       "ada:fieldScope": "session",
-      "schema:defaultValue": "32-bit (ZEISS XRM output)"
+      "schema:defaultValue": "N/A"
     }
   ],
   "schema:instrument": [
@@ -173,9 +207,6 @@
       "@id": "ex:labxctTAPP-Richard2019/instrument/XCT"
     }
   ],
-  "ada:numberOfProjectionsDefault": "1601",
-  "ada:exposureTimePerProjectionDefault": "8 s",
-  "ada:segmentationMethodDefault": "Grayscale threshold range selection (ImageJ)",
   "ada:reportedPropertyTemplate": {
     "ada:defaultReportedProperties": [
       "Phase volumes within the melt inclusion (glass, clinopyroxene, spinel, vapour)"
@@ -256,8 +287,6 @@
   "ada:minimumSubVolumeOverlap": -9999,
   "ada:outputDataFormatDefault": "missing",
   "ada:reconstructionAlgorithm": "missing",
-  "ada:rotationModeDefault": "missing",
-  "ada:rotationRangeDefault": -9999,
   "ada:samplingUnitSelectionCriteriaDefault": "no value available: ada:samplingUnitSelectionCriteriaDefault",
   "ada:xRaySourceConfiguration": "missing",
   "schema:datePublished": "no value available: schema:datePublished"

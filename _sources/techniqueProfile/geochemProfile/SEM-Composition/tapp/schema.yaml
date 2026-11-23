@@ -746,7 +746,7 @@ allOf:
               - type: number
               - type: string
             schema:unitText:
-              const: µm x µm
+              const: µm
           required:
           - '@id'
           - '@type'
@@ -878,6 +878,76 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - &id018
+          title: EDS Live Time per Point or Pixel
+          description: EDS spectral acquisition live time per analysis point or per pixel in seconds.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: edsLiveTimePerPointOrPixelDefault
+            schema:name:
+              const: EDS Live Time per Point or Pixel
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: s
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id019
+          title: Step Size / Pixel Size
+          description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.
+          type: object
+          properties:
+            '@id':
+              const: ada:parameter/semCompositionTAPP/stepSizePixelSizeDefault
+            '@type':
+              const:
+              - schema:PropertyValueSpecification
+            schema:valueName:
+              const: stepSizePixelSizeDefault
+            schema:name:
+              const: Step Size / Pixel Size
+            ada:dataType:
+              const: number
+            ada:fieldScope:
+              const: session
+            schema:readonlyValue:
+              const: false
+            ada:tier:
+              const: R
+            schema:defaultValue:
+              anyOf:
+              - type: number
+              - type: string
+            schema:unitText:
+              const: µm
+          required:
+          - '@id'
+          - '@type'
+          - schema:valueName
+          - schema:name
+          - ada:dataType
+          - ada:fieldScope
+        - &id020
           title: Halogen Correction on Oxygen
           description: Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.
           type: object
@@ -900,7 +970,15 @@ allOf:
             ada:tier:
               const: R
             schema:defaultValue:
-              type: string
+              anyOf:
+              - type: string
+                enum:
+                - Yes — F and Cl substitution in apatite; O calculated as 1-F-Cl=OH
+                - 'No'
+                - N/A
+                - None
+                - missing
+              - type: string
             schema:inDefinedTermSet:
               const:
                 '@id': ada:vocab/halogen-correction-on-oxygen
@@ -982,6 +1060,12 @@ allOf:
       - contains: *id018
         minContains: 0
         maxContains: 1
+      - contains: *id019
+        minContains: 0
+        maxContains: 1
+      - contains: *id020
+        minContains: 0
+        maxContains: 1
       - contains:
           title: EDS Spectral Processing Type
           description: Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.
@@ -1019,7 +1103,7 @@ allOf:
           items:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
-            - &id027
+            - &id029
               title: Dwell Time per Pixel
               description: Time the electron beam dwells on each pixel during raster scanning (imaging modes) or on each step position during compositional mapping (EDS and WDS mapping modes), in microseconds or milliseconds. For WDS mapping, the dwell time is per spectrometer per pixel.
               type: object
@@ -1041,12 +1125,12 @@ allOf:
                   const: M
                 schema:defaultValue:
                   anyOf:
-                  - &id019
+                  - &id021
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id019
+                    items: *id021
               required:
               - '@id'
               - '@type'
@@ -1054,7 +1138,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id028
+            - &id030
               title: X-ray Line
               description: X-ray emission line measured.
               type: object
@@ -1079,10 +1163,10 @@ allOf:
                     '@id': ada:vocab/x-ray-line
                 schema:defaultValue:
                   anyOf:
-                  - &id020
+                  - &id022
                     type: string
                   - type: array
-                    items: *id020
+                    items: *id022
               required:
               - '@id'
               - '@type'
@@ -1090,7 +1174,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id029
+            - &id031
               title: Diffracting Crystal
               description: Analyzing crystal (monochromator).
               type: object
@@ -1115,10 +1199,10 @@ allOf:
                     '@id': ada:vocab/diffracting-crystal
                 schema:defaultValue:
                   anyOf:
-                  - &id021
+                  - &id023
                     type: string
                   - type: array
-                    items: *id021
+                    items: *id023
               required:
               - '@id'
               - '@type'
@@ -1126,7 +1210,7 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - &id030
+            - &id032
               title: Sequence
               description: Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.
               type: object
@@ -1148,19 +1232,19 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id022
+                  - &id024
                     anyOf:
                     - type: number
                     - type: string
                   - type: array
-                    items: *id022
+                    items: *id024
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id031
+            - &id033
               title: Proportional Counter / Detector
               description: Type of detector used.
               type: object
@@ -1185,17 +1269,17 @@ allOf:
                     '@id': ada:vocab/proportional-counter-detector
                 schema:defaultValue:
                   anyOf:
-                  - &id023
+                  - &id025
                     type: string
                   - type: array
-                    items: *id023
+                    items: *id025
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id032
+            - &id034
               title: WDS PHA Setting
               description: Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.
               type: object
@@ -1220,17 +1304,17 @@ allOf:
                     '@id': ada:vocab/wds-pha-setting
                 schema:defaultValue:
                   anyOf:
-                  - &id024
+                  - &id026
                     type: string
                   - type: array
-                    items: *id024
+                    items: *id026
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id033
+            - &id035
               title: Background Position(s)
               description: Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.
               type: object
@@ -1252,17 +1336,17 @@ allOf:
                   const: R
                 schema:defaultValue:
                   anyOf:
-                  - &id025
+                  - &id027
                     type: string
                   - type: array
-                    items: *id025
+                    items: *id027
               required:
               - '@id'
               - '@type'
               - schema:valueName
               - schema:name
               - ada:dataType
-            - &id034
+            - &id036
               title: X-ray Detection Method per Monitored Element
               description: 'The X-ray detection method used to measure the monitored element: wavelength-dispersive (WDS), in which a crystal spectrometer separates the X-rays by wavelength and a proportional counter counts them, or energy-dispersive (EDS), in which a solid-state detector sorts every photon by energy at once. Applies where a procedure uses both.'
               type: object
@@ -1287,10 +1371,10 @@ allOf:
                     '@id': ada:vocab/x-ray-detection-method-per-monitored-element
                 schema:defaultValue:
                   anyOf:
-                  - &id026
+                  - &id028
                     type: string
                   - type: array
-                    items: *id026
+                    items: *id028
               required:
               - '@id'
               - '@type'
@@ -1299,12 +1383,6 @@ allOf:
               - ada:dataType
               - schema:defaultValue
           allOf:
-          - contains: *id027
-            minContains: 0
-            maxContains: 1
-          - contains: *id028
-            minContains: 0
-            maxContains: 1
           - contains: *id029
             minContains: 0
             maxContains: 1
@@ -1321,6 +1399,12 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains: *id034
+            minContains: 0
+            maxContains: 1
+          - contains: *id035
+            minContains: 0
+            maxContains: 1
+          - contains: *id036
             minContains: 0
             maxContains: 1
           title: Monitored Property Columns
@@ -1352,16 +1436,6 @@ allOf:
       required:
       - ada:defaultReportedProperties
       title: Reported Property Template
-    ada:edsLiveTimePerPointOrPixelDefault:
-      description: EDS spectral acquisition live time per analysis point or per pixel in seconds.
-      anyOf:
-      - type: number
-      - type: string
-    ada:stepSizePixelSizeDefault:
-      description: Centre-to-centre distance between adjacent measurement points (WDS mapping) or pixels (EDS mapping) in µm.
-      anyOf:
-      - type: number
-      - type: string
     ada:matrixCorrectionMethod:
       description: X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps. Where the k-factors or calibration constants themselves came from — measured standards, a vendor library, or theoretical cross-sections — is a separate question answered by this technique's calibration-standard field, not here; a procedure may be both absorption-corrected and standardless.
       anyOf:
@@ -1433,7 +1507,7 @@ allOf:
                     type: array
                     items:
                       anyOf:
-                      - &id035
+                      - &id037
                         title: Analysis Inclusion and Rejection Criteria
                         description: 'The rules determining which individual results contribute to a combined result: the limits a result must meet (for example on analytical total or stoichiometry) and the grounds on which one is rejected (for example overlap onto a neighbouring phase, or an outlier test with its threshold), including any acceptance threshold on the dispersion statistic. An individual result is the value of the reported quantity obtained from one acquisition: a replicate measurement of the same solution or location, a spot or grain within a sample, or an independently prepared aliquot or digestion, whichever the procedure combines. Distinct from filtering the acquired signal during data reduction (removing spikes, cycles or scans, or discarding an acquisition whose signal is compromised): this field records the rules by which finished results enter a combined result. In the dataset: flag each individual result excluded from a combined value, with the rule that excluded it.'
                         type: object
@@ -1466,7 +1540,7 @@ allOf:
                         - ada:fieldScope
                       - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/Param_Procedure_constantsReferenceValues
                     allOf:
-                    - contains: *id035
+                    - contains: *id037
                       minContains: 0
                       maxContains: 1
                     - contains:
@@ -1497,8 +1571,6 @@ allOf:
         - WDS Mapping
   required:
   - ada:edsAcquisitionMode
-  - ada:edsLiveTimePerPointOrPixelDefault
-  - ada:stepSizePixelSizeDefault
   - ada:matrixCorrectionMethod
   - ada:massAbsorptionCoefficients
   - ada:wdsDeadTimeCorrection
