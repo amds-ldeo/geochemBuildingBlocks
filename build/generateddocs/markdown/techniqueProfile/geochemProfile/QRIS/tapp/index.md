@@ -39,7 +39,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Quantitative Reflectance Imaging System"
+      "schema:termCode": "Quantitative Reflectance Imaging System",
+      "schema:name": "Quantitative Reflectance Imaging System"
     }
   ],
   "schema:creator": {
@@ -134,7 +135,8 @@ qrisTAPP instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Quantitative Reflectance Imaging System"
+      "schema:termCode": "Quantitative Reflectance Imaging System",
+      "schema:name": "Quantitative Reflectance Imaging System"
     }
   ],
   "schema:creator": {
@@ -221,6 +223,7 @@ ex:qrisTAPP-Golish2024 a schema1:Action,
             schema1:identifier "https://ror.org/04xx4z452" ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Quantitative Reflectance Imaging System" ;
             schema1:termCode "Quantitative Reflectance Imaging System" ] ;
     schema1:name "qris protocol — Golish2024" ;
     ada:focalLength -9999 ;
@@ -582,7 +585,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.QRIS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

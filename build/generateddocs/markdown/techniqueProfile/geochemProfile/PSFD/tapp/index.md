@@ -58,7 +58,8 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Particle Size Frequency Distribution"
+      "schema:termCode": "Particle Size Frequency Distribution",
+      "schema:name": "Particle Size Frequency Distribution"
     }
   ],
   "schema:creator": {
@@ -175,7 +176,8 @@ psfdTAPP instance derived from ADA n=2 | Pajola, Maurizio | NASA Johnson Space C
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Particle Size Frequency Distribution"
+      "schema:termCode": "Particle Size Frequency Distribution",
+      "schema:name": "Particle Size Frequency Distribution"
     }
   ],
   "schema:creator": {
@@ -264,6 +266,7 @@ ex:psfdTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Particle Size Frequency Distribution" ;
             schema1:termCode "Particle Size Frequency Distribution" ] ;
     schema1:name "psfd protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -407,7 +410,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.PSFD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

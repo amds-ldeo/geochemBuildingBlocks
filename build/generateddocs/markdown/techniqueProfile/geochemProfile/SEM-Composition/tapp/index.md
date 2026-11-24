@@ -1900,15 +1900,15 @@ ex:semCompositionTAPP-Izawa2010 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Full spectral imaging (Quartz XOne): all X-rays recorded per pixel, allowing post-hoc spectral analysis" ;
     schema1:instrument <https://example.org/semCompositionTAPP-Izawa2010/instrument/SEM> ;
@@ -2561,15 +2561,15 @@ ex:semCompositionTAPP-Izawa2010-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Additional BSE and EDX analyses also carried out with Hitachi S-4300SE/N (Texas Tech) and Hitachi SU6600 (UWO) — not captured as separate assessment columns Reported detail: ada:edsAcquisitionMode = Point / spot; Map." ;
     schema1:instrument <https://example.org/semCompositionTAPP-Izawa2010-2/instrument/SEM> ;
@@ -3590,15 +3590,15 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/beamDamageMinimizationDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault>,
@@ -3607,12 +3607,12 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy) Reported detail: ada:edsAcquisitionMode = Spot analysis." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/semCompositionTAPP-Pascucci2026/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -4756,15 +4756,15 @@ ex:semCompositionTAPP-Pascucci2026-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressureDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixelDefault>,
         <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsSpectralProcessingType>,
@@ -5630,12 +5630,12 @@ ex:semCompositionTAPP-Zega2025 a schema1:Action,
     schema1:description "semCompositionTAPP instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS-REx) | EDS Point Analysis (JEOL 7600F, NASA JSC, 15 kV) (publication column of SEM_Composition_TAPP_v86.csv). Reported detail: ada:edsAcquisitionMode = Point spectra (spot analysis)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford AZtec (Point & ID programme)" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford AZtec" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford AZtec (Point & ID programme)" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/semCompositionTAPP-Zega2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -6355,12 +6355,12 @@ ex:semCompositionTAPP-Zega2025-2 a schema1:Action,
     schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS Reported detail: ada:edsAcquisitionMode = EDS mapping." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford Instruments Aztec" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford Instruments Aztec Live/x-stream" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford Instruments Aztec" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semCompositionTAPP-Zega2025-2/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
@@ -6566,7 +6566,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)"
+      "schema:termCode": "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)",
+      "schema:name": "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)"
     }
   ],
   "schema:location": {
@@ -6830,7 +6831,8 @@ semCompositionTAPP instance derived from Barnes et al. 2025 | Bennu asteroid par
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "SEM-EDS (Scanning Electron Microscopy\u2013Energy Dispersive X-ray Spectroscopy)"
+      "schema:termCode": "SEM-EDS (Scanning Electron Microscopy\u2013Energy Dispersive X-ray Spectroscopy)",
+      "schema:name": "SEM-EDS (Scanning Electron Microscopy\u2013Energy Dispersive X-ray Spectroscopy)"
     }
   ],
   "schema:location": {
@@ -7020,6 +7022,7 @@ ex:semCompositionTAPP-Barnes2025 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Astromaterials Research and Exploration Science Division (ARES), NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)" ;
             schema1:termCode "SEM-EDS (Scanning Electron Microscopy–Energy Dispersive X-ray Spectroscopy)" ] ;
     schema1:name "semComposition protocol — Barnes2025" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -9868,7 +9871,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

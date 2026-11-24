@@ -60,7 +60,8 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Accelerator Mass Spectrometry"
+      "schema:termCode": "Accelerator Mass Spectrometry",
+      "schema:name": "Accelerator Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ amsTAPP instance derived from ADA n=8 | Thomas Woodruff | Purdue University | Pu
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Accelerator Mass Spectrometry"
+      "schema:termCode": "Accelerator Mass Spectrometry",
+      "schema:name": "Accelerator Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:amsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Purdue University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Accelerator Mass Spectrometry" ;
             schema1:termCode "Accelerator Mass Spectrometry" ] ;
     schema1:name "ams protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -413,7 +416,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.AMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

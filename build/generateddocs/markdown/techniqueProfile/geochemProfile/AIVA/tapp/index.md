@@ -39,7 +39,8 @@ aivaTAPP instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Advanced Imaging & Visualization of Astromaterials"
+      "schema:termCode": "Advanced Imaging & Visualization of Astromaterials",
+      "schema:name": "Advanced Imaging & Visualization of Astromaterials"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ aivaTAPP instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Advanced Imaging & Visualization of Astromaterials"
+      "schema:termCode": "Advanced Imaging & Visualization of Astromaterials",
+      "schema:name": "Advanced Imaging & Visualization of Astromaterials"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:aivaTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Advanced Imaging & Visualization of Astromaterials" ;
             schema1:termCode "Advanced Imaging & Visualization of Astromaterials" ] ;
     schema1:name "aiva protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -345,7 +348,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.AIVA.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

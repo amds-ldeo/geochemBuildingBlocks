@@ -39,7 +39,8 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Nanoindentation and Microindentation"
+      "schema:termCode": "Nanoindentation and Microindentation",
+      "schema:name": "Nanoindentation and Microindentation"
     }
   ],
   "schema:location": {
@@ -118,7 +119,8 @@ niMiTAPP instance derived from ADA n=8 | no named analyst | Arizona State Univer
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Nanoindentation and Microindentation"
+      "schema:termCode": "Nanoindentation and Microindentation",
+      "schema:name": "Nanoindentation and Microindentation"
     }
   ],
   "schema:location": {
@@ -185,6 +187,7 @@ ex:niMiTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/03efmqc40" ;
             schema1:name "Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Nanoindentation and Microindentation" ;
             schema1:termCode "Nanoindentation and Microindentation" ] ;
     schema1:name "niMi protocol — P0" ;
     ada:instrumentManufacturer "Renishaw" ;
@@ -315,7 +318,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.NI-MI.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

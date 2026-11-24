@@ -66,7 +66,8 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry"
+      "schema:termCode": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry",
+      "schema:name": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry"
     }
   ],
   "schema:location": {
@@ -178,7 +179,8 @@ gcCIrmsTAPP instance derived from ADA n=9 | no named analyst | Hokkaido Universi
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry"
+      "schema:termCode": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry",
+      "schema:name": "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry"
     }
   ],
   "schema:location": {
@@ -251,6 +253,7 @@ ex:gcCIrmsTAPP-Agilent7890 a schema1:Action,
             schema1:identifier "https://ror.org/04xt43068" ;
             schema1:name "Hokkaido University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry" ;
             schema1:termCode "Gas Chromatography-Combustion-Isotopic Ratio Mass Spectrometry" ] ;
     schema1:name "gcCIrms protocol — Agilent7890" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -403,7 +406,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.GC-C-IRMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

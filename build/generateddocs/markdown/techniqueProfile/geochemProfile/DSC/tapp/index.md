@@ -60,7 +60,8 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Differential Scanning Calorimetry"
+      "schema:termCode": "Differential Scanning Calorimetry",
+      "schema:name": "Differential Scanning Calorimetry"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ dscTAPP instance derived from ADA n=2 | Biele, Jens | Nagoya University | Perkin
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Differential Scanning Calorimetry"
+      "schema:termCode": "Differential Scanning Calorimetry",
+      "schema:name": "Differential Scanning Calorimetry"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:dscTAPP-DSC8000 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Nagoya University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Differential Scanning Calorimetry" ;
             schema1:termCode "Differential Scanning Calorimetry" ] ;
     schema1:name "dsc protocol — DSC8000" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -413,7 +416,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.DSC.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

@@ -60,7 +60,8 @@ lafTAPP instance derived from ADA n=16 | Greenwood, Richard | Open University | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements"
+      "schema:termCode": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements",
+      "schema:name": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ lafTAPP instance derived from ADA n=16 | Greenwood, Richard | Open University | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements"
+      "schema:termCode": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements",
+      "schema:name": "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:lafTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Open University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements" ;
             schema1:termCode "Laser Assisted Fluorination for Bulk Oxygen Isotope Ratio Measurements" ] ;
     schema1:name "laf protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -414,7 +417,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LAF.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

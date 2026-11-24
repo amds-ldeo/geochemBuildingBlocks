@@ -58,7 +58,8 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Particle cohesion determination with AFM"
+      "schema:termCode": "Particle cohesion determination with AFM",
+      "schema:name": "Particle cohesion determination with AFM"
     }
   ],
   "schema:location": {
@@ -162,7 +163,8 @@ pcdAfmTAPP instance derived from ADA n=10 | no named analyst | Arizona State Uni
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Particle cohesion determination with AFM"
+      "schema:termCode": "Particle cohesion determination with AFM",
+      "schema:name": "Particle cohesion determination with AFM"
     }
   ],
   "schema:location": {
@@ -235,6 +237,7 @@ ex:pcdAfmTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/03efmqc40" ;
             schema1:name "Arizona State University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Particle cohesion determination with AFM" ;
             schema1:termCode "Particle cohesion determination with AFM" ] ;
     schema1:name "pcdAfm protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -379,7 +382,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.PCD-AFM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

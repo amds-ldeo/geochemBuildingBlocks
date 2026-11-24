@@ -278,7 +278,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -579,7 +580,8 @@ labxctTAPP instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Si
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -650,6 +652,7 @@ ex:labxctTAPP-Eckley2024 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Eckley2024" ;
     ada:analyticalMode "Single-volume" ;
@@ -1062,7 +1065,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -1434,7 +1438,8 @@ labxctTAPP instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -1530,14 +1535,14 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinningDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
@@ -1560,6 +1565,7 @@ ex:labxctTAPP-Genge2025 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Not stated" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT (nano-CT)" ;
             schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Genge2025" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -1917,7 +1923,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2147,7 +2154,8 @@ labxctTAPP instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR /
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2206,6 +2214,7 @@ ex:labxctTAPP-Neuman2025 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Neuman2025" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -2488,7 +2497,8 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2718,7 +2728,8 @@ labxctTAPP instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -2778,6 +2789,7 @@ ex:labxctTAPP-Neuman2025-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "UTCT Facility, U. Texas" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Neuman2025-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -2970,7 +2982,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3153,7 +3166,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3237,14 +3251,14 @@ ex:labxctTAPP-Shearer2024 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment — core scanned inside the unopened 73001 CSVC: \"Before piercing and gas extraction of the 73001 CSVC, an XCT scan of the bottom portion was collected\" (p.26); Fig. 7 shows the core \"still within the CSVC\" (p.27)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 73001 CSVC Single-volume Nikon XTH 320 NASA JSC (publication column of Lab-XCT_TAPP_v47.csv). Reported detail: ada:xRaySourceConfiguration = 225 kV multi-metal reflection target source." ;
@@ -3252,6 +3266,7 @@ ex:labxctTAPP-Shearer2024 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Shearer2024" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -3426,7 +3441,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3610,7 +3626,8 @@ labxctTAPP instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -3687,14 +3704,14 @@ ex:labxctTAPP-Shearer2024-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment (as received) — extracted particles >4 mm \"are individually bagged and XCT scanned for classification and characterization without destructive chipping, sectioning, or dust removal\" (p.26)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayPowerDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/xRayTubeAnodeMaterial> ;
@@ -3704,6 +3721,7 @@ ex:labxctTAPP-Shearer2024-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Shearer2024-2" ;
     ada:analyticalMode "Single-volume" ;
@@ -3976,7 +3994,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -4275,7 +4294,8 @@ labxctTAPP instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -4396,6 +4416,7 @@ ex:labxctTAPP-Tomkinson2015 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Tomkinson2015" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -4753,7 +4774,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -5066,7 +5088,8 @@ labxctTAPP instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -5175,6 +5198,7 @@ ex:labxctTAPP-Glavin2023 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Glavin2023" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -5518,7 +5542,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -5819,7 +5844,8 @@ labxctTAPP instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -5915,14 +5941,14 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethodDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRangeDefault>,
@@ -5940,6 +5966,7 @@ ex:labxctTAPP-Dias2019 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Dias2019" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -6291,7 +6318,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -6600,7 +6628,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -6711,6 +6740,7 @@ ex:labxctTAPP-Richard2019 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT (nano-CT)" ;
             schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Richard2019" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -7100,7 +7130,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -7439,7 +7470,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -7520,14 +7552,14 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
@@ -7548,6 +7580,7 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Richard2019-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -7956,7 +7989,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -8295,7 +8329,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic qua
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT"
+      "schema:termCode": "Lab XCT",
+      "schema:name": "Lab XCT"
     }
   ],
   "schema:location": {
@@ -8404,6 +8439,7 @@ ex:labxctTAPP-Richard2019-3 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "U. Strathclyde, Glasgow, UK" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Richard2019-3" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -8793,7 +8829,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -9128,7 +9165,8 @@ labxctTAPP instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. m
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -9224,14 +9262,14 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
+                    schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjectionDefault>,
@@ -9251,6 +9289,7 @@ ex:labxctTAPP-Richard2019-4 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Université de Lorraine, France" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT (nano-CT)" ;
             schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Richard2019-4" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -9588,7 +9627,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -9873,7 +9913,8 @@ labxctTAPP instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Sing
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lab XCT (nano-CT)"
+      "schema:termCode": "Lab XCT (nano-CT)",
+      "schema:name": "Lab XCT (nano-CT)"
     }
   ],
   "schema:location": {
@@ -9995,6 +10036,7 @@ ex:labxctTAPP-Tait2014 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "CSIRO, Kensington, Western Australia" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lab XCT (nano-CT)" ;
             schema1:termCode "Lab XCT (nano-CT)" ] ;
     schema1:name "labxct protocol — Tait2014" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -12660,7 +12702,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

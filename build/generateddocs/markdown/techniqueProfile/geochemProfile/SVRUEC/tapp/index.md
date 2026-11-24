@@ -60,7 +60,8 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Seismic Velocities and Rock Ultrasonic Elastic Constants"
+      "schema:termCode": "Seismic Velocities and Rock Ultrasonic Elastic Constants",
+      "schema:name": "Seismic Velocities and Rock Ultrasonic Elastic Constants"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ svruecTAPP instance derived from ADA n=1 | Hanton, Lincoln | University of Calga
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Seismic Velocities and Rock Ultrasonic Elastic Constants"
+      "schema:termCode": "Seismic Velocities and Rock Ultrasonic Elastic Constants",
+      "schema:name": "Seismic Velocities and Rock Ultrasonic Elastic Constants"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:svruecTAPP-Model5077 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "University of Calgary" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Seismic Velocities and Rock Ultrasonic Elastic Constants" ;
             schema1:termCode "Seismic Velocities and Rock Ultrasonic Elastic Constants" ] ;
     schema1:name "svruec protocol — Model5077" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -414,7 +417,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SVRUEC.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

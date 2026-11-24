@@ -60,7 +60,8 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Gas pycnometry"
+      "schema:termCode": "Gas pycnometry",
+      "schema:name": "Gas pycnometry"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ gpycTAPP instance derived from ADA n=27 | Ryan, Andy | NASA Johnson Space Center
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Gas pycnometry"
+      "schema:termCode": "Gas pycnometry",
+      "schema:name": "Gas pycnometry"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:gpycTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Gas pycnometry" ;
             schema1:termCode "Gas pycnometry" ] ;
     schema1:name "gpyc protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -412,7 +415,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.GPYC.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

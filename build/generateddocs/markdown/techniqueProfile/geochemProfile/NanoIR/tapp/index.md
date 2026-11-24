@@ -39,7 +39,8 @@ nanoirTAPP instance derived from ADA n=3 | Dominguez, Gerardo | California State
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Nanoscale Infrared Mapping"
+      "schema:termCode": "Nanoscale Infrared Mapping",
+      "schema:name": "Nanoscale Infrared Mapping"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ nanoirTAPP instance derived from ADA n=3 | Dominguez, Gerardo | California State
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Nanoscale Infrared Mapping"
+      "schema:termCode": "Nanoscale Infrared Mapping",
+      "schema:name": "Nanoscale Infrared Mapping"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:nanoirTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "California State University, San Marcos" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Nanoscale Infrared Mapping" ;
             schema1:termCode "Nanoscale Infrared Mapping" ] ;
     schema1:name "nanoir protocol — P0" ;
     ada:instrumentManufacturer "Bruker" ;
@@ -344,7 +347,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.NanoIR.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

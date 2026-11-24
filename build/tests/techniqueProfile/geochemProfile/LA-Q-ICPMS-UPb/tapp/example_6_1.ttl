@@ -14,12 +14,6 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a schema1:Action,
             schema1:name "LA-Q-ICP-MS U-Pb Geochronology analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/UPb/intermediateDaughterDisequilibriumCorrection> ;
                     schema1:additionalType bios:LabProcess ;
@@ -34,7 +28,13 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a schema1:Action,
                     schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
-                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ] ] ;
+                    ada:chemicalAbrasionConditions "N — the procedure reports no date" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/errorCorrelationBetweenReportedQuantitiesDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsUPbTAPP/monitoredMasses>,
@@ -54,6 +54,7 @@ ex:laQicpmsUPbTAPP-Liu2016-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ;
             schema1:termCode "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ] ;
     schema1:name "laQicpmsUPb protocol — Liu2016-2" ;
     schema1:relatedLink [ a schema1:CreativeWork ;

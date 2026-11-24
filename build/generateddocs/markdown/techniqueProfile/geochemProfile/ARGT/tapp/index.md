@@ -39,7 +39,8 @@ argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Th
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "40Ar/39Ar geochronology and thermochronology"
+      "schema:termCode": "40Ar/39Ar geochronology and thermochronology",
+      "schema:name": "40Ar/39Ar geochronology and thermochronology"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ argtTAPP instance derived from ADA n=69 | Jourdan, Fred | Curtin University | Th
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "40Ar/39Ar geochronology and thermochronology"
+      "schema:termCode": "40Ar/39Ar geochronology and thermochronology",
+      "schema:name": "40Ar/39Ar geochronology and thermochronology"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:argtTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Curtin University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "40Ar/39Ar geochronology and thermochronology" ;
             schema1:termCode "40Ar/39Ar geochronology and thermochronology" ] ;
     schema1:name "argt protocol — P0" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;
@@ -345,7 +348,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.ARGT.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

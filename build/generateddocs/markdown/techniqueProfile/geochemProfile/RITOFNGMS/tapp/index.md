@@ -55,7 +55,8 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Resonance ionization time of flight noble gas mass spectrometry"
+      "schema:termCode": "Resonance ionization time of flight noble gas mass spectrometry",
+      "schema:name": "Resonance ionization time of flight noble gas mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -169,7 +170,8 @@ ritofngmsTAPP instance derived from ADA n=2 | Crowther, Sarah | University of Ma
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Resonance ionization time of flight noble gas mass spectrometry"
+      "schema:termCode": "Resonance ionization time of flight noble gas mass spectrometry",
+      "schema:name": "Resonance ionization time of flight noble gas mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -258,6 +260,7 @@ ex:ritofngmsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "University of Manchester" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Resonance ionization time of flight noble gas mass spectrometry" ;
             schema1:termCode "Resonance ionization time of flight noble gas mass spectrometry" ] ;
     schema1:name "ritofngms protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -399,7 +402,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.RITOFNGMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

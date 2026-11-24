@@ -62,7 +62,8 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Stepped Heating Carbon and Nitrogen Isotopic Compositions"
+      "schema:termCode": "Stepped Heating Carbon and Nitrogen Isotopic Compositions",
+      "schema:name": "Stepped Heating Carbon and Nitrogen Isotopic Compositions"
     }
   ],
   "schema:location": {
@@ -170,7 +171,8 @@ finesseTAPP instance derived from ADA n=8 | no named analyst | Open University |
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Stepped Heating Carbon and Nitrogen Isotopic Compositions"
+      "schema:termCode": "Stepped Heating Carbon and Nitrogen Isotopic Compositions",
+      "schema:name": "Stepped Heating Carbon and Nitrogen Isotopic Compositions"
     }
   ],
   "schema:location": {
@@ -243,6 +245,7 @@ ex:finesseTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/05mzfcs16" ;
             schema1:name "Open University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Stepped Heating Carbon and Nitrogen Isotopic Compositions" ;
             schema1:termCode "Stepped Heating Carbon and Nitrogen Isotopic Compositions" ] ;
     schema1:name "finesse protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -391,7 +394,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.FINESSE.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

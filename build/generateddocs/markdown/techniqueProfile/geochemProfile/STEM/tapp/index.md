@@ -63,7 +63,8 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy"
+      "schema:termCode": "Scanning Transmission Electron Microscopy",
+      "schema:name": "Scanning Transmission Electron Microscopy"
     }
   ],
   "schema:location": {
@@ -169,7 +170,8 @@ stemTAPP instance derived from ADA n=365 | Maizey, Beau | University of Arizona 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy"
+      "schema:termCode": "Scanning Transmission Electron Microscopy",
+      "schema:name": "Scanning Transmission Electron Microscopy"
     }
   ],
   "schema:location": {
@@ -243,6 +245,7 @@ ex:stemTAPP-HF5000 a schema1:Action,
             schema1:identifier "https://ror.org/03m2x1q45" ;
             schema1:name "University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy" ;
             schema1:termCode "Scanning Transmission Electron Microscopy" ] ;
     schema1:name "stem protocol — HF5000" ;
     ada:analyticalMode "STEM" ;
@@ -300,7 +303,8 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy"
+      "schema:termCode": "Scanning Transmission Electron Microscopy",
+      "schema:name": "Scanning Transmission Electron Microscopy"
     }
   ],
   "schema:location": {
@@ -406,7 +410,8 @@ stemTAPP instance derived from ADA n=694 | no named analyst | Lawrence Berkeley 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy"
+      "schema:termCode": "Scanning Transmission Electron Microscopy",
+      "schema:name": "Scanning Transmission Electron Microscopy"
     }
   ],
   "schema:location": {
@@ -497,6 +502,7 @@ ex:stemTAPP-P1 a schema1:Action,
             schema1:identifier "https://ror.org/02jbv0t02" ;
             schema1:name "Lawrence Berkeley National Laboratory" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy" ;
             schema1:termCode "Scanning Transmission Electron Microscopy" ] ;
     schema1:name "stem protocol — P1" ;
     ada:analyticalMode "STEM" ;
@@ -685,7 +691,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

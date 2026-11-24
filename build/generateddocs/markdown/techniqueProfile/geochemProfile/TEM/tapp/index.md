@@ -331,7 +331,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -701,7 +702,8 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -777,6 +779,7 @@ ex:temTAPP-Chaves2023 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Purdue University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Chaves2023" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -1322,7 +1325,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -1763,7 +1767,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -1821,17 +1826,17 @@ ex:temTAPP-Zega2025 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixelDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
@@ -1848,6 +1853,7 @@ ex:temTAPP-Zega2025 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -2395,7 +2401,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -2798,7 +2805,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -2857,17 +2865,17 @@ ex:temTAPP-Zega2025-2 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault>,
@@ -2883,6 +2891,7 @@ ex:temTAPP-Zega2025-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -3404,7 +3413,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -3804,7 +3814,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -3860,16 +3871,16 @@ ex:temTAPP-Zega2025-3 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
@@ -3880,15 +3891,16 @@ ex:temTAPP-Zega2025-3 a schema1:Action,
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "ThermoScientific Velox" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         <https://example.org/temTAPP-Zega2025-3/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-3" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -4428,7 +4440,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -4857,7 +4870,8 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -4936,16 +4950,17 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
     schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Thermo System7 (EDS quantification)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Thermo System7" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Thermo System7 (EDS quantification)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/temTAPP-Zega2025-4/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES Division, NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-4" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -5410,7 +5425,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -5743,7 +5759,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -5818,6 +5835,7 @@ ex:temTAPP-Matsumoto2021 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Institute for Geosciences, Friedrich Schiller University Jena, Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Matsumoto2021" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -6282,7 +6300,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -6662,7 +6681,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -6739,6 +6759,7 @@ ex:temTAPP-Matsumoto2021-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Matsumoto2021-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -7223,7 +7244,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -7597,7 +7619,8 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -7655,16 +7678,16 @@ ex:temTAPP-Matsumoto2021-3 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> ;
@@ -7674,6 +7697,7 @@ ex:temTAPP-Matsumoto2021-3 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Matsumoto2021-3" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -8229,7 +8253,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -8663,7 +8688,8 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -8733,6 +8759,7 @@ ex:temTAPP-KellerBerger2014 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — KellerBerger2014" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -9292,7 +9319,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -9698,7 +9726,8 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -9774,15 +9803,16 @@ ex:temTAPP-Zeng2024 a schema1:Action,
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         <https://example.org/temTAPP-Zeng2024/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Analysis and Test Center, Guangdong University of Technology, Guangzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zeng2024" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -10277,7 +10307,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -10657,7 +10688,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -10733,6 +10765,7 @@ ex:temTAPP-Dobrica2022 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Advanced Electron Microscopy Center (AEMC), University of Hawai'i at Manoa, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Dobrica2022" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -11248,7 +11281,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -11649,7 +11683,8 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -11731,6 +11766,7 @@ ex:temTAPP-Dobrica2022-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Dobrica2022-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -12291,7 +12327,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -12717,7 +12754,8 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "TEM/STEM"
+      "schema:termCode": "TEM/STEM",
+      "schema:name": "TEM/STEM"
     }
   ],
   "schema:location": {
@@ -12790,6 +12828,7 @@ ex:temTAPP-Singerling2025 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Singerling2025" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -13344,7 +13383,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging"
     }
   ],
   "schema:location": {
@@ -13766,7 +13806,8 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging"
     }
   ],
   "schema:location": {
@@ -13824,16 +13865,16 @@ ex:temTAPP-Thompson2020 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixelDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
@@ -13847,6 +13888,7 @@ ex:temTAPP-Thompson2020 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging" ] ;
     schema1:name "tem protocol — Thompson2020" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -15089,7 +15131,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -15468,7 +15511,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -15546,6 +15590,7 @@ ex:temTAPP-Seifert2026 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Seifert2026" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -16062,7 +16107,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -16465,7 +16511,8 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -16540,16 +16587,17 @@ ex:temTAPP-Seifert2026-2 a schema1:Action,
     schema1:description "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "SingleCrystal (CrystalMaker Software)" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/temTAPP-Seifert2026-2/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), Lunar and Planetary Laboratory, University of Arizona, Tucson, AZ, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Seifert2026-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -17044,7 +17092,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)",
+      "schema:name": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
     }
   ],
   "schema:location": {
@@ -17425,7 +17474,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)",
+      "schema:name": "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)"
     }
   ],
   "schema:location": {
@@ -17483,17 +17533,17 @@ ex:temTAPP-Cymes2023 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindowDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSizeDefault> ;
@@ -17507,6 +17557,7 @@ ex:temTAPP-Cymes2023 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)" ;
             schema1:termCode "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)" ] ;
     schema1:name "tem protocol — Cymes2023" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -18090,7 +18141,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
     }
   ],
   "schema:location": {
@@ -18566,7 +18618,8 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping"
     }
   ],
   "schema:location": {
@@ -18649,6 +18702,7 @@ ex:temTAPP-Cymes2023-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping" ] ;
     schema1:name "tem protocol — Cymes2023-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -19189,7 +19243,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -19557,7 +19612,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
+      "schema:termCode": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)",
+      "schema:name": "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)"
     }
   ],
   "schema:location": {
@@ -19634,6 +19690,7 @@ ex:temTAPP-Mo2022 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Mo2022" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -20168,7 +20225,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis",
+      "schema:name": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
     }
   ],
   "schema:location": {
@@ -20599,7 +20657,8 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
+      "schema:termCode": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis",
+      "schema:name": "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis"
     }
   ],
   "schema:location": {
@@ -20681,6 +20740,7 @@ ex:temTAPP-Mo2022-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis" ;
             schema1:termCode "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis" ] ;
     schema1:name "tem protocol — Mo2022-2" ;
     schema1:object [ a schema1:DefinedTerm,
@@ -24626,7 +24686,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

@@ -39,7 +39,8 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible Light Microscopy"
+      "schema:termCode": "Visible Light Microscopy",
+      "schema:name": "Visible Light Microscopy"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ vlmTAPP instance derived from ADA n=10 | Haenecour, Pierre | University of Arizo
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible Light Microscopy"
+      "schema:termCode": "Visible Light Microscopy",
+      "schema:name": "Visible Light Microscopy"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:vlmTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Visible Light Microscopy" ;
             schema1:termCode "Visible Light Microscopy" ] ;
     schema1:name "vlm protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -344,7 +347,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VLM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

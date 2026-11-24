@@ -14,10 +14,11 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a schema1:Action,
             schema1:name "LA-SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
@@ -29,11 +30,10 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a schema1:Action,
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -51,6 +51,7 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-SF-ICP-MS" ;
             schema1:termCode "LA-SF-ICP-MS" ] ;
     schema1:name "Mittlefehldt (2024) Pallasite Olivine Spot v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;

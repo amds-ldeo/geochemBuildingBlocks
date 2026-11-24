@@ -57,7 +57,8 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Raman vibrational spectroscopy"
+      "schema:termCode": "Raman vibrational spectroscopy",
+      "schema:name": "Raman vibrational spectroscopy"
     }
   ],
   "schema:creator": {
@@ -174,7 +175,8 @@ ramanTAPP instance derived from ADA n=4 | Liss2024 | Helmholtz University (Helmh
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Raman vibrational spectroscopy"
+      "schema:termCode": "Raman vibrational spectroscopy",
+      "schema:name": "Raman vibrational spectroscopy"
     }
   ],
   "schema:creator": {
@@ -265,6 +267,7 @@ ex:ramanTAPP-Liss2024 a schema1:Action,
             schema1:identifier "https://ror.org/034rhsb33" ;
             schema1:name "Helmholtz University (Helmholtz Zentrum Munchen)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Raman vibrational spectroscopy" ;
             schema1:termCode "Raman vibrational spectroscopy" ] ;
     schema1:name "raman protocol — Liss2024" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -407,7 +410,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.RAMAN.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

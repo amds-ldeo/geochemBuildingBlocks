@@ -39,7 +39,8 @@ icMsTAPP instance derived from ADA n=47 | no named analyst | Japan Agency for Ma
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Ion Chromatography-Mass Spectrometry"
+      "schema:termCode": "Ion Chromatography-Mass Spectrometry",
+      "schema:name": "Ion Chromatography-Mass Spectrometry"
     }
   ],
   "schema:location": {
@@ -118,7 +119,8 @@ icMsTAPP instance derived from ADA n=47 | no named analyst | Japan Agency for Ma
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Ion Chromatography-Mass Spectrometry"
+      "schema:termCode": "Ion Chromatography-Mass Spectrometry",
+      "schema:name": "Ion Chromatography-Mass Spectrometry"
     }
   ],
   "schema:location": {
@@ -185,6 +187,7 @@ ex:icMsTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/059qg2m13" ;
             schema1:name "Japan Agency for Marine-Earth Science and Technology" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Ion Chromatography-Mass Spectrometry" ;
             schema1:termCode "Ion Chromatography-Mass Spectrometry" ] ;
     schema1:name "icMs protocol — P0" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;
@@ -315,7 +318,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.IC-MS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

@@ -39,7 +39,8 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Time-of-Flight Secondary Ion Mass Spectrometer"
+      "schema:termCode": "Time-of-Flight Secondary Ion Mass Spectrometer",
+      "schema:name": "Time-of-Flight Secondary Ion Mass Spectrometer"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ tofsimsTAPP instance derived from ADA n=3 | Rickard, William | Curtin University
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Time-of-Flight Secondary Ion Mass Spectrometer"
+      "schema:termCode": "Time-of-Flight Secondary Ion Mass Spectrometer",
+      "schema:name": "Time-of-Flight Secondary Ion Mass Spectrometer"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:tofsimsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Curtin University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Time-of-Flight Secondary Ion Mass Spectrometer" ;
             schema1:termCode "Time-of-Flight Secondary Ion Mass Spectrometer" ] ;
     schema1:name "tofsims protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -345,7 +348,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.ToFSIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

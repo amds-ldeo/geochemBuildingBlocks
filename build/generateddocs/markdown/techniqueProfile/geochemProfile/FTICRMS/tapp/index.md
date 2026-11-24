@@ -58,7 +58,8 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry"
+      "schema:termCode": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry",
+      "schema:name": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -175,7 +176,8 @@ fticrmsTAPP instance derived from ADA n=16 | Liss, Michael | Helmholtz Universit
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry"
+      "schema:termCode": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry",
+      "schema:name": "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -264,6 +266,7 @@ ex:fticrmsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Helmholtz University (Helmholtz Zentrum Munchen)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry" ;
             schema1:termCode "Fourier Transform Ion Cyclotron Resonance Mass Spectrometry" ] ;
     schema1:name "fticrms protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -408,7 +411,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.FTICRMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 
