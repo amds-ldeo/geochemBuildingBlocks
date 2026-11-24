@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.BaseSchema.modules.laserAblation - TAPP Composition Module: LaserAblation",
   "bblockName": "TAPP Composition Module: LaserAblation",
   "bblockId": "ogch.BaseSchema.modules.laserAblation",
-  "generated": "2026-11-24T14:50:42.583445+00:00",
+  "generated": "2026-11-24T16:41:34.165279+00:00",
   "result": false,
   "items": [
     {
@@ -73,15 +73,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -110,7 +110,7 @@
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Warning",
-              "focusNode": "N62c1fde8a3864e14a0f7d91894794ee6",
+              "focusNode": "N9aca1ba1a2b6491ebfa0fbc932703e1e",
               "resultPath": "schema1:identifier",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -120,23 +120,23 @@
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "isError": false,
               "severity": "warning",
-              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:N62c1fde8a3864e14a0f7d91894794ee6\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
+              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:N9aca1ba1a2b6491ebfa0fbc932703e1e\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
             },
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
+                "cdifd:tappInstrumentParamSpecShape": {
+                  "nodes": []
+                },
                 "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
                 "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
-                },
-                "cdifd:tappInstrumentParamSpecShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -281,15 +281,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -311,14 +311,14 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix ns1: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:Ndb0fd4bdb5274a63ba5b12017ed844e8 ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:identifier ;\n                    sh:severity sh:Warning ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode _:Ndb0fd4bdb5274a63ba5b12017ed844e8 ;\n            sh:resultMessage \"An instrument must have a name (schema:name).\" ;\n            sh:resultPath schema1:name ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:message \"An instrument must have a name (schema:name).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:name ] ] .\n\n_:Ndb0fd4bdb5274a63ba5b12017ed844e8 a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,\n        \"no value available: unnamed property\" ;\n    ns1:laserFluence 1 ;\n    ns1:laserRepetitionRate 1 ;\n    ns1:laserSpotGeometry \"no value available: unnamed property\" .\n\n",
+              "graph": "@prefix ns1: <https://ada.astromat.org/metadata/> .\n@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:Na22642e6b7c64d01b3894777ff9c13b5 ;\n            sh:resultMessage \"An instrument must have a name (schema:name).\" ;\n            sh:resultPath schema1:name ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:message \"An instrument must have a name (schema:name).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:name ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode _:Na22642e6b7c64d01b3894777ff9c13b5 ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:identifier ;\n                    sh:severity sh:Warning ] ] .\n\n_:Na22642e6b7c64d01b3894777ff9c13b5 a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,\n        \"no value available: unnamed property\" ;\n    ns1:laserFluence 1 ;\n    ns1:laserRepetitionRate 1 ;\n    ns1:laserSpotGeometry \"no value available: unnamed property\" .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 1 violation, 1 warning"
             },
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Violation",
-              "focusNode": "Ndb0fd4bdb5274a63ba5b12017ed844e8",
+              "focusNode": "Na22642e6b7c64d01b3894777ff9c13b5",
               "resultPath": "schema1:name",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -328,12 +328,12 @@
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "isError": true,
               "severity": "error",
-              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:name)\n  Focus node: _:Ndb0fd4bdb5274a63ba5b12017ed844e8\n  Result path: schema1:name\n  Message: An instrument must have a name (schema:name)."
+              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:name)\n  Focus node: _:Na22642e6b7c64d01b3894777ff9c13b5\n  Result path: schema1:name\n  Message: An instrument must have a name (schema:name)."
             },
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Warning",
-              "focusNode": "Ndb0fd4bdb5274a63ba5b12017ed844e8",
+              "focusNode": "Na22642e6b7c64d01b3894777ff9c13b5",
               "resultPath": "schema1:identifier",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -343,23 +343,23 @@
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "isError": false,
               "severity": "warning",
-              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:Ndb0fd4bdb5274a63ba5b12017ed844e8\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
+              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:Na22642e6b7c64d01b3894777ff9c13b5\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
             },
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
+                "cdifd:tappInstrumentParamSpecShape": {
+                  "nodes": []
+                },
                 "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
                 "cdifd:analysisInstrumentParamValueShape": {
                   "nodes": []
-                },
-                "cdifd:tappInstrumentParamSpecShape": {
-                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",

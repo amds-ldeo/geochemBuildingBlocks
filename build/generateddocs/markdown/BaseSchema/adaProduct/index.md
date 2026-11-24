@@ -1111,7 +1111,7 @@ allOf:
         a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty
         SHACL asks for.
       items:
-        $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       schema:inDefinedTermSet: ada:vocab/productType
       contains:
         enum:

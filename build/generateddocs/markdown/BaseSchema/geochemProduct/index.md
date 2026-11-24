@@ -706,7 +706,7 @@ description: 'Generic schema for JSON-LD metadata documenting an analytical prod
   (componentType) scheme, and delivery-packaging rules.'
 type: object
 allOf:
-- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifCore/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifCore/schema.yaml
 - if:
     anyOf:
     - properties:
@@ -745,7 +745,7 @@ allOf:
       required:
       - schema:distribution
   then:
-    $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
+    $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataDescription/schema.yaml
 - if:
     properties:
       schema:distribution:
@@ -760,8 +760,8 @@ allOf:
           required:
           - '@type'
   then:
-    $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
-- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml
+    $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifManifest/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifProvenance/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml
 x-jsonld-prefixes:
   schema: http://schema.org/

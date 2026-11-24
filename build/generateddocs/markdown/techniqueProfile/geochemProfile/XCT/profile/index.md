@@ -1076,14 +1076,14 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
             dqv:value "no value available: signalToNoiseRatio" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "no value available: crossValidationOutcome" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
+        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
         [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "no value available: metalStreakArtifactAssessment" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "no value available: beamHardeningArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ] ;
+            dqv:value "no value available: beamHardeningArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:labxctTAPP-P0 ;
