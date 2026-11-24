@@ -62,6 +62,10 @@ SOURCES_DIR = REPO_ROOT / "_sources"
 # from whatever it fetched, which would drop any pin added here.
 SHAPES_DIR = REPO_ROOT / "vendor" / "shapes"
 SHAPES_LOCK = REPO_ROOT / "vendor" / "shapes-lock.json"
+# Accepted SHACL violations, keyed by example and message with a COUNT. Same role and
+# same two-step rule as docs/audit_baseline.json: fix or accept, then --write-shacl-baseline
+# and commit the manifest in the SAME change, so the diff records what was accepted and why.
+SHACL_BASELINE = REPO_ROOT / "docs" / "shacl_baseline.json"
 REMOTE_LOCK = REPO_ROOT / "vendor" / "remote-lock.json"
 
 
@@ -213,9 +217,17 @@ def refresh_shapes():
               f"`resolve_schema.py --all --refresh-remote` first.", file=sys.stderr)
         return 1
 
+    # DISTINCT rules.shacl URLs, not one per lock entry. Each remote block appears in
+    # vendor/remote-lock.json twice -- schema.yaml and <name>Schema.json -- and both
+    # rsplit to the same rules.shacl, so looping the lock entries fetched every file
+    # twice and counted it twice: "Pinned 71 shape file(s)" over the 39 it had written,
+    # with "18 block(s) have none" inflated the same way. A count that overstates by 1.8x
+    # is the kind of number someone later quotes.
+    shape_urls = sorted({schema_url.rsplit("/", 1)[0] + "/rules.shacl"
+                         for schema_url in json.loads(
+                             REMOTE_LOCK.read_text(encoding="utf-8"))})
     lock, fetched, missing = {}, 0, 0
-    for schema_url in sorted(json.loads(REMOTE_LOCK.read_text(encoding="utf-8"))):
-        url = schema_url.rsplit("/", 1)[0] + "/rules.shacl"
+    for url in shape_urls:
         parsed = urlparse(url)
         dest = SHAPES_DIR / parsed.netloc / parsed.path.strip("/")
         try:
@@ -245,6 +257,67 @@ def refresh_shapes():
           f"{SHAPES_DIR.relative_to(REPO_ROOT)} ({missing} block(s) have none)",
           file=sys.stderr)
     return 0
+
+
+def load_shacl_baseline():
+    """Accepted violations as {example: {message: count}}. Missing file means accept none."""
+    if not SHACL_BASELINE.exists():
+        return {}
+    try:
+        doc = json.loads(SHACL_BASELINE.read_text(encoding="utf-8"))
+    except ValueError as ex:
+        print(f"ERROR: {SHACL_BASELINE.name} is not valid JSON: {ex}", file=sys.stderr)
+        raise
+    return doc.get("accepted", {})
+
+
+def split_shacl_baseline(shacl_failed, accepted):
+    """Partition findings into (unaccepted, n_accepted).
+
+    `shacl_failed` is [(rel, [message, ...]), ...] as main() collects it. A message is
+    accepted up to the COUNT the baseline records; occurrences beyond that are not, so
+    accepting one cannot quietly cover a second.
+    """
+    unaccepted, n_accepted = [], 0
+    for rel, messages in shacl_failed:
+        allow = dict(accepted.get(str(rel).replace("\\", "/"), {}))
+        left = []
+        for m in messages:
+            if allow.get(m, 0) > 0:
+                allow[m] -= 1
+                n_accepted += 1
+            else:
+                left.append(m)
+        if left:
+            unaccepted.append((rel, left))
+    return unaccepted, n_accepted
+
+
+def write_shacl_baseline(shacl_failed):
+    """Record the current findings as the accepted set."""
+    accepted = {}
+    for rel, messages in shacl_failed:
+        key = str(rel).replace("\\", "/")
+        bucket = accepted.setdefault(key, {})
+        for m in messages:
+            bucket[m] = bucket.get(m, 0) + 1
+    doc = {
+        "_comment": (
+            "Accepted SHACL violations. Keyed by example path -> message -> count; NOT by "
+            "focus node, which is a blank node whose id is assigned at parse time and "
+            "differs between runs. The count is part of the key so accepting one "
+            "occurrence cannot silently accept more. Written by "
+            "validate_examples.py --write-shacl-baseline; commit it in the SAME change as "
+            "whatever made the finding acceptable, with the reason in the commit message."),
+        "accepted": accepted,
+    }
+    SHACL_BASELINE.parent.mkdir(parents=True, exist_ok=True)
+    SHACL_BASELINE.write_text(json.dumps(doc, indent=2, sort_keys=True) + "\n",
+                              encoding="utf-8")
+    total = sum(sum(b.values()) for b in accepted.values())
+    print(f"wrote {SHACL_BASELINE.relative_to(REPO_ROOT)}: "
+          f"{total} accepted violation(s) across {len(accepted)} example(s)",
+          file=sys.stderr)
 
 
 def load_shapes():
@@ -383,6 +456,22 @@ def validate_shacl(example_path: Path, shapes, shape_files):
         data.parse(data=json.dumps(document), format="json-ld", context=context)
 
     found = {s: [] for s in SEVERITIES}
+    # One shape file at a time, so a shape IRI defined in SEVERAL files reports the same
+    # defect once per file. That is not hypothetical: with the CDIF snapshot vendored,
+    # cdifd:CDIFDefinedTermShape is defined in both schemaorgProperties/agentInRole and
+    # schemaorgProperties/spatialExtent, and the corpus reported 543 results for 273
+    # distinct defects -- every finding of that shape doubled. The per-file split is
+    # deliberate and cannot be undone (see load_shapes: merging the graphs makes pyshacl
+    # refuse them), so the DEDUPE belongs here.
+    #
+    # The key is what identifies a result independently of which graph produced it:
+    # the focus node, the property path, the offending value and the message. sourceShape
+    # is deliberately NOT in it -- for a property-level result it is a blank node, which
+    # differs between two graphs that define the same shape, so including it would miss
+    # exactly the duplicates this exists to collapse. Two different shapes that say the
+    # identical thing about the identical value are one finding to a reader, which is the
+    # audience for this count.
+    seen = set()
     for shape_path in shape_files:
         try:
             _conforms, results, _text = shacl_validate(
@@ -393,9 +482,18 @@ def validate_shacl(example_path: Path, shapes, shape_files):
             continue
         for result in results.subjects(RDF.type, SH.ValidationResult):
             name = str(results.value(result, SH.resultSeverity) or "").rsplit("#", 1)[-1]
-            if name in found:
-                message = results.value(result, SH.resultMessage)
-                found[name].append(" ".join(str(message or "").split()))
+            if name not in found:
+                continue
+            message = " ".join(str(results.value(result, SH.resultMessage) or "").split())
+            key = (name,
+                   str(results.value(result, SH.focusNode) or ""),
+                   str(results.value(result, SH.resultPath) or ""),
+                   str(results.value(result, SH.value) or ""),
+                   message)
+            if key in seen:
+                continue
+            seen.add(key)
+            found[name].append(message)
     return found
 
 
@@ -448,6 +546,9 @@ def main():
                              "using the committed resolvedSchema.json")
     parser.add_argument("--no-shacl", action="store_true",
                         help="Skip the SHACL pass (JSON Schema only)")
+    parser.add_argument("--write-shacl-baseline", action="store_true",
+                        help="record the current SHACL violations as accepted in "
+                             "docs/shacl_baseline.json (commit it in the same change)")
     parser.add_argument("--refresh-shapes", action="store_true",
                         help="Fetch and pin the rules.shacl beside each "
                              "vendored schema, then exit")
@@ -553,6 +654,19 @@ def main():
             print("       no vendored shapes — remote blocks' rules are not being "
                   "applied; run --refresh-shapes")
     print(f"{'='*60}")
+
+    if shacl_failed and args.write_shacl_baseline:
+        write_shacl_baseline(shacl_failed)
+
+    # Accepted findings are reported and then set aside, never hidden: a baseline that
+    # makes a failure invisible is how an accepted issue becomes a forgotten one.
+    shacl_accepted = 0
+    if shacl_failed:
+        shacl_failed, shacl_accepted = split_shacl_baseline(
+            shacl_failed, load_shacl_baseline())
+        if shacl_accepted:
+            print(f"\nSHACL: {shacl_accepted} violation(s) accepted in "
+                  f"{SHACL_BASELINE.relative_to(REPO_ROOT)}")
 
     if shacl_failed:
         print("\nSHACL violations:")

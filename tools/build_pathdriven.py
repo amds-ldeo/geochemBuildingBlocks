@@ -419,6 +419,8 @@ def build_pathdriven(tapp, write_registries=True):
     # before the @id above was attached, so it could not scope an identifier then.
     ex.assign_instrument_ids(tapp_inst)
     ex.assign_instrument_ids(detail_inst)
+    ex.label_defined_terms(tapp_inst)
+    ex.label_defined_terms(detail_inst)
 
     bte.idify_uri_values(tapp_inst)
     bte.idify_uri_values(detail_inst)
