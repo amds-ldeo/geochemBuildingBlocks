@@ -120,3 +120,103 @@ to read when the keyed shape matters.
 
 This is the shape #232 proposes a floor for: a declared-but-unexercised constraint is not a weak
 test, it is an absent one, and a pass count has no denominator in it.
+
+## The SHACL baseline, and the one upstream rule it is holding
+
+`docs/shacl_baseline.json` accepts SHACL violations the way `docs/audit_baseline.json` accepts
+audit failures, under the same two-step rule: **fix or accept, then
+`validate_examples.py --write-shacl-baseline` and commit the manifest in the SAME change.**
+Accepted findings are printed and then set aside, never hidden.
+
+Keyed by `(example, message, count)` and NOT by focus node, because a focus node is usually a
+blank node whose identifier is assigned at parse time — a key containing one would match nothing
+on the next run and every accepted finding would come back as new. The count is part of the key
+so accepting one occurrence cannot silently cover five.
+
+**A stale entry is fatal.** An entry the run did not encounter is reported on its own line, with
+its own non-zero exit, separately from an unaccepted violation — the two call for opposite
+responses: unaccepted means FIX something, stale means DELETE something. The check is scoped to
+the examples a run actually visited, because `--filter` validates a subset and an unscoped check
+makes a one-example run fail on every entry it never examined. It exists because 74 of this
+manifest's original 77 entries went dead in a single change (#313) with nothing to say so, which
+is the rot Rule B of `check_additionaltype_policy.py` already guards against for its own manifest.
+
+### Why 2 entries remain: CDIF requires a term label of at least 3 characters
+
+Both are `A Term must have a name (label) or an identifier` on
+`tappDefinition/exampletappDefinition-nmnh-spinel-oxybar-v1.json`. The message is misleading —
+**the terms DO have names.** They are the `No` member of two inline Yes/No term sets under
+`ada:methodParameters[].schema:inDefinedTermSet.schema:hasDefinedTerm[]`, and they carry
+`schema:name` and `schema:termCode` both set to `"No"`.
+
+The rule that actually bites is `cdifd:termLabelProperty`, the second branch of
+`cdifd:CDIFDefinedTermShape`'s node-level `sh:or`:
+
+    sh:path schema:name ; sh:minCount 1 ; sh:datatype xsd:string ; sh:minLength 3 ;
+
+`"Yes"` is three characters and passes. `"No"` is two and fails, so the name branch fails; the
+terms carry no `schema:identifier`, so the other branch fails too, and the node-level `sh:or`
+reports its own generic message instead of the length one. That is why a scan of the example for
+an unnamed `schema:DefinedTerm` finds nothing, and why `resultPath` is empty with `sh:value`
+equal to the focus node itself.
+
+Two things make this an UPSTREAM constraint problem rather than a data problem, and the second is
+the decisive one:
+
+  - A 3-character floor on a controlled-vocabulary label is wrong in this domain. Measured over
+    `_sources/registry/vocab/`: **18 labels are shorter than three characters, and every one is
+    the canonical form** — `H2`, `He`, `O2` (collision and reaction gases), `Ka`, `Kb`, `La`,
+    `Lb` (Siegbahn notation for X-ray emission lines), `On`, and `No` in six boolean-ish
+    pick lists. `Ka` IS the name of the K-alpha line; renaming it to clear a length check would
+    falsify the vocabulary. Element symbols (`Fe`, `Mg`, `Si`) would hit this the moment a target
+    species is emitted as a DefinedTerm.
+  - Only 2 of those 18 reach a DefinedTerm node in an example today, so the corpus exposure is
+    small — but it grows with every vocabulary that gets emitted inline, and the constraint will
+    be wrong about each one.
+
+So the repair is one line in CDIF — lower `sh:minLength` on `cdifd:termLabelProperty`, which IS
+duplicated verbatim in `schemaorgProperties/{agentInRole,definedTerm,spatialExtent}/rules.shacl`
+— followed by a pin bump, as the spatialExtent severity fix went in #315. Until then the two
+findings are accepted here. **Do not "fix" them by lengthening the labels or inventing identifiers**
+— `label_defined_terms` sets a term's name from its own `schema:termCode` precisely so that nothing
+is asserted which the data did not carry, and a padded label would break that for the sake of a
+constraint that is itself wrong.
+
+**Fixed upstream, but NO TAG CARRIES IT YET.** mBB main has `sh:minLength 3` → `1` in all three
+files as of `a13f46df1d` (lowered rather than dropped, matching how `cdif:physicalDataType`'s
+`minLength 5` was settled; `1` still rejects `""`, and `sh:minCount 1` stays). Neither existing tag
+has it — `snapshot-2026-11-16a` is `6980012d62` and `snapshot-2026-11-23b` is `de14c8c8f2` — so
+bumping `vendor/shapes-lock.json` to either gains nothing and someone has to cut a tag first. The
+release SHACL bundles, emitted from these files by
+`validation/ShaclValidation/generate_shacl_shapes.py`, also still carry 3.
+
+**The misleading message is NOT fixed.** Because the floor sits inside a node-level `sh:or`, a
+failure will still report "A Term must have a name (label) or an identifier" with an empty
+`sh:resultPath` and `sh:value` equal to the focus node. It cannot be split the way
+`physicalDataType` was, since the `sh:or` is what makes "name OR identifier" work at all.
+
+### The three copies of CDIFDefinedTermShape are NOT the same shape
+
+An earlier version of this section said they were "duplicated verbatim" and "substantively
+identical". That is wrong, and the way it went wrong is worth keeping: I compared
+`cdifd:termLabelProperty` — which genuinely IS byte-identical in all three, `minLength 3` in each —
+and generalised that to the shape that CONTAINS it. I verified the wrong subject. Parsed with
+rdflib rather than read as text:
+
+    agentInRole     sh:targetClass schema:DefinedTerm    2 sh:or branches   no termCode
+    definedTerm     sh:target <blank node>               3 sh:or branches   termCode present
+                    (a scoped SPARQLTarget)
+    spatialExtent   sh:targetClass schema:DefinedTerm    2 sh:or branches   no termCode
+
+Two consequences. First, `definedTerm`'s copy reported zero on these nodes because its
+SPARQLTarget selects only DefinedTerms in named predicate positions and **never selected a
+standalone node at all** — zero meant "not checked", not "the termCode branch rescued it". Whether
+a `schema:termCode` branch would satisfy these terms is therefore still untested. Second, three
+different shapes sharing one URI is a live hazard rather than untidiness: a bundle that pulls in two
+of the files merges both targets AND both or-lists onto `cdifd:CDIFDefinedTermShape`, which makes
+the constraint STRICTER, not looser. Untested and unfixed upstream.
+
+This is the same class as the vocabulary `@id` collision recorded in CLAUDE.md — two files, one
+identifier, and which one wins decided by what the consumer happens to load — and
+`validate_examples.load_shapes()` only avoids it by parsing each file into its OWN graph, which is
+also why a finding of this shape reported twice until the dedupe in #310.
