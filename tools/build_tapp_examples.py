@@ -1211,8 +1211,7 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                             continue
                         if "const" in v:
                             item[k] = v["const"]
-                        elif (v.get("type") == "array"
-                              and pinned_const(v.get("contains")) is not None):
+                        elif pinned_const(v.get("contains")) is not None:
                             # An array property pins its discriminator ONE LEVEL DOWN, as
                             # {"type": "array", "contains": {"const": "bios:LabProcess"}} -- the
                             # shape _type_const() already documents for instrument additionalType.
@@ -1224,6 +1223,20 @@ def fill_nested_required(inst, resolved_schema, jtype_by_prop, max_passes=6):
                             # step at index 0 was fixed.
                             # pinned_const reads through an anyOf, so a `contains` that offers
                             # the CURIE and its {@id} form alike still yields the token.
+                            #
+                            # `type: array` is NOT part of the test, and requiring it was the
+                            # same miss one level further out. A declaration appearing inside a
+                            # `contains` or an `if` CONDITION carries no type -- it is
+                            # {"contains": {...}} and nothing else -- so the discriminator went
+                            # unread and the sentinel pass wrote
+                            # "no value available: schema:additionalType" into 92 samples when
+                            # the iSamples term moved to that property (2026-11-23). `contains`
+                            # applies only to arrays, so its presence already says so.
+                            #
+                            # The bare token is right: idify_uri_values runs after the fills at
+                            # every site and wraps an identifier-shaped value as {"@id": ...} per
+                            # docs/ADDITIONALTYPE_POLICY.md, which is also why the step builders
+                            # that emit a plain scalar here stay correct.
                             item[k] = [pinned_const(v.get("contains"))]
                     if not item:
                         continue
@@ -1971,6 +1984,7 @@ def main():
         # IRI-shaped schema:additionalType and would hide the type token the id derives from.
         ex.assign_instrument_ids(inst)
         ex.label_defined_terms(inst)
+        ex.type_material_samples(inst)
         idify_uri_values(inst)
         # After the fills, for the reason name_unnamed_howtos documents: the HowTo that needs a
         # name is often one fill_nested_required just created. build_pathdriven does this for the
@@ -2030,6 +2044,7 @@ def main():
             ex.fill_required_types(dinst, detail_res)
         ex.assign_instrument_ids(dinst)
         ex.label_defined_terms(dinst)
+        ex.type_material_samples(dinst)
         idify_uri_values(dinst)
         name_unnamed_howtos(dinst, workflow_name(tapp))
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),

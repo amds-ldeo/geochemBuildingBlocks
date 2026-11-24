@@ -1436,6 +1436,46 @@ def _extendable_type(inst, err, rel):
     owner = _at(inst, path[:-1])
     return not (isinstance(owner, dict) and isinstance(owner.get("@id"), str))
 
+ISAMPLES_MATERIAL_SAMPLE = ("https://w3id.org/isample/vocabulary/"
+                           "materialsampleobjecttype/materialsample")
+
+
+def type_material_samples(doc):
+    """Type an analysed sample `schema:Thing` when the builder supplied none.
+
+    The iSamples object-type IRI says what KIND of material the sample is, and since
+    2026-11-23 it lives in schema:additionalType, where a classification belongs. @type was
+    carrying it before that only because it was the sidecar's selector key, and a selector
+    key is what the builder emits -- so moving the selector left the node untyped rather
+    than wrongly typed.
+
+    Keyed on the term, not on the parent property name: resource_kind() reads a node the
+    same way, and a sample reached by some other path is still a sample. An authored @type
+    is left exactly as it is, and a node carrying no iSamples term -- a target-material
+    DefinedTerm on the plan side -- is not touched.
+    """
+    def has_term(node):
+        at = node.get("schema:additionalType")
+        for x in (at if isinstance(at, list) else [at]):
+            if x == ISAMPLES_MATERIAL_SAMPLE:
+                return True
+            if isinstance(x, dict) and x.get("@id") == ISAMPLES_MATERIAL_SAMPLE:
+                return True
+        return False
+
+    def walk(node):
+        if isinstance(node, dict):
+            if has_term(node) and not node.get("@type"):
+                node["@type"] = ["schema:Thing"]
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    walk(doc)
+    return doc
+
 
 def fill_structural_gaps(inst, resolved_schema, max_passes=6):
     """Supply the other things a schema path cannot carry, read off the schema the same way.

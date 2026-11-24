@@ -271,26 +271,46 @@ def load_shacl_baseline():
     return doc.get("accepted", {})
 
 
-def split_shacl_baseline(shacl_failed, accepted):
-    """Partition findings into (unaccepted, n_accepted).
+def split_shacl_baseline(shacl_failed, accepted, seen=None):
+    """Partition findings into (unaccepted, n_accepted, stale).
 
     `shacl_failed` is [(rel, [message, ...]), ...] as main() collects it. A message is
     accepted up to the COUNT the baseline records; occurrences beyond that are not, so
     accepting one cannot quietly cover a second.
+
+    `stale` is every (example, message, n) the baseline accepts that did NOT occur, among
+    the examples this run actually VISITED (`seen`; None means all of them) -- an entry whose
+    finding has been fixed, or whose example has been renamed or deleted. The scope matters:
+    --filter validates a subset, and without it a single-example run reports every other
+    entry as stale and fails on findings it never examined. It is
+    returned rather than ignored for the reason Rule B of check_additionaltype_policy
+    already gives: a manifest that may silently rot is the failure mode
+    docs/SILENT_SUCCESS.md exists to prevent, and a dead entry is a standing permission to
+    re-break the thing it used to excuse. 74 of this manifest's original 77 entries went
+    dead in one change with nothing to say so.
     """
-    unaccepted, n_accepted = [], 0
+    unaccepted, n_accepted, stale = [], 0, []
+    unused = {ex: dict(msgs) for ex, msgs in accepted.items()
+              if seen is None or ex in seen}
     for rel, messages in shacl_failed:
-        allow = dict(accepted.get(str(rel).replace("\\", "/"), {}))
+        key = str(rel).replace("\\", "/")
+        allow = dict(accepted.get(key, {}))
         left = []
         for m in messages:
             if allow.get(m, 0) > 0:
                 allow[m] -= 1
                 n_accepted += 1
+                if key in unused and unused[key].get(m):
+                    unused[key][m] -= 1
             else:
                 left.append(m)
         if left:
             unaccepted.append((rel, left))
-    return unaccepted, n_accepted
+    for ex, msgs in sorted(unused.items()):
+        for m, n in sorted(msgs.items()):
+            if n > 0:
+                stale.append((ex, m, n))
+    return unaccepted, n_accepted, stale
 
 
 def write_shacl_baseline(shacl_failed):
@@ -570,6 +590,7 @@ def main():
     shapes, local_shapes, vendored_shapes = (None, 0, 0)
     shacl_totals = {s: 0 for s in SEVERITIES}
     shacl_failed = []
+    shacl_seen = set()
     if not args.no_shacl:
         shapes, local_shapes, vendored_shapes = load_shapes()
         if shapes is None:
@@ -619,6 +640,16 @@ def main():
                     print(f"PASS {rel}")
 
             if shapes is not None:
+                # Which examples this run actually looked at. The staleness check below is
+                # scoped to these: --filter validates a subset, so without the scope every
+                # baseline entry outside the filter reads as stale and a one-example run
+                # fails on 76 findings it never examined.
+                # Normalised the SAME way write_shacl_baseline normalises its keys. Storing the
+                # raw rel made the scope below never match on Windows, where rel carries
+                # backslashes and the manifest's keys are forward-slash -- so `unused` came out
+                # empty and the staleness check could not fire at all. Caught by injecting a dead
+                # entry and watching it pass.
+                shacl_seen.add(str(rel).replace("\\", "/"))
                 sh = validate_shacl(example_path, shapes,
                                     shape_closure(schema_path, shapes))
                 for sev in SEVERITIES:
@@ -660,13 +691,28 @@ def main():
 
     # Accepted findings are reported and then set aside, never hidden: a baseline that
     # makes a failure invisible is how an accepted issue becomes a forgotten one.
-    shacl_accepted = 0
-    if shacl_failed:
-        shacl_failed, shacl_accepted = split_shacl_baseline(
-            shacl_failed, load_shacl_baseline())
+    shacl_accepted, shacl_stale = 0, []
+    _baseline = load_shacl_baseline()
+    if _baseline:
+        shacl_failed, shacl_accepted, shacl_stale = split_shacl_baseline(
+            shacl_failed, _baseline, shacl_seen)
         if shacl_accepted:
             print(f"\nSHACL: {shacl_accepted} violation(s) accepted in "
                   f"{SHACL_BASELINE.relative_to(REPO_ROOT)}")
+        # Reported separately from an unaccepted violation, and fatal on its own, because the
+        # two call for OPPOSITE responses: an unaccepted finding means fix something, a stale
+        # entry means delete something. Shrinking the manifest is the point.
+        if shacl_stale:
+            print(f"\nSHACL baseline is STALE: "
+                  f"{sum(n for _, _, n in shacl_stale)} accepted violation(s) in "
+                  f"{SHACL_BASELINE.relative_to(REPO_ROOT)} no longer occur.", file=sys.stderr)
+            print("       They were fixed, or their example was renamed or deleted. Re-run "
+                  "with --write-shacl-baseline\n       and commit the manifest in the same "
+                  "change.", file=sys.stderr)
+            for ex, msg, n in shacl_stale[:20]:
+                print(f"         {n}x {ex}: {msg[:90]}", file=sys.stderr)
+            if len(shacl_stale) > 20:
+                print(f"         ... and {len(shacl_stale) - 20} more", file=sys.stderr)
 
     if shacl_failed:
         print("\nSHACL violations:")
@@ -681,7 +727,10 @@ def main():
             print(f"\n{rel}:")
             for e in errors[:5]:
                 print(e)
-    if failures or shacl_failed:
+    # shacl_stale is fatal on the same footing as an unaccepted violation. A baseline is a
+    # gate, not a mute button, and an entry that no longer applies makes its size stop
+    # meaning what it says -- see split_shacl_baseline.
+    if failures or shacl_failed or shacl_stale:
         return 1
     return 0
 

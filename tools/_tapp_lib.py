@@ -2181,11 +2181,21 @@ def _sample_for_provused(tapp_object_first: dict | None, pub_label: str) -> dict
     if isinstance(tapp_object_first, dict) and tapp_object_first.get("schema:name"):
         desc = f"Sample of: {tapp_object_first['schema:name']}"
     return OrderedDict([
-        ("@type", [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
+        # The iSamples object-type IRI moved from @type to schema:additionalType on
+        # 2026-11-23: it says what KIND of material the sample is, which is a classification,
+        # where @type asserts identity. Serialized as a sealed IRI reference, per
+        # docs/ADDITIONALTYPE_POLICY.md clause 1, because it is identifier-shaped.
+        #
+        # "MaterialSample" STAYS, beside it. CDIF's additionalProperty shape names that exact
+        # string twice as the canonical FREE LABEL which must not be converted to a reference,
+        # so the two are different kinds of value and the label is not made redundant by the
+        # term -- dropping it would discard content the policy explicitly blesses.
+        ("@type", ["schema:Thing"]),
+        ("schema:additionalType", [
+            {"@id": "https://w3id.org/isample/vocabulary/"
+                    "materialsampleobjecttype/materialsample"},
+            "MaterialSample",
         ]),
-        ("schema:additionalType", ["MaterialSample"]),
         ("schema:name", f"Sample analyzed in {pub_label}"),
         ("schema:identifier", [f"igsn:10.60471/PLACEHOLDER-{pub_label}"]),
         ("schema:description", desc),

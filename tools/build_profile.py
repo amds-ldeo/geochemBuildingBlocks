@@ -782,6 +782,8 @@ def build(tapp):
     spe.assign_instrument_ids(mono)
     spe.label_defined_terms(ex)
     spe.label_defined_terms(mono)
+    spe.type_material_samples(ex)
+    spe.type_material_samples(mono)
     bte.idify_uri_values(ex)
     bte.idify_uri_values(mono)
     _wj(os.path.join(d, "example" + cfg["cid"] + ".json"), ex)
