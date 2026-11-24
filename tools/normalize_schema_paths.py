@@ -119,10 +119,23 @@ def mechanical(s):
     # dqv inline selector -> array selector
     s = re.sub(r"dqv:hasQualityMeasurement\.dqv:isMeasurementOf='([^']*)'",
                r"dqv:hasQualityMeasurement[dqv:isMeasurementOf='\1']", s)
-    # schema:object @type-list selector (the iSample MaterialSample) -> canonical @type selector
-    # (a material sample's identity is in @type, as the iSample URI — not additionalType).
-    s = re.sub(r"schema:object\[@type[^\]]*materialsample[^\]]*\]",
-               r"schema:object[@type='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample']", s)
+    # schema:object iSample-MaterialSample selector -> canonical schema:additionalType selector.
+    #
+    # The IRI says what KIND of material the analysed sample is, which is a CLASSIFICATION, and
+    # schema:additionalType is where a classification goes. @type asserts IDENTITY, and typing a
+    # sample by this IRI is what made CDIF's cdifd:CDIFDefinedTermShape report 74 generated
+    # examples once its shapes were vendored: the validator-driven example fill resolved
+    # tappDefinition's three-branch schema:object anyOf by satisfying the DefinedTerm branch, so
+    # every one of those samples was typed schema:DefinedTerm with nothing to name it. A sample is
+    # not a defined term. Decided 2026-11-23; this comment used to assert the opposite.
+    #
+    # Both superseded spellings are migrated here, which is what reaches the 50 tracked
+    # docs/archive/ sidecars (kept as migration provenance, and a legitimate --seed for
+    # migrate_sidecar) and any incoming delivery still written against @type. It also keeps
+    # folding in the unexpanded `isam:materialsample` CURIE -- `isam` is a prefix NOTHING in this
+    # repository declares, which is why those rows reach no generated schema today.
+    s = re.sub(r"schema:object\[(?:@type|schema:additionalType)[^\]]*materialsample[^\]]*\]",
+               r"schema:object[schema:additionalType='https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample']", s)
     # space-before-terminal: "...] schema:description" -> "...].schema:description"
     s = re.sub(r"\]\s+(schema:(?:description|value|name))\b", r"].\1", s)
     # #3: additionalProperty terminal convention -> .schema:value (name-terminal or missing terminal)

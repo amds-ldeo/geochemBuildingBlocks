@@ -421,6 +421,8 @@ def build_pathdriven(tapp, write_registries=True):
     ex.assign_instrument_ids(detail_inst)
     ex.label_defined_terms(tapp_inst)
     ex.label_defined_terms(detail_inst)
+    ex.type_material_samples(tapp_inst)
+    ex.type_material_samples(detail_inst)
 
     bte.idify_uri_values(tapp_inst)
     bte.idify_uri_values(detail_inst)

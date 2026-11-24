@@ -9263,14 +9263,29 @@
                     {
                       "if": {
                         "properties": {
-                          "@type": {
+                          "schema:additionalType": {
                             "contains": {
-                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                              "anyOf": [
+                                {
+                                  "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                },
+                                {
+                                  "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "properties": {
+                                    "@id": {
+                                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                    }
+                                  }
+                                }
+                              ]
                             }
                           }
                         },
                         "required": [
-                          "@type"
+                          "schema:additionalType"
                         ]
                       },
                       "then": {
@@ -9363,14 +9378,29 @@
                   {
                     "contains": {
                       "properties": {
-                        "@type": {
+                        "schema:additionalType": {
                           "contains": {
-                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                            "anyOf": [
+                              {
+                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                  }
+                                }
+                              }
+                            ]
                           }
                         }
                       },
                       "required": [
-                        "@type"
+                        "schema:additionalType"
                       ]
                     }
                   }
@@ -14429,25 +14459,18 @@
                   "type": "object",
                   "properties": {
                     "@type": {
+                      "description": "An analysed sample is a schema:Thing. The iSamples object-type IRI used to be required here as well; it moved to schema:additionalType on 2026-11-23, because it says what KIND of material the sample is -- a classification -- where @type asserts identity.",
                       "type": "array",
                       "items": {
                         "type": "string"
                       },
-                      "allOf": [
-                        {
-                          "contains": {
-                            "const": "schema:Thing"
-                          }
-                        },
-                        {
-                          "contains": {
-                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                          }
-                        }
-                      ],
-                      "minItems": 2
+                      "contains": {
+                        "const": "schema:Thing"
+                      }
                     },
                     "schema:additionalType": {
+                      "title": "Sample Material Type",
+                      "description": "What kind of material this sample is, as an iSamples object-type term. Pinned in the DUAL form -- the bare string OR a sealed {\"@id\": ...} reference -- per docs/ADDITIONALTYPE_POLICY.md clause 1: a record that serializes the term as an IRI reference, so that it participates in RDF entailment as a resource rather than as a literal that merely looks like one, must still satisfy this pin.",
                       "type": "array",
                       "items": {
                         "title": "CDIF Concept-or-Term-or-String",
@@ -14629,7 +14652,29 @@
                             ]
                           }
                         ]
-                      }
+                      },
+                      "allOf": [
+                        {
+                          "contains": {
+                            "anyOf": [
+                              {
+                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
                     },
                     "schema:identifier": {
                       "title": "Sample Identifier",
@@ -18059,14 +18104,29 @@
                     {
                       "if": {
                         "properties": {
-                          "@type": {
+                          "schema:additionalType": {
                             "contains": {
-                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                              "anyOf": [
+                                {
+                                  "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                },
+                                {
+                                  "type": "object",
+                                  "required": [
+                                    "@id"
+                                  ],
+                                  "properties": {
+                                    "@id": {
+                                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                    }
+                                  }
+                                }
+                              ]
                             }
                           }
                         },
                         "required": [
-                          "@type"
+                          "schema:additionalType"
                         ]
                       },
                       "then": {
@@ -18120,14 +18180,29 @@
                   {
                     "contains": {
                       "properties": {
-                        "@type": {
+                        "schema:additionalType": {
                           "contains": {
-                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                            "anyOf": [
+                              {
+                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                              },
+                              {
+                                "type": "object",
+                                "required": [
+                                  "@id"
+                                ],
+                                "properties": {
+                                  "@id": {
+                                    "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                                  }
+                                }
+                              }
+                            ]
                           }
                         }
                       },
                       "required": [
-                        "@type"
+                        "schema:additionalType"
                       ]
                     }
                   }

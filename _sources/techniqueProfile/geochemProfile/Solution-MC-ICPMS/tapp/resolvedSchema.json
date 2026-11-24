@@ -537,25 +537,17 @@
             "description": "Samples analyzed",
             "properties": {
               "@type": {
+                "description": "An analysed sample is a schema:Thing. The iSamples object-type IRI used to be required here as well; it moved to schema:additionalType on 2026-11-23, because it says what KIND of material the sample is -- a classification -- where @type asserts identity. Typing a sample by that IRI is also what let the validator-driven example fill resolve this three-branch anyOf by satisfying the DefinedTerm branch instead, which typed 74 generated samples schema:DefinedTerm with nothing to name them.",
                 "type": "array",
                 "items": {
                   "type": "string"
                 },
-                "allOf": [
-                  {
-                    "contains": {
-                      "const": "schema:Thing"
-                    }
-                  },
-                  {
-                    "contains": {
-                      "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
-                    }
-                  }
-                ],
-                "minItems": 2
+                "contains": {
+                  "const": "schema:Thing"
+                }
               },
               "schema:additionalType": {
+                "description": "What kind of material this sample is, as an iSamples object-type term. Pinned in the DUAL form -- the bare string OR a sealed {\"@id\": ...} reference -- per docs/ADDITIONALTYPE_POLICY.md clause 1, and identically to the record-side shape in geochemBaseProfile.",
                 "type": "array",
                 "items": {
                   "title": "CDIF Concept-or-Term-or-String",
@@ -737,7 +729,29 @@
                       ]
                     }
                   ]
-                }
+                },
+                "allOf": [
+                  {
+                    "contains": {
+                      "anyOf": [
+                        {
+                          "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        },
+                        {
+                          "type": "object",
+                          "required": [
+                            "@id"
+                          ],
+                          "properties": {
+                            "@id": {
+                              "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
               },
               "schema:identifier": {
                 "type": "array",
@@ -9319,14 +9333,29 @@
               {
                 "if": {
                   "properties": {
-                    "@type": {
+                    "schema:additionalType": {
                       "contains": {
-                        "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                        "anyOf": [
+                          {
+                            "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                          },
+                          {
+                            "type": "object",
+                            "required": [
+                              "@id"
+                            ],
+                            "properties": {
+                              "@id": {
+                                "const": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+                              }
+                            }
+                          }
+                        ]
                       }
                     }
                   },
                   "required": [
-                    "@type"
+                    "schema:additionalType"
                   ]
                 },
                 "then": {

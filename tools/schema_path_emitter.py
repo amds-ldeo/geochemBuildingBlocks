@@ -574,10 +574,17 @@ _IRI_LIKE_TOKEN = re.compile(r'^[A-Za-z][A-Za-z0-9+.\-]*:[^\s"]+$')
 # values are bare IRI strings by JSON-LD definition -- {"@id": ...} is not a legal @type member,
 # so the dual form would be wrong there rather than merely unnecessary.
 #
-# Keying this on the VALUE alone, as the first version did, converts the wrong set: measured over
-# the sidecars, schema:additionalType has 661 selector occurrences and NOT ONE is identifier-shaped,
-# while @type has 127 and EVERY one is (prov:Plan, the isamples materialsampleobjecttype IRIs).
-# So a value-only test changes nothing it should and all 127 it should not.
+# Keying this on the VALUE alone, as the first version did, converts the wrong set -- and the
+# measurement behind that is NOT static, so re-measure before quoting it. When this rule was
+# written, schema:additionalType had 661 selector occurrences and not one was identifier-shaped,
+# while @type had 127 and every one was (prov:Plan, the isamples materialsampleobjecttype IRIs).
+# Moving the iSamples object-type IRI to schema:additionalType on 2026-11-23 moved 141 of those
+# across the line, so today it is: schema:additionalType 910 (143 identifier-shaped), @type 1
+# (1 identifier-shaped, the one surviving `ada:image`).
+#
+# The RULE does not depend on those numbers and has not changed: {"@id": ...} is not a legal @type
+# member by JSON-LD definition, so the dual form would be WRONG there rather than merely
+# unnecessary. What the numbers showed was only that a value-only test would convert @type too.
 POLICY_KEYS = {"schema:additionalType", "schema:propertyID"}
 
 
