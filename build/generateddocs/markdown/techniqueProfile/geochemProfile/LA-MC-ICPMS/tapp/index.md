@@ -667,7 +667,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "fs-LA-MC-ICP-MS"
+      "schema:termCode": "fs-LA-MC-ICP-MS",
+      "schema:name": "fs-LA-MC-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -1405,7 +1406,8 @@ laMcicpmsTAPP instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "fs-LA-MC-ICP-MS"
+      "schema:termCode": "fs-LA-MC-ICP-MS",
+      "schema:name": "fs-LA-MC-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -1493,6 +1495,12 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
             schema1:name "LA-MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
@@ -1500,12 +1508,6 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Single pass — 'The routine data acquisition consisted of one block of 120 cycles (0.524 s integration time per cycle), with the first 30 cycles for background collection (no laser ablation) and the remaining 90 cycles for signal collection' (p.3). No second traversal or alternate configuration is described" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -1535,6 +1537,7 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "fs-LA-MC-ICP-MS" ;
             schema1:termCode "fs-LA-MC-ICP-MS" ] ;
     schema1:name "Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -3583,7 +3586,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

@@ -58,7 +58,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -184,7 +185,8 @@ vnmirTAPP instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -283,6 +285,7 @@ ex:vnmirTAPP-Hiroi2023 a schema1:Action,
             schema1:identifier "https://ror.org/05gq02987" ;
             schema1:name "Brown University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Visible, near-, and mid-infrared spectroscopy" ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Hiroi2023" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -364,7 +367,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -491,7 +495,8 @@ vnmirTAPP instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-dire
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -590,6 +595,7 @@ ex:vnmirTAPP-Hiroi2023-2 a schema1:Action,
             schema1:identifier "https://ror.org/05gq02987" ;
             schema1:name "Brown University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Visible, near-, and mid-infrared spectroscopy" ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Hiroi2023-2" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -669,7 +675,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -793,7 +800,8 @@ vnmirTAPP instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -892,6 +900,7 @@ ex:vnmirTAPP-Milliken2024 a schema1:Action,
             schema1:identifier "https://ror.org/05gq02987" ;
             schema1:name "Brown University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Visible, near-, and mid-infrared spectroscopy" ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Milliken2024" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -971,7 +980,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -1098,7 +1108,8 @@ vnmirTAPP instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy"
+      "schema:termCode": "Visible, near-, and mid-infrared spectroscopy",
+      "schema:name": "Visible, near-, and mid-infrared spectroscopy"
     }
   ],
   "schema:creator": {
@@ -1197,6 +1208,7 @@ ex:vnmirTAPP-Keller2024 a schema1:Action,
             schema1:identifier "https://ror.org/04xx4z452" ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Visible, near-, and mid-infrared spectroscopy" ;
             schema1:termCode "Visible, near-, and mid-infrared spectroscopy" ] ;
     schema1:name "vnmir protocol — Keller2024" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -2185,7 +2197,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

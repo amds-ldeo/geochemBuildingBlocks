@@ -57,7 +57,8 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Synchrotron-based X-ray Fluorescence Spectroscopy"
+      "schema:termCode": "Synchrotron-based X-ray Fluorescence Spectroscopy",
+      "schema:name": "Synchrotron-based X-ray Fluorescence Spectroscopy"
     }
   ],
   "schema:location": {
@@ -154,7 +155,8 @@ sXrfTAPP instance derived from ADA n=325 | no named analyst | European Synchrotr
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Synchrotron-based X-ray Fluorescence Spectroscopy"
+      "schema:termCode": "Synchrotron-based X-ray Fluorescence Spectroscopy",
+      "schema:name": "Synchrotron-based X-ray Fluorescence Spectroscopy"
     }
   ],
   "schema:location": {
@@ -222,6 +224,7 @@ ex:sXrfTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/02550n020" ;
             schema1:name "European Synchrotron Radiation Facility" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Synchrotron-based X-ray Fluorescence Spectroscopy" ;
             schema1:termCode "Synchrotron-based X-ray Fluorescence Spectroscopy" ] ;
     schema1:name "sXrf protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -409,7 +412,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.S-XRF.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

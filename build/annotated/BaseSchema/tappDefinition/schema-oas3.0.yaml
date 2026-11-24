@@ -179,7 +179,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.laboratory
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-23'
+      dateOfLastChange: '2026-11-24'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_schemaorgProperties_person_schema
@@ -572,7 +572,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.creativeWork
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-23'
+      dateOfLastChange: '2026-11-24'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.instrument:
@@ -789,7 +789,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.instrument
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-23'
+      dateOfLastChange: '2026-11-24'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_qualityProperties_qualityMeasure_schema
@@ -2787,6 +2787,18 @@ $defs:
             '@type':
               enum:
               - schema:DefinedTermSet
+            schema:name:
+              type: string
+              description: Human-readable name of this vocabulary, for a form generator
+                or the ADA metadata viewer. REQUIRED IN EFFECT BY CDIF, whose cdifd:CDIFDefinedTermShape
+                holds that a term set must carry a name or an identifier; an inline
+                set has no @id to offer, so the name is the only way it can conform.
+                This branch was additionalProperties:false over @type and schema:hasDefinedTerm
+                alone until 2026-11-23, which made the sole labelling CDIF accepts
+                invalid -- a contradiction neither side could see, because CDIF's
+                shapes had never been vendored and so had never run against these
+                examples.
+              x-jsonld-id: http://schema.org/name
             schema:hasDefinedTerm:
               type: array
               minItems: 1
@@ -2799,6 +2811,15 @@ $defs:
                   schema:termCode:
                     type: string
                     x-jsonld-id: http://schema.org/termCode
+                  schema:name:
+                    type: string
+                    description: Human-readable label for this term. Accepted here
+                      before 2026-11-23 only because these items carry no additionalProperties:false;
+                      declared explicitly now, since a property the viewer and CDIF's
+                      shape both read should not be reachable by omission. Generated
+                      examples set it from schema:termCode, which for these enumerations
+                      IS the label.
+                    x-jsonld-id: http://schema.org/name
                 required:
                 - '@type'
                 - schema:termCode
@@ -3010,6 +3031,18 @@ $defs:
             '@type':
               enum:
               - schema:DefinedTermSet
+            schema:name:
+              type: string
+              description: Human-readable name of this vocabulary, for a form generator
+                or the ADA metadata viewer. REQUIRED IN EFFECT BY CDIF, whose cdifd:CDIFDefinedTermShape
+                holds that a term set must carry a name or an identifier; an inline
+                set has no @id to offer, so the name is the only way it can conform.
+                This branch was additionalProperties:false over @type and schema:hasDefinedTerm
+                alone until 2026-11-23, which made the sole labelling CDIF accepts
+                invalid -- a contradiction neither side could see, because CDIF's
+                shapes had never been vendored and so had never run against these
+                examples.
+              x-jsonld-id: http://schema.org/name
             schema:hasDefinedTerm:
               type: array
               minItems: 1
@@ -3022,6 +3055,15 @@ $defs:
                   schema:termCode:
                     type: string
                     x-jsonld-id: http://schema.org/termCode
+                  schema:name:
+                    type: string
+                    description: Human-readable label for this term. Accepted here
+                      before 2026-11-23 only because these items carry no additionalProperties:false;
+                      declared explicitly now, since a property the viewer and CDIF's
+                      shape both read should not be reachable by omission. Generated
+                      examples set it from schema:termCode, which for these enumerations
+                      IS the label.
+                    x-jsonld-id: http://schema.org/name
                 required:
                 - '@type'
                 - schema:termCode
@@ -3680,5 +3722,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.tappDefinition
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.3'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

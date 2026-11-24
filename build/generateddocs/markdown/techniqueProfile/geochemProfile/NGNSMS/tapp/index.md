@@ -60,7 +60,8 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Noble gas and Nitrogen Static Mass Spectrometry"
+      "schema:termCode": "Noble gas and Nitrogen Static Mass Spectrometry",
+      "schema:name": "Noble gas and Nitrogen Static Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ ngnsmsTAPP instance derived from ADA n=29 | Fueri, Evelyn | Centre de Recherches
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Noble gas and Nitrogen Static Mass Spectrometry"
+      "schema:termCode": "Noble gas and Nitrogen Static Mass Spectrometry",
+      "schema:name": "Noble gas and Nitrogen Static Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:ngnsmsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Centre de Recherches Petrographiques et Geochimiques (Nancy, France)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Noble gas and Nitrogen Static Mass Spectrometry" ;
             schema1:termCode "Noble gas and Nitrogen Static Mass Spectrometry" ] ;
     schema1:name "ngnsms protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -414,7 +417,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.NGNSMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

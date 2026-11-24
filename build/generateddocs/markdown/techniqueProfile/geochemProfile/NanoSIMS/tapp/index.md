@@ -60,7 +60,8 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Nanoscale secondary ion mass spectrometry"
+      "schema:termCode": "Nanoscale secondary ion mass spectrometry",
+      "schema:name": "Nanoscale secondary ion mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ nanosimsTAPP instance derived from ADA n=7 | Nguyen, Ann | Open University | (OU
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Nanoscale secondary ion mass spectrometry"
+      "schema:termCode": "Nanoscale secondary ion mass spectrometry",
+      "schema:name": "Nanoscale secondary ion mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:nanosimsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Open University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Nanoscale secondary ion mass spectrometry" ;
             schema1:termCode "Nanoscale secondary ion mass spectrometry" ] ;
     schema1:name "nanosims protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -414,7 +417,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.NanoSIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

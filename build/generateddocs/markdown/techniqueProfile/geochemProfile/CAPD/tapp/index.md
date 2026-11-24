@@ -66,7 +66,8 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Capacitance Dilatometry"
+      "schema:termCode": "Capacitance Dilatometry",
+      "schema:name": "Capacitance Dilatometry"
     }
   ],
   "schema:location": {
@@ -178,7 +179,8 @@ capdTAPP instance derived from ADA n=2 | no named analyst | Boston College | (BC
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Capacitance Dilatometry"
+      "schema:termCode": "Capacitance Dilatometry",
+      "schema:name": "Capacitance Dilatometry"
     }
   ],
   "schema:location": {
@@ -251,6 +253,7 @@ ex:capdTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/02n2fzt79" ;
             schema1:name "Boston College" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Capacitance Dilatometry" ;
             schema1:termCode "Capacitance Dilatometry" ] ;
     schema1:name "capd protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -402,7 +405,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.CAPD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

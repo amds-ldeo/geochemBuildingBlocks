@@ -1136,12 +1136,12 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
         <https://example.org/var/Detection-Limit>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: analyticalAccuracy" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: analyticalPrecision" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracy" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:semCompositionTAPP-P0 ;
@@ -1317,7 +1317,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

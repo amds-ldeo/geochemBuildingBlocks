@@ -39,7 +39,8 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Structured Light Scanning"
+      "schema:termCode": "Structured Light Scanning",
+      "schema:name": "Structured Light Scanning"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ slsTAPP instance derived from ADA n=51 | Ryan, Andy | University of Arizona | (U
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Structured Light Scanning"
+      "schema:termCode": "Structured Light Scanning",
+      "schema:name": "Structured Light Scanning"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:slsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "University of Arizona" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Structured Light Scanning" ;
             schema1:termCode "Structured Light Scanning" ] ;
     schema1:name "sls protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -344,7 +347,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SLS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

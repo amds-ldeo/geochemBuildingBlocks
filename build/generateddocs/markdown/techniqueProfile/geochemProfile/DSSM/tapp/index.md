@@ -63,7 +63,8 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Direct Shear Strength Measurement"
+      "schema:termCode": "Direct Shear Strength Measurement",
+      "schema:name": "Direct Shear Strength Measurement"
     }
   ],
   "schema:location": {
@@ -172,7 +173,8 @@ dssmTAPP instance derived from ADA n=2 | no named analyst | University of Calgar
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Direct Shear Strength Measurement"
+      "schema:termCode": "Direct Shear Strength Measurement",
+      "schema:name": "Direct Shear Strength Measurement"
     }
   ],
   "schema:location": {
@@ -245,6 +247,7 @@ ex:dssmTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/03yjb2x39" ;
             schema1:name "University of Calgary" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Direct Shear Strength Measurement" ;
             schema1:termCode "Direct Shear Strength Measurement" ] ;
     schema1:name "dssm protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -393,7 +396,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.DSSM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

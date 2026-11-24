@@ -57,7 +57,8 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray absorption near edge structure (XANES) spectroscopy"
+      "schema:termCode": "X-ray absorption near edge structure (XANES) spectroscopy",
+      "schema:name": "X-ray absorption near edge structure (XANES) spectroscopy"
     }
   ],
   "schema:creator": {
@@ -168,7 +169,8 @@ xanesTAPP instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Sour
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray absorption near edge structure (XANES) spectroscopy"
+      "schema:termCode": "X-ray absorption near edge structure (XANES) spectroscopy",
+      "schema:name": "X-ray absorption near edge structure (XANES) spectroscopy"
     }
   ],
   "schema:creator": {
@@ -254,6 +256,7 @@ ex:xanesTAPP-Gainsforth2023 a schema1:Action,
             schema1:identifier "https://ror.org/00319zh75" ;
             schema1:name "Advanced Light Source at Lawrence Berkeley National Laboratory" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "X-ray absorption near edge structure (XANES) spectroscopy" ;
             schema1:termCode "X-ray absorption near edge structure (XANES) spectroscopy" ] ;
     schema1:name "xanes protocol — Gainsforth2023" ;
     ada:instrumentManufacturer "Advanced Light Source (LBNL)" ;
@@ -437,7 +440,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XANES.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

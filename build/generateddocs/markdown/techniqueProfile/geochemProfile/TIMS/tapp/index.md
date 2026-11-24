@@ -66,7 +66,8 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Thermal ionization mass spectrometry"
+      "schema:termCode": "Thermal ionization mass spectrometry",
+      "schema:name": "Thermal ionization mass spectrometry"
     }
   ],
   "schema:location": {
@@ -178,7 +179,8 @@ timsTAPP instance derived from ADA n=4 | no named analyst | ETH Zurich | (ETHZ)T
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Thermal ionization mass spectrometry"
+      "schema:termCode": "Thermal ionization mass spectrometry",
+      "schema:name": "Thermal ionization mass spectrometry"
     }
   ],
   "schema:location": {
@@ -251,6 +253,7 @@ ex:timsTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/05a28rw58" ;
             schema1:name "ETH Zurich" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Thermal ionization mass spectrometry" ;
             schema1:termCode "Thermal ionization mass spectrometry" ] ;
     schema1:name "tims protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -402,7 +405,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

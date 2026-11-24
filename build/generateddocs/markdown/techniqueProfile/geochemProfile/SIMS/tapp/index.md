@@ -60,7 +60,8 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Secondary ion mass spectrometry"
+      "schema:termCode": "Secondary ion mass spectrometry",
+      "schema:name": "Secondary ion mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ simsTAPP instance derived from ADA n=5 | Marrocchi, Yves | Centre de Recherches 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Secondary ion mass spectrometry"
+      "schema:termCode": "Secondary ion mass spectrometry",
+      "schema:name": "Secondary ion mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:simsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Centre de Recherches Petrographiques et Geochimiques (Nancy, France)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Secondary ion mass spectrometry" ;
             schema1:termCode "Secondary ion mass spectrometry" ] ;
     schema1:name "sims protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -413,7 +416,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SIMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

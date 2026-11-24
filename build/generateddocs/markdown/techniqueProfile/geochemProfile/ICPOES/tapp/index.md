@@ -60,7 +60,8 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Inductively coupled plasma - optical emission spectrometry"
+      "schema:termCode": "Inductively coupled plasma - optical emission spectrometry",
+      "schema:name": "Inductively coupled plasma - optical emission spectrometry"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ icpoesTAPP instance derived from ADA n=12 | Welten, Kees | University of Califor
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Inductively coupled plasma - optical emission spectrometry"
+      "schema:termCode": "Inductively coupled plasma - optical emission spectrometry",
+      "schema:name": "Inductively coupled plasma - optical emission spectrometry"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:icpoesTAPP-CAP6300 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "University of California, Berkeley" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Inductively coupled plasma - optical emission spectrometry" ;
             schema1:termCode "Inductively coupled plasma - optical emission spectrometry" ] ;
     schema1:name "icpoes protocol — CAP6300" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -414,7 +417,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.ICPOES.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

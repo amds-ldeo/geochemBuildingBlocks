@@ -60,7 +60,8 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Ion Chromatography"
+      "schema:termCode": "Ion Chromatography",
+      "schema:name": "Ion Chromatography"
     }
   ],
   "schema:creator": {
@@ -179,7 +180,8 @@ icTAPP instance derived from ADA n=2 | Peretyazhko, Tanya | NASA Johnson Space C
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Ion Chromatography"
+      "schema:termCode": "Ion Chromatography",
+      "schema:name": "Ion Chromatography"
     }
   ],
   "schema:creator": {
@@ -268,6 +270,7 @@ ex:icTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Ion Chromatography" ;
             schema1:termCode "Ion Chromatography" ] ;
     schema1:name "ic protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -412,7 +415,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.IC.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

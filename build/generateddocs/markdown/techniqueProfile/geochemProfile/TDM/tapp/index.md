@@ -66,7 +66,8 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Temperature-Dependent Magnetization"
+      "schema:termCode": "Temperature-Dependent Magnetization",
+      "schema:name": "Temperature-Dependent Magnetization"
     }
   ],
   "schema:location": {
@@ -178,7 +179,8 @@ tdmTAPP instance derived from ADA n=1 | no named analyst | Boston College | (BC)
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Temperature-Dependent Magnetization"
+      "schema:termCode": "Temperature-Dependent Magnetization",
+      "schema:name": "Temperature-Dependent Magnetization"
     }
   ],
   "schema:location": {
@@ -251,6 +253,7 @@ ex:tdmTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/02n2fzt79" ;
             schema1:name "Boston College" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Temperature-Dependent Magnetization" ;
             schema1:termCode "Temperature-Dependent Magnetization" ] ;
     schema1:name "tdm protocol — P0" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -402,7 +405,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TDM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

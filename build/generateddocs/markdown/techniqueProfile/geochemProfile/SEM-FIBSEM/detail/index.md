@@ -355,6 +355,11 @@ ex:semFibsemTAPP-detail-Garvie2008 a schema1:Dataset,
             schema1:target [ schema1:name "SE Imaging (same instrument, pre- and post-FIB milling)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> ;
                             schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                             schema1:name "Sample preparation" ;
@@ -362,12 +367,7 @@ ex:semFibsemTAPP-detail-Garvie2008 a schema1:Dataset,
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument <https://example.org/semFibsemTAPP-detail-Garvie2008/instrument/SEM> ;
@@ -1261,18 +1261,18 @@ ex:semFibsemTAPP-detail-Zhou2017 a schema1:Dataset,
         schema1:Product ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/imageRegistration3D>,
                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethod> ;
             schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
@@ -1714,20 +1714,20 @@ ex:semFibsemTAPP-detail-Zega2025 a schema1:Dataset,
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
-                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -2191,11 +2191,8 @@ ex:semFibsemTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 2 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> ;
@@ -2204,8 +2201,11 @@ ex:semFibsemTAPP-detail-Zega2025-2 a schema1:Dataset,
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -2702,15 +2702,15 @@ ex:semFibsemTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
                                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
@@ -3600,7 +3600,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-FIBSEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

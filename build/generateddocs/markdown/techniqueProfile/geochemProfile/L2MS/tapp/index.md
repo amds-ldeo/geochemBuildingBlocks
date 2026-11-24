@@ -39,7 +39,8 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Microprobe Two-Step Laser Mass Spectrometry"
+      "schema:termCode": "Microprobe Two-Step Laser Mass Spectrometry",
+      "schema:name": "Microprobe Two-Step Laser Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ l2msTAPP instance derived from ADA n=1 | Clemett, Simon | NASA Johnson Space Cen
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Microprobe Two-Step Laser Mass Spectrometry"
+      "schema:termCode": "Microprobe Two-Step Laser Mass Spectrometry",
+      "schema:name": "Microprobe Two-Step Laser Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:l2msTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Microprobe Two-Step Laser Mass Spectrometry" ;
             schema1:termCode "Microprobe Two-Step Laser Mass Spectrometry" ] ;
     schema1:name "l2ms protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -345,7 +348,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.L2MS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

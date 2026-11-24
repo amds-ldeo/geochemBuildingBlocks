@@ -39,7 +39,8 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Thermal Microscopy with AFM"
+      "schema:termCode": "Scanning Thermal Microscopy with AFM",
+      "schema:name": "Scanning Thermal Microscopy with AFM"
     }
   ],
   "schema:location": {
@@ -118,7 +119,8 @@ sthmAfmTAPP instance derived from ADA n=483 | no named analyst | York University
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Scanning Thermal Microscopy with AFM"
+      "schema:termCode": "Scanning Thermal Microscopy with AFM",
+      "schema:name": "Scanning Thermal Microscopy with AFM"
     }
   ],
   "schema:location": {
@@ -185,6 +187,7 @@ ex:sthmAfmTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/05fq50484" ;
             schema1:name "York University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Scanning Thermal Microscopy with AFM" ;
             schema1:termCode "Scanning Thermal Microscopy with AFM" ] ;
     schema1:name "sthmAfm protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -315,7 +318,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.STHM-AFM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

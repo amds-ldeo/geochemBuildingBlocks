@@ -39,7 +39,8 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "SEM Cathodoluminescence Spectroscopy"
+      "schema:termCode": "SEM Cathodoluminescence Spectroscopy",
+      "schema:name": "SEM Cathodoluminescence Spectroscopy"
     }
   ],
   "schema:location": {
@@ -118,7 +119,8 @@ semClTAPP instance derived from ADA n=26 | no named analyst | CNRS - Centre de R
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "SEM Cathodoluminescence Spectroscopy"
+      "schema:termCode": "SEM Cathodoluminescence Spectroscopy",
+      "schema:name": "SEM Cathodoluminescence Spectroscopy"
     }
   ],
   "schema:location": {
@@ -185,6 +187,7 @@ ex:semClTAPP-JSM7000 a schema1:Action,
             schema1:identifier "https://ror.org/02feahw73" ;
             schema1:name "CNRS - Centre de Recherche sur l'Hetero-Epitaxie et ses Applications" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "SEM Cathodoluminescence Spectroscopy" ;
             schema1:termCode "SEM Cathodoluminescence Spectroscopy" ] ;
     schema1:name "semCl protocol — JSM7000" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -315,7 +318,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-CL.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

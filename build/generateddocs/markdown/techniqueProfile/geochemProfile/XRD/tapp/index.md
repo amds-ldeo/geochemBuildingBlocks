@@ -56,7 +56,8 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray diffraction"
+      "schema:termCode": "X-ray diffraction",
+      "schema:name": "X-ray diffraction"
     }
   ],
   "schema:creator": {
@@ -174,7 +175,8 @@ xrdTAPP instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray diffraction"
+      "schema:termCode": "X-ray diffraction",
+      "schema:name": "X-ray diffraction"
     }
   ],
   "schema:creator": {
@@ -267,6 +269,7 @@ ex:xrdTAPP-King2024 a schema1:Action,
             schema1:identifier "https://ror.org/039zvsn29" ;
             schema1:name "Natural History Museum" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "X-ray diffraction" ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2024" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -339,7 +342,8 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray diffraction"
+      "schema:termCode": "X-ray diffraction",
+      "schema:name": "X-ray diffraction"
     }
   ],
   "schema:creator": {
@@ -457,7 +461,8 @@ xrdTAPP instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray diffraction"
+      "schema:termCode": "X-ray diffraction",
+      "schema:name": "X-ray diffraction"
     }
   ],
   "schema:creator": {
@@ -550,6 +555,7 @@ ex:xrdTAPP-King2024-2 a schema1:Action,
             schema1:identifier "https://ror.org/04xx4z452" ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "X-ray diffraction" ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2024-2" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -622,7 +628,8 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray diffraction"
+      "schema:termCode": "X-ray diffraction",
+      "schema:name": "X-ray diffraction"
     }
   ],
   "schema:creator": {
@@ -740,7 +747,8 @@ xrdTAPP instance derived from ADA n=1 | King2023 | Natural History Museum | Riga
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "X-ray diffraction"
+      "schema:termCode": "X-ray diffraction",
+      "schema:name": "X-ray diffraction"
     }
   ],
   "schema:creator": {
@@ -833,6 +841,7 @@ ex:xrdTAPP-King2023 a schema1:Action,
             schema1:identifier "https://ror.org/039zvsn29" ;
             schema1:name "Natural History Museum" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "X-ray diffraction" ;
             schema1:termCode "X-ray diffraction" ] ;
     schema1:name "xrd protocol — King2023" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -1235,7 +1244,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XRD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

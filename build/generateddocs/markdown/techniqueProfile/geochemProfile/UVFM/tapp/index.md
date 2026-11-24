@@ -39,7 +39,8 @@ uvfmTAPP instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cen
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "UV Fluorescence Microscopy"
+      "schema:termCode": "UV Fluorescence Microscopy",
+      "schema:name": "UV Fluorescence Microscopy"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ uvfmTAPP instance derived from ADA n=2 | Clemett, Simon | NASA Johnson Space Cen
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "UV Fluorescence Microscopy"
+      "schema:termCode": "UV Fluorescence Microscopy",
+      "schema:name": "UV Fluorescence Microscopy"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:uvfmTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "UV Fluorescence Microscopy" ;
             schema1:termCode "UV Fluorescence Microscopy" ] ;
     schema1:name "uvfm protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -344,7 +347,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.UVFM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

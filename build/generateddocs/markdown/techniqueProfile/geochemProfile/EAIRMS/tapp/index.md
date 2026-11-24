@@ -39,7 +39,8 @@ eairmsTAPP instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Inst
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Elemental analysis - isotope ratio mass spectrometry"
+      "schema:termCode": "Elemental analysis - isotope ratio mass spectrometry",
+      "schema:name": "Elemental analysis - isotope ratio mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ eairmsTAPP instance derived from ADA n=16 | Foustoukos, Dionysis | Carnegie Inst
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Elemental analysis - isotope ratio mass spectrometry"
+      "schema:termCode": "Elemental analysis - isotope ratio mass spectrometry",
+      "schema:name": "Elemental analysis - isotope ratio mass spectrometry"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:eairmsTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Carnegie Institution for Science" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Elemental analysis - isotope ratio mass spectrometry" ;
             schema1:termCode "Elemental analysis - isotope ratio mass spectrometry" ] ;
     schema1:name "eairms protocol — P0" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;
@@ -345,7 +348,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EAIRMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

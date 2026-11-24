@@ -39,7 +39,8 @@ lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Th
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Liquid Chromatography-Mass Spectrometry"
+      "schema:termCode": "Liquid Chromatography-Mass Spectrometry",
+      "schema:name": "Liquid Chromatography-Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ lcmsTAPP instance derived from ADA n=24 | Oba, Yasuhiro | Kyushu University | Th
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Liquid Chromatography-Mass Spectrometry"
+      "schema:termCode": "Liquid Chromatography-Mass Spectrometry",
+      "schema:name": "Liquid Chromatography-Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:lcmsTAPP-Ultimate3000 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Kyushu University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Liquid Chromatography-Mass Spectrometry" ;
             schema1:termCode "Liquid Chromatography-Mass Spectrometry" ] ;
     schema1:name "lcms protocol — Ultimate3000" ;
     ada:instrumentManufacturer "Thermo Fisher Scientific" ;
@@ -345,7 +348,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LCMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

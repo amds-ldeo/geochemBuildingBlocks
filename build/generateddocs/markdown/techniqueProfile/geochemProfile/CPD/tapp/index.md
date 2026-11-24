@@ -39,7 +39,8 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Curation Photo-Documentation"
+      "schema:termCode": "Curation Photo-Documentation",
+      "schema:name": "Curation Photo-Documentation"
     }
   ],
   "schema:location": {
@@ -118,7 +119,8 @@ cpdTAPP instance derived from ADA n=10 | no named analyst | NASA Johnson Space C
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Curation Photo-Documentation"
+      "schema:termCode": "Curation Photo-Documentation",
+      "schema:name": "Curation Photo-Documentation"
     }
   ],
   "schema:location": {
@@ -185,6 +187,7 @@ ex:cpdTAPP-P0 a schema1:Action,
             schema1:identifier "https://ror.org/04xx4z452" ;
             schema1:name "NASA Johnson Space Center" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Curation Photo-Documentation" ;
             schema1:termCode "Curation Photo-Documentation" ] ;
     schema1:name "cpd protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -315,7 +318,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.CPD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

@@ -39,7 +39,8 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Gas Chromatography-Mass Spectrometry"
+      "schema:termCode": "Gas Chromatography-Mass Spectrometry",
+      "schema:name": "Gas Chromatography-Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ gcmsTAPP instance derived from ADA n=26 | Sako, Sunami | Tohoku University | Agi
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Gas Chromatography-Mass Spectrometry"
+      "schema:termCode": "Gas Chromatography-Mass Spectrometry",
+      "schema:name": "Gas Chromatography-Mass Spectrometry"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:gcmsTAPP-Agilent5977 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Tohoku University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Gas Chromatography-Mass Spectrometry" ;
             schema1:termCode "Gas Chromatography-Mass Spectrometry" ] ;
     schema1:name "gcms protocol — Agilent5977" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -344,7 +347,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.GCMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

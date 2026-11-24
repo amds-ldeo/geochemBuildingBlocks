@@ -131,10 +131,10 @@ The procedure half of the CompositionQC module, with every property populated. G
                     schema1:name "Data processing" ;
                     schema1:position 1 ;
                     ada:detectionLimitMethod "no value available: unnamed property" ] ] ;
-    schema1:variableMeasured [ schema1:defaultValue "no value available: unnamed property" ;
-            schema1:name "Normalization / Standards-Based Correction" ],
-        [ schema1:defaultValue 1 ;
-            schema1:name "Detection Limit" ] ;
+    schema1:variableMeasured [ schema1:defaultValue 1 ;
+            schema1:name "Detection Limit" ],
+        [ schema1:defaultValue "no value available: unnamed property" ;
+            schema1:name "Normalization / Standards-Based Correction" ] ;
     ada:secondaryReferenceMaterialDefault "no value available: unnamed property" .
 
 
@@ -672,7 +672,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.compositionQC
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

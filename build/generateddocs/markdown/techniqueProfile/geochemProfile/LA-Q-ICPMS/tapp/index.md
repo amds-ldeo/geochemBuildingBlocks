@@ -480,7 +480,8 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "fs-LA-Q-ICP-MS"
+      "schema:termCode": "fs-LA-Q-ICP-MS",
+      "schema:name": "fs-LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -1042,7 +1043,8 @@ laQicpmsTAPP instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "fs-LA-Q-ICP-MS"
+      "schema:termCode": "fs-LA-Q-ICP-MS",
+      "schema:name": "fs-LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -1142,9 +1144,9 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Thick sections embedded in petropoxy 154 resin, the surface finalised by polishing with 0.5 µm diamond paste; carbon-coated before the EPMA measurements (§2.1–2.2). Whether the coat was removed before ablation is not stated; the later 0.5 µm polish (§2.5) preceded micromilling, not ablation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
@@ -1155,9 +1157,9 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Thick sections embedded in petropoxy 154 resin, the surface finalised by polishing with 0.5 µm diamond paste; carbon-coated before the EPMA measurements (§2.1–2.2). Whether the coat was removed before ablation is not stated; the later 0.5 µm polish (§2.5) preceded micromilling, not ablation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -1173,6 +1175,7 @@ ex:laQicpmsTAPP-Nakanishi2022 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "fs-LA-Q-ICP-MS" ;
             schema1:termCode "fs-LA-Q-ICP-MS" ] ;
     schema1:name "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -2009,7 +2012,8 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "fs-LA-Q-ICP-MS"
+      "schema:termCode": "fs-LA-Q-ICP-MS",
+      "schema:name": "fs-LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -2658,7 +2662,8 @@ laQicpmsTAPP instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial sa
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "fs-LA-Q-ICP-MS"
+      "schema:termCode": "fs-LA-Q-ICP-MS",
+      "schema:name": "fs-LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -2745,6 +2750,14 @@ ex:laQicpmsTAPP-Liu2024 a schema1:Action,
             schema1:name "LA-Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -2755,15 +2768,7 @@ ex:laQicpmsTAPP-Liu2024 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Li2B4O7 flux (350.0 ± 0.3 mg) and powdered sample (10.00 ± 0.03 mg) weighed into a small Pt–Au crucible, mixed with a glass rod, NH4Br solution added as a releasing agent, and fused into a mini glass disk on an M4 automatic fluxer; the disk measured for major elements by WD-XRF, then its surface cleaned with ethanol before fs-LA-ICP-MS (§2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
@@ -2782,6 +2787,7 @@ ex:laQicpmsTAPP-Liu2024 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "fs-LA-Q-ICP-MS" ;
             schema1:termCode "fs-LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -3517,7 +3523,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-Q-ICP-MS"
+      "schema:termCode": "LA-Q-ICP-MS",
+      "schema:name": "LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -3994,7 +4001,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental silica
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-Q-ICP-MS"
+      "schema:termCode": "LA-Q-ICP-MS",
+      "schema:name": "LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -4111,6 +4119,7 @@ ex:laQicpmsTAPP-Liu2025 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-Q-ICP-MS" ;
             schema1:termCode "LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -4720,7 +4729,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-Q-ICP-MS"
+      "schema:termCode": "LA-Q-ICP-MS",
+      "schema:name": "LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -5197,7 +5207,8 @@ laQicpmsTAPP instance derived from Liu et al. 2025 (GCA 393) Experimental sulfid
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-Q-ICP-MS"
+      "schema:termCode": "LA-Q-ICP-MS",
+      "schema:name": "LA-Q-ICP-MS"
     }
   ],
   "schema:creator": {
@@ -5282,10 +5293,11 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
             schema1:name "LA-Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -5294,11 +5306,10 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -5314,6 +5325,7 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-Q-ICP-MS" ;
             schema1:termCode "LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -6111,7 +6123,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
+      "schema:termCode": "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)",
+      "schema:name": "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
     }
   ],
   "schema:location": {
@@ -6772,7 +6785,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS \u2014 'an Agilent 7500ce inductively coupled plasma\u2013mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
+      "schema:termCode": "LA-ICP-MS \u2014 'an Agilent 7500ce inductively coupled plasma\u2013mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)",
+      "schema:name": "LA-ICP-MS \u2014 'an Agilent 7500ce inductively coupled plasma\u2013mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
     }
   ],
   "schema:location": {
@@ -6853,14 +6867,6 @@ ex:laQicpmsTAPP-Liu2016 a schema1:Action,
             schema1:name "LA-Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -6871,7 +6877,15 @@ ex:laQicpmsTAPP-Liu2016 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatioDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
@@ -6888,16 +6902,17 @@ ex:laQicpmsTAPP-Liu2016 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ;
             schema1:termCode "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ] ;
     schema1:name "laQicpms protocol — Liu2016" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)" ] ;
             schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -7765,7 +7780,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
+      "schema:termCode": "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)",
+      "schema:name": "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
     }
   ],
   "schema:location": {
@@ -8361,7 +8377,8 @@ laQicpmsTAPP instance derived from Liu et al. 2016 (M&PS 51) Tissint martian met
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS \u2014 'an Agilent 7500ce inductively coupled plasma\u2013mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
+      "schema:termCode": "LA-ICP-MS \u2014 'an Agilent 7500ce inductively coupled plasma\u2013mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)",
+      "schema:name": "LA-ICP-MS \u2014 'an Agilent 7500ce inductively coupled plasma\u2013mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)"
     }
   ],
   "schema:location": {
@@ -8477,6 +8494,7 @@ ex:laQicpmsTAPP-Liu2016-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Department of Geosciences, Virginia Tech" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ;
             schema1:termCode "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)" ] ;
     schema1:name "laQicpms protocol — Liu2016-2" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
@@ -9268,7 +9286,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
+      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)",
+      "schema:name": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
     }
   ],
   "schema:location": {
@@ -9871,7 +9890,8 @@ laQicpmsTAPP instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
+      "schema:termCode": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)",
+      "schema:name": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
     }
   ],
   "schema:location": {
@@ -9981,6 +10001,12 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -9989,13 +10015,7 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N — not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault>,
@@ -10012,6 +10032,7 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)" ;
             schema1:termCode "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)" ] ;
     schema1:name "laQicpms protocol — P6" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
@@ -12005,7 +12026,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

@@ -15,6 +15,12 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -23,13 +29,7 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N — not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/collisionReactionGasMixtureRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/reactionProductIonMassShiftTransition>,
         <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/totalIntegrationTimePerOutputDataPointDefault>,
@@ -46,6 +46,7 @@ ex:laQicpmsTAPP-P6 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)" ;
             schema1:termCode "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)" ] ;
     schema1:name "laQicpms protocol — P6" ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;

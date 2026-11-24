@@ -39,7 +39,8 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lock-In Thermography"
+      "schema:termCode": "Lock-In Thermography",
+      "schema:name": "Lock-In Thermography"
     }
   ],
   "schema:creator": {
@@ -131,7 +132,8 @@ litTAPP instance derived from ADA n=99 | Ishizaki, Takuya | Nagoya University | 
       "@type": [
         "schema:DefinedTerm"
       ],
-      "schema:termCode": "Lock-In Thermography"
+      "schema:termCode": "Lock-In Thermography",
+      "schema:name": "Lock-In Thermography"
     }
   ],
   "schema:creator": {
@@ -214,6 +216,7 @@ ex:litTAPP-P0 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Nagoya University" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "Lock-In Thermography" ;
             schema1:termCode "Lock-In Thermography" ] ;
     schema1:name "lit protocol — P0" ;
     ada:instrumentManufacturer "Unknown" ;
@@ -344,7 +347,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LIT.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

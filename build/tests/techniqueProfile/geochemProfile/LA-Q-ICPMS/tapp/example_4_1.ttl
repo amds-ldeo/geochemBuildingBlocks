@@ -14,10 +14,11 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
             schema1:name "LA-Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -26,11 +27,10 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -46,6 +46,7 @@ ex:laQicpmsTAPP-Liu2025-2 a schema1:Action,
     schema1:location [ a schema1:Place ;
             schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
     schema1:measurementTechnique [ a schema1:DefinedTerm ;
+            schema1:name "LA-Q-ICP-MS" ;
             schema1:termCode "LA-Q-ICP-MS" ] ;
     schema1:name "Liu et al. (2025) Experimental Sulfide LA-ICP-MS Spot v1" ;
     schema1:relatedLink [ a schema1:CreativeWork ;
