@@ -31,8 +31,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -49,7 +51,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
               "schema:value": "N — the SEM imaging and the FIB sectioning are one session on one instrument, \"Images were acquired with a Nova 200 NanoLab DualBeam FIB/SEM\" (p.2); no separate prior screening step is described"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -199,8 +204,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -217,7 +224,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
               "schema:value": "N \u2014 the SEM imaging and the FIB sectioning are one session on one instrument, \"Images were acquired with a Nova 200 NanoLab DualBeam FIB/SEM\" (p.2); no separate prior screening step is described"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -360,21 +370,22 @@ ex:semFibsemTAPP-detail-Garvie2008 a schema1:Dataset,
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions> ;
                             schema1:description "HCl and HF acid dissolution residue from pristine Tagish Lake pieces; deposited on lacey C TEM grid attached to Al-SEM stub; uncoated" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument <https://example.org/semFibsemTAPP-detail-Garvie2008/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -437,8 +448,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -455,7 +468,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               "schema:value": "N — X-ray micro-CT is run on the same samples (\"The scanning area of the X-ray CT scan was 2 mm in diameter and 1 mm in height ... pixel resolution was 1 µm\", p.3), but as a parallel measurement feeding the same pore-network model, not as a screening step that sites the FIB-SEM volume"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:actionProcess": {
@@ -625,8 +641,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -643,7 +661,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               "schema:value": "N \u2014 X-ray micro-CT is run on the same samples (\"The scanning area of the X-ray CT scan was 2 mm in diameter and 1 mm in height ... pixel resolution was 1 \u00b5m\", p.3), but as a parallel measurement feeding the same pore-network model, not as a screening step that sites the FIB-SEM volume"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:actionProcess": {
@@ -799,14 +820,14 @@ ex:semFibsemTAPP-detail-Liu2017 a schema1:Dataset,
             schema1:target [ schema1:name "X-ray CT (Xradia 520 Versa, Carl Zeiss)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/sliceThickness> ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
@@ -823,8 +844,9 @@ ex:semFibsemTAPP-detail-Liu2017 a schema1:Dataset,
                 <https://example.org/semFibsemTAPP-detail-Liu2017/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -891,8 +913,10 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -909,7 +933,10 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
               "schema:value": "N — the preparation is mechanical and chemical only (\"polished with dry emery paper and then ground by argon ion\", p.3); no imaging or screening precedes the tomography"
             }
           ],
-          "schema:name": "SC; HBC"
+          "schema:name": "SC; HBC",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -1084,8 +1111,10 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1102,7 +1131,10 @@ detail instance derived from Zhou et al. 2017 | Coal (SC + HBC, Junggar Basin) |
               "schema:value": "N \u2014 the preparation is mechanical and chemical only (\"polished with dry emery paper and then ground by argon ion\", p.3); no imaging or screening precedes the tomography"
             }
           ],
-          "schema:name": "SC; HBC"
+          "schema:name": "SC; HBC",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -1266,13 +1298,13 @@ ex:semFibsemTAPP-detail-Zhou2017 a schema1:Dataset,
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Cuboidal samples (~0.5×1×1 cm) polished with dry emery paper and argon ion polishing; high-pressure freezing and freeze-drying; glued onto sample holder" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/imageRegistration3D>,
                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/segmentationMethod> ;
             schema1:description "Stage tilt 52° between electron and ion columns; SEM range 20V–30kV and FIB range 500V–30kV (system specs); destriping filter xStripes.jar applied; deconvolves y-axis by y/sin(52°) for pixel scale correction" ;
@@ -1285,8 +1317,9 @@ ex:semFibsemTAPP-detail-Zhou2017 a schema1:Dataset,
                 <https://example.org/semFibsemTAPP-detail-Zhou2017/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "China University of Geosciences, Beijing, China" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "SC; HBC" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -1362,8 +1395,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1380,7 +1415,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "SEM imaging and EDS mapping of the same particles, reported immediately before the FIB work in the Methods — SE and BSE images on the Hitachi S-4800 and EDS mapping of \"The compositional heterogeneity of the particles\" (p.9); the paper does not state explicitly that the sections were sited from those images"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -1544,8 +1582,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1562,7 +1602,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "SEM imaging and EDS mapping of the same particles, reported immediately before the FIB work in the Methods \u2014 SE and BSE images on the Hitachi S-4800 and EDS mapping of \"The compositional heterogeneity of the particles\" (p.9); the paper does not state explicitly that the sections were sited from those images"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -1714,28 +1757,29 @@ ex:semFibsemTAPP-detail-Zega2025 a schema1:Dataset,
             schema1:target [ schema1:name "TEM analysis (HF5000 STEM, U Arizona); BSE/SE Imaging (Hitachi S-4800, U Arizona)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
-                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/coarseMillingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
+                            schema1:description "Sections extracted from fine-grained matrix areas in polished sections; BSE and SE images acquired before and after sectioning" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:description "Sections thinned to electron transparency; BSE/SE images acquired before and after sectioning; methods follow refs. 72-75" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -1803,8 +1847,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1821,7 +1867,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N — the passage states only that \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9); no prior imaging or screening is described for this laboratory"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -2003,8 +2052,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2021,7 +2072,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N \u2014 the passage states only that \"Bennu particles were placed on PELCO carbon conductive tabs\" (p.9); no prior imaging or screening is described for this laboratory"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -2212,8 +2266,9 @@ ex:semFibsemTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025-2/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -2288,8 +2343,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2306,7 +2363,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N — the passage states only that \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10); no prior imaging or screening is described for this laboratory"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -2501,8 +2561,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2519,7 +2581,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N \u2014 the passage states only that \"FIB sections were prepared from particles dispersed on conductive carbon dots on Al SEM pin mounts\" (p.10); no prior imaging or screening is described for this laboratory"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -2702,13 +2767,6 @@ ex:semFibsemTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "TEM analysis (NASA JSC); BSE/SE Imaging (JEOL 7600F, JSC)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
-                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
-                            schema1:description "no value available: schema:description" ;
-                            schema1:name "Ion milling" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ],
                         [ a schema1:Action,
@@ -2717,15 +2775,23 @@ ex:semFibsemTAPP-detail-Zega2025-3 a schema1:Dataset,
                                 <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/protectiveCoatingDeposition> ;
                             schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/finePolishingConditions>,
+                                <https://ada.astromat.org/metadata/parameter/semFibsemTAPP/foilThickness> ;
+                            schema1:description "no value available: schema:description" ;
+                            schema1:name "Ion milling" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Multi-step milling: e-beam C deposition then FIB C capping, 30 kV → 16 kV → 5 kV; Pt weld to Cu half grids" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument <https://example.org/semFibsemTAPP-detail-Zega2025-3/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -2986,11 +3052,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

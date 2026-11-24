@@ -244,20 +244,20 @@ The procedure half of the Core module, with every property populated. Generated 
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "no value available: unnamed property" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "no value available: unnamed property" ;
-            ada:toolRole "acquisition" ] ;
+            ada:toolRole "dataReduction" ] ;
     schema1:location [ schema1:identifier "no value available: unnamed property" ;
             schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
     schema1:name "no value available: unnamed property" ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "no value available: unnamed property" ] ] ;
+                    schema1:name "no value available: unnamed property" ] ] ;
     ada:analyticalMode "no value available: unnamed property" ;
     ada:samplingUnitType "no value available: unnamed property" .
 
@@ -281,7 +281,7 @@ The analysis half of the Core module, with every property populated. Generated f
       "schema:endTime": "no value available: unnamed property",
       "schema:object": [
         {
-          "@type": "no value available: unnamed property",
+          "schema:additionalType": "no value available: unnamed property",
           "schema:name": "no value available: unnamed property",
           "schema:identifier": "no value available: unnamed property"
         }
@@ -398,7 +398,7 @@ The analysis half of the Core module, with every property populated. Generated f
       "schema:endTime": "no value available: unnamed property",
       "schema:object": [
         {
-          "@type": "no value available: unnamed property",
+          "schema:additionalType": "no value available: unnamed property",
           "schema:name": "no value available: unnamed property",
           "schema:identifier": "no value available: unnamed property"
         }
@@ -504,13 +504,13 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "no value available: unnamed property" ],
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledProcedure" ;
             schema1:target [ schema1:url "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ] ;
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "no value available: unnamed property" ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -523,14 +523,15 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "no value available: unnamed property" ;
-                    ada:toolRole "dataReduction" ],
+                    ada:toolRole "acquisition" ],
                 [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "no value available: unnamed property" ;
-                    ada:toolRole "acquisition" ] ;
+                    ada:toolRole "dataReduction" ] ;
             schema1:location [ schema1:identifier "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ;
-            schema1:object [ schema1:identifier "no value available: unnamed property" ;
+            schema1:object [ schema1:additionalType "no value available: unnamed property" ;
+                    schema1:identifier "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ;
             schema1:startTime "no value available: unnamed property" ] ;
     ada:analyticalMode "no value available: unnamed property" .
@@ -861,11 +862,18 @@ $defs:
                 allOf:
                 - if:
                     properties:
-                      '@type':
+                      schema:additionalType:
                         contains:
-                          const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                          anyOf:
+                          - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                          - type: object
+                            required:
+                            - '@id'
+                            properties:
+                              '@id':
+                                const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                     required:
-                    - '@type'
+                    - schema:additionalType
                   then:
                     properties:
                       schema:name:
@@ -901,11 +909,18 @@ $defs:
               allOf:
               - contains:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
               x-jsonld-id: http://schema.org/object
             schema:instrument:
               type: array

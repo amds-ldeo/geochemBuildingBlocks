@@ -40,10 +40,15 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
       "schema:startTime": "2023-11-12 | 2023-12-06 | (+4 more)",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)"
+          "schema:name": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -112,10 +117,15 @@ detail instance derived from ADA n=241 | Gainsforth2023 | Advanced Light Source 
       "schema:startTime": "2023-11-12 | 2023-12-06 | (+4 more)",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)"
+          "schema:name": "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -165,7 +175,8 @@ ex:xanesTAPP-detail-Gainsforth2023 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/00319zh75" ;
                     schema1:name "Advanced Light Source at Lawrence Berkeley National Laboratory" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-803030-100 | OREX-800055-125 | OREX-501005-101 | (+3 more)" ] ;
             schema1:startTime "2023-11-12 | 2023-12-06 | (+4 more)" ] ;
     ada:analysisEndDate "missing" ;
@@ -219,11 +230,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

@@ -40,10 +40,15 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
       "schema:startTime": "2024-07-25 | 2024-11-25",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800117-108 | OREX-800107-103"
+          "schema:name": "OREX-800117-108 | OREX-800107-103",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -112,10 +117,15 @@ detail instance derived from ADA n=2 | King2024 | Natural History Museum | (NHM)
       "schema:startTime": "2024-07-25 | 2024-11-25",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800117-108 | OREX-800107-103"
+          "schema:name": "OREX-800117-108 | OREX-800107-103",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -165,7 +175,8 @@ ex:xrdTAPP-detail-King2024 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/039zvsn29" ;
                     schema1:name "Natural History Museum" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800117-108 | OREX-800107-103" ] ;
             schema1:startTime "2024-07-25 | 2024-11-25" ] ;
     ada:analysisEndDate "missing" ;
@@ -211,10 +222,15 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
       "schema:startTime": "2024-01-28",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-500005-0"
+          "schema:name": "OREX-500005-0",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -283,10 +299,15 @@ detail instance derived from ADA n=1 | King2024 | NASA Johnson Space Center | (J
       "schema:startTime": "2024-01-28",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-500005-0"
+          "schema:name": "OREX-500005-0",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -336,7 +357,8 @@ ex:xrdTAPP-detail-King2024-2 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/04xx4z452" ;
                     schema1:name "NASA Johnson Space Center" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-500005-0" ] ;
             schema1:startTime "2024-01-28" ] ;
     ada:analysisEndDate "missing" ;
@@ -382,10 +404,15 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
       "schema:startTime": "2023-11-24",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800032-110"
+          "schema:name": "OREX-800032-110",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -454,10 +481,15 @@ detail instance derived from ADA n=1 | King2023 | Natural History Museum | Rigak
       "schema:startTime": "2023-11-24",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800032-110"
+          "schema:name": "OREX-800032-110",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -507,7 +539,8 @@ ex:xrdTAPP-detail-King2023 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/039zvsn29" ;
                     schema1:name "Natural History Museum" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800032-110" ] ;
             schema1:startTime "2023-11-24" ] ;
     ada:analysisEndDate "missing" ;
@@ -731,11 +764,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

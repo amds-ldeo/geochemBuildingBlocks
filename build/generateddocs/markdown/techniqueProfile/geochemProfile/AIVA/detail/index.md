@@ -39,10 +39,15 @@ detail instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space Ce
       "schema:startTime": "2024-04-05",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800008-0"
+          "schema:name": "OREX-800008-0",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -110,10 +115,15 @@ detail instance derived from ADA n=3 | Blumenfeld, Erika | NASA Johnson Space Ce
       "schema:startTime": "2024-04-05",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800008-0"
+          "schema:name": "OREX-800008-0",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -162,7 +172,8 @@ ex:aivaTAPP-detail-P0 a schema1:Dataset,
             schema1:identifier "20240122_aiva_jsc-ares_multisample_1" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA Johnson Space Center" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800008-0" ] ;
             schema1:startTime "2024-04-05" ] ;
     ada:analysisEndDate "missing" ;
@@ -216,11 +227,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

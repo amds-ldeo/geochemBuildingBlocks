@@ -40,10 +40,15 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
       "schema:startTime": "2024-04-11 | 2024-05-14",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)"
+          "schema:name": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -112,10 +117,15 @@ detail instance derived from ADA n=13 | Golish2024 | NASA Johnson Space Center |
       "schema:startTime": "2024-04-11 | 2024-05-14",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)"
+          "schema:name": "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -165,7 +175,8 @@ ex:qrisTAPP-detail-Golish2024 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/04xx4z452" ;
                     schema1:name "NASA Johnson Space Center" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800013-0 | OREX-800012-0 | OREX-800010-0 | (+1 more)" ] ;
             schema1:startTime "2024-04-11 | 2024-05-14" ] ;
     ada:analysisEndDate "missing" ;
@@ -381,11 +392,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

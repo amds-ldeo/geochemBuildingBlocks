@@ -294,10 +294,15 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
       "schema:startTime": "2024-10-29",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800099-0"
+          "schema:name": "OREX-800099-0",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime",
@@ -625,10 +630,15 @@ detail instance derived from Eckley 2024 (JSC Scan Record) Bennu particle Single
       "schema:startTime": "2024-10-29",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800099-0"
+          "schema:name": "OREX-800099-0",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime",
@@ -702,7 +712,8 @@ ex:labxctTAPP-detail-Eckley2024 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Eckley2024/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800099-0" ] ;
             schema1:startTime "2024-10-29" ] ;
     ada:analysisEndDate "missing" ;
@@ -842,8 +853,10 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -873,7 +886,10 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
               "schema:value": "Optical microscopy — morphological inspection of the sample exterior through the container window with the CLOXS digital optical microscope system on automated digital sample stages at JAXA/ISAS, before the sample was decanted for nano-XCT"
             }
           ],
-          "schema:name": "A0180 (A0180-A and A0180-B)"
+          "schema:name": "A0180 (A0180-A and A0180-B)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -1203,8 +1219,10 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1234,7 +1252,10 @@ detail instance derived from Genge et al. 2025 (Nat. Commun.) Ryugu particle (A0
               "schema:value": "Optical microscopy \u2014 morphological inspection of the sample exterior through the container window with the CLOXS digital optical microscope system on automated digital sample stages at JAXA/ISAS, before the sample was decanted for nano-XCT"
             }
           ],
-          "schema:name": "A0180 (A0180-A and A0180-B)"
+          "schema:name": "A0180 (A0180-A and A0180-B)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -1556,13 +1577,13 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
             dqv:value "61 SSOs by polished SEM sections vs. 108 by XCT; discrepancy attributed to disruption by polishing; XCT detects more SSOs" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment — \"The sample was decanted for Nano-XCT. During the mounting process the sample split into two along fractures (parts A and B)\" (p.7); resin embedding and polishing followed XCT (\"After nano-XCT analysis the sample was embedded in a Specifix resin\", p.7)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorBinning>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -1581,9 +1602,10 @@ ex:labxctTAPP-detail-Genge2025 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Genge2025/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Not stated" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "A0180 (A0180-A and A0180-B)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -1726,8 +1748,10 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1744,7 +1768,10 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
               "schema:value": "~35 cm length core"
             }
           ],
-          "schema:name": "Apollo 17 core 73002"
+          "schema:name": "Apollo 17 core 73002",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -1986,8 +2013,10 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2004,7 +2033,10 @@ detail instance derived from Neuman et al. 2025 / Shearer et al. 2024 (JGR / Spa
               "schema:value": "~35 cm length core"
             }
           ],
-          "schema:name": "Apollo 17 core 73002"
+          "schema:name": "Apollo 17 core 73002",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2236,14 +2268,14 @@ ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
             dqv:value "Post-reconstruction ring corrections applied; severity not documented" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/subVolumeStitchingAndRegistrationMethod> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Bulk specimen or fragment — drive tube scanned unopened: \"Prior to opening and processing, Apollo drive tubes 73001 and 73002 were transported to the UTCT Facility\" (Shearer et al. 2024, p.27); \"NASA curators removed the stainless-steel outer sleeve of 73002 and triple sealed the aluminum inner sleeve in teflon\" (Neuman et al. 2025, p.4)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/ringArtifactCorrectionMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationMode>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMountingMethod> ;
@@ -2252,8 +2284,9 @@ ex:labxctTAPP-detail-Neuman2025 a schema1:Dataset,
             schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "UTCT Facility, U. Texas" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Apollo 17 core 73002" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -2361,8 +2394,10 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2379,7 +2414,10 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
               "schema:value": "~35 cm length core"
             }
           ],
-          "schema:name": "Apollo 17 core 73001"
+          "schema:name": "Apollo 17 core 73001",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2600,8 +2638,10 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2618,7 +2658,10 @@ detail instance derived from Neuman et al. 2025 (JGR Planets) Apollo 17 core 730
               "schema:value": "~35 cm length core"
             }
           ],
-          "schema:name": "Apollo 17 core 73001"
+          "schema:name": "Apollo 17 core 73001",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2824,10 +2867,10 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "Post-reconstruction ring corrections applied; severity not documented" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
@@ -2848,8 +2891,9 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
             schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025-2/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "UTCT Facility, U. Texas" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Apollo 17 core 73001" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -3027,10 +3071,15 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "73001 CSVC"
+          "schema:name": "73001 CSVC",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:actionProcess": {
@@ -3201,10 +3250,15 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 730
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "73001 CSVC"
+          "schema:name": "73001 CSVC",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:actionProcess": {
@@ -3289,7 +3343,8 @@ ex:labxctTAPP-detail-Shearer2024 a schema1:Dataset,
             schema1:instrument <https://example.org/labxctTAPP-detail-Shearer2024/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "73001 CSVC" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -3466,10 +3521,15 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "Multiple particles from 73001 and 73002"
+          "schema:name": "Multiple particles from 73001 and 73002",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:actionProcess": {
@@ -3653,10 +3713,15 @@ detail instance derived from Shearer et al. 2024 (Space Sci. Rev.) Apollo 17 par
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "Multiple particles from 73001 and 73002"
+          "schema:name": "Multiple particles from 73001 and 73002",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:actionProcess": {
@@ -3742,7 +3807,8 @@ ex:labxctTAPP-detail-Shearer2024-2 a schema1:Dataset,
             schema1:instrument <https://example.org/labxctTAPP-detail-Shearer2024-2/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Multiple particles from 73001 and 73002" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -3827,8 +3893,10 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3860,7 +3928,10 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
               "schema:description": "2.7 g"
             }
           ],
-          "schema:name": "NWA 5790"
+          "schema:name": "NWA 5790",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -4125,8 +4196,10 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4158,7 +4231,10 @@ detail instance derived from Tomkinson et al. 2015 (MAPS) NWA 5790 nakhlite Sing
               "schema:description": "2.7 g"
             }
           ],
-          "schema:name": "NWA 5790"
+          "schema:name": "NWA 5790",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -4417,13 +4493,13 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
             dqv:value "BSE contrast differences between phases comparable to XCT attenuation contrast; XCT lower spatial resolution" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment — \"a single 2.7 g chip\" (p.3), characterised \"Prior to destructive sampling\" (p.3); \"The entire 2.7 g chip was scanned by XCT\" (p.6)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/partialVolumeEffectCriteria>,
@@ -4439,9 +4515,10 @@ ex:labxctTAPP-detail-Tomkinson2015 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Tomkinson2015/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Manchester X-ray Imaging Facility, U. Manchester" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "NWA 5790" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -4773,8 +4850,10 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4793,7 +4872,10 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
               "schema:description": "4.6430 g (Murchison B in vial)"
             }
           ],
-          "schema:name": "Murchison B (USNM 5453,1)"
+          "schema:name": "Murchison B (USNM 5453,1)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -5131,8 +5213,10 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5151,7 +5235,10 @@ detail instance derived from Glavin et al. 2023 (MAPS) Murchison CM2 Single-volu
               "schema:description": "4.6430 g (Murchison B in vial)"
             }
           ],
-          "schema:name": "Murchison B (USNM 5453,1)"
+          "schema:name": "Murchison B (USNM 5453,1)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -5285,8 +5372,9 @@ ex:labxctTAPP-detail-Glavin2023 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Glavin2023/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA JSC Astromaterials X-FaCT Lab" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleMass> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Murchison B (USNM 5453,1)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -5434,8 +5522,10 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5452,7 +5542,10 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
               "schema:value": "~4 mm fragments"
             }
           ],
-          "schema:name": "NWA 8277; NWA 6963"
+          "schema:name": "NWA 8277; NWA 6963",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -5743,8 +5836,10 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5761,7 +5856,10 @@ detail instance derived from Nascimento-Dias et al. 2019 (Appl. Radiat. Isot.) N
               "schema:value": "~4 mm fragments"
             }
           ],
-          "schema:name": "NWA 8277; NWA 6963"
+          "schema:name": "NWA 8277; NWA 6963",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -6044,13 +6142,13 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
             dqv:value "Micro-XRF structural observations consistent with meteorite classification" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk specimen or fragment — \"fragments of about 4 mm of both meteorites were analyzed through X-ray micro-CT\" (p.5)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/phaseIdentificationMethod>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationRange>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/rotationStepSize>,
@@ -6066,8 +6164,9 @@ ex:labxctTAPP-detail-Dias2019 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Dias2019/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Nuclear Instrumentation Lab, COPPE, UFRJ, Brazil" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "NWA 8277; NWA 6963" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -6190,8 +6289,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6208,7 +6309,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
               "schema:value": "~1 mm olivine"
             }
           ],
-          "schema:name": "Sample A (olivine)"
+          "schema:name": "Sample A (olivine)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -6468,8 +6572,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6486,7 +6592,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Olivine (melt inc
               "schema:value": "~1 mm olivine"
             }
           ],
-          "schema:name": "Sample A (olivine)"
+          "schema:name": "Sample A (olivine)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -6755,8 +6864,9 @@ ex:labxctTAPP-detail-Richard2019 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Richard2019/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Lab. de Microtomografía de Rayos X, UNAM, Mexico" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Sample A (olivine)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -6869,8 +6979,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6900,7 +7012,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
               "schema:value": "Optical photography of the sample showing the fluid inclusion array, with inclusions numbered for correspondence with the HRXCT reconstruction (Fig. 2)"
             }
           ],
-          "schema:name": "Sample B (synthetic quartz)"
+          "schema:name": "Sample B (synthetic quartz)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -7203,8 +7318,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -7234,7 +7351,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
               "schema:value": "Optical photography of the sample showing the fluid inclusion array, with inclusions numbered for correspondence with the HRXCT reconstruction (Fig. 2)"
             }
           ],
-          "schema:name": "Sample B (synthetic quartz)"
+          "schema:name": "Sample B (synthetic quartz)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -7547,9 +7667,10 @@ ex:labxctTAPP-detail-Richard2019-2 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Richard2019-2/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "U. Strathclyde, Glasgow, UK" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Sample B (synthetic quartz)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -7688,8 +7809,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -7719,7 +7842,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
               "schema:value": "Optical photography identifying the fluid inclusion array; inclusion #3 targeted for the high-resolution region-of-interest scan (Fig. 2)"
             }
           ],
-          "schema:name": "Sample B (synthetic quartz)"
+          "schema:name": "Sample B (synthetic quartz)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -8022,8 +8148,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -8053,7 +8181,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Synthetic quartz 
               "schema:value": "Optical photography identifying the fluid inclusion array; inclusion #3 targeted for the high-resolution region-of-interest scan (Fig. 2)"
             }
           ],
-          "schema:name": "Sample B (synthetic quartz)"
+          "schema:name": "Sample B (synthetic quartz)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -8366,9 +8497,10 @@ ex:labxctTAPP-detail-Richard2019-3 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Richard2019-3/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "U. Strathclyde, Glasgow, UK" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Sample B (synthetic quartz)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -8507,8 +8639,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -8538,7 +8672,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
               "schema:value": "Optical microscopy under UV illumination, used to identify hydrocarbon-bearing phases within the inclusions (Fig. 9)"
             }
           ],
-          "schema:name": "Samples C–I (various)"
+          "schema:name": "Samples C–I (various)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -8848,8 +8985,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -8879,7 +9018,10 @@ detail instance derived from Richard et al. 2019 (Chem. Geol.) Fluid incl. miner
               "schema:value": "Optical microscopy under UV illumination, used to identify hydrocarbon-bearing phases within the inclusions (Fig. 9)"
             }
           ],
-          "schema:name": "Samples C\u2013I (various)"
+          "schema:name": "Samples C\u2013I (various)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -9177,19 +9319,19 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "CLSM performed on same inclusion for volumetric cross-validation" ;
                     schema1:name "Confocal laser scanning microscopy (Sample I)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
-            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ],
-        [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
-            dqv:value "Software ring artifact correction applied; outcome not documented" ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
+            dqv:value "Software ring artifact correction applied; outcome not documented" ],
+        [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
+            dqv:value "Sample I: CLSM gives φ_vap = 10±2%; XCT gives 9.8% — compatible" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished section or chip; Bulk specimen or fragment (as received) — varies by sample. C: quartz lamella \"doubly polished to reach a 0.4 mm thickness for optical microscopy and HRXCT analyses\" (p.2). D, E: \"No sectioning was carried out prior to HRXCT scanning\", each scanned entirely (p.6). F: \"a chip (3×4×0.2 mm) of a doubly polished thick section\" (p.6). G, H: \"chips (5×5×0.5 mm) of doubly polished thick sections\" (p.6). I: \"a chip (3×4×0.15 mm) of a doubly polished thick section\" (p.7)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/framesAveragedPerProjection>,
                 <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfProjections>,
@@ -9207,9 +9349,10 @@ ex:labxctTAPP-detail-Richard2019-4 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Richard2019-4/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Université de Lorraine, France" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions>,
                         <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Samples C–I (various)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -9343,8 +9486,10 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -9361,7 +9506,10 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
               "schema:value": "8 mm diameter core"
             }
           ],
-          "schema:name": "Watson 012"
+          "schema:name": "Watson 012",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -9639,8 +9787,10 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -9657,7 +9807,10 @@ detail instance derived from Tait 2014 (Thesis) Watson 012 H7 chondrite Single-v
               "schema:value": "8 mm diameter core"
             }
           ],
-          "schema:name": "Watson 012"
+          "schema:name": "Watson 012",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -9949,8 +10102,9 @@ ex:labxctTAPP-detail-Tait2014 a schema1:Dataset,
                 <https://example.org/labxctTAPP-detail-Tait2014/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CSIRO, Kensington, Western Australia" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Watson 012" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -10070,11 +10224,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:
@@ -10200,11 +10361,18 @@ allOf:
             allOf:
             - contains:
                 properties:
-                  '@type':
+                  schema:additionalType:
                     contains:
-                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                      anyOf:
+                      - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                      - type: object
+                        required:
+                        - '@id'
+                        properties:
+                          '@id':
+                            const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                 required:
-                - '@type'
+                - schema:additionalType
           schema:additionalProperty:
             type: array
             items:

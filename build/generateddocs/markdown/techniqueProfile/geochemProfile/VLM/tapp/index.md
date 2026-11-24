@@ -276,11 +276,18 @@ allOf:
         allOf:
         - if:
             properties:
-              '@type':
+              schema:additionalType:
                 contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  anyOf:
+                  - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  - type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
             required:
-            - '@type'
+            - schema:additionalType
           then:
             properties:
               schema:additionalProperty:

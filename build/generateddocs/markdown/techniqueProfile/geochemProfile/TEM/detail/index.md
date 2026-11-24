@@ -67,8 +67,10 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -85,7 +87,10 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
               "schema:value": "FIB-SEM imaging of the irradiated pellets — \"To analyze the surface morphology and texture of the magnetite samples after laser or ion irradiation and to prepare electron transparent samples suitable for TEM, we used a Thermo Scientific Helios G4 UX DualBeam FIB-SEM at Purdue University. We compared textural differences between the irradiated and unirradiated areas\" (p.3), and the grains large enough to section were chosen from those images"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -272,8 +277,10 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -290,7 +297,10 @@ detail instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imaging
               "schema:value": "FIB-SEM imaging of the irradiated pellets \u2014 \"To analyze the surface morphology and texture of the magnetite samples after laser or ion irradiation and to prepare electron transparent samples suitable for TEM, we used a Thermo Scientific Helios G4 UX DualBeam FIB-SEM at Purdue University. We compared textural differences between the irradiated and unirradiated areas\" (p.3), and the grains large enough to section were chosen from those images"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -430,14 +440,14 @@ ex:temTAPP-detail-Chaves2023 a schema1:Dataset,
                     schema1:name "FIB-SEM; XPS; VNIR reflectance spectroscopy" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga ion)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -447,8 +457,9 @@ ex:temTAPP-detail-Chaves2023 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-Chaves2023/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Purdue University" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -580,8 +591,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -598,7 +611,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
               "schema:value": "N — this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -859,8 +875,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -877,7 +895,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A 
               "schema:value": "N \u2014 this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -1071,11 +1092,11 @@ ex:temTAPP-detail-Zega2025 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O; NNM10AA11C; PSEF 80NSSC23K0327; NSF MRI 1531243; Gordon & Betty Moore Foundation; AZ TRIF" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (TS Helios G3, K-ALFAA) prepared TEM sections from SEM/EMPA-characterized particles; SEM/EMPA/XRD/CL provided mm–µm scale context before TEM; XANES at ALS beamline 5.3.2.2 acquired on FIB sections for Fe oxidation state" ;
-                    schema1:name "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ] ;
+                    schema1:name "FIB-SEM; SEM; EMPA; XRD; CL spectroscopy; XANES (synchrotron)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
@@ -1103,8 +1124,9 @@ ex:temTAPP-detail-Zega2025 a schema1:Dataset,
                 <https://example.org/temTAPP-detail-Zega2025/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -1260,8 +1282,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1278,7 +1302,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
               "schema:value": "N — this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -1524,8 +1551,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1542,7 +1571,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX).
               "schema:value": "N \u2014 this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -1752,8 +1784,9 @@ ex:temTAPP-detail-Zega2025-2 a schema1:Dataset,
                 <https://example.org/temTAPP-detail-Zega2025-2/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -1887,8 +1920,10 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1905,7 +1940,10 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
               "schema:value": "N — this laboratory crushed its material onto a grid (\"TEM samples were prepared by crushing the grain\", p.10); no imaging or screening precedes that step"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2144,8 +2182,10 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2162,7 +2202,10 @@ detail instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Goe
               "schema:value": "N \u2014 this laboratory crushed its material onto a grid (\"TEM samples were prepared by crushing the grain\", p.10); no imaging or screening precedes that step"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2355,14 +2398,14 @@ ex:temTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "None" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "Crushing / dispersion on grid" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReference>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethod>,
@@ -2373,16 +2416,17 @@ ex:temTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "ThermoScientific Velox" ;
-                    ada:toolRole "acquisition" ],
+                    ada:toolRole "dataReduction" ],
                 [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "ThermoScientific Velox" ;
-                    ada:toolRole "dataReduction" ],
+                    ada:toolRole "acquisition" ],
                 <https://example.org/temTAPP-detail-Zega2025-3/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University Frankfurt" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -2509,8 +2553,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2527,7 +2573,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
               "schema:value": "N — this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2798,8 +2847,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2816,7 +2867,10 @@ detail instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (J
               "schema:value": "N \u2014 this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -3035,11 +3089,11 @@ ex:temTAPP-detail-Zega2025-4 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O; NNM10AA11C" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (FEI Quanta3D600) prepared TEM sections from particles characterized by SEM; XRD provided bulk mineralogy context" ;
-                    schema1:name "FIB-SEM; SEM; XRD" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "Astromat (astromat.org); DOIs in Supplementary Table 1" ] ;
+                    schema1:name "FIB-SEM; SEM; XRD" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
@@ -3062,17 +3116,18 @@ ex:temTAPP-detail-Zega2025-4 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "Thermo System7 (EDS quantification)" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Thermo System7" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Thermo System7 (EDS quantification)" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/temTAPP-detail-Zega2025-4/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ARES Division, NASA Johnson Space Center" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -3213,8 +3268,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3231,7 +3288,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
               "schema:value": "FE-SEM imaging of the soil grains before sectioning — grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
             }
           ],
-          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49"
+          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -3359,8 +3419,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3377,7 +3439,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM +
               "schema:value": "FE-SEM imaging of the soil grains before sectioning \u2014 grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
             }
           ],
-          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49"
+          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -3472,8 +3537,9 @@ ex:temTAPP-detail-Matsumoto2021 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institute for Geosciences, Friedrich Schiller University Jena, Germany" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -3566,8 +3632,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3584,7 +3652,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
               "schema:value": "FE-SEM imaging of the soil grains before sectioning — grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
             }
           ],
-          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49"
+          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -3751,8 +3822,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3769,7 +3842,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitative
               "schema:value": "FE-SEM imaging of the soil grains before sectioning \u2014 grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
             }
           ],
-          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49"
+          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -3889,14 +3965,14 @@ ex:temTAPP-detail-Matsumoto2021-2 a schema1:Dataset,
                     schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandard>,
@@ -3906,8 +3982,9 @@ ex:temTAPP-detail-Matsumoto2021-2 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -4015,8 +4092,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4033,7 +4112,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
               "schema:value": "FE-SEM imaging of the soil grains before sectioning — grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
             }
           ],
-          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49"
+          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -4187,8 +4269,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4205,7 +4289,10 @@ detail instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR-
               "schema:value": "FE-SEM imaging of the soil grains before sectioning \u2014 grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
             }
           ],
-          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49"
+          "schema:name": "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -4312,14 +4399,14 @@ ex:temTAPP-detail-Matsumoto2021-3 a schema1:Dataset,
                     schema1:name "SEM (JSM-7001F); SEM-EDX (Oxford Inca X-act); FIB (FEI Helios NanoLab G3 CX)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -4328,8 +4415,9 @@ ex:temTAPP-detail-Matsumoto2021-3 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Ultramicroscopy Research Center, Kyushu University, Japan" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Apollo 11 soil 10084 (grain 11_5A); FIB section 11_5A_1; Apollo 17 soil 78481,49" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -4432,8 +4520,10 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4450,7 +4540,10 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
               "schema:value": "N — the particles were embedded and ultramicrotomed directly (\"Both particles were embedded in low-viscosity epoxy and thin sections (approximately 60-nm thick) were prepared using ultramicrotomy\", p.2); no prior imaging or screening is described"
             }
           ],
-          "schema:name": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)"
+          "schema:name": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -4722,8 +4815,10 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4740,7 +4835,10 @@ detail instance derived from KellerBerger2014 | Itokawa regolith grains | STEM +
               "schema:value": "N \u2014 the particles were embedded and ultramicrotomed directly (\"Both particles were embedded in low-viscosity epoxy and thin sections (approximately 60-nm thick) were prepared using ultramicrotomy\", p.2); no prior imaging or screening is described"
             }
           ],
-          "schema:name": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)"
+          "schema:name": "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -4987,8 +5085,9 @@ ex:temTAPP-detail-KellerBerger2014 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-KellerBerger2014/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Robert M. Walker Laboratory for Space Science, Code KR, Astromaterials Research and Exploration Science (ARES), NASA Johnson Space Center" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "RA-QD02-0125; RA-QD02-0211 (JAXA Hayabusa allocation); Apollo 17 soil 71501 (NASA JSC allocation)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -5143,8 +5242,10 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5162,7 +5263,10 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
             }
           ],
           "schema:name": "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)",
-          "schema:identifier": "CE5C0600YJFM00304 (China National Space Administration allocation number)"
+          "schema:identifier": "CE5C0600YJFM00304 (China National Space Administration allocation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -5400,8 +5504,10 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5419,7 +5525,10 @@ detail instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM 
             }
           ],
           "schema:name": "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)",
-          "schema:identifier": "CE5C0600YJFM00304 (China National Space Administration allocation number)"
+          "schema:identifier": "CE5C0600YJFM00304 (China National Space Administration allocation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -5614,14 +5723,14 @@ ex:temTAPP-detail-Zeng2024 a schema1:Dataset,
             schema1:target "Unprocessed SEM and TEM data for Figs. 1–3 available at https://doi.org/10.6084/m9.figshare.25244650" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector>,
@@ -5640,8 +5749,9 @@ ex:temTAPP-detail-Zeng2024 a schema1:Dataset,
                 <https://example.org/temTAPP-detail-Zeng2024/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Analysis and Test Center, Guangdong University of Technology, Guangzhou, China" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "CE5C0600YJFM00304 (China National Space Administration allocation number)" ;
                     schema1:name "CE5C0600YJFM00304 (Chang'e-5 glass bead; CNSA allocation)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -5766,8 +5876,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5784,7 +5896,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
               "schema:value": "SEM/EDS identification in the polished section — the sections were cut at phases \"identified in the polished section by SEM/EDS\", avoiding \"the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); BSE micrographs show the external and polished surfaces and the extraction sites as white rectangles (Fig. 1, p.3)"
             }
           ],
-          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006"
+          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -5981,8 +6096,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5999,7 +6116,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
               "schema:value": "SEM/EDS identification in the polished section \u2014 the sections were cut at phases \"identified in the polished section by SEM/EDS\", avoiding \"the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); BSE micrographs show the external and polished surfaces and the extraction sites as white rectangles (Fig. 1, p.3)"
             }
           ],
-          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006"
+          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -6151,14 +6271,14 @@ ex:temTAPP-detail-Dobrica2022 a schema1:Dataset,
                     schema1:name "FIB-SEM (Helios 660 dual-beam); SEM-BSE" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/cameraLength>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -6168,8 +6288,9 @@ ex:temTAPP-detail-Dobrica2022 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-Dobrica2022/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Advanced Electron Microscopy Center (AEMC), University of Hawai'i at Manoa, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -6288,8 +6409,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6306,7 +6429,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
               "schema:value": "SEM/EDS identification in the polished section — the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)"
             }
           ],
-          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006"
+          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -6533,8 +6659,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6551,7 +6679,10 @@ detail instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | S
               "schema:value": "SEM/EDS identification in the polished section \u2014 the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)"
             }
           ],
-          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006"
+          "schema:name": "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -6758,8 +6889,9 @@ ex:temTAPP-detail-Dobrica2022-2 a schema1:Dataset,
                 <https://example.org/temTAPP-detail-Dobrica2022-2/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Antarctic micrometeorite 03-36-46; FIB sections UH-001, UH-002, UH-003, UH-006" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -6882,8 +7014,10 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6901,7 +7035,10 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
             }
           ],
           "schema:name": "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27",
-          "schema:identifier": "OREX-800045-102 (NASA OSIRIS-REx curation number)"
+          "schema:identifier": "OREX-800045-102 (NASA OSIRIS-REx curation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -7156,8 +7293,10 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -7175,7 +7314,10 @@ detail instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + H
             }
           ],
           "schema:name": "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27",
-          "schema:identifier": "OREX-800045-102 (NASA OSIRIS-REx curation number)"
+          "schema:identifier": "OREX-800045-102 (NASA OSIRIS-REx curation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -7412,8 +7554,9 @@ ex:temTAPP-detail-Singerling2025 a schema1:Dataset,
                 <https://example.org/temTAPP-detail-Singerling2025/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Schwiete Cosmochemistry Laboratory, Goethe University, Frankfurt, Germany" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-800045-102 (NASA OSIRIS-REx curation number)" ;
                     schema1:name "OREX-800045-102 (Bennu particle; OSIRIS-REx); Na,Ca carbonate grains 4, 11, 22, 27" ] ;
             schema1:startTime "December 2023" ;
@@ -7546,8 +7689,10 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -7564,7 +7709,10 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
               "schema:value": "SEM survey on the FIB-SEM, used to pick the section sites — \"We investigated the surface morphology and composition of irradiated regions of the 1 and 5 lasered samples using the FEI Quanta 3D focused ion beam scanning electron microscope (FIB-SEM) at JSC. We identified regions of interest in the SEM for further investigation in the TEM\" (p.4); reflectance, FTIR and Mössbauer spectra were also collected on the same chips before sectioning (pp.3–4)"
             }
           ],
-          "schema:name": "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)"
+          "schema:name": "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -7815,8 +7963,10 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -7833,7 +7983,10 @@ detail instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | B
               "schema:value": "SEM survey on the FIB-SEM, used to pick the section sites \u2014 \"We investigated the surface morphology and composition of irradiated regions of the 1 and 5 lasered samples using the FEI Quanta 3D focused ion beam scanning electron microscope (FIB-SEM) at JSC. We identified regions of interest in the SEM for further investigation in the TEM\" (p.4); reflectance, FTIR and M\u00f6ssbauer spectra were also collected on the same chips before sectioning (pp.3\u20134)"
             }
           ],
-          "schema:name": "Murchison CM2 (1\u00d7, 5\u00d7 laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm \u00d7 3 cm, unpolished)"
+          "schema:name": "Murchison CM2 (1\u00d7, 5\u00d7 laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm \u00d7 3 cm, unpolished)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -8039,14 +8192,14 @@ ex:temTAPP-detail-Thompson2020 a schema1:Dataset,
                     schema1:name "Pulsed laser irradiation (space weathering simulation); VIS-NIR reflectance spectroscopy (ASD FieldSpec 3); FTIR (Bruker Vertex/Hyperion); Mössbauer spectroscopy (MIMOS-II); μL2MS (two-step laser mass spectrometry); FIB-SEM (FEI Quanta 3D at JSC)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixel>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
@@ -8060,8 +8213,9 @@ ex:temTAPP-detail-Thompson2020 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-Thompson2020/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Murchison CM2 (1×, 5× laser-irradiated); chips dry-cut with low-speed wafer-blade saw (2 cm × 3 cm, unpolished)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -8166,8 +8320,10 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -8184,7 +8340,10 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
               "schema:value": "N — review article; it reports no original analyses"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -8288,8 +8447,10 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -8306,7 +8467,10 @@ detail instance derived from Xing2023 | REVIEW: TEM methods for nanoscale minera
               "schema:value": "N \u2014 review article; it reports no original analyses"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -8406,8 +8570,9 @@ ex:temTAPP-detail-Xing2023 a schema1:Dataset,
             schema1:description "Review paper — no original analytical data. Key points: (1) FIB is dominant sample prep method in NEPS; plasma cleaning recommended to reduce contamination. (2) Aberration-corrected HAADF-STEM enables atomic-resolution phase ID. (3) Cryo-TEM holder recommended for beam-sensitive samples (clay minerals, Fe-Mn oxyhydroxides). (4) EDS detection limit ~1000 ppm; EELS preferred for trace elements and valence state analysis. DOI: 10.1021/acsearthspacechem.2c00278" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -8501,8 +8666,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -8520,7 +8687,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
             }
           ],
           "schema:name": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)"
+          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -8715,8 +8885,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -8734,7 +8906,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/DF
             }
           ],
           "schema:name": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)"
+          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -8884,14 +9059,14 @@ ex:temTAPP-detail-Seifert2026 a schema1:Dataset,
                     schema1:name "SEM (JEOL 7600F + 7900F with Oxford EDS/EBSD/CL at JSC); EMPA (JEOL 8530 at JSC, 15 kV 20 nA 2 µm probe)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -8901,8 +9076,9 @@ ex:temTAPP-detail-Seifert2026 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-Seifert2026/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Electron Beam Analysis Laboratories, ARES, NASA Johnson Space Center, Houston, TX, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-803173-100 (OSIRIS-REx curation number)" ;
                     schema1:name "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -9020,8 +9196,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -9039,7 +9217,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
             }
           ],
           "schema:name": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)"
+          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -9258,8 +9439,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -9277,7 +9460,10 @@ detail instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAADF
             }
           ],
           "schema:name": "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)",
-          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)"
+          "schema:identifier": "OREX-803173-100 (OSIRIS-REx curation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -9467,17 +9653,18 @@ ex:temTAPP-detail-Seifert2026-2 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "SingleCrystal (CrystalMaker Software)" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "SingleCrystal (CrystalMaker Software)" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/temTAPP-detail-Seifert2026-2/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), Lunar and Planetary Laboratory, University of Arizona, Tucson, AZ, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-803173-100 (OSIRIS-REx curation number)" ;
                     schema1:name "OREX-803173-100 (FIB section from particle OREX-803173-0; contains Ap. #1 and Ap. #2)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -9610,8 +9797,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -9628,7 +9817,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
               "schema:value": "FIB-SEM imaging of the dispersed soil grains — \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
             }
           ],
-          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)"
+          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -9850,8 +10042,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -9868,7 +10062,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
               "schema:value": "FIB-SEM imaging of the dispersed soil grains \u2014 \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
             }
           ],
-          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)"
+          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -10030,15 +10227,15 @@ ex:temTAPP-detail-Cymes2023 a schema1:Dataset,
                     schema1:name "FIB (FEI Helios G3 Dual Beam at NRL); HAADF-STEM + Dual EELS + EDS (Nion UltraSTEM200-X at NRL; coordinated with JEOL JEM-2200FS)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsApplied> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/eftemEnergyWindow>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/selectedAreaApertureSize> ;
@@ -10052,8 +10249,9 @@ ex:temTAPP-detail-Cymes2023 a schema1:Dataset,
                 <https://example.org/temTAPP-detail-Cymes2023/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -10175,8 +10373,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -10193,7 +10393,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
               "schema:value": "FIB-SEM imaging of the dispersed soil grains — \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
             }
           ],
-          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)"
+          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -10502,8 +10705,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -10520,7 +10725,10 @@ detail instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 2
               "schema:value": "FIB-SEM imaging of the dispersed soil grains \u2014 \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
             }
           ],
-          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)"
+          "schema:name": "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) \u2014 Apollo 17 soil 71501 (<45 \u00b5m fraction)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -10811,8 +11019,9 @@ ex:temTAPP-detail-Cymes2023-2 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-Cymes2023-2/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Naval Research Laboratory, Washington, D.C., USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "1pyx (unexsolved augite) and 2pyx (exsolved pigeonite-augite) — Apollo 17 soil 71501 (<45 µm fraction)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -10975,8 +11184,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -10994,7 +11205,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
             }
           ],
           "schema:name": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)"
+          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -11189,8 +11403,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -11208,7 +11424,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | H
             }
           ],
           "schema:name": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)"
+          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -11358,14 +11577,14 @@ ex:temTAPP-detail-Mo2022 a schema1:Dataset,
                     schema1:name "FIB-SEM (FEI Scios Dual-beam at IGCAS CAS); Auger electron spectroscopy (PHI 700/710 scanning Auger nanoprobe at Tsinghua University); TEM-EELS (Hitachi HF5000 at Shanghai Institute of Ceramics CAS; coordinated)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetails> ;
                             schema1:description "FIB lift-out (Ga+)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionMode>,
                 <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetector> ;
@@ -11375,8 +11594,9 @@ ex:temTAPP-detail-Mo2022 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-Mo2022/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Suzhou Institute of Nano-tech and Nano-bionics (SINANO), Chinese Academy of Sciences, Suzhou, China" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "CE5C0400YJFM00505 (CAS allocation number)" ;
                     schema1:name "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -11494,8 +11714,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -11513,7 +11735,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
             }
           ],
           "schema:name": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)"
+          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -11777,8 +12002,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
       },
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -11796,7 +12023,10 @@ detail instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | T
             }
           ],
           "schema:name": "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)",
-          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)"
+          "schema:identifier": "CE5C0400YJFM00505 (CAS allocation number)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -12037,8 +12267,9 @@ ex:temTAPP-detail-Mo2022-2 a schema1:Dataset,
             schema1:instrument <https://example.org/temTAPP-detail-Mo2022-2/instrument/TEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Shanghai Institute of Ceramics, Chinese Academy of Sciences, Shanghai, China" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "CE5C0400YJFM00505 (CAS allocation number)" ;
                     schema1:name "CE5C0400YJFM00505 (Chang'E-5 lunar soil allocation, China National Space Administration)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -14123,11 +14354,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

@@ -173,10 +173,12 @@ their delivery-packaging vocabulary (see adaProduct).
       "schema:object": [
         {
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "Example rock powder aliquot RP-123",
@@ -438,10 +440,12 @@ their delivery-packaging vocabulary (see adaProduct).
       "schema:object": [
         {
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "Example rock powder aliquot RP-123",
@@ -633,9 +637,9 @@ ex:geochemProduct-example-001 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
-            schema1:object [ a schema1:Thing,
-                        <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-                    schema1:additionalType "MaterialSample" ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>,
+                        "MaterialSample" ;
                     schema1:description "Homogenized rock powder aliquot analysed in this session" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "Example rock powder aliquot RP-123" ] ;

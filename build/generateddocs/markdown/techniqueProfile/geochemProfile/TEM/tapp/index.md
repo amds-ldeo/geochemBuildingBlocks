@@ -99,10 +99,10 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
   "ada:samplingUnitSelectionCriteriaDefault": "Size, and irradiation state — \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 μm) to extract FIB sections\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -116,6 +116,9 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
           "ada:fieldScope": "session",
           "schema:defaultValue": "FIB-SEM imaging of the irradiated pellets — \"To analyze the surface morphology and texture of the magnetite samples after laser or ion irradiation and to prepare electron transparent samples suitable for TEM, we used a Thermo Scientific Helios G4 UX DualBeam FIB-SEM at Purdue University. We compared textural differences between the irradiated and unirradiated areas\" (p.3), and the grains large enough to section were chosen from those images"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -470,10 +473,10 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
   "ada:samplingUnitSelectionCriteriaDefault": "Size, and irradiation state \u2014 \"We selected individual magnetite grains from the irradiated regions that were large enough (>15 \u03bcm) to extract FIB sections\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -487,6 +490,9 @@ temTAPP instance derived from Chaves2023 | Synthetic magnetite | TEM+STEM imagin
           "ada:fieldScope": "session",
           "schema:defaultValue": "FIB-SEM imaging of the irradiated pellets \u2014 \"To analyze the surface morphology and texture of the magnetite samples after laser or ion irradiation and to prepare electron transparent samples suitable for TEM, we used a Thermo Scientific Helios G4 UX DualBeam FIB-SEM at Purdue University. We compared textural differences between the irradiated and unirradiated areas\" (p.3), and the grains large enough to section were chosen from those images"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -760,16 +766,16 @@ ex:temTAPP-Chaves2023 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> ;
@@ -782,10 +788,9 @@ ex:temTAPP-Chaves2023 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Chaves2023" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (Helios G4 UX, Purdue) prepared electron-transparent lamellae from irradiated pellets (performed before TEM, destructive prep step); XPS and VNIR spectroscopy performed in parallel on same irradiated pellets for chemical and spectral characterization" ;
@@ -1040,10 +1045,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -1057,6 +1062,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
           "ada:fieldScope": "session",
           "schema:defaultValue": "N — this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -1482,10 +1490,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -1499,6 +1507,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+SAED (U of A
           "ada:fieldScope": "session",
           "schema:defaultValue": "N \u2014 this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -1826,17 +1837,17 @@ ex:temTAPP-Zega2025 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/dwellTimePerPixelDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
@@ -1856,10 +1867,9 @@ ex:temTAPP-Zega2025 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (TS Helios G3, K-ALFAA) prepared TEM sections from SEM/EMPA-characterized particles; SEM/EMPA/XRD/CL provided mm–µm scale context before TEM; XANES at ALS beamline 5.3.2.2 acquired on FIB sections for Fe oxidation state" ;
@@ -2155,10 +2165,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -2172,6 +2182,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
           "ada:fieldScope": "session",
           "schema:defaultValue": "N — this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -2559,10 +2572,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -2576,6 +2589,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS (UCB TitanX)
           "ada:fieldScope": "session",
           "schema:defaultValue": "N \u2014 this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -2865,17 +2881,17 @@ ex:temTAPP-Zega2025-2 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga ion)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/imageProcessingMethodsAppliedDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault>,
@@ -2894,10 +2910,9 @@ ex:temTAPP-Zega2025-2 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (FEI Helios G4 UX, Molecular Foundry) prepared TEM sections; XANES acquired at ALS beamline 5.3.2.2 on same sections for C/Fe chemistry" ;
@@ -3154,10 +3169,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory crushed its material rather than sectioning it (\"TEM samples were prepared by crushing the grain\", p.10), and no rule is given for which grains were taken",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -3171,6 +3186,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
           "ada:fieldScope": "session",
           "schema:defaultValue": "N — this laboratory crushed its material onto a grid (\"TEM samples were prepared by crushing the grain\", p.10); no imaging or screening precedes that step"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -3555,10 +3573,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory crushed its material rather than sectioning it (\"TEM samples were prepared by crushing the grain\", p.10), and no rule is given for which grains were taken",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -3572,6 +3590,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | TEM+STEM+EDS+SAED (Go
           "ada:fieldScope": "session",
           "schema:defaultValue": "N \u2014 this laboratory crushed its material onto a grid (\"TEM samples were prepared by crushing the grain\", p.10); no imaging or screening precedes that step"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -3871,16 +3892,16 @@ ex:temTAPP-Zega2025-3 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
@@ -3903,10 +3924,9 @@ ex:temTAPP-Zega2025-3 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-3" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "None" ] ;
@@ -4154,10 +4174,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
   "ada:samplingUnitSelectionCriteriaDefault": "N — this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -4171,6 +4191,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
           "ada:fieldScope": "session",
           "schema:defaultValue": "N — this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -4584,10 +4607,10 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 this laboratory's passage states its instrument and conditions only; the one stated siting rule belongs to the FIB work, \"All sections were extracted from varied regions of matrix within the particles\" (p.9)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -4601,6 +4624,9 @@ temTAPP instance derived from Zega2025 | Bennu particles | STEM+EDS+HRTEM+SAED (
           "ada:fieldScope": "session",
           "schema:defaultValue": "N \u2014 this laboratory's passage describes its instrument and conditions only; the imaging that precedes the sectioning is reported for the SEM and FIB laboratories (p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -4950,12 +4976,12 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
     schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Thermo System7" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Thermo System7 (EDS quantification)" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Thermo System7" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/temTAPP-Zega2025-4/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES Division, NASA Johnson Space Center" ] ;
@@ -4963,10 +4989,9 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-4" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (FEI Quanta3D600) prepared TEM sections from particles characterized by SEM; XRD provided bulk mineralogy context" ;
@@ -5232,10 +5257,10 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
   "ada:samplingUnitSelectionCriteriaDefault": "Exposure of the target phase at the surface — \"We prepared a FIB section (11_5A_1) from an area where the iron sulfides (5 mm width) are exposed on the surface of grain\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -5249,6 +5274,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
           "ada:fieldScope": "session",
           "schema:defaultValue": "FE-SEM imaging of the soil grains before sectioning — grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -5566,10 +5594,10 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
   "ada:samplingUnitSelectionCriteriaDefault": "Exposure of the target phase at the surface \u2014 \"We prepared a FIB section (11_5A_1) from an area where the iron sulfides (5 mm width) are exposed on the surface of grain\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -5583,6 +5611,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | BF/DF TEM + ADF-STEM 
           "ada:fieldScope": "session",
           "schema:defaultValue": "FE-SEM imaging of the soil grains before sectioning \u2014 grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -5838,10 +5869,9 @@ ex:temTAPP-Matsumoto2021 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Matsumoto2021" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
@@ -6059,10 +6089,10 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity within the one section — the quantitative EDX analyses are of \"the iron sulfides\" exposed at the space-weathered surface (p.3); no finer rule is given for the analysed points",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -6076,6 +6106,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
           "ada:fieldScope": "session",
           "schema:defaultValue": "FE-SEM imaging of the soil grains before sectioning — grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -6440,10 +6473,10 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
   "ada:samplingUnitSelectionCriteriaDefault": "Phase identity within the one section \u2014 the quantitative EDX analyses are of \"the iron sulfides\" exposed at the space-weathered surface (p.3); no finer rule is given for the analysed points",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -6457,6 +6490,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | TEM + EDS quantitativ
           "ada:fieldScope": "session",
           "schema:defaultValue": "FE-SEM imaging of the soil grains before sectioning \u2014 grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -6762,10 +6798,9 @@ ex:temTAPP-Matsumoto2021-2 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Matsumoto2021-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
@@ -7010,10 +7045,10 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
   "ada:samplingUnitSelectionCriteriaDefault": "Position within the one section — mapping targets the space-weathered rim and the phases beneath it, the section having been cut where \"the iron sulfides ... are exposed on the surface of grain\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -7027,6 +7062,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
           "ada:fieldScope": "session",
           "schema:defaultValue": "FE-SEM imaging of the soil grains before sectioning — grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -7385,10 +7423,10 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
   "ada:samplingUnitSelectionCriteriaDefault": "Position within the one section \u2014 mapping targets the space-weathered rim and the phases beneath it, the section having been cut where \"the iron sulfides ... are exposed on the surface of grain\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -7402,6 +7440,9 @@ temTAPP instance derived from Matsumoto2021 | Lunar soil | STEM-EDS mapping + HR
           "ada:fieldScope": "session",
           "schema:defaultValue": "FE-SEM imaging of the soil grains before sectioning \u2014 grains were coated with 3 nm of osmium and observed \"using a field-emission (FE) scanning electron microscope (JSM-7001F) at Kyushu University\", with \"Secondary high-resolution electron imaging ... at a low accelerating voltage of 2.0 kV under high vacuum\" and EDX \"used to determine the mineral phases on the grain\" (p.2); the section was then cut where the iron sulfides are exposed (p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -7678,16 +7719,16 @@ ex:temTAPP-Matsumoto2021-3 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> ;
@@ -7700,10 +7741,9 @@ ex:temTAPP-Matsumoto2021-3 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Matsumoto2021-3" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "SEM (JSM-7001F, Kyushu Univ, 2.0 kV secondary electron imaging) surveyed grain surfaces and selected iron sulfide targets; SEM-EDX (Oxford Inca X-act) identified mineral phases on grain surface; FIB (FEI Helios NanoLab G3 CX, Kyoto Univ) prepared electron-transparent foil (e-beam Pt 5 kV + Ga+ Pt 30 kV; thinned to ~100 nm; cleaned at 5 kV Ga+); additional Ar ion milling (Fischione NanoMill, ultra-low energy, Kyushu Univ) performed after FIB" ;
@@ -7945,10 +7985,10 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
   "ada:samplingUnitSelectionCriteriaDefault": "N — the particles were allocated rather than chosen (\"We were allocated particles RA-QD02-0125 and RA-QD02-0211\", p.2), and no rule is given for the ultramicrotome sections taken from them",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -7962,6 +8002,9 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
           "ada:fieldScope": "session",
           "schema:defaultValue": "N — the particles were embedded and ultramicrotomed directly (\"Both particles were embedded in low-viscosity epoxy and thin sections (approximately 60-nm thick) were prepared using ultramicrotomy\", p.2); no prior imaging or screening is described"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -8380,10 +8423,10 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 the particles were allocated rather than chosen (\"We were allocated particles RA-QD02-0125 and RA-QD02-0211\", p.2), and no rule is given for the ultramicrotome sections taken from them",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -8397,6 +8440,9 @@ temTAPP instance derived from KellerBerger2014 | Itokawa regolith grains | STEM 
           "ada:fieldScope": "session",
           "schema:defaultValue": "N \u2014 the particles were embedded and ultramicrotomed directly (\"Both particles were embedded in low-viscosity epoxy and thin sections (approximately 60-nm thick) were prepared using ultramicrotomy\", p.2); no prior imaging or screening is described"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -8762,10 +8808,9 @@ ex:temTAPP-KellerBerger2014 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — KellerBerger2014" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -9050,10 +9095,10 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
   "ada:samplingUnitSelectionCriteriaDefault": "Presence of an impact feature — of 25 glass beads, \"A micrometeorite impact crater was observed on the surface of one of these 25 glass beads (CE5C0600YJFM00304) using an optical microscope\" (p.5), and \"An ultra-thin foil of the micrometeorite impact crater was prepared for TEM observations\" (p.6)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -9067,6 +9112,9 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
           "ada:fieldScope": "session",
           "schema:defaultValue": "Optical microscopy across the bead population, then SEM — \"Twenty-five micrometric-sized glass beads (~50 to 400 μm in diameter) were chosen from these soil samples\", and \"A micrometeorite impact crater was observed on the surface of one of these 25 glass beads (CE5C0600YJFM00304) using an optical microscope. This glass bead was then placed onto conductive glue, coated with gold and then characterized by various in situ analytical techniques, including scanning electron microscopy (SEM), focused ion beam (FIB) imaging and TEM\" (p.5); BSE and SE images were collected on the FEI Scios before the foil was cut (p.6)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -9457,10 +9505,10 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
   "ada:samplingUnitSelectionCriteriaDefault": "Presence of an impact feature \u2014 of 25 glass beads, \"A micrometeorite impact crater was observed on the surface of one of these 25 glass beads (CE5C0600YJFM00304) using an optical microscope\" (p.5), and \"An ultra-thin foil of the micrometeorite impact crater was prepared for TEM observations\" (p.6)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -9474,6 +9522,9 @@ temTAPP instance derived from Zeng2024 | Chang'e-5 lunar glass bead | HAADF-STEM
           "ada:fieldScope": "session",
           "schema:defaultValue": "Optical microscopy across the bead population, then SEM \u2014 \"Twenty-five micrometric-sized glass beads (~50 to 400 \u03bcm in diameter) were chosen from these soil samples\", and \"A micrometeorite impact crater was observed on the surface of one of these 25 glass beads (CE5C0600YJFM00304) using an optical microscope. This glass bead was then placed onto conductive glue, coated with gold and then characterized by various in situ analytical techniques, including scanning electron microscopy (SEM), focused ion beam (FIB) imaging and TEM\" (p.5); BSE and SE images were collected on the FEI Scios before the foil was cut (p.6)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -9803,11 +9854,11 @@ ex:temTAPP-Zeng2024 a schema1:Action,
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         <https://example.org/temTAPP-Zeng2024/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Analysis and Test Center, Guangdong University of Technology, Guangzhou, China" ] ;
@@ -9815,10 +9866,9 @@ ex:temTAPP-Zeng2024 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zeng2024" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS, Guiyang): BSE and SE imaging at 5 kV/0.8 nA (7 mm WD); EDS mapping at 20 kV/1.6 nA; FIB foil preparation at 30 kV/0.4 nA; STEM imaging of FIB slice at 30 kV/0.4 nA using the same FIB/SEM instrument (all performed prior to TEM on Talos F200S)" ;
@@ -10069,10 +10119,10 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting, and avoidance of earlier beam damage — sections were cut at phases \"identified in the polished section by SEM/EDS\", and \"Additionally, we selected the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); two sections target carbonates, the others \"regions containing micrometer-sized secondary phases such as Ca-phosphates ... and magnetite\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -10086,6 +10136,9 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM/EDS identification in the polished section — the sections were cut at phases \"identified in the polished section by SEM/EDS\", avoiding \"the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); BSE micrographs show the external and polished surfaces and the extraction sites as white rectangles (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -10450,10 +10503,10 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting, and avoidance of earlier beam damage \u2014 sections were cut at phases \"identified in the polished section by SEM/EDS\", and \"Additionally, we selected the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); two sections target carbonates, the others \"regions containing micrometer-sized secondary phases such as Ca-phosphates ... and magnetite\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -10467,6 +10520,9 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM/EDS identification in the polished section \u2014 the sections were cut at phases \"identified in the polished section by SEM/EDS\", avoiding \"the regions that were the least damaged by the ion microprobe measurements performed during previous studies\" (p.3); BSE micrographs show the external and polished surfaces and the extraction sites as white rectangles (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -10768,10 +10824,9 @@ ex:temTAPP-Dobrica2022 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Dobrica2022" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
@@ -11019,10 +11074,10 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting — the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5–10 nm (at the Molecular Foundry)\" (p.2)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -11036,6 +11091,9 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM/EDS identification in the polished section — the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -11421,10 +11479,10 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
   "ada:samplingUnitSelectionCriteriaDefault": "Phase targeting \u2014 the mapping is of the carbonate-bearing sections, \"The elemental compositions of carbonates reported here were extracted from EDS mapping over areas of 5\u201310 nm (at the Molecular Foundry)\" (p.2)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -11438,6 +11496,9 @@ temTAPP instance derived from Dobrica2022 | Antarctic micrometeorite 03-36-46 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM/EDS identification in the polished section \u2014 the same four sections, cut at carbonates and other secondary phases \"identified in the polished section by SEM/EDS\" (p.3), of which the carbonate-bearing ones carry this laboratory's maps (Fig. 5, p.7)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -11769,10 +11830,9 @@ ex:temTAPP-Dobrica2022-2 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Dobrica2022-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Helios 660 dual-beam FIB-SEM (AEMC, UH Manoa): BSE imaging of polished, C-coated section for mineral identification; FIB preparation of 4 electron-transparent sections (Pt deposition: e-beam first, then ion beam; sections transferred to Cu TEM half-grids with micromanipulator; final thinning at 2 kV, 72 pA with section on TEM grid)" ;
@@ -12028,10 +12088,10 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
   "ada:samplingUnitSelectionCriteriaDefault": "None, stated explicitly — \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -12045,6 +12105,9 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
           "ada:fieldScope": "session",
           "schema:defaultValue": "N — the particle was crushed onto a grid and the fine particles taken as they came: \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -12455,10 +12518,10 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
   "ada:samplingUnitSelectionCriteriaDefault": "None, stated explicitly \u2014 \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -12472,6 +12535,9 @@ temTAPP instance derived from Singerling2025 | Bennu OREX-800045-102 | BF-TEM + 
           "ada:fieldScope": "session",
           "schema:defaultValue": "N \u2014 the particle was crushed onto a grid and the fine particles taken as they came: \"We did not use any specific parameters in selecting which particles to investigate (i.e., they were selected arbitrarily)\" (p.2)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -12798,16 +12864,16 @@ ex:temTAPP-Singerling2025 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
@@ -12831,10 +12897,9 @@ ex:temTAPP-Singerling2025 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Singerling2025" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -13099,10 +13164,10 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
   "ada:samplingUnitSelectionCriteriaDefault": "Picked in the SEM first, by lasering dose and phase — \"We identified regions of interest in the SEM for further investigation in the TEM\", and the four sections comprise a 1× lasered matrix region, a 5× lasered matrix region \"dominated by phyllosilicates\", a 5× lasered sulfide grain and a 5× lasered olivine grain (p.4)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -13116,6 +13181,9 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM survey on the FIB-SEM, used to pick the section sites — \"We investigated the surface morphology and composition of irradiated regions of the 1 and 5 lasered samples using the FEI Quanta 3D focused ion beam scanning electron microscope (FIB-SEM) at JSC. We identified regions of interest in the SEM for further investigation in the TEM\" (p.4); reflectance, FTIR and Mössbauer spectra were also collected on the same chips before sectioning (pp.3–4)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -13522,10 +13590,10 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
   "ada:samplingUnitSelectionCriteriaDefault": "Picked in the SEM first, by lasering dose and phase \u2014 \"We identified regions of interest in the SEM for further investigation in the TEM\", and the four sections comprise a 1\u00d7 lasered matrix region, a 5\u00d7 lasered matrix region \"dominated by phyllosilicates\", a 5\u00d7 lasered sulfide grain and a 5\u00d7 lasered olivine grain (p.4)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -13539,6 +13607,9 @@ temTAPP instance derived from Thompson2020 | Murchison CM2 (laser-irradiated) | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM survey on the FIB-SEM, used to pick the section sites \u2014 \"We investigated the surface morphology and composition of irradiated regions of the 1 and 5 lasered samples using the FEI Quanta 3D focused ion beam scanning electron microscope (FIB-SEM) at JSC. We identified regions of interest in the SEM for further investigation in the TEM\" (p.4); reflectance, FTIR and M\u00f6ssbauer spectra were also collected on the same chips before sectioning (pp.3\u20134)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -13891,10 +13962,9 @@ ex:temTAPP-Thompson2020 a schema1:Action,
             schema1:name "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); High-Resolution TEM (HRTEM); STEM-EDS spectrum imaging" ] ;
     schema1:name "tem protocol — Thompson2020" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Multi-technique coordinated study; TEM/STEM used for microstructural and chemical characterization of FIB-extracted sections from laser-irradiated Murchison chips; STEM results correlated with reflectance, FTIR, and organic chemistry data" ;
@@ -14105,10 +14175,10 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
   "ada:samplingUnitSelectionCriteriaDefault": "N — review article; it reports no original analyses",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -14122,6 +14192,9 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
           "ada:fieldScope": "session",
           "schema:defaultValue": "N — review article; it reports no original analyses"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -14397,10 +14470,10 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 review article; it reports no original analyses",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -14414,6 +14487,9 @@ temTAPP instance derived from Xing2023 | REVIEW: TEM methods for nanoscale miner
           "ada:fieldScope": "session",
           "schema:defaultValue": "N \u2014 review article; it reports no original analyses"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -14673,14 +14749,14 @@ ex:temTAPP-Xing2023 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Review covers: FIB (described as most important method in NEPS); ultramicrotomy; Ar ion milling; powder dispersion on carbon-film grid" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/edsCalibrationStandardDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsDetectionLimitDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -14690,10 +14766,9 @@ ex:temTAPP-Xing2023 a schema1:Action,
             schema1:name "tem" ;
             schema1:termCode "tem" ] ;
     schema1:name "tem protocol — Xing2023" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ a cdi:InstanceVariable ;
             schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
@@ -14892,10 +14967,10 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction — \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -14909,6 +14984,9 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM EDS mapping and CL imaging at JSC — apatite grains \"were identified via EDS mapping and point analysis\", then \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2); the FIB cut was placed across two grains chosen for that zoning, with the transect \"indicated by the dashed white line\" on the BSE image and the CL image shown \"before preparation of the FIB section\" (Fig. 5, p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -15272,10 +15350,10 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction \u2014 \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -15289,6 +15367,9 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | BF/D
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM EDS mapping and CL imaging at JSC \u2014 apatite grains \"were identified via EDS mapping and point analysis\", then \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2); the FIB cut was placed across two grains chosen for that zoning, with the transect \"indicated by the dashed white line\" on the BSE image and the CL image shown \"before preparation of the FIB section\" (Fig. 5, p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -15571,16 +15652,16 @@ ex:temTAPP-Seifert2026 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> ;
@@ -15593,10 +15674,9 @@ ex:temTAPP-Seifert2026 a schema1:Action,
             schema1:name "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Seifert2026" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature" ;
@@ -15843,10 +15923,10 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction — \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -15860,6 +15940,9 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM EDS mapping and CL imaging at JSC — apatite grains \"were identified via EDS mapping and point analysis\", then \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2); the FIB cut was placed across two grains chosen for that zoning, with the transect \"indicated by the dashed white line\" on the BSE image and the CL image shown \"before preparation of the FIB section\" (Fig. 5, p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -16247,10 +16330,10 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
   "ada:samplingUnitSelectionCriteriaDefault": "Zoning, seen in CL before extraction \u2014 \"A cluster of two apatite grains that exhibit oscillatory and complex zoning, respectively, were selected for FIB extraction and TEM analysis (OREX-803173-100)\" (p.7)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -16264,6 +16347,9 @@ temTAPP instance derived from Seifert2026 | Bennu OREX-803173-100 apatite | HAAD
           "ada:fieldScope": "session",
           "schema:defaultValue": "SEM EDS mapping and CL imaging at JSC \u2014 apatite grains \"were identified via EDS mapping and point analysis\", then \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2); the FIB cut was placed across two grains chosen for that zoning, with the transect \"indicated by the dashed white line\" on the BSE image and the CL image shown \"before preparation of the FIB section\" (Fig. 5, p.9)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -16587,12 +16673,12 @@ ex:temTAPP-Seifert2026-2 a schema1:Action,
     schema1:description "HF5000 at K-ALFAA, UA. Gatan OneView camera used for both TEM images and SAED. Probe Cs corrector (3rd-order) present but corrector settings not stated. SAED DIFPack calibration reference not stated. This is the same facility (K-ALFAA) used by Zega2025 (Goethe-UA column). Data deposited at astromat.org per Table S1." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "SingleCrystal (CrystalMaker Software)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Gatan DIFPack (SAED pattern measurement); SingleCrystal (simulated diffraction patterns)" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "SingleCrystal (CrystalMaker Software)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/temTAPP-Seifert2026-2/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), Lunar and Planetary Laboratory, University of Arizona, Tucson, AZ, USA" ] ;
@@ -16600,10 +16686,9 @@ ex:temTAPP-Seifert2026-2 a schema1:Action,
             schema1:name "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Seifert2026-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Coordinated SEM-EMPA-TEM study of Bennu apatite; TEM provides nanoscale crystallographic and chemical characterization of FIB section from apatite cluster; SAED confirms single-crystal vs. polycrystalline nature" ;
@@ -16863,10 +16948,10 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface — the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx,”\" which \"was first protected with a 1–2 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -16880,6 +16965,9 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
           "ada:fieldScope": "session",
           "schema:defaultValue": "FIB-SEM imaging of the dispersed soil grains — \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -17245,10 +17333,10 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface \u2014 the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled \u201c1pyx\u201d and a surface-adhered pyroxene grain labeled \u201c2pyx,\u201d\" which \"was first protected with a 1\u20132 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -17262,6 +17350,9 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
           "ada:fieldScope": "session",
           "schema:defaultValue": "FIB-SEM imaging of the dispersed soil grains \u2014 \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -17560,10 +17651,9 @@ ex:temTAPP-Cymes2023 a schema1:Action,
             schema1:name "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)" ;
             schema1:termCode "Transmission Electron Microscopy (TEM); Energy-Filtered TEM (EFTEM); Selected Area Electron Diffraction (SAED); High-Resolution TEM (HRTEM)" ] ;
     schema1:name "tem protocol — Cymes2023" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Petrographic and crystallographic characterization of exsolved lunar pyroxene (Apollo 17 soil); phase ID by SAED + simulation; Ca distribution by EFTEM; HRTEM lattice imaging; coordinated with EELS on Nion UltraSTEM200-X" ;
@@ -17802,10 +17892,10 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface — the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled “1pyx” and a surface-adhered pyroxene grain labeled “2pyx,”\" which \"was first protected with a 1–2 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -17819,6 +17909,9 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
           "ada:fieldScope": "session",
           "schema:defaultValue": "FIB-SEM imaging of the dispersed soil grains — \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -18279,10 +18372,10 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
   "ada:samplingUnitSelectionCriteriaDefault": "Position on the space-weathered surface \u2014 the section was cut through \"The space-weathered surface of the sample, containing a pyroxene grain labeled \u201c1pyx\u201d and a surface-adhered pyroxene grain labeled \u201c2pyx,\u201d\" which \"was first protected with a 1\u20132 lm thick layer of electron beam deposited amorphous carbon\" (p.3)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -18296,6 +18389,9 @@ temTAPP instance derived from Cymes2023 | Apollo 17 soil 71501 pyroxene (1pyx + 
           "ada:fieldScope": "session",
           "schema:defaultValue": "FIB-SEM imaging of the dispersed soil grains \u2014 \"The soil grains were dispersed onto a carbon-tape substrate adhered to an Al pin-stub and coated with ~80 nm of amorphous carbon for focused ion beam (FIB)-scanning electron microscope (SEM) analysis. An individual grain ~10 lm in size was identified and prepared with an FEI Helios G3 Dual Beam FIB-SEM\" (p.3); the SE image acquired during preparation shows the section site (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -18705,10 +18801,9 @@ ex:temTAPP-Cymes2023-2 a schema1:Action,
             schema1:name "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Electron Energy Loss Spectroscopy (EELS); Energy-Dispersive X-ray Spectroscopy (EDS); STEM-EELS Fe oxidation state mapping" ] ;
     schema1:name "tem protocol — Cymes2023-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Fe oxidation state mapping and Fe³⁺/ΣFe quantification in exsolved lunar pyroxene (Apollo 17 soil) using STEM-EELS; MLLS and integral white-line ratio methods; coordinated HAADF-STEM + EDS for compositional mapping" ;
@@ -19013,10 +19108,10 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:samplingUnitSelectionCriteriaDefault": "N — \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), but no criterion is given for the choice; the only stated constraint is on the dispersed material, \"Several lunar soil grains smaller than 50 μm were dispersed on aluminum double-sided tape\" (p.2)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -19030,6 +19125,9 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "BSE imaging and FIB site selection — \"Back-scattered electron image of CE5C0400YJFM00505-G1. The green rectangle indicates the FIB site\" (Fig. 1 caption, p.3), and the same for grain G2 (Fig. 3, p.4); the foils were then characterized in sequence by FE-STEM, scanning Auger nanoprobe and TEM-EELS (p.2)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -19382,10 +19480,10 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:samplingUnitSelectionCriteriaDefault": "N \u2014 \"Two grains were selected from CE-5 lunar soil (CE5C0400YJFM00505)\" (p.2), but no criterion is given for the choice; the only stated constraint is on the dispersed material, \"Several lunar soil grains smaller than 50 \u03bcm were dispersed on aluminum double-sided tape\" (p.2)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -19399,6 +19497,9 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "BSE imaging and FIB site selection \u2014 \"Back-scattered electron image of CE5C0400YJFM00505-G1. The green rectangle indicates the FIB site\" (Fig. 1 caption, p.3), and the same for grain G2 (Fig. 3, p.4); the foils were then characterized in sequence by FE-STEM, scanning Auger nanoprobe and TEM-EELS (p.2)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -19671,16 +19772,16 @@ ex:temTAPP-Mo2022 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> ;
@@ -19693,10 +19794,9 @@ ex:temTAPP-Mo2022 a schema1:Action,
             schema1:name "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Mo2022" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Nanoscale characterization of Fe-bearing phases in Chang'E-5 lunar soil; HAADF-STEM + EDS for phase morphology and composition mapping; coordinated with Auger (surface Fe valence) and EELS (bulk Fe valence)" ;
@@ -19932,10 +20032,10 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:samplingUnitSelectionCriteriaDefault": "Continuity with the earlier analyses — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -19949,6 +20049,9 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "The earlier analyses on the same foil — \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5), the foil having been sited from the BSE image (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -20364,10 +20467,10 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
   "ada:samplingUnitSelectionCriteriaDefault": "Continuity with the earlier analyses \u2014 \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5)",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -20381,6 +20484,9 @@ temTAPP instance derived from Mo2022 | Chang'E-5 lunar soil CE5C0400YJFM00505 | 
           "ada:fieldScope": "session",
           "schema:defaultValue": "The earlier analyses on the same foil \u2014 \"The same FIB foil extracted from CE5C0400YJFM00505-G1 for the AES analysis was also analyzed using TEM-EELS\" (p.5), the foil having been sited from the BSE image (Fig. 1, p.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -20716,16 +20822,16 @@ ex:temTAPP-Mo2022-2 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/eelsAcquisitionTimePerSpectrumDefault>,
@@ -20743,10 +20849,9 @@ ex:temTAPP-Mo2022-2 a schema1:Action,
             schema1:name "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis" ;
             schema1:termCode "Transmission Electron Microscopy (TEM); Electron Energy Loss Spectroscopy (EELS); TEM-EELS iron valence state analysis" ] ;
     schema1:name "tem protocol — Mo2022-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "In situ Fe valence state analysis in Chang'E-5 lunar soil by TEM-EELS; Fe L3,2 edge peak position and lineshape comparison to reference standards (Fe⁰, Fe²⁺, Fe³⁺); point analysis and line scan" ;
@@ -21355,11 +21460,18 @@ allOf:
         allOf:
         - if:
             properties:
-              '@type':
+              schema:additionalType:
                 contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  anyOf:
+                  - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  - type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
             required:
-            - '@type'
+            - schema:additionalType
           then:
             properties:
               schema:additionalProperty:
