@@ -89,11 +89,11 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
 [] a cdi:TabularTextDataSet,
         ada:tabularData ;
     ns1:hasPhysicalMapping [ a ns1:TextMapping ;
-            ns1:formats_InstanceVariable <ex:tabularData-var-x> ;
-            ns1:index 1 ],
-        [ a ns1:TextMapping ;
             ns1:formats_InstanceVariable <ex:tabularData-var-y> ;
-            ns1:index 2 ] ;
+            ns1:index 2 ],
+        [ a ns1:TextMapping ;
+            ns1:formats_InstanceVariable <ex:tabularData-var-x> ;
+            ns1:index 1 ] ;
     cdi:isDelimited true ;
     ada:componentType "ada:MCICPMSTabular" ;
     ada:coordUnits "micrometer" ;
@@ -249,7 +249,7 @@ allOf:
   required:
   - '@type'
   - ada:componentType
-- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifTabularData/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifTabularData/schema.yaml
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

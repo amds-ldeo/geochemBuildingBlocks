@@ -113,7 +113,7 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema"
             }
           ],
           "x-jsonld-id": "http://schema.org/identifier"
@@ -151,7 +151,7 @@
           "description": "Further classification of the activity type (e.g. schema:CreateAction for a production method). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for. This was the last of the eight sites in #77 still rejecting the @id form -- with it widened, the conversion probe goes from 344/345 to 345/345.",
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
           },
           "x-jsonld-id": "http://schema.org/additionalType"
         },
@@ -160,7 +160,7 @@
           "description": "The analytical technique this method implements. Must be a DefinedTerm from a controlled vocabulary of techniques.",
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema"
           },
           "x-jsonld-id": "http://schema.org/measurementTechnique"
         },
@@ -195,7 +195,7 @@
                     "description": "What kind of material this sample is, as an iSamples object-type term. Pinned in the DUAL form -- the bare string OR a sealed {\"@id\": ...} reference -- per docs/ADDITIONALTYPE_POLICY.md clause 1, and identically to the record-side shape in geochemBaseProfile.",
                     "type": "array",
                     "items": {
-                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
                     },
                     "allOf": [
                       {
@@ -284,10 +284,10 @@
           "description": "Person or organisation who defined or is responsible for this method.\nThe nested schema:description is OPTIONAL, and where present it records the PROVENANCE OF THIS DEFINITION -- how the TAPP definition itself came to be, as distinct from the method it describes. It is where a definition states that it was transcribed from a published protocol, derived from existing metadata records rather than authored by the laboratory, or produced automatically and reviewed by a person. A laboratory-authored TAPP needs nothing here; a draft assembled from other sources should not be mistaken for one, so it says so. The draft TAPP sidecars target it as the 'Procedure Author Description' row.\nIt sits on the creator rather than at the root deliberately: the claim is about who produced the definition and how, so it belongs with that agent, and a root-level property would invite a second copy. Note that the {'@id'} branch below is sealed, so a creator given as a bare reference cannot carry it -- a reference names an agent described elsewhere and makes no claim of its own.\nThe property is DECLARED by the person and organization building blocks this anyOfs, where it is a plain optional string. The note is here rather than there because those two blocks are general-purpose CDIF blocks with five other consumers, and this meaning is specific to a TAPP definition.",
           "anyOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_person_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_person_schema"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_organization_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_organization_schema"
             },
             {
               "type": "object",
@@ -690,7 +690,7 @@
           "type": "array",
           "description": "Publications, Zenodo records, or other references reports describing or evaluating this method.",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_labeledLink_schema"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_labeledLink_schema"
           },
           "x-jsonld-id": "http://schema.org/relatedLink"
         },
@@ -698,7 +698,7 @@
           "title": "Funding Source",
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_monetaryGrant_schema"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_monetaryGrant_schema"
           },
           "x-jsonld-id": "http://schema.org/funding"
         },
@@ -920,7 +920,7 @@
               "description": "Further classification of this step (e.g. bios:LabProcess for wet-lab steps, schema:CreateAction for production steps). A CURIE may also be written as a JSON-LD IRI reference, which is what CDIF's schemaorgProperties/additionalProperty SHACL asks for; the `contains` on the method's schema:step accepts either serialization, so widening here cannot orphan the sample-preparation requirement.",
               "type": "array",
               "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
               },
               "x-jsonld-id": "http://schema.org/additionalType"
             },
@@ -1128,7 +1128,7 @@
                   ]
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_labeledLink_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_labeledLink_schema"
                 },
                 {
                   "type": "object",
@@ -1413,7 +1413,7 @@
                   ]
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_labeledLink_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_labeledLink_schema"
                 },
                 {
                   "type": "object",
@@ -2033,7 +2033,7 @@
               "description": "Carries the software kind term, {\"@id\": \"https://www.wikidata.org/entity/Q7397\"}.",
               "type": "array",
               "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
               },
               "x-jsonld-id": "http://schema.org/additionalType"
             },
@@ -2107,7 +2107,7 @@
                       "x-jsonld-id": "http://schema.org/propertyID",
                       "allOf": [
                         {
-                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+                          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
                         }
                       ]
                     },
@@ -2153,7 +2153,7 @@
               "description": "Carries the reagent kind term, {\"@id\": \"https://www.wikidata.org/entity/Q2356542\"}.",
               "type": "array",
               "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
               },
               "x-jsonld-id": "http://schema.org/additionalType"
             },
@@ -2235,7 +2235,7 @@
           "description": "CDIF's qualityMeasure, extended with what an ANALYTICAL quality statistic needs beyond a bare value. A precision or accuracy figure is a dataset-level metric, not a per-measurement one (Stephen, 2026-11-01): the RSD is dqv:value, and the properties below say what that number means. Without them an RSD is unusable -- 0.5% at one sigma over three replicates against one standard is a different claim from 0.5% at two sigma over thirty against another.\nada:assessmentMethod is listed here because the workbooks currently BUNDLE it into the item name -- ada:analyticalAccuracyAndAssessmentMethod, and the two ...AnalyticalPrecisionAndAssessmentMethod spellings -- which is two facts in one field. The value belongs in dqv:value and the method beside it.",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_qualityProperties_qualityMeasure_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_qualityProperties_qualityMeasure_schema"
             },
             {
               "type": "object",
@@ -2289,7 +2289,7 @@
           ]
         },
         "DefinedTerm": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema"
         }
       },
       "x-jsonld-prefixes": {
@@ -2311,7 +2311,7 @@
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema": {
       "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
       "type": "object",
       "properties": {
@@ -2333,7 +2333,7 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
             }
           ],
           "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
@@ -2369,10 +2369,10 @@
           ]
         }
       ],
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/identifier/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/identifier/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema": {
       "title": "CDIF Concept-or-Term-or-String",
       "description": "Shared shape for a CDIF property that carries either a controlled-vocabulary value or a bare string label. Wraps cdifConceptOrTerm (SKOS-concept @id-ref, schema:DefinedTerm, or inline cdif:Concept) with a plain-string alternative used for legacy or single-word labels not yet bound to a vocabulary.",
       "anyOf": [
@@ -2380,13 +2380,13 @@
           "type": "string"
         },
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTerm_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTerm_schema"
         }
       ],
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema": {
       "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) \u2014 plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
       "type": "object",
       "properties": {
@@ -2412,7 +2412,7 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema"
             }
           ]
         },
@@ -2423,7 +2423,7 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
             }
           ]
         },
@@ -2458,7 +2458,7 @@
           ]
         }
       ],
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/definedTerm/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/definedTerm/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.BaseSchema.laboratory": {
@@ -2466,7 +2466,7 @@
       "description": "ADA laboratory or facility building block. Extends the core CDIF spatialExtent (schema:Place) with a Wikidata laboratory classification via additionalType. Inherits place name, identifier, alternateName, geo coordinates, and geosparql geometry from spatialExtent.",
       "allOf": [
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_spatialExtent_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_spatialExtent_schema"
         },
         {
           "type": "object",
@@ -2483,7 +2483,7 @@
               "description": "Must classify the place as a laboratory. The value is a sealed reference ({\"@id\": ...}) so JSON-LD expands it to a real IRI; written as a bare string it stays a literal that looks like a URI and resolves to nothing. The IRI is spelled out in full rather than as a CURIE because no context in this repo defines a Wikidata prefix -- the instrument block writes its Wikidata term in full the same way. (That one is the ENTITY IRI, https://www.wikidata.org/entity/Q3099911, since 2026-11-11; this one is still the /wiki/ page URL the stored records carry.)\nWikidata Q483242 \"laboratory\" is a subclass of facility (Q13226383), which is what makes it right for a schema:Place. An Organization type would not be: schema:DiagnosticLab is clinical and sits under MedicalOrganization, and schema:ResearchOrganization is an organization rather than a place.\nThis slot held nxs:base_classes/NXsource.html until 2026-11-09. That was wrong -- NXsource is the radiation or particle source that produces a beam, not the place it stands in; its name field conventionally carries a facility name, which is the likely route to the confusion. NeXus has no facility or laboratory base class, so unlike the instrument block -- where NXinstrument is correct and sits beside its Wikidata class -- there is nothing to keep here alongside Q483242. Bioschemas has no Laboratory type either; its LabProtocol and LabProcess describe the procedure and the run, not the place.",
               "type": "array",
               "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
               },
               "contains": {
                 "type": "object",
@@ -2516,7 +2516,7 @@
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_person_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_person_schema": {
       "description": "schema for cdif profile of schema.org/Person",
       "type": "object",
       "properties": {
@@ -2547,7 +2547,7 @@
           "description": "identifier for person, recommend ORCID",
           "anyOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema"
             },
             {
               "type": "string"
@@ -2572,7 +2572,7 @@
           "description": "if affiliation is present, value must be a schema:Organization.",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_organization_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_organization_schema"
             }
           ]
         },
@@ -2628,7 +2628,7 @@
                 "type": "string"
               },
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
               }
             ]
           }
@@ -2655,10 +2655,10 @@
           ]
         }
       ],
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/person/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/person/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_organization_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_organization_schema": {
       "type": "object",
       "properties": {
         "@id": {
@@ -2698,7 +2698,7 @@
         "schema:additionalType": {
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_organization_schema/$defs/cdifConceptOrTermOrString"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_organization_schema/$defs/cdifConceptOrTermOrString"
           }
         },
         "schema:name": {
@@ -2727,7 +2727,7 @@
           "description": "identifier for organization",
           "anyOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema"
             },
             {
               "type": "string"
@@ -2743,7 +2743,7 @@
                 "type": "string"
               },
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
               }
             ]
           }
@@ -2772,13 +2772,13 @@
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/organization/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/organization/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_labeledLink_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_labeledLink_schema": {
       "description": "Schema for a labeled link, a profile of schema.org/CreativeWork: a resolvable URL with an optional name and description. Optionally carries the DCAT relation surface (dcat:hadRole, dcterms:relation) for a link that expresses a typed relationship rather than a plain reference.\nThose two properties were a separate block, cdifDataType/cdifReference, which was an allOf of this schema plus exactly those two optional properties and nothing else -- its dcat:Relationship co-type mandate had already been removed because it made every labeled link unsatisfiable and broke every schema:license example that followed schema.org's own advice. Since both are optional, folding them in here changes no document's validity while removing a block and five levels of $defs/Reference indirection. cdifReference was retired 2026-09-23.",
       "type": "object",
       "properties": {
@@ -2823,10 +2823,10 @@
           "description": "Role of the related resource. Present only on a link that expresses a relationship; a plain labeled link such as a license omits it.\nDCAT's declared range is dcat:Role (dcat.ttl: rdfs:range dcat:Role, and dcat:Role rdfs:subClassOf skos:Concept), so the DCAT-native form is a node typed dcat:Role. That form was NOT accepted here before 2026-10-01: this property was cdifConceptOrTermOrString alone, which matches a bare string, a sealed @id reference, a schema:DefinedTerm or a skos:Concept -- none of which a dcat:Role-typed node satisfies, because JSON Schema does no subclass reasoning.\ndcat:Role is added as a branch rather than replacing the others, so the DCAT-native form becomes valid without invalidating anything already written. Note this leaves CDIF LOOSER than DCAT, deliberately: DCAT's range is dcat:Role alone, and CDIF also accepts a plain skos:Concept, a DefinedTerm, an @id reference and a string. That is the same both-forms stance taken on dcterms:relation, and it is a choice rather than an oversight -- do not read the extra branches as something not yet tightened.",
           "anyOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_labeledLink_schema/$defs/DcatRole"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_labeledLink_schema/$defs/DcatRole"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_labeledLink_schema/$defs/cdifConceptOrTermOrString"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_labeledLink_schema/$defs/cdifConceptOrTermOrString"
             }
           ]
         },
@@ -2834,7 +2834,7 @@
           "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
           "anyOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
             },
             {
               "type": "string",
@@ -2871,7 +2871,7 @@
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
         },
         "DcatRole": {
           "description": "A dcat:Role -- DCAT's declared range for dcat:hadRole. Defined inline rather than as its own building block because nothing else in the register needs it yet; dcat:hadRole's domain is owl:unionOf [prov:Attribution, dcat:Relationship], so promote it to a block if a qualified attribution ever needs the same shape.\ndcat:Role rdfs:subClassOf skos:Concept, so the skos:prefLabel / skos:inScheme furniture of a concept is permitted alongside; it is not required here because DCAT states no cardinality constraints on the class -- dcat.ttl declares no rdfs:subClassOf and no owl:Restriction on dcat:Relationship, and the \"mandatory\" wording in the DCAT-3 document is prose in the spec tables rather than an axiom in the vocabulary.",
@@ -2899,10 +2899,10 @@
           ]
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/labeledLink/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/labeledLink/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_monetaryGrant_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_monetaryGrant_schema": {
       "description": "Funding acknowledgement properties, profile of schema.org/MonetaryGrant",
       "type": "object",
       "properties": {
@@ -2929,7 +2929,7 @@
           "description": "identifier for a particular grant",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_monetaryGrant_schema/$defs/Identifier"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_monetaryGrant_schema/$defs/Identifier"
             }
           ]
         },
@@ -2947,15 +2947,15 @@
               "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable",
               "allOf": [
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                 }
               ]
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_monetaryGrant_schema/$defs/Person"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_monetaryGrant_schema/$defs/Person"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_monetaryGrant_schema/$defs/Organization"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_monetaryGrant_schema/$defs/Organization"
             }
           ]
         }
@@ -2979,16 +2979,16 @@
       ],
       "$defs": {
         "Person": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_person_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_person_schema"
         },
         "Organization": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_organization_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_organization_schema"
         },
         "Identifier": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema"
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/monetaryGrant/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/monetaryGrant/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
     "ogch.BaseSchema.creativeWork": {
@@ -3038,7 +3038,7 @@
       "description": "ADA analytical instrument building block. Extends the core CDIF instrument building block with NeXus NXinstrument classification via additionalType. Instruments are typed schema:Product (from core; schema:Thing allowed) with domain-specific types (e.g. nxs:base_classes/NXinstrument.html, ada:AMSInstrument) in additionalType.",
       "allOf": [
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema"
         },
         {
           "type": "object",
@@ -3052,7 +3052,7 @@
               "description": "Domain-specific instrument type classifications. Should include a NeXus base class (e.g. nxs:base_classes/NXinstrument.html) and/or technique-specific identifier (e.g. ada:AMSInstrument, GCMD instrument identifier). URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}); free-label strings remain valid. Every instrument additionally carries the Wikidata \"measuring instrument\" type, which is invariant across techniques: the technique-specific entry says what KIND of instrument this is and varies by profile, while the Wikidata term says that it is an instrument at all, and gives a consumer one term to select on without knowing the ADA vocabulary. Written as the Wikidata ENTITY IRI (https://www.wikidata.org/entity/Q3099911), not the /wiki/ page URL: the entity IRI names the concept, the page URL names a web page about it. It is also the kind term CDIF's cdifProvActivity reads to tell an instrument from software and reagents in an activity's schema:instrument.",
               "type": "array",
               "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
               },
               "minItems": 1,
               "contains": {
@@ -3223,7 +3223,7 @@
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_qualityProperties_qualityMeasure_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_qualityProperties_qualityMeasure_schema": {
       "title": "definitions for simple quality measure property",
       "type": "object",
       "properties": {
@@ -3249,12 +3249,12 @@
               "description": "a resolvable reference to a representation of a quality measure",
               "allOf": [
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                 }
               ]
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_qualityProperties_qualityMeasure_schema/$defs/DefinedTerm"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_qualityProperties_qualityMeasure_schema/$defs/DefinedTerm"
             }
           ]
         },
@@ -3268,7 +3268,7 @@
               "type": "number"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_qualityProperties_qualityMeasure_schema/$defs/DefinedTerm"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_qualityProperties_qualityMeasure_schema/$defs/DefinedTerm"
             }
           ]
         }
@@ -3279,13 +3279,13 @@
       ],
       "$defs": {
         "DefinedTerm": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema"
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/qualityProperties/qualityMeasure/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/qualityProperties/qualityMeasure/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema": {
       "title": "Object Reference",
       "description": "A reference to a node defined elsewhere, by its @id.",
       "type": "object",
@@ -3299,31 +3299,31 @@
         "@id"
       ],
       "additionalProperties": false,
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/objectReference/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/objectReference/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTerm_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTerm_schema": {
       "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
       "anyOf": [
         {
           "description": "reference to a skos concept for the data type",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
             }
           ]
         },
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema"
         },
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/Concept"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/Concept"
         }
       ],
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTerm/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifConceptOrTerm/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_spatialExtent_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_spatialExtent_schema": {
       "description": "Spatial Extent description for CDIF discovery profile.  Note required prefix declaration for geoSparql ( http://www.opengis.net/ont/geosparql#) and OGC simple features (sf: http://www.opengis.net/ont/sf#)",
       "type": "object",
       "properties": {
@@ -3346,7 +3346,7 @@
           "description": "Domain-specific type classifications for this place (e.g. facility type,laboratory classification, feature type).",
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_spatialExtent_schema/$defs/cdifConceptOrTermOrString"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_spatialExtent_schema/$defs/cdifConceptOrTermOrString"
           }
         },
         "schema:name": {
@@ -3356,7 +3356,7 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_spatialExtent_schema/$defs/DefinedTerm"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_spatialExtent_schema/$defs/DefinedTerm"
             }
           ]
         },
@@ -3367,7 +3367,7 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_spatialExtent_schema/$defs/Identifier"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_spatialExtent_schema/$defs/Identifier"
             }
           ]
         },
@@ -3380,7 +3380,7 @@
                 "type": "string"
               },
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_spatialExtent_schema/$defs/DefinedTerm"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_spatialExtent_schema/$defs/DefinedTerm"
               }
             ]
           }
@@ -3521,7 +3521,7 @@
               "description": "identifier string for coordinate reference system, e.g., 'CRS84'",
               "allOf": [
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                 }
               ]
             }
@@ -3555,19 +3555,19 @@
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
         },
         "DefinedTerm": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema"
         },
         "Identifier": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema"
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/spatialExtent/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/spatialExtent/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema": {
       "title": "Instrument Description",
       "description": "Schema for describing laboratory instruments and instrument systems. Supports ownership, manufacturer, model, commissioning dates, hierarchical sub-components via schema:hasPart, and domain-specific typing. Instruments may be standalone devices or complex systems with sub-components.",
       "type": "object",
@@ -3612,7 +3612,7 @@
           "description": "Domain-specific type classifications. Should include a scientific instrument type URI (e.g. wd:Q3099911 for Wikidata scientific instrument).",
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/cdifConceptOrTermOrString"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/cdifConceptOrTermOrString"
           },
           "minItems": 1
         },
@@ -3634,7 +3634,7 @@
                 "type": "string"
               },
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
               }
             ]
           }
@@ -3648,7 +3648,7 @@
                 "type": "string"
               },
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
               }
             ]
           }
@@ -3662,7 +3662,7 @@
           "description": "Organization that manufactured this instrument.",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/Organization"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/Organization"
             }
           ]
         },
@@ -3693,7 +3693,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
                 }
               ]
             }
@@ -3707,14 +3707,14 @@
           "description": "Instrument type classification(s) from a controlled vocabulary.",
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/DefinedTerm"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/DefinedTerm"
           }
         },
         "schema:owner": {
           "description": "Organization that owns this instrument.",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/Organization"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/Organization"
             }
           ]
         },
@@ -3722,7 +3722,7 @@
           "description": "Agents associated with this instrument in specific roles (e.g. operator, custodian, principal investigator). Use schema:owner for the owning organization.",
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/AgentInRole"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/AgentInRole"
           }
         },
         "schema:additionalProperty": {
@@ -3731,10 +3731,10 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/AdditionalProperty"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/AdditionalProperty"
               },
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/AdditionalPropertySpecification"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/AdditionalPropertySpecification"
               }
             ]
           }
@@ -3753,13 +3753,13 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/InstrumentComponent"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/InstrumentComponent"
               },
               {
                 "description": "Reference to a sub-component defined elsewhere.",
                 "allOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                   }
                 ]
               }
@@ -3770,7 +3770,7 @@
           "type": "array",
           "description": "Links to related resources (manuals, datasheets, calibration records, related instruments), each naming how the target relates to the instrument. Uses the same linkRole block as cdifCore; before 2026-09-23 this property was a labeled link here and a LinkRole there.",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/LinkRole"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/LinkRole"
           }
         },
         "schema:subjectOf": {
@@ -3794,7 +3794,7 @@
               "description": "Reference back to the instrument @id.",
               "allOf": [
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                 }
               ]
             },
@@ -3807,7 +3807,7 @@
                     "type": "string"
                   },
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                   }
                 ]
               }
@@ -3824,25 +3824,25 @@
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
         },
         "Identifier": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_identifier_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_identifier_schema"
         },
         "Organization": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_organization_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_organization_schema"
         },
         "Person": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_person_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_person_schema"
         },
         "DefinedTerm": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema"
         },
         "AgentInRole": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_agentInRole_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_agentInRole_schema"
         },
         "AdditionalProperty": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_additionalProperty_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_additionalProperty_schema"
         },
         "AdditionalPropertySpecification": {
           "type": "object",
@@ -3890,10 +3890,10 @@
           ]
         },
         "Reference": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_labeledLink_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_labeledLink_schema"
         },
         "LinkRole": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_linkRole_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_linkRole_schema"
         },
         "InstrumentComponent": {
           "type": "object",
@@ -3945,7 +3945,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
                 }
               ]
             },
@@ -3953,7 +3953,7 @@
               "description": "Component type classification.",
               "type": "array",
               "items": {
-                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/cdifConceptOrTermOrString"
+                "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/cdifConceptOrTermOrString"
               }
             },
             "schema:additionalProperty": {
@@ -3961,16 +3961,16 @@
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/AdditionalProperty"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/AdditionalProperty"
                   },
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/AdditionalPropertySpecification"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/AdditionalPropertySpecification"
                   }
                 ]
               }
             },
             "schema:manufacturer": {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/Organization"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/Organization"
             },
             "schema:model": {
               "type": "object",
@@ -3983,7 +3983,7 @@
                         "type": "string"
                       },
                       {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                       }
                     ]
                   },
@@ -4003,7 +4003,7 @@
                       "type": "string"
                     },
                     {
-                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
+                      "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_instrument_schema/$defs/Identifier"
                     }
                   ]
                 }
@@ -4019,15 +4019,15 @@
           ]
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/instrument/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/instrument/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema": {
       "title": "SKOS Concept",
       "description": "JSON Schema for a SKOS Concept in JSON-LD form. A unit of thought within a concept scheme. Supports labels (prefLabel, altLabel, hiddenLabel), notations, hierarchical relations (broader/narrower), associative relations (related), cross-scheme mapping properties, scheme membership, and documentary notes. Based on the W3C SKOS Reference (https://www.w3.org/TR/skos-reference/).",
       "allOf": [
         {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/Concept"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/Concept"
         }
       ],
       "$defs": {
@@ -4101,12 +4101,12 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                 },
                 {
                   "type": "array",
                   "items": {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                   }
                 }
               ]
@@ -4122,7 +4122,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                 },
                 {
                   "type": "array",
@@ -4132,7 +4132,7 @@
                         "type": "string"
                       },
                       {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                       }
                     ]
                   }
@@ -4146,7 +4146,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                 },
                 {
                   "type": "array",
@@ -4156,7 +4156,7 @@
                         "type": "string"
                       },
                       {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                       }
                     ]
                   }
@@ -4170,7 +4170,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                 },
                 {
                   "type": "array",
@@ -4180,7 +4180,7 @@
                         "type": "string"
                       },
                       {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                       }
                     ]
                   }
@@ -4194,7 +4194,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                 },
                 {
                   "type": "array",
@@ -4204,7 +4204,7 @@
                         "type": "string"
                       },
                       {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                       }
                     ]
                   }
@@ -4218,7 +4218,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                 },
                 {
                   "type": "array",
@@ -4228,7 +4228,7 @@
                         "type": "string"
                       },
                       {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                       }
                     ]
                   }
@@ -4242,7 +4242,7 @@
                   "type": "string"
                 },
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                 },
                 {
                   "type": "array",
@@ -4252,7 +4252,7 @@
                         "type": "string"
                       },
                       {
-                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
+                        "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/LanguageTaggedValue"
                       }
                     ]
                   }
@@ -4263,12 +4263,12 @@
               "description": "Concept scheme(s) this concept belongs to.",
               "anyOf": [
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                 },
                 {
                   "type": "array",
                   "items": {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                   }
                 }
               ]
@@ -4277,12 +4277,12 @@
               "description": "Concept scheme(s) for which this is a top concept.",
               "anyOf": [
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                 },
                 {
                   "type": "array",
                   "items": {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                   }
                 }
               ]
@@ -4293,10 +4293,10 @@
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/ConceptRef"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/ConceptRef"
                   },
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/Concept"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/Concept"
                   }
                 ]
               }
@@ -4307,10 +4307,10 @@
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/ConceptRef"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/ConceptRef"
                   },
                   {
-                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_skosProperties_skosConcept_schema/$defs/Concept"
+                    "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_skosProperties_skosConcept_schema/$defs/Concept"
                   }
                 ]
               }
@@ -4327,7 +4327,7 @@
           "description": "A reference to a SKOS Concept by URI.",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
             }
           ]
         },
@@ -4350,10 +4350,10 @@
           ]
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/skosProperties/skosConcept/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/skosProperties/skosConcept/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_agentInRole_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_agentInRole_schema": {
       "description": "For more granularity on how a person contributed to a Dataset, use schema:Role. The schema.org documentation does not state that the Role type is an expected data type of author, creator and contributor, but that is addressed in this blog post (http://blog.schema.org/2014/06/introducing-role.html). see https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/Dataset.md#roles-of-people",
       "type": "object",
       "properties": {
@@ -4373,7 +4373,7 @@
           "minItems": 1
         },
         "schema:roleName": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_agentInRole_schema/$defs/cdifConceptOrTermOrString"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_agentInRole_schema/$defs/cdifConceptOrTermOrString"
         },
         "schema:contributor": {
           "anyOf": [
@@ -4381,15 +4381,15 @@
               "description": "IRI reference to a Person or Organization defined elsewhere",
               "allOf": [
                 {
-                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+                  "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
                 }
               ]
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_person_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_person_schema"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_organization_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_organization_schema"
             }
           ]
         }
@@ -4401,13 +4401,13 @@
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/agentInRole/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/agentInRole/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_additionalProperty_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_additionalProperty_schema": {
       "type": "object",
       "title": "additionalProperty PropertyValue",
       "description": "PropertyValue values required to define a soft-typed property with a value. ",
@@ -4427,7 +4427,7 @@
         "schema:propertyID": {
           "type": "array",
           "items": {
-            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_additionalProperty_schema/$defs/propertyID_item"
+            "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_additionalProperty_schema/$defs/propertyID_item"
           },
           "minItems": 1,
           "description": "identifier or name for the property concept quantified by the values in this variable slot. Multiple values can specify the property at different levels of granularity."
@@ -4457,7 +4457,7 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_additionalProperty_schema/$defs/DefinedTerm"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_additionalProperty_schema/$defs/DefinedTerm"
             }
           ]
         },
@@ -4471,7 +4471,7 @@
       ],
       "$defs": {
         "DefinedTerm": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_definedTerm_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_definedTerm_schema"
         },
         "propertyID_item": {
           "anyOf": [
@@ -4479,18 +4479,18 @@
               "type": "string"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_objectReference_schema"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_objectReference_schema"
             },
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_additionalProperty_schema/$defs/DefinedTerm"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_additionalProperty_schema/$defs/DefinedTerm"
             }
           ]
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/additionalProperty/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/additionalProperty/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     },
-    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_linkRole_schema": {
+    "Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_linkRole_schema": {
       "description": "A typed link, implemented as a schema.org LinkRole: schema:linkRelationship names how the target relates to the subject, and schema:target carries the EntryPoint actually being linked to.\nThis is the right shape when the relationship itself is the point -- \"this is the canonical version of\", \"this is the download endpoint for\". Where the value is simply a work at a URL, such as a license or a terms-of-service document, use schemaorgProperties/labeledLink instead: a licence is a work, not a role, and wrapping it in a Role forces every consumer through an indirection to reach the thing itself.\nDefined here as a block rather than inline in a profile (where it lived until 2026-09-23) so that more than one consumer can reuse it. While it was inline in cdifCore, schemaorgProperties/instrument could not reach it and defined schema:relatedLink as a labeled link instead -- the same property carrying two different shapes depending on which node held it.",
       "type": "object",
       "properties": {
@@ -4514,7 +4514,7 @@
           "default": "missing",
           "allOf": [
             {
-              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_schemaorgProperties_linkRole_schema/$defs/cdifConceptOrTermOrString"
+              "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_linkRole_schema/$defs/cdifConceptOrTermOrString"
             }
           ]
         },
@@ -4557,10 +4557,10 @@
       ],
       "$defs": {
         "cdifConceptOrTermOrString": {
-          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16a__sources_cdifDataType_cdifConceptOrTermOrString_schema"
+          "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/solutionIntroduction/schema-oas3.0.json#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTermOrString_schema"
         }
       },
-      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/linkRole/schema.yaml",
+      "x-schema-source": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/linkRole/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
     }
   },
