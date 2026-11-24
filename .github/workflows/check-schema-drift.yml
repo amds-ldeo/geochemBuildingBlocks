@@ -284,6 +284,22 @@ jobs:
       - name: SHACL targets can select
         run: python tools/check_shacl_targets.py --execute
 
+      # The vendored upstream copies -- CDIF's schemas in vendor/remote and its shapes in
+      # vendor/shapes -- against their locks, and against each other.
+      #
+      # This is the ONLY gate that can see a stale vendored copy. regenerate.py does not
+      # touch vendor/, so `Regenerate and diff` is structurally blind to the whole class,
+      # and the two locks are refreshed by DIFFERENT commands
+      # (resolve_schema.py --refresh-remote and validate_examples.py --refresh-shapes), so
+      # nothing otherwise stops one being bumped to a newer snapshot and the other left
+      # behind -- which would validate examples against one revision's shapes and another
+      # revision's schemas, silently.
+      #
+      # Offline and under a second: it verifies sha256 rather than re-fetching, so it
+      # needs no network and cannot be defeated by an upstream that has moved on.
+      - name: Vendored copies match their locks and each other
+        run: python tools/check_vendor_sync.py
+
       # Here rather than its own required check, for the same reason as the census: no separate
       # signal is needed, and a required context that fails to report deadlocks the PR.
       - name: Counterexamples still rejected

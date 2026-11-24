@@ -1,0 +1,166 @@
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix cdi:    <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/> .
+@prefix cdif:   <https://w3id.org/cdif/> .
+@prefix cdifd:  <https://cdif.org/validation/0.1/shacl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@base <https://www.ogc.org/rules/template/> .
+
+# ------------------------------------------------------------
+# cdifDataStructure — DataStructure (and its Dimensional / Long /
+# Wide variants) plus the shared key structures. Rules mirror the
+# JSON Schema `required` lists: every DataStructure variant must
+# carry cdi:has_DataStructureComponent.
+# ------------------------------------------------------------
+
+cdifd:cdifDataStructure_DataStructureShape
+	a sh:NodeShape ;
+	sh:targetClass cdi:DataStructure ;
+	sh:property [
+		sh:path cdi:has_DataStructureComponent ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "A cdi:DataStructure must carry at least one cdi:has_DataStructureComponent." ;
+	] ;
+	.
+
+# cdif:ForeignKey had no shape at all, and its JSON Schema `required`
+# list (@type, cdif:isComposedOf, cdif:references_PrimaryKey) could not be asserted by a
+# negative example: cdif:has_ForeignKey items are anyOf [ForeignKey,
+# objectReference], so a record missing cdif:references_PrimaryKey fails BOTH branches and
+# jsonschema reports the union, echoing an instance that no longer contains the
+# word. tools/test_fail_cases.py rates such a case MISDIRECTED, correctly --
+# it asserts nothing. SHACL can target the class directly, so the requirement
+# is stated here where it is checkable.
+#
+# Mirrors the JSON Schema: a foreign key that references nothing is not a
+# foreign key, which is what distinguishes cdif:ForeignKey from cdif:Key.
+cdifd:cdifDataStructure_ForeignKeyShape
+	a sh:NodeShape ;
+	sh:targetClass cdif:ForeignKey ;
+	sh:property [
+		sh:path cdif:references_PrimaryKey ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "A cdif:ForeignKey must carry cdif:references_PrimaryKey (an @id-reference to the key it points at); a foreign key that references nothing is not a foreign key." ;
+	] ;
+	sh:property [
+		sh:path cdif:isComposedOf ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "A cdif:ForeignKey must carry at least one cdif:isComposedOf (a cdi:ComponentPosition naming a variable in the key)." ;
+	] ;
+	.
+
+cdifd:cdifDataStructure_DimensionalDataStructureShape
+	a sh:NodeShape ;
+	sh:targetClass cdi:DimensionalDataStructure ;
+	sh:property [
+		sh:path cdi:has_DataStructureComponent ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "A cdi:DimensionalDataStructure must carry at least one cdi:has_DataStructureComponent." ;
+	] ;
+	.
+
+cdifd:cdifDataStructure_LongDataStructureShape
+	a sh:NodeShape ;
+	sh:targetClass cdi:LongDataStructure ;
+	sh:property [
+		sh:path cdi:has_DataStructureComponent ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "A cdi:LongDataStructure must carry at least one cdi:has_DataStructureComponent." ;
+	] ;
+	.
+
+cdifd:cdifDataStructure_WideDataStructureShape
+	a sh:NodeShape ;
+	sh:targetClass cdi:WideDataStructure ;
+	sh:property [
+		sh:path cdi:has_DataStructureComponent ;
+		sh:minCount 1 ;
+		sh:severity sh:Violation ;
+		sh:message "A cdi:WideDataStructure must carry at least one cdi:has_DataStructureComponent." ;
+	] ;
+	.
+
+# ------------------------------------------------------------
+# Inline-only structure (standalone / self-contained description).
+#
+# The JSON Schema permits a distribution's cdi:isStructuredBy to be EITHER an
+# inline DataStructure OR an @id reference to one (JSON Schema cannot relax a
+# shared definition per-profile). In a self-contained data-structure
+# *description*, the structure must be defined inline: cdi:isStructuredBy must
+# carry cdi:has_DataStructureComponent, not be a bare @id reference.
+#
+# The instance profile (DiscoveryDataDescriptionStructure) OVERRIDES this same
+# named shape with a no-op so that a reference to an externally-published
+# structure is permitted there (the SHACL emitter lets a profile's own
+# rules.shacl win on a duplicated shape name). SPARQL uses full IRIs to avoid
+# needing sh:prefixes.
+# ------------------------------------------------------------
+cdifd:cdifDataStructure_inlineStructureShape
+	a sh:NodeShape ;
+	sh:targetClass schema:Dataset ;
+	sh:sparql [
+		sh:severity sh:Violation ;
+		sh:message "A distribution's cdi:isStructuredBy must resolve to a structure that carries cdi:has_DataStructureComponent. The components may be written inline or on a node identified by @id elsewhere in the same document -- in RDF both denote the same node, and this rule is satisfied either way. What it rejects is a reference to a structure that is never defined. Exempt: a plain cdi:DataStructure whose content is a key (cdif:has_ForeignKey or cdif:has_PrimaryKey), since cdif:ForeignKey and cdif:Key compose variables through cdi:ComponentPosition wrappers and imply no components. The exemption does NOT extend to the Dimensional, Long and Wide variants: each names a data layout, and a layout listing no components describes nothing." ;
+		sh:select """
+			SELECT $this WHERE {
+				$this <http://schema.org/distribution> ?dist .
+				?dist <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy> ?s .
+				FILTER NOT EXISTS { ?s <http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/has_DataStructureComponent> ?c }
+				FILTER NOT EXISTS {
+					{ ?s <https://w3id.org/cdif/has_ForeignKey> ?k }
+					UNION
+					{ ?s <https://w3id.org/cdif/has_PrimaryKey> ?k }
+					FILTER NOT EXISTS {
+						?s a ?t .
+						FILTER (?t IN (
+							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/DimensionalDataStructure>,
+							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/LongDataStructure>,
+							<http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/WideDataStructure>))
+					}
+				}
+			}
+		""" ;
+	] ;
+	.
+
+# The cdif:PrimaryKey shape is gone: $defs/PrimaryKey is now a $ref to cdifKey,
+# so these nodes are typed cdif:Key and cdifd:cdifKeyShape -- identical path,
+# minCount and severity -- applies instead, travelling in with that $ref. A shape
+# targeting a class no document carries reports zero violations and is
+# indistinguishable from one that passes, so it is removed rather than left.
+
+# Conformance advisory. Until now this profile's released SHACL carried only
+# CDIFCodelistConformsToShape, inherited via cdifEnumerationDomain -- so a
+# data-structure record was advised about the codelist profile and never about
+# its own. Targeted through schema:subjectOf rather than by matching
+# schema:additionalType "dcat:CatalogRecord" as a string literal, which no
+# longer matches anything (records serialize that marker as an @id/IRI).
+cdifd:CDIFDataStructureConformsToShape a sh:NodeShape ;
+	sh:property [ a sh:PropertyShape ;
+		sh:path dcterms:conformsTo ;
+		sh:hasValue <https://w3id.org/cdif/data_structure/1.1> ;
+		sh:minCount 1 ;
+		sh:severity sh:Warning ;
+		sh:message "A catalog record on a dataset using CDIF data structure properties should include dcterms:conformsTo <https://w3id.org/cdif/data_structure/1.1>." ;
+	] ;
+	sh:target [ a sh:SPARQLTarget ;
+		sh:prefixes cdifd: ;
+		sh:select """
+			PREFIX schema: <http://schema.org/>
+			PREFIX dcat: <http://www.w3.org/ns/dcat#>
+			SELECT ?this WHERE {
+				?subject schema:subjectOf ?this .
+				?subject a schema:Dataset .
+				?this schema:additionalType ?at .
+				FILTER( ?at = dcat:CatalogRecord || STR(?at) = "dcat:CatalogRecord" )
+			}
+		""" ;
+	] .

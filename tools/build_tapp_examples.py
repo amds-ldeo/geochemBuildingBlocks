@@ -1970,6 +1970,7 @@ def main():
         # sentinel written into a required @id is replaced; before idify_uri_values, which wraps an
         # IRI-shaped schema:additionalType and would hide the type token the id derives from.
         ex.assign_instrument_ids(inst)
+        ex.label_defined_terms(inst)
         idify_uri_values(inst)
         # After the fills, for the reason name_unnamed_howtos documents: the HowTo that needs a
         # name is often one fill_nested_required just created. build_pathdriven does this for the
@@ -2028,6 +2029,7 @@ def main():
             type_instrument_tree(dinst)
             ex.fill_required_types(dinst, detail_res)
         ex.assign_instrument_ids(dinst)
+        ex.label_defined_terms(dinst)
         idify_uri_values(dinst)
         name_unnamed_howtos(dinst, workflow_name(tapp))
         with open(os.path.join(DETAIL_DIR, f"example{detail_name}-{code}.json"),

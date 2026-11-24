@@ -217,6 +217,57 @@ def instrument_id(token, scope):
     return "ex:%s/instrument/%s" % (scope, _slug(token, "instrument"))
 
 
+def label_defined_terms(doc):
+    """Give every inline DefinedTerm and DefinedTermSet in `doc` a schema:name.
+
+    The emitter satisfies the inline branch of `schema:inDefinedTermSet` -- a
+    schema:DefinedTermSet of schema:hasDefinedTerm entries -- without naming anything,
+    because schema:name is optional there. CDIF's cdifd:CDIFDefinedTermShape requires a
+    name or an identifier, and that is the whole of 270 of the 273 distinct findings the
+    vendored CDIF shapes report against this corpus.
+
+    A TERM takes its own schema:termCode: for these the code IS the label ("xenon", "SDD",
+    "Integral"), so nothing is asserted that the data did not already carry. A SET takes
+    the name of the column it annotates plus " vocabulary", which is why the walk carries
+    the nearest enclosing schema:name down with it.
+
+    An existing name is never overwritten -- a label a person chose outranks one derived
+    from a code. A term with neither name nor termCode is left alone rather than given a
+    placeholder: an unnameable term is a real defect and should keep failing.
+
+    Call beside assign_instrument_ids: this needs the built document, and it must run
+    BEFORE the sentinel fills, which would otherwise write "missing" into the absent name.
+    """
+
+    def types_of(node):
+        t = node.get("@type")
+        return t if isinstance(t, list) else ([t] if t else [])
+
+    def walk(node, owner):
+        if isinstance(node, dict):
+            kinds = [str(t) for t in types_of(node)]
+            if any(t.endswith("DefinedTermSet") for t in kinds):
+                if "schema:name" not in node and owner:
+                    node["schema:name"] = "%s vocabulary" % owner
+            elif any(t.endswith("DefinedTerm") for t in kinds):
+                if "schema:name" not in node and node.get("schema:termCode"):
+                    node["schema:name"] = node["schema:termCode"]
+            # The name in scope for anything BELOW this node. A column's own name is what
+            # its term set is named after, so it has to survive the descent.
+            name = node.get("schema:name")
+            here = owner
+            if isinstance(name, str) and not any(t.endswith("DefinedTerm") for t in kinds):
+                here = name
+            for v in node.values():
+                walk(v, here)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v, owner)
+
+    walk(doc, None)
+    return doc
+
+
 def assign_instrument_ids(doc):
     """Mint the document-scoped @id of every instrument and inline component in `doc`.
 

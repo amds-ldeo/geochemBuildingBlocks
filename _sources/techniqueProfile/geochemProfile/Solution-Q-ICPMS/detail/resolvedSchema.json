@@ -7562,6 +7562,10 @@
                           "@type": {
                             "const": "schema:DefinedTermSet"
                           },
+                          "schema:name": {
+                            "type": "string",
+                            "description": "Human-readable name of this vocabulary, for a form generator or the ADA metadata viewer. REQUIRED IN EFFECT BY CDIF, whose cdifd:CDIFDefinedTermShape holds that a term set must carry a name or an identifier; an inline set has no @id to offer, so the name is the only way it can conform. This branch was additionalProperties:false over @type and schema:hasDefinedTerm alone until 2026-11-23, which made the sole labelling CDIF accepts invalid -- a contradiction neither side could see, because CDIF's shapes had never been vendored and so had never run against these examples."
+                          },
                           "schema:hasDefinedTerm": {
                             "type": "array",
                             "minItems": 1,
@@ -7573,6 +7577,10 @@
                                 },
                                 "schema:termCode": {
                                   "type": "string"
+                                },
+                                "schema:name": {
+                                  "type": "string",
+                                  "description": "Human-readable label for this term. Accepted here before 2026-11-23 only because these items carry no additionalProperties:false; declared explicitly now, since a property the viewer and CDIF's shape both read should not be reachable by omission. Generated examples set it from schema:termCode, which for these enumerations IS the label."
                                 }
                               },
                               "required": [
