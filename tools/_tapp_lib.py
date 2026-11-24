@@ -580,7 +580,7 @@ def slugify_term_code(t: str) -> str:
 # Pinned to the mBB release tag; see the note on CODELIST_SCHEMA in
 # build_instrument_codelist.py and agents.md.
 CODELIST_SCHEMA_URI = ("https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/"
-                       "metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/"
+                       "metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/"
                        "_sources/profiles/cdifProfile/cdifCodelist/schema.yaml")
 CODELIST_LICENSE = "https://creativecommons.org/licenses/by/4.0/"
 CODELIST_DATE_MODIFIED = "2026-07-31"

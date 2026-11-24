@@ -30,7 +30,7 @@ VOCAB = os.path.join(ROOT, "_sources", "registry", "vocab")
 # Pages base: Pages serves mBB's main (the cutting edge), so a moving base would change
 # what these code lists validate against with no commit here. See agents.md.
 CODELIST_SCHEMA = ("https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/"
-                   "metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/"
+                   "metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/"
                    "_sources/profiles/cdifProfile/cdifCodelist/schema.yaml")
 CONTEXT = {"skos": "http://www.w3.org/2004/02/skos/core#",
            "schema": "http://schema.org/",

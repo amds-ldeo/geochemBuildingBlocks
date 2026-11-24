@@ -477,10 +477,18 @@ def validate_shacl(example_path: Path, shapes, shape_files):
 
     found = {s: [] for s in SEVERITIES}
     # One shape file at a time, so a shape IRI defined in SEVERAL files reports the same
-    # defect once per file. That is not hypothetical: with the CDIF snapshot vendored,
-    # cdifd:CDIFDefinedTermShape is defined in both schemaorgProperties/agentInRole and
-    # schemaorgProperties/spatialExtent, and the corpus reported 543 results for 273
-    # distinct defects -- every finding of that shape doubled. The per-file split is
+    # defect once per file. That is not hypothetical: cdifd:termLabelProperty is declared,
+    # byte-identically, in all three of schemaorgProperties/{agentInRole,definedTerm,
+    # spatialExtent}, so every finding of it arrives three times.
+    #
+    # The original worked example here was cdifd:CDIFDefinedTermShape, declared in
+    # agentInRole and spatialExtent, which doubled the corpus to 543 results for 273
+    # distinct defects. Upstream renamed those two apart in snapshot-2026-11-16b, because
+    # they were three DIFFERENT shapes under one URI -- a worse bug than the duplication,
+    # since a consumer merging two of the files got the CONJUNCTION of both. So that
+    # particular doubling is gone and the dedupe is still earned by termLabelProperty: a
+    # shared URI is safe only when the definitions agree, which is what separates the two
+    # cases. The per-file split is
     # deliberate and cannot be undone (see load_shapes: merging the graphs makes pyshacl
     # refuse them), so the DEDUPE belongs here.
     #
@@ -686,7 +694,21 @@ def main():
                   "applied; run --refresh-shapes")
     print(f"{'='*60}")
 
-    if shacl_failed and args.write_shacl_baseline:
+    # Guarded on the SHACL pass having RUN, not on it having found something. The guard was
+    # `shacl_failed and ...`, which meant the manifest could be grown but never emptied: with
+    # the corpus clean the writer never fired, the dead entries survived, and the staleness
+    # check below stayed fatal. So the remedy that check PRINTS -- "re-run with
+    # --write-shacl-baseline" -- did nothing in the one case that matters most, a run that
+    # fixed everything. Hit on the snapshot-2026-11-16b bump, which took the last 2 findings
+    # to 0. `shapes is not None` is the right condition because --no-shacl and a missing
+    # rdflib/pyshacl both leave shacl_failed empty for a reason that is NOT "nothing is
+    # wrong", and writing an empty manifest from either would discard a live baseline.
+    if args.write_shacl_baseline:
+        if shapes is None:
+            print("ERROR: --write-shacl-baseline needs the SHACL pass; it did not run "
+                  "(--no-shacl, or rdflib/pyshacl not installed). Nothing written.",
+                  file=sys.stderr)
+            return 1
         write_shacl_baseline(shacl_failed)
 
     # Accepted findings are reported and then set aside, never hidden: a baseline that
