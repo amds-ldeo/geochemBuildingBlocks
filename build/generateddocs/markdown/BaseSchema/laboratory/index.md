@@ -78,7 +78,7 @@ description: ADA laboratory or facility building block. Extends the core CDIF sp
   place name, identifier, alternateName, geo coordinates, and geosparql geometry from
   spatialExtent.
 allOf:
-- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/spatialExtent/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/spatialExtent/schema.yaml
 - type: object
   properties:
     schema:identifier:
@@ -112,7 +112,7 @@ allOf:
         describe the procedure and the run, not the place.'
       type: array
       items:
-        $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+        $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
       contains:
         type: object
         additionalProperties: false

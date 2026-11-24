@@ -122,7 +122,7 @@ allOf:
     ada:dataComponentResource:
       type: string
       x-jsonld-id: https://ada.astromat.org/metadata/dataComponentResource
-- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifDataCube/schema.yaml
+- $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifDataCube/schema.yaml
 x-jsonld-prefixes:
   schema: http://schema.org/
   ada: https://ada.astromat.org/metadata/

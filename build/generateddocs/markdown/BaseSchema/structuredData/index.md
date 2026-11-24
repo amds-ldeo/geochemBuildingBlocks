@@ -133,11 +133,11 @@ container, not tabular text).
 
 <ex:struct-map-cube-001> a cdi:DimensionalDataStructure ;
     cdi:has_DataStructureComponent [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ],
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ],
         [ a cdi:MeasureComponent ;
             cdif:name "intensity" ],
         [ a cdi:DimensionComponent ;
-            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-y> ] ;
+            cdif:isDefinedBy_Variable <ex:struct-map-cube-001-var-x> ] ;
     schema1:name "Elemental map cube structure" .
 
 
@@ -178,11 +178,11 @@ properties:
       or an @id reference to a structure declared elsewhere in the document (e.g.
       shared across parts)."
     anyOf:
-    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
-    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
-    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
-    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
-    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/objectReference/schema.yaml
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
+    - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/objectReference/schema.yaml
     x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy
 required:
 - '@type'
