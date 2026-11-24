@@ -293,7 +293,7 @@
                                     "description": "What kind of material this sample is, as an iSamples object-type term. Pinned in the DUAL form -- the bare string OR a sealed {\"@id\": ...} reference -- per docs/ADDITIONALTYPE_POLICY.md clause 1: a record that serializes the term as an IRI reference, so that it participates in RDF entailment as a resource rather than as a literal that merely looks like one, must still satisfy this pin.",
                                     "type": "array",
                                     "items": {
-                                        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
+                                        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
                                     },
                                     "allOf": [
                                         {
@@ -546,7 +546,7 @@
             "description": "Geographic extent of resource content.",
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/spatialExtent/spatialExtentSchema.json"
+                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/spatialExtent/spatialExtentSchema.json"
             }
         },
         "schema:temporalCoverage": {
@@ -554,7 +554,7 @@
             "description": "Temporal extent of resource content.",
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/schemaorgProperties/temporalExtent/temporalExtentSchema.json"
+                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/temporalExtent/temporalExtentSchema.json"
             }
         },
         "dqv:hasQualityMeasurement": {
@@ -562,7 +562,7 @@
             "description": "Quality measurements reported to assess the resource.",
             "type": "array",
             "items": {
-                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
+                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/qualityProperties/qualityMeasure/qualityMeasureSchema.json"
             }
         },
         "schema:additionalProperty": {
@@ -584,19 +584,19 @@
                         "description": "Data-structure description of a monolithic single-file distribution (the file is the dataset), or a structure shared across bundle parts and referenced from them by @id. One of the four CDIF DataStructure variants inline, or an @id reference. Optional.",
                         "anyOf": [
                             {
-                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure"
+                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure"
                             },
                             {
-                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure"
+                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure"
                             },
                             {
-                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure"
+                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure"
                             },
                             {
-                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure"
+                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure"
                             },
                             {
-                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/objectReference/objectReferenceSchema.json"
+                                "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/objectReference/objectReferenceSchema.json"
                             }
                         ]
                     },
@@ -604,7 +604,7 @@
                         "description": "Optional file-classification of this distribution (or, on a bundle, of the whole archive) drawn from the componentType vocabulary (ada:vocab/componentType) -- e.g. \"ada:report\", \"ada:calibrationFile\". Generic and OPTIONAL here; the ADA product layer (adaProduct) instead carries the required ada:componentType. Advisory (annotated via schema:inDefinedTermSet), not hard-enumerated in JSON Schema.",
                         "type": "array",
                         "items": {
-                            "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
+                            "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
                         },
                         "schema:inDefinedTermSet": "ada:vocab/componentType"
                     }
@@ -718,7 +718,7 @@
                     "description": "Carries the Wikidata kind term, https://www.wikidata.org/entity/Q7397 (software), as {\"@id\": ...}: what makes this a software item of the activity's schema:instrument.",
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
+                        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
                     }
                 },
                 "@type": {
@@ -770,7 +770,7 @@
                     "description": "Carries the Wikidata kind term, https://www.wikidata.org/entity/Q2356542 (chemical reagent), as {\"@id\": ...}: what makes this a reagent item of the activity's schema:instrument.",
                     "type": "array",
                     "items": {
-                        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
+                        "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
                     }
                 },
                 "@type": {
@@ -815,7 +815,7 @@
                                     "minItems": 1
                                 },
                                 "schema:propertyID": {
-                                    "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
+                                    "$ref": "https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/cdifConceptOrTermOrStringSchema.json"
                                 },
                                 "schema:value": {
                                     "type": "string"

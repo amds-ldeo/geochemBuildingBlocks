@@ -85,7 +85,7 @@ Profiles additionally compose base schemas via `allOf` references.
 - `adaProduct` **extends `geochemProduct`** (`allOf: [$ref ../geochemProduct/schema.yaml, …]`) and adds the ADA/SAMIS overlays: technique types, instrument/lab/sample, required `ada:componentType`. `geochemProduct` has **no** dependency on `adaProduct` (verified) — the arrow points one way.
 - Base-selection rule for technique profiles: `geochemProfile/<TECH>/profile/` (generic, path-driven, 34) → **geochemProduct**; `geochemProfile/<TECH>/profile-ada/` (4 ADA variants) and every `adaProfile/<TECH>/profile-ada/` (31) → **adaProduct**. `profile` variants additionally compose the technique's `detail` block (the TAPP link itself, `schema:actionProcess {"@id"}`, is a reference no schema can follow). Principle: geochem→geochemProduct, ada→adaProduct.
 - External schemas are referenced via full HTTP URLs **pinned to an immutable mBB tag**:
-  `raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/...`.
+  `raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/...`.
   That tag is a dated snapshot of mBB's `main`, **not** a release: it carries current development
   content, and the pin exists for reproducibility rather than release parity. Pinning instead to
   `profiles-v1.1` (the tree the CDIF 1.1 profile family was emitted from) was measured and
