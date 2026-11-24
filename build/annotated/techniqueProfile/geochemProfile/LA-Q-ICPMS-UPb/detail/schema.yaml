@@ -795,11 +795,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:
@@ -814,11 +821,18 @@ allOf:
             allOf:
             - contains:
                 properties:
-                  '@type':
+                  schema:additionalType:
                     contains:
-                      const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                      anyOf:
+                      - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                      - type: object
+                        required:
+                        - '@id'
+                        properties:
+                          '@id':
+                            const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                 required:
-                - '@type'
+                - schema:additionalType
           ada:proceduralBlankLevel:
             description: "The measured level of the analytical blank in the session,
               and \u2014 where the reported quantity is a ratio \u2014 its composition,

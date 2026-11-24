@@ -204,10 +204,10 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -222,6 +222,9 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           "schema:defaultValue": 50,
           "schema:description": "50 mg (stated section 3.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -975,10 +978,10 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -993,6 +996,9 @@ solutionQicpmsTAPP instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC 
           "schema:defaultValue": 50,
           "schema:description": "50 mg (stated section 3.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -1578,17 +1584,17 @@ ex:solutionQicpmsTAPP-Gao2008 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -1600,10 +1606,9 @@ ex:solutionQicpmsTAPP-Gao2008 a schema1:Action,
             schema1:name "Solution Q-ICP-MS" ;
             schema1:termCode "Solution Q-ICP-MS" ] ;
     schema1:name "solutionQicpms protocol — Gao2008" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
@@ -2082,10 +2087,10 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -2100,6 +2105,9 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           "schema:defaultValue": 300,
           "schema:description": "Ten to twenty tests, about 300 µg of shells — §2; one measurement uses 250 µl at 100 ppm Ca, equivalent to 60 µg calcite"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -2758,10 +2766,10 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -2776,6 +2784,9 @@ solutionQicpmsTAPP instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II |
           "schema:defaultValue": 300,
           "schema:description": "Ten to twenty tests, about 300 \u00b5g of shells \u2014 \u00a72; one measurement uses 250 \u00b5l at 100 ppm Ca, equivalent to 60 \u00b5g calcite"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -3389,9 +3400,13 @@ ex:solutionQicpmsTAPP-P1 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion" ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:name "dissolution: 0.075 M HNO3 — §2" ;
+                            ada:reagentRole "reagent" ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -3401,13 +3416,9 @@ ex:solutionQicpmsTAPP-P1 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion" ;
-                    schema1:instrument [ a schema1:DefinedTerm ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:name "dissolution: 0.075 M HNO3 — §2" ;
-                            ada:reagentRole "reagent" ] ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -3427,10 +3438,9 @@ ex:solutionQicpmsTAPP-P1 a schema1:Action,
             schema1:name "Solution Q-ICP-MS" ;
             schema1:termCode "Solution Q-ICP-MS" ] ;
     schema1:name "solutionQicpms protocol — P1" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)" ;
@@ -3933,10 +3943,10 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -3951,6 +3961,9 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
           "schema:defaultValue": 15,
           "schema:description": "15–42 mg (basalts and andesites); 30–63 mg (peridotites); 8–22 mg (NIST glasses); 9–28 mg (chondrites)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -4495,10 +4508,10 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -4513,6 +4526,9 @@ solutionQicpmsTAPP instance derived from Makishima+etal2011 | Agilent 7500cs | P
           "schema:defaultValue": 15,
           "schema:description": "15\u201342 mg (basalts and andesites); 30\u201363 mg (peridotites); 8\u201322 mg (NIST glasses); 9\u201328 mg (chondrites)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -4878,16 +4894,10 @@ ex:solutionQicpmsTAPP-Agilent7500 a schema1:Action,
             schema1:name "Solution Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "ultrasonic HF-HClO4 (basalts, andesites and NIST SRM 612, 614, 616, with the Sm spike, in an ultrasonic bath, dried to decompose fluorides); bomb HF (peridotites and chondrites, with the Sm spike, in a TFE bomb at 245 °C); HClO4 drying (the bomb digests); final uptake (0.5 mol/l HNO3) — after Yokoyama et al. (1999) and Makishima and Nakamura (2006)" ;
-                    schema1:instrument [ a schema1:DefinedTerm ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:name "ultrasonic HF-HClO4: HF + HClO4; bomb HF: HF; HClO4 drying: HClO4; final uptake: 0.5 mol/l HNO3" ;
-                            ada:reagentRole "reagent" ] ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -4904,10 +4914,16 @@ ex:solutionQicpmsTAPP-Agilent7500 a schema1:Action,
                     ada:detectionLimitMethod "all: 3s of the background signal of 0.5 mol/l HNO3, average of eight sessions — Results" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "ultrasonic HF-HClO4 (basalts, andesites and NIST SRM 612, 614, 616, with the Sm spike, in an ultrasonic bath, dried to decompose fluorides); bomb HF (peridotites and chondrites, with the Sm spike, in a TFE bomb at 245 °C); HClO4 drying (the bomb digests); final uptake (0.5 mol/l HNO3) — after Yokoyama et al. (1999) and Makishima and Nakamura (2006)" ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:name "ultrasonic HF-HClO4: HF + HClO4; bomb HF: HF; HClO4 drying: HClO4; final uptake: 0.5 mol/l HNO3" ;
+                            ada:reagentRole "reagent" ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "ICP operating conditions as in Makishima and Nakamura (2006); pseudo-flow injection with transient signals integrated as total counts, ~0.013 ml per measurement; an evaporation test showed no loss of Cd, In, Tl or Bi (ratios 0.996–0.999, Table 2) Reported detail: ada:driftCorrectionMethod = Mass discrimination corrected with the mean elemental ratios of the calibrator measured before and after each sample — step (d)." ;
@@ -4918,10 +4934,9 @@ ex:solutionQicpmsTAPP-Agilent7500 a schema1:Action,
             schema1:name "Solution Q-ICP-MS" ;
             schema1:termCode "Solution Q-ICP-MS" ] ;
     schema1:name "solutionQicpms protocol — Agilent7500" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Makishima and Nakamura (2006) — 'Details of these methods and ICP operating conditions are described in Makishima and Nakamura (2006)'" ] ;
@@ -6011,11 +6026,10 @@ ex:solutionQicpmsTAPP-Agilent7900 a schema1:Action,
             schema1:name "Solution Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -6030,10 +6044,11 @@ ex:solutionQicpmsTAPP-Agilent7900 a schema1:Action,
                     schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "The Zn-isotope procedure digests ~35 mg of bulk powder in HNO3-HF at 120 °C for ~48 h; the digestion for the elemental analysis is not stated — Methods Reported detail: ada:driftCorrectionMethod = Sc, In and Re internal standards — Methods." ;
     schema1:instrument <https://example.org/solutionQicpmsTAPP-Agilent7900/instrument/ICPMS> ;
@@ -6429,10 +6444,10 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -6447,6 +6462,9 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:defaultValue": 20,
           "schema:description": "~20 mg (basalts and andesites); ~50 mg (peridotites); ~10 mg (meteorites) — §2.5"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -7179,10 +7197,10 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -7197,6 +7215,9 @@ solutionQicpmsTAPP instance derived from Lu+etal2007 | Agilent 7500cs | PML Okay
           "schema:defaultValue": 20,
           "schema:description": "~20 mg (basalts and andesites); ~50 mg (peridotites); ~10 mg (meteorites) \u2014 \u00a72.5"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -7729,22 +7750,11 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a schema1:Action,
             schema1:name "Solution Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
-                    schema1:instrument [ a schema1:DefinedTerm ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ;
-                            ada:reagentRole "reagent" ] ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -7756,11 +7766,22 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a schema1:Action,
                     ada:detectionLimitMethod "all: 3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent — §3.6" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5" ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:name "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5" ;
+                            ada:reagentRole "reagent" ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6) Reported detail: ada:signalCollectionMode = 1 point per mass — Table 1a; ada:driftCorrectionMethod = Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8." ;
     schema1:instrument <https://example.org/solutionQicpmsTAPP-Agilent7500-2/instrument/ICPMS> ;
@@ -7770,10 +7791,9 @@ ex:solutionQicpmsTAPP-Agilent7500-2 a schema1:Action,
             schema1:name "Solution Q-ICP-MS" ;
             schema1:termCode "Solution Q-ICP-MS" ] ;
     schema1:name "solutionQicpms protocol — Agilent7500-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "The Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta, and its Nb (from Nb/Mo and Nb/Zr) is used for the SF-ICP-MS Ti calculation on the same solutions — §2.5, §2.8" ;
@@ -8299,10 +8319,10 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -8317,6 +8337,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
           "schema:defaultValue": 30,
           "schema:description": "30 mg (Te, tri-acid); 40–50 mg (Se, microwave) — §2.2"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -8820,10 +8843,10 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -8838,6 +8861,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | F
           "schema:defaultValue": 30,
           "schema:description": "30 mg (Te, tri-acid); 40\u201350 mg (Se, microwave) \u2014 \u00a72.2"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -9194,12 +9220,6 @@ ex:solutionQicpmsTAPP-Agilent8800 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -9210,7 +9230,13 @@ ex:solutionQicpmsTAPP-Agilent8800 a schema1:Action,
                             schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel (publication column of Solution_Q-ICP-MS_TAPP_v96.csv)." ;
@@ -9221,10 +9247,9 @@ ex:solutionQicpmsTAPP-Agilent8800 a schema1:Action,
             schema1:name "Solution Q-ICP-MS (triple-quadrupole platform)" ;
             schema1:termCode "Solution Q-ICP-MS (triple-quadrupole platform)" ] ;
     schema1:name "solutionQicpms protocol — Agilent8800" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
@@ -9610,10 +9635,10 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -9628,6 +9653,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
           "schema:defaultValue": 30,
           "schema:description": "30 mg (total digestion); 200–500 mg per extraction — §2.2, Table 1"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -10127,10 +10155,10 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -10145,6 +10173,9 @@ solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab
           "schema:defaultValue": 30,
           "schema:description": "30 mg (total digestion); 200\u2013500 mg per extraction \u2014 \u00a72.2, Table 1"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -10484,24 +10515,6 @@ ex:solutionQicpmsTAPP-P6 a schema1:Action,
             schema1:name "Solution Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -10512,7 +10525,25 @@ ex:solutionQicpmsTAPP-P6 a schema1:Action,
                             schema1:name "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; F1 acetate: 1 M NaOAc + 5 M HOAc; F2 ascorbate: ascorbate solution; F3 H2O2: 30% H2O2 + 1 M ammonium acetate; F4 HCl: 1 M HCl; F4N HNO3: 1 M HNO3" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "KED; O2 mode — '126Te measured in KED-mode (He)'; '125Te ... in mass-shift O2-mode'; Se 'with the O2-mode' (§2.3, §2.4)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/reactionProductIonMassShiftTransition> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "solutionQicpmsTAPP instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated (publication column of Solution_Q-ICP-MS_TAPP_v96.csv)." ;
@@ -10523,10 +10554,9 @@ ex:solutionQicpmsTAPP-P6 a schema1:Action,
             schema1:name "Solution Q-ICP-MS (triple-quadrupole platform)" ;
             schema1:termCode "Solution Q-ICP-MS (triple-quadrupole platform)" ] ;
     schema1:name "solutionQicpms protocol — P6" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
@@ -11534,6 +11564,12 @@ ex:solutionQicpmsTAPP-P7 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
@@ -11543,12 +11579,6 @@ ex:solutionQicpmsTAPP-P7 a schema1:Action,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -11904,10 +11934,10 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -11922,6 +11952,9 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
           "schema:defaultValue": 1.478,
           "schema:description": "1.478–4.325 mg per particle; 20 mg of Allende — 4%–10% aliquots for Group-1 and Group-3, 0.4 mL of the Group-1 solution for Group-2"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -12459,10 +12492,10 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
   },
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -12477,6 +12510,9 @@ solutionQicpmsTAPP instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ |
           "schema:defaultValue": 1.478,
           "schema:description": "1.478\u20134.325 mg per particle; 20 mg of Allende \u2014 4%\u201310% aliquots for Group-1 and Group-3, 0.4 mL of the Group-1 solution for Group-2"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -12839,25 +12875,6 @@ ex:solutionQicpmsTAPP-P8 a schema1:Action,
             schema1:name "Solution Q-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -12868,7 +12885,26 @@ ex:solutionQicpmsTAPP-P8 a schema1:Action,
                             schema1:name "HF-HNO3 attack: HF + HNO3; HNO3-HCl step: HNO3 + HCl; HNO3 step: HNO3; final uptake: 0.5 M HNO3" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods" ;
     schema1:instrument <https://example.org/solutionQicpmsTAPP-P8/instrument/ICPMS> ;
@@ -12878,10 +12914,9 @@ ex:solutionQicpmsTAPP-P8 a schema1:Action,
             schema1:name "Solution Q-ICP-MS (triple-quadrupole platform)" ;
             schema1:termCode "Solution Q-ICP-MS (triple-quadrupole platform)" ] ;
     schema1:name "solutionQicpms protocol — P8" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
@@ -13522,11 +13557,18 @@ allOf:
         allOf:
         - if:
             properties:
-              '@type':
+              schema:additionalType:
                 contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  anyOf:
+                  - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  - type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
             required:
-            - '@type'
+            - schema:additionalType
           then:
             properties:
               schema:additionalProperty:

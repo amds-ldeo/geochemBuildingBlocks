@@ -8,10 +8,10 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — 'Instrument data supporting the experimental results from the samples analysed in this study will be available from Astromat (astromat.org) at the DOIs listed in Extended Data Table 3'" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — 'Instrument data supporting the experimental results from the samples analysed in this study will be available from Astromat (astromat.org) at the DOIs listed in Extended Data Table 3'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -31,8 +31,9 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
                 <https://example.org/epmaTAPP-detail-McCoy2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Smithsonian Institution, National Museum of Natural History" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;

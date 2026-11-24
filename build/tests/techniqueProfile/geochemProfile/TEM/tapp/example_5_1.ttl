@@ -36,12 +36,12 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
     schema1:description "2-nm probe stated for EDS spectrum images; final FIB section ~100 nm thick Reported detail: ada:edsQuantificationMethod = Cliff-Lorimer (k-factor from well-characterized standards; Thermo System7)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Thermo System7" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Thermo System7 (EDS quantification)" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Thermo System7" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/temTAPP-Zega2025-4/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ARES Division, NASA Johnson Space Center" ] ;
@@ -49,10 +49,9 @@ ex:temTAPP-Zega2025-4 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-4" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FIB-SEM (FEI Quanta3D600) prepared TEM sections from particles characterized by SEM; XRD provided bulk mineralogy context" ;

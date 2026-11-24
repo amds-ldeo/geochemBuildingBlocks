@@ -1121,12 +1121,6 @@ ex:solutionSficpmsTAPP-P0 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
@@ -1148,7 +1142,13 @@ ex:solutionSficpmsTAPP-P0 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
@@ -1955,10 +1955,10 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -1973,6 +1973,9 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
           "schema:defaultValue": 100,
           "schema:description": "~100 mg mineral powder (stated section 2.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -2619,10 +2622,10 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -2637,6 +2640,9 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
           "schema:defaultValue": 100,
           "schema:description": "~100 mg mineral powder (stated section 2.3)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -2748,12 +2754,6 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -2773,6 +2773,12 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Mineral separates (~100 mg powder; stated section 2.3)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -2788,10 +2794,9 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
             schema1:name "Solution SF-ICP-MS" ;
             schema1:termCode "Solution SF-ICP-MS" ] ;
     schema1:name "solutionSficpms protocol — P1" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
@@ -4373,6 +4378,12 @@ ex:solutionSficpmsTAPP-P2 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
@@ -4389,13 +4400,7 @@ ex:solutionSficpmsTAPP-P2 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ — Table 2b" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "all: 3σ — Table 2b" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b) Reported detail: ada:driftCorrectionMethod = Standard solution every two samples — 'No time drift of fTi was observed during measurements over 2 h, thus all fTi were averaged and used' (§2.7)." ;
     schema1:instrument <https://example.org/solutionSficpmsTAPP-P2/instrument/ICPMS> ;
@@ -5212,10 +5217,10 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -5230,6 +5235,9 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
           "schema:defaultValue": 12,
           "schema:description": "12 mL seawater (stated section 2.2)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -5820,10 +5828,10 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -5838,6 +5846,9 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
           "schema:defaultValue": 12,
           "schema:description": "12 mL seawater (stated section 2.2)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -5929,10 +5940,12 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -5947,17 +5960,15 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ] ] ;
+                    schema1:description "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Off-line pre-concentration on Toyopearl AF-Chelate-650M resin; enriched isotope spikes added before extraction; standard additions for Mn and Co (§2.2–2.3) Reported detail: ada:driftCorrectionMethod = Elution acid, an enriched-isotope standard and a natural-abundance commercial standard measured every 10–12 samples — 'to assess instrument drift and mass bias' (§2.4)." ;
     schema1:instrument <https://example.org/solutionSficpmsTAPP-P3/instrument/ICPMS> ;
@@ -5967,10 +5978,9 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
             schema1:name "Solution SF-ICP-MS" ;
             schema1:termCode "Solution SF-ICP-MS" ] ;
     schema1:name "solutionSficpms protocol — P3" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "no value available: ada:analysisSequenceDefault" ;
@@ -6766,10 +6776,10 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -6784,6 +6794,9 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
           "schema:defaultValue": 1,
           "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -7371,10 +7384,10 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -7389,6 +7402,9 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
           "schema:defaultValue": 1,
           "schema:description": "1-2 mg foraminifera shells (stated section 2.4)"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -7485,6 +7501,12 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "dissolution (minimum volume of 1 M HNO3, 40–60 µL, then centrifuged 2 min at 10,000 rpm) — §2.4" ;
@@ -7507,13 +7529,7 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3) Reported detail: ada:driftCorrectionMethod = N — the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (§2.3.1)." ;
@@ -7524,10 +7540,9 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
             schema1:name "Solution SF-ICP-MS" ;
             schema1:termCode "Solution SF-ICP-MS" ] ;
     schema1:name "solutionSficpms protocol — P4" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) — §2.3.1" ;
@@ -8363,10 +8378,10 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -8381,6 +8396,9 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
           "schema:defaultValue": 100,
           "schema:description": "About 100 mg of whole-rock powder"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -9038,10 +9056,10 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
   "ada:driftCorrectionMethod": "N/A",
   "schema:object": [
     {
-      "@type": [
-        "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample",
-        "schema:DefinedTerm",
-        "schema:Thing"
+      "schema:additionalType": [
+        {
+          "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+        }
       ],
       "schema:additionalProperty": [
         {
@@ -9056,6 +9074,9 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
           "schema:defaultValue": 100,
           "schema:description": "About 100 mg of whole-rock powder"
         }
+      ],
+      "@type": [
+        "schema:Thing"
       ]
     }
   ],
@@ -9176,12 +9197,10 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ],
+                    schema1:description "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -9203,10 +9222,12 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
                     schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N — 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'." ;
@@ -9217,10 +9238,9 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
             schema1:name "Solution SF-ICP-MS" ;
             schema1:termCode "Solution SF-ICP-MS" ] ;
     schema1:name "solutionSficpms protocol — Willbold2005" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolumeDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analysisSequenceDefault "N — a total of ca. 20 minutes per sample 'including the measurement of blank, standard solution, washout'; the order is not stated" ;
@@ -11170,11 +11190,18 @@ allOf:
         allOf:
         - if:
             properties:
-              '@type':
+              schema:additionalType:
                 contains:
-                  const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  anyOf:
+                  - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                  - type: object
+                    required:
+                    - '@id'
+                    properties:
+                      '@id':
+                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
             required:
-            - '@type'
+            - schema:additionalType
           then:
             properties:
               schema:additionalProperty:

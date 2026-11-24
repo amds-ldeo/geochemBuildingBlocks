@@ -9,14 +9,14 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
         schema1:Product ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "FER-2 [all: most ratios to literature values within 0.9–1.1] — Fig. 7 (§3)" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "FER-2 [all: RSD <5%] — three analyses, Table 3 (§3)" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: s, one standard deviation, and RSD — 'Mean ± 1 s (n = 3)'; 'RSD = standard deviation/mean × 100%'" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "FER-2 [all: RSD <5%] — three analyses, Table 3 (§3)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -42,8 +42,9 @@ ex:solutionSficpmsTAPP-detail-P1 a schema1:Dataset,
                 <https://example.org/solutionSficpmsTAPP-detail-P1/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing (affiliation)" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/sampleAliquotMassOrVolume> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "mag_1, mag_3, mag_5, py_2, py_4; iron-formation reference material FER-2 (CCRMP, CANMET MMSL, Canada)" ] ;
             schema1:startTime "no value available: schema:startTime" ;

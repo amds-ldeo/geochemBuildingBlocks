@@ -15,16 +15,16 @@ ex:temTAPP-Zega2025-3 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Crushing / dispersion on grid" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCalibrationReferenceDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/diffractionCameraLengthCalibrationMethodDefault>,
@@ -47,10 +47,9 @@ ex:temTAPP-Zega2025-3 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zega2025-3" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "None" ] ;

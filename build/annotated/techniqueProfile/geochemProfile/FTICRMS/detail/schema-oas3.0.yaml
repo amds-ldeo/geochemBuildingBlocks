@@ -334,12 +334,20 @@ x-defs:
                     allOf:
                     - if:
                         properties:
-                          '@type':
+                          schema:additionalType:
                             contains:
-                              enum:
-                              - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                              anyOf:
+                              - enum:
+                                - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                              - type: object
+                                required:
+                                - '@id'
+                                properties:
+                                  '@id':
+                                    enum:
+                                    - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                         required:
-                        - '@type'
+                        - schema:additionalType
                       then:
                         properties:
                           schema:name:
@@ -377,12 +385,20 @@ x-defs:
                   allOf:
                   - contains:
                       properties:
-                        '@type':
+                        schema:additionalType:
                           contains:
-                            enum:
-                            - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                            anyOf:
+                            - enum:
+                              - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                            - type: object
+                              required:
+                              - '@id'
+                              properties:
+                                '@id':
+                                  enum:
+                                  - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                       required:
-                      - '@type'
+                      - schema:additionalType
                   x-jsonld-id: http://schema.org/object
                 schema:instrument:
                   type: array
@@ -1191,21 +1207,40 @@ x-defs:
             description: Samples analyzed
             properties:
               '@type':
+                description: An analysed sample is a schema:Thing. The iSamples object-type
+                  IRI used to be required here as well; it moved to schema:additionalType
+                  on 2026-11-23, because it says what KIND of material the sample
+                  is -- a classification -- where @type asserts identity. Typing a
+                  sample by that IRI is also what let the validator-driven example
+                  fill resolve this three-branch anyOf by satisfying the DefinedTerm
+                  branch instead, which typed 74 generated samples schema:DefinedTerm
+                  with nothing to name them.
                 type: array
                 items:
                   type: string
-                allOf:
-                - contains:
-                    enum:
-                    - schema:Thing
-                - contains:
-                    enum:
-                    - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                minItems: 2
+                contains:
+                  enum:
+                  - schema:Thing
               schema:additionalType:
+                description: 'What kind of material this sample is, as an iSamples
+                  object-type term. Pinned in the DUAL form -- the bare string OR
+                  a sealed {"@id": ...} reference -- per docs/ADDITIONALTYPE_POLICY.md
+                  clause 1, and identically to the record-side shape in geochemBaseProfile.'
                 type: array
                 items:
                   $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FTICRMS/detail/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
+                allOf:
+                - contains:
+                    anyOf:
+                    - enum:
+                      - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                    - type: object
+                      required:
+                      - '@id'
+                      properties:
+                        '@id':
+                          enum:
+                          - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                 x-jsonld-id: http://schema.org/additionalType
               schema:identifier:
                 type: array
@@ -3620,21 +3655,41 @@ x-defs:
                 type: object
                 properties:
                   '@type':
+                    description: An analysed sample is a schema:Thing. The iSamples
+                      object-type IRI used to be required here as well; it moved to
+                      schema:additionalType on 2026-11-23, because it says what KIND
+                      of material the sample is -- a classification -- where @type
+                      asserts identity.
                     type: array
                     items:
                       type: string
-                    allOf:
-                    - contains:
-                        enum:
-                        - schema:Thing
-                    - contains:
-                        enum:
-                        - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                    minItems: 2
+                    contains:
+                      enum:
+                      - schema:Thing
                   schema:additionalType:
+                    title: Sample Material Type
+                    description: 'What kind of material this sample is, as an iSamples
+                      object-type term. Pinned in the DUAL form -- the bare string
+                      OR a sealed {"@id": ...} reference -- per docs/ADDITIONALTYPE_POLICY.md
+                      clause 1: a record that serializes the term as an IRI reference,
+                      so that it participates in RDF entailment as a resource rather
+                      than as a literal that merely looks like one, must still satisfy
+                      this pin.'
                     type: array
                     items:
                       $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/FTICRMS/detail/schema-oas3.0.yaml#/x-defs/Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16__sources_cdifDataType_cdifConceptOrTermOrString_schema
+                    allOf:
+                    - contains:
+                        anyOf:
+                        - enum:
+                          - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              enum:
+                              - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                     x-jsonld-id: http://schema.org/additionalType
                   schema:identifier:
                     title: Sample Identifier
@@ -8708,12 +8763,20 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        enum:
-                        - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - enum:
+                          - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              enum:
+                              - https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

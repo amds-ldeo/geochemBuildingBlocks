@@ -39,10 +39,15 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
       "schema:startTime": "2023-12-13",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-803047-101"
+          "schema:name": "OREX-803047-101",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -110,10 +115,15 @@ detail instance derived from ADA n=12 | Welten, Kees | University of California,
       "schema:startTime": "2023-12-13",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-803047-101"
+          "schema:name": "OREX-803047-101",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -162,7 +172,8 @@ ex:icpoesTAPP-detail-CAP6300 a schema1:Dataset,
             schema1:identifier "20231219_icp-oes_ucb_multisample_1" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "University of California, Berkeley" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-803047-101" ] ;
             schema1:startTime "2023-12-13" ] ;
     ada:analysisEndDate "missing" ;
@@ -216,11 +227,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

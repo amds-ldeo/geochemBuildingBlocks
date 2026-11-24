@@ -34,11 +34,11 @@ ex:temTAPP-Zeng2024 a schema1:Action,
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Velox Revision 2.14 (Thermo Fisher Scientific)" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         <https://example.org/temTAPP-Zeng2024/instrument/TEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Analysis and Test Center, Guangdong University of Technology, Guangzhou, China" ] ;
@@ -46,10 +46,9 @@ ex:temTAPP-Zeng2024 a schema1:Action,
             schema1:name "TEM/STEM" ;
             schema1:termCode "TEM/STEM" ] ;
     schema1:name "tem protocol — Zeng2024" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "FEI Scios dual-beam FIB/SEM (Institute of Geochemistry, CAS, Guiyang): BSE and SE imaging at 5 kV/0.8 nA (7 mm WD); EDS mapping at 20 kV/1.6 nA; FIB foil preparation at 30 kV/0.4 nA; STEM imaging of FIB slice at 30 kV/0.4 nA using the same FIB/SEM instrument (all performed prior to TEM on Talos F200S)" ;

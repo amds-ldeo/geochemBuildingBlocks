@@ -15,16 +15,16 @@ ex:temTAPP-Mo2022 a schema1:Action,
             schema1:name "TEM analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/samplePreparationDetailsDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "FIB lift-out (Ga+)" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/temTAPP/analyticalSubModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/edsAcquisitionModeDefault>,
         <https://ada.astromat.org/metadata/parameter/temTAPP/spectroscopicDetectorDefault> ;
@@ -37,10 +37,9 @@ ex:temTAPP-Mo2022 a schema1:Action,
             schema1:name "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ;
             schema1:termCode "Scanning Transmission Electron Microscopy (STEM); Energy-Dispersive X-ray Spectroscopy (EDS)" ] ;
     schema1:name "tem protocol — Mo2022" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Nanoscale characterization of Fe-bearing phases in Chang'E-5 lunar soil; HAADF-STEM + EDS for phase morphology and composition mapping; coordinated with Auger (surface Fe valence) and EELS (bulk Fe valence)" ;

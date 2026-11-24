@@ -461,10 +461,12 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
         {
           "@id": "ex:geochemProduct-example-001/sample/RP-123",
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "Example rock powder aliquot RP-123",
@@ -1000,10 +1002,12 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
         {
           "@id": "ex:geochemProduct-example-001/sample/RP-123",
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "Example rock powder aliquot RP-123",
@@ -1226,7 +1230,11 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:description "Synthetic step. Calibration standards, the digest and the secondary standard measured, with In as internal standard." ;
     schema1:endTime "2026-01-10T14:30:00" ;
-    schema1:instrument [ a schema1:DefinedTerm ;
+    schema1:instrument [ a schema1:ChemicalSubstance ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:name "2% HNO3 procedural blank" ;
+            ada:reagentRole "blankMaterial" ],
+        [ a schema1:DefinedTerm ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
             schema1:name "BHVO-2 basalt reference material" ;
@@ -1238,10 +1246,6 @@ ex:geochemProduct-example-001 a schema1:Dataset,
             schema1:name "BCR-2 basalt reference material" ;
             schema1:termCode "BCR-2" ;
             ada:reagentRole "secondaryStandard" ],
-        [ a schema1:ChemicalSubstance ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "2% HNO3 procedural blank" ;
-            ada:reagentRole "blankMaterial" ],
         <https://example.org/geochemProduct-example-001/instrument/instrument> ;
     schema1:name "Data acquisition" ;
     schema1:object <https://example.org/geochemProduct-example-001/digest/RP-123> ;
@@ -1337,9 +1341,9 @@ ex:struct-geochem-001 a cdi:DimensionalDataStructure ;
     schema1:description "Dimensional structure: one measure over the analysis." ;
     schema1:name "Analysis result data structure" .
 
-<https://example.org/geochemProduct-example-001/sample/RP-123> a schema1:Thing,
-        <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-    schema1:additionalType "MaterialSample" ;
+<https://example.org/geochemProduct-example-001/sample/RP-123> a schema1:Thing ;
+    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>,
+        "MaterialSample" ;
     schema1:description "Homogenized rock powder aliquot analysed in this session" ;
     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
     schema1:name "Example rock powder aliquot RP-123" .
@@ -1659,19 +1663,37 @@ properties:
             type: object
             properties:
               '@type':
+                description: An analysed sample is a schema:Thing. The iSamples object-type
+                  IRI used to be required here as well; it moved to schema:additionalType
+                  on 2026-11-23, because it says what KIND of material the sample
+                  is -- a classification -- where @type asserts identity.
                 type: array
                 items:
                   type: string
-                allOf:
-                - contains:
-                    const: schema:Thing
-                - contains:
-                    const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
-                minItems: 2
+                contains:
+                  const: schema:Thing
               schema:additionalType:
+                title: Sample Material Type
+                description: 'What kind of material this sample is, as an iSamples
+                  object-type term. Pinned in the DUAL form -- the bare string OR
+                  a sealed {"@id": ...} reference -- per docs/ADDITIONALTYPE_POLICY.md
+                  clause 1: a record that serializes the term as an IRI reference,
+                  so that it participates in RDF entailment as a resource rather than
+                  as a literal that merely looks like one, must still satisfy this
+                  pin.'
                 type: array
                 items:
                   $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+                allOf:
+                - contains:
+                    anyOf:
+                    - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                    - type: object
+                      required:
+                      - '@id'
+                      properties:
+                        '@id':
+                          const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                 x-jsonld-id: http://schema.org/additionalType
               schema:identifier:
                 title: Sample Identifier

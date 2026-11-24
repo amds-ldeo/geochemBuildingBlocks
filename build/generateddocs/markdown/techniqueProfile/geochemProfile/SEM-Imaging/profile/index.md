@@ -223,10 +223,12 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:object": [
         {
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "ALH 84001,123",
@@ -723,10 +725,12 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:object": [
         {
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "ALH 84001,123",
@@ -1091,12 +1095,12 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
         ex:adaProduct-var-002,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
-            dqv:value "no value available: ebsdPatternQualityThreshold" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value 1e+00 ],
         [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value 1e+00 ] ;
+            dqv:value 1e+00 ],
+        [ dqv:isMeasurementOf "EBSD Pattern Quality Threshold" ;
+            dqv:value "no value available: ebsdPatternQualityThreshold" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:semImagingTAPP-P0 ;
@@ -1107,9 +1111,9 @@ ex:adaSEMImaging-example-001 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
-            schema1:object [ a schema1:Thing,
-                        <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-                    schema1:additionalType "MaterialSample" ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>,
+                        "MaterialSample" ;
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;

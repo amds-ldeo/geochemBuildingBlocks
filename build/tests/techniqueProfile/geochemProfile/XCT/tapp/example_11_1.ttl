@@ -15,14 +15,14 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ] ] ;
+                    schema1:description "Bulk specimen or fragment (as received) — Sample B, a 3 × 5 × 2 cm synthetic quartz monocrystal: \"No sectioning was carried out prior to HRXCT scanning\" (p.2)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorArraySize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/detectorPixelSize>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/exposureTimePerProjectionDefault>,
@@ -46,11 +46,10 @@ ex:labxctTAPP-Richard2019-2 a schema1:Action,
             schema1:name "Lab XCT" ;
             schema1:termCode "Lab XCT" ] ;
     schema1:name "labxct protocol — Richard2019-2" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+    schema1:object [ a schema1:Thing ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensionsDefault>,
-                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ] ;
+                <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "Single-volume" ;

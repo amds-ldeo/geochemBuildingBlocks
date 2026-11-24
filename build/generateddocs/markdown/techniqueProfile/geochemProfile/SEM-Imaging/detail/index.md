@@ -31,8 +31,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -49,7 +51,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
               "schema:value": "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -209,8 +214,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -227,7 +234,10 @@ detail instance derived from Garvie et al. 2008 | Tagish Lake (C2) nanoglobules 
               "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -388,8 +398,9 @@ ex:semImagingTAPP-detail-Garvie2008 a schema1:Dataset,
             schema1:instrument <https://example.org/semImagingTAPP-detail-Garvie2008/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "School of Earth and Space Exploration / School of Materials, Arizona State University" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -466,8 +477,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -484,7 +497,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
               "schema:value": "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -584,8 +600,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -602,7 +620,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
               "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -691,8 +712,9 @@ ex:semImagingTAPP-detail-Genge2025 a schema1:Dataset,
             schema1:instrument <https://example.org/semImagingTAPP-detail-Genge2025/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -753,8 +775,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -771,7 +795,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
               "schema:value": "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -931,8 +958,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -949,7 +978,10 @@ detail instance derived from Genge et al. 2025 | Micrometeorite NG-1 (CV3-like) 
               "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -1105,8 +1137,9 @@ ex:semImagingTAPP-detail-Genge2025-2 a schema1:Dataset,
             schema1:instrument <https://example.org/semImagingTAPP-detail-Genge2025-2/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "GPS Division Analytical Facility, California Institute of Technology" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -1187,8 +1220,10 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1205,7 +1240,10 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
               "schema:value": "Optical microscope-cathodoluminescence survey — \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses\" (p.2); the grain labels tie the later measurements back to that survey (Fig. 1, p.2)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2",
@@ -1267,8 +1305,10 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1285,7 +1325,10 @@ detail instance derived from Gucsik et al. 2013 | Forsterite, Kaba meteorite (CV
               "schema:value": "Optical microscope-cathodoluminescence survey \u2014 \"Following a systematic optical microscopecathodoluminescence study of a Kaba thin section, seven representative grains (designated as B-1 through B-7) were selected for further analyses\" (p.2); the grain labels tie the later measurements back to that survey (Fig. 1, p.2)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:description": "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) \u2014 standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2",
@@ -1334,8 +1377,9 @@ ex:semImagingTAPP-detail-Gucsik2013 a schema1:Dataset,
     prov:wasGeneratedBy [ schema1:description "CL color imaging also done with separate luminoscope ELM-3R (cold cathode, 10 kV, 0.5 mA, <100 Torr) — standalone CL system, not SEM-based; spectrum deconvolution via Peak Analyzer in OriginPro 8J SR2" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -1382,8 +1426,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1400,7 +1446,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
               "schema:value": "Micro X-ray diffraction reconnaissance — the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -1592,8 +1641,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1610,7 +1661,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | CL
               "schema:value": "Micro X-ray diffraction reconnaissance \u2014 the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -1788,13 +1842,13 @@ ex:semImagingTAPP-detail-Izawa2010 a schema1:Dataset,
             schema1:target [ schema1:name "SEM-EDX (Leo 440; Leo 1540); BSE Imaging; micro-XRD; EPMA-WDS (out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Carbon-coated polished thin sections; high vacuum analysis" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semImagingTAPP/clIntegrationTime> ;
             schema1:description "Digiscan II beam controller used for CL raster; multi-channel color CL distinguishes ~4 spectral bands; beam-induced CL may persist from long-lived IR emission in carbonates" ;
@@ -1811,8 +1865,9 @@ ex:semImagingTAPP-detail-Izawa2010 a schema1:Dataset,
                 <https://example.org/semImagingTAPP-detail-Izawa2010/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Zircon and Accessory Phase Laboratory, University of Western Ontario" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -1894,8 +1949,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1912,7 +1969,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
               "schema:value": "Micro X-ray diffraction reconnaissance — the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -1979,8 +2039,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1997,7 +2059,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
               "schema:value": "Micro X-ray diffraction reconnaissance \u2014 the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -2052,8 +2117,9 @@ ex:semImagingTAPP-detail-Izawa2010-2 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Surface Science Western" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -2100,8 +2166,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2118,7 +2186,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
               "schema:value": "Micro X-ray diffraction reconnaissance — the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2); this procedure is the third stage, run on features the earlier stages located"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -2185,8 +2256,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2203,7 +2276,10 @@ detail instance derived from Izawa et al. 2010 | Tagish Lake (C2) meteorite | BS
               "schema:value": "Micro X-ray diffraction reconnaissance \u2014 the paper's first stage is \"an initial, non-destructive in situ reconnaissance step using micro X-ray diffraction (mXRD) to document meteorite mineralogy and textures and to identify features of interest\", valuable as \"a 'no-touch' first-pass reconnaissance, which may identify areas for further study\"; it then gives \"point-by-point correlation of crystal structure data with other microscopic and microanalytical data\" (p.2); this procedure is the third stage, run on features the earlier stages located"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -2258,8 +2334,9 @@ ex:semImagingTAPP-detail-Izawa2010-3 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Nanofabrication Laboratory, University of Western Ontario" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -2306,8 +2383,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2324,7 +2403,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               "schema:value": "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2429,8 +2511,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2447,7 +2531,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2551,8 +2638,9 @@ ex:semImagingTAPP-detail-Liu2017 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -2605,8 +2693,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2623,7 +2713,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               "schema:value": "N — the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2728,8 +2821,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2746,7 +2841,10 @@ detail instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 
               "schema:value": "N \u2014 the imaging this procedure performs is its own measurement, not a screening step before it; the paper describes no prior characterisation used to locate the units"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -2837,21 +2935,22 @@ ex:semImagingTAPP-detail-Liu2017-2 a schema1:Dataset,
             schema1:target [ schema1:name "FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Bulk coal polished to ~10 mm × 2-3 mm using polishing and burnishing machine; further polished with cross section polisher; thin gold coating applied by sputtering" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure> ;
             schema1:description "Pore and mineral sizes >20 nm to <5 µm measured; EDS also used for mineral analysis; magnification range 10³ to 10⁵" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "China University of Mining and Technology, Xuzhou, China" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -2904,8 +3003,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2923,7 +3024,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             }
           ],
           "schema:name": "Section 126A (USNM 7908)",
-          "schema:identifier": "USNM 7908 (section 126A)"
+          "schema:identifier": "USNM 7908 (section 126A)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -3020,8 +3124,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3039,7 +3145,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             }
           ],
           "schema:name": "Section 126A (USNM 7908)",
-          "schema:identifier": "USNM 7908 (section 126A)"
+          "schema:identifier": "USNM 7908 (section 126A)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -3136,8 +3245,9 @@ ex:semImagingTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "USNM 7908 (section 126A)" ;
                     schema1:name "Section 126A (USNM 7908)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
@@ -3185,8 +3295,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3204,7 +3316,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             }
           ],
           "schema:name": "Section 126A (USNM 7908)",
-          "schema:identifier": "USNM 7908 (section 126A)"
+          "schema:identifier": "USNM 7908 (section 126A)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -3340,8 +3455,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3359,7 +3476,10 @@ detail instance derived from Ma et al. 2017 | Khatyrka CV3 chondrite (metal phas
             }
           ],
           "schema:name": "Section 126A (USNM 7908)",
-          "schema:identifier": "USNM 7908 (section 126A)"
+          "schema:identifier": "USNM 7908 (section 126A)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:additionalProperty": [
@@ -3482,28 +3602,29 @@ ex:semImagingTAPP-detail-Ma2017-2 a schema1:Dataset,
             schema1:name "NSF EAR-0318518; NSF DMR-0080065 (supporting Caltech GPS Analytical Facility)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "BSE Imaging (ZEISS 1550VP FE-SEM); EPMA (JEOL 8200, separate instrument)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
-            dqv:value -9999 ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value "0.30°~0.45° (all three mineral phases: hollisterite, kryachkoite, stolperite)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/crystalStructureDatabase> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Polished thin section (section 126A prepared from Grain 126); no coating or EBSD-specific preparation stated" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/ebsdPhaseList> ;
             schema1:description "EBSD performed at Caltech GPS Analytical Facility; EPMA (JEOL 8200) used for quantitative chemical analysis (out of scope for SEM TAPP)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Caltech GPS Analytical Facility, California Institute of Technology, Pasadena, CA, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "USNM 7908 (section 126A)" ;
                     schema1:name "Section 126A (USNM 7908)" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
@@ -3560,8 +3681,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3578,7 +3701,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
               "schema:value": "VIS-IR imaging spectroscopy, acquired before the section was prepared — the fragment was embedded and polished \"after the SPectral IMager (SPIM) reflectance spectroscopy imagery acquisition\" and only then carbon coated \"for further SEM-EDS and EMPA-WDS analyses\" (p.3). The SEM work is then registered to those images: \"To cover approximately the same area of the SPIM images (9.7 mm large), 10 BSE images, with four consecutive images in the same row, were acquired and mosaicked\" (p.3)"
             }
           ],
-          "schema:name": "NWA 7317"
+          "schema:name": "NWA 7317",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -3743,8 +3869,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3761,7 +3889,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | BSE
               "schema:value": "VIS-IR imaging spectroscopy, acquired before the section was prepared \u2014 the fragment was embedded and polished \"after the SPectral IMager (SPIM) reflectance spectroscopy imagery acquisition\" and only then carbon coated \"for further SEM-EDS and EMPA-WDS analyses\" (p.3). The SEM work is then registered to those images: \"To cover approximately the same area of the SPIM images (9.7 mm large), 10 BSE images, with four consecutive images in the same row, were acquired and mosaicked\" (p.3)"
             }
           ],
-          "schema:name": "NWA 7317"
+          "schema:name": "NWA 7317",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -3912,13 +4043,13 @@ ex:semImagingTAPP-detail-Pascucci2026 a schema1:Dataset,
             schema1:target [ schema1:name "EDS (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semImagingTAPP/chamberPressure> ;
             schema1:description "10 BSE images acquired at ×138 magnification and mosaicked (4 consecutive per row) to cover ~9.7 mm area matching SPIM imagery" ;
             schema1:endTime "no value available: schema:endTime" ;
@@ -3930,8 +4061,9 @@ ex:semImagingTAPP-detail-Pascucci2026 a schema1:Dataset,
                 <https://example.org/semImagingTAPP-detail-Pascucci2026/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "NWA 7317" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -4006,8 +4138,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4024,7 +4158,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
               "schema:value": "VIS-IR imaging spectroscopy, acquired before the section was prepared — the fragment was embedded and polished \"after the SPectral IMager (SPIM) reflectance spectroscopy imagery acquisition\" and only then carbon coated \"for further SEM-EDS and EMPA-WDS analyses\" (p.3). The SEM work is then registered to those images: \"To cover approximately the same area of the SPIM images (9.7 mm large), 10 BSE images, with four consecutive images in the same row, were acquired and mosaicked\" (p.3)"
             }
           ],
-          "schema:name": "NWA 7317"
+          "schema:name": "NWA 7317",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -4113,8 +4250,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4131,7 +4270,10 @@ detail instance derived from Pascucci et al. 2026 | NWA 7317 CR6 chondrite | SE 
               "schema:value": "VIS-IR imaging spectroscopy, acquired before the section was prepared \u2014 the fragment was embedded and polished \"after the SPectral IMager (SPIM) reflectance spectroscopy imagery acquisition\" and only then carbon coated \"for further SEM-EDS and EMPA-WDS analyses\" (p.3). The SEM work is then registered to those images: \"To cover approximately the same area of the SPIM images (9.7 mm large), 10 BSE images, with four consecutive images in the same row, were acquired and mosaicked\" (p.3)"
             }
           ],
-          "schema:name": "NWA 7317"
+          "schema:name": "NWA 7317",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -4218,8 +4360,9 @@ ex:semImagingTAPP-detail-Pascucci2026-2 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "NWA 7317" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -4266,8 +4409,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4284,7 +4429,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "Optical microscopy before coating — \"After initial documentation by optical microscopy, the sample was sputter coated with ~5 nm of C to assist with charge dissipation during SEM analysis\" (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -4426,8 +4574,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4444,7 +4594,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "Optical microscopy before coating \u2014 \"After initial documentation by optical microscopy, the sample was sputter coated with ~5 nm of C to assist with charge dissipation during SEM analysis\" (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -4591,8 +4744,9 @@ ex:semImagingTAPP-detail-Zega2025 a schema1:Dataset,
                 <https://example.org/semImagingTAPP-detail-Zega2025/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -4653,8 +4807,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4671,7 +4827,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N — the passage describes mounting and coating only (\"Polished sections were coated with a thin layer (0.1 nm) of carbon to mitigate charge build-up\", p.9); no prior imaging or screening is described"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -4768,8 +4927,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4786,7 +4947,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N \u2014 the passage describes mounting and coating only (\"Polished sections were coated with a thin layer (0.1 nm) of carbon to mitigate charge build-up\", p.9); no prior imaging or screening is described"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -4871,20 +5035,21 @@ ex:semImagingTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:target [ schema1:name "BSE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging detectors; also equipped with Oxford Instruments Aztec Live/x-stream/Ultimax 170 SDD EDS; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -4931,8 +5096,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4949,7 +5116,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N — the passage describes mounting and coating only (\"Polished sections were coated with a thin layer (0.1 nm) of carbon to mitigate charge build-up\", p.9); no prior imaging or screening is described"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -5046,8 +5216,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5064,7 +5236,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N \u2014 the passage describes mounting and coating only (\"Polished sections were coated with a thin layer (0.1 nm) of carbon to mitigate charge build-up\", p.9); no prior imaging or screening is described"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -5149,20 +5324,21 @@ ex:semImagingTAPP-detail-Zega2025-3 a schema1:Dataset,
             schema1:target [ schema1:name "SE Imaging (Hitachi S-4800, U Arizona); EDS (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Cold FEG; system range 0.5-30 keV; SE and BSE imaging; EDS mapping; specific operating voltage not stated" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:location [ a schema1:Place ;
                     schema1:name "K-ALFAA (Kuiper-Arizona Laboratory for Astromaterials Analysis), University of Arizona" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -5209,8 +5385,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5227,7 +5405,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N — the cathodoluminescence passage describes the instrument and beam conditions only (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -5364,8 +5545,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
     {
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5382,7 +5565,10 @@ detail instance derived from Zega et al. 2025 | Bennu asteroid particles (OSIRIS
               "schema:value": "N \u2014 the cathodoluminescence passage describes the instrument and beam conditions only (p.9)"
             }
           ],
-          "schema:name": "no value available: schema:name"
+          "schema:name": "no value available: schema:name",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:instrument": [
@@ -5518,8 +5704,9 @@ ex:semImagingTAPP-detail-Zega2025-4 a schema1:Dataset,
             schema1:instrument <https://example.org/semImagingTAPP-detail-Zega2025-4/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Université Côte d'Azur / Observatoire de la Côte d'Azur, Valbonne, France" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;
@@ -6007,11 +6194,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

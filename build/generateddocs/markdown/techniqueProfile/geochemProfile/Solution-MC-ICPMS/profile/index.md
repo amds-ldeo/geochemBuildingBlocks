@@ -223,10 +223,12 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:object": [
         {
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "ALH 84001,123",
@@ -774,10 +776,12 @@ and technique component types on the archive distribution. Mock data for validat
       "schema:object": [
         {
           "@type": [
-            "schema:Thing",
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            "schema:Thing"
           ],
           "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            },
             "MaterialSample"
           ],
           "schema:name": "ALH 84001,123",
@@ -1195,18 +1199,18 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
         <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: peakFlatness" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ] ;
+            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:solutionMcicpmsTAPP-P0 ;
@@ -1217,9 +1221,9 @@ ex:adaSolutionMCICPMS-example-001 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/wiki/Q483242> ;
                     schema1:identifier "https://ror.org/00hx57361" ;
                     schema1:name "Analytical Sciences Laboratory" ] ;
-            schema1:object [ a schema1:Thing,
-                        <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
-                    schema1:additionalType "MaterialSample" ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample>,
+                        "MaterialSample" ;
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;

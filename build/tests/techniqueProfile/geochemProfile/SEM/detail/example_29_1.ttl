@@ -11,17 +11,21 @@ ex:semTAPP-detail-Zega2025-7 a schema1:Dataset,
             schema1:name "US DOE contract DE-AC02-05CH11231 (Advanced Light Source / Molecular Foundry)" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Synchrotron XANES (ALS, Berkeley); TEM analysis" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ],
-        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
-            dqv:value -9999 ],
-        [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "EBSD Indexing Rate" ;
             dqv:value -9999 ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "EBSD Mean Angular Deviation" ;
+            dqv:value -9999 ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — a sample-preparation procedure produces sections, not results to combine" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/coarseMillingConditions>,
                                 <https://ada.astromat.org/metadata/parameter/semTAPP/finePolishingConditions> ;
@@ -32,20 +36,17 @@ ex:semTAPP-detail-Zega2025-7 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "no value available: schema:description" ;
                             schema1:name "Ion milling" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:description "Thicker sections (<100 nm) for TEM; sections up to 600 nm for Fe-L XANES and tomography" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument <https://example.org/semTAPP-detail-Zega2025-7/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Molecular Foundry, Lawrence Berkeley National Laboratory (UC Berkeley)" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening>,
                         <https://ada.astromat.org/metadata/parameter/semTAPP/foilThickness> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "no value available: schema:name" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;

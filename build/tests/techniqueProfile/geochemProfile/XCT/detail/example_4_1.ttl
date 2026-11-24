@@ -9,10 +9,10 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
         schema1:Product ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/numberOfSubVolumes>,
         <https://ada.astromat.org/metadata/parameter/labxctTAPP/voiApplied> ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
             dqv:value "Steel outer sleeve caused secondary BH and scattering artifact resulting in uneven brightness; corrected with asymmetric + symmetric corrections" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "BH artifact from steel sleeve: uneven brightness and scattering; asymmetric + symmetric corrections applied" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "Post-reconstruction ring corrections applied; severity not documented" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
@@ -33,8 +33,9 @@ ex:labxctTAPP-detail-Neuman2025-2 a schema1:Dataset,
             schema1:instrument <https://example.org/labxctTAPP-detail-Neuman2025-2/instrument/XCT> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "UTCT Facility, U. Texas" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/labxctTAPP/sampleDimensions> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Apollo 17 core 73001" ] ;
             schema1:startTime "no value available: schema:startTime" ] ;
     ada:analysisEndDate "missing" ;

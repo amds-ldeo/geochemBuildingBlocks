@@ -15,6 +15,13 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
+                    ada:ebsdIndexingMethod "missing" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Particles dispersed on conductive carbon dots on Al SEM pin mounts" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
@@ -22,13 +29,6 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
                     ada:finePolishingConditionsDefault "Ga+ ion beam at 5 kV (final thinning) until ~100 nm thick" ;
                     ada:liftOutMethod "In-situ (micromanipulator, Cu or Mo TEM half-grid)" ;
                     ada:protectiveCoatingDepositionDefault "Electron-beam deposited carbon (~0.5–1 µm); followed by ion beam-deposited carbon (~2–3 µm capping layer)" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ;
-                    ada:ebsdIndexingMethod "missing" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -44,9 +44,8 @@ ex:semTAPP-Zega2025-8 a schema1:Action,
             schema1:name "sem" ;
             schema1:termCode "sem" ] ;
     schema1:name "sem protocol — Zega2025-8" ;
-    schema1:object [ a schema1:DefinedTerm,
-                schema1:Thing,
-                <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+    schema1:object [ a schema1:Thing ;
+            schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
             ada:foilThicknessDefault "~100 nm" ;
             ada:sliceThicknessDefault -9999 ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;

@@ -40,10 +40,15 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
       "schema:startTime": "2023-12-11",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800045-101"
+          "schema:name": "OREX-800045-101",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -96,10 +101,15 @@ detail instance derived from ADA n=325 | no named analyst | European Synchrotron
       "schema:startTime": "2023-12-11",
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
-          "schema:name": "OREX-800045-101"
+          "schema:name": "OREX-800045-101",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:endTime": "no value available: schema:endTime"
@@ -129,7 +139,8 @@ ex:sXrfTAPP-detail-P0 a schema1:Dataset,
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/02550n020" ;
                     schema1:name "European Synchrotron Radiation Facility" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800045-101" ] ;
             schema1:startTime "2023-12-11" ] ;
     ada:analysisEndDate "missing" ;
@@ -183,11 +194,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:

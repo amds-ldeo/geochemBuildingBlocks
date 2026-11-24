@@ -102,8 +102,10 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -120,7 +122,10 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
               "schema:value": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses — \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
             }
           ],
-          "schema:name": "Tissint Mars meteorite"
+          "schema:name": "Tissint Mars meteorite",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -319,8 +324,10 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -337,7 +344,10 @@ detail instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 82
               "schema:value": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM, which locates the occurrences the probe then analyses \u2014 \"SEM BSE image showing tissintite in a shock melt pocket, in Tissint section UT2\" (Fig. 1 caption, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order"
             }
           ],
-          "schema:name": "Tissint Mars meteorite"
+          "schema:name": "Tissint Mars meteorite",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -454,9 +464,9 @@ ex:epmaTAPP-detail-Ma2015 a schema1:Dataset,
             schema1:name "DOE Cooperative Agreement DE-NA0001982; NSF EAR 322082; NASA NNN13D465T; NASA Cosmochemistry NNX11AG58G and NNX12AH63G; NSF EAR 1344942 and 1440005 — acknowledged author by author for the study as a whole; none is attributed to the microprobe work" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, FeO, MgO, CaO, Na2O, K2O, Cr2O3, MnO: one standard deviation of the mean; other: N — Table 1 note b: 'Errors given inside parentheses are one standard deviation of the mean based on all of the analyses'" ] ;
@@ -474,17 +484,18 @@ ex:epmaTAPP-detail-Ma2015 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/epmaTAPP-detail-Ma2015/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Caltech GPS Division Analytical Facility" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Tissint Mars meteorite" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -618,8 +629,10 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -636,7 +649,10 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
               "schema:value": "SEM imaging and EDS mapping on three instruments before the probe — \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)"
             }
           ],
-          "schema:name": "NWA 8657 shergottite"
+          "schema:name": "NWA 8657 shergottite",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -814,8 +830,10 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -832,7 +850,10 @@ detail instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-810
               "schema:value": "SEM imaging and EDS mapping on three instruments before the probe \u2014 \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)"
             }
           ],
-          "schema:name": "NWA 8657 shergottite"
+          "schema:name": "NWA 8657 shergottite",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -936,19 +957,19 @@ ex:epmaTAPP-detail-Hu2020 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NSFC 41573057, 41430105 and 41973062; China Scholarship Council 201804910284; IGGCAS key research program IGGCAS-201905 — 'This study was financially supported by ...'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "https://doi.org/10.1016/j.gca.2020.07.021 — 'Supplementary data to this article can be found online at ...'" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "https://doi.org/10.1016/j.gca.2020.07.021 — 'Supplementary data to this article can be found online at ...'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thick section (NWA 8657); carbon coating N" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -959,8 +980,9 @@ ex:epmaTAPP-detail-Hu2020 a schema1:Dataset,
                 <https://example.org/epmaTAPP-detail-Hu2020/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "NWA 8657 shergottite" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -1128,8 +1150,10 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1146,7 +1170,10 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
               "schema:value": "Petrographic microscopy and SEM — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" before the microprobe work (p.3)"
             }
           ],
-          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B"
+          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -1359,8 +1386,10 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1377,7 +1406,10 @@ detail instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenness
               "schema:value": "Petrographic microscopy and SEM \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" before the microprobe work (p.3)"
             }
           ],
-          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B"
+          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -1484,21 +1516,21 @@ ex:epmaTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:name "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b: '1σ is 1 standard deviation of the average'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin sections (coating type N)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimization>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> ;
             schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 1 of 2: University of Tennessee Cameca SX100. Same paper also uses Caltech GPS JXA-8200 (see Liu+2016_Cal column). Point analysis AND X-ray mapping performed at UT. Specific mapping: BSE + Ca/Al/Fe/Mg Ka maps (15 kV, 20 nA, step 8-12 µm). Olivine megacryst mapping (15 kV, 200 nA, step 2 µm, dwell ~0.5 s) described as \"using the EMP\" — instrument ambiguous (may be UT or Caltech instrument). Standards, matrix correction, and software not stated." ;
@@ -1507,8 +1539,9 @@ ex:epmaTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:instrument <https://example.org/epmaTAPP-detail-Liu2016/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Department of Earth and Planetary Sciences, University of Tennessee, Knoxville" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -1666,8 +1699,10 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1684,7 +1719,10 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
               "schema:value": "Petrographic microscopy and SEM — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" (p.3); the same sections then went to both microprobes"
             }
           ],
-          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B"
+          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -1867,8 +1905,10 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -1885,7 +1925,10 @@ detail instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (
               "schema:value": "Petrographic microscopy and SEM \u2014 \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" (p.3); the same sections then went to both microprobes"
             }
           ],
-          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B"
+          "schema:name": "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -1992,11 +2035,11 @@ ex:epmaTAPP-detail-Liu2016-2 a schema1:Dataset,
             schema1:name "NASA Cosmochemistry NNX11AG58G and NNN13D465T; NSF EAR-1226270; NSF EAR-1019770 — 'We acknowledge partial support by ...'" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "SiO2, TiO2, Al2O3, Cr2O3, MgO, CaO, MnO, FeO, NiO, Na2O, K2O, P2O5: 1σ, one standard deviation of the average; other: N — Table 3 note b" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -2014,8 +2057,9 @@ ex:epmaTAPP-detail-Liu2016-2 a schema1:Dataset,
             schema1:instrument <https://example.org/epmaTAPP-detail-Liu2016-2/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Division of Geological and Planetary Sciences, Caltech" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Tissint thin sections UT1, UT2, UT3; Tata-1-C1 to C3; Tata-2-C1 to C3; Tata-3-C1 to C3; Tissint-B" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -2193,8 +2237,10 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2212,7 +2258,10 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
             }
           ],
           "schema:name": "Zagami USNM 7619",
-          "schema:identifier": "USNM 7619 — Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN"
+          "schema:identifier": "USNM 7619 — Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -2437,8 +2486,10 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2456,7 +2507,10 @@ detail instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech G
             }
           ],
           "schema:name": "Zagami USNM 7619",
-          "schema:identifier": "USNM 7619 \u2014 Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN"
+          "schema:identifier": "USNM 7619 \u2014 Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -2574,28 +2628,24 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
             schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N — Table 1 note c, same wording" ] ;
+            dqv:value "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: one standard deviation of the mean; other: N — Table 1 note c, same wording" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section USNM 7619 (coating type N)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimization> ;
             schema1:description "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Probe for EPMA (Probe Software, Inc.)" ;
                     ada:toolRole "acquisition" ],
@@ -2603,11 +2653,16 @@ ex:epmaTAPP-detail-Ma2017 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:DefinedTerm ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                    schema1:name "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
+                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/epmaTAPP-detail-Ma2017/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Division of Geological and Planetary Sciences Analytical Facility, Caltech" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "USNM 7619 — Smithsonian catalogue number: 'The Zagami thin section (USNM 7619)'; no IGSN" ;
                     schema1:name "Zagami USNM 7619" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -2746,8 +2801,10 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2764,7 +2821,10 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
               "schema:value": "Petrographic microscopy and SEM — \"The CAI was characterized by petrographic microscope, scanning electron microscope, electron microprobe, and X-ray mapping before being measured for oxygen isotopes\" (p.3); the object itself had been found during an earlier survey of matrix compositions (p.3)"
             }
           ],
-          "schema:name": "Ivuna CI chondrite, section MZ2"
+          "schema:name": "Ivuna CI chondrite, section MZ2",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -2920,8 +2980,10 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -2938,7 +3000,10 @@ detail instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (ARE
               "schema:value": "Petrographic microscopy and SEM \u2014 \"The CAI was characterized by petrographic microscope, scanning electron microscope, electron microprobe, and X-ray mapping before being measured for oxygen isotopes\" (p.3); the object itself had been found during an earlier survey of matrix compositions (p.3)"
             }
           ],
-          "schema:name": "Ivuna CI chondrite, section MZ2"
+          "schema:name": "Ivuna CI chondrite, section MZ2",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -3020,10 +3085,10 @@ ex:epmaTAPP-detail-Frank2023 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNX11AG78G, 13-COS13-0026, NNX14AI19G and 80NSSC18K0586; NASA Cosmochemistry and Emerging Worlds Programs — 'This work was supported by ...'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "same submission — 'All data are included within the manuscript'" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM" ] ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "same submission — 'All data are included within the manuscript'" ] ;
     prov:wasGeneratedBy [ schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. No EPMA secondary standard is named (San Carlos olivine standardised the SIMS work). Detection limits stated per element group." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -3034,8 +3099,9 @@ ex:epmaTAPP-detail-Frank2023 a schema1:Dataset,
                 <https://example.org/epmaTAPP-detail-Frank2023/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ARES, NASA Johnson Space Center" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "Ivuna CI chondrite, section MZ2" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -3179,8 +3245,10 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3197,7 +3265,10 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
               "schema:value": "Optical microscopy of the same thin section — \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)"
             }
           ],
-          "schema:name": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)"
+          "schema:name": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -3390,8 +3461,10 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3408,7 +3481,10 @@ detail instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU
               "schema:value": "Optical microscopy of the same thin section \u2014 \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)"
             }
           ],
-          "schema:name": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)"
+          "schema:name": "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -3517,16 +3593,16 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA 80NSSC22K1689; NASA 80NSSC24K1284; McDonnell Center for the Space Sciences — 'Individual funding was provided by ...'" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "N — 'The data that support the findings of this study are available from the corresponding author upon reasonable request'" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "N — 'The data that support the findings of this study are available from the corresponding author upon reasonable request'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ] ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — the carbonate means are given as '±' values ('2.0 ± 0.4 wt% Fe') without naming the statistic" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -3554,8 +3630,9 @@ ex:epmaTAPP-detail-Broussard2026 a schema1:Dataset,
                 <https://example.org/epmaTAPP-detail-Broussard2026/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OC002 LAB24-2 (10-11 fragments of Oued Chebeika 002)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -3698,8 +3775,10 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3717,7 +3796,10 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
             }
           ],
           "schema:name": "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)",
-          "schema:identifier": "OREX-803079-0; OREX-803080-0 — NASA curation numbers of the mounts, not IGSN"
+          "schema:identifier": "OREX-803079-0; OREX-803080-0 — NASA curation numbers of the mounts, not IGSN",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -3911,8 +3993,10 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -3930,7 +4014,10 @@ detail instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES
             }
           ],
           "schema:name": "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)",
-          "schema:identifier": "OREX-803079-0; OREX-803080-0 \u2014 NASA curation numbers of the mounts, not IGSN"
+          "schema:identifier": "OREX-803079-0; OREX-803080-0 \u2014 NASA curation numbers of the mounts, not IGSN",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -4034,19 +4121,19 @@ ex:epmaTAPP-detail-Seifert2026 a schema1:Dataset,
             schema1:roleName "analyst" ] ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program); NASA Postdoctoral Program — acknowledgements" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "astromat.org, at the DOIs in Table S1 — 'Instrument data products that support the findings of this study will be available via astromat.org at the DOIs given in Table S1'" ],
-        [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Table S1 — 'Instrument data products that support the findings of this study will be available via astromat.org at the DOIs given in Table S1'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamDamageMinimization>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/halogenCorrectionOnOxygen> ;
             schema1:description "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed." ;
@@ -4055,8 +4142,9 @@ ex:epmaTAPP-detail-Seifert2026 a schema1:Dataset,
             schema1:instrument <https://example.org/epmaTAPP-detail-Seifert2026/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ARES, NASA Johnson Space Center" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-803079-0; OREX-803080-0 — NASA curation numbers of the mounts, not IGSN" ;
                     schema1:name "OREX-803079-0 and OREX-803080-0 (Bennu OSIRIS-REx samples)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -4190,8 +4278,10 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4208,7 +4298,10 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
               "schema:value": "SEM petrography — \"The petrographic texture of NWA 8003 was observed using a JEOL 7000F field emission gun scanning electron microscope (FEG-SEM) at Hokkaido University\" (p.7); phase identifications also rest on Raman spectra and EBSD patterns (p.4)"
             }
           ],
-          "schema:name": "NWA 8003 eucrite"
+          "schema:name": "NWA 8003 eucrite",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -4380,8 +4473,10 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4398,7 +4493,10 @@ detail instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nan
               "schema:value": "SEM petrography \u2014 \"The petrographic texture of NWA 8003 was observed using a JEOL 7000F field emission gun scanning electron microscope (FEG-SEM) at Hokkaido University\" (p.7); phase identifications also rest on Raman spectra and EBSD patterns (p.4)"
             }
           ],
-          "schema:name": "NWA 8003 eucrite"
+          "schema:name": "NWA 8003 eucrite",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -4511,29 +4609,30 @@ ex:epmaTAPP-detail-Pang2016 a schema1:Dataset,
             schema1:target "Supplementary Information at www.nature.com/srep — 'Supplementary information accompanies this paper at http://www.nature.com/srep'; the EPMA data are in Supplementary Tables 1–4" ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "N — the averages are given as '±' values ('41 ± 8 mol%') without naming the statistic" ],
         [ dqv:isMeasurementOf "Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "N — the averages are given as '±' values ('41 ± 8 mol%') without naming the statistic" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Polished thin section; carbon coating N" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument <https://example.org/epmaTAPP-detail-Pang2016/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "State Key Laboratory for Mineral Deposits Research, Nanjing University" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "NWA 8003 eucrite" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:combinedResults [ ] ;
@@ -4668,8 +4767,10 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4687,7 +4788,10 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
             }
           ],
           "schema:name": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)"
+          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -4857,8 +4961,10 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -4876,7 +4982,10 @@ detail instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (S
             }
           ],
           "schema:name": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)"
+          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -4970,10 +5079,10 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "NASA NNH09ZDA007O under contract NNM10AA11C (New Frontiers Program) — 'This material is based on work supported by ...'; individual grants are also listed by person (80NSSC22K1692, MR/T020261/1, ST/V000675/1, 22EXPOSITO)" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — 'Instrument data supporting the experimental results from the samples analysed in this study will be available from Astromat (astromat.org) at the DOIs listed in Extended Data Table 3'" ] ;
+    schema1:relatedLink [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "astromat.org, at the DOIs in Extended Data Table 3 — 'Instrument data supporting the experimental results from the samples analysed in this study will be available from Astromat (astromat.org) at the DOIs listed in Extended Data Table 3'" ],
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -4993,8 +5102,9 @@ ex:epmaTAPP-detail-McCoy2025 a schema1:Dataset,
                 <https://example.org/epmaTAPP-detail-McCoy2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Smithsonian Institution, National Museum of Natural History" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -5118,8 +5228,10 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5137,7 +5249,10 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
             }
           ],
           "schema:name": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)"
+          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -5295,8 +5410,10 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5314,7 +5431,10 @@ detail instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis 
             }
           ],
           "schema:name": "Bennu OSIRIS-REx samples (OREX-8#####-###)",
-          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)"
+          "schema:identifier": "OREX-8#####-### (NASA curatorial ID, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -5427,8 +5547,9 @@ ex:epmaTAPP-detail-McCoy2025-2 a schema1:Dataset,
             schema1:instrument <https://example.org/epmaTAPP-detail-McCoy2025-2/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -5594,8 +5715,10 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5613,7 +5736,10 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
             }
           ],
           "schema:name": "Bennu OSIRIS-REx samples (OREX-5/8#####-###)",
-          "schema:identifier": "OREX-5/8#####-### (NASA curatorial ID, not IGSN)"
+          "schema:identifier": "OREX-5/8#####-### (NASA curatorial ID, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -5787,8 +5913,10 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -5806,7 +5934,10 @@ detail instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysi
             }
           ],
           "schema:name": "Bennu OSIRIS-REx samples (OREX-5/8#####-###)",
-          "schema:identifier": "OREX-5/8#####-### (NASA curatorial ID, not IGSN)"
+          "schema:identifier": "OREX-5/8#####-### (NASA curatorial ID, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -5887,8 +6018,9 @@ ex:epmaTAPP-detail-Zega2025 a schema1:Dataset,
                 <https://example.org/epmaTAPP-detail-Zega2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-5/8#####-### (NASA curatorial ID, not IGSN)" ;
                     schema1:name "Bennu OSIRIS-REx samples (OREX-5/8#####-###)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -6042,8 +6174,10 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6061,7 +6195,10 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
             }
           ],
           "schema:name": "OREX-800045-103 and OREX-800045-107",
-          "schema:identifier": "OREX-800045-103; OREX-800045-107 (NASA curatorial IDs, not IGSN)"
+          "schema:identifier": "OREX-800045-103; OREX-800045-107 (NASA curatorial IDs, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -6232,8 +6369,10 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6251,7 +6390,10 @@ detail instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (C
             }
           ],
           "schema:name": "OREX-800045-103 and OREX-800045-107",
-          "schema:identifier": "OREX-800045-103; OREX-800045-107 (NASA curatorial IDs, not IGSN)"
+          "schema:identifier": "OREX-800045-103; OREX-800045-107 (NASA curatorial IDs, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -6359,8 +6501,9 @@ ex:epmaTAPP-detail-Barnes2025 a schema1:Dataset,
             schema1:instrument <https://example.org/epmaTAPP-detail-Barnes2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Centre de Recherches Pétrographiques et Géochimiques (CRPG), Nancy, France" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-800045-103; OREX-800045-107 (NASA curatorial IDs, not IGSN)" ;
                     schema1:name "OREX-800045-103 and OREX-800045-107" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -6491,8 +6634,10 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6510,7 +6655,10 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
             }
           ],
           "schema:name": "OREX-501054-0 and OREX-501059-0 (particles P1, P2)",
-          "schema:identifier": "OREX-501054-0; OREX-501059-0 (NASA curatorial IDs, not IGSN)"
+          "schema:identifier": "OREX-501054-0; OREX-501059-0 (NASA curatorial IDs, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -6664,8 +6812,10 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -6683,7 +6833,10 @@ detail instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (NH
             }
           ],
           "schema:name": "OREX-501054-0 and OREX-501059-0 (particles P1, P2)",
-          "schema:identifier": "OREX-501054-0; OREX-501059-0 (NASA curatorial IDs, not IGSN)"
+          "schema:identifier": "OREX-501054-0; OREX-501059-0 (NASA curatorial IDs, not IGSN)",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "ada:combinedResults": [
@@ -6777,21 +6930,22 @@ ex:epmaTAPP-detail-Barnes2025-2 a schema1:Dataset,
             schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not given. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA." ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument <https://example.org/epmaTAPP-detail-Barnes2025-2/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Natural History Museum (NHM), London, UK" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:identifier "OREX-501054-0; OREX-501059-0 (NASA curatorial IDs, not IGSN)" ;
                     schema1:name "OREX-501054-0 and OREX-501059-0 (particles P1, P2)" ] ;
             schema1:startTime "no value available: schema:startTime" ;
@@ -6999,8 +7153,10 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -7017,7 +7173,10 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
               "schema:value": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution"
             }
           ],
-          "schema:name": "73001,6014-73001,6021"
+          "schema:name": "73001,6014-73001,6021",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -7288,8 +7447,10 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
       ],
       "schema:object": [
         {
-          "@type": [
-            "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+          "schema:additionalType": [
+            {
+              "@id": "https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample"
+            }
           ],
           "schema:additionalProperty": [
             {
@@ -7306,7 +7467,10 @@ detail instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL J
               "schema:value": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution"
             }
           ],
-          "schema:name": "73001,6014-73001,6021"
+          "schema:name": "73001,6014-73001,6021",
+          "@type": [
+            "schema:Thing"
+          ]
         }
       ],
       "schema:location": {
@@ -7438,13 +7602,13 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
                     schema1:name "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/epmaTAPP/beamRasterDimensions>,
                 <https://ada.astromat.org/metadata/parameter/epmaTAPP/stepSizePixelSize> ;
             schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes." ;
@@ -7452,17 +7616,18 @@ ex:epmaTAPP-detail-Neuman2025 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/epmaTAPP-detail-Neuman2025/instrument/EPMA> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;
-            schema1:object [ a <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
+            schema1:object [ a schema1:Thing ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
+                    schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "73001,6014-73001,6021" ] ;
             schema1:startTime "no value available: schema:startTime" ;
             ada:deadTime -9999 ;
@@ -8217,11 +8382,18 @@ allOf:
               allOf:
               - if:
                   properties:
-                    '@type':
+                    schema:additionalType:
                       contains:
-                        const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        anyOf:
+                        - const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
+                        - type: object
+                          required:
+                          - '@id'
+                          properties:
+                            '@id':
+                              const: https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample
                   required:
-                  - '@type'
+                  - schema:additionalType
                 then:
                   properties:
                     schema:additionalProperty:
