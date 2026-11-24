@@ -35,7 +35,7 @@ It composes the CDIF profiles and adds the generic geochem surface:
   mapping for tabular-text files. File-classification vocabulary (e.g. ADA
   `ada:componentType`) is added by the extending profile.
 
-A record declares conformance to `https://w3id.org/geochem/metadata/profiles/geochemProduct`
+A record declares conformance to `https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct`
 (alongside the CDIF profile URIs). Extending profiles add their own conformance URI, so
 a record self-declares the full profile chain.
 
@@ -292,7 +292,7 @@ their delivery-packaging vocabulary (see adaProduct).
         "@id": "https://w3id.org/cdif/data_structure/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       }
     ],
     "schema:maintainer": {
@@ -557,7 +557,7 @@ their delivery-packaging vocabulary (see adaProduct).
         "@id": "https://w3id.org/cdif/data_structure/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       }
     ],
     "schema:maintainer": {
@@ -654,7 +654,7 @@ ex:geochemProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/data_structure/1.1>,
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
-        <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
+        <https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct> ;
     schema1:about ex:geochemProduct-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
