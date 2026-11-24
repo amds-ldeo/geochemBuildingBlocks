@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.BaseSchema.modules.icpms - TAPP Composition Module: ICPMS",
   "bblockName": "TAPP Composition Module: ICPMS",
   "bblockId": "ogch.BaseSchema.modules.icpms",
-  "generated": "2026-11-23T20:11:54.927744+00:00",
+  "generated": "2026-11-23T23:46:23.289232+00:00",
   "result": false,
   "items": [
     {
@@ -103,14 +103,14 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:N21c3d7af8cf449208eaba94bb4217e9e ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:identifier ;\n                    sh:severity sh:Warning ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode _:N21c3d7af8cf449208eaba94bb4217e9e ;\n            sh:resultMessage \"An instrument must have a name (schema:name).\" ;\n            sh:resultPath schema1:name ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:message \"An instrument must have a name (schema:name).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:name ] ] .\n\n_:N5101af0602a24343bab7c71204a9b288 a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,\n        \"no value available: unnamed property\" ;\n    schema1:name \"no value available: unnamed property\" .\n\n_:N21c3d7af8cf449208eaba94bb4217e9e a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,\n        \"no value available: unnamed property\" ;\n    schema1:hasPart _:N5101af0602a24343bab7c71204a9b288 .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode _:N8bce36bd3d564a0da4c304de0429adfc ;\n            sh:resultMessage \"An instrument must have a name (schema:name).\" ;\n            sh:resultPath schema1:name ;\n            sh:resultSeverity sh:Violation ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:datatype xsd:string ;\n                    sh:message \"An instrument must have a name (schema:name).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:name ] ],\n        [ a sh:ValidationResult ;\n            sh:focusNode _:N8bce36bd3d564a0da4c304de0429adfc ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape [ sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n                    sh:minCount 1 ;\n                    sh:path schema1:identifier ;\n                    sh:severity sh:Warning ] ] .\n\n_:N03a82993afe94c358c0efb05fedee837 a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,\n        \"no value available: unnamed property\" ;\n    schema1:name \"no value available: unnamed property\" .\n\n_:N8bce36bd3d564a0da4c304de0429adfc a schema1:Product,\n        schema1:Thing ;\n    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,\n        \"no value available: unnamed property\" ;\n    schema1:hasPart _:N03a82993afe94c358c0efb05fedee837 .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 1 violation, 1 warning"
             },
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Violation",
-              "focusNode": "N21c3d7af8cf449208eaba94bb4217e9e",
+              "focusNode": "N8bce36bd3d564a0da4c304de0429adfc",
               "resultPath": "schema1:name",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -120,12 +120,12 @@
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "isError": true,
               "severity": "error",
-              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:name)\n  Focus node: _:N21c3d7af8cf449208eaba94bb4217e9e\n  Result path: schema1:name\n  Message: An instrument must have a name (schema:name)."
+              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:name)\n  Focus node: _:N8bce36bd3d564a0da4c304de0429adfc\n  Result path: schema1:name\n  Message: An instrument must have a name (schema:name)."
             },
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Warning",
-              "focusNode": "N21c3d7af8cf449208eaba94bb4217e9e",
+              "focusNode": "N8bce36bd3d564a0da4c304de0429adfc",
               "resultPath": "schema1:identifier",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -135,7 +135,7 @@
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "isError": false,
               "severity": "warning",
-              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:N21c3d7af8cf449208eaba94bb4217e9e\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
+              "message": "Warning (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:identifier)\n  Focus node: _:N8bce36bd3d564a0da4c304de0429adfc\n  Result path: schema1:identifier\n  Message: An instrument should have an identifier (schema:identifier)."
             },
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
@@ -333,7 +333,7 @@
             {
               "op": "shacl-result",
               "resultSeverity": "http://www.w3.org/ns/shacl#Violation",
-              "focusNode": "N16010997a0924b73972d2954b2463707",
+              "focusNode": "Nc8e72214aa994ecc97d043b81faa2143",
               "resultPath": "schema1:name",
               "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MinCountConstraintComponent",
               "sourceShape": null,
@@ -343,7 +343,7 @@
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "isError": true,
               "severity": "error",
-              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:name)\n  Focus node: _:N16010997a0924b73972d2954b2463707\n  Result path: schema1:name\n  Message: An instrument must have a name (schema:name)."
+              "message": "Violation (sh:MinCountConstraintComponent):\n  Source shape: cdifd:adaInstrumentShape/sh:property (path schema1:name)\n  Focus node: _:Nc8e72214aa994ecc97d043b81faa2143\n  Result path: schema1:name\n  Message: An instrument must have a name (schema:name)."
             },
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",

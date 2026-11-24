@@ -12,14 +12,14 @@ ex:solutionMcicpmsTAPP-detail-P1 a schema1:Dataset,
                     schema1:name "Laser-ablation MC-ICP-MS — the same NEPTUNE, with a NewWave UP213 laser, \"such that laser ablation and solution aspiration can be operated simultaneously\"" ] ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "δ34S, δ33S: two standard deviations of the replicates — Table 3 note" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "Alfa [δ34S: ±0.21‰, 2σ, 20–30 replicates]; Sch-M-2 [δ34S: ±0.45‰, 2σ, 12 replicates, laser] — §3.2; S_Spex ±0.18‰; δ³³S an order of magnitude worse" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123 [δ34S: consistent with published consensus values within uncertainty] — §2.4, Table 3" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123 [δ34S: consistent with published consensus values within uncertainty] — §2.4, Table 3" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "Alfa [δ34S: ±0.21‰, 2σ, 20–30 replicates]; Sch-M-2 [δ34S: ±0.45‰, 2σ, 12 replicates, laser] — §3.2; S_Spex ±0.18‰; δ³³S an order of magnitude worse" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
@@ -29,15 +29,15 @@ ex:solutionMcicpmsTAPP-detail-P1 a schema1:Dataset,
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;

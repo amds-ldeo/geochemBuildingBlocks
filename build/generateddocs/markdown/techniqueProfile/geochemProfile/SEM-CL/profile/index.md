@@ -424,7 +424,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaProduct"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -436,13 +436,13 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMCL"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaSEMCL"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -889,7 +889,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaProduct"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -901,13 +901,13 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEMCL"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaSEMCL"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaSEM"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaSEM"
       }
     ],
     "schema:maintainer": {
@@ -1072,10 +1072,10 @@ ex:adaProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
-        <https://w3id.org/geochem/metadata/profiles/adaProduct>,
-        <https://w3id.org/geochem/metadata/profiles/adaSEM>,
-        <https://w3id.org/geochem/metadata/profiles/adaSEMCL>,
-        <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
+        <https://w3id.org/geochem/metadata/profiles/1.1/adaProduct>,
+        <https://w3id.org/geochem/metadata/profiles/1.1/adaSEM>,
+        <https://w3id.org/geochem/metadata/profiles/1.1/adaSEMCL>,
+        <https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct> ;
     schema1:about ex:adaProduct-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
@@ -1160,7 +1160,7 @@ allOf:
             type: object
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaSEMCL
+                const: https://w3id.org/geochem/metadata/profiles/1.1/adaSEMCL
       title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-CL.profile

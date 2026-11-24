@@ -439,7 +439,7 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaL2MS"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaL2MS"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -451,10 +451,10 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       }
     ],
     "schema:maintainer": {
@@ -874,7 +874,7 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaL2MS"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaL2MS"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -886,10 +886,10 @@ Mock data for validation and testing.
         "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       }
     ],
     "schema:maintainer": {
@@ -1054,9 +1054,9 @@ ex:adaL2MS-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
-        <https://w3id.org/geochem/metadata/profiles/adaL2MS>,
-        <https://w3id.org/geochem/metadata/profiles/adaProduct>,
-        <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
+        <https://w3id.org/geochem/metadata/profiles/1.1/adaL2MS>,
+        <https://w3id.org/geochem/metadata/profiles/1.1/adaProduct>,
+        <https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct> ;
     schema1:about ex:adaL2MS-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
@@ -1145,7 +1145,7 @@ allOf:
             additionalProperties: false
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaL2MS
+                const: https://w3id.org/geochem/metadata/profiles/1.1/adaL2MS
           x-jsonld-id: http://purl.org/dc/terms/conformsTo
       x-jsonld-id: http://schema.org/subjectOf
 x-jsonld-prefixes:

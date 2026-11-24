@@ -487,7 +487,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaProduct"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -499,10 +499,10 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaLAMCICPMSUPb"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaLAMCICPMSUPb"
       }
     ],
     "schema:maintainer": {
@@ -1043,7 +1043,7 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/discovery/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaProduct"
       },
       {
         "@id": "https://w3id.org/cdif/data_description/1.1"
@@ -1055,10 +1055,10 @@ and technique component types on the archive distribution. Mock data for validat
         "@id": "https://w3id.org/cdif/manifest/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/adaLAMCICPMSUPb"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/adaLAMCICPMSUPb"
       }
     ],
     "schema:maintainer": {
@@ -1205,18 +1205,18 @@ ex:adaLAMCICPMSUPb-example-001 a schema1:Dataset,
         <https://example.org/var/Limit-of-Quantification-LOQ-Method>,
         <https://example.org/var/Sampling-Unit-Name> ;
     schema1:version "1.0" ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: oxideProduction" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracyAndAssessmentMethod" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: oxideProduction" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: peakFlatness" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ] ;
+            dqv:value "no value available: betweenSessionAnalyticalPrecisionAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: withinSessionAnalyticalPrecisionAndAssessmentMethod" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: peakFlatness" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:laMcicpmsUPbTAPP-P0 ;
@@ -1284,9 +1284,9 @@ ex:adaProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/manifest/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
-        <https://w3id.org/geochem/metadata/profiles/adaLAMCICPMSUPb>,
-        <https://w3id.org/geochem/metadata/profiles/adaProduct>,
-        <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
+        <https://w3id.org/geochem/metadata/profiles/1.1/adaLAMCICPMSUPb>,
+        <https://w3id.org/geochem/metadata/profiles/1.1/adaProduct>,
+        <https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct> ;
     schema1:about ex:adaProduct-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
@@ -1401,7 +1401,7 @@ allOf:
             type: object
             properties:
               '@id':
-                const: https://w3id.org/geochem/metadata/profiles/adaLAMCICPMSUPb
+                const: https://w3id.org/geochem/metadata/profiles/1.1/adaLAMCICPMSUPb
       title: About This Record
 x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS-UPb.profile

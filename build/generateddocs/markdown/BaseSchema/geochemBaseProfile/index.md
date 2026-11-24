@@ -580,7 +580,7 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
         "@id": "https://w3id.org/cdif/data_structure/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       }
     ],
     "schema:maintainer": {
@@ -1119,7 +1119,7 @@ the CDIF core, provenance and (conditionally) data-description and manifest prof
         "@id": "https://w3id.org/cdif/data_structure/1.1"
       },
       {
-        "@id": "https://w3id.org/geochem/metadata/profiles/geochemProduct"
+        "@id": "https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct"
       }
     ],
     "schema:maintainer": {
@@ -1229,15 +1229,15 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:instrument [ a schema1:DefinedTerm ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
-            schema1:name "BCR-2 basalt reference material" ;
-            schema1:termCode "BCR-2" ;
-            ada:reagentRole "secondaryStandard" ],
-        [ a schema1:DefinedTerm ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
             schema1:name "BHVO-2 basalt reference material" ;
             schema1:termCode "BHVO-2" ;
             ada:reagentRole "primaryStandard" ],
+        [ a schema1:DefinedTerm ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
+            schema1:name "BCR-2 basalt reference material" ;
+            schema1:termCode "BCR-2" ;
+            ada:reagentRole "secondaryStandard" ],
         [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:name "2% HNO3 procedural blank" ;
@@ -1260,11 +1260,11 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:endTime "2026-01-09T16:00:00" ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "Concentrated HNO3, trace-metal grade" ;
+            schema1:name "Concentrated HF, trace-metal grade" ;
             ada:reagentRole "reagent" ],
         [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "Concentrated HF, trace-metal grade" ;
+            schema1:name "Concentrated HNO3, trace-metal grade" ;
             ada:reagentRole "reagent" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Clean laboratory, Analytical Sciences Laboratory" ] ;
@@ -1297,13 +1297,13 @@ ex:geochemProduct-example-001 a schema1:Dataset,
         schema1:HowToStep ;
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:additionalProperty [ a schema1:PropertyValue ;
-            schema1:name "Nebulizer gas flow" ;
-            schema1:unitText "L/min" ;
-            schema1:value 1.05e+00 ],
-        [ a schema1:PropertyValue ;
             schema1:name "RF power" ;
             schema1:unitText "W" ;
-            schema1:value 1550 ] ;
+            schema1:value 1550 ],
+        [ a schema1:PropertyValue ;
+            schema1:name "Nebulizer gas flow" ;
+            schema1:unitText "L/min" ;
+            schema1:value 1.05e+00 ] ;
     schema1:description "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation." ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
@@ -1322,7 +1322,7 @@ ex:geochemProduct-metadata-001 a schema1:Dataset ;
         <https://w3id.org/cdif/data_structure/1.1>,
         <https://w3id.org/cdif/discovery/1.1>,
         <https://w3id.org/cdif/provenance/1.1>,
-        <https://w3id.org/geochem/metadata/profiles/geochemProduct> ;
+        <https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct> ;
     schema1:about ex:geochemProduct-example-001 ;
     schema1:additionalType dcat:CatalogRecord ;
     schema1:dateModified "2026-01-15" ;
@@ -1979,7 +1979,7 @@ properties:
           additionalProperties: false
           properties:
             '@id':
-              const: https://w3id.org/geochem/metadata/profiles/geochemProduct
+              const: https://w3id.org/geochem/metadata/profiles/1.1/geochemProduct
         x-jsonld-id: http://purl.org/dc/terms/conformsTo
     x-jsonld-id: http://schema.org/subjectOf
   schema:name:
