@@ -1936,6 +1936,9 @@ def route():
     cov_start = (lit + 1) if lit is not None else len(hdr)
     mode_cols = mode_columns(rows)
     mode_names = [norm(hdr[i]) for i in mode_cols]
+    # Column K, added upstream in tapp b6af32d. By HEADER, not position: the tiers below
+    # are read positionally and survive only because K was appended after Purpose.
+    pv_col = next((i for i, v in enumerate(H) if v == "procedure value"), None)
     R = {"tapp_prop": [], "method_param": [], "method_value": [], "detail_req": [], "detail_addl": [],
          "analyte_cols": [], "analyte_defs": OrderedDict(), "vocab": [], "mode_names": mode_names}
     central = load_central_roles()
@@ -1947,6 +1950,8 @@ def route():
         if not item or re.match(r"^\d+\.\s", item):
             continue
         P, A, dt, ex = norm(r[2]), norm(r[3]), norm(r[4]), norm(r[5])
+        A = _L._derive_analysis_tier(
+            P, A, (norm(r[pv_col]) if pv_col is not None and pv_col < len(r) else None), item)
         modes = [norm(hdr[i]) for i in mode_cols if i < len(r) and norm(r[i]).upper() == "Y"]
         cov = sum(1 for i in range(cov_start, len(r)) if meaningful(r[i]))
         ov = sidecar.get(item, {})

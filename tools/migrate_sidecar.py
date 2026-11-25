@@ -35,6 +35,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 import schemapath_io
 import tapp_source
+import _tapp_lib
 
 
 # Renames the mechanical rules cannot see, confirmed one at a time against the new table's own
@@ -338,14 +339,17 @@ def source_items(path):
         return next((i for i, h in enumerate(hdr) for p in pfx if h.startswith(p)), None)
 
     ci = {"P": col("procedure-level", "protocol-level"), "A": col("analysis-level"),
-          "dt": col("data type")}
+          "dt": col("data type"),
+          "pv": col("procedure value")}      # Column K (tapp b6af32d)
     out = []
     for r in rows[1:]:
         it = b.norm(r[0]) if r and r[0] else ""
         if not it or re.match(r"^\d+\.\s", it):      # group header, e.g. "3. Instrument Setup"
             continue
         g = lambda k: (b.norm(r[ci[k]]) if ci[k] is not None and ci[k] < len(r) else "")
-        out.append((it, g("P"), g("A"), g("dt")))
+        out.append((it, g("P"),
+                    _tapp_lib._derive_analysis_tier(g("P"), g("A"), g("pv"), it),
+                    g("dt")))
     return out
 
 
