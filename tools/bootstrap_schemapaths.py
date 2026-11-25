@@ -18,6 +18,7 @@ import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_tapp as b
 import tapp_source
+import _tapp_lib
 import normalize_schema_paths as norm
 import schema_path_parser as spp
 import schemapath_io
@@ -51,14 +52,20 @@ def load_rows(path):
         return next((i for i, h in enumerate(hdr) for p in pfx if h.lower().startswith(p)), None)
     ci = {"P": col("procedure-level", "protocol-level", "procedure", "protocol"),
           "A": col("analysis-level", "analysis"), "dt": col("data type"),
-          "kb": col("keyed by", "keyed")}
+          "kb": col("keyed by", "keyed"),
+          # Column K (tapp b6af32d). NOTE the "procedure" prefix above would also match
+          # "Procedure Value"; it is safe only because "Procedure-Level Tier" sits at a
+          # LOWER index and col() returns the first matching header.
+          "pv": col("procedure value")}
     out = []
     for r in rs[1:]:
         it = (str(r[0]).strip() if r[0] else "")
         if not it or re.match(r"^\d+\.\s", it):
             continue
         g = lambda k: (str(r[ci[k]]).strip() if ci[k] is not None and ci[k] < len(r) and r[ci[k]] else "")
-        out.append({"item": it, "P": g("P"), "A": g("A"), "dt": g("dt"), "kb": g("kb")})
+        out.append({"item": it, "P": g("P"),
+                    "A": _tapp_lib._derive_analysis_tier(g("P"), g("A"), g("pv"), it),
+                    "dt": g("dt"), "kb": g("kb")})
     return out
 
 

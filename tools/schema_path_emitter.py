@@ -912,6 +912,9 @@ def leaf_for(desc, dtype, enum=None, default=None):
 # ---------- drive from a workbook + its schemapaths.json ----------
 def _load_rows(tapp):
     """{item -> {desc, P, A, dtype}} from the workbook (mirrors build_tapp column detection)."""
+    # Local, like `import _tapp_lib as _L` below: build_tapp imports _tapp_lib only inside
+    # functions and THIS module imports build_tapp, so a module-level import inverts the cycle.
+    import _tapp_lib as _L
     b.configure(tapp)
     rows = tapp_source.rows(b.XLSX)        # .csv or .xlsx
     H = [b.norm(v).lower() for v in rows[0]]
@@ -922,14 +925,26 @@ def _load_rows(tapp):
     ci = {"P": next((i for i, v in enumerate(H) if v.startswith(("procedure", "protocol"))), None),
           "A": next((i for i, v in enumerate(H) if v.startswith("analysis")), None),
           "dt": next((i for i, v in enumerate(H) if v == "data type"), None),
-          "ex": next((i for i, v in enumerate(H) if v.startswith("example")), None)}
+          "ex": next((i for i, v in enumerate(H) if v.startswith("example")), None),
+          # Column K, added upstream in tapp b6af32d. NOTE the "procedure" prefix on "P"
+          # above ALSO matches "Procedure Value"; it is correct only because
+          # "Procedure-Level Tier" sits at a lower index and next() takes the first match.
+          "pv": next((i for i, v in enumerate(H) if v == "procedure value"), None)}
     out = {}
     for r in rows[1:]:
         item = b.norm(r[0])
         if not item or re.match(r"^\d+\.\s", item):
             continue
         g = lambda k: b.norm(r[ci[k]]) if ci[k] is not None and ci[k] < len(r) else ""
-        out[item] = {"desc": b.norm(r[1]), "P": g("P"), "A": g("A"), "dt": g("dt"), "ex": g("ex")}
+        # The tier vocabulary SPLIT upstream (tapp b6af32d): Column D keeps obligation and the
+        # new Column K carries where the value comes from. Derive the legacy value, because
+        # read_only below tests `A not in ("Editable", "Basic", "Advanced")` -- so an
+        # ex-Read-Only row arriving as "Basic" emits schema:readonlyValue FALSE and a fixed
+        # protocol value becomes session-editable. Measured when this site was missed:
+        # 248 keyed-table columns flipped true -> false with every example still passing.
+        out[item] = {"desc": b.norm(r[1]), "P": g("P"),
+                     "A": _L._derive_analysis_tier(g("P"), g("A"), g("pv"), item),
+                     "dt": g("dt"), "ex": g("ex")}
     # Per-field dtype overrides in docs/<workbook>.overrides.json (ours, not Ruolin's delivery):
     # lets us retype a field to "Controlled list / Text" (enum guidance + free text) without editing
     # the Drive-synced workbook, for fields publications report as prose or several joined values.

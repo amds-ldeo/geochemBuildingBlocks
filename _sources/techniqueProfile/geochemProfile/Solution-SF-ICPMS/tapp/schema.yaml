@@ -1,6 +1,6 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
-description: Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v91.csv via the path-driven pipeline.
+description: Solution sector-field (high-resolution) ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v96.csv via the path-driven pipeline.
 allOf:
 - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml
 - $ref: ../../../../BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -613,19 +613,19 @@ allOf:
             anyOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
             - &id011
-              title: Primary Calibration Standard Name
-              description: Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.
+              title: Calibration Standard
+              description: The reference material against which each target species is calibrated in each target material, converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference Materials. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -955,7 +955,7 @@ allOf:
             - $ref: ../../../../BaseSchema/tappDefinition/schema.yaml#/$defs/MonitoredPropertyIdentifierColumn
             - &id014
               title: Mass Resolution Assignment
-              description: Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting (Group 3).
+              description: Mass resolution mode used for acquisition. One target species may be acquired at more than one resolution, so the assignment is per acquired mass rather than per element. The overall mode(s) used in the procedure are recorded in Mass Resolution Setting, in Instrument & Software (Group 3).
               type: object
               properties:
                 '@id':

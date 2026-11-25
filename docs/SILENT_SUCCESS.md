@@ -817,6 +817,137 @@ not that the tree is a fixpoint. Run a stage tool ALONE and read what it prints 
 trusting the pipeline's log, and when a pipeline stage reads an artifact a later stage
 writes, say so where the stage order is documented.
 
+## 17. 248 protocol constants became editable, and every gate stayed green
+
+**Reported success:** `validate_examples.py`, 658/658, SHACL 0 violations.
+
+The 2026-11-25 TAPP delivery (`b6af32d`, amds-ldeo/tapp issues #9/#13) SPLIT one tier
+vocabulary into two. Column D had answered two questions at once; it now carries obligation
+only, and where a session's value comes from moved to a new Column K:
+
+    before   D: Basic | Advanced | Read-Only | Editable
+    after    D: Basic | Advanced      K: Fixed | Adjustable | Not carried over
+
+**1447 of the 1919 rows across the 16 tables change their Column D value** -- 716 `Read-Only`
+and 731 `Editable` become 0 of each. gBB keys on exactly those retired values.
+
+The derivation that absorbs the split was written and applied to FOUR readers. There were
+FIVE. The missed one was `schema_path_emitter._load_rows()`, which reads the workbook
+directly:
+
+```python
+"A": next((i for i, v in enumerate(H) if v.startswith("analysis")), None),
+...
+out[item] = {"desc": b.norm(r[1]), "P": g("P"), "A": g("A"), ...}
+```
+
+The sweep that found the other four grepped for `"A"]`, `r[3]`, `row[3]` and
+`analysis-level tier`. This site matches none of them: it assigns `"A": g("A")` and detects
+its column by prefix. **Grepping for the shapes you have already seen cannot find the shape
+you have not.**
+
+Its consequence, at `schema_path_emitter.py:1096`:
+
+```python
+read_only = (parsed.root == "MethodDefinition"
+             and (m.get("A") or "").strip() not in ("Editable", "Basic", "Advanced"))
+```
+
+An ex-`Read-Only` row arriving as `Basic` falls into the editable set. Measured:
+
+    epma_xRayLine   schema:readonlyValue  {"const": true} -> {"const": false}
+
+**248 keyed-table columns flipped `true` -> `false`. 332 values were gained, every one
+`false`, and zero `true` were gained.** X-ray Line, Diffracting Crystal, WDS Spectrometer
+Channel, the interference-correction methods -- values the PROCEDURE fixes, emitted as values
+an analysis may change.
+
+**Why no gate could see it.** Removing `schema:readonlyValue` makes a schema strictly more
+permissive, so every example that passed before still passes. `validate_examples` stayed at
+658/658 across all 248. `constraint_census` DID move, but a delivery migration moves it
+anyway -- the signal was buried in a legitimately large diff rather than absent.
+
+What exposed it was diffing the **emitted inventory per JSON path** against a snapshot taken
+before the migration: every `schema:readonlyValue` site with its literal value, every
+`ada:...Default` key, every property path, keyed by block. The verdict line was not "how many
+are there" but "which ones disappeared", because a loss of 248 and a swap of 248 are identical
+in a total.
+
+The sidecar tiers were correct throughout -- `Read-Only` in both the old and the new sidecar,
+for every affected item. That is what proved the fault was in the emitter rather than in the
+migration, and it is why the comparison has to run against emitted artifacts rather than
+against the inputs.
+
+That file's own comment, three lines above the column detection, describes this exact class:
+
+> a missed tier column is SILENT -- `g()` yields `""`, every row reads as neither Basic nor
+> Advanced, and the schema quietly loses its required-branch constraints instead of failing.
+
+The warning was correct, was sitting at the site, and was about the column next to the one
+that broke.
+
+**A consumer was exposed and was saved by sourcing, not by any check.** The ADA metadata forms
+read `schema:readonlyValue` to decide what a user may edit -- `tapp_service.is_readonly()`,
+`method_views._is_readonly()`, and the browser-side equivalent in `record_form_tabs.html`.
+Traced at `amds-ldeo/metadata@dcb0961`, they take it as a PLAIN BOOLEAN off a `method_registry`
+TAPP parameter, never as the `{"const": ...}` form gBB generates, and
+`generate_skeletal_methods.py` hardcodes `False` rather than deriving it. So the flip could not
+have reached the UI.
+
+**That insulation is architectural, not intentional.** Nobody designed the boundary; it was
+traced and found to hold. No gate, no test and no comment asserts it in either repository. Do
+not read this as "the forms are correctly isolated" -- someone will reasonably propose
+deriving editability from the keyed-table schemas, BECAUSE those schemas carry the tier, and on
+that day these 248 render as editable protocol constants.
+
+**The rule.** When a delivery changes the VOCABULARY of a field your generators branch on,
+enumerate the readers by what they DO (read a tier from a table) rather than by the code shape
+you have already found, and diff the emitted artifacts per path before and after. A gate that
+can only observe one direction of change cannot be asked whether a constraint vanished.
+
+## 18. The edit reported success, and the import was never added
+
+**Reported success:** the patch applied, the file parsed, and `python -c "import
+schema_path_emitter"` printed `imports OK`.
+
+Fixing entry 17 meant calling `_tapp_lib._derive_analysis_tier` from
+`schema_path_emitter._load_rows()`, so the patch added an import -- guarded, to avoid a
+duplicate:
+
+```python
+if 'import _tapp_lib' not in t:
+    t = t.replace('import tapp_source\n', 'import tapp_source\nimport _tapp_lib\n', 1)
+```
+
+The guard was **satisfied by `import _tapp_lib as _L` inside an unrelated function**, ~400
+lines away. So the module-level import was never inserted, and nothing said so: the edit
+script reported success, the file was valid Python, and the module imported cleanly.
+
+The failure surfaced one full regeneration later, as `NameError: name '_tapp_lib' is not
+defined`, in **73 TAPPs**.
+
+Two things compound here, and each is worth its own sentence:
+
+**A guard asking "does this string appear anywhere in the file" cannot distinguish "already
+imported at module level" from "imported locally in some other function."** It is a presence
+test standing in for a scope test.
+
+**The obvious fix was also wrong.** A module-level import there inverts a documented
+circular-import constraint -- `build_tapp` imports `_tapp_lib` only inside functions, and this
+module imports `build_tapp`. The file says so at the existing local import. The correct patch
+was a second function-local import, which is what the file already does.
+
+**And the verification was the wrong verification.** `import schema_path_emitter` succeeding
+proves the module loads. It says nothing about a name used inside one of its functions, because
+that name is not resolved until the function runs. The check that actually establishes it is to
+CALL the function:
+
+    _load_rows('epmaTAPP')  ->  Read-Only 38, Editable 44, Basic 16, Advanced 4
+
+**The rule.** An idempotence guard must test the condition it is standing in for, not a string
+that correlates with it -- and a patch that adds a name is verified by exercising the code path
+that uses the name, never by importing its module.
+
 ## The common thread
 
 In all of them, the failure was invisible from the outside because the signal said "success". What
@@ -840,6 +971,8 @@ exposed each one:
 | 14 | a falsifiable sentinel searched for by JSON path, and a count per block rather than a total |
 | 15 | reading the gate's GLOB instead of its pass count, and validating a file class no check names |
 | 16 | running the stage tool alone and reading what it prints, rather than the orchestrator's log |
+| 17 | diffing the emitted inventory per JSON path against a pre-change snapshot, and asking which sites DISAPPEARED rather than how many there are |
+| 18 | calling the function that uses the new name, instead of importing the module that contains it |
 
 None of these needed cleverness. They needed looking at the thing itself instead of the badge on
 top of it.

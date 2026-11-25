@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "Solution Q-ICP-MS Technique-Aligned Protocol Profile (solutionQicpmsTAPP)",
-  "description": "Solution quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v96.csv via the path-driven pipeline.",
+  "description": "Solution quadrupole ICP-MS extension of the base TAPP definition, generated from tapp/Current TAPPs/Solution_Q-ICP-MS_TAPP_v101.csv via the path-driven pipeline.",
   "properties": {
     "@context": {
       "type": "object",
@@ -5380,7 +5380,7 @@
                   "date",
                   "uri"
                 ],
-                "description": "Expected data type for the parameter value."
+                "description": "Expected data type for the parameter value. For a keyed-table column this names the ITEM type: a column whose cells hold several values declares `string` here and its rows carry an array of strings. Multiplicity is carried by the row value's shape, not by this enum, because no TAPP workbook field declares it."
               },
               "schema:unitText": {
                 "type": "string",
@@ -5553,12 +5553,23 @@
                   }
                 },
                 "additionalProperties": {
-                  "type": [
-                    "string",
-                    "number",
-                    "integer",
-                    "boolean",
-                    "null"
+                  "anyOf": [
+                    {
+                      "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
                   ]
                 }
               }
@@ -5664,12 +5675,23 @@
                   }
                 },
                 "additionalProperties": {
-                  "type": [
-                    "string",
-                    "number",
-                    "integer",
-                    "boolean",
-                    "null"
+                  "anyOf": [
+                    {
+                      "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
                   ]
                 }
               }
@@ -5774,12 +5796,23 @@
                   }
                 },
                 "additionalProperties": {
-                  "type": [
-                    "string",
-                    "number",
-                    "integer",
-                    "boolean",
-                    "null"
+                  "anyOf": [
+                    {
+                      "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "minItems": 1,
+                      "items": {
+                        "type": "string"
+                      }
+                    }
                   ]
                 }
               }
@@ -7248,7 +7281,7 @@
           }
         },
         "schema:description": {
-          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Quality Control & Uncertainty (Group 6): this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
         },
         "schema:actionProcess": {
@@ -7786,7 +7819,7 @@
                 "then": {
                   "properties": {
                     "schema:defaultValue": {
-                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
+                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set), with its units. For the procedure: the typical detection limits. For the session: the limits achieved in this session, where they are determined for the session as a whole (for example, from the blanks of the run). The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -7894,13 +7927,6 @@
               ]
             }
           }
-        },
-        "ada:secondaryReferenceMaterialDefault": {
-          "type": "array",
-          "items": {
-            "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
-            "type": "string"
-          }
         }
       },
       "required": [
@@ -7955,7 +7981,7 @@
                             "then": {
                               "properties": {
                                 "schema:name": {
-                                  "description": "Whether a collision or reaction cell is installed and its operating mode. In standard mode (STD), no cell gas is introduced and the cell acts only as an ion guide. In kinetic energy discrimination (KED) mode, helium thermalizes ions so that polyatomic interferences, which have a larger collision cross-section, are selectively retarded by a cell exit barrier voltage. In dynamic reaction cell (DRC) mode, a reactive gas selectively neutralizes specific interferences through ion-molecule reactions. Specific gas types, flow rates and cell voltages are documented in Group 4. Record 'Not installed' where the instrument has no collision/reaction cell.",
+                                  "description": "Whether a collision or reaction cell is installed and its operating mode. In standard mode (STD), no cell gas is introduced and the cell acts only as an ion guide. In kinetic energy discrimination (KED) mode, helium thermalizes ions so that polyatomic interferences, which have a larger collision cross-section, are selectively retarded by a cell exit barrier voltage. In dynamic reaction cell (DRC) mode, a reactive gas selectively neutralizes specific interferences through ion-molecule reactions. Specific gas types, flow rates and cell voltages are documented in the collision- and reaction-gas fields of Measurement Information (Group 4). Record 'Not installed' where the instrument has no collision/reaction cell.",
                                   "anyOf": [
                                     {
                                       "type": "string"
@@ -8091,12 +8117,12 @@
                     ]
                   },
                   {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "title": "Calibration Standard",
+                    "description": "The reference material against which each target species is calibrated in each target material, converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference Materials. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName"
+                        "const": "ada:targetMaterialColumn/solutionQicpmsTAPP/calibrationStandard"
                       },
                       "@type": {
                         "const": [
@@ -8104,10 +8130,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
+                        "const": "calibrationStandard"
                       },
                       "schema:name": {
-                        "const": "Primary Calibration Standard Name"
+                        "const": "Calibration Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -8136,12 +8162,12 @@
               "allOf": [
                 {
                   "contains": {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "title": "Calibration Standard",
+                    "description": "The reference material against which each target species is calibrated in each target material, converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference Materials. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:targetMaterialColumn/solutionQicpmsTAPP/primaryCalibrationStandardName"
+                        "const": "ada:targetMaterialColumn/solutionQicpmsTAPP/calibrationStandard"
                       },
                       "@type": {
                         "const": [
@@ -8149,10 +8175,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
+                        "const": "calibrationStandard"
                       },
                       "schema:name": {
-                        "const": "Primary Calibration Standard Name"
+                        "const": "Calibration Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -8842,7 +8868,7 @@
                               },
                               {
                                 "title": "Constants Reference Values",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -9044,7 +9070,7 @@
                             {
                               "contains": {
                                 "title": "Constants Reference Values",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -9428,7 +9454,7 @@
                           },
                           {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used: pulse counting, analog and, on some sector-field instruments, Faraday. The cross-calibration between detector modes is recorded in Pulse/Analog Detector Nonlinearity Correction (Group 5).",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used: pulse counting, analog and, on some sector-field instruments, Faraday. The cross-calibration between detector modes is recorded in Pulse/Analog Detector Nonlinearity Correction, in Data Processing (Group 5).",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -9812,7 +9838,7 @@
                         {
                           "contains": {
                             "title": "Detector Configuration",
-                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used: pulse counting, analog and, on some sector-field instruments, Faraday. The cross-calibration between detector modes is recorded in Pulse/Analog Detector Nonlinearity Correction (Group 5).",
+                            "description": "Type(s) of detector(s) installed in the mass spectrometer and the detection mode(s) used: pulse counting, analog and, on some sector-field instruments, Faraday. The cross-calibration between detector modes is recorded in Pulse/Analog Detector Nonlinearity Correction, in Data Processing (Group 5).",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -17758,7 +17784,7 @@
                       "date",
                       "uri"
                     ],
-                    "description": "Expected data type for the parameter value."
+                    "description": "Expected data type for the parameter value. For a keyed-table column this names the ITEM type: a column whose cells hold several values declares `string` here and its rows carry an array of strings. Multiplicity is carried by the row value's shape, not by this enum, because no TAPP workbook field declares it."
                   },
                   "schema:unitText": {
                     "type": "string",

@@ -377,13 +377,32 @@ properties:
                   cell. The key is the schema:valueName of the identifier column, which
                   ada:targetMaterialColumns requires exactly one of, so a row is keyed by column
                   valueName throughout.
+            # A cell holds ONE value or SEVERAL. Multiplicity is NOT encoded in the column's
+            # ada:dataType -- that enum names the ITEM type -- so a multi-valued column
+            # declares `string` and its cells carry an array of strings. Admitted 2026-11-25
+            # for `Monitored Property Role` (amds-ldeo/tapp#23), where one monitored mass
+            # holds two roles at once: 56Fe is a Target in the Fe run and an Internal
+            # standard in the Cr run (van Kooten et al. 2026).
+            #
+            # An ARRAY rather than a delimited string, deliberately: a cell that has to be
+            # parsed is a second encoding layer, and this repository has been removing those.
+            #
+            # `null` and `[]` must not both mean "nothing". null is the authored
+            # "deliberately absent for this member" that this row's description promises, so
+            # the array carries minItems 1 and `[]` is invalid rather than a second spelling
+            # of absence.
             additionalProperties:
-              type:
-              - string
-              - number
-              - integer
-              - boolean
-              - 'null'
+              anyOf:
+              - type:
+                - string
+                - number
+                - integer
+                - boolean
+                - 'null'
+              - type: array
+                minItems: 1
+                items:
+                  type: string
     required:
     - ada:targetMaterialColumns
 
@@ -467,13 +486,32 @@ properties:
                   because every tappDefinition example lists bare strings here and so never
                   exercises this branch; it surfaced against the 46 stored ADA method definitions,
                   which do use row objects.
+            # A cell holds ONE value or SEVERAL. Multiplicity is NOT encoded in the column's
+            # ada:dataType -- that enum names the ITEM type -- so a multi-valued column
+            # declares `string` and its cells carry an array of strings. Admitted 2026-11-25
+            # for `Monitored Property Role` (amds-ldeo/tapp#23), where one monitored mass
+            # holds two roles at once: 56Fe is a Target in the Fe run and an Internal
+            # standard in the Cr run (van Kooten et al. 2026).
+            #
+            # An ARRAY rather than a delimited string, deliberately: a cell that has to be
+            # parsed is a second encoding layer, and this repository has been removing those.
+            #
+            # `null` and `[]` must not both mean "nothing". null is the authored
+            # "deliberately absent for this member" that this row's description promises, so
+            # the array carries minItems 1 and `[]` is invalid rather than a second spelling
+            # of absence.
             additionalProperties:
-              type:
-              - string
-              - number
-              - integer
-              - boolean
-              - 'null'
+              anyOf:
+              - type:
+                - string
+                - number
+                - integer
+                - boolean
+                - 'null'
+              - type: array
+                minItems: 1
+                items:
+                  type: string
     required:
     - ada:targetSpeciesColumns
     
@@ -544,13 +582,32 @@ properties:
                 description: schema:name of the collector carrying this property, matching an entry
                   in schema:instrument…hasPart[Collector].ada:collectors.
                 type: string
+            # A cell holds ONE value or SEVERAL. Multiplicity is NOT encoded in the column's
+            # ada:dataType -- that enum names the ITEM type -- so a multi-valued column
+            # declares `string` and its cells carry an array of strings. Admitted 2026-11-25
+            # for `Monitored Property Role` (amds-ldeo/tapp#23), where one monitored mass
+            # holds two roles at once: 56Fe is a Target in the Fe run and an Internal
+            # standard in the Cr run (van Kooten et al. 2026).
+            #
+            # An ARRAY rather than a delimited string, deliberately: a cell that has to be
+            # parsed is a second encoding layer, and this repository has been removing those.
+            #
+            # `null` and `[]` must not both mean "nothing". null is the authored
+            # "deliberately absent for this member" that this row's description promises, so
+            # the array carries minItems 1 and `[]` is invalid rather than a second spelling
+            # of absence.
             additionalProperties:
-              type:
-              - string
-              - number
-              - integer
-              - boolean
-              - 'null'
+              anyOf:
+              - type:
+                - string
+                - number
+                - integer
+                - boolean
+                - 'null'
+              - type: array
+                minItems: 1
+                items:
+                  type: string
     required:
     - ada:monitoredPropertyColumns
 
@@ -1210,7 +1267,11 @@ $defs:
         - boolean
         - date
         - uri
-        description: Expected data type for the parameter value.
+        description: >-
+          Expected data type for the parameter value. For a keyed-table column this names the
+          ITEM type: a column whose cells hold several values declares `string` here and its
+          rows carry an array of strings. Multiplicity is carried by the row value's shape,
+          not by this enum, because no TAPP workbook field declares it.
       'schema:unitText':
         type: string
         description: Unit of measure label (e.g. "kV", "nA", "um").

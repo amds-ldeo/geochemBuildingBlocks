@@ -386,6 +386,9 @@ def _detect_columns(header_row) -> dict:
                               "Protocol-Level Tier", required=False),
         "analysis_tier": find(lambda h: h == "analysis-level tier", "Analysis-Level Tier",
                               required=False),
+        # Column K, added upstream in tapp b6af32d (issues #9/#13). See _derive_analysis_tier.
+        "procedure_value": find(lambda h: h == "procedure value", "Procedure Value",
+                               required=False),
         "dtype": find(lambda h: h == "data type", "Data Type"),
         "example": find(lambda h: h.startswith("example"), "Example/Allowed Content"),
         "schema_path": find(lambda h: h == "schema path", "schema path", required=False),
@@ -501,6 +504,65 @@ def read_rows() -> list[dict]:
             return None
         return str(r[idx]).strip()
 
+_PROC_VALUE_TO_LEGACY_TIER = {"fixed": "Read-Only", "adjustable": "Editable"}
+_RETIRED_ANALYSIS_TIERS = ("read-only", "readonly", "read only", "editable")
+
+
+def _derive_analysis_tier(protocol_tier, analysis_tier, procedure_value, item):
+    """The legacy Analysis-Level Tier value, from the post-b6af32d two-column form.
+
+    Upstream SPLIT one vocabulary into two (amds-ldeo/tapp b6af32d, issues #9/#13, approved
+    2026-11-24). Column D used to answer two questions at once; it now holds obligation only:
+
+        before   D: Basic | Advanced | Read-Only | Editable
+        after    D: Basic | Advanced          K (Procedure Value): Fixed | Adjustable |
+                                                                   Not carried over
+
+    Their forward mapping was `Read-Only -> D = C, K = Fixed`, `Editable -> D = C,
+    K = Adjustable`, `Basic/Advanced -> D unchanged, K = Not carried over`. This is its exact
+    inverse, so the whole Protocol x Analysis routing matrix in build_tapp keeps seeing the
+    vocabulary it was written for, and the split is absorbed in ONE place instead of nine.
+
+    Deriving rather than migrating the matrix is deliberate, and it is also the only safe
+    option on arrival: 1447 of the 1919 rows across the 16 tables change their Column D value
+    (716 Read-Only + 731 Editable -> 0 of each), and `build_tapp` keys on exactly those at
+    nine sites -- `A == "Read-Only"` sets schema:readonlyValue, `A == "Editable"` adds the
+    `Default` key suffix and detail membership, `dual` tests the three-value set. Reading the
+    new tables without this, a row that was (Basic, Read-Only) arrives as (Basic, Basic) and a
+    FIXED protocol value is emitted as a session-editable default. That inversion is invisible
+    to every gate here: losing readonlyValue only makes a schema more permissive, so
+    validate_examples stays green -- docs/SILENT_SUCCESS.md, and the reason this function
+    refuses rather than guesses.
+
+    The invariant the inverse relies on is upstream's own and was verified over the delivery
+    before this was written: of the 1555 rows carrying Fixed or Adjustable, ZERO violate
+    `D == C and C != N/A`.
+    """
+    a = (analysis_tier or "").strip()
+    k = (procedure_value or "").strip()
+    if not k:
+        # Legacy table, or a row upstream leaves blank (157 of 1919 carry neither tier).
+        return analysis_tier
+    if a.lower() in _RETIRED_ANALYSIS_TIERS:
+        raise ValueError(
+            "TAPP row %r carries both the new 'Procedure Value' column (%r) and a RETIRED "
+            "Analysis-Level Tier (%r). One table cannot be in both forms; a half-migrated "
+            "delivery would route silently and wrongly." % (item, k, a)
+        )
+    legacy = _PROC_VALUE_TO_LEGACY_TIER.get(k.lower())
+    if legacy is None:
+        # "Not carried over" -- obligation only, Column D stands as written.
+        return analysis_tier
+    c = (protocol_tier or "").strip()
+    if c.lower() == "n/a" or a != c:
+        raise ValueError(
+            "TAPP row %r has Procedure Value %r, which upstream guarantees only when "
+            "Analysis-Level Tier == Procedure-Level Tier != N/A; read C=%r D=%r. The inverse "
+            "mapping back to %r is not sound for this row." % (item, k, c, a, legacy)
+        )
+    return legacy
+
+
     rows = []
     for r in all_rows[1:]:
         item = cell(r, "item")
@@ -511,7 +573,9 @@ def read_rows() -> list[dict]:
             "item": item,
             "desc": cell(r, "desc"),
             "P": cell(r, "protocol_tier"),
-            "A": cell(r, "analysis_tier"),
+            "A": _derive_analysis_tier(cell(r, "protocol_tier"),
+                                      cell(r, "analysis_tier"),
+                                      cell(r, "procedure_value"), item),
             "dtype_col": cell(r, "dtype"),
             "example": cell(r, "example"),
             "schema_path": cell(r, "schema_path"),

@@ -981,11 +981,11 @@
                                 ]
                             },
                             "ada:proceduralBlankLevel": {
-                                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",
+                                "description": "The level of the analytical blank and, where the reported quantity is a ratio, its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. For the procedure: the typical or maximum blank expected. For the session: the blank measured in this session. Companion to the blank correction method.",
                                 "type": "string"
                             },
                             "ada:deltaOrEpsilonValueReferenceStandard": {
-                                "description": "International or community-accepted isotopic reference standard used as the zero-delta anchor for expressing isotopic compositions in delta (δ, per mil) or epsilon (ε, per ten thousand) notation: δⁱX = [(ⁱX/ʲX)sample / (ⁱX/ʲX)reference − 1] × 1000‰. The reporting reference is a per-study or per-publication decision. Specify the standard name, lot or batch number where applicable, and the certified or consensus isotope ratio used for normalization.",
+                                "description": "International or community-accepted isotopic reference standard used as the zero-delta anchor for expressing isotopic compositions in delta (δ, per mil) or epsilon (ε, per ten thousand) notation: δⁱX = [(ⁱX/ʲX)sample / (ⁱX/ʲX)reference − 1] × 1000‰. The reporting reference is a per-study or per-publication decision. Name an entry in Reference Materials, and give the isotope ratio used for normalization.",
                                 "type": "string"
                             }
                         },
@@ -1015,7 +1015,7 @@
                                 "then": {
                                     "properties": {
                                         "dqv:value": {
-                                            "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
+                                            "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Express the offset in the form appropriate to what the procedure reports: percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities. Reported for the standards named in Quality-Control Standards; a calibration standard's agreement with its own accepted values is not a test of accuracy. For the procedure: the assessment method, the accepted-value source and the expected offset. For the session: the offset found in this session, with any systematic bias and its likely cause. In the dataset: report the analyses of each secondary reference material, where they are included; the session value summarises them and must agree with them.",
                                             "anyOf": [
                                                 {
                                                     "type": "string"
@@ -1048,7 +1048,7 @@
                                 "then": {
                                     "properties": {
                                         "dqv:value": {
-                                            "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                                            "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Specify the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Reported for the standards named in Quality-Control Standards; a calibration standard's agreement with its own accepted values is not an independent test of precision. For the procedure: the assessment method and the long-term precision on record when the procedure is registered. For the session: the long-term precision as it stands at this session, including this session's results where they contribute.",
                                             "anyOf": [
                                                 {
                                                     "type": "string"
@@ -1081,7 +1081,7 @@
                                 "then": {
                                     "properties": {
                                         "dqv:value": {
-                                            "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                                            "description": "Precision of repeated measurements of a reference material within a single analytical session, and the method used to assess it. The assessment method specifies the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Reported for the standards named in Quality-Control Standards; a calibration standard's agreement with its own accepted values is not an independent test of precision. For the procedure: the assessment method and the expected within-session precision. For the session: the precision achieved in this session, assessed by that method. Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses. In the dataset: report the analyses of each secondary reference material, where they are included; the session value summarises them and must agree with them.",
                                             "anyOf": [
                                                 {
                                                     "type": "string"

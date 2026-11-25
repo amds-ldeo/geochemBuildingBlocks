@@ -171,7 +171,7 @@ allOf:
                 - schema:value
               - &id005
                 title: Spectroscopic Detector(s)
-                description: Spectroscopic detectors present and used under this procedure. EDS and EELS parameter fields in Group 4 apply only when the corresponding detector is listed here.
+                description: Spectroscopic detectors present and used under this procedure. EDS and EELS parameter fields in Measurement Information (Group 4) apply only when the corresponding detector is listed here.
                 type: object
                 properties:
                   '@id':
@@ -832,7 +832,7 @@ allOf:
                 - schema:value
               - &id031
                 title: EDS Detection Limit
-                description: Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+                description: 'Detection limits by EDS, one per reported concentration variable (one per target species, these being the same set). For the procedure: the estimated limits under this procedure''s conditions. For the session: the limits achieved in this session, or ''Not determined''. Record ''N/A'' where EDS is not listed in Spectroscopic Detector(s).'
                 type: object
                 properties:
                   '@id':
@@ -1179,7 +1179,7 @@ allOf:
       allOf:
       - contains:
           title: EDS Detection Limit
-          description: Estimated detection limits by EDS under this procedure's conditions, one per reported concentration variable (one per target species, these being the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+          description: 'Detection limits by EDS, one per reported concentration variable (one per target species, these being the same set). For the procedure: the estimated limits under this procedure''s conditions. For the session: the limits achieved in this session, or ''Not determined''. Record ''N/A'' where EDS is not listed in Spectroscopic Detector(s).'
           type: object
           properties:
             '@id':
