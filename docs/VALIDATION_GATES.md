@@ -229,3 +229,45 @@ remains unverified.
 `validate_examples.load_shapes()` parses each file into its OWN graph, which is why a shared-URI
 collision could never silently merge here — and also why a shape defined in several files reports
 the same finding once per file, which is what the dedupe in #310 exists to collapse.
+
+### Why the pin is `-16b` and not a later tag, and one error in #319's own commit message
+
+`-16` and `-16a` and `-16b` are narrow cherry-picks, deliberately. The alternative at the time
+was `snapshot-2026-11-24`, and the measurement that rejected it is the one to repeat before any
+future pin move:
+
+    git rev-list --count tags/snapshot-2026-11-16a..tags/snapshot-2026-11-24^{commit}   ->  70
+
+Among those 70 commits, all six `cdifProfile` schemas this repository vendors flip their
+`conformsTo` const from `/1.1` to `/2.0` — inside a `contains` with `required: ['@id']`, so a
+hard requirement rather than an annotation. Counted against the committed tree: **112 of 658
+examples assert `/1.1`** (core, discovery, data_description and provenance 112 each, manifest
+74, data_structure 37), plus 78 `resolvedSchema.json` and 2 tools that mint it. So `-16b` was
+requested and cut as two cherry-picks instead.
+
+**The commit message of #319 (`65dd07e804`) describes that tag as "main's tip" twice. That is
+wrong**, and it is corrected here rather than by rewriting published history. Verified in mBB on
+2026-11-25:
+
+    tags/snapshot-2026-11-24   45e2421753
+    origin/main                cfe5a4b99d        25 commits after the tag
+
+`-16b` is also the LATER of the two tags (created 2026-11-24 14:32 -0700, against that tag's
+12:47 -0700). The correct phrasing is **"70 commits ahead of `snapshot-2026-11-16a`"**, never
+"main's tip" — a tag's distance from a branch head changes without anyone touching the tag, so
+a durable record must state the distance between two named revisions, not a relationship to a
+moving ref.
+
+Nothing in the argument depended on it: the 70 commits, the six `conformsTo` flips and the
+112/658 all stand. Which is exactly why it should not have been asserted.
+
+**A move to CDIF 2.0 is open rather than refused.** gBB's 1.1 pins are consistent with its own
+vendored sources — the six vendored `cdifProfile` schemas at `-16b` declare `/1.1` themselves —
+and `build_conformance_sidecars.requires_from_allof()` derives the sidecar `requires` from
+those `allOf` refs, so the 1.1 in `geochemProduct/conformance.json` is a reading of what this
+repository is built on rather than a stale string. Re-minting all 66 `conformsTo` to
+`profiles/2.0` is a deliberate change deserving its own issue, which has not been opened. Note
+also that `CDIF = "https://w3id.org/cdif/%s/1.1"` in `build_conformance_sidecars.py` and
+`_REQUIRED_CONFORMS_TO` in `_tapp_lib.py` are AUTHORED constants that nothing ties to the
+vendored pin: true today by agreement, not by construction.
+
