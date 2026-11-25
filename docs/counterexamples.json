@@ -560,6 +560,32 @@
       },
       "expect": "Too many items match the given schema",
       "why": "maxContains: 1 -- the table identifies its rows by ONE column. Two columns both claiming schema:valueName 'standard' would make the row key ambiguous, and since rows here are standard-by-target pairs (the identifier is deliberately not unique PER ROW), a reader cannot fall back on uniqueness to tell which column is the key."
+    },
+    {
+      "id": "keyed-row-array-not-empty",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties/1/monitoredPropertyRole",
+        "value": []
+      },
+      "expect": "minItems",
+      "why": "A keyed-table row cell says `null` when a value is deliberately absent for that member. Admitting a multi-valued cell as an array (amds-ldeo/tapp#23) created a second way to spell absence, `[]`, which would have made the two indistinguishable. minItems 1 is what stops that, and no positive example can detect its loss -- an empty array would simply validate."
+    },
+    {
+      "id": "keyed-row-array-items-are-scalars",
+      "example": "_sources/BaseSchema/tappDefinition/exampletappDefinition-all-properties.json",
+      "mutate": {
+        "op": "set",
+        "pointer": "/ada:monitoredPropertyTemplate/ada:defaultMonitoredProperties/1/monitoredPropertyRole",
+        "value": [
+          {
+            "role": "Target"
+          }
+        ]
+      },
+      "expect": "string",
+      "why": "The array admitted for a multi-valued cell holds STRINGS: the column's ada:dataType names the ITEM type, and multiplicity is carried by the row value's shape. Admitting objects there would reintroduce nesting inside a row, which is the shape keyed tables exist to flatten."
     }
   ]
 }

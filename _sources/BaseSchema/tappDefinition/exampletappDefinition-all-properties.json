@@ -1211,6 +1211,16 @@
         "schema:unitText": "kV",
         "ada:tier": "M",
         "ada:cdifPropertyPath": "#/schema:variableMeasured/schema:name"
+      },
+      {
+        "@type": [
+          "schema:PropertyValueSpecification"
+        ],
+        "schema:name": "Monitored Property Role",
+        "schema:valueName": "monitoredPropertyRole",
+        "schema:description": "Why this property is monitored: Target | Interference monitor | Internal standard | Phase monitor | Mass-bias monitor. Several values where one monitored property serves more than one purpose. amds-ldeo/tapp#23.",
+        "ada:dataType": "string",
+        "schema:readonlyValue": true
       }
     ],
     "ada:defaultMonitoredProperties": [
@@ -1231,6 +1241,14 @@
         },
         "schema:inDefinedTermSet": "https://vocab.onegeochemistry.org/techniques",
         "schema:termCode": "xenon"
+      },
+      {
+        "monitoredProperty": "⁵⁶Fe",
+        "targetSpecies": "Fe",
+        "monitoredPropertyRole": [
+          "Target",
+          "Internal standard"
+        ]
       }
     ]
   },
