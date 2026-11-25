@@ -1693,12 +1693,12 @@ ex:semCompositionTAPP-detail-Pascucci2026 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford INCA Energy" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/semCompositionTAPP-detail-Pascucci2026/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -2294,13 +2294,13 @@ ex:semCompositionTAPP-detail-Pascucci2026-2 a schema1:Dataset,
             schema1:target [ schema1:name "BSE Imaging (Zeiss Supra 40 FE-SEM); SE Imaging (Zeiss Supra 40 FE-SEM); EMPA-WDS (JEOL JXA-8230, separate instrument); VIS-IR spectroscopy (SPIM)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Embedded in epoxy, polished to ¼ µm level, sputtered with 30-nm-thick carbon film" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/chamberPressure>,
                 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel>,
                 <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/stepSizePixelSize> ;
@@ -2309,12 +2309,12 @@ ex:semCompositionTAPP-detail-Pascucci2026-2 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "Oxford INCA Energy" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Oxford INCA Energy" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/semCompositionTAPP-detail-Pascucci2026-2/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -2813,24 +2813,24 @@ ex:semCompositionTAPP-detail-Zega2025 a schema1:Dataset,
             schema1:target [ schema1:name "BSE Imaging (JEOL 7600F, JSC); SE Imaging (JEOL 7600F, JSC); FIB-SEM TEM prep (Quanta3D600, JSC)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:description "Attached to Al cylinder SEM mount with double-sided C tape; sputter coated with ~5 nm carbon" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semCompositionTAPP/edsLiveTimePerPointOrPixel> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "Oxford AZtec (Point & ID programme)" ;
-                    ada:toolRole "acquisition" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford AZtec" ;
                     ada:toolRole "dataReduction" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "Oxford AZtec (Point & ID programme)" ;
+                    ada:toolRole "acquisition" ],
                 <https://example.org/semCompositionTAPP-detail-Zega2025/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NASA Johnson Space Center (JSC), Houston, TX, USA" ] ;
@@ -3236,13 +3236,13 @@ ex:semCompositionTAPP-detail-Zega2025-2 a schema1:Dataset,
             schema1:target [ schema1:name "SE/BSE Imaging (Hitachi S-4800, U Arizona); FIB-SEM TEM prep (Helios G3, U Arizona); EMPA (Cameca SX-100 Ultra, out of scope)" ] ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Polished sections; coated with 0.1 nm carbon for charge mitigation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:description "Compositional heterogeneity assessed through EDS mapping; no specific kV, current, dwell time stated for S-4800 EDS" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
@@ -4350,10 +4350,11 @@ allOf:
                 required:
                 - schema:additionalType
           ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method."
+            description: 'The level of the analytical blank and, where the reported
+              quantity is a ratio, its composition, since a blank subtracted from
+              a ratio biases the result unless its own composition is known. For the
+              procedure: the typical or maximum blank expected. For the session: the
+              blank measured in this session. Companion to the blank correction method.'
             type: string
           schema:actionProcess:
             type: object
@@ -4491,12 +4492,18 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Precision of repeated measurements on the same or equivalent
+                description: 'Precision of repeated measurements on the same or equivalent
                   reference material, expressed as 1-sigma relative standard deviation
                   (%). State whether the repeats were made within one session (repeatability)
-                  or across sessions (intermediate precision, in ISO 5725 terms).
-                  Include reference material name, number of analyses (n), and the
-                  measured value.
+                  or across sessions (intermediate precision, in ISO 5725 terms),
+                  the reference material name and the number of analyses (n). Reported
+                  for the standards named in Quality-Control Standards; a calibration
+                  standard''s agreement with its own accepted values is not an independent
+                  test of precision. For the procedure: the expected precision. For
+                  the session: the precision achieved in this session. In the dataset:
+                  report the analyses of each secondary reference material, where
+                  they are included; the session value summarises them and must agree
+                  with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -4513,9 +4520,15 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Offset between measured and accepted reference values
-                  for secondary standards, expressed as percent relative bias. Include
-                  reference material, reference value source, and the measured value.
+                description: 'Offset between measured and accepted reference values
+                  for secondary standards, expressed as percent relative bias, with
+                  the reference material and the source of its reference value. Reported
+                  for the standards named in Quality-Control Standards; a calibration
+                  standard''s agreement with its own accepted values is not a test
+                  of accuracy. For the procedure: the expected offset. For the session:
+                  the offset found in this session. In the dataset: report the analyses
+                  of each secondary reference material, where they are included; the
+                  session value summarises them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -4617,7 +4630,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM-Composition.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

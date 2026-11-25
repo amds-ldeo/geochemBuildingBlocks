@@ -545,12 +545,12 @@ ex:laSficpmsTAPP-detail-Zhang2022 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]" ;
                     schema1:name "EPMA (Brown University CAMECA SX-100)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
@@ -1350,15 +1350,15 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021 a schema1:Dataset,
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:description "Flat polished thick sections (§2.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
                                 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Flat polished thick sections (§2.1)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea>,
@@ -2303,26 +2303,26 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-2 a schema1:Dataset,
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 1 standard deviation — Table 1: 'the uncertainty corresponds to 1 standard deviation'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
-                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
                             schema1:description "Flat polished thick sections (§2.1)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
+                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/numberOfReplicates>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
@@ -3127,14 +3127,14 @@ ex:laSficpmsTAPP-detail-Chernonozhkin2021-3 a schema1:Dataset,
             schema1:name "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:description "Flat polished thick sections (§2.1)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/numberOfReplicates>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
@@ -3988,27 +3988,27 @@ ex:laSficpmsTAPP-detail-Mittlefehldt2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "N — no funding section in this appendix document; funding would be in the parent paper which was not assessed" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "N — within-session precision not formally assessed" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — LA-ICP-MS Sc agrees with INAA 'with scatter of roughly ±0.5 µg/g'; Cr scatters more (§6.1)" ] ;
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
+                            schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing>,
                                 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
-                            schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/numberOfReplicates>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
@@ -4372,18 +4372,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laSficpmsTAPP-detail-Navarro2024/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -4721,18 +4709,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Spo
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laSficpmsTAPP-detail-Navarro2024/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -4853,14 +4829,14 @@ ex:laSficpmsTAPP-detail-Navarro2024 a schema1:Dataset,
             schema1:name "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts for Geoanalysis 2022 presentation; J.E.: CNPq grant 316191/2021-3" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: s, standard deviation of n measured values, and RSD — data table for Figs 2 and 3" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "North Chile [all: RSD 20% at worst] — measured as an unknown over four months; its RSD represents 'the laboratory reproducibility or intermediate precision conditions'" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "N — precision is stated for samples: RSD <15% for 20 spots in Arraias except Cr (20%), Ir (16%) and Os (20%), and better than 20% for the other meteorites" ] ;
+            dqv:value "N — assessed on eight known iron meteorites, not a standard: 'More than 75% of published values are within the respective LA-ICP-MS result ±2s'; relative differences 'almost always within ±20%' (Fig. 2)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
@@ -4883,10 +4859,6 @@ ex:laSficpmsTAPP-detail-Navarro2024 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
                     ada:toolRole "dataReduction" ],
-                [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024/instrument/ICPMS>,
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
@@ -5234,18 +5206,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laSficpmsTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -5561,18 +5521,6 @@ detail instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteorites Ras
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laSficpmsTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -5672,14 +5620,14 @@ ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
             schema1:name "M.S.N.: Educorp (Unicamp) and International Association of Geoanalysts; J.E.: CNPq grant 316191/2021-3" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/mappingArea>,
@@ -5692,10 +5640,6 @@ ex:laSficpmsTAPP-detail-Navarro2024-2 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "iolite 4.5.7 with 3D Trace Elements DRS" ;
                     ada:toolRole "dataReduction" ],
-                [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
-                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/ICPMS>,
                 <https://example.org/laSficpmsTAPP-detail-Navarro2024-2/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
@@ -6444,10 +6388,11 @@ allOf:
                 required:
                 - schema:additionalType
           ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method."
+            description: 'The level of the analytical blank and, where the reported
+              quantity is a ratio, its composition, since a blank subtracted from
+              a ratio biases the result unless its own composition is known. For the
+              procedure: the typical or maximum blank expected. For the session: the
+              blank measured in this session. Companion to the blank correction method.'
             type: string
         required:
         - ada:proceduralBlankLevel
@@ -6466,14 +6411,21 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Precision of repeated measurements within a single analytical
-                  session and the method used to assess it. Report both the assessment
-                  method and the precision values. The assessment method must specify
-                  the reference material or standard measured, the number of replicates
-                  n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                  Distinct from the internal precision of a single measurement, which
-                  derives from counting statistics over the cycles of that measurement
-                  rather than from repeated analyses.
+                description: 'Precision of repeated measurements of a reference material
+                  within a single analytical session, and the method used to assess
+                  it. The assessment method specifies the reference material or standard
+                  measured, the number of replicates n, and the statistic reported
+                  (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Reported for the standards named
+                  in Quality-Control Standards; a calibration standard''s agreement
+                  with its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the expected within-session
+                  precision. For the session: the precision achieved in this session,
+                  assessed by that method. Distinct from the internal precision of
+                  a single measurement, which derives from counting statistics over
+                  the cycles of that measurement rather than from repeated analyses.
+                  In the dataset: report the analyses of each secondary reference
+                  material, where they are included; the session value summarises
+                  them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -6492,10 +6444,15 @@ allOf:
               dqv:value:
                 description: "Precision of measurements across multiple analytical
                   sessions over weeks to months \u2014 long-term or intermediate precision
-                  \u2014 and the method used to assess it. Report both the assessment
-                  method and the precision values, specifying the reference material,
+                  \u2014 and the method used to assess it. Specify the reference material,
                   the number of measurements and sessions, the time span covered,
-                  and the statistic reported."
+                  and the statistic reported. Reported for the standards named in
+                  Quality-Control Standards; a calibration standard's agreement with
+                  its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the long-term precision
+                  on record when the procedure is registered. For the session: the
+                  long-term precision as it stands at this session, including this
+                  session's results where they contribute."
                 anyOf:
                 - type: string
                 - type: array
@@ -6512,13 +6469,20 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Offset between measured and accepted values for secondary
+                description: 'Offset between measured and accepted values for secondary
                   reference materials, and the method used to assess it. Specify the
                   reference material and the source of its accepted values, the number
-                  of analyses, and the quantities assessed. Report systematic biases
-                  and their likely causes. Express the offset in the form appropriate
-                  to what the procedure reports - percent relative bias for concentrations,
-                  or deviation in delta or ratio units for isotopic quantities.
+                  of analyses, and the quantities assessed. Express the offset in
+                  the form appropriate to what the procedure reports: percent relative
+                  bias for concentrations, or deviation in delta or ratio units for
+                  isotopic quantities. Reported for the standards named in Quality-Control
+                  Standards; a calibration standard''s agreement with its own accepted
+                  values is not a test of accuracy. For the procedure: the assessment
+                  method, the accepted-value source and the expected offset. For the
+                  session: the offset found in this session, with any systematic bias
+                  and its likely cause. In the dataset: report the analyses of each
+                  secondary reference material, where they are included; the session
+                  value summarises them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -6550,7 +6514,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

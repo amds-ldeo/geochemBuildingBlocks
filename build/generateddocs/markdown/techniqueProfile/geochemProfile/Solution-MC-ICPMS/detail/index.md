@@ -135,18 +135,6 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P0/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2 — 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Mo: 0.7–1.2 ng — 'negligible, given that several hundred ng of Mo were analyzed for each sample'",
@@ -436,18 +424,6 @@ detail instance derived from Budde+etal2016 | Neptune Plus | IfP Münster.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P0/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2 \u2014 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Mo: 0.7\u20131.2 ng \u2014 'negligible, given that several hundred ng of Mo were analyzed for each sample'",
@@ -618,40 +594,36 @@ ex:solutionMcicpmsTAPP-detail-P0 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "TIMS — Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "BHVO-2 [all: ±0.14 (ε97Mo) to ±0.39 (ε92Mo), 2 s.d., n = 24] — external reproducibility (§2, Table S2); Ba by TIMS ±0.13–0.31 (n = 14)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "BHVO-2 [all: εⁱMo indistinguishable from the Alfa Aesar standard] — §2" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "BHVO-2 [all: ±0.14 (ε97Mo) to ±0.39 (ε92Mo), 2 s.d., n = 24] — external reproducibility (§2, Table S2); Ba by TIMS ±0.13–0.31 (n = 14)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Sample digestion" ;
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO-2 — 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P0/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P0/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institut für Planetologie, University of Münster" ] ;
             schema1:object [ a schema1:Thing ;
@@ -1039,18 +1011,6 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "S: ~0.05% (~0.25 µg per 500 µg S) — §2.2",
@@ -1465,18 +1425,6 @@ detail instance derived from Craddock+etal2008 | Thermo NEPTUNE | WHOI.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P1/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po \u2014 Table 3",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "S: ~0.05% (~0.25 \u00b5g per 500 \u00b5g S) \u2014 \u00a72.2",
@@ -1609,18 +1557,18 @@ ex:solutionMcicpmsTAPP-detail-P1 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: the laser is connected directly to the spray chamber so ablated particles mix with 2% HNO3 and are \"effectively analyzed as a wet plasma ensuring that ablated aerosols are closely matrix-matched to solution standards\". Sequence: interchangeable — \"Our setup allows for interchangeable bulk and in situ S isotope measurement\"" ;
                     schema1:name "Laser-ablation MC-ICP-MS — the same NEPTUNE, with a NewWave UP213 laser, \"such that laser ablation and solution aspiration can be operated simultaneously\"" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "Alfa [δ34S: ±0.21‰, 2σ, 20–30 replicates]; Sch-M-2 [δ34S: ±0.45‰, 2σ, 12 replicates, laser] — §3.2; S_Spex ±0.18‰; δ³³S an order of magnitude worse" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "δ34S, δ33S: two standard deviations of the replicates — Table 3 note" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123 [δ34S: consistent with published consensus values within uncertainty] — §2.4, Table 3" ] ;
+            dqv:value "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123 [δ34S: consistent with published consensus values within uncertainty] — §2.4, Table 3" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "δ34S, δ33S: two standard deviations of the replicates — Table 3 note" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
@@ -1628,26 +1576,22 @@ ex:solutionMcicpmsTAPP-detail-P1 a schema1:Dataset,
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:description "Laser half: NewWave UP213 (213 nm), He carrier, 60 µm spot, 180 × 80 µm raster, 5 µm/s, 10 Hz, ~9–10 J/cm², ablated aerosol mixed with 2% HNO3 in the spray chamber — Table 1" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P1/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P1/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Woods Hole Oceanographic Institution" ] ;
             schema1:object [ a schema1:Thing ;
@@ -2030,18 +1974,6 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P2/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, BCR-2 — §2.1",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Fe: ~70 ng — 'negligible considering that 1-2 mg Fe was purified for each sample' (§2.2)",
@@ -2392,18 +2324,6 @@ detail instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P2/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, BCR-2 \u2014 \u00a72.1",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Fe: ~70 ng \u2014 'negligible considering that 1-2 mg Fe was purified for each sample' (\u00a72.2)",
@@ -2531,26 +2451,26 @@ ex:solutionMcicpmsTAPP-detail-P2 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "N — the Fe was measured on digestions previously analysed for Pt, Mo, Ni and/or W isotopes (Kruijer et al. 2017 and others)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BHVO-2, BCR-2 [\"μ54Fe(7/6)\": average 2 ± 2 (95% c.i.); \"μ58Fe(7/6)\": average 4 ± 6 (95% c.i.); other: normal within uncertainties] — §3; agreeing with Schiller et al. (2020)" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "BHVO-2, BCR-2 [\"μ54Fe(7/6)\": average 2 ± 2 (95% c.i.); \"μ58Fe(7/6)\": average 4 ± 6 (95% c.i.); other: normal within uncertainties] — §3; agreeing with Schiller et al. (2020)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
                             schema1:name "Data processing" ;
                             schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
@@ -2562,11 +2482,7 @@ ex:solutionMcicpmsTAPP-detail-P2 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO-2, BCR-2 — §2.1" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P2/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P2/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "University of Chicago" ] ;
             schema1:object [ a schema1:Thing ;
@@ -2856,34 +2772,6 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
         ],
         "schema:name": "University of Chicago"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BCR-2 — 'processed with the CAIs'",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P3/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -3104,34 +2992,6 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
         ],
         "schema:name": "University of Chicago"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BCR-2 \u2014 'processed with the CAIs'",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P3/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -3192,22 +3052,20 @@ detail instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago.
 
 ex:solutionMcicpmsTAPP-detail-P3 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BCR-2 [all: zero within error bars, typically < 0.05‰/amu] — Assessment of data accuracy; replicates from the Mo-chemistry matrix cut agree, with LREEs shifted ~0.1‰/amu" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BCR-2 [all: zero within error bars, typically < 0.05‰/amu] — Assessment of data accuracy; replicates from the Mo-chemistry matrix cut agree, with LREEs shifted ~0.1‰/amu" ] ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
-                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)" ;
@@ -3215,18 +3073,15 @@ ex:solutionMcicpmsTAPP-detail-P3 a schema1:Dataset,
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BCR-2 — 'processed with the CAIs'" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P3/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "University of Chicago" ] ;
             schema1:object [ a schema1:Thing ;
@@ -3255,12 +3110,6 @@ ex:solutionMcicpmsTAPP-detail-P3 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionMcicpmsTAPP-detail-P3/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double Spike Mixing Ratio" ;
@@ -3887,23 +3736,17 @@ ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes" ;
                     schema1:name "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]" ] ;
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
-                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
                             schema1:name "Data processing" ;
@@ -3912,7 +3755,13 @@ ex:solutionMcicpmsTAPP-detail-Tissot2020 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
@@ -4226,18 +4075,6 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-Dauphas2019/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende — A.4",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Rb: ~0.14 ng — less than 0.5% of the Rb of a typical sample (40 ng)",
@@ -4578,18 +4415,6 @@ detail instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-Dauphas2019/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende \u2014 A.4",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Rb: ~0.14 ng \u2014 less than 0.5% of the Rb of a typical sample (40 ng)",
@@ -4722,13 +4547,13 @@ ex:solutionMcicpmsTAPP-detail-Dauphas2019 a schema1:Dataset,
         schema1:Product ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984 [δ87Rb: zero within error]; BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, Allende [δ87Rb: reproducible, agree with published results] — A.4, Fig. 8" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -4752,11 +4577,7 @@ ex:solutionMcicpmsTAPP-detail-Dauphas2019 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende — A.4" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-Dauphas2019/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-Dauphas2019/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "University of Chicago" ] ;
             schema1:object [ a schema1:Thing ;
@@ -5042,18 +4863,6 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
           "schema:additionalType": [
             {
               "@id": "https://www.wikidata.org/entity/Q7397"
-            }
-          ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "UMd, DTM, LOsST, DROsS",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -5381,18 +5190,6 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
               "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "UMd, DTM, LOsST, DROsS",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -5557,23 +5354,19 @@ detail instance derived from Nowell+etal2008 | Neptune | Durham AHIGL.
 
 ex:solutionMcicpmsTAPP-detail-P6 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "UMd [187Os/188Os: +26 ppm; 186Os/188Os: −125 ppm]; DTM [187Os/188Os: −12 ppm; 186Os/188Os: −108 ppm] — offset from Durham N-TIMS (Table 7a)" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "UMd [187Os/188Os: 0.113795 ± 25 (2SD, n = 94)]; DTM [187Os/188Os: 0.173923 ± 26 (2SD, n = 121)] — 9 sessions over 11 months (Table 7a)" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 2SD — Table 7a: 'All quoted errors are 2SD'" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "UMd [187Os/188Os: 0.113795 ± 25 (2SD, n = 94)]; DTM [187Os/188Os: 0.173923 ± 26 (2SD, n = 121)] — 9 sessions over 11 months (Table 7a)" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "UMd, DTM [all: 2SD of the analyses in each session] — Table 7a" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "UMd [187Os/188Os: +26 ppm; 186Os/188Os: −125 ppm]; DTM [187Os/188Os: −12 ppm; 186Os/188Os: −108 ppm] — offset from Durham N-TIMS (Table 7a)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
                             schema1:position 3 ],
@@ -5581,7 +5374,11 @@ ex:solutionMcicpmsTAPP-detail-P6 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "N/A — reference material solutions, no solid preparation" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurement>,
@@ -5592,10 +5389,6 @@ ex:solutionMcicpmsTAPP-detail-P6 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Microsoft Excel — \"Following analysis all intensity data was exported and re-processed offline using Excel\"" ;
                     ada:toolRole "dataReduction" ],
-                [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "UMd, DTM, LOsST, DROsS" ;
-                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/solutionMcicpmsTAPP-detail-P6/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Arthur Holmes Isotope Geology Laboratory, Durham" ] ;
@@ -5859,18 +5652,6 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
           "schema:additionalType": [
             {
               "@id": "https://www.wikidata.org/entity/Q7397"
-            }
-          ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "DTM, LOsST",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -6186,18 +5967,6 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
               "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "DTM, LOsST",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -6363,31 +6132,31 @@ detail instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
 
 ex:solutionMcicpmsTAPP-detail-P7 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Peak Flatness" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "DTM [187Os/188Os: compared with Durham N-TIMS 0.173927 ± 5] — Table 7a" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: 2SD — 'Reported errors are 2SD unless otherwise stated'" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "DTM [187Os/188Os: 0.173910 ± 21 (2SD, n = 9)] — session 23-05-06 (Table 7a)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "DTM [187Os/188Os: compared with Durham N-TIMS 0.173927 ± 5] — Table 7a" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Sample digestion" ;
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "N/A — reference material solutions, no solid preparation" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:description "N/A — reference material solutions, no solid preparation" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurement>,
@@ -6398,10 +6167,6 @@ ex:solutionMcicpmsTAPP-detail-P7 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"" ;
                     ada:toolRole "dataReduction" ],
-                [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "DTM, LOsST" ;
-                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/solutionMcicpmsTAPP-detail-P7/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "NERC Isotope Geosciences Laboratory (NIGL)" ] ;
@@ -6786,18 +6551,6 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution — §2.3",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -7202,18 +6955,6 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution \u2014 \u00a72.3",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -7346,22 +7087,17 @@ detail instance derived from Pringle+Moynier2017 | Neptune Plus | IPGP.
 
 ex:solutionMcicpmsTAPP-detail-Moynier2017 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "pure Rb ICP-MS solution [δ87Rb: ±0.01‰ (n = 40)] — run as an external standard each session" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "SRM984 through chemistry [δ87Rb: 0.00 ± 0.03‰]; Allende [δ87Rb: duplicate splits 0.12 ± 0.02‰ and 0.14 ± 0.04‰] — §2.3" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "SRM984 through chemistry [δ87Rb: 0.00 ± 0.03‰]; Allende [δ87Rb: duplicate splits 0.12 ± 0.02‰ and 0.14 ± 0.04‰] — §2.3" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
@@ -7371,7 +7107,12 @@ ex:solutionMcicpmsTAPP-detail-Moynier2017 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfBlocksPerMeasurement>,
@@ -7379,11 +7120,7 @@ ex:solutionMcicpmsTAPP-detail-Moynier2017 a schema1:Dataset,
             schema1:description "Extraction voltage −2000 V; peristaltic pump 5 rpm (Table 1)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution — §2.3" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-Moynier2017/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institut de Physique du Globe de Paris" ] ;
             schema1:object [ a schema1:Thing ;
@@ -7753,18 +7490,6 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Zr: 0.08–0.24 ng — 0.08 and 0.24 ng with Tarda and Tagish Lake, 0.09 and 0.13 ng with Ivuna",
@@ -8102,18 +7827,6 @@ detail instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P9/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Zr: 0.08\u20130.24 ng \u2014 0.08 and 0.24 ng with Tarda and Tagish Lake, 0.09 and 0.13 ng with Ivuna",
@@ -8243,23 +7956,24 @@ ex:solutionMcicpmsTAPP-detail-P9 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Mg, K, Ca, Ti, Cr, Fe, Cu, Zn, Mo and Nd isotope data \"all obtained from the same sample digestions and are therefore directly comparable\"" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "all [ε91Zr: 0.35; ε92Zr: 0.21; ε96Zr: 1.00] — 2SD of NIST SRM 3169 for an average session at 30 ppb (n = 32)" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: 2SD of the individual measurements — Fig. 1: 'the 2 sd calculated from the individual sample measurements'" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [ε91Zr: 0.3; ε92Zr: 0.2; ε96Zr: 1.0] — average 2SD over 10 months, n = 13–99 (eucrites and Colony n = 17–38)" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [all: measured repeatedly to verify data quality] — doping tests with Ti, V, Cr, Mo, Hf and W 'have no effect on the accuracy of the Zr isotope data'" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [ε91Zr: 0.3; ε92Zr: 0.2; ε96Zr: 1.0] — average 2SD over 10 months, n = 13–99 (eucrites and Colony n = 17–38)" ] ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "all [ε91Zr: 0.35; ε92Zr: 0.21; ε96Zr: 1.00] — 2SD of NIST SRM 3169 for an average session at 30 ppb (n = 32)" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: 2SD of the individual measurements — Fig. 1: 'the 2 sd calculated from the individual sample measurements'" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 3 ],
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
@@ -8267,20 +7981,15 @@ ex:solutionMcicpmsTAPP-detail-P9 a schema1:Dataset,
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
-                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 1 ] ] ;
+                            schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P9/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology" ] ;
             schema1:object [ a schema1:Thing ;
@@ -8625,18 +8334,6 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P10/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO2, DTS-2b — 'processed alongside the samples'",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -8988,18 +8685,6 @@ detail instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionMcicpmsTAPP-detail-P10/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO2, DTS-2b \u2014 'processed alongside the samples'",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -9128,16 +8813,16 @@ ex:solutionMcicpmsTAPP-detail-P10 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "N — BHVO2 and DTS-2b results are in Supplementary Dataset 2" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ] ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "N — BHVO2 and DTS-2b results are in Supplementary Dataset 2" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
@@ -9158,11 +8843,7 @@ ex:solutionMcicpmsTAPP-detail-P10 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO2, DTS-2b — 'processed alongside the samples'" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionMcicpmsTAPP-detail-P10/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
             schema1:object [ a schema1:Thing ;
@@ -9438,34 +9119,6 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
         ],
         "schema:name": "Washington University in St. Louis"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P11/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime",
@@ -9680,34 +9333,6 @@ detail instance derived from Broussard+etal2026 | Neptune Plus | WUSTL.
         ],
         "schema:name": "Washington University in St. Louis"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P11/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime",
@@ -9781,15 +9406,15 @@ ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "Functional: pre-cut and post-cut fractions either side of the K collection were measured by Q-ICP-MS \"to monitor for K loss during column chemistry\". Sequence: Q-ICP-MS check before MC-ICP-MS measurement" ;
                     schema1:name "Laser-fluorination oxygen isotopes on a Thermo Finnigan MAT 253 Plus; K loss monitored by Thermo Fisher iCAP Q ICP-MS" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BHVO-2 [δ41K: −0.448 ± 0.027‰, within error of reported values such as −0.46 ± 0.09‰ (Wang et al. 2021)]" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BHVO-2 [δ41K: −0.448 ± 0.027‰, within error of reported values such as −0.46 ± 0.09‰ (Wang et al. 2021)]" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -9797,24 +9422,19 @@ ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
                             schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO-2" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P11/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;
             schema1:object [ a schema1:Thing ;
@@ -9843,12 +9463,6 @@ ex:solutionMcicpmsTAPP-detail-P11 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionMcicpmsTAPP-detail-P11/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double Spike Mixing Ratio" ;
@@ -10017,34 +9631,6 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
         ],
         "schema:name": "Washington University in St. Louis"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P12/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime",
@@ -10242,34 +9828,6 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | WUSTL.
         ],
         "schema:name": "Washington University in St. Louis"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P12/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime",
@@ -10341,17 +9899,23 @@ ex:solutionMcicpmsTAPP-detail-P12 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "High-resolution ICP-MS (Thermo Element XR) at LLNL for bulk elemental abundances, on splits of the same digest" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — 'the geostandard BHVO-2 was analysed alongside all sample analyses'; results in Supplementary Table 9" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "One digest split two ways: about half at WUSTL for K, Cu and Zn, half to LLNL and on to ETH Zurich — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
                             schema1:name "Sample preparation" ;
@@ -10359,21 +9923,10 @@ ex:solutionMcicpmsTAPP-detail-P12 a schema1:Dataset,
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
-                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO-2" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P12/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Washington University in St. Louis" ] ;
             schema1:object [ a schema1:Thing ;
@@ -10402,12 +9955,6 @@ ex:solutionMcicpmsTAPP-detail-P12 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionMcicpmsTAPP-detail-P12/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double Spike Mixing Ratio" ;
@@ -10600,34 +10147,6 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
         ],
         "schema:name": "Institute of Geochemistry and Petrology, ETH Zurich"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, Agua Zarcas — Agua Zarcas is a CM2 chondrite",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P13/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -10853,34 +10372,6 @@ detail instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich.
         ],
         "schema:name": "Institute of Geochemistry and Petrology, ETH Zurich"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "BHVO-2, Agua Zarcas \u2014 Agua Zarcas is a CM2 chondrite",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionMcicpmsTAPP-detail-P13/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -10950,20 +10441,22 @@ ex:solutionMcicpmsTAPP-detail-P13 a schema1:Dataset,
         schema1:Product ;
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "Coordinated dissolution shared with the WUSTL K/Cu/Zn procedure; SIMS oxygen isotopes" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "BHVO-2, Agua Zarcas [all: analysed alongside Bennu to verify accuracy and reproducibility]" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "BHVO-2 [ε46Ti: ±0.17; ε48Ti: ±0.09; ε50Ti: ±0.16] — 2 s.d. of 9 analyses" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "BHVO-2, Agua Zarcas [all: analysed alongside Bennu to verify accuracy and reproducibility]" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
+                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
@@ -10971,20 +10464,13 @@ ex:solutionMcicpmsTAPP-detail-P13 a schema1:Dataset,
                             schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
-                                <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 1 ] ] ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycle>,
                 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlock> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "BHVO-2, Agua Zarcas — Agua Zarcas is a CM2 chondrite" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionMcicpmsTAPP-detail-P13/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institute of Geochemistry and Petrology, ETH Zurich" ] ;
             schema1:object [ a schema1:Thing ;
@@ -11012,12 +10498,6 @@ ex:solutionMcicpmsTAPP-detail-P13 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionMcicpmsTAPP-detail-P13/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatio> a schema1:PropertyValue ;
     schema1:name "Double Spike Mixing Ratio" ;
@@ -11638,10 +11118,11 @@ allOf:
               minContains: 0
               maxContains: 1
           ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method."
+            description: 'The level of the analytical blank and, where the reported
+              quantity is a ratio, its composition, since a blank subtracted from
+              a ratio biases the result unless its own composition is known. For the
+              procedure: the typical or maximum blank expected. For the session: the
+              blank measured in this session. Companion to the blank correction method.'
             type: string
           ada:deltaOrEpsilonValueReferenceStandard:
             description: "International or community-accepted isotopic reference standard
@@ -11649,9 +11130,8 @@ allOf:
               delta (\u03B4, per mil) or epsilon (\u03B5, per ten thousand) notation:
               \u03B4\u2071X = [(\u2071X/\u02B2X)sample / (\u2071X/\u02B2X)reference
               \u2212 1] \xD7 1000\u2030. The reporting reference is a per-study or
-              per-publication decision. Specify the standard name, lot or batch number
-              where applicable, and the certified or consensus isotope ratio used
-              for normalization."
+              per-publication decision. Name an entry in Reference Materials, and
+              give the isotope ratio used for normalization."
             type: string
         required:
         - ada:deltaOrEpsilonValueReferenceStandard
@@ -11671,13 +11151,20 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Offset between measured and accepted values for secondary
+                description: 'Offset between measured and accepted values for secondary
                   reference materials, and the method used to assess it. Specify the
                   reference material and the source of its accepted values, the number
-                  of analyses, and the quantities assessed. Report systematic biases
-                  and their likely causes. Express the offset in the form appropriate
-                  to what the procedure reports - percent relative bias for concentrations,
-                  or deviation in delta or ratio units for isotopic quantities.
+                  of analyses, and the quantities assessed. Express the offset in
+                  the form appropriate to what the procedure reports: percent relative
+                  bias for concentrations, or deviation in delta or ratio units for
+                  isotopic quantities. Reported for the standards named in Quality-Control
+                  Standards; a calibration standard''s agreement with its own accepted
+                  values is not a test of accuracy. For the procedure: the assessment
+                  method, the accepted-value source and the expected offset. For the
+                  session: the offset found in this session, with any systematic bias
+                  and its likely cause. In the dataset: report the analyses of each
+                  secondary reference material, where they are included; the session
+                  value summarises them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -11696,10 +11183,15 @@ allOf:
               dqv:value:
                 description: "Precision of measurements across multiple analytical
                   sessions over weeks to months \u2014 long-term or intermediate precision
-                  \u2014 and the method used to assess it. Report both the assessment
-                  method and the precision values, specifying the reference material,
+                  \u2014 and the method used to assess it. Specify the reference material,
                   the number of measurements and sessions, the time span covered,
-                  and the statistic reported."
+                  and the statistic reported. Reported for the standards named in
+                  Quality-Control Standards; a calibration standard's agreement with
+                  its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the long-term precision
+                  on record when the procedure is registered. For the session: the
+                  long-term precision as it stands at this session, including this
+                  session's results where they contribute."
                 anyOf:
                 - type: string
                 - type: array
@@ -11716,14 +11208,21 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Precision of repeated measurements within a single analytical
-                  session and the method used to assess it. Report both the assessment
-                  method and the precision values. The assessment method must specify
-                  the reference material or standard measured, the number of replicates
-                  n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                  Distinct from the internal precision of a single measurement, which
-                  derives from counting statistics over the cycles of that measurement
-                  rather than from repeated analyses.
+                description: 'Precision of repeated measurements of a reference material
+                  within a single analytical session, and the method used to assess
+                  it. The assessment method specifies the reference material or standard
+                  measured, the number of replicates n, and the statistic reported
+                  (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Reported for the standards named
+                  in Quality-Control Standards; a calibration standard''s agreement
+                  with its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the expected within-session
+                  precision. For the session: the precision achieved in this session,
+                  assessed by that method. Distinct from the internal precision of
+                  a single measurement, which derives from counting statistics over
+                  the cycles of that measurement rather than from repeated analyses.
+                  In the dataset: report the analyses of each secondary reference
+                  material, where they are included; the session value summarises
+                  them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -11831,7 +11330,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

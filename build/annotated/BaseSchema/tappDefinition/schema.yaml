@@ -357,12 +357,17 @@ properties:
                   of the identifier column, which ada:targetMaterialColumns requires
                   exactly one of, so a row is keyed by column valueName throughout.
             additionalProperties:
-              type:
-              - string
-              - number
-              - integer
-              - boolean
-              - 'null'
+              anyOf:
+              - type:
+                - string
+                - number
+                - integer
+                - boolean
+                - 'null'
+              - type: array
+                minItems: 1
+                items:
+                  type: string
         x-jsonld-id: https://ada.astromat.org/metadata/defaultTargetMaterials
     required:
     - ada:targetMaterialColumns
@@ -447,12 +452,17 @@ properties:
                   this branch; it surfaced against the 46 stored ADA method definitions,
                   which do use row objects.'
             additionalProperties:
-              type:
-              - string
-              - number
-              - integer
-              - boolean
-              - 'null'
+              anyOf:
+              - type:
+                - string
+                - number
+                - integer
+                - boolean
+                - 'null'
+              - type: array
+                minItems: 1
+                items:
+                  type: string
         x-jsonld-id: https://ada.astromat.org/metadata/defaultTargetSpecies
     required:
     - ada:targetSpeciesColumns
@@ -526,12 +536,17 @@ properties:
                   matching an entry in schema:instrument\u2026hasPart[Collector].ada:collectors."
                 type: string
             additionalProperties:
-              type:
-              - string
-              - number
-              - integer
-              - boolean
-              - 'null'
+              anyOf:
+              - type:
+                - string
+                - number
+                - integer
+                - boolean
+                - 'null'
+              - type: array
+                minItems: 1
+                items:
+                  type: string
         x-jsonld-id: https://ada.astromat.org/metadata/defaultMonitoredProperties
     required:
     - ada:monitoredPropertyColumns
@@ -1195,7 +1210,11 @@ $defs:
         - boolean
         - date
         - uri
-        description: Expected data type for the parameter value.
+        description: 'Expected data type for the parameter value. For a keyed-table
+          column this names the ITEM type: a column whose cells hold several values
+          declares `string` here and its rows carry an array of strings. Multiplicity
+          is carried by the row value''s shape, not by this enum, because no TAPP
+          workbook field declares it.'
         x-jsonld-id: https://ada.astromat.org/metadata/dataType
       schema:unitText:
         type: string
@@ -1985,4 +2004,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.tappDefinition
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.3'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'

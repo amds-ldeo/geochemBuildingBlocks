@@ -2737,6 +2737,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  epma_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   epma_combinationMethod:
     title: Combination Method
     description: 'Whether the reported variable is an individual result or combines
@@ -2773,10 +2803,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -2835,7 +2866,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -3108,8 +3139,8 @@ $defs:
     - schema:value
   epma_interferenceCorrectionStandard:
     title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference
-      correction.
+    description: The reference material used to quantify the interference correction
+      for each affected target species. Name an entry in Reference Materials.
     type: object
     properties:
       '@id':
@@ -3211,6 +3242,32 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  epma_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   epma_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -3273,7 +3330,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -3286,37 +3343,6 @@ $defs:
         - '@id': ada:parameter/epmaTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  epma_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/epmaTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/epmaTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
       schema:value:
         type: string
     required:
@@ -3345,6 +3371,223 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/proportional-counter-detector
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  epma_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  epma_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  epma_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/epmaTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -3429,32 +3672,6 @@ $defs:
         - '@id': ada:parameter/epmaTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  epma_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/epmaTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/epmaTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -6233,6 +6450,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpmsUPb_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
@@ -6382,10 +6629,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -6473,7 +6721,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -7266,6 +7514,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpmsUPb_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -7382,7 +7656,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -7403,29 +7677,24 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laMcicpmsUPb_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
+  laMcicpmsUPb_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
     type: object
     properties:
       '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/primaryCalibrationStandardName
+        const: ada:parameter/laMcicpmsUPbTAPP/qualityControlStandards
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/primaryCalibrationStandardName
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/qualityControlStandards
       schema:name:
-        const: Primary Calibration Standard Name
+        const: Quality-Control Standards
       schema:value:
         type: string
     required:
@@ -7543,6 +7812,197 @@ $defs:
         const: Reaction Product Ion / Mass-Shift Transition
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laMcicpmsUPb_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpmsUPb_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laMcicpmsUPb_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsUPbTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -7710,32 +8170,6 @@ $defs:
         - '@id': ada:parameter/laMcicpmsUPbTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laMcicpmsUPb_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsUPbTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsUPbTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -8137,6 +8571,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpms_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
@@ -8286,10 +8750,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -8377,7 +8842,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -9064,6 +9529,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laMcicpms_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laMcicpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -9180,7 +9671,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -9201,29 +9692,24 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  laMcicpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
+  laMcicpms_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
     type: object
     properties:
       '@id':
-        const: ada:parameter/laMcicpmsTAPP/primaryCalibrationStandardName
+        const: ada:parameter/laMcicpmsTAPP/qualityControlStandards
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/laMcicpmsTAPP/primaryCalibrationStandardName
+        - '@id': ada:parameter/laMcicpmsTAPP/qualityControlStandards
       schema:name:
-        const: Primary Calibration Standard Name
+        const: Quality-Control Standards
       schema:value:
         type: string
     required:
@@ -9341,6 +9827,197 @@ $defs:
         const: Reaction Product Ion / Mass-Shift Transition
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laMcicpms_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laMcicpms_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laMcicpms_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laMcicpmsTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -9481,32 +10158,6 @@ $defs:
         - '@id': ada:parameter/laMcicpmsTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laMcicpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laMcicpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laMcicpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -9908,6 +10559,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpmsUPb_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpmsUPb_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
@@ -10057,10 +10738,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -10148,7 +10830,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -10914,6 +11596,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpmsUPb_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -10973,7 +11681,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -10986,37 +11694,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpmsUPb_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
       schema:value:
         type: string
     required:
@@ -11052,6 +11729,32 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11167,6 +11870,197 @@ $defs:
         const: Reaction Product Ion / Mass-Shift Transition
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laQicpmsUPb_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpmsUPb_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laQicpmsUPb_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsUPbTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -11334,32 +12228,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsUPbTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpmsUPb_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsUPbTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsUPbTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -11792,6 +12660,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpms_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpms_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
@@ -11941,10 +12839,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -12032,7 +12931,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -12692,6 +13591,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laQicpms_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laQicpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -12751,7 +13676,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -12764,37 +13689,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
       schema:value:
         type: string
     required:
@@ -12830,6 +13724,32 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -12945,6 +13865,197 @@ $defs:
         const: Reaction Product Ion / Mass-Shift Transition
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laQicpms_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laQicpms_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laQicpms_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laQicpmsTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -13085,32 +14196,6 @@ $defs:
         - '@id': ada:parameter/laQicpmsTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laQicpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laQicpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laQicpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -13543,6 +14628,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpmsUPb_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
@@ -13604,10 +14719,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -13695,7 +14811,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -14490,6 +15606,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpmsUPb_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -14549,7 +15691,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -14562,37 +15704,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpmsUPb_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
       schema:value:
         type: string
     required:
@@ -14634,6 +15745,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpmsUPb_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpmsUPb_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
@@ -14653,6 +15790,197 @@ $defs:
         const: Raster Line Spacing (Mapping Only)
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laSficpmsUPb_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpmsUPb_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laSficpmsUPb_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsUPbTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -14820,32 +16148,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsUPbTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpmsUPb_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsUPbTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsUPbTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -15305,6 +16607,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_carrierGasAndFlowRate:
     title: Carrier Gas and Flow Rate
     description: "Gas used to transport ablated aerosol from the ablation cell to
@@ -15366,10 +16698,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -15457,7 +16790,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -16146,6 +17479,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -16205,7 +17564,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -16218,37 +17577,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
       schema:value:
         type: string
     required:
@@ -16290,6 +17618,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  laSficpms_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   laSficpms_rasterLineSpacing:
     title: Raster Line Spacing (Mapping Only)
     description: Distance between adjacent raster lines in a 2D elemental map, measured
@@ -16309,6 +17663,197 @@ $defs:
         const: Raster Line Spacing (Mapping Only)
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpms_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpms_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpms_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpms_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laSficpms_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  laSficpms_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  laSficpms_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/laSficpmsTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -16449,32 +17994,6 @@ $defs:
         - '@id': ada:parameter/laSficpmsTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  laSficpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/laSficpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/laSficpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -16844,10 +18363,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -16876,7 +18396,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -17460,7 +18980,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -17532,7 +19052,8 @@ $defs:
   labxct_ringArtifactCorrectionMethod:
     title: Ring Artifact Correction Method
     description: Procedure specification for how ring artifacts are handled. Whether
-      correction was applied and its outcome are recorded separately in Group 6.
+      correction was applied and its outcome are recorded separately in Ring Artifact
+      Severity and Correction Outcome, in Quality Control & Uncertainty (Group 6).
     type: object
     properties:
       '@id':
@@ -22089,6 +23610,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  semComposition_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_chamberPressure:
     title: Chamber Pressure
     description: Chamber pressure and gas type during analysis. Required for variable
@@ -22155,10 +23706,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -22217,7 +23769,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -22491,8 +24043,8 @@ $defs:
     - schema:value
   semComposition_interferenceCorrectionStandard:
     title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference
-      correction.
+    description: The reference material used to quantify the interference correction
+      for each affected target species. Name an entry in Reference Materials.
     type: object
     properties:
       '@id':
@@ -22594,6 +24146,32 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  semComposition_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   semComposition_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -22656,7 +24234,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -22669,37 +24247,6 @@ $defs:
         - '@id': ada:parameter/semCompositionTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  semComposition_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semCompositionTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semCompositionTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
       schema:value:
         type: string
     required:
@@ -22728,6 +24275,223 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/proportional-counter-detector
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  semComposition_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  semComposition_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  semComposition_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semCompositionTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -22812,32 +24576,6 @@ $defs:
         - '@id': ada:parameter/semCompositionTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  semComposition_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semCompositionTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semCompositionTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -23215,10 +24953,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -23247,7 +24986,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -23489,7 +25228,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -23904,10 +25643,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -23936,7 +25676,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -24207,7 +25947,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -24631,6 +26371,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  sem_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   sem_chamberPressure:
     title: Chamber Pressure
     description: Chamber pressure and gas type during analysis. Required for variable
@@ -24828,10 +26598,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -24890,7 +26661,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -25373,8 +27144,8 @@ $defs:
     - schema:value
   sem_interferenceCorrectionStandard:
     title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference
-      correction.
+    description: The reference material used to quantify the interference correction
+      for each affected target species. Name an entry in Reference Materials.
     type: object
     properties:
       '@id':
@@ -25503,6 +27274,32 @@ $defs:
     - schema:name
     - schema:value
     - schema:unitText
+  sem_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   sem_normalizationStandardsBasedCorrection:
     title: Normalization / Standards-Based Correction
     description: "Post-acquisition normalization applied to the reported data beyond
@@ -25565,7 +27362,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -25578,37 +27375,6 @@ $defs:
         - '@id': ada:parameter/semTAPP/preAnalysisImagingAndScreening
       schema:name:
         const: Pre-Analysis Imaging and Screening
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  sem_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
       schema:value:
         type: string
     required:
@@ -25663,6 +27429,223 @@ $defs:
         const: Protective Coating Deposition
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  sem_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  sem_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  sem_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/semTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -25747,32 +27730,6 @@ $defs:
         - '@id': ada:parameter/semTAPP/samplingUnitSelectionCriteria
       schema:name:
         const: Sampling Unit Selection Criteria
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  sem_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/semTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/semTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
       schema:value:
         type: string
     required:
@@ -26773,6 +28730,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
@@ -26897,10 +28884,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -26988,7 +28976,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -27590,6 +29578,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionMcicpms_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionMcicpms_nebulizerGasFlowRate:
     title: Nebulizer Gas Flow Rate
     description: Flow rate of the carrier argon gas delivered through the nebulizer
@@ -27702,29 +29716,24 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  solutionMcicpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
+  solutionMcicpms_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
     type: object
     properties:
       '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName
+        const: ada:parameter/solutionMcicpmsTAPP/qualityControlStandards
       '@type':
         const:
         - schema:PropertyValue
       schema:propertyID:
         const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/primaryCalibrationStandardName
+        - '@id': ada:parameter/solutionMcicpmsTAPP/qualityControlStandards
       schema:name:
-        const: Primary Calibration Standard Name
+        const: Quality-Control Standards
       schema:value:
         type: string
     required:
@@ -27817,6 +29826,197 @@ $defs:
         const: Reaction Product Ion / Mass-Shift Transition
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionMcicpms_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionMcicpms_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionMcicpmsTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -27987,32 +30187,6 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/sampler-and-skimmer-cone-material
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionMcicpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionMcicpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
     required:
     - '@id'
     - '@type'
@@ -28270,6 +30444,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionQicpms_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionQicpms_cellExitDiscriminationVoltage:
     title: Cell Exit Discrimination Voltage
     description: Bias voltage applied at the collision/reaction cell exit to discriminate
@@ -28394,10 +30598,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -28485,7 +30690,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -29034,6 +31239,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionQicpms_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionQicpms_nebulizerGasFlowRate:
     title: Nebulizer Gas Flow Rate
     description: Flow rate of the carrier argon gas delivered through the nebulizer
@@ -29089,37 +31320,6 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  solutionQicpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   solutionQicpms_pulseAnalogDetectorNonlinearityCorrection:
     title: Pulse/Analog Detector Nonlinearity Correction
     description: Whether a correction was applied for nonlinear detector response
@@ -29147,6 +31347,32 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -29237,6 +31463,197 @@ $defs:
         const: Reaction Product Ion / Mass-Shift Transition
       schema:value:
         type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionQicpms_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionQicpms_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionQicpmsTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -29407,32 +31824,6 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/sampler-and-skimmer-cone-material
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionQicpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionQicpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
     required:
     - '@id'
     - '@type'
@@ -29690,6 +32081,36 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionSficpms_calibrationStandard:
+    title: Calibration Standard
+    description: "The reference material against which each target species is calibrated
+      in each target material, converting raw signal intensities to concentrations,
+      or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference
+      Materials. Where calibration instead uses the vendor's stored library or theoretical
+      response factors rather than measured reference materials \u2014 'standardless'
+      or 'semi-quantitative' quantification \u2014 record that here, naming the library
+      or model used. 'None' means no calibration was performed at all, which is a
+      different answer."
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/calibrationStandard
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/calibrationStandard
+      schema:name:
+        const: Calibration Standard
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionSficpms_combinationMethod:
     title: Combination Method
     description: 'Whether the reported variable is an individual result or combines
@@ -29726,10 +32147,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -29817,7 +32239,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -30395,6 +32817,32 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  solutionSficpms_monitoredPropertyRoleDetail:
+    title: Monitored Property Role Detail
+    description: 'For a monitored property whose role is not Target, what it serves:
+      the interference it corrects and the monitored property it corrects it on, the
+      target species it standardises, or the phase it detects. The correction itself
+      is recorded with the interference correction fields.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/monitoredPropertyRoleDetail
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/monitoredPropertyRoleDetail
+      schema:name:
+        const: Monitored Property Role Detail
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
   solutionSficpms_nebulizerGasFlowRate:
     title: Nebulizer Gas Flow Rate
     description: Flow rate of the carrier argon gas delivered through the nebulizer
@@ -30450,37 +32898,6 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
-  solutionSficpms_primaryCalibrationStandardName:
-    title: Primary Calibration Standard Name
-    description: "Name and reference material identifier of the primary reference
-      material(s) against which the instrument is calibrated \u2014 converting raw
-      signal intensities to concentrations, or anchoring an isotope ratio as the bracketing
-      standard or zero-delta reference. Give the material name, its source or supplier,
-      and a citation for the accepted values used. Where calibration instead uses
-      the vendor's stored library or theoretical response factors rather than measured
-      reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-      \u2014 record that here, naming the library or model used. 'None' means no calibration
-      was performed at all, which is a different answer."
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/primaryCalibrationStandardName
-      schema:name:
-        const: Primary Calibration Standard Name
-      schema:value:
-        type: string
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
   solutionSficpms_pulseAnalogDetectorNonlinearityCorrection:
     title: Pulse/Analog Detector Nonlinearity Correction
     description: Whether a correction was applied for nonlinear detector response
@@ -30508,6 +32925,223 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_qualityControlStandards:
+    title: Quality-Control Standards
+    description: The reference material(s) run as unknowns to check the results for
+      each target species in each target material, assessing accuracy independently
+      of the calibration and monitoring drift. Name one or more entries in Reference
+      Materials.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/qualityControlStandards
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/qualityControlStandards
+      schema:name:
+        const: Quality-Control Standards
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_referenceMaterialIdentifier:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceMaterialIdentifier
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/referenceMaterialIdentifier
+      schema:name:
+        const: Reference Material Identifier
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_referenceMaterialType:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceMaterialType
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/referenceMaterialType
+      schema:name:
+        const: Reference Material Type
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_referenceMaterials:
+    title: Reference Materials
+    description: 'Every reference material or reference scale used in the procedure
+      or session: calibration and bracketing standards, quality-control (secondary)
+      materials, and materials used for interference or delta corrections. List each
+      material once, whatever roles it holds; the fields that assign standards to
+      target species name entries in this list.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceMaterials
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/referenceMaterials
+      schema:name:
+        const: Reference Materials
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_referenceValue:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceValue
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/referenceValue
+      schema:name:
+        const: Reference Value
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_referenceValueSource:
+    title: Reference Value Source
+    description: The publication, compilation or certificate giving the accepted values
+      used for each reference material, with a DOI where available. Where values for
+      different properties of one material come from different sources, say which
+      applies to which.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceValueSource
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/referenceValueSource
+      schema:name:
+        const: Reference Value Source
+      schema:value:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+  solutionSficpms_referenceValueUncertainty:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceValueUncertainty
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/referenceValueUncertainty
+      schema:name:
+        const: Reference Value Uncertainty
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  solutionSficpms_referenceValueUncertaintyBasis:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceValueUncertaintyBasis
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/solutionSficpmsTAPP/referenceValueUncertaintyBasis
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      schema:value:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
     required:
     - '@id'
     - '@type'
@@ -30678,32 +33312,6 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/sampler-and-skimmer-cone-material
-    required:
-    - '@id'
-    - '@type'
-    - schema:propertyID
-    - schema:name
-    - schema:value
-  solutionSficpms_secondaryReferenceMaterials:
-    title: Secondary Reference Materials
-    description: Quality-control reference material(s) measured as unknowns alongside
-      samples to assess accuracy independently and to monitor drift. Give the material
-      name, its source, and a citation for the accepted or reference values used for
-      comparison.
-    type: object
-    properties:
-      '@id':
-        const: ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
-      '@type':
-        const:
-        - schema:PropertyValue
-      schema:propertyID:
-        const:
-        - '@id': ada:parameter/solutionSficpmsTAPP/secondaryReferenceMaterials
-      schema:name:
-        const: Secondary Reference Materials
-      schema:value:
-        type: string
     required:
     - '@id'
     - '@type'
@@ -32066,10 +34674,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -32098,7 +34707,7 @@ $defs:
       in the same package), or a publication DOI. Use "same submission" if the coupled
       dataset is included in this data package, or "pending" if not yet assigned.
       If coupling is documented through a shared sample identifier only, that information
-      is already captured in Sample Persistent Identifier (Group 2).'
+      is already captured in Sample Persistent Identifier, in Samples (Group 2).'
     type: object
     properties:
       '@id':
@@ -32896,7 +35505,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -33171,8 +35780,8 @@ $defs:
   tem_spectroscopicDetector:
     title: Spectroscopic Detector(s)
     description: Spectroscopic detectors present and used under this procedure. EDS
-      and EELS parameter fields in Group 4 apply only when the corresponding detector
-      is listed here.
+      and EELS parameter fields in Measurement Information (Group 4) apply only when
+      the corresponding detector is listed here.
     type: object
     properties:
       '@id':
@@ -35662,7 +38271,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.parameterValues
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

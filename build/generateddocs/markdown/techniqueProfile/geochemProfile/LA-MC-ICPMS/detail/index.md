@@ -211,18 +211,6 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:additionalProperty": [
@@ -654,18 +642,6 @@ detail instance derived from Zhang et al. 2022 (At. Spectrosc. 43) Lunar meteori
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) \u2014 measured as unknowns for \u2078\u2077Sr/\u2078\u2076Sr data quality evaluation; reference values in Table 2",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:additionalProperty": [
@@ -904,27 +880,27 @@ ex:laMcicpmsTAPP-detail-Zhang2022 a schema1:Dataset,
             schema1:name "CNSA pre-research project D020205; NSFC 41973013; Natural Science Foundation of Hubei Province 2020CFA045; GPMR State Key Laboratory special fund MSFGPMR04 and MSFGPMR08" ] ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "all [⁸⁷Sr/⁸⁶Sr: relative error <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1 (12 of 14 reference materials); ⁸⁷Rb/⁸⁶Sr: within ±3% for 11 glasses] — exceptions NIST 610 (−2.97%), NIST 612 (+2.02%), ATHO-G (+2.89%), all within the stated ±3% criterion" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR; other: N — Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)" ],
         [ dqv:isMeasurementOf "Peak Flatness" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR; other: N — Table 3: NWA 10597 Normal group 24, SUIA group 1.5; NWA 6950 Normal group 21, SUIA group 1.5. The high Normal-group values are attributed to large dispersion, 'especially for the data with ⁸⁷Rb/⁸⁶Sr ranging from 0.05 to 0.15' measured in pyroxenes (p.7)" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "all [⁸⁷Sr/⁸⁶Sr, ⁸⁷Rb/⁸⁶Sr: standard error at 95% confidence (USE) per individual run, dependent on signal intensity] — regression in Fig. 3; relative errors for ⁸⁷Rb/⁸⁶Sr ±3% for most reference glasses, and for ⁸⁷Sr/⁸⁶Sr <0.2‰ where ⁸⁷Rb/⁸⁶Sr <1" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Polished thin section (two-volume cell)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Polished thin section (two-volume cell)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
@@ -939,10 +915,6 @@ ex:laMcicpmsTAPP-detail-Zhang2022 a schema1:Dataset,
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "ISO-Compass software (Zhang et al. 2020, J. Anal. At. Spectrom. 35, 1087–1096)" ;
                     ada:toolRole "dataReduction" ],
-                [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2" ;
-                    ada:reagentRole "referenceMaterial" ],
                 <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/ICPMS>,
                 <https://example.org/laMcicpmsTAPP-detail-Zhang2022/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
@@ -1799,10 +1771,11 @@ allOf:
                             minContains: 0
                             maxContains: 1
           ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method."
+            description: 'The level of the analytical blank and, where the reported
+              quantity is a ratio, its composition, since a blank subtracted from
+              a ratio biases the result unless its own composition is known. For the
+              procedure: the typical or maximum blank expected. For the session: the
+              blank measured in this session. Companion to the blank correction method.'
             type: string
         required:
         - ada:proceduralBlankLevel
@@ -1821,13 +1794,20 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Offset between measured and accepted values for secondary
+                description: 'Offset between measured and accepted values for secondary
                   reference materials, and the method used to assess it. Specify the
                   reference material and the source of its accepted values, the number
-                  of analyses, and the quantities assessed. Report systematic biases
-                  and their likely causes. Express the offset in the form appropriate
-                  to what the procedure reports - percent relative bias for concentrations,
-                  or deviation in delta or ratio units for isotopic quantities.
+                  of analyses, and the quantities assessed. Express the offset in
+                  the form appropriate to what the procedure reports: percent relative
+                  bias for concentrations, or deviation in delta or ratio units for
+                  isotopic quantities. Reported for the standards named in Quality-Control
+                  Standards; a calibration standard''s agreement with its own accepted
+                  values is not a test of accuracy. For the procedure: the assessment
+                  method, the accepted-value source and the expected offset. For the
+                  session: the offset found in this session, with any systematic bias
+                  and its likely cause. In the dataset: report the analyses of each
+                  secondary reference material, where they are included; the session
+                  value summarises them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -1846,10 +1826,15 @@ allOf:
               dqv:value:
                 description: "Precision of measurements across multiple analytical
                   sessions over weeks to months \u2014 long-term or intermediate precision
-                  \u2014 and the method used to assess it. Report both the assessment
-                  method and the precision values, specifying the reference material,
+                  \u2014 and the method used to assess it. Specify the reference material,
                   the number of measurements and sessions, the time span covered,
-                  and the statistic reported."
+                  and the statistic reported. Reported for the standards named in
+                  Quality-Control Standards; a calibration standard's agreement with
+                  its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the long-term precision
+                  on record when the procedure is registered. For the session: the
+                  long-term precision as it stands at this session, including this
+                  session's results where they contribute."
                 anyOf:
                 - type: string
                 - type: array
@@ -1866,14 +1851,21 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Precision of repeated measurements within a single analytical
-                  session and the method used to assess it. Report both the assessment
-                  method and the precision values. The assessment method must specify
-                  the reference material or standard measured, the number of replicates
-                  n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                  Distinct from the internal precision of a single measurement, which
-                  derives from counting statistics over the cycles of that measurement
-                  rather than from repeated analyses.
+                description: 'Precision of repeated measurements of a reference material
+                  within a single analytical session, and the method used to assess
+                  it. The assessment method specifies the reference material or standard
+                  measured, the number of replicates n, and the statistic reported
+                  (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Reported for the standards named
+                  in Quality-Control Standards; a calibration standard''s agreement
+                  with its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the expected within-session
+                  precision. For the session: the precision achieved in this session,
+                  assessed by that method. Distinct from the internal precision of
+                  a single measurement, which derives from counting statistics over
+                  the cycles of that measurement rather than from repeated analyses.
+                  In the dataset: report the analyses of each secondary reference
+                  material, where they are included; the session value summarises
+                  them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -1905,7 +1897,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

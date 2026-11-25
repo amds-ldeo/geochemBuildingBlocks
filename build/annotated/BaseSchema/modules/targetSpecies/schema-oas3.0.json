@@ -378,19 +378,30 @@
                       }
                     },
                     "additionalProperties": {
-                      "nullable": true,
                       "anyOf": [
                         {
-                          "type": "string"
+                          "nullable": true,
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "boolean"
+                            }
+                          ]
                         },
                         {
-                          "type": "number"
-                        },
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "boolean"
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
                         }
                       ]
                     }
@@ -455,19 +466,30 @@
                       }
                     },
                     "additionalProperties": {
-                      "nullable": true,
                       "anyOf": [
                         {
-                          "type": "string"
+                          "nullable": true,
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "boolean"
+                            }
+                          ]
                         },
                         {
-                          "type": "number"
-                        },
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "boolean"
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
                         }
                       ]
                     }
@@ -535,19 +557,30 @@
                       }
                     },
                     "additionalProperties": {
-                      "nullable": true,
                       "anyOf": [
                         {
-                          "type": "string"
+                          "nullable": true,
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "boolean"
+                            }
+                          ]
                         },
                         {
-                          "type": "number"
-                        },
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "boolean"
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
                         }
                       ]
                     }
@@ -1264,7 +1297,7 @@
                 "date",
                 "uri"
               ],
-              "description": "Expected data type for the parameter value.",
+              "description": "Expected data type for the parameter value. For a keyed-table column this names the ITEM type: a column whose cells hold several values declares `string` here and its rows carry an array of strings. Multiplicity is carried by the row value's shape, not by this enum, because no TAPP workbook field declares it.",
               "x-jsonld-id": "https://ada.astromat.org/metadata/dataType"
             },
             "schema:unitText": {
@@ -2306,7 +2339,7 @@
         "itemIdentifier": "ogch.BaseSchema.tappDefinition",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.3",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -2511,7 +2544,7 @@
         "itemIdentifier": "ogch.BaseSchema.laboratory",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -3028,7 +3061,7 @@
         "itemIdentifier": "ogch.BaseSchema.creativeWork",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -3218,7 +3251,7 @@
         "itemIdentifier": "ogch.BaseSchema.instrument",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -4604,7 +4637,7 @@
     "itemIdentifier": "ogch.BaseSchema.modules.targetSpecies",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-11-24"
+    "dateOfLastChange": "2026-11-25"
   },
   "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
 }

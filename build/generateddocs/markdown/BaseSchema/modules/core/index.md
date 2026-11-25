@@ -244,11 +244,11 @@ The procedure half of the Core module, with every property populated. Generated 
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "no value available: unnamed property" ;
-            ada:toolRole "acquisition" ],
+            ada:toolRole "dataReduction" ],
         [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "no value available: unnamed property" ;
-            ada:toolRole "dataReduction" ] ;
+            ada:toolRole "acquisition" ] ;
     schema1:location [ schema1:identifier "no value available: unnamed property" ;
             schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
@@ -504,13 +504,13 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:roleName "analyst" ] ;
     schema1:funding [ schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ],
+    schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
+            schema1:target [ schema1:url "no value available: unnamed property" ] ],
         [ schema1:linkRelationship "coupledDataset" ;
             schema1:target "no value available: unnamed property" ],
-        [ schema1:linkRelationship "coupledProcedure" ;
-            schema1:target [ schema1:url "no value available: unnamed property" ] ] ;
+        [ schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:description "no value available: unnamed property" ;
+                    schema1:name "no value available: unnamed property" ] ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -523,11 +523,11 @@ The analysis half of the Core module, with every property populated. Generated f
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "no value available: unnamed property" ;
-                    ada:toolRole "acquisition" ],
+                    ada:toolRole "dataReduction" ],
                 [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "no value available: unnamed property" ;
-                    ada:toolRole "dataReduction" ] ;
+                    ada:toolRole "acquisition" ] ;
             schema1:location [ schema1:identifier "no value available: unnamed property" ;
                     schema1:name "no value available: unnamed property" ] ;
             schema1:object [ schema1:additionalType "no value available: unnamed property" ;
@@ -764,9 +764,10 @@ $defs:
         description: "Any procedure- or analysis-specific information not captured
           by a structured field anywhere in this TAPP \u2014 including anomalies,
           deviations from the registered procedure, instrument modifications, and
-          supplementary context. Scope is the whole document, not Group 6: this is
-          the last field of the TAPP and covers all six groups. Use sparingly; a structured
-          field is preferred for anything that can be formally categorised."
+          supplementary context. Scope is the whole document, not Quality Control
+          & Uncertainty (Group 6): this is the last field of the TAPP and covers all
+          six groups. Use sparingly; a structured field is preferred for anything
+          that can be formally categorised."
         type: string
         x-jsonld-id: http://schema.org/description
       schema:actionProcess:
@@ -1002,10 +1003,10 @@ $defs:
               description: "Any procedure- or analysis-specific information not captured
                 by a structured field anywhere in this TAPP \u2014 including anomalies,
                 deviations from the registered procedure, instrument modifications,
-                and supplementary context. Scope is the whole document, not Group
-                6: this is the last field of the TAPP and covers all six groups. Use
-                sparingly; a structured field is preferred for anything that can be
-                formally categorised."
+                and supplementary context. Scope is the whole document, not Quality
+                Control & Uncertainty (Group 6): this is the last field of the TAPP
+                and covers all six groups. Use sparingly; a structured field is preferred
+                for anything that can be formally categorised."
               type: string
               x-jsonld-id: http://schema.org/description
             schema:actionProcess:
@@ -1182,8 +1183,8 @@ $defs:
                     publication DOI. Use "same submission" if the coupled dataset
                     is included in this data package, or "pending" if not yet assigned.
                     If coupling is documented through a shared sample identifier only,
-                    that information is already captured in Sample Persistent Identifier
-                    (Group 2).'
+                    that information is already captured in Sample Persistent Identifier,
+                    in Samples (Group 2).'
                   anyOf:
                   - type: string
                   - type: array
@@ -1216,10 +1217,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -1248,10 +1250,11 @@ $defs:
     description: Physical constants and reference values used in data reduction to
       calculate the final reported quantity (e.g., decay constants for age calculation,
       standard isotope ratios, or other citable reference values used in a correction
-      or calculation), together with their source. Distinct from the Group 6 reference-material
-      fields, which document accepted values for specific calibration/validation materials
-      rather than universal physical constants. Record "None" if no citable, revisable
-      physical constants feed into this procedure's data reduction.
+      or calculation), together with their source. Distinct from the reference-material
+      fields in Quality Control & Uncertainty (Group 6), which document accepted values
+      for specific calibration/validation materials rather than universal physical
+      constants. Record "None" if no citable, revisable physical constants feed into
+      this procedure's data reduction.
     type: object
     properties:
       '@id':
@@ -1295,7 +1298,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.core
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

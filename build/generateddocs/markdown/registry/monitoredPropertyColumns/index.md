@@ -1874,7 +1874,7 @@ $defs:
     description: Mass resolution mode used for acquisition. One target species may
       be acquired at more than one resolution, so the assignment is per acquired mass
       rather than per element. The overall mode(s) used in the procedure are recorded
-      in Mass Resolution Setting (Group 3).
+      in Mass Resolution Setting, in Instrument & Software (Group 3).
     type: object
     properties:
       '@id':
@@ -2232,7 +2232,7 @@ $defs:
     description: Mass resolution mode used for acquisition. One target species may
       be acquired at more than one resolution, so the assignment is per acquired mass
       rather than per element. The overall mode(s) used in the procedure are recorded
-      in Mass Resolution Setting (Group 3).
+      in Mass Resolution Setting, in Instrument & Software (Group 3).
     type: object
     properties:
       '@id':
@@ -2302,9 +2302,10 @@ $defs:
     - ada:dataType
   tem_eelsDetectionLimit:
     title: EELS Detection Limit
-    description: Estimated detection limit or minimum detectable concentration, under
-      this procedure, of each quantity determined by EELS. Record 'N/A' where EELS
-      is not listed in Spectroscopic Detector(s).
+    description: 'Detection limit or minimum detectable concentration of each quantity
+      determined by EELS. For the procedure: the estimated limit under this procedure''s
+      conditions. For the session: the limit achieved in this session, or ''Not determined''.
+      Record ''N/A'' where EELS is not listed in Spectroscopic Detector(s).'
     type: object
     properties:
       '@id':
@@ -2377,7 +2378,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.monitoredPropertyColumns
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 
