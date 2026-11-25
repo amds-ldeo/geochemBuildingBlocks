@@ -1233,12 +1233,6 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:instrument [ a schema1:DefinedTerm ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
-            schema1:name "BHVO-2 basalt reference material" ;
-            schema1:termCode "BHVO-2" ;
-            ada:reagentRole "primaryStandard" ],
-        [ a schema1:DefinedTerm ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
             schema1:name "BCR-2 basalt reference material" ;
             schema1:termCode "BCR-2" ;
             ada:reagentRole "secondaryStandard" ],
@@ -1246,6 +1240,12 @@ ex:geochemProduct-example-001 a schema1:Dataset,
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
             schema1:name "2% HNO3 procedural blank" ;
             ada:reagentRole "blankMaterial" ],
+        [ a schema1:DefinedTerm ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+            schema1:inDefinedTermSet "http://georem.mpch-mainz.gwdg.de/" ;
+            schema1:name "BHVO-2 basalt reference material" ;
+            schema1:termCode "BHVO-2" ;
+            ada:reagentRole "primaryStandard" ],
         <https://example.org/geochemProduct-example-001/instrument/instrument> ;
     schema1:name "Data acquisition" ;
     schema1:object <https://example.org/geochemProduct-example-001/digest/RP-123> ;
@@ -1264,11 +1264,11 @@ ex:geochemProduct-example-001 a schema1:Dataset,
     schema1:endTime "2026-01-09T16:00:00" ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "Concentrated HNO3, trace-metal grade" ;
+            schema1:name "Concentrated HF, trace-metal grade" ;
             ada:reagentRole "reagent" ],
         [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-            schema1:name "Concentrated HF, trace-metal grade" ;
+            schema1:name "Concentrated HNO3, trace-metal grade" ;
             ada:reagentRole "reagent" ] ;
     schema1:location [ a schema1:Place ;
             schema1:name "Clean laboratory, Analytical Sciences Laboratory" ] ;
@@ -1301,13 +1301,13 @@ ex:geochemProduct-example-001 a schema1:Dataset,
         schema1:HowToStep ;
     schema1:actionStatus "schema:CompletedActionStatus" ;
     schema1:additionalProperty [ a schema1:PropertyValue ;
-            schema1:name "RF power" ;
-            schema1:unitText "W" ;
-            schema1:value 1550 ],
-        [ a schema1:PropertyValue ;
             schema1:name "Nebulizer gas flow" ;
             schema1:unitText "L/min" ;
-            schema1:value 1.05e+00 ] ;
+            schema1:value 1.05e+00 ],
+        [ a schema1:PropertyValue ;
+            schema1:name "RF power" ;
+            schema1:unitText "W" ;
+            schema1:value 1550 ] ;
     schema1:description "Synthetic step. ICP-MS tuned on a multi-element tuning solution for sensitivity and low oxide formation." ;
     schema1:instrument [ a schema1:ChemicalSubstance ;
             schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
@@ -1683,7 +1683,7 @@ properties:
                   pin.'
                 type: array
                 items:
-                  $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+                  $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
                 allOf:
                 - contains:
                     anyOf:
@@ -1918,21 +1918,21 @@ properties:
     description: Geographic extent of resource content.
     type: array
     items:
-      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/spatialExtent/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/spatialExtent/schema.yaml
     x-jsonld-id: http://schema.org/spatialCoverage
   schema:temporalCoverage:
     title: Temporal Coverage
     description: Temporal extent of resource content.
     type: array
     items:
-      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/schemaorgProperties/temporalExtent/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/schemaorgProperties/temporalExtent/schema.yaml
     x-jsonld-id: http://schema.org/temporalCoverage
   dqv:hasQualityMeasurement:
     title: Quality Measurements
     description: Quality measurements reported to assess the resource.
     type: array
     items:
-      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/qualityProperties/qualityMeasure/schema.yaml
+      $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/qualityProperties/qualityMeasure/schema.yaml
   schema:additionalProperty:
     title: Additional Properties
     description: PropertyValue entries describing the DELIVERED DATA rather than the
@@ -1962,11 +1962,11 @@ properties:
             referenced from them by @id. One of the four CDIF DataStructure variants
             inline, or an @id reference. Optional.
           anyOf:
-          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
-          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
-          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
-          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
-          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/objectReference/schema.yaml
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/DimensionalDataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/LongDataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/profiles/cdifProfile/cdifDataStructure/schema.yaml#/$defs/WideDataStructure
+          - $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/objectReference/schema.yaml
           x-jsonld-id: http://ddialliance.org/Specification/DDI-CDI/1.0/RDF/isStructuredBy
         schema:additionalType:
           description: Optional file-classification of this distribution (or, on a
@@ -1977,7 +1977,7 @@ properties:
             not hard-enumerated in JSON Schema.
           type: array
           items:
-            $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+            $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
           schema:inDefinedTermSet: ada:vocab/componentType
           x-jsonld-id: http://schema.org/additionalType
       allOf:
@@ -2076,7 +2076,7 @@ $defs:
           schema:instrument.'
         type: array
         items:
-          $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+          $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
         x-jsonld-id: http://schema.org/additionalType
       '@type':
         type: array
@@ -2122,7 +2122,7 @@ $defs:
           activity''s schema:instrument.'
         type: array
         items:
-          $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+          $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
         x-jsonld-id: http://schema.org/additionalType
       '@type':
         type: array
@@ -2160,7 +2160,7 @@ $defs:
                 type: string
               minItems: 1
             schema:propertyID:
-              $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16a/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
+              $ref: https://raw.githubusercontent.com/Cross-Domain-Interoperability-Framework/metadataBuildingBlocks/refs/tags/snapshot-2026-11-16b/_sources/cdifDataType/cdifConceptOrTermOrString/schema.yaml
               x-jsonld-id: http://schema.org/propertyID
             schema:value:
               type: string
