@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "title": "EPMA/EPMA Technique-Aligned Protocol Profile (epmaTAPP)",
-  "description": "Electron-probe microanalysis (EPMA/EPMA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v91.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+  "description": "Electron-probe microanalysis (EPMA/EPMA, WDS/EDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v95.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "properties": {
     "@context": {
       "type": "object",
@@ -7281,7 +7281,7 @@
           }
         },
         "schema:description": {
-          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+          "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Quality Control & Uncertainty (Group 6): this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
           "type": "string"
         },
         "schema:actionProcess": {
@@ -7481,7 +7481,7 @@
                 "then": {
                   "properties": {
                     "schema:defaultValue": {
-                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
+                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set), with its units. For the procedure: the typical detection limits. For the session: the limits achieved in this session, where they are determined for the session as a whole (for example, from the blanks of the run). The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -7588,13 +7588,6 @@
                 }
               ]
             }
-          }
-        },
-        "ada:secondaryReferenceMaterialDefault": {
-          "type": "array",
-          "items": {
-            "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
-            "type": "string"
           }
         }
       },
@@ -8092,7 +8085,7 @@
                   },
                   {
                     "title": "Interference Correction Standard",
-                    "description": "Reference material used to quantify and calibrate the interference correction.",
+                    "description": "The reference material used to quantify the interference correction for each affected target species. Name an entry in Reference Materials.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -8360,7 +8353,7 @@
                 {
                   "contains": {
                     "title": "Interference Correction Standard",
-                    "description": "Reference material used to quantify and calibrate the interference correction.",
+                    "description": "The reference material used to quantify the interference correction for each affected target species. Name an entry in Reference Materials.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -10171,12 +10164,12 @@
                     ]
                   },
                   {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "title": "Calibration Standard",
+                    "description": "The reference material against which each target species is calibrated in each target material, converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference Materials. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName"
+                        "const": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard"
                       },
                       "@type": {
                         "const": [
@@ -10184,10 +10177,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
+                        "const": "calibrationStandard"
                       },
                       "schema:name": {
-                        "const": "Primary Calibration Standard Name"
+                        "const": "Calibration Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -10569,12 +10562,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "title": "Calibration Standard",
+                    "description": "The reference material against which each target species is calibrated in each target material, converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference Materials. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName"
+                        "const": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard"
                       },
                       "@type": {
                         "const": [
@@ -10582,10 +10575,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
+                        "const": "calibrationStandard"
                       },
                       "schema:name": {
-                        "const": "Primary Calibration Standard Name"
+                        "const": "Calibration Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -11477,7 +11470,7 @@
                       "type": "array",
                       "items": {
                         "title": "Pre-Analysis Imaging and Screening",
-                        "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                        "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Procedure Identification (Group 1) coupling fields.",
                         "type": "object",
                         "properties": {
                           "@id": {
@@ -11523,7 +11516,7 @@
                         {
                           "contains": {
                             "title": "Pre-Analysis Imaging and Screening",
-                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                            "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Procedure Identification (Group 1) coupling fields.",
                             "type": "object",
                             "properties": {
                               "@id": {
@@ -11650,7 +11643,7 @@
                               },
                               {
                                 "title": "Constants Reference Values",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {
@@ -11746,7 +11739,7 @@
                             {
                               "contains": {
                                 "title": "Constants Reference Values",
-                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                                "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                                 "type": "object",
                                 "properties": {
                                   "@id": {

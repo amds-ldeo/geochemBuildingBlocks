@@ -120,6 +120,32 @@ ALIASES = {
     # aliased: its path is `inferred`, not authored, and names a placeholder ada: property, so
     # carrying it would preserve a guess rather than curation. Let it drop and author both XCT rows.
     "ICP-MS Manufacturer & Model": "Instrument Model",
+    # tapp #22 (2a96259) replaces two standards fields with a standards DOMAIN: `Reference
+    # Materials` identifies each material once (keyed `defines: standard`), and the per-target
+    # assignment is separate (keyed `target material x target species`). Only ONE of the two olds
+    # can carry, and the keys are what decide it.
+    #
+    # `Primary Calibration Standard Name` -> `Calibration Standard` carries: both are keyed
+    # `target material x target species`, and the new Description is a near-rewrite of the old
+    # ("converting raw signal intensities to concentrations, or anchoring an isotope ratio as the
+    # bracketing standard" appears in both). All 12 sidecar rows are `Source = keyed` on
+    # `$MethodDefinition.ada:targetMaterialTemplate.ada:targetMaterialColumns[]`, so the placement
+    # is derived rather than curated and the same key keeps it correct.
+    "Primary Calibration Standard Name": "Calibration Standard",
+    # `Secondary Reference Materials` is deliberately NOT aliased, for the reason
+    # `CT System Manufacturer and Model` above is not: carrying it would preserve a placement the
+    # new structure contradicts. It was keyed `defines: standard`, and that key now belongs to
+    # `Reference Materials`, while its quality-control SEMANTICS went to `Quality-Control
+    # Standards`, keyed `target material x target species`. It is a 1->2 split with the key moving,
+    # so neither target is the node its authored path names:
+    # `$MethodDefinition.ada:targetSpeciesTemplate.ada:targetSpeciesColumns[]`, carried by 3
+    # AUTHORED rows (EPMA, SEM, SEM_Composition; the other 9 are module-owned and blank).
+    #
+    # Those 3 Notes are the evidence to read before placing the new rows, because they record a
+    # decision the split re-asks rather than answers: "per-element in electron-beam techniques;
+    # ICP-MS keeps the per-run scalar". Per-element is `targetSpecies`, whereas
+    # `Quality-Control Standards` is keyed `target material x target species` -- so an alias would
+    # have silently answered it the new table's way and discarded the curation.
     "Instrument Make and Model": "Instrument Model",
 
     # --- 2026-09 delivery (amds-ldeo/tapp @ af3f7bc). Every key below is confirmed absent as an

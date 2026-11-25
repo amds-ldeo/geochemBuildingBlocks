@@ -276,7 +276,7 @@
                 }
               },
               "schema:description": {
-                "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+                "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Quality Control & Uncertainty (Group 6): this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
                 "type": "string"
               },
               "schema:actionProcess": {
@@ -486,7 +486,7 @@
                 "then": {
                   "properties": {
                     "schema:target": {
-                      "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+                      "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier, in Samples (Group 2).",
                       "anyOf": [
                         {
                           "type": "string"
@@ -1067,7 +1067,7 @@
                 "then": {
                   "properties": {
                     "schema:value": {
-                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
+                      "description": "Detection limit, one per reported concentration variable (one per target species, these being the same set), with its units. For the procedure: the typical detection limits. For the session: the limits achieved in this session, where they are determined for the session as a whole (for example, from the blanks of the run). The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations. In the dataset: report the detection limit of each analysis, where the procedure computes one.",
                       "anyOf": [
                         {
                           "type": "number"
@@ -1159,108 +1159,6 @@
               }
             }
           ]
-        },
-        "prov:wasGeneratedBy": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "schema:instrument": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "allOf": [
-                    {
-                      "if": {
-                        "$ref": "#/$defs/KindInstrument"
-                      },
-                      "then": {
-                        "$ref": "#/$defs/Instrument"
-                      }
-                    },
-                    {
-                      "if": {
-                        "$ref": "#/$defs/KindSoftware"
-                      },
-                      "then": {
-                        "$ref": "#/$defs/UsedComputationalTool"
-                      }
-                    },
-                    {
-                      "if": {
-                        "$ref": "#/$defs/KindReagent"
-                      },
-                      "then": {
-                        "$ref": "#/$defs/UsedReagent"
-                      }
-                    },
-                    {
-                      "if": {
-                        "properties": {
-                          "ada:reagentRole": {
-                            "const": "referenceMaterial"
-                          }
-                        },
-                        "required": [
-                          "ada:reagentRole"
-                        ]
-                      },
-                      "then": {
-                        "properties": {
-                          "schema:name": {
-                            "description": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.",
-                            "anyOf": [
-                              {
-                                "type": "string"
-                              },
-                              {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                }
-                              }
-                            ]
-                          }
-                        }
-                      }
-                    },
-                    {
-                      "if": {
-                        "type": "object",
-                        "required": [
-                          "schema:additionalType"
-                        ],
-                        "properties": {
-                          "schema:additionalType": {
-                            "type": "array",
-                            "contains": {
-                              "type": "object",
-                              "required": [
-                                "@id"
-                              ],
-                              "properties": {
-                                "@id": {
-                                  "enum": [
-                                    "https://www.wikidata.org/entity/Q2356542",
-                                    "wd:Q2356542"
-                                  ]
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "then": {
-                        "required": [
-                          "ada:reagentRole"
-                        ]
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -1759,7 +1657,7 @@
                     },
                     {
                       "title": "Pre-Analysis Imaging and Screening",
-                      "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                      "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Procedure Identification (Group 1) coupling fields.",
                       "type": "object",
                       "properties": {
                         "@id": {
@@ -2252,7 +2150,7 @@
                     },
                     {
                       "title": "Constants Reference Values",
-                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                       "type": "object",
                       "properties": {
                         "@id": {
@@ -2365,7 +2263,7 @@
                   {
                     "contains": {
                       "title": "Pre-Analysis Imaging and Screening",
-                      "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+                      "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Procedure Identification (Group 1) coupling fields.",
                       "type": "object",
                       "properties": {
                         "@id": {
@@ -2906,7 +2804,7 @@
                   {
                     "contains": {
                       "title": "Constants Reference Values",
-                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+                      "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
                       "type": "object",
                       "properties": {
                         "@id": {
@@ -4482,7 +4380,7 @@
                 ]
               },
               "ada:proceduralBlankLevel": {
-                "description": "The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. Companion to the blank correction method.",
+                "description": "The level of the analytical blank and, where the reported quantity is a ratio, its composition, since a blank subtracted from a ratio biases the result unless its own composition is known. For the procedure: the typical or maximum blank expected. For the session: the blank measured in this session. Companion to the blank correction method.",
                 "type": "string"
               }
             },
@@ -4511,7 +4409,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "Precision of repeated measurements within a single analytical session and the method used to assess it. Report both the assessment method and the precision values. The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses.",
+                      "description": "Precision of repeated measurements of a reference material within a single analytical session, and the method used to assess it. The assessment method specifies the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Reported for the standards named in Quality-Control Standards; a calibration standard's agreement with its own accepted values is not an independent test of precision. For the procedure: the assessment method and the expected within-session precision. For the session: the precision achieved in this session, assessed by that method. Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses. In the dataset: report the analyses of each secondary reference material, where they are included; the session value summarises them and must agree with them.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -4544,7 +4442,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported.",
+                      "description": "Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it. Specify the reference material, the number of measurements and sessions, the time span covered, and the statistic reported. Reported for the standards named in Quality-Control Standards; a calibration standard's agreement with its own accepted values is not an independent test of precision. For the procedure: the assessment method and the long-term precision on record when the procedure is registered. For the session: the long-term precision as it stands at this session, including this session's results where they contribute.",
                       "anyOf": [
                         {
                           "type": "string"
@@ -4577,7 +4475,7 @@
                 "then": {
                   "properties": {
                     "dqv:value": {
-                      "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Report systematic biases and their likely causes. Express the offset in the form appropriate to what the procedure reports - percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities.",
+                      "description": "Offset between measured and accepted values for secondary reference materials, and the method used to assess it. Specify the reference material and the source of its accepted values, the number of analyses, and the quantities assessed. Express the offset in the form appropriate to what the procedure reports: percent relative bias for concentrations, or deviation in delta or ratio units for isotopic quantities. Reported for the standards named in Quality-Control Standards; a calibration standard's agreement with its own accepted values is not a test of accuracy. For the procedure: the assessment method, the accepted-value source and the expected offset. For the session: the offset found in this session, with any systematic bias and its likely cause. In the dataset: report the analyses of each secondary reference material, where they are included; the session value summarises them and must agree with them.",
                       "anyOf": [
                         {
                           "type": "string"
