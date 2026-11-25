@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "SEM Composition (EDS/WDS) Technique-Aligned Protocol Profile (semCompositionTAPP)",
-  "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v86.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
+  "description": "Scanning electron microscopy compositional microanalysis (EDS/WDS) extension of the base TAPP definition, generated from tapp/Current TAPPs/SEM_Composition_TAPP_v90.csv via the path-driven pipeline (bootstrap_schemapaths.py + build_pathdriven.py).",
   "allOf": [
     {
       "$ref": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.json"
@@ -148,12 +148,12 @@
                     ]
                   },
                   {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated \u2014 converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "title": "Calibration Standard",
+                    "description": "The reference material against which each target species is calibrated in each target material, converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference Materials. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName"
+                        "const": "ada:targetMaterialColumn/semCompositionTAPP/calibrationStandard"
                       },
                       "@type": {
                         "const": [
@@ -161,10 +161,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
+                        "const": "calibrationStandard"
                       },
                       "schema:name": {
-                        "const": "Primary Calibration Standard Name"
+                        "const": "Calibration Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -297,12 +297,12 @@
                 },
                 {
                   "contains": {
-                    "title": "Primary Calibration Standard Name",
-                    "description": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated \u2014 converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
+                    "title": "Calibration Standard",
+                    "description": "The reference material against which each target species is calibrated in each target material, converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard. Name an entry in Reference Materials. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials \u2014 'standardless' or 'semi-quantitative' quantification \u2014 record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.",
                     "type": "object",
                     "properties": {
                       "@id": {
-                        "const": "ada:targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName"
+                        "const": "ada:targetMaterialColumn/semCompositionTAPP/calibrationStandard"
                       },
                       "@type": {
                         "const": [
@@ -310,10 +310,10 @@
                         ]
                       },
                       "schema:valueName": {
-                        "const": "primaryCalibrationStandardName"
+                        "const": "calibrationStandard"
                       },
                       "schema:name": {
-                        "const": "Primary Calibration Standard Name"
+                        "const": "Calibration Standard"
                       },
                       "ada:dataType": {
                         "const": "string"
@@ -1092,7 +1092,7 @@
                   },
                   {
                     "title": "Interference Correction Standard",
-                    "description": "Reference material used to quantify and calibrate the interference correction.",
+                    "description": "The reference material used to quantify the interference correction for each affected target species. Name an entry in Reference Materials.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -1558,7 +1558,7 @@
                 {
                   "contains": {
                     "title": "Interference Correction Standard",
-                    "description": "Reference material used to quantify and calibrate the interference correction.",
+                    "description": "The reference material used to quantify the interference correction for each affected target species. Name an entry in Reference Materials.",
                     "type": "object",
                     "properties": {
                       "@id": {
@@ -3874,6 +3874,6 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.SEM-Composition.tapp",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-11-24"
+    "dateOfLastChange": "2026-11-25"
   }
 }

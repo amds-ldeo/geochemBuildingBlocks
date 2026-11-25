@@ -7,25 +7,25 @@
 
 ex:solutionQicpmsTAPP-detail-Agilent8800 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "NCS 73307 [Te: 94 ± 17% recovery (N = 3); Se: 70–134% recovery (N = 3)] — §2.3, §2.4" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: SD — 'mean ± SD recovery values of 94 ± 17% (N = 3)'" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "NCS 73307 [Te: 94 ± 17% recovery (N = 3); Se: 70–134% recovery (N = 3)] — §2.3, §2.4" ] ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
@@ -34,11 +34,6 @@ ex:solutionQicpmsTAPP-detail-Agilent8800 a schema1:Dataset,
                             schema1:position 1 ] ] ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "NCS 73307 — stream sediment, for the total digestions" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-Agilent8800/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW" ] ;
             schema1:object [ a schema1:Thing ;
@@ -66,12 +61,6 @@ ex:solutionQicpmsTAPP-detail-Agilent8800 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionQicpmsTAPP-detail-Agilent8800/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
     schema1:name "Digestion Duration" ;

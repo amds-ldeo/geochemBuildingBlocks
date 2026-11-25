@@ -232,9 +232,10 @@ x-defs:
             description: "Any procedure- or analysis-specific information not captured
               by a structured field anywhere in this TAPP \u2014 including anomalies,
               deviations from the registered procedure, instrument modifications,
-              and supplementary context. Scope is the whole document, not Group 6:
-              this is the last field of the TAPP and covers all six groups. Use sparingly;
-              a structured field is preferred for anything that can be formally categorised."
+              and supplementary context. Scope is the whole document, not Quality
+              Control & Uncertainty (Group 6): this is the last field of the TAPP
+              and covers all six groups. Use sparingly; a structured field is preferred
+              for anything that can be formally categorised."
             type: string
             x-jsonld-id: http://schema.org/description
           schema:actionProcess:
@@ -483,9 +484,10 @@ x-defs:
                     captured by a structured field anywhere in this TAPP \u2014 including
                     anomalies, deviations from the registered procedure, instrument
                     modifications, and supplementary context. Scope is the whole document,
-                    not Group 6: this is the last field of the TAPP and covers all
-                    six groups. Use sparingly; a structured field is preferred for
-                    anything that can be formally categorised."
+                    not Quality Control & Uncertainty (Group 6): this is the last
+                    field of the TAPP and covers all six groups. Use sparingly; a
+                    structured field is preferred for anything that can be formally
+                    categorised."
                   type: string
                   x-jsonld-id: http://schema.org/description
                 schema:actionProcess:
@@ -672,7 +674,7 @@ x-defs:
                         dataset is included in this data package, or "pending" if
                         not yet assigned. If coupling is documented through a shared
                         sample identifier only, that information is already captured
-                        in Sample Persistent Identifier (Group 2).'
+                        in Sample Persistent Identifier, in Samples (Group 2).'
                       anyOf:
                       - type: string
                       - type: array
@@ -708,10 +710,10 @@ x-defs:
           to calculate the final reported quantity (e.g., decay constants for age
           calculation, standard isotope ratios, or other citable reference values
           used in a correction or calculation), together with their source. Distinct
-          from the Group 6 reference-material fields, which document accepted values
-          for specific calibration/validation materials rather than universal physical
-          constants. Record "None" if no citable, revisable physical constants feed
-          into this procedure's data reduction.
+          from the reference-material fields in Quality Control & Uncertainty (Group
+          6), which document accepted values for specific calibration/validation materials
+          rather than universal physical constants. Record "None" if no citable, revisable
+          physical constants feed into this procedure's data reduction.
         type: object
         properties:
           '@id':
@@ -743,10 +745,10 @@ x-defs:
           to calculate the final reported quantity (e.g., decay constants for age
           calculation, standard isotope ratios, or other citable reference values
           used in a correction or calculation), together with their source. Distinct
-          from the Group 6 reference-material fields, which document accepted values
-          for specific calibration/validation materials rather than universal physical
-          constants. Record "None" if no citable, revisable physical constants feed
-          into this procedure's data reduction.
+          from the reference-material fields in Quality Control & Uncertainty (Group
+          6), which document accepted values for specific calibration/validation materials
+          rather than universal physical constants. Record "None" if no citable, revisable
+          physical constants feed into this procedure's data reduction.
         type: object
         properties:
           '@id':
@@ -795,7 +797,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.core
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.calibrationFactor:
@@ -901,7 +903,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.calibrationFactor
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.aggregation:
@@ -1010,14 +1012,14 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.aggregation
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/aggregation/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.compositionQC:
     title: 'TAPP Composition Module: CompositionQC'
     description: "The shared CompositionQC block of the 2026-08-11 TAPP library (Claude
       Skills for TAPP/Module_CompositionQC.csv), composed by 12 of the sixteen delivery
-      tables. 6 owned fields over 8 schema paths.\n\nGENERATED by tools/build_module_bb.py
+      tables. 13 owned fields over 6 schema paths.\n\nGENERATED by tools/build_module_bb.py
       from the module's CSV and its schema-path sidecar \u2014 edit those, not this
       file. Requiredness follows the TAPP tier matrix: a field Basic on a side is
       required there, Advanced is permitted, N/A is absent from that side entirely.\n\nThis
@@ -1048,13 +1050,15 @@ x-defs:
                   properties:
                     schema:defaultValue:
                       description: 'Detection limit, one per reported concentration
-                        variable (one per target species, these being the same set).
-                        State the units and whether the values are procedure-typical
-                        estimates or session-specific measured values. The calculation
-                        method is recorded separately in Detection Limit Method. Record
-                        ''N/A'' where the procedure reports no concentrations. In
-                        the dataset: report the detection limit of each analysis,
-                        where the procedure computes one.'
+                        variable (one per target species, these being the same set),
+                        with its units. For the procedure: the typical detection limits.
+                        For the session: the limits achieved in this session, where
+                        they are determined for the session as a whole (for example,
+                        from the blanks of the run). The calculation method is recorded
+                        separately in Detection Limit Method. Record ''N/A'' where
+                        the procedure reports no concentrations. In the dataset: report
+                        the detection limit of each analysis, where the procedure
+                        computes one.'
                       anyOf:
                       - type: number
                       - type: string
@@ -1122,15 +1126,6 @@ x-defs:
                     - schema:name
                 x-jsonld-id: http://schema.org/step
             x-jsonld-id: http://schema.org/actionProcess
-          ada:secondaryReferenceMaterialDefault:
-            type: array
-            items:
-              description: Quality-control reference material(s) measured as unknowns
-                alongside samples to assess accuracy independently and to monitor
-                drift. Give the material name, its source, and a citation for the
-                accepted or reference values used for comparison.
-              type: string
-            x-jsonld-id: https://ada.astromat.org/metadata/secondaryReferenceMaterialDefault
         required:
         - schema:actionProcess
       AnalysisIdentification:
@@ -1155,13 +1150,15 @@ x-defs:
                   properties:
                     schema:value:
                       description: 'Detection limit, one per reported concentration
-                        variable (one per target species, these being the same set).
-                        State the units and whether the values are procedure-typical
-                        estimates or session-specific measured values. The calculation
-                        method is recorded separately in Detection Limit Method. Record
-                        ''N/A'' where the procedure reports no concentrations. In
-                        the dataset: report the detection limit of each analysis,
-                        where the procedure computes one.'
+                        variable (one per target species, these being the same set),
+                        with its units. For the procedure: the typical detection limits.
+                        For the session: the limits achieved in this session, where
+                        they are determined for the session as a whole (for example,
+                        from the blanks of the run). The calculation method is recorded
+                        separately in Detection Limit Method. Record ''N/A'' where
+                        the procedure reports no concentrations. In the dataset: report
+                        the detection limit of each analysis, where the procedure
+                        computes one.'
                       anyOf:
                       - type: number
                       - type: string
@@ -1217,79 +1214,16 @@ x-defs:
                 required:
                 - schema:name
             x-jsonld-id: http://schema.org/variableMeasured
-          prov:wasGeneratedBy:
-            type: array
-            items:
-              type: object
-              properties:
-                schema:instrument:
-                  type: array
-                  items:
-                    type: object
-                    allOf:
-                    - if:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KindInstrument
-                      then:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.instrument
-                    - if:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KindSoftware
-                      then:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.geochemBaseProfile/$defs/UsedComputationalTool
-                    - if:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.tappDefinition/$defs/KindReagent
-                      then:
-                        $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/SEM/detail/schema-oas3.0.yaml#/x-defs/ogch.BaseSchema.geochemBaseProfile/$defs/UsedReagent
-                    - if:
-                        properties:
-                          ada:reagentRole:
-                            enum:
-                            - referenceMaterial
-                        required:
-                        - ada:reagentRole
-                      then:
-                        properties:
-                          schema:name:
-                            description: Quality-control reference material(s) measured
-                              as unknowns alongside samples to assess accuracy independently
-                              and to monitor drift. Give the material name, its source,
-                              and a citation for the accepted or reference values
-                              used for comparison.
-                            anyOf:
-                            - type: string
-                            - type: array
-                              items:
-                                type: string
-                            x-jsonld-id: http://schema.org/name
-                    - if:
-                        type: object
-                        required:
-                        - schema:additionalType
-                        properties:
-                          schema:additionalType:
-                            type: array
-                            contains:
-                              type: object
-                              required:
-                              - '@id'
-                              properties:
-                                '@id':
-                                  enum:
-                                  - https://www.wikidata.org/entity/Q2356542
-                                  - wd:Q2356542
-                      then:
-                        required:
-                        - ada:reagentRole
-                  x-jsonld-id: http://schema.org/instrument
-            x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       Param_Analysis_detectionLimit:
         title: Detection Limit
         description: 'Detection limit, one per reported concentration variable (one
-          per target species, these being the same set). State the units and whether
-          the values are procedure-typical estimates or session-specific measured
-          values. The calculation method is recorded separately in Detection Limit
-          Method. Record ''N/A'' where the procedure reports no concentrations. In
-          the dataset: report the detection limit of each analysis, where the procedure
-          computes one.'
+          per target species, these being the same set), with its units. For the procedure:
+          the typical detection limits. For the session: the limits achieved in this
+          session, where they are determined for the session as a whole (for example,
+          from the blanks of the run). The calculation method is recorded separately
+          in Detection Limit Method. Record ''N/A'' where the procedure reports no
+          concentrations. In the dataset: report the detection limit of each analysis,
+          where the procedure computes one.'
         type: object
         properties:
           '@id':
@@ -1324,12 +1258,13 @@ x-defs:
       Param_Procedure_detectionLimit:
         title: Detection Limit
         description: 'Detection limit, one per reported concentration variable (one
-          per target species, these being the same set). State the units and whether
-          the values are procedure-typical estimates or session-specific measured
-          values. The calculation method is recorded separately in Detection Limit
-          Method. Record ''N/A'' where the procedure reports no concentrations. In
-          the dataset: report the detection limit of each analysis, where the procedure
-          computes one.'
+          per target species, these being the same set), with its units. For the procedure:
+          the typical detection limits. For the session: the limits achieved in this
+          session, where they are determined for the session as a whole (for example,
+          from the blanks of the run). The calculation method is recorded separately
+          in Detection Limit Method. Record ''N/A'' where the procedure reports no
+          concentrations. In the dataset: report the detection limit of each analysis,
+          where the procedure computes one.'
         type: object
         properties:
           '@id':
@@ -1456,13 +1391,12 @@ x-defs:
         - ada:fieldScope
     x-jsonld-prefixes:
       ada: https://ada.astromat.org/metadata/
-      prov: http://www.w3.org/ns/prov#
       schema: http://schema.org/
     x-bblocks-metadata:
       itemIdentifier: ogch.BaseSchema.modules.compositionQC
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/compositionQC/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.modules.samplingUnitSelection:
@@ -1537,7 +1471,8 @@ x-defs:
           the technique, instrument and settings used, and how individual analyses
           are linked back to the images. Distinct from any imaging the procedure performs
           as its own measurement. Where the imaging is performed on a separate instrument,
-          it should also be recorded in the Group 1 coupling fields.
+          it should also be recorded in the Procedure Identification (Group 1) coupling
+          fields.
         type: object
         properties:
           '@id':
@@ -1567,7 +1502,8 @@ x-defs:
           the technique, instrument and settings used, and how individual analyses
           are linked back to the images. Distinct from any imaging the procedure performs
           as its own measurement. Where the imaging is performed on a separate instrument,
-          it should also be recorded in the Group 1 coupling fields.
+          it should also be recorded in the Procedure Identification (Group 1) coupling
+          fields.
         type: object
         properties:
           '@id':
@@ -1610,7 +1546,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.modules.samplingUnitSelection
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.tappDefinition:
@@ -1997,12 +1933,17 @@ x-defs:
                       requires exactly one of, so a row is keyed by column valueName
                       throughout.
                 additionalProperties:
-                  nullable: true
                   anyOf:
-                  - type: string
-                  - type: number
-                  - type: integer
-                  - type: boolean
+                  - nullable: true
+                    anyOf:
+                    - type: string
+                    - type: number
+                    - type: integer
+                    - type: boolean
+                  - type: array
+                    minItems: 1
+                    items:
+                      type: string
             x-jsonld-id: https://ada.astromat.org/metadata/defaultTargetMaterials
         required:
         - ada:targetMaterialColumns
@@ -2090,12 +2031,17 @@ x-defs:
                       here and so never exercises this branch; it surfaced against
                       the 46 stored ADA method definitions, which do use row objects.'
                 additionalProperties:
-                  nullable: true
                   anyOf:
-                  - type: string
-                  - type: number
-                  - type: integer
-                  - type: boolean
+                  - nullable: true
+                    anyOf:
+                    - type: string
+                    - type: number
+                    - type: integer
+                    - type: boolean
+                  - type: array
+                    minItems: 1
+                    items:
+                      type: string
             x-jsonld-id: https://ada.astromat.org/metadata/defaultTargetSpecies
         required:
         - ada:targetSpeciesColumns
@@ -2170,12 +2116,17 @@ x-defs:
                       matching an entry in schema:instrument\u2026hasPart[Collector].ada:collectors."
                     type: string
                 additionalProperties:
-                  nullable: true
                   anyOf:
-                  - type: string
-                  - type: number
-                  - type: integer
-                  - type: boolean
+                  - nullable: true
+                    anyOf:
+                    - type: string
+                    - type: number
+                    - type: integer
+                    - type: boolean
+                  - type: array
+                    minItems: 1
+                    items:
+                      type: string
             x-jsonld-id: https://ada.astromat.org/metadata/defaultMonitoredProperties
         required:
         - ada:monitoredPropertyColumns
@@ -2860,7 +2811,11 @@ x-defs:
             - boolean
             - date
             - uri
-            description: Expected data type for the parameter value.
+            description: 'Expected data type for the parameter value. For a keyed-table
+              column this names the ITEM type: a column whose cells hold several values
+              declares `string` here and its rows carry an array of strings. Multiplicity
+              is carried by the row value''s shape, not by this enum, because no TAPP
+              workbook field declares it.'
             x-jsonld-id: https://ada.astromat.org/metadata/dataType
           schema:unitText:
             type: string
@@ -3696,7 +3651,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tappDefinition
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.3'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.instrument:
@@ -3913,7 +3868,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.instrument
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ogch.BaseSchema.geochemBaseProfile:
@@ -4861,7 +4816,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.geochemBaseProfile
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml
     x-schema-id: https://w3id.org/geochem/schema/geochemBaseProfile/1.0
     x-schema-version: https://json-schema.org/draft/2020-12/schema
@@ -5045,7 +5000,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.laboratory
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_person_schema
@@ -5438,7 +5393,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.creativeWork
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_qualityProperties_qualityMeasure_schema
@@ -5957,7 +5912,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.spatialRegistration
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_schemaorgProperties_spatialExtent_schema
@@ -6984,7 +6939,7 @@ x-defs:
       itemIdentifier: ogch.BaseSchema.tabularData
       register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
       version: '0.1'
-      dateOfLastChange: '2026-11-24'
+      dateOfLastChange: '2026-11-25'
     x-schema-source: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml
     x-schema-version: https://json-schema.org/draft/2020-12/schema
   ? Cross-Domain-Interoperability-Framework_metadataBuildingBlocks_refs_tags_snapshot-2026-11-16b__sources_cdifDataType_cdifConceptOrTerm_schema
@@ -11103,10 +11058,11 @@ allOf:
                 required:
                 - schema:additionalType
           ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method."
+            description: 'The level of the analytical blank and, where the reported
+              quantity is a ratio, its composition, since a blank subtracted from
+              a ratio biases the result unless its own composition is known. For the
+              procedure: the typical or maximum blank expected. For the session: the
+              blank measured in this session. Companion to the blank correction method.'
             type: string
         required:
         - ada:edsDeadTime
@@ -11127,9 +11083,15 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Offset between measured and accepted reference values
-                  for secondary standards, expressed as percent relative bias. Include
-                  reference material, reference value source, and the measured value.
+                description: 'Offset between measured and accepted reference values
+                  for secondary standards, expressed as percent relative bias, with
+                  the reference material and the source of its reference value. Reported
+                  for the standards named in Quality-Control Standards; a calibration
+                  standard''s agreement with its own accepted values is not a test
+                  of accuracy. For the procedure: the expected offset. For the session:
+                  the offset found in this session. In the dataset: report the analyses
+                  of each secondary reference material, where they are included; the
+                  session value summarises them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -11147,12 +11109,18 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Precision of repeated measurements on the same or equivalent
+                description: 'Precision of repeated measurements on the same or equivalent
                   reference material, expressed as 1-sigma relative standard deviation
                   (%). State whether the repeats were made within one session (repeatability)
-                  or across sessions (intermediate precision, in ISO 5725 terms).
-                  Include reference material name, number of analyses (n), and the
-                  measured value.
+                  or across sessions (intermediate precision, in ISO 5725 terms),
+                  the reference material name and the number of analyses (n). Reported
+                  for the standards named in Quality-Control Standards; a calibration
+                  standard''s agreement with its own accepted values is not an independent
+                  test of precision. For the procedure: the expected precision. For
+                  the session: the precision achieved in this session. In the dataset:
+                  report the analyses of each secondary reference material, where
+                  they are included; the session value summarises them and must agree
+                  with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -11420,5 +11388,5 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.SEM.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 x-schema-version: https://json-schema.org/draft/2020-12/schema

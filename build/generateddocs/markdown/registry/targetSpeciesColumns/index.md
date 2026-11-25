@@ -52,8 +52,8 @@ $defs:
     - ada:dataType
   epma_interferenceCorrectionStandard:
     title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference
-      correction.
+    description: The reference material used to quantify the interference correction
+      for each affected target species. Name an entry in Reference Materials.
     type: object
     properties:
       '@id':
@@ -534,7 +534,7 @@ $defs:
     description: Mass resolution mode used for acquisition. One target species may
       be acquired at more than one resolution, so the assignment is per acquired mass
       rather than per element. The overall mode(s) used in the procedure are recorded
-      in Mass Resolution Setting (Group 3).
+      in Mass Resolution Setting, in Instrument & Software (Group 3).
     type: object
     properties:
       '@id':
@@ -1074,7 +1074,7 @@ $defs:
     description: Mass resolution mode used for acquisition. One target species may
       be acquired at more than one resolution, so the assignment is per acquired mass
       rather than per element. The overall mode(s) used in the procedure are recorded
-      in Mass Resolution Setting (Group 3).
+      in Mass Resolution Setting, in Instrument & Software (Group 3).
     type: object
     properties:
       '@id':
@@ -2605,7 +2605,7 @@ $defs:
     description: Mass resolution mode used for acquisition. One target species may
       be acquired at more than one resolution, so the assignment is per acquired mass
       rather than per element. The overall mode(s) used in the procedure are recorded
-      in Mass Resolution Setting (Group 3).
+      in Mass Resolution Setting, in Instrument & Software (Group 3).
     type: object
     properties:
       '@id':
@@ -3127,7 +3127,7 @@ $defs:
     description: Mass resolution mode used for acquisition. One target species may
       be acquired at more than one resolution, so the assignment is per acquired mass
       rather than per element. The overall mode(s) used in the procedure are recorded
-      in Mass Resolution Setting (Group 3).
+      in Mass Resolution Setting, in Instrument & Software (Group 3).
     type: object
     properties:
       '@id':
@@ -3627,8 +3627,8 @@ $defs:
     - schema:defaultValue
   semComposition_interferenceCorrectionStandard:
     title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference
-      correction.
+    description: The reference material used to quantify the interference correction
+      for each affected target species. Name an entry in Reference Materials.
     type: object
     properties:
       '@id':
@@ -4503,8 +4503,8 @@ $defs:
     - schema:defaultValue
   sem_interferenceCorrectionStandard:
     title: Interference Correction Standard
-    description: Reference material used to quantify and calibrate the interference
-      correction.
+    description: The reference material used to quantify the interference correction
+      for each affected target species. Name an entry in Reference Materials.
     type: object
     properties:
       '@id':
@@ -6054,7 +6054,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.targetSpeciesColumns
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

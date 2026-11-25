@@ -14,6 +14,12 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
             schema1:name "LA-MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Polished thin section (two-volume cell)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
@@ -21,12 +27,6 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section (two-volume cell)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -116,7 +116,6 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
     ada:sampleIntroduction "He filled into the two-volume ablation cell; Ar mixed into the sample-out line downstream of the ablation chamber before the torch; a signal-smoothing device downstream of the sample cell (Hu et al. 2015) that 'significantly reduced the short-term variability of the signal'; 12 ml min⁻¹ N₂ added to the carrier gas via a simple Y connector behind the signal-smoothing device (p.3)" ;
     ada:samplingUnitSelectionCriteriaDefault "Random selection among the target phases — 'The plagioclases, pyroxenes, and ilmenites in NWA 10597 were measured randomly' (p.7); target phases are plagioclase, pyroxene, ilmenite and glass (abstract; p.7-8)" ;
     ada:samplingUnitType "Analysis point — one individual run, a continuous line scan within a single mineral grain or glass; the paper counts and reports 'individual runs' (36 and 6 for NWA 10597; 94 and 21 for NWA 6950), pp.7-8" ;
-    ada:secondaryReferenceMaterialDefault "NHB-9, YY12-01 (natural clinopyroxenes); YG4301 (anorthite) — measured as unknowns for ⁸⁷Sr/⁸⁶Sr data quality evaluation; reference values in Table 2" ;
     ada:signalIntegrationIntervalMethod "Regions of integration for gas background and sample signal selected first; cycles at beginning and end of ablation discarded; for heterogeneous minerals (unstable 87Rb/86Sr): SUIA (Smallest Unit Isochron Age) data reduction strategy applied per cycle" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -126,7 +125,7 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laMcicpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laMcicpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "lunar meteorite silicates (plagioclase, pyroxene, ilmenite, glass)" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Rb",
                 "Sr" ;
@@ -292,10 +291,10 @@ ex:laMcicpmsTAPP-Zhang2022 a schema1:Action,
     schema1:valueName "internalAnalyticalPrecisionAndAssessmentMethod" ;
     ada:dataType "string" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;

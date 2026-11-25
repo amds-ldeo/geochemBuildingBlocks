@@ -32,12 +32,12 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
     schema1:description "Spot analysis: 20 kV, 30 µm aperture, 30 s live time per spot, maximum process time (Oxford INCA Energy) Reported detail: ada:edsAcquisitionMode = Spot analysis." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
-            ada:toolRole "dataReduction" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Oxford INCA Energy" ;
             ada:toolRole "acquisition" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "Oxford INCA Energy (semi-quantitative phase determination from atomic proportions)" ;
+            ada:toolRole "dataReduction" ],
         <https://example.org/semCompositionTAPP-Pascucci2026/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
             schema1:name "CNR IMAA (Institute of Methodologies for Environmental Analysis), Italian National Research Council, Potenza, Italy" ] ;
@@ -78,8 +78,8 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
                     schema1:readonlyValue true ;
@@ -129,17 +129,17 @@ ex:semCompositionTAPP-Pascucci2026 a schema1:Action,
     schema1:valueName "backgroundCountingTime" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/semCompositionTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/semCompositionTAPP/beamCurrent> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;

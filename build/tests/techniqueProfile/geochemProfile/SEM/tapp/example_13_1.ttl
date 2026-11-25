@@ -22,22 +22,22 @@ ex:semTAPP-Liu2017 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Ion milling" ;
+                    schema1:position 3 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Small coal pillars (~2 mm diameter, 2 mm height) drilled orthogonal to bedding; polished with cross section polisher to remove ~1-2 µm oxide layer; no coating applied" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ;
                     ada:coarseMillingConditionsDefault "no value available: ada:coarseMillingConditionsDefault" ;
                     ada:finePolishingConditionsDefault "no value available: ada:finePolishingConditionsDefault" ;
                     ada:liftOutMethod "missing" ;
-                    ada:protectiveCoatingDepositionDefault "No coating applied; not sputtered with gold or other materials" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Ion milling" ;
-                    schema1:position 3 ] ] ;
+                    ada:protectiveCoatingDepositionDefault "No coating applied; not sputtered with gold or other materials" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethodDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v88.csv)." ;
+    schema1:description "semTAPP instance derived from Liu et al. 2017 | High-rank coal (Qinshui basin) | 3D Tomography (Carl Zeiss Crossbeam 540) (publication column of SEM_TAPP_v92.csv)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Avizo 7 (3D digital core software); Multiple-point geostatistics for pore network model" ;
@@ -94,8 +94,8 @@ ex:semTAPP-Liu2017 a schema1:Action,
                     ada:dataType "string" ;
                     ada:tier "M" ],
                 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/backgroundCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/parameter/semTAPP/segmentationMethodDefault> a schema1:PropertyValueSpecification ;
@@ -111,17 +111,17 @@ ex:semTAPP-Liu2017 a schema1:Action,
     schema1:valueName "backgroundCountingTime" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/semTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://example.org/semTAPP-Liu2017/instrument/SEM> a schema1:Product,
         schema1:Thing ;

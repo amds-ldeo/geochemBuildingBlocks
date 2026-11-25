@@ -426,18 +426,18 @@ ex:ebsdTAPP-P0 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:crystalStructureFileSourcesDefault "HKL; ICSD; American Mineralogist" ;
                     ada:houghResolutionDefault "60" ;
                     ada:maximumMeanAngularDeviation "1.2 deg" ;
                     ada:minimumBandsForIndexing "5" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "FIB-milled (Tescan LYRA3); 5 nm evaporative carbon coat" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -865,7 +865,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EBSD.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

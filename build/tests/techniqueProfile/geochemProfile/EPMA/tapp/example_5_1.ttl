@@ -15,15 +15,15 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -106,7 +106,6 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
             ada:reportedPropertyDeclaration "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O; cations per formula unit; density — oxide wt% with totals and 1 s.d. of the mean, cations on 8 oxygens (Table 1); 'Magnesium, Cr, and Mn were also analyzed but were below the detection limit in all cases'; calculated density 3.98 g cm-3 (p.3)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Occurrence of the target phase — the units analysed are the observed occurrences of the new mineral: \"A first occurrence of liebermannite was observed with lingunite, silica, ilmenite, and baddeleyite ... (this is the type material). A second occurrence ... A third occurrence is shown in Fig. 1c, close to the type occurrence\" (p.4)" ;
     ada:samplingUnitType "Grain > Analysis point — Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" …), each the mean of n = 2–6 points (p.3)" ;
-    ada:secondaryReferenceMaterialDefault "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "liebermannite",
                 "lingunite",
                 "maskelynite" ;
@@ -124,8 +123,8 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -253,17 +252,17 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;

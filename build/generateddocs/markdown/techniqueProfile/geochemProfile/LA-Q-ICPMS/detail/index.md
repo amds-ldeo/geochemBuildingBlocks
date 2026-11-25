@@ -194,18 +194,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laQicpmsTAPP-detail-Nakanishi2022/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "Tawallah Valley (IVB iron meteorite) — 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -508,18 +496,6 @@ detail instance derived from Nakanishi et al. 2022 (GCA 319) CR chondrite metal 
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laQicpmsTAPP-detail-Nakanishi2022/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "Tawallah Valley (IVB iron meteorite) \u2014 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -647,14 +623,14 @@ ex:laQicpmsTAPP-detail-Nakanishi2022 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "N — the 2SE is stated for individual measurements (p.4), not for a standard" ] ;
+            dqv:value "N — the 2SE is stated for individual measurements (p.4), not for a standard" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
@@ -671,11 +647,7 @@ ex:laQicpmsTAPP-detail-Nakanishi2022 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "Tawallah Valley (IVB iron meteorite) — 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/laQicpmsTAPP-detail-Nakanishi2022/instrument/ICPMS>,
+            schema1:instrument <https://example.org/laQicpmsTAPP-detail-Nakanishi2022/instrument/ICPMS>,
                 <https://example.org/laQicpmsTAPP-detail-Nakanishi2022/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;
@@ -1077,18 +1049,6 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laQicpmsTAPP-detail-Liu2024/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A — six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (§2.1); reference values from GeoReM (§3.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -1453,18 +1413,6 @@ detail instance derived from Liu et al. 2024 (JAAS 39) Extraterrestrial samples 
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laQicpmsTAPP-detail-Liu2024/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A \u2014 six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (\u00a72.1); reference values from GeoReM (\u00a73.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -1547,16 +1495,16 @@ ex:laQicpmsTAPP-detail-Liu2024 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategy Priority Research Program (Category B) of Chinese Academy of Sciences (XDB0710000); NSFC 42073022" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] — §3.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: within 10% of the GeoReM reference values for most trace elements] — §3.5, Fig. 5a; discrepancies >15% for Co in AGV-2, JB-1b and W-2A, Ni in JB-1b, Cu in AGV-2 and JB-1b, Zn and Hf in GSR-1" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: relative standard deviation — 'relative standard deviations are reported as the precision measure'" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "ThO/Th = measured at <0.3%; U/Th = 0.95–1.05 (on NIST SRM 612)" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A [all: RSD better than 10% for most elements] — §3.5, Fig. 5b; higher RSDs for Zn in GSR-1, Tm, Yb and Lu in GSR-3, Lu in AGV-2, and Ta and U in W-2A" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
@@ -1575,11 +1523,7 @@ ex:laQicpmsTAPP-detail-Liu2024 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "AC-E, GSR-1, JB-1b, GSR-3, AGV-2, W-2A — six silicate rock GRMs prepared as lithium borate glasses and 'analyzed to evaluate the performance of the proposed method' (§2.1); reference values from GeoReM (§3.5). The meteorites NWA13190 and NWA14526 are samples, compared with solution ICP-MS" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Iolite 4 (Paton et al. 2011)" ;
                     ada:toolRole "dataReduction" ],
@@ -1845,18 +1789,6 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
           "@id": "ex:laQicpmsTAPP-detail-Liu2025/instrument/Laser-Ablation-System"
         },
         {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
           "schema:additionalType": [
             "ICPMS",
             {
@@ -2061,18 +1993,6 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental silicate gla
           "@id": "ex:laQicpmsTAPP-detail-Liu2025/instrument/Laser-Ablation-System"
         },
         {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NIST 612; BCR-2G \u2014 'NIST 612 and BCR-2G as monitoring standards' (\u00a72.2.2)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
           "schema:additionalType": [
             "ICPMS",
             {
@@ -2156,35 +2076,31 @@ ex:laQicpmsTAPP-detail-Liu2025 a schema1:Dataset,
         schema1:Product ;
     schema1:funding [ a schema1:MonetaryGrant ;
             schema1:name "Strategic Priority Research Program (B) of CAS (XDB0840200); NSFC 92062222, 42073057, 42250710679, 42250202, 42273023" ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
                             schema1:name "Data processing" ;
-                            schema1:position 1 ] ] ;
+                            schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSize>,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
             schema1:description "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/laQicpmsTAPP-detail-Liu2025/instrument/ICPMS>,
+            schema1:instrument <https://example.org/laQicpmsTAPP-detail-Liu2025/instrument/ICPMS>,
                 <https://example.org/laQicpmsTAPP-detail-Liu2025/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
@@ -2380,18 +2296,6 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laQicpmsTAPP-detail-Liu2025-2/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         },
         {
           "schema:additionalType": [
@@ -2598,18 +2502,6 @@ detail instance derived from Liu et al. 2025 (GCA 393) Experimental sulfide Spot
           "@id": "ex:laQicpmsTAPP-detail-Liu2025-2/instrument/Laser-Ablation-System"
         },
         {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NIST 612; BCR-2G \u2014 'NIST 612 and BCR-2G as monitoring standards' (\u00a72.2.2)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
           "schema:additionalType": [
             "ICPMS",
             {
@@ -2697,9 +2589,9 @@ ex:laQicpmsTAPP-detail-Liu2025-2 a schema1:Dataset,
             dqv:value "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -2717,11 +2609,7 @@ ex:laQicpmsTAPP-detail-Liu2025-2 a schema1:Dataset,
             schema1:description "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/laQicpmsTAPP-detail-Liu2025-2/instrument/ICPMS>,
+            schema1:instrument <https://example.org/laQicpmsTAPP-detail-Liu2025-2/instrument/ICPMS>,
                 <https://example.org/laQicpmsTAPP-detail-Liu2025-2/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)" ] ;
@@ -3117,18 +3005,6 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
           "schema:additionalType": [
             {
               "@id": "https://www.wikidata.org/entity/Q7397"
-            }
-          ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "N — not stated",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
             }
           ]
         }
@@ -3556,18 +3432,6 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
               "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "N \u2014 not stated",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -3675,28 +3539,28 @@ ex:laQicpmsTAPP-detail-Liu2016 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "N — not stated" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "N — not stated" ] ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: 1σ, one standard deviation of the average — Table 3 note b: '1σ is 1 standard deviation of the average'" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/fusionFluxAndDilutionRatio>,
                                 <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatment> ;
                             schema1:description "N — sections UT1 to UT3 (p.3); their preparation is not described" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 1 ] ] ;
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laQicpmsTAPP/numberOfReplicates>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate>,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/signalIntegrationTime>,
@@ -3707,11 +3571,7 @@ ex:laQicpmsTAPP-detail-Liu2016 a schema1:Dataset,
             schema1:description "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "N — not stated" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)" ;
                     ada:toolRole "dataReduction" ],
@@ -4192,18 +4052,6 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
               "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "N — not stated",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -4625,18 +4473,6 @@ detail instance derived from Liu et al. 2016 (M&PS 51) Tissint martian meteorite
               "@id": "https://www.wikidata.org/entity/Q7397"
             }
           ]
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "N \u2014 not stated",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:combinedResults": [
@@ -4740,14 +4576,14 @@ ex:laQicpmsTAPP-detail-Liu2016-2 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EMP CaO is the internal standard: 'we calculated the trace element abundances by normalizing the LA-ICP-MS 40Ca counts to CaO concentrations from the EMP analysis' — Methods, p.4" ;
                     schema1:name "EPMA (EMP)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "N — not stated" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "N — not stated" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothing> ;
@@ -4769,11 +4605,7 @@ ex:laQicpmsTAPP-detail-Liu2016-2 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "N — not stated" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "AMS ver. 1.0 (Mutchler et al. 2008)" ;
                     ada:toolRole "dataReduction" ],
@@ -5112,18 +4944,6 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laQicpmsTAPP-detail-P6/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "ARM-1; MG-1, BS-1, XENOA, M1567; Otter Lake, NW-1, MAP-3 — ARM-1 'is used for the quality control' of Lu and Hf concentrations; the xenotime and apatite U–Pb reference materials test the Lu–Hf ages against their ID-TIMS U–Pb ages",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:additionalProperty": [
@@ -5461,18 +5281,6 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:laQicpmsTAPP-detail-P6/instrument/Laser-Ablation-System"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "ARM-1; MG-1, BS-1, XENOA, M1567; Otter Lake, NW-1, MAP-3 \u2014 ARM-1 'is used for the quality control' of Lu and Hf concentrations; the xenotime and apatite U\u2013Pb reference materials test the Lu\u2013Hf ages against their ID-TIMS U\u2013Pb ages",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:additionalProperty": [
@@ -5630,16 +5438,16 @@ detail instance derived from Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGC
 
 ex:laQicpmsTAPP-detail-P6 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: 1.5–8.1%]; Otter Lake, NW-1, MAP-3 [common-Hf-corrected single-spot age: 9.2–36.0%] — isochron age uncertainties of 3.5–10% for the garnet samples" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "Lu-Hf isochron age, Lu-Hf weighted-mean age: MSWD; other: N — e.g. MSWD = 2.3 (n = 236, XN02) and MSWD = 0.6 (n = 15, weighted-mean Lu-Hf age 489.8 ± 2.2 Ma)" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: 1.5–8.1%]; Otter Lake, NW-1, MAP-3 [common-Hf-corrected single-spot age: 9.2–36.0%] — isochron age uncertainties of 3.5–10% for the garnet samples" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: generally better than 1.5%] — against ID-TIMS U–Pb ages of the same reference materials" ] ;
+            dqv:value "MG-1, BS-1, XENOA, M1567 [common-Hf-corrected single-spot age: generally better than 1.5%] — against ID-TIMS U–Pb ages of the same reference materials" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "N — not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method" ;
@@ -5651,11 +5459,7 @@ ex:laQicpmsTAPP-detail-P6 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRate> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N — 20 analytical sessions over 3 months referenced, no identifier stated" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "ARM-1; MG-1, BS-1, XENOA, M1567; Otter Lake, NW-1, MAP-3 — ARM-1 'is used for the quality control' of Lu and Hf concentrations; the xenotime and apatite U–Pb reference materials test the Lu–Hf ages against their ID-TIMS U–Pb ages" ;
-                    ada:reagentRole "referenceMaterial" ],
-                [ a schema1:SoftwareApplication ;
+            schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages" ;
                     ada:toolRole "dataReduction" ],
@@ -6507,10 +6311,11 @@ allOf:
                 required:
                 - schema:additionalType
           ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method."
+            description: 'The level of the analytical blank and, where the reported
+              quantity is a ratio, its composition, since a blank subtracted from
+              a ratio biases the result unless its own composition is known. For the
+              procedure: the typical or maximum blank expected. For the session: the
+              blank measured in this session. Companion to the blank correction method.'
             type: string
         required:
         - ada:proceduralBlankLevel
@@ -6529,14 +6334,21 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Precision of repeated measurements within a single analytical
-                  session and the method used to assess it. Report both the assessment
-                  method and the precision values. The assessment method must specify
-                  the reference material or standard measured, the number of replicates
-                  n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                  Distinct from the internal precision of a single measurement, which
-                  derives from counting statistics over the cycles of that measurement
-                  rather than from repeated analyses.
+                description: 'Precision of repeated measurements of a reference material
+                  within a single analytical session, and the method used to assess
+                  it. The assessment method specifies the reference material or standard
+                  measured, the number of replicates n, and the statistic reported
+                  (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Reported for the standards named
+                  in Quality-Control Standards; a calibration standard''s agreement
+                  with its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the expected within-session
+                  precision. For the session: the precision achieved in this session,
+                  assessed by that method. Distinct from the internal precision of
+                  a single measurement, which derives from counting statistics over
+                  the cycles of that measurement rather than from repeated analyses.
+                  In the dataset: report the analyses of each secondary reference
+                  material, where they are included; the session value summarises
+                  them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -6555,10 +6367,15 @@ allOf:
               dqv:value:
                 description: "Precision of measurements across multiple analytical
                   sessions over weeks to months \u2014 long-term or intermediate precision
-                  \u2014 and the method used to assess it. Report both the assessment
-                  method and the precision values, specifying the reference material,
+                  \u2014 and the method used to assess it. Specify the reference material,
                   the number of measurements and sessions, the time span covered,
-                  and the statistic reported."
+                  and the statistic reported. Reported for the standards named in
+                  Quality-Control Standards; a calibration standard's agreement with
+                  its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the long-term precision
+                  on record when the procedure is registered. For the session: the
+                  long-term precision as it stands at this session, including this
+                  session's results where they contribute."
                 anyOf:
                 - type: string
                 - type: array
@@ -6575,13 +6392,20 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Offset between measured and accepted values for secondary
+                description: 'Offset between measured and accepted values for secondary
                   reference materials, and the method used to assess it. Specify the
                   reference material and the source of its accepted values, the number
-                  of analyses, and the quantities assessed. Report systematic biases
-                  and their likely causes. Express the offset in the form appropriate
-                  to what the procedure reports - percent relative bias for concentrations,
-                  or deviation in delta or ratio units for isotopic quantities.
+                  of analyses, and the quantities assessed. Express the offset in
+                  the form appropriate to what the procedure reports: percent relative
+                  bias for concentrations, or deviation in delta or ratio units for
+                  isotopic quantities. Reported for the standards named in Quality-Control
+                  Standards; a calibration standard''s agreement with its own accepted
+                  values is not a test of accuracy. For the procedure: the assessment
+                  method, the accepted-value source and the expected offset. For the
+                  session: the offset found in this session, with any systematic bias
+                  and its likely cause. In the dataset: report the analyses of each
+                  secondary reference material, where they are included; the session
+                  value summarises them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -6613,7 +6437,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-Q-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

@@ -12,14 +12,14 @@ ex:laQicpmsTAPP-detail-Nakanishi2022 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]" ;
                     schema1:name "EPMA (electron probe microanalysis)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "N — the 2SE is stated for individual measurements (p.4), not for a standard" ] ;
+            dqv:value "N — the 2SE is stated for individual measurements (p.4), not for a standard" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproach> ;
@@ -36,11 +36,7 @@ ex:laQicpmsTAPP-detail-Nakanishi2022 a schema1:Dataset,
                 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreening> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "Tawallah Valley (IVB iron meteorite) — 'used as ... a secondary standard' (p.3), its HSE abundances from Walker et al. (2008)" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/laQicpmsTAPP-detail-Nakanishi2022/instrument/ICPMS>,
+            schema1:instrument <https://example.org/laQicpmsTAPP-detail-Nakanishi2022/instrument/ICPMS>,
                 <https://example.org/laQicpmsTAPP-detail-Nakanishi2022/instrument/Laser-Ablation-System> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan" ] ;

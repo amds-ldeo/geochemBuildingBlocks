@@ -7,14 +7,14 @@
 
 ex:solutionSficpmsTAPP-detail-P4 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [B/Ca: across degrees of sample dilution] — Fig. 2" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [all: ±2σ of repeat analyses over 8 months] — Table 4; n = 180, 130, 100 and 150" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "all [B/Ca: 4.0% (2σ), average within-run external precision] — abstract" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [B/Ca: across degrees of sample dilution] — Fig. 2" ] ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Sample digestion" ;
@@ -32,11 +32,7 @@ ex:solutionSficpmsTAPP-detail-P4 a schema1:Dataset,
             schema1:description "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"a single instrument session\" referenced; no session identifier stated" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix — the four Cambridge consistency standards (§2.2)" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionSficpmsTAPP-detail-P4/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)" ] ;
             schema1:object [ a schema1:Thing ;

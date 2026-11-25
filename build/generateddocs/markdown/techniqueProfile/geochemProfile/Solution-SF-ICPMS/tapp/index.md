@@ -147,12 +147,12 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -532,9 +532,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   "ada:uncertaintyLevel": "2 standard errors for within-run precision; 2sd for the averages of standards — 'Typical within-run precision (2 standards errors)' (§2.4); '(2sd, n = 22)'",
   "ada:blankBackgroundCorrectionMethod": "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction — §2.4",
   "ada:internalStandardElement": "all: Tl (203Tl, 205Tl), for mass-bias correction — §2.4",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -699,12 +696,12 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -1084,9 +1081,6 @@ solutionSficpmsTAPP instance derived from Desem+etal2022 | Nu Attom SC-SF-ICP-MS
   "ada:uncertaintyLevel": "2 standard errors for within-run precision; 2sd for the averages of standards \u2014 'Typical within-run precision (2 standards errors)' (\u00a72.4); '(2sd, n = 22)'",
   "ada:blankBackgroundCorrectionMethod": "Blank determination before each sample acquisition (average 900 cps on 208Pb, equivalent to 1.8 ppt Pb); on-line baseline correction \u2014 \u00a72.4",
   "ada:internalStandardElement": "all: Tl (203Tl, 205Tl), for mass-bias correction \u2014 \u00a72.4",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -1122,15 +1116,19 @@ ex:solutionSficpmsTAPP-P0 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "TD HNO3 leach (3 ml conc. HNO3, 80 °C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 °C, 48 h, evaporated); TD HNO3 (2 × 1 ml conc. HNO3, 100 °C); TD HCl (5 ml 6 M HCl, 80 °C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 °C, 15 h, then centrifuged) — §2.2" ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:name "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) — §2.2" ;
+                            ada:reagentRole "reagent" ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Soils oven-dried (50 °C, 7 days), not sieved; total-dissolution (TD) and aqua-regia (AR) splits; the SC-SF-ICP-MS splits 'redissolved and diluted to 2 ml in high purity 2% HNO3 doped with 1 ppb of high-purity thallium' — §2.1, §2.2, §2.4; the rock chips were analysed by MC-ICP-MS only" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -1142,13 +1140,9 @@ ex:solutionSficpmsTAPP-P0 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "TD HNO3 leach (3 ml conc. HNO3, 80 °C, 48 h, leachate discarded); TD HF (4 ml conc. HF, 100 °C, 48 h, evaporated); TD HNO3 (2 × 1 ml conc. HNO3, 100 °C); TD HCl (5 ml 6 M HCl, 80 °C, 15 h, then centrifuged); AR leach (3 ml aqua regia, 3:1 HCl:HNO3, 20 °C, 15 h, then centrifuged) — §2.2" ;
-                    schema1:instrument [ a schema1:DefinedTerm ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:name "TD HNO3 leach: conc. HNO3; TD HF: conc. HF; TD HNO3: conc. HNO3; TD HCl: 6 M HCl; AR leach: aqua regia (3:1 HCl:HNO3) — §2.2" ;
-                            ada:reagentRole "reagent" ] ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/eScanRange>,
         <https://ada.astromat.org/metadata/parameter/solutionSficpmsTAPP/tripleScanningMode> ;
@@ -1195,7 +1189,6 @@ ex:solutionSficpmsTAPP-P0 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb — dimensionless Pb isotope ratios (§2.4)" ] ;
     ada:samplingUnitType "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"" ;
-    ada:secondaryReferenceMaterialDefault "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Soil samples" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
@@ -1206,7 +1199,7 @@ ex:solutionSficpmsTAPP-P0 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Pb" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -1299,10 +1292,10 @@ ex:solutionSficpmsTAPP-P0 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -1799,12 +1792,12 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -2049,9 +2042,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   "ada:uncertaintyLevel": "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"",
   "ada:blankBackgroundCorrectionMethod": "N — a blank solution in 2% HNO3 is part of the calibration set (§2.2); the blank correction is not described",
   "ada:internalStandardElement": "all: Rh (103Rh) — Table 1",
-  "ada:secondaryReferenceMaterialDefault": [
-    "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -2466,12 +2456,12 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -2716,9 +2706,6 @@ solutionSficpmsTAPP instance derived from Li+etal2016 | Thermo Element I | IGGCA
   "ada:uncertaintyLevel": "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"",
   "ada:blankBackgroundCorrectionMethod": "N \u2014 a blank solution in 2% HNO3 is part of the calibration set (\u00a72.2); the blank correction is not described",
   "ada:internalStandardElement": "all: Rh (103Rh) \u2014 Table 1",
-  "ada:secondaryReferenceMaterialDefault": [
-    "FER-2 \u2014 iron-formation reference material (CCRMP), 'used to validate of the proposed method' (\u00a72.2)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -2754,12 +2741,6 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
@@ -2783,7 +2764,13 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
                             schema1:name "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only Reported detail: ada:driftCorrectionMethod = Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2)." ;
@@ -2849,7 +2836,6 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (µg/g) — Table 3 (FER-2) in µg g⁻¹; the unit of Table 4 (samples) is not stated in its header" ] ;
     ada:samplingUnitType "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"" ;
-    ada:secondaryReferenceMaterialDefault "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "magnetite",
                 "pyrite" ;
@@ -2861,7 +2847,7 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ba",
                 "Be",
                 "Ce",
@@ -3036,10 +3022,10 @@ ex:solutionSficpmsTAPP-P1 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -3537,12 +3523,12 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -3727,9 +3713,6 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
   "ada:blankBackgroundCorrectionMethod": "Background measured before each sample after a 200 s wash — Table 1b",
   "ada:internalStandardElement": "all: Nb (93Nb) — §2.1.2",
   "ada:analysisSequenceDefault": "Standard solution every two samples; each sample measurement ~6 min, including ~3 min washing — §2.1.2",
-  "ada:secondaryReferenceMaterialDefault": [
-    "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — GSJ and USGS silicate reference materials (§2.3); the chondrites are samples"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -4148,12 +4131,12 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -4338,9 +4321,6 @@ solutionSficpmsTAPP instance derived from Lu+etal2007 | Finnigan ELEMENT | PML O
   "ada:blankBackgroundCorrectionMethod": "Background measured before each sample after a 200 s wash \u2014 Table 1b",
   "ada:internalStandardElement": "all: Nb (93Nb) \u2014 \u00a72.1.2",
   "ada:analysisSequenceDefault": "Standard solution every two samples; each sample measurement ~6 min, including ~3 min washing \u2014 \u00a72.1.2",
-  "ada:secondaryReferenceMaterialDefault": [
-    "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 \u2014 GSJ and USGS silicate reference materials (\u00a72.3); the chondrites are samples"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -4372,19 +4352,6 @@ ex:solutionSficpmsTAPP-P2 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3σ — Table 2b" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
@@ -4400,7 +4367,20 @@ ex:solutionSficpmsTAPP-P2 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3σ — Table 2b" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Continuous sample introduction with an uptake time of 60 s (0.04 ml per measurement); quartz glass torch with sapphire injector (Table 1b) Reported detail: ada:driftCorrectionMethod = Standard solution every two samples — 'No time drift of fTi was observed during measurements over 2 h, thus all fTi were averaged and used' (§2.7)." ;
     schema1:instrument <https://example.org/solutionSficpmsTAPP-P2/instrument/ICPMS> ;
@@ -4441,7 +4421,6 @@ ex:solutionSficpmsTAPP-P2 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "Ti (µg/g); TiO2 — Ti by ICP-SFMS; Nb is from the ICP-QMS. Detection limits in solution (ng/g) and in rock (µg/g) in Table 2b" ] ;
     ada:samplingUnitType "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites" ;
-    ada:secondaryReferenceMaterialDefault "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — GSJ and USGS silicate reference materials (§2.3); the chondrites are samples" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
                 "basalt",
@@ -4455,7 +4434,7 @@ ex:solutionSficpmsTAPP-P2 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ti" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -4601,10 +4580,10 @@ ex:solutionSficpmsTAPP-P2 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -5087,12 +5066,12 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -5291,9 +5270,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   "ada:oxideProductionMethodAndThreshold": "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)",
   "ada:blankBackgroundCorrectionMethod": "All sample concentrations corrected for the ammonium acetate buffer and the extraction procedure (flow manifold, chelating resin, elution acid), which includes the ICP-MS background — §2.5",
   "ada:internalStandardElement": "all: none — isotope dilution for Fe, Ni, Cu, Zn, Cd and Pb, standard additions for Co and Mn (§2.5)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NASS-5; SAFe S1; SAFe D2 — NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (§2.6)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -5698,12 +5674,12 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -5902,9 +5878,6 @@ solutionSficpmsTAPP instance derived from Milne+etal2010 | Thermo Finnigan Eleme
   "ada:oxideProductionMethodAndThreshold": "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)",
   "ada:blankBackgroundCorrectionMethod": "All sample concentrations corrected for the ammonium acetate buffer and the extraction procedure (flow manifold, chelating resin, elution acid), which includes the ICP-MS background \u2014 \u00a72.5",
   "ada:internalStandardElement": "all: none \u2014 isotope dilution for Fe, Ni, Cu, Zn, Cd and Pb, standard additions for Co and Mn (\u00a72.5)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "NASS-5; SAFe S1; SAFe D2 \u2014 NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (\u00a72.6)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -5940,6 +5913,17 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:name "N/A — seawater; pre-concentration by chelation; no acid digestion" ;
+                            ada:reagentRole "reagent" ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
@@ -5952,17 +5936,6 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "all: 3 SD of the reagent blank — Table 5, for a 12 mL sample" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:instrument [ a schema1:DefinedTerm ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:name "N/A — seawater; pre-concentration by chelation; no acid digestion" ;
-                            ada:reagentRole "reagent" ] ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -6013,7 +5986,6 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "Mn, Fe, Co, Ni, Cu, Zn, Cd, Pb (nM, dissolved) — dissolved concentrations in seawater" ] ;
     ada:samplingUnitType "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"" ;
-    ada:secondaryReferenceMaterialDefault "NASS-5; SAFe S1; SAFe D2 — NASS-5 (NRCC certified open-ocean seawater) and the SAFe inter-comparison samples (§2.6)" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Open-ocean seawater" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
@@ -6024,7 +5996,7 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Cd",
                 "Co",
                 "Cu",
@@ -6170,10 +6142,10 @@ ex:solutionSficpmsTAPP-P3 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -6426,12 +6398,12 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -6860,9 +6832,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
   "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
   "ada:internalStandardElement": "all: none — Me/Ca ratios, with Ca measured in both resolutions",
   "ada:analysisSequenceDefault": "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) — §2.3.1",
-  "ada:secondaryReferenceMaterialDefault": [
-    "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix — the four Cambridge consistency standards (§2.2)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -7034,12 +7003,12 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -7468,9 +7437,6 @@ solutionSficpmsTAPP instance derived from Misra+etal2014 | Thermo Element XR | U
   "ada:oxideProductionMethodAndThreshold": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
   "ada:internalStandardElement": "all: none \u2014 Me/Ca ratios, with Ca measured in both resolutions",
   "ada:analysisSequenceDefault": "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) \u2014 \u00a72.3.1",
-  "ada:secondaryReferenceMaterialDefault": [
-    "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix \u2014 the four Cambridge consistency standards (\u00a72.2)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -7501,12 +7467,6 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "dissolution (minimum volume of 1 M HNO3, 40–60 µL, then centrifuged 2 min at 10,000 rpm) — §2.4" ;
@@ -7518,18 +7478,24 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3) Reported detail: ada:driftCorrectionMethod = N — the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (§2.3.1)." ;
@@ -7569,7 +7535,6 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "B/Ca (µmol/mol); Li/Ca, Mg/Ca, Al/Ca, Sr/Ca, Cd/Ca, Ba/Ca, U/Ca, Na/Ca, Mn/Ca, Fe/Ca, Zn/Ca (µmol/mol or mmol/mol) — Me/Ca ratios; Li, Mg, Al, Sr, Cd, Ba and U in low resolution, Na, Mn, Fe and Zn in medium (Table 3)" ] ;
     ada:samplingUnitType "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"" ;
-    ada:secondaryReferenceMaterialDefault "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix — the four Cambridge consistency standards (§2.2)" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "Foraminifera calcite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
@@ -7580,7 +7545,7 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "B",
                 "Ba",
@@ -7727,10 +7692,10 @@ ex:solutionSficpmsTAPP-P4 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -8223,12 +8188,12 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -8485,9 +8450,6 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
   "ada:blankBackgroundCorrectionMethod": "N — 'After correction for background and mass fractionation'; the method is not described",
   "ada:internalStandardElement": "all: the ID-determined elements, for the RSF elements (Table 1 ratios, e.g. 93Nb/90Zr, 175Lu/172Yb) — Ru and Re are added for the mass-fractionation correction, not as internal standards",
   "ada:analysisSequenceDefault": "N — a total of ca. 20 minutes per sample 'including the measurement of blank, standard solution, washout'; the order is not stated",
-  "ada:secondaryReferenceMaterialDefault": [
-    "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -8901,12 +8863,12 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -9163,9 +9125,6 @@ solutionSficpmsTAPP instance derived from Willbold2005 | ThermoFinnigan ELEMENT2
   "ada:blankBackgroundCorrectionMethod": "N \u2014 'After correction for background and mass fractionation'; the method is not described",
   "ada:internalStandardElement": "all: the ID-determined elements, for the RSF elements (Table 1 ratios, e.g. 93Nb/90Zr, 175Lu/172Yb) \u2014 Ru and Re are added for the mass-fractionation correction, not as internal standards",
   "ada:analysisSequenceDefault": "N \u2014 a total of ca. 20 minutes per sample 'including the measurement of blank, standard solution, washout'; the order is not stated",
-  "ada:secondaryReferenceMaterialDefault": [
-    "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -9197,24 +9156,10 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
             schema1:name "Solution SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "LR; HR — two solutions of different dilution: dilution factor ~21000 for LR and ~1000 for HR; 'the transmission decreases by a factor of about 100 from the LR to the HR mode'" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -9227,7 +9172,21 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
                             schema1:name "hotplate HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l); bomb HF-HNO3: 1–2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l), and 0.5 ml HF after 3 days; fluoride removal: 14 mol/l HNO3; chloride conversion: 6 mol/l HCl; final uptake: 7 mol/l HNO3" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: 3 s of total procedural blanks including spiking, 50 measurements in LR and 20 in HR — Limits of detection" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "About 100 mg whole-rock powder spiked with the three multi-element spikes (MES 1–3), digested in HF-HNO3, converted to chlorides, taken up in 7 mol/l HNO3 and diluted for LR and HR, with a Ru-Re solution added to each dilution — cleanroom, twice sub-boiled acids (Samples and sample preparation)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault> ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Magnetic jump followed by electric scan (Table 3); acquisition 10 min per sample; ca. 20 min per sample in all, a mass spectrometer efficiency of almost 90% Reported detail: ada:driftCorrectionMethod = N — 'Instrumental drift of SF-ICP-MS has only a negligible effect on the reproducibility of ID determined concentrations since isotope ratios are used'." ;
@@ -9291,7 +9250,6 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g) — Equations 1 and 2" ] ;
     ada:samplingUnitType "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"" ;
-    ada:secondaryReferenceMaterialDefault "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "andesite",
                 "basalt",
@@ -9308,7 +9266,7 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ba",
                 "Ce",
                 "Cs",
@@ -9487,10 +9445,10 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -9598,7 +9556,7 @@ ex:solutionSficpmsTAPP-Willbold2005 a schema1:Action,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution SF-ICP-MS Technique-Aligned Protocol Profile (solutionSficpmsTAPP)
 description: Solution sector-field (high-resolution) ICP-MS extension of the base
-  TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v91.csv
+  TAPP definition, generated from tapp/Current TAPPs/Solution_SF-ICP-MS_TAPP_v96.csv
   via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -10604,28 +10562,27 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
-            - title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+            - title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -10643,28 +10600,27 @@ allOf:
               - schema:defaultValue
           allOf:
           - contains:
-              title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+              title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/solutionSficpmsTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -11078,7 +11034,8 @@ allOf:
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
+                in the procedure are recorded in Mass Resolution Setting, in Instrument
+                & Software (Group 3).
               type: object
               properties:
                 '@id':
@@ -11115,7 +11072,8 @@ allOf:
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
+                in the procedure are recorded in Mass Resolution Setting, in Instrument
+                & Software (Group 3).
               type: object
               properties:
                 '@id':
@@ -11243,7 +11201,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-SF-ICPMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

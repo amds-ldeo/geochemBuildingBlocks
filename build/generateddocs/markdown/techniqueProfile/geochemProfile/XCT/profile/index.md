@@ -1074,16 +1074,16 @@ ex:adaLabXCT-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Signal-to-Noise Ratio" ;
             dqv:value "no value available: signalToNoiseRatio" ],
-        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
-            dqv:value "no value available: metalStreakArtifactAssessment" ],
-        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
-            dqv:value "no value available: partialVolumeEffectAssessment" ],
+        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
+            dqv:value "no value available: beamHardeningArtifactAssessment" ],
         [ dqv:isMeasurementOf "Cross-Validation Outcome" ;
             dqv:value "no value available: crossValidationOutcome" ],
+        [ dqv:isMeasurementOf "Partial Volume Effect Assessment" ;
+            dqv:value "no value available: partialVolumeEffectAssessment" ],
         [ dqv:isMeasurementOf "Ring Artifact Severity and Correction Outcome" ;
             dqv:value "no value available: ringArtifactSeverityAndCorrectionOutcome" ],
-        [ dqv:isMeasurementOf "Beam Hardening Artifact Assessment" ;
-            dqv:value "no value available: beamHardeningArtifactAssessment" ] ;
+        [ dqv:isMeasurementOf "Metal Streak Artifact Assessment" ;
+            dqv:value "no value available: metalStreakArtifactAssessment" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:labxctTAPP-P0 ;
@@ -1231,7 +1231,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

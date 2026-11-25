@@ -31,7 +31,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P0",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "chondrule",
@@ -52,12 +52,12 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -672,9 +672,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero baseline integrations subtracted",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2 — 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -726,7 +723,7 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P0",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M\u00fcnster (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M\u00fcnster (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "chondrule",
@@ -747,12 +744,12 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -1367,9 +1364,6 @@ solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP M�
   "ada:blankBackgroundCorrectionMethod": "On-peak-zero baseline integrations subtracted",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2 \u2014 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -1419,12 +1413,6 @@ ex:solutionMcicpmsTAPP-P0 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
@@ -1432,6 +1420,12 @@ ex:solutionMcicpmsTAPP-P0 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -1447,7 +1441,7 @@ ex:solutionMcicpmsTAPP-P0 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Budde+etal2016 | Neptune Plus | IfP Münster (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P0/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institut für Planetologie, University of Münster" ] ;
@@ -1512,7 +1506,6 @@ ex:solutionMcicpmsTAPP-P0 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "ε92Mo, ε94Mo, ε95Mo, ε97Mo, ε100Mo — εⁱMo = [(ⁱMo/⁹⁶Mo)sample/(ⁱMo/⁹⁶Mo)standard − 1] × 10⁴, relative to the Alfa Aesar standard" ] ;
     ada:samplingUnitType "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"" ;
-    ada:secondaryReferenceMaterialDefault "BHVO-2 — 'several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples'" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "bulk chondrite",
                 "chondrule",
@@ -1525,7 +1518,7 @@ ex:solutionMcicpmsTAPP-P0 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Mo" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -1688,10 +1681,10 @@ ex:solutionMcicpmsTAPP-P0 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -1816,12 +1809,12 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -2557,9 +2550,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:blankBackgroundCorrectionMethod": "Average on-peak-zero background from periodic 2% HNO3 blanks, measured on the low-mass shoulder, subtracted per isotope off-line — ~30–50 mV on ³²S (§2.4, §3.1)",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session — §2.4, §3.2",
-  "ada:secondaryReferenceMaterialDefault": [
-    "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -2632,12 +2622,12 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -3373,9 +3363,6 @@ solutionMcicpmsTAPP instance derived from Craddock+etal2008 | Thermo NEPTUNE | W
   "ada:blankBackgroundCorrectionMethod": "Average on-peak-zero background from periodic 2% HNO3 blanks, measured on the low-mass shoulder, subtracted per isotope off-line \u2014 ~30\u201350 mV on \u00b3\u00b2S (\u00a72.4, \u00a73.1)",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Each sample bracketed by standards analysed immediately before and after, with 2% HNO3 blanks aspirated periodically through the session \u2014 \u00a72.4, \u00a73.2",
-  "ada:secondaryReferenceMaterialDefault": [
-    "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po \u2014 Table 3"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -3413,10 +3400,12 @@ ex:solutionMcicpmsTAPP-P1 a schema1:Action,
             schema1:name "Solution MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
@@ -3424,6 +3413,12 @@ ex:solutionMcicpmsTAPP-P1 a schema1:Action,
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Less than 50 mg weighed, digested, S purified on AG50-X8 cation exchange and diluted with 2% HNO3 to a 50 ppm S stock; for laser work, a 2 mm thick polished section on a petrographic slide — §2.1–2.2" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -3436,15 +3431,7 @@ ex:solutionMcicpmsTAPP-P1 a schema1:Action,
                             schema1:name "HNO3 attack: 50% HNO3; HNO3–HCl digestion: concentrated HNO3 + 50% HCl; re-dissolution: 2% HNO3 — §2.2" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
@@ -3511,7 +3498,6 @@ ex:solutionMcicpmsTAPP-P1 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "δ34S, δ33S — ‰ on the V-CDT scale (§2.4)" ] ;
     ada:samplingUnitType "Purified solution aliquot — \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 µg of S\" taken for column purification" ;
-    ada:secondaryReferenceMaterialDefault "IAEA-S-1, IAEA-S-2, IAEA-S-4, NBS-123, Alfa, Sch-M-2, SW-Woods Hole, FeIII-sulfate, GAV-18, Ward's Py, Ward's Po — Table 3" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "elemental sulfur",
                 "seawater",
@@ -3525,7 +3511,7 @@ ex:solutionMcicpmsTAPP-P1 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "S" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -3777,10 +3763,10 @@ ex:solutionMcicpmsTAPP-P1 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -3893,7 +3879,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P2",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "iron meteorite",
@@ -3913,12 +3899,12 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -4631,9 +4617,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:blankBackgroundCorrectionMethod": "On-peak zero from a blank solution subtracted from all measurements",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2 — §2.1"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -4682,7 +4665,7 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P2",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "iron meteorite",
@@ -4702,12 +4685,12 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -5420,9 +5403,6 @@ solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | 
   "ada:blankBackgroundCorrectionMethod": "On-peak zero from a blank solution subtracted from all measurements",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2 \u2014 \u00a72.1"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -5458,14 +5438,16 @@ ex:solutionMcicpmsTAPP-P2 a schema1:Action,
             schema1:name "Solution MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -5481,16 +5463,14 @@ ex:solutionMcicpmsTAPP-P2 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "MR; HR — 'either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)' (§2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -5500,7 +5480,7 @@ ex:solutionMcicpmsTAPP-P2 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P2/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
@@ -5562,7 +5542,6 @@ ex:solutionMcicpmsTAPP-P2 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "\"μ54Fe(7/6)\", \"μ58Fe(7/6)\", \"μ56Fe(7/4)\", \"μ58Fe(7/4)\", δ56Fe — μ in ppm (Eq. 1), δ in ‰ (Eq. 2), relative to IRMM-524a" ] ;
     ada:samplingUnitType "Solution aliquot of a digestion — \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"" ;
-    ada:secondaryReferenceMaterialDefault "BHVO-2, BCR-2 — §2.1" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "basalt",
                 "iron meteorite" ;
@@ -5574,7 +5553,7 @@ ex:solutionMcicpmsTAPP-P2 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Fe" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -5802,10 +5781,10 @@ ex:solutionMcicpmsTAPP-P2 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -5914,7 +5893,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P3",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "calcium-aluminium-rich inclusion"
@@ -5933,12 +5912,12 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -6533,9 +6512,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   "ada:blankBackgroundCorrectionMethod": "Background corrected off-line in a spreadsheet, from the 60 s baseline — 'correcting for background and isobaric interferences'",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing — \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2 — 'processed with the CAIs'"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -6584,7 +6560,7 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P3",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "calcium-aluminium-rich inclusion"
@@ -6603,12 +6579,12 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -7203,9 +7179,6 @@ solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chic
   "ada:blankBackgroundCorrectionMethod": "Background corrected off-line in a spreadsheet, from the 60 s baseline \u2014 'correcting for background and isobaric interferences'",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing \u2014 \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2 \u2014 'processed with the CAIs'"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -7247,6 +7220,14 @@ ex:solutionMcicpmsTAPP-P3 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)" ;
                     schema1:name "Sample preparation" ;
@@ -7262,15 +7243,7 @@ ex:solutionMcicpmsTAPP-P3 a schema1:Action,
                             schema1:name "HF–HNO3–HClO4 attack: 3:1 HF/HNO3 + HClO4; HCl–HNO3 attack: 2:1 HCl:HNO3; final uptake: concentrated HNO3, then 3 M HNO3" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -7279,7 +7252,7 @@ ex:solutionMcicpmsTAPP-P3 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Hu+etal2022 | Neptune Plus | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P3/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
@@ -7352,7 +7325,6 @@ ex:solutionMcicpmsTAPP-P3 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "φCe, φNd, φSm, φEu, φGd, φDy, φEr, φYb — ‰/amu relative to the OL-REE standards (Eq. 1)" ] ;
     ada:samplingUnitType "Fraction of a CAI digestion — \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"" ;
-    ada:secondaryReferenceMaterialDefault "BCR-2 — 'processed with the CAIs'" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "calcium-aluminium-rich inclusion" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
@@ -7363,7 +7335,7 @@ ex:solutionMcicpmsTAPP-P3 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ce",
                 "Dy",
                 "Er",
@@ -7498,10 +7470,10 @@ ex:solutionMcicpmsTAPP-P3 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -7621,12 +7593,12 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -8333,12 +8305,12 @@ solutionMcicpmsTAPP instance derived from IbanezMejia+Tissot2020 | Nu Plasma II 
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -9012,6 +8984,12 @@ ex:solutionMcicpmsTAPP-Tissot2020 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -9028,12 +9006,6 @@ ex:solutionMcicpmsTAPP-Tissot2020 a schema1:Action,
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
                     schema1:position 4 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
@@ -9132,7 +9104,7 @@ ex:solutionMcicpmsTAPP-Tissot2020 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -9302,10 +9274,10 @@ ex:solutionMcicpmsTAPP-Tissot2020 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -9407,7 +9379,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — Dauphas2019",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "lunar rock",
@@ -9428,12 +9400,12 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -10071,9 +10043,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:blankBackgroundCorrectionMethod": "Average intensity of the two bracketing 0.3 M HNO3 blank measurements subtracted from each sample and standard — background 0.001–0.003 V on ⁸⁵Rb",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing, with the 0.3 M HNO3 dilution acid measured before and after each sample and standard under identical conditions — A.3",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende — A.4"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -10123,7 +10092,7 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 Dauphas2019",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "lunar rock",
@@ -10144,12 +10113,12 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -10787,9 +10756,6 @@ solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chica
   "ada:blankBackgroundCorrectionMethod": "Average intensity of the two bracketing 0.3 M HNO3 blank measurements subtracted from each sample and standard \u2014 background 0.001\u20130.003 V on \u2078\u2075Rb",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing, with the 0.3 M HNO3 dilution acid measured before and after each sample and standard under identical conditions \u2014 A.3",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende \u2014 A.4"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -10826,19 +10792,6 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a schema1:Action,
             schema1:name "Solution MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "HF–HNO3–HClO4 attack (4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4, closed 30 ml fluoropolymer beaker, 130 °C, 24 h); HCl–HNO3 attack (dried at 130 °C, 4.5 ml 11 M HCl + 1.5 ml 15 M HNO3, closed, 130 °C, 24 h, repeated twice); HNO3 attack (dried, 4 ml 15 M HNO3, closed, hotplate, 24 h); Parr bomb (undigested residue, 175–180 °C, at least 3 days) — A.1; the bomb step only when a sample was not fully digested" ;
-                    schema1:instrument [ a schema1:DefinedTerm ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:name "HF–HNO3–HClO4 attack: 28 M HF + 15 M HNO3 + 10 M HClO4; HCl–HNO3 attack: 11 M HCl + 15 M HNO3; HNO3 attack: 15 M HNO3; Parr bomb: N" ;
-                            ada:reagentRole "reagent" ] ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
@@ -10854,6 +10807,19 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "HF–HNO3–HClO4 attack (4 ml 28 M HF + 2 ml 15 M HNO3 + 1 ml 10 M HClO4, closed 30 ml fluoropolymer beaker, 130 °C, 24 h); HCl–HNO3 attack (dried at 130 °C, 4.5 ml 11 M HCl + 1.5 ml 15 M HNO3, closed, 130 °C, 24 h, repeated twice); HNO3 attack (dried, 4 ml 15 M HNO3, closed, hotplate, 24 h); Parr bomb (undigested residue, 175–180 °C, at least 3 days) — A.1; the bomb step only when a sample was not fully digested" ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:name "HF–HNO3–HClO4 attack: 28 M HF + 15 M HNO3 + 10 M HClO4; HCl–HNO3 attack: 11 M HCl + 15 M HNO3; HNO3 attack: 15 M HNO3; Parr bomb: N" ;
+                            ada:reagentRole "reagent" ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "Whole-rock powder" ;
                     schema1:name "Sample preparation" ;
@@ -10866,7 +10832,7 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Nie+Dauphas2019 | Neptune | Univ Chicago (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-Dauphas2019/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "University of Chicago" ] ;
@@ -10917,7 +10883,6 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "δ87Rb — ‰ relative to NIST SRM984" ] ;
     ada:samplingUnitType "Digestion aliquot — \"Samples of about 100 mg or less were digested\"" ;
-    ada:secondaryReferenceMaterialDefault "BHVO-2, BCR-2, BE-N, W-2, AGV-2, GSR-1, GS-N, G-A, G-3, SRM984 as a sample, DTS-2b + SRM984, PCC-1 + SRM984, Allende — A.4" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite",
                 "lunar rock",
@@ -10930,7 +10895,7 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Rb" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -11129,10 +11094,10 @@ ex:solutionMcicpmsTAPP-Dauphas2019 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -11239,7 +11204,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P6",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Os reference material solution — UMd, DTM, LOsST and DROsS",
     "ada:targetMaterialColumns": [
@@ -11256,12 +11221,12 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -11933,9 +11898,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:uncertaintyLevel": "2SD for short- and long-term reproducibility; within-run errors as \"2 standard errors of the mean (2SE = 2SD/n^0.5; where n = 45 for the Neptune analyses\"",
   "ada:blankBackgroundCorrectionMethod": "Abundance sensitivity (0.5–1 ppm, from the low-mass tail of a 30 V 192Os beam on the SEM) corrected offline — §3.1",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:secondaryReferenceMaterialDefault": [
-    "UMd, DTM, LOsST, DROsS"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -11986,7 +11948,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P6",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Os reference material solution \u2014 UMd, DTM, LOsST and DROsS",
     "ada:targetMaterialColumns": [
@@ -12003,12 +11965,12 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -12680,9 +12642,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHI
   "ada:uncertaintyLevel": "2SD for short- and long-term reproducibility; within-run errors as \"2 standard errors of the mean (2SE = 2SD/n^0.5; where n = 45 for the Neptune analyses\"",
   "ada:blankBackgroundCorrectionMethod": "Abundance sensitivity (0.5\u20131 ppm, from the low-mass tail of a 30 V 192Os beam on the SEM) corrected offline \u2014 \u00a73.1",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:secondaryReferenceMaterialDefault": [
-    "UMd, DTM, LOsST, DROsS"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -12730,6 +12689,12 @@ ex:solutionMcicpmsTAPP-P6 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/faradayCupGainCalibrationMethod>,
@@ -12743,13 +12708,7 @@ ex:solutionMcicpmsTAPP-P6 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "N/A — reference material solutions, no solid preparation" ;
                     schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/instrumentWarmUpSessionDurationLimit>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
@@ -12761,7 +12720,7 @@ ex:solutionMcicpmsTAPP-P6 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Neptune | Durham AHIGL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Microsoft Excel — \"Following analysis all intensity data was exported and re-processed offline using Excel\"" ;
@@ -12826,7 +12785,6 @@ ex:solutionMcicpmsTAPP-P6 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "190Os/188Os, 189Os/188Os, 187Os/188Os, 186Os/188Os, 184Os/188Os — Table 7a" ] ;
     ada:samplingUnitType "Reference material solution aliquot — 200 ng/ml to 2.5 µg/ml Os, ~300 µl consumed per analysis" ;
-    ada:secondaryReferenceMaterialDefault "UMd, DTM, LOsST, DROsS" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -12836,7 +12794,7 @@ ex:solutionMcicpmsTAPP-P6 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "Os reference material solution — UMd, DTM, LOsST and DROsS" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Os" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
@@ -13036,10 +12994,10 @@ ex:solutionMcicpmsTAPP-P6 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -13145,7 +13103,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P7",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Os reference material solution — DTM and LOsST",
     "ada:targetMaterialColumns": [
@@ -13162,12 +13120,12 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -13782,9 +13740,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:washTimeBetweenSamples": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels",
   "ada:uncertaintyLevel": "2SD and 2SE, with n = 50 for the Nu Plasma analyses",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:secondaryReferenceMaterialDefault": [
-    "DTM, LOsST"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -13835,7 +13790,7 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P7",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "Os reference material solution \u2014 DTM and LOsST",
     "ada:targetMaterialColumns": [
@@ -13852,12 +13807,12 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -14472,9 +14427,6 @@ solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL.
   "ada:washTimeBetweenSamples": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels",
   "ada:uncertaintyLevel": "2SD and 2SE, with n = 50 for the Nu Plasma analyses",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:secondaryReferenceMaterialDefault": [
-    "DTM, LOsST"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -14513,9 +14465,13 @@ ex:solutionMcicpmsTAPP-P7 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A — reference material solutions, no solid preparation" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:description "N/A - reference material solutions, no digestion." ;
+                    schema1:instrument [ a schema1:DefinedTerm ;
+                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
+                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ;
+                            ada:reagentRole "reagent" ] ;
+                    schema1:name "Sample digestion" ;
+                    schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -14534,13 +14490,9 @@ ex:solutionMcicpmsTAPP-P7 a schema1:Action,
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "N/A - reference material solutions, no digestion." ;
-                    schema1:instrument [ a schema1:DefinedTerm ;
-                            schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                            schema1:name "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl" ;
-                            ada:reagentRole "reagent" ] ;
-                    schema1:name "Sample digestion" ;
-                    schema1:position 4 ] ] ;
+                    schema1:description "N/A — reference material solutions, no solid preparation" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -14550,7 +14502,7 @@ ex:solutionMcicpmsTAPP-P7 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Nowell+etal2008 | Nu Plasma | NIGL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"" ;
@@ -14613,7 +14565,6 @@ ex:solutionMcicpmsTAPP-P7 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "187Os/188Os, 186Os/188Os, 184Os/188Os — Table 7a (NIGL row)" ] ;
     ada:samplingUnitType "Reference material solution aliquot — ~6400 µl consumed per analysis" ;
-    ada:secondaryReferenceMaterialDefault "DTM, LOsST" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -14623,7 +14574,7 @@ ex:solutionMcicpmsTAPP-P7 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "Os reference material solution — DTM and LOsST" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Os" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
@@ -14788,10 +14739,10 @@ ex:solutionMcicpmsTAPP-P7 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -14917,12 +14868,12 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -15607,9 +15558,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:blankBackgroundCorrectionMethod": "Instrumental background measured at the beginning of and throughout each session (typically < 1 mV on 85Rb) and subtracted — §2.3",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution — §2.3"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -15680,12 +15628,12 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -16370,9 +16318,6 @@ solutionMcicpmsTAPP instance derived from Pringle+Moynier2017 | Neptune Plus | I
   "ada:blankBackgroundCorrectionMethod": "Instrumental background measured at the beginning of and throughout each session (typically < 1 mV on 85Rb) and subtracted \u2014 \u00a72.3",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution \u2014 \u00a72.3"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -16409,9 +16354,23 @@ ex:solutionMcicpmsTAPP-Moynier2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"" ;
                     schema1:name "Sample preparation" ;
                     schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -16424,21 +16383,7 @@ ex:solutionMcicpmsTAPP-Moynier2017 a schema1:Action,
                             schema1:name "HF/HNO3 attack: concentrated HF/HNO3; HCl step: 6N HCl" ;
                             ada:reagentRole "reagent" ] ;
                     schema1:name "Sample digestion" ;
-                    schema1:position 4 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "spray chamber; APEX — 'measured using both the spray chamber and the APEX sample introduction systems' in most cases (§2.3)" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ] ] ;
+                    schema1:position 4 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -16501,7 +16446,6 @@ ex:solutionMcicpmsTAPP-Moynier2017 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "δ87Rb — ‰ relative to the bracketing standard (Eq. 1)" ] ;
     ada:samplingUnitType "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"" ;
-    ada:secondaryReferenceMaterialDefault "BCR-2, AGV-2, BHVO-2, GS-N, SRM984 through chemistry, Allende, pure Rb ICP-MS solution — §2.3" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "achondrite",
                 "chondrite",
@@ -16515,7 +16459,7 @@ ex:solutionMcicpmsTAPP-Moynier2017 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Rb" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -16740,10 +16684,10 @@ ex:solutionMcicpmsTAPP-Moynier2017 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -16853,7 +16797,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P9",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "returned asteroid sample; carbonaceous chondrite; eucrite; terrestrial rock — Ryugu (A0106, A0106-A0107, C0108), Tagish Lake, Tarda, Ivuna, Colony, Bouvante, Bereba and terrestrial RMs",
     "ada:defaultTargetMaterials": [
@@ -16875,12 +16819,12 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -17529,9 +17473,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:blankBackgroundCorrectionMethod": "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -17580,7 +17521,7 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P9",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Sch\u00f6nb\u00e4chler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Sch\u00f6nb\u00e4chler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "returned asteroid sample; carbonaceous chondrite; eucrite; terrestrial rock \u2014 Ryugu (A0106, A0106-A0107, C0108), Tagish Lake, Tarda, Ivuna, Colony, Bouvante, Bereba and terrestrial RMs",
     "ada:defaultTargetMaterials": [
@@ -17602,12 +17543,12 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -18256,9 +18197,6 @@ solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus
   "ada:blankBackgroundCorrectionMethod": "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -18294,19 +18232,16 @@ ex:solutionMcicpmsTAPP-P9 a schema1:Action,
             schema1:name "Solution MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -18322,10 +18257,13 @@ ex:solutionMcicpmsTAPP-P9 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValuesDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -18335,7 +18273,7 @@ ex:solutionMcicpmsTAPP-P9 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Schönbächler+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P9/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology" ] ;
@@ -18397,7 +18335,6 @@ ex:solutionMcicpmsTAPP-P9 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "ε91Zr, ε92Zr, ε96Zr — relative to NIST SRM 3169 (Eq. 1)" ] ;
     ada:samplingUnitType "Digestion aliquot — Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"" ;
-    ada:secondaryReferenceMaterialDefault "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonaceous chondrite",
                 "eucrite",
@@ -18410,7 +18347,7 @@ ex:solutionMcicpmsTAPP-P9 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "returned asteroid sample; carbonaceous chondrite; eucrite; terrestrial rock — Ryugu (A0106, A0106-A0107, C0108), Tagish Lake, Tarda, Ivuna, Colony, Bouvante, Bereba and terrestrial RMs" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Zr" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
@@ -18596,10 +18533,10 @@ ex:solutionMcicpmsTAPP-P9 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -18703,7 +18640,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P10",
-  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "bulk chondrite",
@@ -18723,12 +18660,12 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -19404,9 +19341,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:blankBackgroundCorrectionMethod": "On-peak baseline measured before each analysis",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO2, DTS-2b — 'processed alongside the samples'"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -19457,7 +19391,7 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P10",
-  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "bulk chondrite",
@@ -19477,12 +19411,12 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -20158,9 +20092,6 @@ solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Un
   "ada:blankBackgroundCorrectionMethod": "On-peak baseline measured before each analysis",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO2, DTS-2b \u2014 'processed alongside the samples'"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -20199,6 +20130,12 @@ ex:solutionMcicpmsTAPP-P10 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
+                    schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
                     schema1:description "Fe; Cr; Mg — separate introduction systems and acquisition settings (Methods)" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
@@ -20222,13 +20159,7 @@ ex:solutionMcicpmsTAPP-P10 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/baselineMeasurementApproach>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
@@ -20237,7 +20168,7 @@ ex:solutionMcicpmsTAPP-P10 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P10/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen" ] ;
@@ -20306,7 +20237,6 @@ ex:solutionMcicpmsTAPP-P10 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "μ54Fe, μ53Cr, μ54Cr, μ26Mg* — μ relative to IRMM-014, SRM979 and DTS-2b; μ³⁰Si from the separate Si procedure" ] ;
     ada:samplingUnitType "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"" ;
-    ada:secondaryReferenceMaterialDefault "BHVO2, DTS-2b — 'processed alongside the samples'" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "bulk chondrite",
                 "chondrule" ;
@@ -20318,7 +20248,7 @@ ex:solutionMcicpmsTAPP-P10 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Cr",
                 "Fe",
                 "Mg" ;
@@ -20505,10 +20435,10 @@ ex:solutionMcicpmsTAPP-P10 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -20614,7 +20544,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P11",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "CI chondrite"
@@ -20633,12 +20563,12 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -21189,9 +21119,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing)",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -21244,7 +21171,7 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P11",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "CI chondrite"
@@ -21263,12 +21190,12 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -21819,9 +21746,6 @@ solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WU
   "ada:calibrationMeasurementFrequency": "Every sample (bracketing)",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -21862,9 +21786,18 @@ ex:solutionMcicpmsTAPP-P11 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
+                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
@@ -21880,26 +21813,17 @@ ex:solutionMcicpmsTAPP-P11 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/peakFlatnessMethodAndThreshold> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Two fragments (39.49 mg and 48.34 mg) digested; ~7 mg of sample from the digest solutions taken for K — Bulk chemistry analysis; Potassium isotope analysis" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Broussard+etal2026 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P11/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
@@ -21954,7 +21878,6 @@ ex:solutionMcicpmsTAPP-P11 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "δ41K — ‰ relative to NIST SRM 3141a" ] ;
     ada:samplingUnitType "no value available: ada:samplingUnitType" ;
-    ada:secondaryReferenceMaterialDefault "BHVO-2" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "CI chondrite" ;
             ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
@@ -21965,7 +21888,7 @@ ex:solutionMcicpmsTAPP-P11 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "K" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -22106,10 +22029,10 @@ ex:solutionMcicpmsTAPP-P11 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -22210,7 +22133,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P12",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "returned asteroid sample — Bennu aggregate OREX-803015",
     "ada:targetMaterialColumns": [
@@ -22227,12 +22150,12 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -22794,9 +22717,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:uncertaintyLevel": "2 s.d. — Bennu values carry 2 s.e. in the main text",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -22848,7 +22768,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P12",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "returned asteroid sample \u2014 Bennu aggregate OREX-803015",
     "ada:targetMaterialColumns": [
@@ -22865,12 +22785,12 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -23432,9 +23352,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL
   "ada:uncertaintyLevel": "2 s.d. \u2014 Bennu values carry 2 s.e. in the main text",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
   "ada:analysisSequenceDefault": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -23473,6 +23390,14 @@ ex:solutionMcicpmsTAPP-P12 a schema1:Action,
             schema1:name "Solution MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
+                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -23495,21 +23420,13 @@ ex:solutionMcicpmsTAPP-P12 a schema1:Action,
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "K; Cu; Zn — K in dry plasma with high mass resolution, Cu and Zn in wet plasma with low resolution" ;
                     schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
-                        <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/desolvationSystem>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | WUSTL (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P12/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Washington University in St. Louis" ] ;
@@ -23569,7 +23486,6 @@ ex:solutionMcicpmsTAPP-P12 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "δ41K, δ65Cu, δ66Zn — ‰ relative to the bracketing standards" ] ;
     ada:samplingUnitType "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"" ;
-    ada:secondaryReferenceMaterialDefault "BHVO-2" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -23579,7 +23495,7 @@ ex:solutionMcicpmsTAPP-P12 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "returned asteroid sample — Bennu aggregate OREX-803015" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Cu",
                 "K",
@@ -23715,10 +23631,10 @@ ex:solutionMcicpmsTAPP-P12 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -23820,7 +23736,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol — P13",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "returned asteroid sample — Bennu aggregate OREX-803015-100",
     "ada:targetMaterialColumns": [
@@ -23837,12 +23753,12 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -24420,9 +24336,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
   "ada:isotopeDilutionSpike": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:uncertaintyLevel": "2 s.d.",
   "ada:internalStandardElement": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, Agua Zarcas — Agua Zarcas is a CM2 chondrite"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -24475,7 +24388,7 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
     "schema:HowTo"
   ],
   "schema:name": "solutionMcicpms protocol \u2014 P13",
-  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv).",
+  "schema:description": "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v97.csv).",
   "ada:targetMaterialTemplate": {
     "ada:targetMaterialDeclaration": "returned asteroid sample \u2014 Bennu aggregate OREX-803015-100",
     "ada:targetMaterialColumns": [
@@ -24492,12 +24405,12 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -25075,9 +24988,6 @@ solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Z
   "ada:isotopeDilutionSpike": "N/A \u2014 no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
   "ada:uncertaintyLevel": "2 s.d.",
   "ada:internalStandardElement": "N/A \u2014 mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
-  "ada:secondaryReferenceMaterialDefault": [
-    "BHVO-2, Agua Zarcas \u2014 Agua Zarcas is a CM2 chondrite"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -25117,18 +25027,6 @@ ex:solutionMcicpmsTAPP-P13 a schema1:Action,
             schema1:name "Solution MC-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
-                    schema1:name "Data acquisition" ;
-                    schema1:position 2 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDurationDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperatureDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionVesselType> ;
@@ -25142,12 +25040,24 @@ ex:solutionMcicpmsTAPP-P13 a schema1:Action,
                     schema1:position 4 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "A 5.2 mg aliquot of the coordinated digest (OREX-803015-100), sent from WUSTL via LLNL — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/isotopeDilutionDataReductionMethod>,
                         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeInversionAlgorithm> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "configuration 1; configuration 2 — 'Titanium isotopes were collected in two cup configurations'" ;
+                    schema1:name "Data acquisition" ;
+                    schema1:position 2 ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeIsotopePair>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/doubleSpikeMixingRatioDefault>,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/integrationTimePerCycleDefault>,
@@ -25155,7 +25065,7 @@ ex:solutionMcicpmsTAPP-P13 a schema1:Action,
         <https://ada.astromat.org/metadata/parameter/module/MCICPMS/numberOfCyclesPerBlockDefault>,
         <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/internalStandardConcentration> ;
     schema1:datePublished "no value available: schema:datePublished" ;
-    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v93.csv)." ;
+    schema1:description "solutionMcicpmsTAPP instance derived from Barnes+etal2025 | Neptune Plus | ETH Zurich (publication column of Solution_MC-ICP-MS_TAPP_v97.csv)." ;
     schema1:instrument <https://example.org/solutionMcicpmsTAPP-P13/instrument/ICPMS> ;
     schema1:location [ a schema1:Place ;
             schema1:name "Institute of Geochemistry and Petrology, ETH Zurich" ] ;
@@ -25218,7 +25128,6 @@ ex:solutionMcicpmsTAPP-P13 a schema1:Action,
                     ada:tier "M" ] ;
             ada:reportedPropertyDeclaration "ε46Ti, ε48Ti, ε50Ti — parts per 10⁴ relative to an in-house Alfa Aesar Ti wire standard" ] ;
     ada:samplingUnitType "A 5.2 mg aliquot of Bennu aggregate" ;
-    ada:secondaryReferenceMaterialDefault "BHVO-2, Agua Zarcas — Agua Zarcas is a CM2 chondrite" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -25228,7 +25137,7 @@ ex:solutionMcicpmsTAPP-P13 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "returned asteroid sample — Bennu aggregate OREX-803015-100" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ti" ;
             ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
@@ -25371,10 +25280,10 @@ ex:solutionMcicpmsTAPP-P13 a schema1:Action,
     ada:dataType "number" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/solutionMcicpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -25458,7 +25367,7 @@ ex:solutionMcicpmsTAPP-P13 a schema1:Action,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: Solution MC-ICP-MS Technique-Aligned Procedure Profile (solutionMcicpmsTAPP)
 description: Solution multi-collector ICP-MS extension of the base TAPP definition,
-  generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v93.csv via the path-driven
+  generated from tapp/Current TAPPs/Solution_MC-ICP-MS_TAPP_v97.csv via the path-driven
   pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -25488,28 +25397,27 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
-            - title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+            - title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -25527,28 +25435,27 @@ allOf:
               - schema:defaultValue
           allOf:
           - contains:
-              title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+              title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/solutionMcicpmsTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/solutionMcicpmsTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -26935,7 +26842,8 @@ allOf:
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
+                in the procedure are recorded in Mass Resolution Setting, in Instrument
+                & Software (Group 3).
               type: object
               properties:
                 '@id':
@@ -27093,7 +27001,8 @@ allOf:
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
+                in the procedure are recorded in Mass Resolution Setting, in Instrument
+                & Software (Group 3).
               type: object
               properties:
                 '@id':
@@ -27258,7 +27167,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-MC-ICPMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

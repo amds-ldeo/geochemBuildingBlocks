@@ -4,7 +4,7 @@ description: 'Transmission electron microscopy (TEM/STEM, incl. EDS/EELS) extens
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] entries;
   an ada:targetSpeciesTemplate carries per-element columns. Generated from tapp/Current
-  TAPPs/TEM_TAPP_v68.csv by tools/build_tapp.py.'
+  TAPPs/TEM_TAPP_v71.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -921,8 +921,8 @@ allOf:
           - ada:fieldScope
         - title: Spectroscopic Detector(s)
           description: Spectroscopic detectors present and used under this procedure.
-            EDS and EELS parameter fields in Group 4 apply only when the corresponding
-            detector is listed here.
+            EDS and EELS parameter fields in Measurement Information (Group 4) apply
+            only when the corresponding detector is listed here.
           type: object
           properties:
             '@id':
@@ -1970,10 +1970,11 @@ allOf:
           - ada:dataType
           - ada:fieldScope
         - title: EDS Detection Limit
-          description: Estimated detection limits by EDS under this procedure's conditions,
-            one per reported concentration variable (one per target species, these
-            being the same set). Record 'N/A' where EDS is not listed in Spectroscopic
-            Detector(s).
+          description: 'Detection limits by EDS, one per reported concentration variable
+            (one per target species, these being the same set). For the procedure:
+            the estimated limits under this procedure''s conditions. For the session:
+            the limits achieved in this session, or ''Not determined''. Record ''N/A''
+            where EDS is not listed in Spectroscopic Detector(s).'
           type: object
           properties:
             '@id':
@@ -2142,8 +2143,8 @@ allOf:
       - contains:
           title: Spectroscopic Detector(s)
           description: Spectroscopic detectors present and used under this procedure.
-            EDS and EELS parameter fields in Group 4 apply only when the corresponding
-            detector is listed here.
+            EDS and EELS parameter fields in Measurement Information (Group 4) apply
+            only when the corresponding detector is listed here.
           type: object
           properties:
             '@id':
@@ -3278,10 +3279,11 @@ allOf:
         maxContains: 1
       - contains:
           title: EDS Detection Limit
-          description: Estimated detection limits by EDS under this procedure's conditions,
-            one per reported concentration variable (one per target species, these
-            being the same set). Record 'N/A' where EDS is not listed in Spectroscopic
-            Detector(s).
+          description: 'Detection limits by EDS, one per reported concentration variable
+            (one per target species, these being the same set). For the procedure:
+            the estimated limits under this procedure''s conditions. For the session:
+            the limits achieved in this session, or ''Not determined''. Record ''N/A''
+            where EDS is not listed in Spectroscopic Detector(s).'
           type: object
           properties:
             '@id':
@@ -3527,9 +3529,11 @@ allOf:
               - schema:name
               - ada:dataType
             - title: EELS Detection Limit
-              description: Estimated detection limit or minimum detectable concentration,
-                under this procedure, of each quantity determined by EELS. Record
-                'N/A' where EELS is not listed in Spectroscopic Detector(s).
+              description: 'Detection limit or minimum detectable concentration of
+                each quantity determined by EELS. For the procedure: the estimated
+                limit under this procedure''s conditions. For the session: the limit
+                achieved in this session, or ''Not determined''. Record ''N/A'' where
+                EELS is not listed in Spectroscopic Detector(s).'
               type: object
               properties:
                 '@id':
@@ -3605,9 +3609,11 @@ allOf:
             maxContains: 1
           - contains:
               title: EELS Detection Limit
-              description: Estimated detection limit or minimum detectable concentration,
-                under this procedure, of each quantity determined by EELS. Record
-                'N/A' where EELS is not listed in Spectroscopic Detector(s).
+              description: 'Detection limit or minimum detectable concentration of
+                each quantity determined by EELS. For the procedure: the estimated
+                limit under this procedure''s conditions. For the session: the limit
+                achieved in this session, or ''Not determined''. Record ''N/A'' where
+                EELS is not listed in Spectroscopic Detector(s).'
               type: object
               properties:
                 '@id':
@@ -3665,10 +3671,11 @@ allOf:
                 - cdi:InstanceVariable
                 - schema:PropertyValue
         - title: EDS Detection Limit
-          description: Estimated detection limits by EDS under this procedure's conditions,
-            one per reported concentration variable (one per target species, these
-            being the same set). Record 'N/A' where EDS is not listed in Spectroscopic
-            Detector(s).
+          description: 'Detection limits by EDS, one per reported concentration variable
+            (one per target species, these being the same set). For the procedure:
+            the estimated limits under this procedure''s conditions. For the session:
+            the limits achieved in this session, or ''Not determined''. Record ''N/A''
+            where EDS is not listed in Spectroscopic Detector(s).'
           type: object
           properties:
             '@id':
@@ -3704,10 +3711,11 @@ allOf:
       allOf:
       - contains:
           title: EDS Detection Limit
-          description: Estimated detection limits by EDS under this procedure's conditions,
-            one per reported concentration variable (one per target species, these
-            being the same set). Record 'N/A' where EDS is not listed in Spectroscopic
-            Detector(s).
+          description: 'Detection limits by EDS, one per reported concentration variable
+            (one per target species, these being the same set). For the procedure:
+            the estimated limits under this procedure''s conditions. For the session:
+            the limits achieved in this session, or ''Not determined''. Record ''N/A''
+            where EDS is not listed in Spectroscopic Detector(s).'
           type: object
           properties:
             '@id':
@@ -3759,4 +3767,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.TEM.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'

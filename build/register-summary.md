@@ -274,6 +274,12 @@ ADA image with componentType classification for analytical images. Defines prope
 
 CDI PhysicalDataSet for tabular/structured data files. Defines properties: @type, componentType, xCoordCol, yCoordCol, zCoordCol, coordUnits, spatialRegistration. Uses building blocks: detailDSC (geochemProperties), detailEAIRMS (geochemProperties), detailEPMA (geochemProperties), detailLAF (geochemProperties), detailNanoSIMS (geochemProperties), detailNanoIR (geochemProperties), detailPSFD (geochemProperties), detailVNMIR (geochemProperties), detailXRD (geochemProperties), spatialRegistration (geochemProperties), cdifTabularData (cdifProperties).
 
+### `ogch.BaseSchema.modules.compositionQC` — TAPP Composition Module: CompositionQC
+
+**Type:** schema
+
+The shared CompositionQC block of the 2026-08-11 TAPP library, composed by 12 of the sixteen delivery tables. 13 owned fields over 6 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
+
 ### `ogch.BaseSchema.modules.solutionIntroduction` — TAPP Composition Module: SolutionIntroduction
 
 **Type:** schema
@@ -321,12 +327,6 @@ DataDownload with checksum, size, encoding format, and file detail. Defines prop
 **Type:** schema
 
 Generic geochemistry analytical product metadata base: composes the CDIF core, data-description, manifest, and provenance profiles with the analytical surface (analysis events, variables measured, distributions, coverage). Extended by archive-specific delivery profiles such as adaProduct.
-
-### `ogch.BaseSchema.modules.compositionQC` — TAPP Composition Module: CompositionQC
-
-**Type:** schema
-
-The shared CompositionQC block of the 2026-08-11 TAPP library, composed by 12 of the sixteen delivery tables. 6 owned fields over 8 schema paths, split into the procedure and analysis halves a TAPP schema and a technique detail compose respectively. A profile over existing tappDefinition/adaProduct properties, not a new vocabulary. Generated from the module CSV and its schema-path sidecar.
 
 ### `ogch.BaseSchema.modules.core` — TAPP Composition Module: Core
 

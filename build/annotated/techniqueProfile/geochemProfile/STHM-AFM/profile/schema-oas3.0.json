@@ -135,7 +135,7 @@
         "itemIdentifier": "ogch.BaseSchema.geochemProduct",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemProduct/schema.json",
       "x-schema-id": "https://w3id.org/geochem/schema/geochemProduct/1.0",
@@ -259,7 +259,7 @@
         "itemIdentifier": "ogch.techniqueProfile.geochemProfile.STHM-AFM.detail",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/techniqueProfile/geochemProfile/STHM-AFM/detail/schema.json",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -2578,7 +2578,7 @@
         "itemIdentifier": "ogch.BaseSchema.geochemBaseProfile",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/geochemBaseProfile/schema.yaml",
       "x-schema-id": "https://w3id.org/geochem/schema/geochemBaseProfile/1.0",
@@ -2866,7 +2866,7 @@
               "x-jsonld-id": "https://ada.astromat.org/metadata/analyticalMode"
             },
             "schema:description": {
-              "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP \u2014 including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+              "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP \u2014 including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Quality Control & Uncertainty (Group 6): this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
               "type": "string",
               "x-jsonld-id": "http://schema.org/description"
             },
@@ -3243,7 +3243,7 @@
                     "x-jsonld-id": "http://schema.org/instrument"
                   },
                   "schema:description": {
-                    "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP \u2014 including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
+                    "description": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP \u2014 including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Quality Control & Uncertainty (Group 6): this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.",
                     "type": "string",
                     "x-jsonld-id": "http://schema.org/description"
                   },
@@ -3482,7 +3482,7 @@
                     "then": {
                       "properties": {
                         "schema:target": {
-                          "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2).",
+                          "description": "DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together. Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI. Use \"same submission\" if the coupled dataset is included in this data package, or \"pending\" if not yet assigned. If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier, in Samples (Group 2).",
                           "anyOf": [
                             {
                               "type": "string"
@@ -3538,7 +3538,7 @@
         },
         "Param_Analysis_constantsReferenceValues": {
           "title": "Constants Reference Values",
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
           "type": "object",
           "properties": {
             "@id": {
@@ -3584,7 +3584,7 @@
         },
         "Param_Procedure_constantsReferenceValues": {
           "title": "Constants Reference Values",
-          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
+          "description": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.",
           "type": "object",
           "properties": {
             "@id": {
@@ -3656,7 +3656,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.core",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -3790,7 +3790,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.calibrationFactor",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/calibrationFactor/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -3859,7 +3859,7 @@
         },
         "Param_Analysis_preAnalysisImagingAndScreening": {
           "title": "Pre-Analysis Imaging and Screening",
-          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Procedure Identification (Group 1) coupling fields.",
           "type": "object",
           "properties": {
             "@id": {
@@ -3902,7 +3902,7 @@
         },
         "Param_Procedure_preAnalysisImagingAndScreening": {
           "title": "Pre-Analysis Imaging and Screening",
-          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.",
+          "description": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Procedure Identification (Group 1) coupling fields.",
           "type": "object",
           "properties": {
             "@id": {
@@ -3967,7 +3967,7 @@
         "itemIdentifier": "ogch.BaseSchema.modules.samplingUnitSelection",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/samplingUnitSelection/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -7512,7 +7512,7 @@
         "itemIdentifier": "ogch.BaseSchema.creativeWork",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/creativeWork/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -7895,19 +7895,30 @@
                       }
                     },
                     "additionalProperties": {
-                      "nullable": true,
                       "anyOf": [
                         {
-                          "type": "string"
+                          "nullable": true,
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "boolean"
+                            }
+                          ]
                         },
                         {
-                          "type": "number"
-                        },
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "boolean"
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
                         }
                       ]
                     }
@@ -7972,19 +7983,30 @@
                       }
                     },
                     "additionalProperties": {
-                      "nullable": true,
                       "anyOf": [
                         {
-                          "type": "string"
+                          "nullable": true,
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "boolean"
+                            }
+                          ]
                         },
                         {
-                          "type": "number"
-                        },
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "boolean"
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
                         }
                       ]
                     }
@@ -8052,19 +8074,30 @@
                       }
                     },
                     "additionalProperties": {
-                      "nullable": true,
                       "anyOf": [
                         {
-                          "type": "string"
+                          "nullable": true,
+                          "anyOf": [
+                            {
+                              "type": "string"
+                            },
+                            {
+                              "type": "number"
+                            },
+                            {
+                              "type": "integer"
+                            },
+                            {
+                              "type": "boolean"
+                            }
+                          ]
                         },
                         {
-                          "type": "number"
-                        },
-                        {
-                          "type": "integer"
-                        },
-                        {
-                          "type": "boolean"
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "string"
+                          }
                         }
                       ]
                     }
@@ -8781,7 +8814,7 @@
                 "date",
                 "uri"
               ],
-              "description": "Expected data type for the parameter value.",
+              "description": "Expected data type for the parameter value. For a keyed-table column this names the ITEM type: a column whose cells hold several values declares `string` here and its rows carry an array of strings. Multiplicity is carried by the row value's shape, not by this enum, because no TAPP workbook field declares it.",
               "x-jsonld-id": "https://ada.astromat.org/metadata/dataType"
             },
             "schema:unitText": {
@@ -9823,7 +9856,7 @@
         "itemIdentifier": "ogch.BaseSchema.tappDefinition",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.3",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -10013,7 +10046,7 @@
         "itemIdentifier": "ogch.BaseSchema.instrument",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/instrument/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -10068,7 +10101,7 @@
         "itemIdentifier": "ogch.BaseSchema.laboratory",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/laboratory/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -10185,7 +10218,7 @@
         "itemIdentifier": "ogch.BaseSchema.spatialRegistration",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/spatialRegistration/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -11686,7 +11719,7 @@
         "itemIdentifier": "ogch.BaseSchema.tabularData",
         "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
         "version": "0.1",
-        "dateOfLastChange": "2026-11-24"
+        "dateOfLastChange": "2026-11-25"
       },
       "x-schema-source": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tabularData/schema.yaml",
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
@@ -14142,7 +14175,7 @@
     "itemIdentifier": "ogch.techniqueProfile.geochemProfile.STHM-AFM.profile",
     "register": "https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-11-24"
+    "dateOfLastChange": "2026-11-25"
   },
   "x-schema-version": "https://json-schema.org/draft/2020-12/schema"
 }

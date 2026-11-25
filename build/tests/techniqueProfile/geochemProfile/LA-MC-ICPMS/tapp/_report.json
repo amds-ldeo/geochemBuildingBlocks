@@ -2,7 +2,7 @@
   "title": "Validation report for ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp - LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)",
   "bblockName": "LA-MC-ICP-MS Technique-Aligned Procedure Profile (laMcicpmsTAPP)",
   "bblockId": "ogch.techniqueProfile.geochemProfile.LA-MC-ICPMS.tapp",
-  "generated": "2026-11-24T23:53:32.249526+00:00",
+  "generated": "2026-11-25T23:23:41.207626+00:00",
   "result": true,
   "items": [
     {
@@ -41,7 +41,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_1_1.ttl",
-              "size": 384,
+              "size": 383,
               "isError": false,
               "message": "Output Turtle example_1_1.ttl created"
             }
@@ -119,6 +119,41 @@
             },
             {
               "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laMcicpmsTAPP-Zhang2022> ;\n            sh:resultMessage \"TAPP definition should specify a primary instrument.\" ;\n            sh:resultPath schema1:instrument ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;\n            sh:sourceShape [ sh:maxCount 1 ;\n                    sh:message \"TAPP definition should specify a primary instrument.\" ;\n                    sh:path schema1:instrument ;\n                    sh:severity sh:Warning ] ] .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/tappDefinition/rules.shacl: 1 warning"
+            },
+            {
+              "op": "shacl-result",
+              "resultSeverity": "http://www.w3.org/ns/shacl#Warning",
+              "focusNode": "https://example.org/laMcicpmsTAPP-Zhang2022",
+              "resultPath": "schema1:instrument",
+              "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MaxCountConstraintComponent",
+              "sourceShape": null,
+              "sourceShapeDescription": "cdifd:tappDefinitionShape/sh:property (path schema1:instrument)",
+              "value": null,
+              "resultMessage": "TAPP definition should specify a primary instrument.",
+              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
+              "isError": false,
+              "severity": "warning",
+              "message": "Warning (sh:MaxCountConstraintComponent):\n  Source shape: cdifd:tappDefinitionShape/sh:property (path schema1:instrument)\n  Focus node: ex:laMcicpmsTAPP-Zhang2022\n  Result path: schema1:instrument\n  Message: TAPP definition should specify a primary instrument."
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
+              "focusNodes": {
+                "cdifd:WorkflowStepUniqueNamesShape": {
+                  "nodes": []
+                },
+                "cdifd:tappDefinitionShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/creativeWork/rules.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
@@ -139,7 +174,7 @@
             {
               "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n15197deb944946dfb13529226e7043c4b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n15197deb944946dfb13529226e7043c4b3 ] .\n\n_:n15197deb944946dfb13529226e7043c4b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
+              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/Laser-Ablation-System> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n9191c69537e4488e9d05d969a7e1cea7b3 ],\n        [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laMcicpmsTAPP-Zhang2022/instrument/ICPMS> ;\n            sh:resultMessage \"An instrument should have an identifier (schema:identifier).\" ;\n            sh:resultPath schema1:identifier ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MinCountConstraintComponent ;\n            sh:sourceShape _:n9191c69537e4488e9d05d969a7e1cea7b3 ] .\n\n_:n9191c69537e4488e9d05d969a7e1cea7b3 sh:message \"An instrument should have an identifier (schema:identifier).\" ;\n    sh:minCount 1 ;\n    sh:path schema1:identifier ;\n    sh:severity sh:Warning .\n\n",
               "isError": false,
               "message": "Validation result for _sources/BaseSchema/instrument/rules.shacl: 2 warnings"
             },
@@ -176,18 +211,18 @@
             {
               "shaclFile": "_sources/BaseSchema/instrument/rules.shacl",
               "focusNodes": {
-                "cdifd:analysisInstrumentParamValueShape": {
-                  "nodes": []
-                },
                 "cdifd:adaInstrumentShape": {
                   "nodes": []
                 },
                 "cdifd:tappInstrumentParamSpecShape": {
                   "nodes": []
+                },
+                "cdifd:analysisInstrumentParamValueShape": {
+                  "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/instrument/rules.shacl:\n - Shape cdifd:adaInstrumentShape: *none*\n - Shape cdifd:tappInstrumentParamSpecShape: *none*\n - Shape cdifd:analysisInstrumentParamValueShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -205,6 +240,26 @@
               },
               "isError": false,
               "message": "Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:\n - Shape cdifd:laboratoryShape: *none*\n"
+            },
+            {
+              "op": "shacl-report",
+              "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
+              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
+              "isError": false,
+              "message": "Validation result for _sources/BaseSchema/modules/core/rules.shacl: no results"
+            },
+            {
+              "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
+              "focusNodes": {
+                "cdifd:coreProcedureIdentificationShape": {
+                  "nodes": []
+                },
+                "cdifd:coreAnalysisIdentificationShape": {
+                  "nodes": []
+                }
+              },
+              "isError": false,
+              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -242,61 +297,6 @@
             },
             {
               "op": "shacl-report",
-              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
-              "graph": "@prefix schema1: <http://schema.org/> .\n@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms false ;\n    sh:result [ a sh:ValidationResult ;\n            sh:focusNode <https://example.org/laMcicpmsTAPP-Zhang2022> ;\n            sh:resultMessage \"TAPP definition should specify a primary instrument.\" ;\n            sh:resultPath schema1:instrument ;\n            sh:resultSeverity sh:Warning ;\n            sh:sourceConstraintComponent sh:MaxCountConstraintComponent ;\n            sh:sourceShape [ sh:maxCount 1 ;\n                    sh:message \"TAPP definition should specify a primary instrument.\" ;\n                    sh:path schema1:instrument ;\n                    sh:severity sh:Warning ] ] .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/BaseSchema/tappDefinition/rules.shacl: 1 warning"
-            },
-            {
-              "op": "shacl-result",
-              "resultSeverity": "http://www.w3.org/ns/shacl#Warning",
-              "focusNode": "https://example.org/laMcicpmsTAPP-Zhang2022",
-              "resultPath": "schema1:instrument",
-              "sourceConstraintComponent": "http://www.w3.org/ns/shacl#MaxCountConstraintComponent",
-              "sourceShape": null,
-              "sourceShapeDescription": "cdifd:tappDefinitionShape/sh:property (path schema1:instrument)",
-              "value": null,
-              "resultMessage": "TAPP definition should specify a primary instrument.",
-              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
-              "isError": false,
-              "severity": "warning",
-              "message": "Warning (sh:MaxCountConstraintComponent):\n  Source shape: cdifd:tappDefinitionShape/sh:property (path schema1:instrument)\n  Focus node: ex:laMcicpmsTAPP-Zhang2022\n  Result path: schema1:instrument\n  Message: TAPP definition should specify a primary instrument."
-            },
-            {
-              "shaclFile": "_sources/BaseSchema/tappDefinition/rules.shacl",
-              "focusNodes": {
-                "cdifd:WorkflowStepUniqueNamesShape": {
-                  "nodes": []
-                },
-                "cdifd:tappDefinitionShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:\n - Shape cdifd:WorkflowStepUniqueNamesShape: *none*\n - Shape cdifd:tappDefinitionShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
-              "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
-              "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
-              "isError": false,
-              "message": "Validation result for _sources/BaseSchema/modules/core/rules.shacl: no results"
-            },
-            {
-              "shaclFile": "_sources/BaseSchema/modules/core/rules.shacl",
-              "focusNodes": {
-                "cdifd:coreAnalysisIdentificationShape": {
-                  "nodes": []
-                },
-                "cdifd:coreProcedureIdentificationShape": {
-                  "nodes": []
-                }
-              },
-              "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:\n - Shape cdifd:coreAnalysisIdentificationShape: *none*\n - Shape cdifd:coreProcedureIdentificationShape: *none*\n"
-            },
-            {
-              "op": "shacl-report",
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "graph": "@prefix sh: <http://www.w3.org/ns/shacl#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] a sh:ValidationReport ;\n    sh:conforms true .\n\n",
               "isError": false,
@@ -305,15 +305,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/icpms/rules.shacl",
               "focusNodes": {
-                "cdifd:iCPMSProcedureIdentificationShape": {
+                "cdifd:iCPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:iCPMSAnalysisIdentificationShape": {
+                "cdifd:iCPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/icpms/rules.shacl:\n - Shape cdifd:iCPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:iCPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -325,15 +325,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/laserAblation/rules.shacl",
               "focusNodes": {
-                "cdifd:laserAblationProcedureIdentificationShape": {
+                "cdifd:laserAblationAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:laserAblationAnalysisIdentificationShape": {
+                "cdifd:laserAblationProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/laserAblation/rules.shacl:\n - Shape cdifd:laserAblationAnalysisIdentificationShape: *none*\n - Shape cdifd:laserAblationProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",
@@ -345,15 +345,15 @@
             {
               "shaclFile": "_sources/BaseSchema/modules/mcIcpms/rules.shacl",
               "focusNodes": {
-                "cdifd:mCICPMSProcedureIdentificationShape": {
+                "cdifd:mCICPMSAnalysisIdentificationShape": {
                   "nodes": []
                 },
-                "cdifd:mCICPMSAnalysisIdentificationShape": {
+                "cdifd:mCICPMSProcedureIdentificationShape": {
                   "nodes": []
                 }
               },
               "isError": false,
-              "message": "Focus nodes for _sources/BaseSchema/modules/mcIcpms/rules.shacl:\n - Shape cdifd:mCICPMSProcedureIdentificationShape: *none*\n - Shape cdifd:mCICPMSAnalysisIdentificationShape: *none*\n"
+              "message": "Focus nodes for _sources/BaseSchema/modules/mcIcpms/rules.shacl:\n - Shape cdifd:mCICPMSAnalysisIdentificationShape: *none*\n - Shape cdifd:mCICPMSProcedureIdentificationShape: *none*\n"
             },
             {
               "op": "shacl-report",

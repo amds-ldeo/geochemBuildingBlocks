@@ -1,5 +1,5 @@
 Validation report for ogch.techniqueProfile.geochemProfile.EPMA.tapp - EPMA Technique-Aligned Protocol Profile (epmaTAPP)
-Generated 2026-11-24T23:52:04.857578+00:00
+Generated 2026-11-25T23:21:44.577158+00:00
 === Files ===
 Using exampleepmaTAPP-McCoy2025-2.json from examples
 JSON-LD context is present - uplifting
@@ -16,17 +16,22 @@ Validation result for _sources/BaseSchema/modules/calibrationFactor/rules.shacl:
 Focus nodes for _sources/BaseSchema/modules/calibrationFactor/rules.shacl:
  - Shape cdifd:calibrationFactorProcedureIdentificationShape: *none*
 
-Validation result for _sources/BaseSchema/modules/compositionQC/rules.shacl: 1 warning
-
-** Validation warning **
-Warning (sh:MinCountConstraintComponent):
-  Source shape: cdifd:compositionQCProcedureIdentificationShape/sh:property (path ada:secondaryReferenceMaterialDefault)
-  Focus node: ex:epmaTAPP-McCoy2025-2
-  Result path: ada:secondaryReferenceMaterialDefault
-  Message: CompositionQC requires ada:secondaryReferenceMaterialDefault on the procedure.
+Validation result for _sources/BaseSchema/modules/compositionQC/rules.shacl: no results
 Focus nodes for _sources/BaseSchema/modules/compositionQC/rules.shacl:
  - Shape cdifd:compositionQCProcedureIdentificationShape: *none*
  - Shape cdifd:compositionQCAnalysisIdentificationShape: *none*
+
+Validation result for _sources/BaseSchema/tappDefinition/rules.shacl: 1 warning
+
+** Validation warning **
+Warning (sh:MaxCountConstraintComponent):
+  Source shape: cdifd:tappDefinitionShape/sh:property (path schema1:instrument)
+  Focus node: ex:epmaTAPP-McCoy2025-2
+  Result path: schema1:instrument
+  Message: TAPP definition should specify a primary instrument.
+Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:
+ - Shape cdifd:WorkflowStepUniqueNamesShape: *none*
+ - Shape cdifd:tappDefinitionShape: *none*
 
 Validation result for _sources/BaseSchema/creativeWork/rules.shacl: no results
 Focus nodes for _sources/BaseSchema/creativeWork/rules.shacl:
@@ -48,13 +53,18 @@ Warning (sh:MinCountConstraintComponent):
   Result path: schema1:identifier
   Message: An instrument should have an identifier (schema:identifier).
 Focus nodes for _sources/BaseSchema/instrument/rules.shacl:
- - Shape cdifd:analysisInstrumentParamValueShape: *none*
  - Shape cdifd:adaInstrumentShape: *none*
  - Shape cdifd:tappInstrumentParamSpecShape: *none*
+ - Shape cdifd:analysisInstrumentParamValueShape: *none*
 
 Validation result for _sources/BaseSchema/laboratory/rules.shacl: no results
 Focus nodes for _sources/BaseSchema/laboratory/rules.shacl:
  - Shape cdifd:laboratoryShape: *none*
+
+Validation result for _sources/BaseSchema/modules/core/rules.shacl: no results
+Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:
+ - Shape cdifd:coreProcedureIdentificationShape: *none*
+ - Shape cdifd:coreAnalysisIdentificationShape: *none*
 
 Validation result for _sources/BaseSchema/spatialRegistration/rules.shacl: no results
 Focus nodes for _sources/BaseSchema/spatialRegistration/rules.shacl:
@@ -63,23 +73,6 @@ Focus nodes for _sources/BaseSchema/spatialRegistration/rules.shacl:
 Validation result for _sources/BaseSchema/tabularData/rules.shacl: no results
 Focus nodes for _sources/BaseSchema/tabularData/rules.shacl:
  - Shape cdifd:tabularDataShape: *none*
-
-Validation result for _sources/BaseSchema/tappDefinition/rules.shacl: 1 warning
-
-** Validation warning **
-Warning (sh:MaxCountConstraintComponent):
-  Source shape: cdifd:tappDefinitionShape/sh:property (path schema1:instrument)
-  Focus node: ex:epmaTAPP-McCoy2025-2
-  Result path: schema1:instrument
-  Message: TAPP definition should specify a primary instrument.
-Focus nodes for _sources/BaseSchema/tappDefinition/rules.shacl:
- - Shape cdifd:WorkflowStepUniqueNamesShape: *none*
- - Shape cdifd:tappDefinitionShape: *none*
-
-Validation result for _sources/BaseSchema/modules/core/rules.shacl: no results
-Focus nodes for _sources/BaseSchema/modules/core/rules.shacl:
- - Shape cdifd:coreAnalysisIdentificationShape: *none*
- - Shape cdifd:coreProcedureIdentificationShape: *none*
 
 Validation result for _sources/BaseSchema/modules/samplingUnitSelection/rules.shacl: no results
 Focus nodes for _sources/BaseSchema/modules/samplingUnitSelection/rules.shacl:

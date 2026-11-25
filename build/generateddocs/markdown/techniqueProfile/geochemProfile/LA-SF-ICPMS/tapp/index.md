@@ -48,12 +48,12 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -568,12 +568,12 @@ laSficpmsTAPP instance derived from Zhang et al. 2022 (GCA 323) Iron meteorites 
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -1142,7 +1142,7 @@ ex:laSficpmsTAPP-Zhang2022 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "As",
                 "Au",
@@ -1221,10 +1221,10 @@ ex:laSficpmsTAPP-Zhang2022 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -1374,12 +1374,12 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -2013,12 +2013,12 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -2619,12 +2619,10 @@ ex:laSficpmsTAPP-Chernonozhkin2021 a schema1:Action,
             schema1:name "LA-SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
-                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 1 and Nb = 10 for a pixel (App. C5)" ],
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -2633,10 +2631,12 @@ ex:laSficpmsTAPP-Chernonozhkin2021 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
+                        <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 1 and Nb = 10 for a pixel (App. C5)" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -2704,7 +2704,7 @@ ex:laSficpmsTAPP-Chernonozhkin2021 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Cr",
                 "Eu",
@@ -2854,10 +2854,10 @@ ex:laSficpmsTAPP-Chernonozhkin2021 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -3017,12 +3017,12 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -3674,12 +3674,12 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -4304,19 +4304,19 @@ ex:laSficpmsTAPP-Chernonozhkin2021-2 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "all: Longerich et al. (1996), LOD = 3SD/S × √(1/Nb + 1/Na) — Na = 24 and Nb = 5 (App. C5)" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -4383,7 +4383,7 @@ ex:laSficpmsTAPP-Chernonozhkin2021-2 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Au",
                 "Ba",
                 "Ca",
@@ -4554,10 +4554,10 @@ ex:laSficpmsTAPP-Chernonozhkin2021-2 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -4716,12 +4716,12 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -5351,12 +5351,12 @@ laSficpmsTAPP instance derived from Chernonozhkin et al. 2021 (Chem Geol 562) Pa
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -5952,11 +5952,10 @@ ex:laSficpmsTAPP-Chernonozhkin2021-3 a schema1:Action,
             schema1:name "LA-SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Flat polished thick sections (§2.1)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -5965,10 +5964,11 @@ ex:laSficpmsTAPP-Chernonozhkin2021-3 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Flat polished thick sections (§2.1)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 3 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -6036,7 +6036,7 @@ ex:laSficpmsTAPP-Chernonozhkin2021-3 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ba",
                 "Ca",
@@ -6194,10 +6194,10 @@ ex:laSficpmsTAPP-Chernonozhkin2021-3 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -6355,12 +6355,12 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -6969,12 +6969,12 @@ laSficpmsTAPP instance derived from Mittlefehldt 2024 Appendix A Pallasite olivi
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -7550,13 +7550,6 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a schema1:Action,
             schema1:name "LA-SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/filteringApproachDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/signalSmoothingDefault>,
                         <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
@@ -7564,6 +7557,13 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a schema1:Action,
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
                     ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/LaserAblation/preAblationSurfaceTreatmentDefault> ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
@@ -7644,7 +7644,7 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Co",
@@ -7774,10 +7774,10 @@ ex:laSficpmsTAPP-Mittlefehldt2024 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -7931,12 +7931,12 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -8474,9 +8474,6 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   "ada:calibrationMeasurementFrequency": "Every ten unknowns (about every 15 min) — calibration blocks bracket blocks of ten unknowns; 'every 15 min calibration block'",
   "ada:blankBackgroundCorrectionMethod": "20 s blank before each spot, laser firing with the shutter closed; LODs calculated per acquisition in iolite 4 — Experimental section",
   "ada:internalStandardElement": "all: none — Fe + Ni + Co sum normalisation",
-  "ada:secondaryReferenceMaterialDefault": [
-    "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -8543,12 +8540,12 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -9086,9 +9083,6 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   "ada:calibrationMeasurementFrequency": "Every ten unknowns (about every 15 min) \u2014 calibration blocks bracket blocks of ten unknowns; 'every 15 min calibration block'",
   "ada:blankBackgroundCorrectionMethod": "20 s blank before each spot, laser firing with the shutter closed; LODs calculated per acquisition in iolite 4 \u2014 Experimental section",
   "ada:internalStandardElement": "all: none \u2014 Fe + Ni + Co sum normalisation",
-  "ada:secondaryReferenceMaterialDefault": [
-    "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -9124,17 +9118,17 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
             schema1:name "LA-SF-ICP-MS analytical workflow" ;
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/ICPMS/guardElectrode> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:description "no value available: schema:description" ;
                     schema1:name "Data acquisition" ;
                     schema1:position 2 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Fragments ~1 cm mounted in epoxy resin, polished, cleaned with ultrapure water" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
@@ -9199,7 +9193,6 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Phase targeting, as the stated alternative to rastering — \"depending on the specific objectives, spot sampling at specific phases may also fulfill the analytical requirements\", against the problem that irons have an \"inherent natural inhomogeneity, a result of their lamellar exsolution patterns\" (p.2)" ;
     ada:samplingUnitType "Whole sample (polished ~1 cm fragment) > Spot — \"fragments about 1 cm were mounted in epoxy resin, polished, and cleaned with ultrapure water\" (p.3); the reported quantity is the meteorite's bulk composition for chemical classification (Table 1, p.2)" ;
-    ada:secondaryReferenceMaterialDefault "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -9209,7 +9202,7 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "Iron meteorite metal (kamacite + taenite)" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "As",
                 "Au",
@@ -9342,10 +9335,10 @@ ex:laSficpmsTAPP-Navarro2024 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -9500,12 +9493,12 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -10042,9 +10035,6 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   "ada:calibrationMeasurementFrequency": "Before and after the 30 min map — Experimental section",
   "ada:blankBackgroundCorrectionMethod": "1 min background at the start and end of the mapping sequence — Experimental section",
   "ada:internalStandardElement": "all: none — Fe + Ni + Co sum normalisation",
-  "ada:secondaryReferenceMaterialDefault": [
-    "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -10112,12 +10102,12 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
         "schema:name": "no value available: schema:name"
       },
       {
-        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -10654,9 +10644,6 @@ laSficpmsTAPP instance derived from Navarro et al. 2024 (ACS ESC 8) Iron meteori
   "ada:calibrationMeasurementFrequency": "Before and after the 30 min map \u2014 Experimental section",
   "ada:blankBackgroundCorrectionMethod": "1 min background at the start and end of the mapping sequence \u2014 Experimental section",
   "ada:internalStandardElement": "all: none \u2014 Fe + Ni + Co sum normalisation",
-  "ada:secondaryReferenceMaterialDefault": [
-    "North Chile \u2014 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values"
-  ],
   "schema:variableMeasured": [
     {
       "schema:name": "Calibration Factor and Determination Method",
@@ -10700,17 +10687,17 @@ ex:laSficpmsTAPP-Navarro2024-2 a schema1:Action,
                     schema1:position 2 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
+                    schema1:additionalType bios:LabProcess ;
+                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
+                [ a schema1:Action,
+                        schema1:HowToStep ;
                     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrectionDefault> ;
                     schema1:additionalType bios:LabProcess ;
                     schema1:name "Data processing" ;
                     schema1:position 3 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
-                [ a schema1:Action,
-                        schema1:HowToStep ;
-                    schema1:additionalType bios:LabProcess ;
-                    schema1:description "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/laSficpmsTAPP/interPassDataDependency>,
         <https://ada.astromat.org/metadata/parameter/module/ICPMS/makeUpGasAndFlowRateDefault>,
         <https://ada.astromat.org/metadata/parameter/module/LaserAblation/transectRateMappingRateOrStepSizeDefault>,
@@ -10768,7 +10755,6 @@ ex:laSficpmsTAPP-Navarro2024-2 a schema1:Action,
     ada:sampleIntroduction "no value available: ada:sampleIntroduction" ;
     ada:samplingUnitSelectionCriteriaDefault "Representativeness, and phase diversity — \"the approach of rastering large areas may improve representative sampling compared with spot analysis\" (p.2), and the mapping is \"conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1)" ;
     ada:samplingUnitType "Region of interest > Phase — \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)" ;
-    ada:secondaryReferenceMaterialDefault "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values" ;
     ada:signalIntegrationIntervalMethod "no value available: ada:signalIntegrationIntervalMethod" ;
     ada:targetMaterialTemplate [ ada:targetMaterialColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -10778,7 +10764,7 @@ ex:laSficpmsTAPP-Navarro2024-2 a schema1:Action,
                     ada:cdifPropertyPath "#/schema:variableMeasured/schema:name" ;
                     ada:dataType "string" ;
                     ada:tier "M" ],
-                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> ;
             ada:targetMaterialDeclaration "Iron meteorite metal (kamacite + plessite)" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "As",
                 "Au",
@@ -10911,10 +10897,10 @@ ex:laSficpmsTAPP-Navarro2024-2 a schema1:Action,
     ada:dataType "string" ;
     ada:fieldScope "session" .
 
-<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
+<https://ada.astromat.org/metadata/targetMaterialColumn/laSficpmsTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
     schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
     ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/laSficpmsTAPP/calibrationStrategyPerTargetSpecies> a schema1:PropertyValueSpecification ;
@@ -11035,7 +11021,7 @@ ex:laSficpmsTAPP-Navarro2024-2 a schema1:Action,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: LA-SF-ICP-MS Technique-Aligned Procedure Profile (laSficpmsTAPP)
 description: Laser-ablation sector-field (high-resolution) ICP-MS extension of the
-  base TAPP definition, generated from tapp/Current TAPPs/LA-SF-ICP-MS_TAPP_v95.csv
+  base TAPP definition, generated from tapp/Current TAPPs/LA-SF-ICP-MS_TAPP_v100.csv
   via the path-driven pipeline.
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -11064,28 +11050,27 @@ allOf:
           items:
             anyOf:
             - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml#/$defs/TargetMaterialIdentifierColumn
-            - title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+            - title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -11103,28 +11088,27 @@ allOf:
               - schema:defaultValue
           allOf:
           - contains:
-              title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+              title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/laSficpmsTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/laSficpmsTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -12064,7 +12048,8 @@ allOf:
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
+                in the procedure are recorded in Mass Resolution Setting, in Instrument
+                & Software (Group 3).
               type: object
               properties:
                 '@id':
@@ -12374,7 +12359,8 @@ allOf:
               description: Mass resolution mode used for acquisition. One target species
                 may be acquired at more than one resolution, so the assignment is
                 per acquired mass rather than per element. The overall mode(s) used
-                in the procedure are recorded in Mass Resolution Setting (Group 3).
+                in the procedure are recorded in Mass Resolution Setting, in Instrument
+                & Software (Group 3).
               type: object
               properties:
                 '@id':
@@ -12686,7 +12672,7 @@ allOf:
       description: Mass resolution mode used for acquisition. One target species may
         be acquired at more than one resolution, so the assignment is per acquired
         mass rather than per element. The overall mode(s) used in the procedure are
-        recorded in Mass Resolution Setting (Group 3).
+        recorded in Mass Resolution Setting, in Instrument & Software (Group 3).
       type: string
       readOnly: true
     ada:massBiasCorrectionStrategy:
@@ -12721,7 +12707,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.LA-SF-ICPMS.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

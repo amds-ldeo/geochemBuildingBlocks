@@ -346,12 +346,12 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -984,12 +984,12 @@ epmaTAPP instance derived from Ma+2015 | Caltech GPS | WDS Point Analysis (JEOL 
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -1294,15 +1294,15 @@ ex:epmaTAPP-Ma2015 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -1329,13 +1329,13 @@ ex:epmaTAPP-Ma2015 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Ma et al. 2015, Earth Planet. Sci. Lett. 422:194-205; doi:10.1016/j.epsl.2015.03.057" ] ;
-            schema1:url "https://doi.org/10.1016/j.epsl.2015.03.057" ] ;
+            schema1:url "https://doi.org/10.1016/j.epsl.2015.03.057" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD (HKL system on ZEISS 1550VP); synchrotron XRD; micro-Raman" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -1405,8 +1405,8 @@ ex:epmaTAPP-Ma2015 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -1534,17 +1534,17 @@ ex:epmaTAPP-Ma2015 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -1949,12 +1949,12 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -2570,12 +2570,12 @@ epmaTAPP instance derived from Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -2903,13 +2903,13 @@ ex:epmaTAPP-Hu2020 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
-            schema1:url "https://doi.org/10.1016/j.gca.2019.06.012" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012" ] ;
+            schema1:url "https://doi.org/10.1016/j.gca.2019.06.012" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -2983,8 +2983,8 @@ ex:epmaTAPP-Hu2020 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ;
             ada:targetMaterialDeclaration "maskelynite; melt inclusion glasses; silica glasses; coesite aggregates; mesostasis — 'Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by EPMA' (p.2)" ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
@@ -3113,17 +3113,17 @@ ex:epmaTAPP-Hu2020 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -3533,12 +3533,12 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -4154,12 +4154,12 @@ epmaTAPP instance derived from Liu+2016_UT | Cameca SX100 | WDS Mapping (U.Tenne
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -4477,13 +4477,13 @@ ex:epmaTAPP-Liu2016 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
-            schema1:url "https://doi.org/10.1111/maps.12726" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
+            schema1:url "https://doi.org/10.1111/maps.12726" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -4556,8 +4556,8 @@ ex:epmaTAPP-Liu2016 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -4695,17 +4695,17 @@ ex:epmaTAPP-Liu2016 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -5101,12 +5101,12 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -5708,12 +5708,12 @@ epmaTAPP instance derived from Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -6007,15 +6007,15 @@ ex:epmaTAPP-Liu2016-2 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin sections (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Polished thin sections (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses; WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <https://example.org/epmaTAPP-Liu2016-2/instrument/EPMA>,
@@ -6030,13 +6030,13 @@ ex:epmaTAPP-Liu2016-2 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726" ] ;
-            schema1:url "https://doi.org/10.1111/maps.12726" ] ;
+            schema1:url "https://doi.org/10.1111/maps.12726" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -6109,8 +6109,8 @@ ex:epmaTAPP-Liu2016-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -6240,17 +6240,17 @@ ex:epmaTAPP-Liu2016-2 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -6577,9 +6577,6 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     }
   ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually"
-  ],
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "liebermannite",
@@ -6668,12 +6665,12 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -7215,9 +7212,6 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
     }
   ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "feldspar standards \u2014 'based on analysis of feldspar standards as unknowns'; not named individually"
-  ],
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "liebermannite",
@@ -7306,12 +7300,12 @@ epmaTAPP instance derived from Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -7614,15 +7608,15 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section USNM 7619 (coating type N)" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "Chi Ma" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -7705,7 +7699,6 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
             ada:reportedPropertyDeclaration "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O; cations per formula unit; density — oxide wt% with totals and 1 s.d. of the mean, cations on 8 oxygens (Table 1); 'Magnesium, Cr, and Mn were also analyzed but were below the detection limit in all cases'; calculated density 3.98 g cm-3 (p.3)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Occurrence of the target phase — the units analysed are the observed occurrences of the new mineral: \"A first occurrence of liebermannite was observed with lingunite, silica, ilmenite, and baddeleyite ... (this is the type material). A second occurrence ... A third occurrence is shown in Fig. 1c, close to the type occurrence\" (p.4)" ;
     ada:samplingUnitType "Grain > Analysis point — Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" …), each the mean of n = 2–6 points (p.3)" ;
-    ada:secondaryReferenceMaterialDefault "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "liebermannite",
                 "lingunite",
                 "maskelynite" ;
@@ -7723,8 +7716,8 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -7852,17 +7845,17 @@ ex:epmaTAPP-Ma2017 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -8168,9 +8161,6 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       ]
     }
   ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard"
-  ],
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "melilite",
@@ -8259,12 +8249,12 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -8780,9 +8770,6 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
       ]
     }
   ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "N \u2014 no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard"
-  ],
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "melilite",
@@ -8871,12 +8858,12 @@ epmaTAPP instance derived from Frank+2023 | Cameca SX100 | WDS Point Analysis (A
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -9174,15 +9161,15 @@ ex:epmaTAPP-Frank2023 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. No EPMA secondary standard is named (San Carlos olivine standardised the SIMS work). Detection limits stated per element group. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — point analyses and X-ray mapping ('electron microprobe, and X-ray mapping'); WDS or EDS is not stated, and the list has no value without one." ;
     schema1:instrument <https://example.org/epmaTAPP-Frank2023/instrument/EPMA>,
@@ -9255,7 +9242,6 @@ ex:epmaTAPP-Frank2023 a schema1:Action,
             ada:reportedPropertyDeclaration "SO2, P2O5, Na2O, K2O, MgO, Al2O3, SiO2, CaO, TiO2, V2O3, FeO, Cr2O3, MnO, NiO; åkermanite content — oxide wt% with totals (Table 1); Åk14–31 (p.5)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "Opportunistic — the object analysed \"was found by David Frank in Ivuna section MZ2 during a study of the minor-element compositions of matrix olivine and pyroxene in types 1, 2, and 3 chondrites\" (p.3); no rule was applied to choose it, and it is the section's only CAI" ;
     ada:samplingUnitType "Phase > Analysis point — \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI" ;
-    ada:secondaryReferenceMaterialDefault "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "grossmanite",
                 "melilite",
                 "spinel" ;
@@ -9273,8 +9259,8 @@ ex:epmaTAPP-Frank2023 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -9406,17 +9392,17 @@ ex:epmaTAPP-Frank2023 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -9737,9 +9723,6 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     }
   ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "Smithsonian Microbeam standards (specific materials and values N)"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/epmaTAPP/stageScanVsBeamScan",
@@ -9845,12 +9828,12 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -10343,9 +10326,6 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
     }
   ],
   "ada:matrixCorrectionMethod": "CITZAF (Armstrong 1995)",
-  "ada:secondaryReferenceMaterialDefault": [
-    "Smithsonian Microbeam standards (specific materials and values N)"
-  ],
   "schema:additionalProperty": [
     {
       "@id": "ada:parameter/epmaTAPP/stageScanVsBeamScan",
@@ -10451,12 +10431,12 @@ epmaTAPP instance derived from Broussard+2026 | JEOL JXA-8200 | WDS Mapping (Was
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -10748,13 +10728,13 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138" ] ;
-            schema1:url "https://doi.org/10.1111/maps.70138" ] ;
+            schema1:url "https://doi.org/10.1111/maps.70138" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -10793,7 +10773,6 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
             ada:reportedPropertyDeclaration "Element concentrations in the carbonates (wt%: Fe, Mn — \"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\", p.5); phase abundance as areal fraction of the section (areal%, e.g. sulfides \"2.3 areal%\", p.6); phase identifications from the X-ray maps (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Region of interest > Phase — \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)" ;
-    ada:secondaryReferenceMaterialDefault "Smithsonian Microbeam standards (specific materials and values N)" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonate",
                 "oxide",
                 "phosphate",
@@ -10813,8 +10792,8 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "CO2",
                 "F",
                 "H2O",
@@ -10936,17 +10915,17 @@ ex:epmaTAPP-Broussard2026 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -11353,12 +11332,12 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -11972,12 +11951,12 @@ epmaTAPP instance derived from Seifert+2026 | JEOL 8530 | WDS Point Analysis (AR
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -12380,8 +12359,8 @@ ex:epmaTAPP-Seifert2026 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ca",
                 "Cl",
                 "F",
@@ -12517,17 +12496,17 @@ ex:epmaTAPP-Seifert2026 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -12904,12 +12883,12 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -13345,12 +13324,12 @@ epmaTAPP instance derived from Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (N
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -13497,15 +13476,15 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Polished thin section; carbon coating N" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Polished thin section; carbon coating N" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated. Reported detail: ada:edsAcquisitionMode = N/A — WDS procedure; ada:analyticalMode = WDS Point Analysis — 'Electron Probe Micro-Analyzer (EPMA) with wavelength dispersive spectrometers (WDS)'." ;
     schema1:instrument <https://example.org/epmaTAPP-Pang2016/instrument/EPMA>,
@@ -13520,13 +13499,13 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
-            schema1:url "https://doi.org/10.1038/srep26063" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM (BSE imaging); petrographic microscopy" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063" ] ;
+            schema1:url "https://doi.org/10.1038/srep26063" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -13562,8 +13541,8 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ;
             ada:targetMaterialDeclaration "plagioclase and its polymorphs — 'Measurements of most minerals were performed with a focused beam ... whereas measurements of plagioclase and its polymorphs were performed with a defocused beam'; the other minerals are not listed (EPMA data in Supplementary Table 4)" ] ;
     ada:targetSpeciesTemplate [ ada:targetSpeciesColumns [ a schema1:PropertyValueSpecification ;
                     schema1:name "no value available: schema:name" ;
@@ -13628,17 +13607,17 @@ ex:epmaTAPP-Pang2016 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -13934,9 +13913,6 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       ]
     }
   ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)"
-  ],
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonate",
@@ -14025,12 +14001,12 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -14511,9 +14487,6 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
       ]
     }
   ],
-  "ada:secondaryReferenceMaterialDefault": [
-    "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine \u2014 carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)"
-  ],
   "ada:targetMaterialTemplate": {
     "ada:defaultTargetMaterials": [
       "carbonate",
@@ -14602,12 +14575,12 @@ epmaTAPP instance derived from McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis 
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -14880,15 +14853,15 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ],
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
+                    schema1:description "Ir-coated specimens — 'Electron microprobe analysis was conducted on Ir-coated specimens'; the mounting for the microprobe work is not stated" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ] ] ;
     schema1:creator [ a schema1:Person ;
             schema1:name "T. J. McCoy" ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
@@ -14905,13 +14878,13 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -14952,7 +14925,6 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
             ada:reportedPropertyDeclaration "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3 — calcite is \"near-end member composition (4 mol.% or less MgCO3 and FeCO3; 0.1 mol.% or less MnCO3)\", p.2); phase identifications (nominal)" ] ;
     ada:samplingUnitSelectionCriteriaDefault "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units" ;
     ada:samplingUnitType "Phase > Analysis point — \"Electron microprobe analysis was conducted on Ir-coated specimens\" (p.7); results are reported by phase, e.g. \"the calcite has near-end member composition (4 mol.% or less MgCO3 and FeCO3)\" (p.2)" ;
-    ada:secondaryReferenceMaterialDefault "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)" ;
     ada:targetMaterialTemplate [ ada:defaultTargetMaterials "carbonate",
                 "magnetite",
                 "olivine" ;
@@ -14970,8 +14942,8 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Ca",
                 "Fe",
                 "Mg",
@@ -15093,17 +15065,17 @@ ex:epmaTAPP-McCoy2025 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -15495,12 +15467,12 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -16104,12 +16076,12 @@ epmaTAPP instance derived from McCoy+2025_UA | Cameca SX-100 | WDS Point Analysi
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -16434,13 +16406,13 @@ ex:epmaTAPP-McCoy2025-2 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
-            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:name "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41586-024-08495-6" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:analyticalMode "WDS Point Analysis" ;
@@ -16507,8 +16479,8 @@ ex:epmaTAPP-McCoy2025-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cl",
@@ -16638,17 +16610,17 @@ ex:epmaTAPP-McCoy2025-2 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -16969,12 +16941,12 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -17358,12 +17330,12 @@ epmaTAPP instance derived from Zega+2025 | Cameca SX-100 Ultra | WDS Point Analy
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -17514,15 +17486,15 @@ ex:epmaTAPP-Zega2025 a schema1:Action,
             schema1:step [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:name "Data processing" ;
-                    schema1:position 2 ;
-                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ],
+                    schema1:description "no value available: schema:description" ;
+                    schema1:name "Sample preparation" ;
+                    schema1:position 1 ],
                 [ a schema1:Action,
                         schema1:HowToStep ;
                     schema1:additionalType bios:LabProcess ;
-                    schema1:description "no value available: schema:description" ;
-                    schema1:name "Sample preparation" ;
-                    schema1:position 1 ] ] ;
+                    schema1:name "Data processing" ;
+                    schema1:position 2 ;
+                    ada:detectionLimitMethod "no value available: ada:detectionLimitMethod" ] ] ;
     schema1:datePublished "no value available: schema:datePublished" ;
     schema1:description "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s on each background. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak and 10 s background. Carbonates: 15 kV, 4 nA, 2 µm defocused, 10 s peak and 5 s background. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper. Reported detail: ada:edsAcquisitionMode = N — WDS or EDS is not stated; ada:analyticalMode = N — quantitative point analyses and X-ray maps ('BSE images, element maps and quantitative compositional analyses'); WDS or EDS is not stated, and the list has no value without one." ;
     schema1:funding [ a schema1:MonetaryGrant ;
@@ -17588,8 +17560,8 @@ ex:epmaTAPP-Zega2025 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
@@ -17638,17 +17610,17 @@ ex:epmaTAPP-Zega2025 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://example.org/epmaTAPP-Zega2025/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -18006,12 +17978,12 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -18610,12 +18582,12 @@ epmaTAPP instance derived from Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis 
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -19015,8 +18987,8 @@ ex:epmaTAPP-Barnes2025 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -19145,17 +19117,17 @@ ex:epmaTAPP-Barnes2025 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -19461,12 +19433,12 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -19827,12 +19799,12 @@ epmaTAPP instance derived from Barnes+2025 | Cameca SX100 | WDS Point Analysis (
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -19998,13 +19970,13 @@ ex:epmaTAPP-Barnes2025-2 a schema1:Action,
             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> ;
             schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ] ;
     schema1:relatedLink [ a schema1:CreativeWork ;
-            schema1:linkRelationship "coupledTechnique" ;
-            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
-            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ],
-        [ a schema1:CreativeWork ;
             schema1:linkRelationship "techniquePublication" ;
             schema1:target [ schema1:name "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6" ] ;
-            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ] ;
+            schema1:url "https://doi.org/10.1038/s41550-025-02631-6" ],
+        [ a schema1:CreativeWork ;
+            schema1:linkRelationship "coupledTechnique" ;
+            schema1:target [ schema1:name "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)" ] ;
+            schema1:url "http://www.opengis.net/def/nil/OGC/0/missing" ] ;
     schema1:variableMeasured [ schema1:defaultValue "no value available: schema:defaultValue" ;
             schema1:name "Calibration Factor and Determination Method" ] ;
     ada:edsAcquisitionMode "N/A" ;
@@ -20040,8 +20012,8 @@ ex:epmaTAPP-Barnes2025-2 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:wdsDeadTimeCorrection "missing" .
 
 <https://ada.astromat.org/metadata/parameter/module/SamplingUnitSelection/preAnalysisImagingAndScreeningDefault> a schema1:PropertyValueSpecification ;
@@ -20090,17 +20062,17 @@ ex:epmaTAPP-Barnes2025-2 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://example.org/epmaTAPP-Barnes2025-2/instrument/EPMA> a schema1:Product,
         schema1:Thing ;
@@ -20509,12 +20481,12 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -21158,12 +21130,12 @@ epmaTAPP instance derived from Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL
         "schema:defaultValue": -9999
       },
       {
-        "@id": "ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName",
+        "@id": "ada:targetMaterialColumn/epmaTAPP/calibrationStandard",
         "@type": [
           "schema:PropertyValueSpecification"
         ],
-        "schema:valueName": "primaryCalibrationStandardName",
-        "schema:name": "Primary Calibration Standard Name",
+        "schema:valueName": "calibrationStandard",
+        "schema:name": "Calibration Standard",
         "ada:dataType": "string",
         "schema:defaultValue": "no value available: unnamed property"
       }
@@ -21470,12 +21442,12 @@ ex:epmaTAPP-Neuman2025 a schema1:Action,
     schema1:description "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes. Reported detail: ada:matrixCorrectionMethod = Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard; ada:analyticalMode = WDS Mapping — 'five EPMA stage maps were acquired using fixed wavelength-dispersive spectrometers (WDS)'." ;
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-            schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
-            ada:toolRole "acquisition" ],
-        [ a schema1:SoftwareApplication ;
-            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks" ;
             ada:toolRole "dataReduction" ],
+        [ a schema1:SoftwareApplication ;
+            schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+            schema1:name "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps" ;
+            ada:toolRole "acquisition" ],
         <https://example.org/epmaTAPP-Neuman2025/instrument/EPMA>,
         <https://example.org/epmaTAPP-Neuman2025/instrument/SEM> ;
     schema1:location [ a schema1:Place ;
@@ -21561,8 +21533,8 @@ ex:epmaTAPP-Neuman2025 a schema1:Action,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamDiameter>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamMode>,
                 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/beamRasterDimensions>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime>,
-                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> ] ;
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard>,
+                <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> ] ;
     ada:targetSpeciesTemplate [ ada:defaultTargetSpecies "Al",
                 "Ca",
                 "Cr",
@@ -21698,17 +21670,17 @@ ex:epmaTAPP-Neuman2025 a schema1:Action,
     schema1:valueName "beamRasterDimensions" ;
     ada:dataType "number" .
 
+<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/calibrationStandard> a schema1:PropertyValueSpecification ;
+    schema1:defaultValue "no value available: unnamed property" ;
+    schema1:name "Calibration Standard" ;
+    schema1:valueName "calibrationStandard" ;
+    ada:dataType "string" .
+
 <https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/peakCountingTime> a schema1:PropertyValueSpecification ;
     schema1:defaultValue -9999 ;
     schema1:name "Peak Counting Time" ;
     schema1:valueName "peakCountingTime" ;
     ada:dataType "number" .
-
-<https://ada.astromat.org/metadata/targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName> a schema1:PropertyValueSpecification ;
-    schema1:defaultValue "no value available: unnamed property" ;
-    schema1:name "Primary Calibration Standard Name" ;
-    schema1:valueName "primaryCalibrationStandardName" ;
-    ada:dataType "string" .
 
 <https://ada.astromat.org/metadata/targetSpeciesColumn/epmaTAPP/blankCorrection> a schema1:PropertyValueSpecification ;
     schema1:name "Blank Correction" ;
@@ -21798,7 +21770,7 @@ ex:epmaTAPP-Neuman2025 a schema1:Action,
 $schema: https://json-schema.org/draft/2020-12/schema
 title: EPMA/EPMA Technique-Aligned Protocol Profile (epmaTAPP)
 description: Electron-probe microanalysis (EPMA/EPMA, WDS/EDS) extension of the base
-  TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v91.csv via the path-driven
+  TAPP definition, generated from tapp/Current TAPPs/EPMA_TAPP_v95.csv via the path-driven
   pipeline (bootstrap_schemapaths.py + build_pathdriven.py).
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
@@ -22106,8 +22078,9 @@ allOf:
               - schema:name
               - ada:dataType
             - title: Interference Correction Standard
-              description: Reference material used to quantify and calibrate the interference
-                correction.
+              description: The reference material used to quantify the interference
+                correction for each affected target species. Name an entry in Reference
+                Materials.
               type: object
               properties:
                 '@id':
@@ -22297,8 +22270,9 @@ allOf:
             maxContains: 1
           - contains:
               title: Interference Correction Standard
-              description: Reference material used to quantify and calibrate the interference
-                correction.
+              description: The reference material used to quantify the interference
+                correction for each affected target species. Name an entry in Reference
+                Materials.
               type: object
               properties:
                 '@id':
@@ -23454,28 +23428,27 @@ allOf:
               - schema:name
               - ada:dataType
               - schema:defaultValue
-            - title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+            - title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/epmaTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -23737,28 +23710,27 @@ allOf:
             minContains: 0
             maxContains: 1
           - contains:
-              title: Primary Calibration Standard Name
-              description: "Name and reference material identifier of the primary
-                reference material(s) against which the instrument is calibrated \u2014
-                converting raw signal intensities to concentrations, or anchoring
-                an isotope ratio as the bracketing standard or zero-delta reference.
-                Give the material name, its source or supplier, and a citation for
-                the accepted values used. Where calibration instead uses the vendor's
-                stored library or theoretical response factors rather than measured
-                reference materials \u2014 'standardless' or 'semi-quantitative' quantification
-                \u2014 record that here, naming the library or model used. 'None'
-                means no calibration was performed at all, which is a different answer."
+              title: Calibration Standard
+              description: "The reference material against which each target species
+                is calibrated in each target material, converting raw signal intensities
+                to concentrations, or anchoring an isotope ratio as the bracketing
+                standard. Name an entry in Reference Materials. Where calibration
+                instead uses the vendor's stored library or theoretical response factors
+                rather than measured reference materials \u2014 'standardless' or
+                'semi-quantitative' quantification \u2014 record that here, naming
+                the library or model used. 'None' means no calibration was performed
+                at all, which is a different answer."
               type: object
               properties:
                 '@id':
-                  const: ada:targetMaterialColumn/epmaTAPP/primaryCalibrationStandardName
+                  const: ada:targetMaterialColumn/epmaTAPP/calibrationStandard
                 '@type':
                   const:
                   - schema:PropertyValueSpecification
                 schema:valueName:
-                  const: primaryCalibrationStandardName
+                  const: calibrationStandard
                 schema:name:
-                  const: Primary Calibration Standard Name
+                  const: Calibration Standard
                 ada:dataType:
                   const: string
                 schema:readonlyValue:
@@ -24580,7 +24552,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EPMA.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

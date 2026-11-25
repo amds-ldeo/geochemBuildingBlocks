@@ -346,9 +346,14 @@ $defs:
     - ada:fieldScope
   epma_analyticalAccuracyDefault:
     title: Analytical Accuracy
-    description: Offset between measured and accepted reference values for secondary
-      standards, expressed as percent relative bias. Include reference material, reference
-      value source, and the measured value.
+    description: 'Offset between measured and accepted reference values for secondary
+      standards, expressed as percent relative bias, with the reference material and
+      the source of its reference value. Reported for the standards named in Quality-Control
+      Standards; a calibration standard''s agreement with its own accepted values
+      is not a test of accuracy. For the procedure: the expected offset. For the session:
+      the offset found in this session. In the dataset: report the analyses of each
+      secondary reference material, where they are included; the session value summarises
+      them and must agree with them.'
     type: object
     properties:
       '@id':
@@ -379,11 +384,16 @@ $defs:
     - ada:fieldScope
   epma_analyticalPrecisionDefault:
     title: Analytical Precision
-    description: Precision of repeated measurements on the same or equivalent reference
+    description: 'Precision of repeated measurements on the same or equivalent reference
       material, expressed as 1-sigma relative standard deviation (%). State whether
       the repeats were made within one session (repeatability) or across sessions
-      (intermediate precision, in ISO 5725 terms). Include reference material name,
-      number of analyses (n), and the measured value.
+      (intermediate precision, in ISO 5725 terms), the reference material name and
+      the number of analyses (n). Reported for the standards named in Quality-Control
+      Standards; a calibration standard''s agreement with its own accepted values
+      is not an independent test of precision. For the procedure: the expected precision.
+      For the session: the precision achieved in this session. In the dataset: report
+      the analyses of each secondary reference material, where they are included;
+      the session value summarises them and must agree with them.'
     type: object
     properties:
       '@id':
@@ -590,11 +600,13 @@ $defs:
   epma_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -736,7 +748,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -757,6 +769,217 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  epma_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  epma_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  epma_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  epma_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  epma_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  epma_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/epmaTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
         type: string
     required:
     - '@id'
@@ -1164,9 +1387,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -1270,11 +1497,13 @@ $defs:
   laMcicpmsUPb_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -1842,7 +2071,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -1854,6 +2083,41 @@ $defs:
         const: preAnalysisImagingAndScreeningDefault
       schema:name:
         const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpmsUPb_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -1902,6 +2166,182 @@ $defs:
         - type: string
       schema:unitText:
         const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpmsUPb_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpmsUPb_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpmsUPb_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpmsUPb_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpmsUPb_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsUPbTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -2082,9 +2522,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -2188,11 +2632,13 @@ $defs:
   laMcicpms_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -2726,7 +3172,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -2738,6 +3184,41 @@ $defs:
         const: preAnalysisImagingAndScreeningDefault
       schema:name:
         const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpms_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -2786,6 +3267,182 @@ $defs:
         - type: string
       schema:unitText:
         const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpms_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpms_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpms_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpms_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laMcicpms_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laMcicpmsTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3001,9 +3658,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -3107,11 +3768,13 @@ $defs:
   laQicpmsUPb_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -3642,7 +4305,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -3654,6 +4317,41 @@ $defs:
         const: preAnalysisImagingAndScreeningDefault
       schema:name:
         const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpmsUPb_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -3743,6 +4441,182 @@ $defs:
         - type: string
       schema:unitText:
         const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpmsUPb_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpmsUPb_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpmsUPb_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpmsUPb_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpmsUPb_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsUPbTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -3923,9 +4797,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -4029,11 +4907,13 @@ $defs:
   laQicpms_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -4530,7 +5410,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -4542,6 +5422,41 @@ $defs:
         const: preAnalysisImagingAndScreeningDefault
       schema:name:
         const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpms_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -4631,6 +5546,182 @@ $defs:
         - type: string
       schema:unitText:
         const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpms_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpms_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpms_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpms_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laQicpms_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laQicpmsTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -4846,9 +5937,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -4918,11 +6013,13 @@ $defs:
   laSficpmsUPb_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -5453,7 +6550,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -5465,6 +6562,41 @@ $defs:
         const: preAnalysisImagingAndScreeningDefault
       schema:name:
         const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpmsUPb_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -5516,6 +6648,182 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpmsUPb_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpmsUPb_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpmsUPb_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpmsUPb_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpmsUPb_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsUPbTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -5696,9 +7004,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -5768,11 +7080,13 @@ $defs:
   laSficpms_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -6269,7 +7583,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -6281,6 +7595,41 @@ $defs:
         const: preAnalysisImagingAndScreeningDefault
       schema:name:
         const: Pre-Analysis Imaging and Screening
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpms_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
       ada:dataType:
         const: string
       ada:fieldScope:
@@ -6332,6 +7681,182 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpms_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpms_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpms_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpms_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  laSficpms_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/laSficpmsTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -6800,7 +8325,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -6864,7 +8389,8 @@ $defs:
   labxct_ringArtifactCorrectionMethodDefault:
     title: Ring Artifact Correction Method
     description: Procedure specification for how ring artifacts are handled. Whether
-      correction was applied and its outcome are recorded separately in Group 6.
+      correction was applied and its outcome are recorded separately in Ring Artifact
+      Severity and Correction Outcome, in Quality Control & Uncertainty (Group 6).
     type: object
     properties:
       '@id':
@@ -7687,9 +9213,14 @@ $defs:
     - ada:fieldScope
   semComposition_analyticalAccuracyDefault:
     title: Analytical Accuracy
-    description: Offset between measured and accepted reference values for secondary
-      standards, expressed as percent relative bias. Include reference material, reference
-      value source, and the measured value.
+    description: 'Offset between measured and accepted reference values for secondary
+      standards, expressed as percent relative bias, with the reference material and
+      the source of its reference value. Reported for the standards named in Quality-Control
+      Standards; a calibration standard''s agreement with its own accepted values
+      is not a test of accuracy. For the procedure: the expected offset. For the session:
+      the offset found in this session. In the dataset: report the analyses of each
+      secondary reference material, where they are included; the session value summarises
+      them and must agree with them.'
     type: object
     properties:
       '@id':
@@ -7720,11 +9251,16 @@ $defs:
     - ada:fieldScope
   semComposition_analyticalPrecisionDefault:
     title: Analytical Precision
-    description: Precision of repeated measurements on the same or equivalent reference
+    description: 'Precision of repeated measurements on the same or equivalent reference
       material, expressed as 1-sigma relative standard deviation (%). State whether
       the repeats were made within one session (repeatability) or across sessions
-      (intermediate precision, in ISO 5725 terms). Include reference material name,
-      number of analyses (n), and the measured value.
+      (intermediate precision, in ISO 5725 terms), the reference material name and
+      the number of analyses (n). Reported for the standards named in Quality-Control
+      Standards; a calibration standard''s agreement with its own accepted values
+      is not an independent test of precision. For the procedure: the expected precision.
+      For the session: the precision achieved in this session. In the dataset: report
+      the analyses of each secondary reference material, where they are included;
+      the session value summarises them and must agree with them.'
     type: object
     properties:
       '@id':
@@ -7968,11 +9504,13 @@ $defs:
   semComposition_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -8116,7 +9654,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -8137,6 +9675,217 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semComposition_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semComposition_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semComposition_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semComposition_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semComposition_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  semComposition_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semCompositionTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
         type: string
     required:
     - '@id'
@@ -8188,7 +9937,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -8399,7 +10148,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -8430,9 +10179,14 @@ $defs:
     - ada:fieldScope
   sem_analyticalAccuracyDefault:
     title: Analytical Accuracy
-    description: Offset between measured and accepted reference values for secondary
-      standards, expressed as percent relative bias. Include reference material, reference
-      value source, and the measured value.
+    description: 'Offset between measured and accepted reference values for secondary
+      standards, expressed as percent relative bias, with the reference material and
+      the source of its reference value. Reported for the standards named in Quality-Control
+      Standards; a calibration standard''s agreement with its own accepted values
+      is not a test of accuracy. For the procedure: the expected offset. For the session:
+      the offset found in this session. In the dataset: report the analyses of each
+      secondary reference material, where they are included; the session value summarises
+      them and must agree with them.'
     type: object
     properties:
       '@id':
@@ -8463,11 +10217,16 @@ $defs:
     - ada:fieldScope
   sem_analyticalPrecisionDefault:
     title: Analytical Precision
-    description: Precision of repeated measurements on the same or equivalent reference
+    description: 'Precision of repeated measurements on the same or equivalent reference
       material, expressed as 1-sigma relative standard deviation (%). State whether
       the repeats were made within one session (repeatability) or across sessions
-      (intermediate precision, in ISO 5725 terms). Include reference material name,
-      number of analyses (n), and the measured value.
+      (intermediate precision, in ISO 5725 terms), the reference material name and
+      the number of analyses (n). Reported for the standards named in Quality-Control
+      Standards; a calibration standard''s agreement with its own accepted values
+      is not an independent test of precision. For the procedure: the expected precision.
+      For the session: the precision achieved in this session. In the dataset: report
+      the analyses of each secondary reference material, where they are included;
+      the session value summarises them and must agree with them.'
     type: object
     properties:
       '@id':
@@ -8744,11 +10503,13 @@ $defs:
   sem_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -8997,7 +10758,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -9018,6 +10779,217 @@ $defs:
       ada:tier:
         const: R
       schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  sem_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/semTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
         type: string
     required:
     - '@id'
@@ -9138,9 +11110,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -9244,11 +11220,13 @@ $defs:
   solutionMcicpms_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -9667,6 +11645,41 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  solutionMcicpms_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   solutionMcicpms_reactionGasFlowRateDefault:
     title: Reaction Gas Flow Rate
     description: Flow rate of the reactive gas introduced into the dynamic reaction
@@ -9698,6 +11711,182 @@ $defs:
         - type: string
       schema:unitText:
         const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionMcicpms_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionMcicpms_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionMcicpms_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionMcicpms_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionMcicpms_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionMcicpmsTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -9846,9 +12035,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -9952,11 +12145,13 @@ $defs:
   solutionQicpms_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -10342,6 +12537,41 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  solutionQicpms_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   solutionQicpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
     title: Pulse/Analog Detector Nonlinearity Correction
     description: Whether a correction was applied for nonlinear detector response
@@ -10414,6 +12644,182 @@ $defs:
         - type: string
       schema:unitText:
         const: mL/min
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionQicpms_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionQicpmsTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -10562,9 +12968,13 @@ $defs:
     title: Between-Session (Long-Term) Analytical Precision and Assessment Method
     description: "Precision of measurements across multiple analytical sessions over
       weeks to months \u2014 long-term or intermediate precision \u2014 and the method
-      used to assess it. Report both the assessment method and the precision values,
-      specifying the reference material, the number of measurements and sessions,
-      the time span covered, and the statistic reported."
+      used to assess it. Specify the reference material, the number of measurements
+      and sessions, the time span covered, and the statistic reported. Reported for
+      the standards named in Quality-Control Standards; a calibration standard's agreement
+      with its own accepted values is not an independent test of precision. For the
+      procedure: the assessment method and the long-term precision on record when
+      the procedure is registered. For the session: the long-term precision as it
+      stands at this session, including this session's results where they contribute."
     type: object
     properties:
       '@id':
@@ -10634,11 +13044,13 @@ $defs:
   solutionSficpms_detectionLimitDefault:
     title: Detection Limit
     description: 'Detection limit, one per reported concentration variable (one per
-      target species, these being the same set). State the units and whether the values
-      are procedure-typical estimates or session-specific measured values. The calculation
-      method is recorded separately in Detection Limit Method. Record ''N/A'' where
-      the procedure reports no concentrations. In the dataset: report the detection
-      limit of each analysis, where the procedure computes one.'
+      target species, these being the same set), with its units. For the procedure:
+      the typical detection limits. For the session: the limits achieved in this session,
+      where they are determined for the session as a whole (for example, from the
+      blanks of the run). The calculation method is recorded separately in Detection
+      Limit Method. Record ''N/A'' where the procedure reports no concentrations.
+      In the dataset: report the detection limit of each analysis, where the procedure
+      computes one.'
     type: object
     properties:
       '@id':
@@ -11024,6 +13436,41 @@ $defs:
     - schema:name
     - ada:dataType
     - ada:fieldScope
+  solutionSficpms_proceduralBlankLevelDefault:
+    title: Procedural Blank Level
+    description: 'The level of the analytical blank and, where the reported quantity
+      is a ratio, its composition, since a blank subtracted from a ratio biases the
+      result unless its own composition is known. For the procedure: the typical or
+      maximum blank expected. For the session: the blank measured in this session.
+      Companion to the blank correction method.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/proceduralBlankLevelDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: proceduralBlankLevelDefault
+      schema:name:
+        const: Procedural Blank Level
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
   solutionSficpms_pulseAnalogDetectorNonlinearityCorrectionDefault:
     title: Pulse/Analog Detector Nonlinearity Correction
     description: Whether a correction was applied for nonlinear detector response
@@ -11058,6 +13505,182 @@ $defs:
       schema:inDefinedTermSet:
         const:
           '@id': ada:vocab/pulse-analog-detector-nonlinearity-correction
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_referenceMaterialIdentifierDefault:
+    title: Reference Material Identifier
+    description: 'The registry or catalogue identifier of each reference material,
+      where one exists: an IGSN, a certifying body''s catalogue number (NIST, IRMM,
+      USGS) or a museum catalogue number (USNM). Where the material is also registered
+      as a sample, give the same identifier as in Sample Persistent Identifier. Record
+      ''None'' for an in-house material with no registered identifier.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceMaterialIdentifierDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialIdentifierDefault
+      schema:name:
+        const: Reference Material Identifier
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_referenceMaterialTypeDefault:
+    title: Reference Material Type
+    description: The kind of material each reference material is (mineral, glass,
+      metal, solution, gas or reference scale), with the mineral or phase name where
+      it has one.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceMaterialTypeDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceMaterialTypeDefault
+      schema:name:
+        const: Reference Material Type
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_referenceValueDefault:
+    title: Reference Value
+    description: The accepted value of each reported property for each reference material,
+      as a number with its unit. Its uncertainty is recorded in Reference Value Uncertainty
+      and its source in Reference Value Source.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceValueDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueDefault
+      schema:name:
+        const: Reference Value
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_referenceValueUncertaintyBasisDefault:
+    title: Reference Value Uncertainty Basis
+    description: 'What the uncertainty in Reference Value Uncertainty represents:
+      its coverage and how it was obtained.'
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceValueUncertaintyBasisDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyBasisDefault
+      schema:name:
+        const: Reference Value Uncertainty Basis
+      ada:dataType:
+        const: string
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        type: string
+      schema:inDefinedTermSet:
+        const:
+          '@id': ada:vocab/reference-value-uncertainty-basis
+    required:
+    - '@id'
+    - '@type'
+    - schema:valueName
+    - schema:name
+    - ada:dataType
+    - ada:fieldScope
+  solutionSficpms_referenceValueUncertaintyDefault:
+    title: Reference Value Uncertainty
+    description: The uncertainty of each accepted value in Reference Value, in the
+      same unit, at the level stated in Reference Value Uncertainty Basis.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/solutionSficpmsTAPP/referenceValueUncertaintyDefault
+      '@type':
+        const:
+        - schema:PropertyValueSpecification
+      schema:valueName:
+        const: referenceValueUncertaintyDefault
+      schema:name:
+        const: Reference Value Uncertainty
+      ada:dataType:
+        const: number
+      ada:fieldScope:
+        const: session
+      schema:readonlyValue:
+        const: false
+      ada:tier:
+        const: R
+      schema:defaultValue:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
     required:
     - '@id'
     - '@type'
@@ -11453,9 +14076,11 @@ $defs:
     - ada:fieldScope
   tem_edsDetectionLimitDefault:
     title: EDS Detection Limit
-    description: Estimated detection limits by EDS under this procedure's conditions,
-      one per reported concentration variable (one per target species, these being
-      the same set). Record 'N/A' where EDS is not listed in Spectroscopic Detector(s).
+    description: 'Detection limits by EDS, one per reported concentration variable
+      (one per target species, these being the same set). For the procedure: the estimated
+      limits under this procedure''s conditions. For the session: the limits achieved
+      in this session, or ''Not determined''. Record ''N/A'' where EDS is not listed
+      in Spectroscopic Detector(s).'
     type: object
     properties:
       '@id':
@@ -11634,9 +14259,10 @@ $defs:
     - ada:fieldScope
   tem_eelsDetectionLimitDefault:
     title: EELS Detection Limit
-    description: Estimated detection limit or minimum detectable concentration, under
-      this procedure, of each quantity determined by EELS. Record 'N/A' where EELS
-      is not listed in Spectroscopic Detector(s).
+    description: 'Detection limit or minimum detectable concentration of each quantity
+      determined by EELS. For the procedure: the estimated limit under this procedure''s
+      conditions. For the session: the limit achieved in this session, or ''Not determined''.
+      Record ''N/A'' where EELS is not listed in Spectroscopic Detector(s).'
     type: object
     properties:
       '@id':
@@ -11842,7 +14468,7 @@ $defs:
       technique, instrument and settings used, and how individual analyses are linked
       back to the images. Distinct from any imaging the procedure performs as its
       own measurement. Where the imaging is performed on a separate instrument, it
-      should also be recorded in the Group 1 coupling fields.
+      should also be recorded in the Procedure Identification (Group 1) coupling fields.
     type: object
     properties:
       '@id':
@@ -12658,7 +15284,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.parameterTemplates
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

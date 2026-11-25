@@ -310,18 +310,6 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 — five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (§3.4)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Li: 0.036 ± 0.028; Be: 0.00091 ± 0.00049; B: 0.39 ± 0.26; Sc: 0.033 ± 0.011; V: 0.50 ± 0.38; Cr: 0.53 ± 0.16; Co: 0.0046 ± 0.0032; Ni: 0.065 ± 0.037; Cu: 0.072 ± 0.022; Zn: 0.80 ± 0.56; Ga: 0.0037 ± 0.0020; Ge: 0.0081 ± 0.0040; As: 0.021 ± 0.009; Rb: 0.11 ± 0.05; Sr: 0.018 ± 0.018; Y: 0.0018 ± 0.0017; Zr: 0.0030 ± 0.0015; Nb: 0.0012 ± 0.0012; Mo: 0.035 ± 0.030; Cd: 0.0026 ± 0.0015; In: 0.00016 ± 0.00004; Sn: 0.0083 ± 0.0016; Sb: 0.010 ± 0.006; Te: 0.00097 ± 0.00014; Cs: 0.00060 ± 0.00034; Ba: 0.075 ± 0.063; La: 0.0025 ± 0.0020; Ce: 0.0028 ± 0.0016; Pr: 0.00056 ± 0.00042; Nd: 0.0019 ± 0.0017; Sm: 0.00079 ± 0.00036; Eu: 0.00023 ± 0.00014; Gd: 0.00063 ± 0.00054; Tb: 0.00013 ± 0.00005; Dy: 0.00058 ± 0.00038; Ho: 0.00013 ± 0.00008; Er: 0.00027 ± 0.00020; Tm: 0.00011 ± 0.00003; Yb: 0.00043 ± 0.00025; Lu: 0.00015 ± 0.00007; Hf: 0.0010 ± 0.0012; Ta: 0.00017 ± 0.00009; W: 0.023 ± 0.010; Tl: 0.0026 ± 0.0009; Pb: 0.043 ± 0.020; Bi: 0.00049 ± 0.00028; Th: 0.00062 ± 0.00050; U: 0.00027 ± 0.00025 — ppb, mean ± STD of n = 5 blanks (Table 2)",
@@ -689,18 +677,6 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 \u2014 five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (\u00a73.4)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Li: 0.036 \u00b1 0.028; Be: 0.00091 \u00b1 0.00049; B: 0.39 \u00b1 0.26; Sc: 0.033 \u00b1 0.011; V: 0.50 \u00b1 0.38; Cr: 0.53 \u00b1 0.16; Co: 0.0046 \u00b1 0.0032; Ni: 0.065 \u00b1 0.037; Cu: 0.072 \u00b1 0.022; Zn: 0.80 \u00b1 0.56; Ga: 0.0037 \u00b1 0.0020; Ge: 0.0081 \u00b1 0.0040; As: 0.021 \u00b1 0.009; Rb: 0.11 \u00b1 0.05; Sr: 0.018 \u00b1 0.018; Y: 0.0018 \u00b1 0.0017; Zr: 0.0030 \u00b1 0.0015; Nb: 0.0012 \u00b1 0.0012; Mo: 0.035 \u00b1 0.030; Cd: 0.0026 \u00b1 0.0015; In: 0.00016 \u00b1 0.00004; Sn: 0.0083 \u00b1 0.0016; Sb: 0.010 \u00b1 0.006; Te: 0.00097 \u00b1 0.00014; Cs: 0.00060 \u00b1 0.00034; Ba: 0.075 \u00b1 0.063; La: 0.0025 \u00b1 0.0020; Ce: 0.0028 \u00b1 0.0016; Pr: 0.00056 \u00b1 0.00042; Nd: 0.0019 \u00b1 0.0017; Sm: 0.00079 \u00b1 0.00036; Eu: 0.00023 \u00b1 0.00014; Gd: 0.00063 \u00b1 0.00054; Tb: 0.00013 \u00b1 0.00005; Dy: 0.00058 \u00b1 0.00038; Ho: 0.00013 \u00b1 0.00008; Er: 0.00027 \u00b1 0.00020; Tm: 0.00011 \u00b1 0.00003; Yb: 0.00043 \u00b1 0.00025; Lu: 0.00015 \u00b1 0.00007; Hf: 0.0010 \u00b1 0.0012; Ta: 0.00017 \u00b1 0.00009; W: 0.023 \u00b1 0.010; Tl: 0.0026 \u00b1 0.0009; Pb: 0.043 \u00b1 0.020; Bi: 0.00049 \u00b1 0.00028; Th: 0.00062 \u00b1 0.00050; U: 0.00027 \u00b1 0.00025 \u2014 ppb, mean \u00b1 STD of n = 5 blanks (Table 2)",
@@ -772,16 +748,16 @@ detail instance derived from Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an.
 
 ex:solutionQicpmsTAPP-detail-Gao2008 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4–7 analyses, usually <8%] — Table 2 and §3.4; whether the replicates share a session is not stated" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements]; JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 [Mo, Cd, In, Sn, Sb, W, Tl, Bi, As, Te: reasonable agreement with Govindaraju 1994 and GeoReM] — Tables 2 and 3, §3.4" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: RSD, relative standard deviation in percent — Table 2: 'The RSD is the relative standard deviation in percent'" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: RSD, relative standard deviation in percent — Table 2: 'The RSD is the relative standard deviation in percent'" ] ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+            dqv:value "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4–7 analyses, usually <8%] — Table 2 and §3.4; whether the replicates share a session is not stated" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
@@ -800,11 +776,7 @@ ex:solutionQicpmsTAPP-detail-Gao2008 a schema1:Dataset,
             schema1:description "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As — §3.1, §3.2, §3.3" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 — five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (§3.4)" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionQicpmsTAPP-detail-Gao2008/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)" ] ;
             schema1:object [ a schema1:Thing ;
@@ -1161,18 +1133,6 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-P1/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "N — precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -1522,18 +1482,6 @@ detail instance derived from Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambri
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-P1/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "N \u2014 precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "schema:actionProcess": {
@@ -1687,14 +1635,14 @@ ex:solutionQicpmsTAPP-detail-P1 a schema1:Dataset,
             dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
+                            schema1:name "Sample digestion" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
                                 <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
                             schema1:name "Data processing" ;
                             schema1:position 1 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Sample digestion" ;
-                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2" ;
@@ -1703,11 +1651,7 @@ ex:solutionQicpmsTAPP-detail-P1 a schema1:Dataset,
             schema1:description "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"a typical run (~5 hr)\" referenced; no run identifier stated" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "N — precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionQicpmsTAPP-detail-P1/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "University of Cambridge (affiliation)" ] ;
             schema1:object [ a schema1:Thing ;
@@ -1976,18 +1920,6 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 — the chondrites are samples",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Cd: 16 pg; In: <0.2 pg; Tl: 4 pg; Bi: 3 pg — total dissolution blanks, similar for the ultrasonic and bomb digestions, n = 4 (Table 1)",
@@ -2195,18 +2127,6 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 \u2014 the chondrites are samples",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "Cd: 16 pg; In: <0.2 pg; Tl: 4 pg; Bi: 3 pg \u2014 total dissolution blanks, similar for the ultrasonic and bomb digestions, n = 4 (Table 1)",
@@ -2278,16 +2198,16 @@ detail instance derived from Makishima+etal2011 | Agilent 7500cs | PML Okayama.
 
 ex:solutionQicpmsTAPP-detail-Agilent7500 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "JB-2, JB-3, JA-1, JA-2, JA-3, BHVO-1, AGV-1 [Cd: 3–10%]; JP-1, PCC-1, DTS-1 [Cd: 7–16%]; NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 [Cd: 2–3%; In: 0.7–3%; Tl: 6–12%; Bi: 1–4%] — intermediate precision, RSD of n = 4–8 separate decompositions (Tables 3 and 4)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Goodness-of-Fit" ;
+            dqv:value "all: RSD — 'The normalised ratios after evaporation together with the RSD (n = 5)'" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "JB-2, JB-3, JA-1, JA-2, JA-3 [Cd: broadly similar to the reference values of Govindaraju (1994) and Imai et al. (1995)]; BHVO-1, AGV-1 [Cd: differ from those reference values] — Table 3; In, Tl and Bi compared with previous studies" ],
-        [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "all: RSD — 'The normalised ratios after evaporation together with the RSD (n = 5)'" ],
         [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "all [Cd: 2.0%; In, Tl, Bi: 1.6%] — RPD of X/¹⁴⁹Sm between neighbouring calibrator runs (Table 1)" ] ;
+            dqv:value "all [Cd: 2.0%; In, Tl, Bi: 1.6%] — RPD of X/¹⁴⁹Sm between neighbouring calibrator runs (Table 1)" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "JB-2, JB-3, JA-1, JA-2, JA-3, BHVO-1, AGV-1 [Cd: 3–10%]; JP-1, PCC-1, DTS-1 [Cd: 7–16%]; NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 [Cd: 2–3%; In: 0.7–3%; Tl: 6–12%; Bi: 1–4%] — intermediate precision, RSD of n = 4–8 separate decompositions (Tables 3 and 4)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
@@ -2295,22 +2215,18 @@ ex:solutionQicpmsTAPP-detail-Agilent7500 a schema1:Dataset,
                             schema1:position 1 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues> ;
                             schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Rock powders decomposed with the Sm spike; NIST glasses crushed roughly in a silicon nitride mortar, chips hand-picked, washed and dried; solutions diluted with 0.5 mol/l HNO3 to a dilution factor ≥ 1000 — clean room at PML; NIST SRM 610 decomposed without spike, the Sm spike added to its solution" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 3 ] ] ;
             schema1:description "ICP operating conditions as in Makishima and Nakamura (2006); pseudo-flow injection with transient signals integrated as total counts, ~0.013 ml per measurement; an evaporation test showed no loss of Cd, In, Tl or Bi (ratios 0.996–0.999, Table 2)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "N -- \"an average of eight sessions\" referenced; no session identifier stated" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610, NIST SRM 612, NIST SRM 614, NIST SRM 616 — the chondrites are samples" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-Agilent7500/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionQicpmsTAPP-detail-Agilent7500/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)" ] ;
             schema1:object [ a schema1:Thing ;
@@ -3107,18 +3023,6 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — §2.3; the chondrites are samples",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "B: 13–185 pg (ultrasonic); Zr: 0.9–29, 55; Nb: 2–5, 3; Mo: 0.2–10, ~134; Sn: ~323, ~276; Sb: 0.7–9, ~60; Hf: <12, <8; Ta: 0.6–7, 0.6–2 — total procedural blank in pg, ultrasonic then bomb method (Table 4)",
@@ -3486,18 +3390,6 @@ detail instance derived from Lu+etal2007 | Agilent 7500cs | PML Okayama.
           ],
           "schema:name": "no value available: schema:name",
           "@id": "ex:solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS"
-        },
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 \u2014 \u00a72.3; the chondrites are samples",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
         }
       ],
       "ada:proceduralBlankLevel": "B: 13\u2013185 pg (ultrasonic); Zr: 0.9\u201329, 55; Nb: 2\u20135, 3; Mo: 0.2\u201310, ~134; Sn: ~323, ~276; Sb: 0.7\u20139, ~60; Hf: <12, <8; Ta: 0.6\u20137, 0.6\u20132 \u2014 total procedural blank in pg, ultrasonic then bomb method (Table 4)",
@@ -3581,17 +3473,23 @@ ex:solutionQicpmsTAPP-detail-Agilent7500-2 a schema1:Dataset,
     schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "The Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta, and its Nb (from Nb/Mo and Nb/Zr) is used for the SF-ICP-MS Ti calculation on the same solutions — §2.5, §2.8" ;
                     schema1:name "SF-ICP-MS — Ti on a Finnigan ELEMENT at PML (§2.1.2)" ] ] ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: RSD% — Tables 5 and 6; 'Averages of the reproducibility (RSD %)'" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous" ],
         [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'" ] ;
+            dqv:value "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
+                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
+                            schema1:name "Data processing" ;
+                            schema1:position 2 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
@@ -3600,21 +3498,11 @@ ex:solutionQicpmsTAPP-detail-Agilent7500-2 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 3 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/Core/constantsReferenceValues>,
-                                <https://ada.astromat.org/metadata/parameter/module/SingleCollector/pulseAnalogDetectorNonlinearityCorrection> ;
-                            schema1:name "Data processing" ;
-                            schema1:position 2 ] ] ;
+                            schema1:position 3 ] ] ;
             schema1:description "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6)" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — §2.3; the chondrites are samples" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS> ;
+            schema1:instrument <https://example.org/solutionQicpmsTAPP-detail-Agilent7500-2/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)" ] ;
             schema1:object [ a schema1:Thing ;
@@ -3869,34 +3757,6 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
       "ada:combinedResults": [
         {}
       ],
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NCS 73307 — stream sediment, for the total digestions",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-Agilent8800/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime",
@@ -4072,34 +3932,6 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
       "ada:combinedResults": [
         {}
       ],
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NCS 73307 \u2014 stream sediment, for the total digestions",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-Agilent8800/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime",
@@ -4161,25 +3993,25 @@ detail instance derived from GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel.
 
 ex:solutionQicpmsTAPP-detail-Agilent8800 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "NCS 73307 [Te: 94 ± 17% recovery (N = 3); Se: 70–134% recovery (N = 3)] — §2.3, §2.4" ],
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
             dqv:value "all: SD — 'mean ± SD recovery values of 94 ± 17% (N = 3)'" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "NCS 73307 [Te: 94 ± 17% recovery (N = 3); Se: 70–134% recovery (N = 3)] — §2.3, §2.4" ] ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:description "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2" ;
                             schema1:name "Sample preparation" ;
                             schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
@@ -4188,11 +4020,6 @@ ex:solutionQicpmsTAPP-detail-Agilent8800 a schema1:Dataset,
                             schema1:position 1 ] ] ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "NCS 73307 — stream sediment, for the total digestions" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-Agilent8800/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW" ] ;
             schema1:object [ a schema1:Thing ;
@@ -4220,12 +4047,6 @@ ex:solutionQicpmsTAPP-detail-Agilent8800 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionQicpmsTAPP-detail-Agilent8800/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
     schema1:name "Digestion Duration" ;
@@ -4367,34 +4188,6 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
         ],
         "schema:name": "N — instrument given as 'iCAP-TQ, Thermo' with no laboratory stated"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NIST 1643f, NCS 73307, NIST 1640a — freshwater, stream sediment and freshwater",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-P6/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -4562,34 +4355,6 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
         ],
         "schema:name": "N \u2014 instrument given as 'iCAP-TQ, Thermo' with no laboratory stated"
       },
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "NIST 1643f, NCS 73307, NIST 1640a \u2014 freshwater, stream sediment and freshwater",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-P6/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -4645,15 +4410,19 @@ detail instance derived from GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated.
 
 ex:solutionQicpmsTAPP-detail-P6 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
-            dqv:value "NIST 1643f [Te: 95 ± 5% (KED), 89 ± 10% (O2), N = 5; Se: 95 ± 3%]; NCS 73307 [Te: 99 ± 14% (KED), 70 ± 19% (O2), N = 4]; NIST 1640a [Se: 85 ± 2%] — recoveries (§2.3, §2.4)" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ] ;
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+            dqv:value "NIST 1643f [Te: 95 ± 5% (KED), 89 ± 10% (O2), N = 5; Se: 95 ± 3%]; NCS 73307 [Te: 99 ± 14% (KED), 70 ± 19% (O2), N = 4]; NIST 1640a [Se: 85 ± 2%] — recoveries (§2.3, §2.4)" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:name "Data processing" ;
+                            schema1:position 3 ],
+                        [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
@@ -4663,18 +4432,9 @@ ex:solutionQicpmsTAPP-detail-P6 a schema1:Dataset,
                                 schema1:HowToStep ;
                             schema1:description "SPM recovered by centrifugation, oven dried (70 °C), ground in agate mortars and aliquoted for tri-acid total digestion and parallel selective extractions (two replicates per extraction mode) — §2.2, Table 1" ;
                             schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
-                            schema1:name "Data processing" ;
-                            schema1:position 3 ] ] ;
+                            schema1:position 2 ] ] ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "NIST 1643f, NCS 73307, NIST 1640a — freshwater, stream sediment and freshwater" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-P6/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "N — instrument given as 'iCAP-TQ, Thermo' with no laboratory stated" ] ;
             schema1:object [ a schema1:Thing ;
@@ -4700,12 +4460,6 @@ ex:solutionQicpmsTAPP-detail-P6 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionQicpmsTAPP-detail-P6/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
     schema1:name "Digestion Duration" ;
@@ -4809,34 +4563,6 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
       ],
       "ada:combinedResults": [
         {}
-      ],
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "CRM-TMDW, NIST 1643f — drinking water and freshwater",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-P7/instrument/ICPMS"
-        }
       ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
@@ -4952,34 +4678,6 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
       "ada:combinedResults": [
         {}
       ],
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "CRM-TMDW, NIST 1643f \u2014 drinking water and freshwater",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-P7/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime",
@@ -5019,24 +4717,19 @@ detail instance derived from GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe
 
 ex:solutionQicpmsTAPP-detail-P7 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
-            dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "CRM-TMDW [Se: 98–106% recovery (N = 16)]; NIST 1643f [Se: 100–102% (N = 16); Te: 85–91% (N = 4)] — §2.3, §2.4" ],
-        [ dqv:isMeasurementOf "Oxide production ratio" ;
+        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "Te, Se: SD — Figs 1–2" ] ;
+            dqv:value "Te, Se: SD — Figs 1–2" ],
+        [ dqv:isMeasurementOf "Between-Session Analytical Precision" ;
+            dqv:value "no value available: dqv:value" ],
+        [ dqv:isMeasurementOf "Oxide production ratio" ;
+            dqv:value "no value available: dqv:value" ] ;
     prov:wasGeneratedBy [ schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio> ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "CRM-TMDW, NIST 1643f — drinking water and freshwater" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-P7/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Karlsruhe Institute of Technology (KIT), Germany" ] ;
             schema1:object [ a schema1:Thing ;
@@ -5063,12 +4756,6 @@ ex:solutionQicpmsTAPP-detail-P7 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionQicpmsTAPP-detail-P7/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/solutionQicpmsTAPP/collisionReactionGasMixtureRatio> a schema1:PropertyValue ;
     schema1:name "Collision/Reaction Gas Mixture Ratio" ;
@@ -5200,34 +4887,6 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
         "schema:name": "Institute of Science Tokyo"
       },
       "schema:description": "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods",
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-P8/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -5399,34 +5058,6 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
         "schema:name": "Institute of Science Tokyo"
       },
       "schema:description": "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 \u00b5L of 100 ng/g Rh added as internal standard \u2014 Methods",
-      "schema:instrument": [
-        {
-          "ada:reagentRole": "referenceMaterial",
-          "schema:name": "Smithsonian Allende powder \u2014 20 mg, dissolved and measured under the same procedure, n = 5",
-          "@type": [
-            "schema:DefinedTerm"
-          ],
-          "schema:additionalType": [
-            {
-              "@id": "https://www.wikidata.org/entity/Q2356542"
-            }
-          ]
-        },
-        {
-          "schema:additionalType": [
-            "ICPMS",
-            {
-              "@id": "https://www.wikidata.org/entity/Q3099911"
-            }
-          ],
-          "@type": [
-            "schema:Product",
-            "schema:Thing"
-          ],
-          "schema:name": "ICPMS",
-          "@id": "ex:solutionQicpmsTAPP-detail-P8/instrument/ICPMS"
-        }
-      ],
       "schema:endTime": "no value available: schema:endTime",
       "schema:identifier": "no value available: schema:identifier",
       "schema:startTime": "no value available: schema:startTime"
@@ -5482,9 +5113,9 @@ detail instance derived from LopezGarcia+etal2026 | Thermo iCAP TQ | Institute o
 
 ex:solutionQicpmsTAPP-detail-P8 a schema1:Dataset,
         schema1:Product ;
-    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
+    dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
             dqv:value "no value available: dqv:value" ],
-        [ dqv:isMeasurementOf "Within-Session Analytical Precision" ;
+        [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: dqv:value" ],
         [ dqv:isMeasurementOf "Oxide production ratio" ;
             dqv:value "no value available: dqv:value" ],
@@ -5492,15 +5123,15 @@ ex:solutionQicpmsTAPP-detail-P8 a schema1:Dataset,
             dqv:value "N — the Allende replicate averages and uncertainties are in the supplementary materials" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
-                            schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
-                            schema1:name "Sample preparation" ;
-                            schema1:position 2 ],
-                        [ a schema1:Action,
-                                schema1:HowToStep ;
                             schema1:additionalProperty <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration>,
                                 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionTemperature> ;
                             schema1:name "Sample digestion" ;
                             schema1:position 1 ],
+                        [ a schema1:Action,
+                                schema1:HowToStep ;
+                            schema1:description "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once" ;
+                            schema1:name "Sample preparation" ;
+                            schema1:position 2 ],
                         [ a schema1:Action,
                                 schema1:HowToStep ;
                             schema1:name "Data processing" ;
@@ -5508,11 +5139,6 @@ ex:solutionQicpmsTAPP-detail-P8 a schema1:Dataset,
             schema1:description "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods" ;
             schema1:endTime "no value available: schema:endTime" ;
             schema1:identifier "no value available: schema:identifier" ;
-            schema1:instrument [ a schema1:DefinedTerm ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q2356542> ;
-                    schema1:name "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5" ;
-                    ada:reagentRole "referenceMaterial" ],
-                <https://example.org/solutionQicpmsTAPP-detail-P8/instrument/ICPMS> ;
             schema1:location [ a schema1:Place ;
                     schema1:name "Institute of Science Tokyo" ] ;
             schema1:object [ a schema1:Thing ;
@@ -5539,12 +5165,6 @@ ex:solutionQicpmsTAPP-detail-P8 a schema1:Dataset,
     ada:sessionIdentifier "missing" ;
     ada:signalIntegrationTime -9999 ;
     ada:withinSessionAnalyticalPrecisionAndAssessmentMethod "missing" .
-
-<https://example.org/solutionQicpmsTAPP-detail-P8/instrument/ICPMS> a schema1:Product,
-        schema1:Thing ;
-    schema1:additionalType <https://www.wikidata.org/entity/Q3099911>,
-        "ICPMS" ;
-    schema1:name "ICPMS" .
 
 <https://ada.astromat.org/metadata/parameter/module/SolutionIntroduction/digestionDuration> a schema1:PropertyValue ;
     schema1:name "Digestion Duration" ;
@@ -6078,10 +5698,11 @@ allOf:
               minContains: 0
               maxContains: 1
           ada:proceduralBlankLevel:
-            description: "The measured level of the analytical blank in the session,
-              and \u2014 where the reported quantity is a ratio \u2014 its composition,
-              since a blank subtracted from a ratio biases the result unless its own
-              composition is known. Companion to the blank correction method."
+            description: 'The level of the analytical blank and, where the reported
+              quantity is a ratio, its composition, since a blank subtracted from
+              a ratio biases the result unless its own composition is known. For the
+              procedure: the typical or maximum blank expected. For the session: the
+              blank measured in this session. Companion to the blank correction method.'
             type: string
         required:
         - ada:proceduralBlankLevel
@@ -6100,14 +5721,21 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Precision of repeated measurements within a single analytical
-                  session and the method used to assess it. Report both the assessment
-                  method and the precision values. The assessment method must specify
-                  the reference material or standard measured, the number of replicates
-                  n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI).
-                  Distinct from the internal precision of a single measurement, which
-                  derives from counting statistics over the cycles of that measurement
-                  rather than from repeated analyses.
+                description: 'Precision of repeated measurements of a reference material
+                  within a single analytical session, and the method used to assess
+                  it. The assessment method specifies the reference material or standard
+                  measured, the number of replicates n, and the statistic reported
+                  (1s RSD, 2s RSD, 2SD, 2SE, 95% CI). Reported for the standards named
+                  in Quality-Control Standards; a calibration standard''s agreement
+                  with its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the expected within-session
+                  precision. For the session: the precision achieved in this session,
+                  assessed by that method. Distinct from the internal precision of
+                  a single measurement, which derives from counting statistics over
+                  the cycles of that measurement rather than from repeated analyses.
+                  In the dataset: report the analyses of each secondary reference
+                  material, where they are included; the session value summarises
+                  them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -6126,10 +5754,15 @@ allOf:
               dqv:value:
                 description: "Precision of measurements across multiple analytical
                   sessions over weeks to months \u2014 long-term or intermediate precision
-                  \u2014 and the method used to assess it. Report both the assessment
-                  method and the precision values, specifying the reference material,
+                  \u2014 and the method used to assess it. Specify the reference material,
                   the number of measurements and sessions, the time span covered,
-                  and the statistic reported."
+                  and the statistic reported. Reported for the standards named in
+                  Quality-Control Standards; a calibration standard's agreement with
+                  its own accepted values is not an independent test of precision.
+                  For the procedure: the assessment method and the long-term precision
+                  on record when the procedure is registered. For the session: the
+                  long-term precision as it stands at this session, including this
+                  session's results where they contribute."
                 anyOf:
                 - type: string
                 - type: array
@@ -6146,13 +5779,20 @@ allOf:
           then:
             properties:
               dqv:value:
-                description: Offset between measured and accepted values for secondary
+                description: 'Offset between measured and accepted values for secondary
                   reference materials, and the method used to assess it. Specify the
                   reference material and the source of its accepted values, the number
-                  of analyses, and the quantities assessed. Report systematic biases
-                  and their likely causes. Express the offset in the form appropriate
-                  to what the procedure reports - percent relative bias for concentrations,
-                  or deviation in delta or ratio units for isotopic quantities.
+                  of analyses, and the quantities assessed. Express the offset in
+                  the form appropriate to what the procedure reports: percent relative
+                  bias for concentrations, or deviation in delta or ratio units for
+                  isotopic quantities. Reported for the standards named in Quality-Control
+                  Standards; a calibration standard''s agreement with its own accepted
+                  values is not a test of accuracy. For the procedure: the assessment
+                  method, the accepted-value source and the expected offset. For the
+                  session: the offset found in this session, with any systematic bias
+                  and its likely cause. In the dataset: report the analyses of each
+                  secondary reference material, where they are included; the session
+                  value summarises them and must agree with them.'
                 anyOf:
                 - type: string
                 - type: array
@@ -6184,7 +5824,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.Solution-Q-ICPMS.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

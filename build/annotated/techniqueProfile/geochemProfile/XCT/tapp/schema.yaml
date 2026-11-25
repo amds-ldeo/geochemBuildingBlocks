@@ -4,7 +4,7 @@ description: 'Laboratory X-ray computed tomography (polychromatic cone-beam) ext
   of the base TAPP definition. Basic protocol-tier fields are required top-level ada:
   properties; Advanced protocol-tier fields are schema:additionalProperty[] PropertyValueSpecification
   entries. XCT has no per-element analyte axis, so no ada:targetSpeciesTemplate is
-  defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v47.csv by tools/build_tapp.py.'
+  defined. Generated from tapp/Current TAPPs/Lab-XCT_TAPP_v49.csv by tools/build_tapp.py.'
 allOf:
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/tappDefinition/schema.yaml
 - $ref: https://amds-ldeo.github.io/geochemBuildingBlocks/build/annotated/BaseSchema/modules/core/schema.yaml#/$defs/ProcedureIdentification
@@ -756,7 +756,8 @@ allOf:
         - title: Ring Artifact Correction Method
           description: Procedure specification for how ring artifacts are handled.
             Whether correction was applied and its outcome are recorded separately
-            in Group 6.
+            in Ring Artifact Severity and Correction Outcome, in Quality Control &
+            Uncertainty (Group 6).
           type: object
           properties:
             '@id':
@@ -1740,7 +1741,8 @@ allOf:
           title: Ring Artifact Correction Method
           description: Procedure specification for how ring artifacts are handled.
             Whether correction was applied and its outcome are recorded separately
-            in Group 6.
+            in Ring Artifact Severity and Correction Outcome, in Quality Control &
+            Uncertainty (Group 6).
           type: object
           properties:
             '@id':
@@ -2565,4 +2567,4 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.XCT.tapp
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'

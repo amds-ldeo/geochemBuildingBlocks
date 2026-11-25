@@ -547,12 +547,12 @@ ex:ebsdTAPP-detail-P0 a schema1:Dataset,
             schema1:identifier "no value available: schema:identifier" ;
             schema1:instrument [ a schema1:SoftwareApplication ;
                     schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
-                    schema1:name "AZtecCrystal" ;
-                    ada:toolRole "dataReduction" ],
-                [ a schema1:SoftwareApplication ;
-                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
                     schema1:name "Oxford Instruments AZtec v5.1 Symmetry" ;
                     ada:toolRole "acquisition" ],
+                [ a schema1:SoftwareApplication ;
+                    schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
+                    schema1:name "AZtecCrystal" ;
+                    ada:toolRole "dataReduction" ],
                 <https://example.org/ebsdTAPP-detail-P0/instrument/SEM> ;
             schema1:location [ a schema1:Place ;
                     schema1:identifier "https://ror.org/02n415q13" ;
@@ -1294,7 +1294,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.EBSD.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-24'
+  dateOfLastChange: '2026-11-25'
 
 ```
 
