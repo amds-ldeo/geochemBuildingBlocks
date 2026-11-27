@@ -51,10 +51,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -84,10 +81,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
   "ada:sampleName": "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 
 ```
@@ -139,10 +133,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -172,10 +163,7 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
   "ada:sampleName": "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 ```
 
@@ -185,7 +173,6 @@ detail instance derived from ADA n=19 | Hiroi2023 | Brown U. | Thermo/Nicolet Ne
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:vnmirTAPP-detail-Hiroi2023 a schema1:Dataset,
         schema1:Product ;
@@ -201,20 +188,14 @@ ex:vnmirTAPP-detail-Hiroi2023 a schema1:Dataset,
             schema1:object [ a schema1:Thing ;
                     schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)" ] ;
-            schema1:startTime "2023-11-14 | 2024-03-28 | (+7 more)" ;
-            ada:emissionAngle -9999 ;
-            ada:incidenceAngle -9999 ;
-            ada:sampleTemperature -9999 ] ;
+            schema1:startTime "2023-11-14 | 2024-03-28 | (+7 more)" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-14 | 2024-03-28 | (+7 more)" ;
     ada:analyst "Hiroi, Takahiro" ;
     ada:analyticalMode "Spectral Point" ;
-    ada:emissionAngle -9999 ;
     ada:fundingSourceForAnalysis "This material is supported by NASA PSEF grant. | NASA PSEF | (+1 more)" ;
-    ada:incidenceAngle -9999 ;
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-803124-0 | OREX-803119-100 | OREX-800029-0 | (+4 more)" ;
-    ada:sampleTemperature -9999 ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240514_vnmir_brown_orex-803124-0_1 | 20240918_vnmir_brown_orex-803119-100_1 | (+8 more)" ;
     ada:vacuumExposedSample "missing" .
@@ -265,10 +246,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -298,10 +276,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
   "ada:sampleName": "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 
 ```
@@ -353,10 +328,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -386,10 +358,7 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
   "ada:sampleName": "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 ```
 
@@ -399,7 +368,6 @@ detail instance derived from ADA n=13 | Hiroi2023 | Brown U. | Custom bi-directi
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:vnmirTAPP-detail-Hiroi2023-2 a schema1:Dataset,
         schema1:Product ;
@@ -415,20 +383,14 @@ ex:vnmirTAPP-detail-Hiroi2023-2 a schema1:Dataset,
             schema1:object [ a schema1:Thing ;
                     schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)" ] ;
-            schema1:startTime "2023-11-14 | 2024-09-16 | (+4 more)" ;
-            ada:emissionAngle -9999 ;
-            ada:incidenceAngle -9999 ;
-            ada:sampleTemperature -9999 ] ;
+            schema1:startTime "2023-11-14 | 2024-09-16 | (+4 more)" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2023-11-14 | 2024-09-16 | (+4 more)" ;
     ada:analyst "Hiroi, Takahiro" ;
     ada:analyticalMode "Spectral Point" ;
-    ada:emissionAngle -9999 ;
     ada:fundingSourceForAnalysis "This material is supported by NASA PSEF grant. | This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program and NASA Planetary Science Enabling Facilities program 80NSSC23K0198. | (+1 more)" ;
-    ada:incidenceAngle -9999 ;
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-803119-102 | OREX-803119-100 | OREX-800098-0 | (+4 more)" ;
-    ada:sampleTemperature -9999 ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20240917_vnmir_brown_orex-803119-102_1 | 20240916_vnmir_brown_orex-803119-100_1 | (+6 more)" ;
     ada:vacuumExposedSample "missing" .
@@ -479,10 +441,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -512,10 +471,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
   "ada:sampleName": "OREX-800029-0",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 
 ```
@@ -567,10 +523,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -600,10 +553,7 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
   "ada:sampleName": "OREX-800029-0",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 ```
 
@@ -613,7 +563,6 @@ detail instance derived from ADA n=2 | Milliken2024 | Brown U. | Bruker LUMOS FT
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:vnmirTAPP-detail-Milliken2024 a schema1:Dataset,
         schema1:Product ;
@@ -629,20 +578,14 @@ ex:vnmirTAPP-detail-Milliken2024 a schema1:Dataset,
             schema1:object [ a schema1:Thing ;
                     schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-800029-0" ] ;
-            schema1:startTime "2024-01-19" ;
-            ada:emissionAngle -9999 ;
-            ada:incidenceAngle -9999 ;
-            ada:sampleTemperature -9999 ] ;
+            schema1:startTime "2024-01-19" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-01-19" ;
     ada:analyst "Milliken, Ralph" ;
     ada:analyticalMode "Spectral Point" ;
-    ada:emissionAngle -9999 ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
-    ada:incidenceAngle -9999 ;
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-800029-0" ;
-    ada:sampleTemperature -9999 ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20231113_vnmir_brown_orex-800029-0_1" ;
     ada:vacuumExposedSample "missing" .
@@ -693,10 +636,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -726,10 +666,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
   "ada:sampleName": "OREX-501006-0",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 
 ```
@@ -781,10 +718,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
           ]
         }
       ],
-      "schema:endTime": "no value available: schema:endTime",
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999
+      "schema:endTime": "no value available: schema:endTime"
     }
   ],
   "schema:contributor": [
@@ -814,10 +748,7 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
   "ada:sampleName": "OREX-501006-0",
   "ada:samplingUnitName": "missing",
   "ada:sampleHeated": "missing",
-  "ada:vacuumExposedSample": "missing",
-  "ada:incidenceAngle": -9999,
-  "ada:emissionAngle": -9999,
-  "ada:sampleTemperature": -9999
+  "ada:vacuumExposedSample": "missing"
 }
 ```
 
@@ -827,7 +758,6 @@ detail instance derived from ADA n=1 | Keller2024 | NASA Johnson Space Center | 
 @prefix ex: <https://example.org/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix schema1: <http://schema.org/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:vnmirTAPP-detail-Keller2024 a schema1:Dataset,
         schema1:Product ;
@@ -843,20 +773,14 @@ ex:vnmirTAPP-detail-Keller2024 a schema1:Dataset,
             schema1:object [ a schema1:Thing ;
                     schema1:additionalType <https://w3id.org/isample/vocabulary/materialsampleobjecttype/materialsample> ;
                     schema1:name "OREX-501006-0" ] ;
-            schema1:startTime "2024-04-17" ;
-            ada:emissionAngle -9999 ;
-            ada:incidenceAngle -9999 ;
-            ada:sampleTemperature -9999 ] ;
+            schema1:startTime "2024-04-17" ] ;
     ada:analysisEndDate "missing" ;
     ada:analysisStartDate "2024-04-17" ;
     ada:analyst "Keller, Lindsay" ;
     ada:analyticalMode "Spectral Point" ;
-    ada:emissionAngle -9999 ;
     ada:fundingSourceForAnalysis "This material is supported by NASA under contract NNM10AA11C issued through the New Frontiers program." ;
-    ada:incidenceAngle -9999 ;
     ada:sampleHeated "missing" ;
     ada:sampleName "OREX-501006-0" ;
-    ada:sampleTemperature -9999 ;
     ada:samplingUnitName "missing" ;
     ada:sessionIdentifier "20230929_vnmir_jsc-ares_orex-501006-0_1" ;
     ada:vacuumExposedSample "missing" .
@@ -1474,10 +1398,6 @@ allOf:
             anyOf:
             - type: number
             - type: string
-        required:
-        - ada:emissionAngle
-        - ada:incidenceAngle
-        - ada:sampleTemperature
       title: Analysis Events
     schema:additionalProperty:
       type: array
@@ -1567,7 +1487,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.detail
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-25'
+  dateOfLastChange: '2026-11-27'
 
 ```
 
