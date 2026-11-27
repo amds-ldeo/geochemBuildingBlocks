@@ -286,9 +286,22 @@ Rules to carry, with the measurements behind them in `docs/LEGACY_PROFILES_AND_C
   `preserve` overrides the conformance priorities on purpose; do not describe those priorities as
   vestigial or tidy them away. Flipping SEM needs its own measurement and nil-token pass first.
 - **The resolution for a pin legacy records cannot satisfy is a NIL TOKEN, not a relaxed
-  constraint**: the expanded IRI `http://www.opengis.net/def/nil/OGC/0/unknown` as a string, in a
-  four-property `variableMeasured` member. The loader emits it; no gBB generator does. Do not cite
-  it as precedent for relaxing a TAPP constraint, and do not add a second sentinel.
+  constraint**: the expanded IRI `http://www.opengis.net/def/nil/OGC/0/unknown` carried as a STRING
+  in `schema:value` of a `variableMeasured` member. The loader emits it; no gBB generator does
+  (0 occurrences of that IRI anywhere in `_sources`). Do not cite it as precedent for relaxing a
+  TAPP constraint, and do not add a second sentinel.
+  **DO NOT DOCUMENT A PROPERTY COUNT HERE.** This line said "four-property" until 2026-11-25 and
+  was wrong; #178 said three, #181 corrected it to four against a real EPMA record, and the
+  generated member carries six. The count cannot be right, because TWO builders emit it, one per
+  ingestion door, and they disagree: bundle ingestion emits `@id`, `@type`, `schema:name`,
+  `schema:description`, `schema:value`, while record generation adds
+  `schema:unitText: "Missing"` — which is FALSE on an identifier like *Sampling Unit Name*, and
+  which an injection test shows is not needed to satisfy any pin. Treat the five-key form as
+  canonical and the sixth key as the anomaly. The REQUIREMENTS also differ by node, so there is no
+  single node to count against: the `core` module's pin on the analysis side requires `schema:name`
+  alone, while `schema:description` is required two `allOf` levels deeper in `EPMA/profile`. Every
+  correction to this sentence came from reading the emitted RECORD rather than a generator; do that
+  before changing it again.
 
 ### Labels, generator determinism, and what "detail" means
 

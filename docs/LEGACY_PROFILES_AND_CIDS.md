@@ -194,17 +194,30 @@ fail. Derive the lists from the resolved schema, by walking every `contains` for
 >     EPMA/profile       /properties/schema:variableMeasured/items/allOf[0]
 >     EPMA/profile-ada   /allOf[0]/allOf[4]/properties/schema:variableMeasured/items
 >
-> So the member is `{"@type": […], "schema:name": "<the pinned name>",
-> "schema:description": "<text>", "schema:value": "<the nil IRI>"}`. Note the legacy path: a
+> So the member needs at least `{"@type": […], "schema:name": "<the pinned name>",
+> "schema:description": "<text>", "schema:value": "<the nil IRI>"}`.
+>
+> **SUPERSEDED as a description of the emitted member, 2026-11-25 — four is the SUFFICIENCY
+> floor measured here, not the shape the loader produces.** Measured on freshly generated
+> records, the emitted member carries SIX keys: `@id`, `@type`, `schema:name`,
+> `schema:description`, `schema:unitText`, `schema:value`. And no count can be right, because
+> two builders emit it, one per ingestion door: bundle ingestion emits five (no `unitText`)
+> while record generation adds `schema:unitText: "Missing"` — which is false on an identifier
+> like *Sampling Unit Name*, and which an injection test shows is not needed to satisfy any pin.
+> So "four properties" remains true as the minimum that CLEARS these pins, which is what the
+> 1,306-record measurement below established, and false as a statement of what a record
+> contains. Everything below about sufficiency stands; read it that way.
+>
+> Note the legacy path: a
 > check of the ROOT `properties.schema:variableMeasured.items` alone finds the TAPP requirement
 > and misses the legacy one, which sits two `allOf` levels down — the same top-level-only
 > mistake that `CLAUDE.md` warns about for counts.
 >
-> **The four-property member is CONFIRMED, and there is no third blocker.** An earlier version of
+> **The four-property member is CONFIRMED AS SUFFICIENT, and there is no third blocker.** An earlier version of
 > this note carried residual `dcterms:conformsTo` `contains` errors as an unresolved risk. They
 > were an artifact of the trial method: patching a STORED document and revalidating skips
 > `detect_and_apply`, and `conformsTo` is DERIVED, so the added members obliged a CDIF module
-> that detection would have supplied. Run properly — four-property member, then detect-and-apply
+> that detection would have supplied. Run properly — a member carrying at least those four properties, then detect-and-apply
 > to re-derive `conformsTo`, then validate — a real EPMA record gives **0 errors** against
 > `adaEPMA`. **The general rule: a trial that mutates a stored document is not a valid test of
 > anything DERIVED from that document's content.** Regenerate; do not patch JSON.
