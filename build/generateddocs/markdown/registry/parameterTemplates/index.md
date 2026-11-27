@@ -516,6 +516,11 @@ $defs:
       schema:defaultValue:
         anyOf:
         - type: number
+        - type: array
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
         - type: string
       schema:unitText:
         const: "\xB5m"
@@ -9383,6 +9388,11 @@ $defs:
       schema:defaultValue:
         anyOf:
         - type: number
+        - type: array
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
         - type: string
       schema:unitText:
         const: "\xB5m"
@@ -10349,6 +10359,11 @@ $defs:
       schema:defaultValue:
         anyOf:
         - type: number
+        - type: array
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
         - type: string
       schema:unitText:
         const: "\xB5m"
@@ -14880,6 +14895,11 @@ $defs:
       schema:defaultValue:
         anyOf:
         - type: number
+        - type: array
+          items:
+            type: number
+          minItems: 2
+          maxItems: 2
         - type: string
       schema:unitText:
         const: pixels

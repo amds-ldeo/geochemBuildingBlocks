@@ -1142,10 +1142,10 @@ ex:adaSEMComposition-example-001 a schema1:Dataset,
     schema1:version "1.0" ;
     dqv:hasQualityMeasurement [ dqv:isMeasurementOf "Analytical Accuracy" ;
             dqv:value "no value available: analyticalAccuracy" ],
-        [ dqv:isMeasurementOf "Analytical Precision" ;
-            dqv:value "no value available: analyticalPrecision" ],
         [ dqv:isMeasurementOf "Goodness-of-Fit" ;
-            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ] ;
+            dqv:value "no value available: goodnessOfFitOrDispersionStatistic" ],
+        [ dqv:isMeasurementOf "Analytical Precision" ;
+            dqv:value "no value available: analyticalPrecision" ] ;
     prov:wasGeneratedBy [ a schema1:Action,
                 prov:Activity ;
             schema1:actionProcess ex:semCompositionTAPP-P0 ;
