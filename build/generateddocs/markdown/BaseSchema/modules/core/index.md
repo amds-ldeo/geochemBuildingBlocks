@@ -244,20 +244,20 @@ The procedure half of the Core module, with every property populated. Generated 
     schema1:instrument [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "no value available: unnamed property" ;
-            ada:toolRole "dataReduction" ],
+            ada:toolRole "acquisition" ],
         [ a schema1:SoftwareApplication ;
             schema1:additionalType <https://www.wikidata.org/entity/Q7397> ;
             schema1:name "no value available: unnamed property" ;
-            ada:toolRole "acquisition" ] ;
+            ada:toolRole "dataReduction" ] ;
     schema1:location [ schema1:identifier "no value available: unnamed property" ;
             schema1:name "no value available: unnamed property" ] ;
     schema1:measurementTechnique [ schema1:termCode "no value available: unnamed property" ] ;
     schema1:name "no value available: unnamed property" ;
-    schema1:relatedLink [ schema1:linkRelationship "coupledTechnique" ;
+    schema1:relatedLink [ schema1:linkRelationship "techniquePublication" ;
+            schema1:target [ schema1:name "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "techniquePublication" ;
-            schema1:target [ schema1:name "no value available: unnamed property" ] ] ;
+                    schema1:name "no value available: unnamed property" ] ] ;
     ada:analyticalMode "no value available: unnamed property" ;
     ada:samplingUnitType "no value available: unnamed property" .
 
@@ -506,11 +506,11 @@ The analysis half of the Core module, with every property populated. Generated f
     schema1:measurementTechnique [ schema1:identifier "no value available: unnamed property" ] ;
     schema1:relatedLink [ schema1:linkRelationship "coupledProcedure" ;
             schema1:target [ schema1:url "no value available: unnamed property" ] ],
-        [ schema1:linkRelationship "coupledDataset" ;
-            schema1:target "no value available: unnamed property" ],
         [ schema1:linkRelationship "coupledTechnique" ;
             schema1:target [ schema1:description "no value available: unnamed property" ;
-                    schema1:name "no value available: unnamed property" ] ] ;
+                    schema1:name "no value available: unnamed property" ] ],
+        [ schema1:linkRelationship "coupledDataset" ;
+            schema1:target "no value available: unnamed property" ] ;
     schema1:variableMeasured [ schema1:name "Sampling Unit Name" ] ;
     prov:wasGeneratedBy [ schema1:actionProcess [ schema1:step [ a schema1:Action,
                                 schema1:HowToStep ;
@@ -1298,7 +1298,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.modules.core
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-25'
+  dateOfLastChange: '2026-11-27'
 
 ```
 

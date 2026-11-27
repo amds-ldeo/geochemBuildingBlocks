@@ -237,9 +237,6 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999,
       "schema:actionProcess": {
         "@id": "ex:vnmirTAPP-P0"
       }
@@ -710,9 +707,6 @@ and technique component types on the archive distribution. Mock data for validat
           "schema:description": "Thin section of Allan Hills 84001 martian meteorite"
         }
       ],
-      "ada:emissionAngle": -9999,
-      "ada:incidenceAngle": -9999,
-      "ada:sampleTemperature": -9999,
       "schema:actionProcess": {
         "@id": "ex:vnmirTAPP-P0"
       }
@@ -1054,10 +1048,7 @@ ex:adaVNMIR-example-001 a schema1:Dataset,
                     schema1:description "Thin section of Allan Hills 84001 martian meteorite" ;
                     schema1:identifier "igsn:10.60471/GSEEXAMPLE001" ;
                     schema1:name "ALH 84001,123" ] ;
-            schema1:startTime "2026-01-10T09:30:00" ;
-            ada:emissionAngle -9999 ;
-            ada:incidenceAngle -9999 ;
-            ada:sampleTemperature -9999 ] ;
+            schema1:startTime "2026-01-10T09:30:00" ] ;
     ada:analyticalMode "Spectral Point" ;
     ada:submissionType "BundleDelivery" .
 
@@ -1187,7 +1178,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.techniqueProfile.geochemProfile.VNMIR.profile
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-25'
+  dateOfLastChange: '2026-11-27'
 
 ```
 

@@ -37255,6 +37255,34 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  vnmir_emissionAngle:
+    title: Emission Angle
+    description: Angle of the detector from the sample surface normal, for this measurement.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/vnmirTAPP/emissionAngle
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/vnmirTAPP/emissionAngle
+      schema:name:
+        const: Emission Angle
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   vnmir_emissivityMaximum:
     title: Emissivity Maximum
     description: Fitted maximum emissivity (Christiansen feature) for this measurement.
@@ -37357,6 +37385,35 @@ $defs:
         - '@id': ada:parameter/vnmirTAPP/environmentalPressure
       schema:name:
         const: Environmental Pressure
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
+  vnmir_incidenceAngle:
+    title: Incidence Angle
+    description: Angle of the illumination source from the sample surface normal,
+      for this measurement.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/vnmirTAPP/incidenceAngle
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/vnmirTAPP/incidenceAngle
+      schema:name:
+        const: Incidence Angle
       schema:value:
         anyOf:
         - type: number
@@ -37561,6 +37618,34 @@ $defs:
     - schema:propertyID
     - schema:name
     - schema:value
+  vnmir_sampleTemperature:
+    title: Sample Temperature
+    description: Sample temperature during this measurement.
+    type: object
+    properties:
+      '@id':
+        const: ada:parameter/vnmirTAPP/sampleTemperature
+      '@type':
+        const:
+        - schema:PropertyValue
+      schema:propertyID:
+        const:
+        - '@id': ada:parameter/vnmirTAPP/sampleTemperature
+      schema:name:
+        const: Sample Temperature
+      schema:value:
+        anyOf:
+        - type: number
+        - type: string
+      schema:unitText:
+        type: string
+    required:
+    - '@id'
+    - '@type'
+    - schema:propertyID
+    - schema:name
+    - schema:value
+    - schema:unitText
   vnmir_samplingUnitSelectionCriteria:
     title: Sampling Unit Selection Criteria
     description: "The rules governing which sampling unit(s) within a sample are selected
@@ -38271,7 +38356,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.registry.parameterValues
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-25'
+  dateOfLastChange: '2026-11-27'
 
 ```
 

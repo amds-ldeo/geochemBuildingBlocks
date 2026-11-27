@@ -89,11 +89,11 @@ A tabular data file containing MC-ICP-MS isotope ratio results.
 [] a cdi:TabularTextDataSet,
         ada:tabularData ;
     ns1:hasPhysicalMapping [ a ns1:TextMapping ;
-            ns1:formats_InstanceVariable <ex:tabularData-var-y> ;
-            ns1:index 2 ],
-        [ a ns1:TextMapping ;
             ns1:formats_InstanceVariable <ex:tabularData-var-x> ;
-            ns1:index 1 ] ;
+            ns1:index 1 ],
+        [ a ns1:TextMapping ;
+            ns1:formats_InstanceVariable <ex:tabularData-var-y> ;
+            ns1:index 2 ] ;
     cdi:isDelimited true ;
     ada:componentType "ada:MCICPMSTabular" ;
     ada:coordUnits "micrometer" ;
@@ -258,7 +258,7 @@ x-bblocks-metadata:
   itemIdentifier: ogch.BaseSchema.tabularData
   register: https://amds-ldeo.github.io/geochemBuildingBlocks/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-25'
+  dateOfLastChange: '2026-11-27'
 
 ```
 
