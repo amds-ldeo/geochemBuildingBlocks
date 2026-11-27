@@ -1498,6 +1498,56 @@ def field_name(item, sp, parsed):
     return camel(item)
 
 
+PAIR_TOKEN = "pair"
+
+
+def is_pair(dt):
+    r"""True when a Data Type cell declares a TWO-COMPONENT value -- "Numeric pair (um x um)".
+
+    Lives here, beside jtype() and unit(), because it is the same kind of thing: a parse of the
+    workbook's Data Type cell. schema_path_emitter imports THIS module, so the dependency can
+    only run this way round.
+
+    A separate predicate rather than a new jtype() return value, for the reason
+    schema_path_emitter.is_quantitative gives and docs/UNIT_CONST_DEFECTS.md restates: jtype()
+    feeds `ada:dataType` as a const and 24 `in ("number", "integer")` tests across seven tools.
+    So `ada:dataType` stays "number" here, which is still WRONG about arity -- that fact's home
+    is the multiplicity slot being added for amds-ldeo/tapp#23, and UNIT_CONST_DEFECTS.md rules
+    that neither `ada:dataType` nor `schema:unitText` is the place.
+
+    The WORD is the signal, not the parenthesis: 2 of the 9 rows read "Numeric pair (nm)", one
+    unit for both members, so "A x A" in the unit is not reliable. Split on words rather than
+    substring, or "Repair log" matches.
+    """
+    return PAIR_TOKEN in (dt or "").lower().split()
+
+
+def pair_leaf(desc=None):
+    r"""A two-component value: one number, a 2-element array, or a string.
+
+    ADDITIVE by design. The slot these rows had accepted anything already -- anyOf[number,
+    string], so '5x5', 'banana' and '' all validated -- so this ADDS the array branch and
+    constrains nothing. Nothing can break, and the prose form stays legal, so migrating to the
+    array is optional rather than forced.
+
+    A `pattern` on the string branch was specified first and MEASURED WRONG: the only pair value
+    in the committed corpus is "1024 x 768 pixels" with U+00D7 and a trailing unit, which the
+    proposed ^\s*\d+(\.\d+)?\s*[x*]\s*\d+(\.\d+)?\s*$ rejects. A pattern loose enough to admit
+    it, plus the 53 -9999 sentinels, plus "None" -- which these cells list as allowed content and
+    which means "the beam was not rastered", a real answer and NOT in SENTINEL_WORDS --
+    constrains almost nothing while adding four literals to defend. Adding one at all would be a
+    TIGHTENING, which can break instances; this cannot.
+
+    The array is splittable by construction, which is what the consumer asked for.
+    """
+    s = {"anyOf": [
+        {"type": "number"},
+        {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+        {"type": "string"},
+    ]}
+    return {"description": desc, **s} if desc else s
+
+
 def jtype(dt):
     d = dt.lower()
     if "integer" in d:
@@ -1741,8 +1791,16 @@ def param_template_def(b, existing):
     # schema_path_emitter.leaf_for so one rule serves both placements. It is what the flat
     # `$MethodDefinition.ada:<name>Default` form carried, and typing the default from `jtype`
     # alone is what made converting those rows cost 87 enum members.
+    # is_pair is checked BEFORE the jtype fallback, and HERE rather than in a caller, because
+    # param_template_def is the single point all three callers pass through -- the matrix route
+    # at build_tapp:2017, schema_path_emitter's parameter path, and the example emitter -- and
+    # the registry is rewritten per technique, so whichever stage writes last wins for a key.
+    # Patching one caller covered 0 of the 4 pair templates: EPMA's procedure-side row is a
+    # keyed-table COLUMN (ada:targetMaterialColumns[]), so it never reaches the parameter path
+    # at all, and its template comes from the matrix route.
     props["schema:defaultValue"] = (b.get("allowed_leaf")
-                                    or ({"anyOf": [{"type": "number"}, {"type": "string"}]}
+                                    or (pair_leaf() if is_pair(b.get("dt"))
+                                        else {"anyOf": [{"type": "number"}, {"type": "string"}]}
                                         if b["jtype"] in ("number", "integer")
                                         else {"type": "string"}))
     if b.get("unit") and b["unit"] != "free":
