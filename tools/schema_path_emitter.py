@@ -887,6 +887,12 @@ def leaf_for(desc, dtype, enum=None, default=None):
     # ("Integer (QuantitativeValue)") and would otherwise be caught by the integer branch below.
     if is_quantitative(dtype) and not enum:
         return quantitative_leaf(desc, dtype)
+    # Also before the scalar branches: a pair cell names a scalar type too
+    # ("Numeric pair") and would otherwise be caught by the numeric branch below.
+    # b.is_pair / b.pair_leaf, not local copies: build_tapp is the one home for Data Type
+    # parsing, and param_template_def needs the same predicate for the matrix route.
+    if b.is_pair(dtype) and not enum:
+        return b.pair_leaf(desc)
     if enum:
         strict = {"type": "string", "enum": with_sentinel(enum)}
         # "Controlled list / Text": the controlled vocabulary is guidance, but free text is
